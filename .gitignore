@@ -1,0 +1,11 @@
+*.iml
+*.bak
+.DS_Store
+.idea
+.settings
+.project
+.classpath
+out
+target
+gwt-unitCache
+hs_err*
