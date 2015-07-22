@@ -58,7 +58,7 @@ public final class TemplateUtils {
 
     public static void replaceElement(Element context, String identifier, Element newElement) {
         if (newElement == null) {
-            throw new NullPointerException("New element must not be null in replaceElement()");
+            throw new NullPointerException("New element must not be null in TemplateUtils.replaceElement()");
         }
         Element oldElement = resolveElement(context, identifier);
         if (oldElement != null && oldElement.getParentElement() != null) {

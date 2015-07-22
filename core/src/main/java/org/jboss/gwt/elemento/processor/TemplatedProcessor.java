@@ -170,6 +170,8 @@ public class TemplatedProcessor extends AbstractProcessor {
             abortWithError(type, "%s must implement %s", type.getSimpleName(), IsElement.class.getSimpleName());
         }
 
+        // init parameters and abstract properties
+
         // root element
         TemplateSelector templateSelector = getTemplateSelector(type, templated);
         org.jsoup.nodes.Element root = parseTemplate(type, templateSelector);
