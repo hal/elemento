@@ -30,25 +30,29 @@ import elemental.dom.Element;
 public class DataElementInfo {
 
     public enum Kind {
-        // Name them after the related type for nicer error message
+        // Name them after the related type for nicer error messages
         Element, IsElement, Widget, IsWidget
     }
+
 
     private final String type;
     private final String name;
     private final String selector;
     private final Kind kind;
+    private final boolean returnedByMethod;
 
-    public DataElementInfo(final String type, final String name, final String selector, final Kind kind) {
+    public DataElementInfo(final String type, final String name, final String selector, final Kind kind,
+            boolean returnedByMethod) {
         this.type = type;
         this.name = name;
         this.selector = Strings.emptyToNull(selector) == null ? name : selector;
         this.kind = kind;
+        this.returnedByMethod = returnedByMethod;
     }
 
     @Override
     public String toString() {
-        return "@DataElement " + type + " " + name + " (" + kind + ")";
+        return "@DataElement " + type + " " + name + " (" + kind + (returnedByMethod ? ", return by method" : "") + ")";
     }
 
     public String getType() {
@@ -65,6 +69,10 @@ public class DataElementInfo {
 
     public Kind getKind() {
         return kind;
+    }
+
+    public boolean isReturnedByMethod() {
+        return returnedByMethod;
     }
 
     public boolean needsCast() {

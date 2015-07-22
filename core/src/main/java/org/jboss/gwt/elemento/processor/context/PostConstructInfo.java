@@ -19,21 +19,18 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.core;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package org.jboss.gwt.elemento.processor.context;
 
 /**
  * @author Harald Pehl
  */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.METHOD})
-public @interface DataElement {
+public class PostConstructInfo {
 
-    String value() default "";
+    private final String name;
+
+    public PostConstructInfo(final String name) {this.name = name;}
+
+    public String getName() {
+        return name;
+    }
 }

@@ -23,6 +23,7 @@ package org.jboss.gwt.elemento.sample.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import elemental.client.Browser;
+import elemental.dom.Element;
 
 /**
  * @author Harald Pehl
@@ -31,8 +32,13 @@ public class App implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        Browser.getDocument().getBody().appendChild(Header.create().asElement());
-        Browser.getDocument().getBody().appendChild(Content.create().asElement());
-        Browser.getDocument().getBody().appendChild(Footer.create().asElement());
+        Header header = Header.create();
+        Content content = Content.create();
+        Footer footer = Footer.create();
+
+        Element body = Browser.getDocument().getBody();
+        body.appendChild(header.asElement());
+        body.appendChild(content.asElement());
+        body.appendChild(footer.asElement());
     }
 }

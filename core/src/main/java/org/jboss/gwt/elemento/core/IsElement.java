@@ -26,6 +26,7 @@ import elemental.dom.Element;
 /**
  * @author Harald Pehl
  */
+@FunctionalInterface
 public interface IsElement {
 
     Element asElement();

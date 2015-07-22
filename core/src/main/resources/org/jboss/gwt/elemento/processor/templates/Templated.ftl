@@ -40,13 +40,48 @@ final class ${context.subclass} extends ${context.base} {
         </#if>
 
         <#list context.dataElements as dataElement>
-        <#if dataElement.kind.name() == "Element">
-        <#if dataElement.needsCast()>
-        this.${dataElement.name} = TemplateUtils.<${dataElement.type}>resolveElementAs(${context.root.member}, "${dataElement.selector}", TemplateUtils.DATA_ELEMENT);
-        <#else>
-        this.${dataElement.name} = TemplateUtils.resolveElement(${context.root.member}, "${dataElement.selector}", TemplateUtils.DATA_ELEMENT);
-        </#if>
-        </#if>
+            <#-- Element -->
+            <#if dataElement.kind.name() == "Element">
+                <#if dataElement.returnedByMethod>
+        TemplateUtils.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name}());
+                <#else>
+        if (this.${dataElement.name} == null) {
+                    <#if dataElement.needsCast()>
+            this.${dataElement.name} = TemplateUtils.<${dataElement.type}>resolveElementAs(${context.root.member}, "${dataElement.selector}");
+                    <#else>
+            this.${dataElement.name} = TemplateUtils.resolveElement(${context.root.member}, "${dataElement.selector}");
+                    </#if>
+        } else {
+            TemplateUtils.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name});
+        }
+                </#if>
+            <#-- IsElement -->
+            <#elseif dataElement.kind.name() == "IsElement">
+                <#if dataElement.returnedByMethod>
+        TemplateUtils.replaceIsElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name}());
+                <#else>
+        if (this.${dataElement.name} == null) {
+            this.${dataElement.name} = TemplateUtils.resolveIsElement(${context.root.member}, "${dataElement.selector}");
+        } else {
+            TemplateUtils.replaceIsElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name});
+        }
+                </#if>
+            <#-- Widget -->
+            <#elseif dataElement.kind.name() == "Widget">
+                <#if dataElement.returnedByMethod>
+                <#else>
+                </#if>
+            <#-- IsElement -->
+            <#elseif dataElement.kind.name() == "IsWidget">
+                <#if dataElement.returnedByMethod>
+                <#else>
+                </#if>
+            </#if>
+        </#list>
+        <#-- @EventHandler -->
+        <#-- @PostConstruct -->
+        <#list context.postConstructs as postConstruct>
+        ${postConstruct.name}();
         </#list>
     }
 

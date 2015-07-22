@@ -42,6 +42,9 @@ public final class TemplateUtils {
 
     private TemplateUtils() {}
 
+
+    // ------------------------------------------------------ Element methods
+
     public static Element resolveElement(Element context, String identifier) {
         return DATA_ELEMENT.select(context, identifier);
     }
@@ -49,5 +52,25 @@ public final class TemplateUtils {
     @SuppressWarnings("unchecked")
     public static <E extends Element> E resolveElementAs(Element context, String identifier) {
         return (E) DATA_ELEMENT.select(context, identifier);
+    }
+
+    public static void replaceElement(Element context, String identifier, Element newElement) {
+        Element oldElement = resolveElement(context, identifier);
+        if (oldElement != null && oldElement.getParentElement() != null) {
+            oldElement.getParentElement().replaceChild(newElement, oldElement);
+        }
+    }
+
+
+    // ------------------------------------------------------ IsElement methods
+
+    public static IsElement resolveIsElement(Element context, String identifier) {
+        return () -> {
+            return DATA_ELEMENT.select(context, identifier);
+        };
+    }
+
+    public static void replaceIsElement(Element context, String identifier, IsElement newElement) {
+        replaceElement(context, identifier, newElement.asElement());
     }
 }
