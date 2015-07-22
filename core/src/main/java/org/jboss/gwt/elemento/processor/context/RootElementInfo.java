@@ -19,25 +19,45 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.sample.client;
+package org.jboss.gwt.elemento.processor.context;
 
-import elemental.html.AnchorElement;
-import elemental.html.SpanElement;
-import org.jboss.gwt.elemento.core.DataElement;
-import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.core.Templated;
+import org.jsoup.nodes.Attribute;
 
-/**
- * @author Harald Pehl
- */
-@Templated("MainLayout.html#header")
-public abstract class Header implements IsElement {
+import java.util.List;
 
-    public static Header create() {
-        return new Templated_Header();
+public class RootElementInfo {
+
+    private final String tag;
+    private final String member;
+    private final List<Attribute> attributes;
+    private final String innerHtml;
+
+    public RootElementInfo(final String tag, final String member, final List<Attribute> attributes,
+            final String innerHtml) {
+        this.tag = tag;
+        this.member = member;
+        this.attributes = attributes;
+        this.innerHtml = innerHtml;
     }
 
-    @DataElement AnchorElement logoLink;
-    @DataElement("first") SpanElement logoFirst;
-    @DataElement("last") SpanElement logoLast;
+    @Override
+    public String toString() {
+        return "<" + tag + ">" + member + ":" + attributes;
+    }
+
+    public List<Attribute> getAttributes() {
+        return attributes;
+    }
+
+    public String getInnerHtml() {
+        return innerHtml;
+    }
+
+    public String getMember() {
+        return member;
+    }
+
+    public String getTag() {
+        return tag;
+    }
 }

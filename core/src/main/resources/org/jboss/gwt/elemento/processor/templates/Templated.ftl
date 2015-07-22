@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="context" type="org.jboss.gwt.elemento.processor.FreemarkerContext" -->
+<#-- @ftlvariable name="context" type="org.jboss.gwt.elemento.processor.context.FreemarkerContext" -->
 package ${context.package};
 
 <#if context.root.innerHtml??>
@@ -8,6 +8,9 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
 import elemental.client.Browser;
 import elemental.dom.Element;
+<#if (context.dataElements?size > 0)>
+import org.jboss.gwt.elemento.core.TemplateUtils;
+</#if>
 
 import javax.annotation.Generated;
 
@@ -28,7 +31,6 @@ final class ${context.subclass} extends ${context.base} {
     private final Element ${context.root.member};
 
     ${context.subclass} () {
-        // init root element
         this.${context.root.member} = Browser.getDocument().createElement("${context.root.tag}");
         <#list context.root.attributes as attribute>
         this.${context.root.member}.setAttribute("${attribute.key}", "${attribute.value}");
@@ -36,6 +38,16 @@ final class ${context.subclass} extends ${context.base} {
         <#if context.root.innerHtml??>
         this.${context.root.member}.setInnerHTML(INNER_HTML.value().asString());
         </#if>
+
+        <#list context.dataElements as dataElement>
+        <#if dataElement.kind.name() == "Element">
+        <#if dataElement.needsCast()>
+        this.${dataElement.name} = TemplateUtils.<${dataElement.type}>resolveElementAs(${context.root.member}, "${dataElement.selector}", TemplateUtils.DATA_ELEMENT);
+        <#else>
+        this.${dataElement.name} = TemplateUtils.resolveElement(${context.root.member}, "${dataElement.selector}", TemplateUtils.DATA_ELEMENT);
+        </#if>
+        </#if>
+        </#list>
     }
 
     @Override

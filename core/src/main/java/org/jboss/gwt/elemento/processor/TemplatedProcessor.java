@@ -21,7 +21,10 @@
  */
 package org.jboss.gwt.elemento.processor;
 
+import com.google.auto.common.MoreElements;
+import com.google.auto.common.MoreTypes;
 import com.google.auto.service.AutoService;
+import com.google.common.base.Optional;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.base.Throwables;
@@ -29,9 +32,16 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.escape.Escaper;
 import com.google.common.escape.Escapers;
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.Widget;
 import org.jboss.auto.AbstractProcessor;
+import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.processor.context.DataElementInfo;
+import org.jboss.gwt.elemento.processor.context.DataElementInfo.Kind;
+import org.jboss.gwt.elemento.processor.context.FreemarkerContext;
+import org.jboss.gwt.elemento.processor.context.RootElementInfo;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
@@ -40,13 +50,17 @@ import org.jsoup.select.Elements;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.lang.model.element.AnnotationMirror;
+import javax.lang.model.element.AnnotationValue;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
-import javax.lang.model.util.Types;
 import javax.tools.FileObject;
 import javax.tools.StandardLocation;
 import java.io.IOException;
@@ -55,6 +69,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -82,6 +97,9 @@ public class TemplatedProcessor extends AbstractProcessor {
         super(TemplatedProcessor.class, "templates");
         this.deferredTypeNames = new ArrayList<>();
     }
+
+
+    // ------------------------------------------------------ process @Templated types
 
     @Override
     protected boolean onProcess(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv) {
@@ -142,59 +160,49 @@ public class TemplatedProcessor extends AbstractProcessor {
         if (ancestorIsTemplated(type)) {
             abortWithError(type, "One @%s class may not extend another", Templated.class.getSimpleName());
         }
-        if (implementsAnnotation(type)) {
+        if (isAssignable(type, Annotation.class)) {
             abortWithError(type, "@%s may not be used to implement an annotation interface",
                     Templated.class.getSimpleName());
         }
-        if (!implementsIsElement(type)) {
+        if (!isAssignable(type, IsElement.class)) {
             abortWithError(type, "%s must implement %s", type.getSimpleName(), IsElement.class.getSimpleName());
         }
 
+        // root element
         TemplateSelector templateSelector = getTemplateSelector(type, templated);
         org.jsoup.nodes.Element root = parseTemplate(type, templateSelector);
-        String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
-
+        String subclass = TypeSimplifier.simpleNameOf(generatedSubclassName(type));
         FreemarkerContext context = new FreemarkerContext(TypeSimplifier.packageNameOf(type),
-                TypeSimplifier.classNameOf(type), TypeSimplifier.simpleNameOf(generatedSubclassName(type)));
-        context.setRoot(new DataElementInfo(root.tagName(), context.getSubclass().toLowerCase() + "_root_element",
-                filterAttributes(root), html));
+                TypeSimplifier.classNameOf(type), subclass);
+        context.setRoot(createRootElementInfo(root, subclass));
 
-        // find and verify all @DataElement members
-        // find and verify all @EventHandler methods
-        // find and verify all @PostConstruct methods (should be only one)
+        // find and verify all @DataElement members (must not be private)
+        // If the @DataElement member is null it is initialized using root_element.querySelector("data-element=...")
+        // Otherwise it must be an instance of Widget || IsWidget || Element || IsElement. In that case the element
+        // in the template is replaced with the member.
+        List<DataElementInfo> dataElements = processDataElements(type, templateSelector, root);
+        context.setDataElements(dataElements);
+
+        // find and verify all @EventHandler methods (must not be private)
+
+        // find and verify all @PostConstruct methods (must not be private, should be only one)
 
         code(FREEMARKER_TEMPLATE, context.getPackage(), context.getSubclass(),
                 () -> ImmutableMap.of("context", context));
-        info("Generated templated class [%s] for [%s]", context.getSubclass(), context.getBase());
+        info("Generated templated implementation [%s] for [%s]", context.getSubclass(), context.getBase());
     }
 
-    private boolean ancestorIsTemplated(TypeElement type) {
-        while (true) {
-            TypeMirror parentMirror = type.getSuperclass();
-            if (parentMirror.getKind() == TypeKind.NONE) {
-                return false;
-            }
-            Types typeUtils = processingEnv.getTypeUtils();
-            TypeElement parentElement = (TypeElement) typeUtils.asElement(parentMirror);
-            if (parentElement.getAnnotation(Templated.class) != null) {
-                return true;
-            }
-            type = parentElement;
-        }
-    }
 
-    private boolean implementsAnnotation(TypeElement type) {
-        Types typeUtils = processingEnv.getTypeUtils();
-        return typeUtils.isAssignable(type.asType(), getTypeMirror(Annotation.class));
-    }
+    // ------------------------------------------------------ process root element
 
-    private boolean implementsIsElement(TypeElement type) {
-        Types typeUtils = processingEnv.getTypeUtils();
-        return typeUtils.isAssignable(type.asType(), getTypeMirror(IsElement.class));
-    }
+    private RootElementInfo createRootElementInfo(org.jsoup.nodes.Element root, String subclass) {
+        List<Attribute> attributes = root.attributes().asList().stream()
+                .filter(attribute -> !attribute.getKey().equals("data-element"))
+                .collect(Collectors.toList());
+        String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
 
-    private TypeMirror getTypeMirror(Class<?> c) {
-        return processingEnv.getElementUtils().getTypeElement(c.getName()).asType();
+        return new RootElementInfo(root.tagName(), subclass.toLowerCase() + "_root_element",
+                attributes, html);
     }
 
     private TemplateSelector getTemplateSelector(TypeElement type, Templated templated) {
@@ -246,10 +254,110 @@ public class TemplatedProcessor extends AbstractProcessor {
         return root;
     }
 
-    private List<Attribute> filterAttributes(final org.jsoup.nodes.Element element) {
-        return element.attributes().asList().stream()
-                .filter(attribute -> !attribute.getKey().equals("data-element"))
-                .collect(Collectors.toList());
+
+    // ------------------------------------------------------ process @DataElement members
+
+    private List<DataElementInfo> processDataElements(TypeElement type, TemplateSelector templateSelector,
+            org.jsoup.nodes.Element root) {
+        List<DataElementInfo> dataElements = new ArrayList<>();
+        List<VariableElement> fields = ElementFilter.fieldsIn(type.getEnclosedElements());
+        for (VariableElement field : fields) {
+            if (MoreElements.isAnnotationPresent(field, DataElement.class)) {
+
+                // verify the field
+                if (type.getModifiers().contains(Modifier.PRIVATE)) {
+                    abortWithError(field, "@%s %s must not be private", DataElement.class.getSimpleName(),
+                            field.getSimpleName());
+                }
+                if (type.getModifiers().contains(Modifier.STATIC)) {
+                    abortWithError(field, "@%s %s must not be static", DataElement.class.getSimpleName(),
+                            field.getSimpleName());
+                }
+                Kind deiKind = getDataElementInfoType(field.asType());
+                if (deiKind == null) {
+                    abortWithError(field, "Unsupported type. Please choose one of %s", Kind.values());
+                }
+
+                // verify the selector
+                String selector = null;
+                Optional<AnnotationMirror> annotationMirror = MoreElements
+                        .getAnnotationMirror(field, DataElement.class);
+                if (annotationMirror.isPresent()) {
+                    Map<? extends ExecutableElement, ? extends AnnotationValue> values = elementUtils
+                            .getElementValuesWithDefaults(annotationMirror.get());
+                    if (!values.isEmpty()) {
+                        selector = String.valueOf(values.values().iterator().next().getValue());
+                    }
+                }
+                // make sure to use the same logic for finding matching elements as in TemplateUtils!
+                selector = Strings.emptyToNull(selector) == null ? field.getSimpleName().toString() : selector;
+                Elements elements = root.getElementsByAttributeValue("data-element", selector);
+                if (elements.isEmpty()) {
+                    abortWithError(field,
+                            "Cannot find a matching element in %s using \"[data-element=%s]\" as selector",
+                            templateSelector, selector);
+                } else if (elements.size() > 1) {
+                    warning(field,
+                            "Found %d matching elements in %s using \"[data-element=%s]\" as selector. Only the first will be used.",
+                            elements.size(), templateSelector, selector);
+                }
+
+                String typeName = MoreTypes.asTypeElement(typeUtils, field.asType()).getQualifiedName().toString();
+                dataElements.add(new DataElementInfo(typeName, field.getSimpleName().toString(), selector, deiKind));
+            }
+        }
+        return dataElements;
+    }
+
+    private Kind getDataElementInfoType(TypeMirror fieldType) {
+        if (isAssignable(fieldType, elemental.dom.Element.class)) {
+            return Kind.Element;
+        } else if (isAssignable(fieldType, IsElement.class)) {
+            return Kind.IsElement;
+        } else if (isAssignable(fieldType, Widget.class)) {
+            return Kind.Widget;
+        } else if (isAssignable(fieldType, IsWidget.class)) {
+            return Kind.IsWidget;
+        } else {
+            return null;
+        }
+    }
+
+
+    // ------------------------------------------------------ helpers
+
+    private boolean ancestorIsTemplated(TypeElement type) {
+        while (true) {
+            TypeMirror parentMirror = type.getSuperclass();
+            if (parentMirror.getKind() == TypeKind.NONE) {
+                return false;
+            }
+            TypeElement parentElement = (TypeElement) typeUtils.asElement(parentMirror);
+            if (parentElement.getAnnotation(Templated.class) != null) {
+                return true;
+            }
+            type = parentElement;
+        }
+    }
+
+    private boolean isAssignable(TypeElement subType, Class<?> baseType) {
+        return isAssignable(subType.asType(), baseType);
+    }
+
+    private boolean isAssignable(TypeMirror subType, Class<?> baseType) {
+        return isAssignable(subType, getTypeMirror(baseType));
+    }
+
+    private boolean isAssignable(TypeMirror subType, TypeMirror baseType) {
+        return typeUtils.isAssignable(typeUtils.erasure(subType), typeUtils.erasure(baseType));
+    }
+
+    private TypeMirror getTypeMirror(Class<?> c) {
+        return processingEnv.getElementUtils().getTypeElement(c.getName()).asType();
+    }
+
+    private String generatedSubclassName(TypeElement type) {
+        return generatedClassName(type, "Templated_");
     }
 
     private String generatedClassName(TypeElement type, String prefix) {
@@ -261,10 +369,6 @@ public class TemplatedProcessor extends AbstractProcessor {
         String pkg = TypeSimplifier.packageNameOf(type);
         String dot = pkg.isEmpty() ? "" : ".";
         return pkg + dot + prefix + name;
-    }
-
-    private String generatedSubclassName(TypeElement type) {
-        return generatedClassName(type, "Templated_");
     }
 
     /**

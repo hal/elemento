@@ -19,7 +19,9 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor;
+package org.jboss.gwt.elemento.processor.context;
+
+import java.util.List;
 
 /**
  * @author Harald Pehl
@@ -29,7 +31,9 @@ public class FreemarkerContext {
     private final String pkg;
     private final String base;
     private final String subclass;
-    private DataElementInfo root;
+
+    private RootElementInfo root;
+    private List<DataElementInfo> dataElements;
 
     public FreemarkerContext(final String pkg, final String base, final String subclass) {
         this.pkg = pkg;
@@ -50,15 +54,23 @@ public class FreemarkerContext {
         return pkg;
     }
 
-    public DataElementInfo getRoot() {
+    public RootElementInfo getRoot() {
         return root;
     }
 
-    public void setRoot(final DataElementInfo root) {
+    public void setRoot(final RootElementInfo root) {
         this.root = root;
     }
 
     public String getSubclass() {
         return subclass;
+    }
+
+    public List<DataElementInfo> getDataElements() {
+        return dataElements;
+    }
+
+    public void setDataElements(final List<DataElementInfo> dataElements) {
+        this.dataElements = dataElements;
     }
 }
