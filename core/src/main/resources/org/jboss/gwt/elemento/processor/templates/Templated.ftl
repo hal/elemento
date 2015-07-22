@@ -57,25 +57,13 @@ final class ${context.subclass} extends ${context.base} {
                 </#if>
             <#-- IsElement -->
             <#elseif dataElement.kind.name() == "IsElement">
-                <#if dataElement.returnedByMethod>
-        TemplateUtils.replaceIsElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name}());
-                <#else>
-        if (this.${dataElement.name} == null) {
-            this.${dataElement.name} = TemplateUtils.resolveIsElement(${context.root.member}, "${dataElement.selector}");
-        } else {
-            TemplateUtils.replaceIsElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name});
-        }
-                </#if>
+        TemplateUtils.replaceIsElement(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
             <#-- Widget -->
             <#elseif dataElement.kind.name() == "Widget">
-                <#if dataElement.returnedByMethod>
-                <#else>
-                </#if>
+        TemplateUtils.replaceWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
             <#-- IsElement -->
             <#elseif dataElement.kind.name() == "IsWidget">
-                <#if dataElement.returnedByMethod>
-                <#else>
-                </#if>
+        TemplateUtils.replaceIsWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
             </#if>
         </#list>
         <#-- @EventHandler -->

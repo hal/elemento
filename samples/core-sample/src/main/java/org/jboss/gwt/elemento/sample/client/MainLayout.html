@@ -68,21 +68,27 @@
             <h1>Elemento Tests</h1>
 
             <h2>Element</h2>
-            <p data-element="turnToGreen">This paragraph was turned to green by a <code>@PostConstruct</code> method in
-                <code>org.jboss.gwt.elemento.sample.client.Content</code>.</p>
+            <div data-element="turnToGreen">This text was turned to green by a <code>@PostConstruct</code> method in
+                <code>org.jboss.gwt.elemento.sample.client.Content</code>.</div>
 
-            <p data-element="resolvedElement">static content for field <code>resolvedElement</code></p>
-            <p data-element="replacedFieldElement"></p>
-            <p data-element="replacedMethodElement"></p>
+            <div data-element="elementHtmlToField">static content for <code>elementHtmlToField</code></div>
+            <div data-element="elementFieldToHtml"></div>
+            <div data-element="elementMethodToHtml"></div>
 
             <h2>IsElement</h2>
-            <p data-element="resolvedIsElement">static content for field <code>resolvedIsElement</code></p>
-            <p data-element="replacedFieldIsElement"></p>
-            <p data-element="replacedMethodIsElement"></p>
+            <div data-element="isElementFieldToHtml"></div>
+            <div data-element="isElementMethodToHtml"></div>
 
             <h2>Widget</h2>
+            <div data-element="widgetFieldToHtml"></div>
+            <div data-element="widgetMethodToHtml"></div>
 
             <h2>IsWidget</h2>
+            <div data-element="isWidgetFieldToHtml"></div>
+            <div data-element="isWidgetMethodToHtml"></div>
+
+            <h2>EventHandler</h2>
+            <button>Say Hello</button>
         </div>
     </div>
 </div>

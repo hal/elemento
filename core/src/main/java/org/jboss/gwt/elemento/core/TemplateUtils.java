@@ -21,6 +21,8 @@
  */
 package org.jboss.gwt.elemento.core;
 
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.Widget;
 import elemental.dom.Element;
 
 /**
@@ -55,6 +57,9 @@ public final class TemplateUtils {
     }
 
     public static void replaceElement(Element context, String identifier, Element newElement) {
+        if (newElement == null) {
+            throw new NullPointerException("New element must not be null in replaceElement()");
+        }
         Element oldElement = resolveElement(context, identifier);
         if (oldElement != null && oldElement.getParentElement() != null) {
             oldElement.getParentElement().replaceChild(newElement, oldElement);
@@ -62,15 +67,17 @@ public final class TemplateUtils {
     }
 
 
-    // ------------------------------------------------------ IsElement methods
-
-    public static IsElement resolveIsElement(Element context, String identifier) {
-        return () -> {
-            return DATA_ELEMENT.select(context, identifier);
-        };
-    }
+    // ------------------------------------------------------ IsElement / (Is)Widget methods
 
     public static void replaceIsElement(Element context, String identifier, IsElement newElement) {
         replaceElement(context, identifier, newElement.asElement());
+    }
+
+    public static void replaceWidget(Element context, String identifier, Widget newWidget) {
+        replaceElement(context, identifier, Elements.asElement(newWidget));
+    }
+
+    public static void replaceIsWidget(Element context, String identifier, IsWidget newWidget) {
+        replaceElement(context, identifier, Elements.asElement(newWidget));
     }
 }

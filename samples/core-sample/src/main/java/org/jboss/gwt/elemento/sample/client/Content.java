@@ -24,9 +24,13 @@ package org.jboss.gwt.elemento.sample.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.IsWidget;
 import elemental.dom.Element;
 import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.Elements;
+import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 
@@ -38,43 +42,77 @@ import javax.annotation.PostConstruct;
 @Templated("MainLayout.html#content")
 public abstract class Content implements IsElement {
 
-    interface ReplacedHtml extends SafeHtmlTemplates {
+    interface Html extends SafeHtmlTemplates {
 
-        @SafeHtmlTemplates.Template("content replaced by {0} <code>{1}</code> @ {2}")
-        SafeHtml replaced(String kind, String name, long at);
+        @SafeHtmlTemplates.Template("content replaced by <code>{0}</code> @ {1}")
+        SafeHtml content(String name, long at);
     }
 
 
-    final static ReplacedHtml HTML = GWT.create(ReplacedHtml.class);
+    final static Html HTML = GWT.create(Html.class);
 
     public static Content create() {
         return new Templated_Content();
     }
 
-    @DataElement Element resolvedElement;
-    @DataElement Element replacedFieldElement = new Elements.Builder().p().innerHtml(
-            HTML.replaced("field", "replacedFieldElement", System.currentTimeMillis())).end().build();
 
-    @DataElement
-    Element replacedMethodElement() {
-        return new Elements.Builder().p().innerHtml(
-                HTML.replaced("method", "replacedMethodElement", System.currentTimeMillis())).end().build();
-    }
-
-    @DataElement IsElement resolvedIsElement;
-    @DataElement IsElement replacedFieldIsElement = () -> new Elements.Builder().p().innerHtml(
-            HTML.replaced("field", "replacedFieldIsElement", System.currentTimeMillis())).end().build();
-
-    @DataElement
-    IsElement replacedMethodIsElement() {
-        return () -> new Elements.Builder().p().innerHtml(
-                HTML.replaced("method", "replacedMethodIsElement", System.currentTimeMillis())).end().build();
-    }
+    // ------------------------------------------------------ Element
 
     @DataElement Element turnToGreen;
+    @DataElement Element elementHtmlToField;
+    @DataElement Element elementFieldToHtml = new Elements.Builder().div().innerHtml(
+            HTML.content("elementFieldToHtml", System.currentTimeMillis())).end().build();
+
+    @DataElement
+    Element elementMethodToHtml() {
+        return new Elements.Builder().div().innerHtml(
+                HTML.content("elementMethodToHtml", System.currentTimeMillis())).end().build();
+    }
+
+
+    // ------------------------------------------------------ IsElement
+
+    @DataElement IsElement isElementFieldToHtml = () -> new Elements.Builder().div().innerHtml(
+            HTML.content("isElementFieldToHtml", System.currentTimeMillis())).end().build();
+
+    @DataElement
+    IsElement isElementMethodToHtml() {
+        return () -> new Elements.Builder().div().innerHtml(
+                HTML.content("isElementMethodToHtml", System.currentTimeMillis())).end().build();
+    }
+
+
+    // ------------------------------------------------------ Widget
+
+    @DataElement HTML widgetFieldToHtml = new HTML(
+            HTML.content("widgetFieldToHtml", System.currentTimeMillis()));
+
+    @DataElement
+    HTML widgetMethodToHtml() {
+        return new HTML(HTML.content("widgetMethodToHtml", System.currentTimeMillis()));
+    }
+
+
+    // ------------------------------------------------------ IsWidget
+
+    @DataElement IsWidget isWidgetFieldToHtml = new HTML(
+            HTML.content("isWidgetFieldToHtml", System.currentTimeMillis()));
+
+    @DataElement
+    IsWidget isWidgetMethodToHtml() {
+        return new HTML(HTML.content("isWidgetMethodToHtml", System.currentTimeMillis()));
+    }
+
+
+    // ------------------------------------------------------ @PostConstruct and @EventHandler
 
     @PostConstruct
     void init() {
         turnToGreen.getStyle().setColor("#339933");
+    }
+
+    @EventHandler
+    void onSayHello() {
+        Window.alert("Hello!");
     }
 }
