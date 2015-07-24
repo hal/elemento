@@ -31,6 +31,7 @@ public class FreemarkerContext {
     private final String pkg;
     private final String base;
     private final String subclass;
+    private final String createMethod;
 
     private RootElementInfo root;
     private List<DataElementInfo> dataElements;
@@ -38,10 +39,11 @@ public class FreemarkerContext {
     private List<EventHandlerInfo> eventHandler;
     private List<AbstractPropertyInfo> abstractProperties;
 
-    public FreemarkerContext(final String pkg, final String base, final String subclass) {
+    public FreemarkerContext(final String pkg, final String base, final String subclass, final String createMethod) {
         this.pkg = pkg;
         this.base = base;
         this.subclass = subclass;
+        this.createMethod = createMethod;
     }
 
     @Override
@@ -55,6 +57,10 @@ public class FreemarkerContext {
 
     public String getPackage() {
         return pkg;
+    }
+
+    public String getCreateMethod() {
+        return createMethod;
     }
 
     public RootElementInfo getRoot() {

@@ -34,10 +34,14 @@
 
     <artifactId>elemento-gin</artifactId>
     <name>Elemento :: GIN</name>
-    <description>GIN support for injecting templated classes</description>
-    <packaging>gwt-lib</packaging>
+    <description>Processor which generated GIN providers for injecting templated classes</description>
+    <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
@@ -50,18 +54,13 @@
             <groupId>com.google.gwt.inject</groupId>
             <artifactId>gin</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.auto</groupId>
+            <artifactId>apt-tools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.auto.service</groupId>
+            <artifactId>auto-service</artifactId>
+        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>net.ltgt.gwt.maven</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <moduleName>org.jboss.gwt.elemento.Gin</moduleName>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>

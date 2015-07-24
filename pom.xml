@@ -80,7 +80,7 @@
 
     <modules>
         <module>core</module>
-        <!--<module>gin</module>-->
+        <module>gin</module>
     </modules>
 
     <dependencyManagement>

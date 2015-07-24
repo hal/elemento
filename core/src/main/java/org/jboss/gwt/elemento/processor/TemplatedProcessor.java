@@ -81,9 +81,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * @author Harald Pehl
- */
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("org.jboss.gwt.elemento.core.Templated")
 public class TemplatedProcessor extends AbstractProcessor {
@@ -103,7 +100,11 @@ public class TemplatedProcessor extends AbstractProcessor {
     private final List<String> deferredTypeNames;
 
     public TemplatedProcessor() {
-        super(TemplatedProcessor.class, "templates");
+        this(TemplatedProcessor.class, "templates");
+    }
+
+    public TemplatedProcessor(final Class resourceLoaderClass, final String templates) {
+        super(resourceLoaderClass, templates);
         this.deferredTypeNames = new ArrayList<>();
     }
 
@@ -117,7 +118,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
         if (roundEnv.processingOver()) {
             // This means that the previous round didn't generate any new sources, so we can't have found
-            // any new instances of @AutoValue; and we can't have any new types that are the reason a type
+            // any new instances of @Templated; and we can't have any new types that are the reason a type
             // was in deferredTypes.
             for (TypeElement type : deferredTypes) {
                 error(type, "Did not generate @%s class for %s because it references undefined types",
@@ -134,7 +135,9 @@ public class TemplatedProcessor extends AbstractProcessor {
         deferredTypeNames.clear();
         for (TypeElement type : types) {
             try {
-                processType(type);
+                Templated templated = type.getAnnotation(Templated.class);
+                validateType(type, templated);
+                processType(type, templated);
             } catch (AbortProcessingException e) {
                 // We abandoned this type; continue with the next.
             } catch (MissingTypeException e) {
@@ -155,8 +158,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         return false;  // never claim annotation, because who knows what other processors want?
     }
 
-    private void processType(TypeElement type) {
-        Templated templated = type.getAnnotation(Templated.class);
+    private void validateType(final TypeElement type, final Templated templated) {
         if (templated == null) {
             // This shouldn't happen unless the compilation environment is buggy,
             // but it has happened in the past and can crash the compiler.
@@ -176,13 +178,18 @@ public class TemplatedProcessor extends AbstractProcessor {
         if (!isAssignable(type, IsElement.class)) {
             abortWithError(type, "%s must implement %s", type.getSimpleName(), IsElement.class.getSimpleName());
         }
+    }
+
+    protected void processType(TypeElement type, final Templated templated) {
+        // freemarker context
+        String subclass = TypeSimplifier.simpleNameOf(generatedClassName(type, "Templated_", ""));
+        String createMethod = getCreateMethod(type);
+        FreemarkerContext context = new FreemarkerContext(TypeSimplifier.packageNameOf(type),
+                TypeSimplifier.classNameOf(type), subclass, createMethod);
 
         // root element and template
         TemplateSelector templateSelector = getTemplateSelector(type, templated);
         org.jsoup.nodes.Element root = parseTemplate(type, templateSelector);
-        String subclass = TypeSimplifier.simpleNameOf(generatedSubclassName(type));
-        FreemarkerContext context = new FreemarkerContext(TypeSimplifier.packageNameOf(type),
-                TypeSimplifier.classNameOf(type), subclass);
         context.setRoot(createRootElementInfo(root, subclass));
 
         // find and verify all @DataElement members
@@ -204,6 +211,30 @@ public class TemplatedProcessor extends AbstractProcessor {
         code(FREEMARKER_TEMPLATE, context.getPackage(), context.getSubclass(),
                 () -> ImmutableMap.of("context", context));
         info("Generated templated implementation [%s] for [%s]", context.getSubclass(), context.getBase());
+    }
+
+    protected String getCreateMethod(TypeElement type) {
+        java.util.Optional<ExecutableElement> createMethod = ElementFilter.methodsIn(type.getEnclosedElements())
+                .stream()
+                .filter(method -> method.getModifiers().contains(Modifier.STATIC) &&
+                        method.getReturnType().equals(type.asType()))
+                .findAny();
+        if (!createMethod.isPresent()) {
+            abortWithError(type, "@%s need to define one static method which returns an %s instance",
+                    Templated.class.getSimpleName(), type.getSimpleName());
+        }
+        return createMethod.get().getSimpleName().toString();
+    }
+
+    protected String generatedClassName(TypeElement type, String prefix, String suffix) {
+        String name = type.getSimpleName().toString();
+        while (type.getEnclosingElement() instanceof TypeElement) {
+            type = (TypeElement) type.getEnclosingElement();
+            name = type.getSimpleName() + "_" + name;
+        }
+        String pkg = TypeSimplifier.packageNameOf(type);
+        String dot = pkg.isEmpty() ? "" : ".";
+        return pkg + dot + prefix + name + suffix;
     }
 
 
@@ -482,7 +513,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     // ------------------------------------------------------ abstract properties
 
-    private List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
+    protected List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
         List<AbstractPropertyInfo> abstractProperties = new ArrayList<>();
 
         ElementFilter.methodsIn(type.getEnclosedElements()).stream()
@@ -499,11 +530,11 @@ public class TemplatedProcessor extends AbstractProcessor {
                                 Templated.class.getSimpleName());
                     }
 
+                    String typeName = TypeSimplifier.simpleTypeName(method.getReturnType());
                     String methodName = method.getSimpleName().toString();
                     String fieldName = (isGetter(method)) ? nameWithoutPrefix(methodName) : methodName;
                     String modifier = getModifier(method);
-                    abstractProperties.add(new AbstractPropertyInfo(method.getReturnType().toString(), fieldName,
-                            methodName, modifier));
+                    abstractProperties.add(new AbstractPropertyInfo(typeName, fieldName, methodName, modifier));
                 });
 
         return abstractProperties;
@@ -570,21 +601,6 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     private TypeMirror getTypeMirror(Class<?> c) {
         return processingEnv.getElementUtils().getTypeElement(c.getName()).asType();
-    }
-
-    private String generatedSubclassName(TypeElement type) {
-        return generatedClassName(type, "Templated_");
-    }
-
-    private String generatedClassName(TypeElement type, String prefix) {
-        String name = type.getSimpleName().toString();
-        while (type.getEnclosingElement() instanceof TypeElement) {
-            type = (TypeElement) type.getEnclosingElement();
-            name = type.getSimpleName() + "_" + name;
-        }
-        String pkg = TypeSimplifier.packageNameOf(type);
-        String dot = pkg.isEmpty() ? "" : ".";
-        return pkg + dot + prefix + name;
     }
 
     /**
