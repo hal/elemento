@@ -23,5 +23,9 @@
 
 <module>
     <inherits name="elemental.Elemental"/>
+    <inherits name="com.google.common.collect.Collect"/>
+    <inherits name="com.google.gwt.user.User"/>
+    <inherits name="org.jboss.gwt.elemento.Core"/>
+
     <entry-point class="org.jboss.gwt.elemento.sample.client.App"/>
 </module>

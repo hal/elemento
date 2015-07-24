@@ -19,45 +19,18 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor;
+package org.jboss.gwt.elemento.processor.context;
 
-import org.jsoup.nodes.Attribute;
+/**
+ * @author Harald Pehl
+ */
+public class PostConstructInfo {
 
-import java.util.List;
+    private final String name;
 
-public class DataElementInfo {
+    public PostConstructInfo(final String name) {this.name = name;}
 
-    private final String tag;
-    private final String member;
-    private final List<Attribute> attributes;
-    private final String innerHtml;
-
-    public DataElementInfo(final String tag, final String member, final List<Attribute> attributes,
-            final String innerHtml) {
-        this.tag = tag;
-        this.member = member;
-        this.attributes = attributes;
-        this.innerHtml = innerHtml;
-    }
-
-    @Override
-    public String toString() {
-        return "<" + tag + ">" + member + ":" + attributes;
-    }
-
-    public List<Attribute> getAttributes() {
-        return attributes;
-    }
-
-    public String getInnerHtml() {
-        return innerHtml;
-    }
-
-    public String getMember() {
-        return member;
-    }
-
-    public String getTag() {
-        return tag;
+    public String getName() {
+        return name;
     }
 }

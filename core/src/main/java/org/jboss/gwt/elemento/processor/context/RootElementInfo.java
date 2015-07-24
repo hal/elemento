@@ -19,21 +19,45 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.core;
+package org.jboss.gwt.elemento.processor.context;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.jsoup.nodes.Attribute;
 
-/**
- * @author Harald Pehl
- */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.METHOD})
-public @interface DataElement {
+import java.util.List;
 
-    String value() default "";
+public class RootElementInfo {
+
+    private final String tag;
+    private final String member;
+    private final List<Attribute> attributes;
+    private final String innerHtml;
+
+    public RootElementInfo(final String tag, final String member, final List<Attribute> attributes,
+            final String innerHtml) {
+        this.tag = tag;
+        this.member = member;
+        this.attributes = attributes;
+        this.innerHtml = innerHtml;
+    }
+
+    @Override
+    public String toString() {
+        return "<" + tag + ">" + member + ":" + attributes;
+    }
+
+    public List<Attribute> getAttributes() {
+        return attributes;
+    }
+
+    public String getInnerHtml() {
+        return innerHtml;
+    }
+
+    public String getMember() {
+        return member;
+    }
+
+    public String getTag() {
+        return tag;
+    }
 }

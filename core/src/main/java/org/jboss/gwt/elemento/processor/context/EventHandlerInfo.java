@@ -19,46 +19,37 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor;
+package org.jboss.gwt.elemento.processor.context;
 
 /**
  * @author Harald Pehl
  */
-public class FreemarkerContext {
+public class EventHandlerInfo {
 
-    private final String pkg;
-    private final String base;
-    private final String subclass;
-    private DataElementInfo root;
+    private final String method;
+    private final String selector;
+    private final String eventType;
 
-    public FreemarkerContext(final String pkg, final String base, final String subclass) {
-        this.pkg = pkg;
-        this.base = base;
-        this.subclass = subclass;
+    public EventHandlerInfo(final String method, final String selector, final String eventType) {
+        this.method = method;
+        this.selector = selector;
+        this.eventType = eventType;
     }
 
     @Override
     public String toString() {
-        return pkg + "." + subclass + " extends " + base;
+        return "@EventHandler(" + selector + ", " + eventType + ") -> " + method + "(event)";
     }
 
-    public String getBase() {
-        return base;
+    public String getMethod() {
+        return method;
     }
 
-    public String getPackage() {
-        return pkg;
+    public String getSelector() {
+        return selector;
     }
 
-    public DataElementInfo getRoot() {
-        return root;
-    }
-
-    public void setRoot(final DataElementInfo root) {
-        this.root = root;
-    }
-
-    public String getSubclass() {
-        return subclass;
+    public String getEventType() {
+        return eventType;
     }
 }

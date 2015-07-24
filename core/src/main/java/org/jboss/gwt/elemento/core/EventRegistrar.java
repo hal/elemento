@@ -21,19 +21,16 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import elemental.dom.Element;
+import elemental.events.EventListener;
 
 /**
+ * Function used in {@link EventType} to bind the event type to a method signature for adding the event listener.
+ *
  * @author Harald Pehl
  */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.METHOD})
-public @interface DataElement {
+@FunctionalInterface
+public interface EventRegistrar {
 
-    String value() default "";
+    void register(Element element, EventListener listener);
 }

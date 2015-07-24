@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
@@ -46,6 +46,10 @@
             <artifactId>elemento-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-gin</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-dev</artifactId>
         </dependency>
@@ -56,6 +60,10 @@
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-elemental</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt.inject</groupId>
+            <artifactId>gin</artifactId>
         </dependency>
     </dependencies>
 </project>

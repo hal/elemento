@@ -34,7 +34,7 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <packaging>pom</packaging>
@@ -80,7 +80,7 @@
 
     <modules>
         <module>core</module>
-        <!--<module>gin</module>-->
+        <module>gin</module>
     </modules>
 
     <dependencyManagement>

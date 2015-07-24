@@ -49,108 +49,6 @@ public final class Elements {
     // this is a static helper class which must never be instantiated!
     private Elements() {}
 
-    /**
-     * Known input types used in {@link Builder#input(InputType)}. If not otherwise specified the created element is a
-     * simple element and cannot contain nested elements.
-     */
-    public enum InputType {
-        /**
-         * Starts a button element (must be closed using {@link Builder#end()})
-         */
-        button,
-        checkbox,
-        color,
-        date,
-        datetime,
-        email,
-        file,
-        hidden,
-        image,
-        month,
-        number,
-        password,
-        radio,
-        range,
-        reset,
-        search,
-        /**
-         * Starts a select element (must be closed using {@link Builder#end()})
-         */
-        select,
-        tel,
-        text,
-        /**
-         * Starts a textarea element (must be closed using {@link Builder#end()})
-         */
-        textarea,
-        time,
-        url,
-        week
-    }
-
-
-    /**
-     * Known event types used in {@link Builder#on(EventType, EventListener)}.
-     */
-    public enum EventType {
-        abort(Element::setOnclick),
-        beforecopy(Element::setOnbeforecopy),
-        beforecut(Element::setOnbeforecut),
-        beforepaste(Element::setOnbeforepaste),
-        blur(Element::setOnblur),
-        change(Element::setOnchange),
-        click(Element::setOnclick),
-        contextmenu(Element::setOncontextmenu),
-        copy(Element::setOncopy),
-        cut(Element::setOncut),
-        dblclick(Element::setOndblclick),
-        drag(Element::setOndrag),
-        dragend(Element::setOndragend),
-        dragenter(Element::setOndragenter),
-        dragleave(Element::setOndragleave),
-        dragover(Element::setOndragover),
-        dragstart(Element::setOndragstart),
-        drop(Element::setOndrop),
-        error(Element::setOnerror),
-        focus(Element::setOnfocus),
-        input(Element::setOninput),
-        invalid(Element::setOninvalid),
-        keydown(Element::setOnkeydown),
-        keypress(Element::setOnkeypress),
-        keyup(Element::setOnkeyup),
-        load(Element::setOnload),
-        mousedown(Element::setOnmousedown),
-        mousemove(Element::setOnmousemove),
-        mouseout(Element::setOnmouseout),
-        mouseover(Element::setOnmouseover),
-        mouseup(Element::setOnmouseup),
-        mousewheel(Element::setOnmousewheel),
-        paste(Element::setOnpaste),
-        reset(Element::setOnreset),
-        scroll(Element::setOnscroll),
-        search(Element::setOnsearch),
-        select(Element::setOnselect),
-        selectstart(Element::setOnselectstart),
-        submit(Element::setOnsubmit),
-        touchcancel(Element::setOntouchcancel),
-        touchend(Element::setOntouchend),
-        touchmove(Element::setOntouchmove),
-        touchstart(Element::setOntouchstart),
-        webkitfullscreenchange(Element::setOnwebkitfullscreenchange),
-        webkitfullscreenerror(Element::setOnwebkitfullscreenerror);
-
-        final EventRegistrar registrar;
-
-        EventType(final EventRegistrar registrar) {this.registrar = registrar;}
-    }
-
-
-    @FunctionalInterface
-    private interface EventRegistrar {
-
-        void register(Element element, EventListener listener);
-    }
-
 
     private static class ElementInfo {
 
@@ -605,7 +503,7 @@ public final class Elements {
             assertCurrent();
 
             Element element = elements.peek().element;
-            type.registrar.register(element, listener);
+            type.register(element, listener);
             return this;
         }
 
@@ -675,9 +573,11 @@ public final class Elements {
 
     // ------------------------------------------------------ conversions
 
+
     private static class ElementWidget extends Widget {
+
         ElementWidget(final Element element) {
-            setElement(com.google.gwt.dom.client.Element.as((JavaScriptObject)element));
+            setElement(com.google.gwt.dom.client.Element.as((JavaScriptObject) element));
         }
     }
 

@@ -21,6 +21,8 @@
  */
 package org.jboss.gwt.elemento.sample.client;
 
+import elemental.dom.Element;
+import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 
@@ -33,4 +35,6 @@ public abstract class Footer implements IsElement {
     public static Footer create() {
         return new Templated_Footer();
     }
+
+    @DataElement Element updateAvailable;
 }

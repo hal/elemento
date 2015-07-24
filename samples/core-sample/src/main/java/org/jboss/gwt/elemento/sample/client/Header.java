@@ -21,6 +21,9 @@
  */
 package org.jboss.gwt.elemento.sample.client;
 
+import elemental.html.AnchorElement;
+import elemental.html.SpanElement;
+import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 
@@ -33,4 +36,8 @@ public abstract class Header implements IsElement {
     public static Header create() {
         return new Templated_Header();
     }
+
+    @DataElement AnchorElement logoLink;
+    @DataElement("first") SpanElement logoFirst;
+    @DataElement("last") SpanElement logoLast;
 }

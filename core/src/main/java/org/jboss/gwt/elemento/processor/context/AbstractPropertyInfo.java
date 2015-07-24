@@ -19,21 +19,43 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.core;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package org.jboss.gwt.elemento.processor.context;
 
 /**
  * @author Harald Pehl
  */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.METHOD})
-public @interface DataElement {
+public class AbstractPropertyInfo {
 
-    String value() default "";
+    private final String type;
+    private final String field;
+    private final String method;
+    private final String modifier;
+
+    public AbstractPropertyInfo(final String type, final String field, final String method, String modifier) {
+        this.type = type;
+        this.field = field;
+        this.method = method;
+        this.modifier = modifier == null ? "" : modifier + " ";
+    }
+
+    @Override
+    public String toString() {
+        return modifier + type + " " + method + "() { return this." + field + "; }";
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getModifier() {
+        return modifier;
+    }
 }

@@ -32,8 +32,9 @@ import java.lang.annotation.Target;
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.METHOD})
-public @interface DataElement {
+@Target(ElementType.METHOD)
+public @interface EventHandler {
 
-    String value() default "";
+    String element();
+    EventType on();
 }

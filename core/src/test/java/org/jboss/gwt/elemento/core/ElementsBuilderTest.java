@@ -6,9 +6,9 @@ import org.junit.Test;
 
 import java.util.NoSuchElementException;
 
-import static org.jboss.gwt.elemento.core.Elements.EventType.click;
-import static org.jboss.gwt.elemento.core.Elements.InputType.number;
-import static org.jboss.gwt.elemento.core.Elements.InputType.text;
+import static org.jboss.gwt.elemento.core.EventType.click;
+import static org.jboss.gwt.elemento.core.InputType.number;
+import static org.jboss.gwt.elemento.core.InputType.text;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.anyString;
