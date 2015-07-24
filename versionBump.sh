@@ -7,6 +7,6 @@ PROGNAME=`basename "$0"`
 if [ "$#" -ne 1 ]; then
     echo "Illegal number of arguments. Use '$PROGNAME <version>'"
 else
-    mvn versions:set -DnewVersion=$1
+    mvn versions:set -DnewVersion=$1 -Psamples
     find . -name pom.xml.versionsBackup -exec rm {} \;
 fi
