@@ -40,6 +40,7 @@ import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.processor.context.AbstractPropertyInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo.Kind;
 import org.jboss.gwt.elemento.processor.context.EventHandlerInfo;
@@ -68,6 +69,7 @@ import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
 import javax.tools.FileObject;
 import javax.tools.StandardLocation;
+import java.beans.Introspector;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -93,6 +95,7 @@ public class TemplatedProcessor extends AbstractProcessor {
             .addEscape('\r', "")
             .build();
 
+
     /**
      * Qualified names of {@code @Templated} classes that we attempted to process but had to abandon
      * because we needed other types that they referenced and those other types were missing.
@@ -105,7 +108,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     }
 
 
-    // ------------------------------------------------------ process @Templated types
+    // ------------------------------------------------------ @Templated types
 
     @Override
     protected boolean onProcess(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv) {
@@ -174,9 +177,7 @@ public class TemplatedProcessor extends AbstractProcessor {
             abortWithError(type, "%s must implement %s", type.getSimpleName(), IsElement.class.getSimpleName());
         }
 
-        // init parameters and abstract properties
-
-        // root element
+        // root element and template
         TemplateSelector templateSelector = getTemplateSelector(type, templated);
         org.jsoup.nodes.Element root = parseTemplate(type, templateSelector);
         String subclass = TypeSimplifier.simpleNameOf(generatedSubclassName(type));
@@ -196,13 +197,17 @@ public class TemplatedProcessor extends AbstractProcessor {
         List<PostConstructInfo> postConstructs = processPostConstruct(type);
         context.setPostConstructs(postConstructs);
 
+        // init parameters and abstract properties
+        List<AbstractPropertyInfo> abstractProperties = processAbstractProperties(type);
+        context.setAbstractProperties(abstractProperties);
+
         code(FREEMARKER_TEMPLATE, context.getPackage(), context.getSubclass(),
                 () -> ImmutableMap.of("context", context));
         info("Generated templated implementation [%s] for [%s]", context.getSubclass(), context.getBase());
     }
 
 
-    // ------------------------------------------------------ process root element
+    // ------------------------------------------------------ root element / template
 
     private RootElementInfo createRootElementInfo(org.jsoup.nodes.Element root, String subclass) {
         List<Attribute> attributes = root.attributes().asList().stream()
@@ -264,7 +269,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     }
 
 
-    // ------------------------------------------------------ process @DataElement members
+    // ------------------------------------------------------ @DataElement fields and methods
 
     private List<DataElementInfo> processDataElements(TypeElement type, TemplateSelector templateSelector,
             org.jsoup.nodes.Element root) {
@@ -379,7 +384,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     }
 
 
-    // ------------------------------------------------------ process @PostConstruct
+    // ------------------------------------------------------ @PostConstruct methods
 
     private List<PostConstructInfo> processPostConstruct(TypeElement type) {
         List<PostConstructInfo> postConstructs = new ArrayList<>();
@@ -414,7 +419,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     }
 
 
-    // ------------------------------------------------------ process @EventHandler
+    // ------------------------------------------------------ @EventHandler methods
 
     private List<EventHandlerInfo> processEventHandler(final TypeElement type, TemplateSelector templateSelector,
             org.jsoup.nodes.Element root) {
@@ -472,6 +477,66 @@ public class TemplatedProcessor extends AbstractProcessor {
                 });
 
         return eventHandler;
+    }
+
+
+    // ------------------------------------------------------ abstract properties
+
+    private List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
+        List<AbstractPropertyInfo> abstractProperties = new ArrayList<>();
+
+        ElementFilter.methodsIn(type.getEnclosedElements()).stream()
+                .filter(method -> method.getModifiers().contains(Modifier.ABSTRACT))
+                .forEach(method -> {
+
+                    // verify method
+                    if (method.getReturnType().getKind() == TypeKind.VOID) {
+                        abortWithError(method, "Abstract classes in a @%s class must not return void",
+                                Templated.class.getSimpleName());
+                    }
+                    if (!method.getParameters().isEmpty()) {
+                        abortWithError(method, "Abstract classes in a @%s class must not have parameters",
+                                Templated.class.getSimpleName());
+                    }
+
+                    String methodName = method.getSimpleName().toString();
+                    String fieldName = (isGetter(method)) ? nameWithoutPrefix(methodName) : methodName;
+                    String modifier = getModifier(method);
+                    abstractProperties.add(new AbstractPropertyInfo(method.getReturnType().toString(), fieldName,
+                            methodName, modifier));
+                });
+
+        return abstractProperties;
+    }
+
+    private boolean isGetter(ExecutableElement method) {
+        String name = method.getSimpleName().toString();
+        boolean get = name.startsWith("get") && !name.equals("get");
+        boolean is = name.startsWith("is") && !name.equals("is")
+                && method.getReturnType().getKind() == TypeKind.BOOLEAN;
+        return get || is;
+    }
+
+    private String nameWithoutPrefix(String name) {
+        String withoutPrefix = name;
+        if (name.startsWith("get") && !name.equals("get")) {
+            withoutPrefix = name.substring(3);
+        } else {
+            assert name.startsWith("is");
+            withoutPrefix = name.substring(2);
+        }
+        return Introspector.decapitalize(withoutPrefix);
+    }
+
+    private String getModifier(final ExecutableElement method) {
+        String modifier = null;
+        Set<Modifier> modifiers = method.getModifiers();
+        if (modifiers.contains(Modifier.PUBLIC)) {
+            modifier = "public";
+        } else if (modifiers.contains(Modifier.PROTECTED)) {
+            modifier = "protected";
+        }
+        return modifier;
     }
 
 

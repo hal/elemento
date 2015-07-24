@@ -28,9 +28,16 @@ final class ${context.subclass} extends ${context.base} {
 
     private final static InnerHtml INNER_HTML = GWT.create(InnerHtml.class);
     </#if>
+    <#list context.abstractProperties as abstractProperty>
+    private final ${abstractProperty.type} ${abstractProperty.field};
+    </#list>
     private final Element ${context.root.member};
 
-    ${context.subclass} () {
+    ${context.subclass}(<#list context.abstractProperties as abstractProperty>${abstractProperty.type} ${abstractProperty.field}<#if abstractProperty_has_next>, </#if></#list>) {
+        <#list context.abstractProperties as abstractProperty>
+        this.${abstractProperty.field} = ${abstractProperty.field};
+        </#list>
+
         this.${context.root.member} = Browser.getDocument().createElement("${context.root.tag}");
         <#list context.root.attributes as attribute>
         this.${context.root.member}.setAttribute("${attribute.key}", "${attribute.value}");
@@ -80,4 +87,12 @@ final class ${context.subclass} extends ${context.base} {
     public Element asElement() {
         return ${context.root.member};
     }
+    <#-- Abstract properties -->
+    <#list context.abstractProperties as abstractProperty>
+
+    @Override
+    ${abstractProperty.modifier}${abstractProperty.type} ${abstractProperty.method}() {
+        return ${abstractProperty.field};
+    }
+    </#list>
 }

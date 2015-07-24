@@ -503,7 +503,7 @@ public final class Elements {
             assertCurrent();
 
             Element element = elements.peek().element;
-            type.registrar().register(element, listener);
+            type.register(element, listener);
             return this;
         }
 

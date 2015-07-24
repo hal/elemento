@@ -36,6 +36,7 @@ public class FreemarkerContext {
     private List<DataElementInfo> dataElements;
     private List<PostConstructInfo> postConstructs;
     private List<EventHandlerInfo> eventHandler;
+    private List<AbstractPropertyInfo> abstractProperties;
 
     public FreemarkerContext(final String pkg, final String base, final String subclass) {
         this.pkg = pkg;
@@ -91,5 +92,13 @@ public class FreemarkerContext {
 
     public List<EventHandlerInfo> getEventHandler() {
         return eventHandler;
+    }
+
+    public void setAbstractProperties(final List<AbstractPropertyInfo> abstractProperties) {
+        this.abstractProperties = abstractProperties;
+    }
+
+    public List<AbstractPropertyInfo> getAbstractProperties() {
+        return abstractProperties;
     }
 }

@@ -79,7 +79,7 @@ public enum EventType {
 
     EventType(final EventRegistrar registrar) {this.registrar = registrar;}
 
-    public EventRegistrar registrar() {
-        return registrar;
+    public void register(Element element, EventListener listener) {
+        registrar.register(element, listener);
     }
 }

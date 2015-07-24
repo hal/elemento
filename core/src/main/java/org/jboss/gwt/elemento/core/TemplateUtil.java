@@ -90,6 +90,6 @@ public final class TemplateUtil {
         if (element == null) {
             throw new NullPointerException("Element must not be null in TemplateUtils.registerEventHandler()");
         }
-        type.registrar().register(element, handler);
+        type.register(element, handler);
     }
 }
