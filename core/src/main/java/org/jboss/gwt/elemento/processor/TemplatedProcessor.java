@@ -34,12 +34,15 @@ import com.google.common.escape.Escaper;
 import com.google.common.escape.Escapers;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
+import elemental.events.Event;
 import org.jboss.auto.AbstractProcessor;
 import org.jboss.gwt.elemento.core.DataElement;
+import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo.Kind;
+import org.jboss.gwt.elemento.processor.context.EventHandlerInfo;
 import org.jboss.gwt.elemento.processor.context.FreemarkerContext;
 import org.jboss.gwt.elemento.processor.context.PostConstructInfo;
 import org.jboss.gwt.elemento.processor.context.RootElementInfo;
@@ -59,6 +62,7 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
@@ -185,6 +189,8 @@ public class TemplatedProcessor extends AbstractProcessor {
         context.setDataElements(dataElements);
 
         // find and verify all @EventHandler methods
+        List<EventHandlerInfo> eventHandler = processEventHandler(type, templateSelector, root);
+        context.setEventHandler(eventHandler);
 
         // find and verify all @PostConstruct methods
         List<PostConstructInfo> postConstructs = processPostConstruct(type);
@@ -283,7 +289,8 @@ public class TemplatedProcessor extends AbstractProcessor {
                     }
 
                     // verify the selector
-                    String selector = verifySelector(field, templateSelector, root);
+                    String selector = getSelector(field);
+                    verifySelector(selector, field, templateSelector, root);
 
                     // create info class for template processing
                     String typeName = MoreTypes.asTypeElement(typeUtils, field.asType()).getQualifiedName().toString();
@@ -314,7 +321,8 @@ public class TemplatedProcessor extends AbstractProcessor {
                     }
 
                     // verify the selector
-                    String selector = verifySelector(method, templateSelector, root);
+                    String selector = getSelector(method);
+                    verifySelector(selector, method, templateSelector, root);
 
                     // create info class for template processing
                     String typeName = MoreTypes.asTypeElement(typeUtils, method.getReturnType()).getQualifiedName()
@@ -340,8 +348,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         }
     }
 
-    private String verifySelector(Element element, TemplateSelector templateSelector,
-            org.jsoup.nodes.Element root) {
+    private String getSelector(Element element) {
         String selector = null;
 
         Optional<AnnotationMirror> annotationMirror = MoreElements
@@ -353,8 +360,12 @@ public class TemplatedProcessor extends AbstractProcessor {
                 selector = String.valueOf(values.values().iterator().next().getValue());
             }
         }
+        return Strings.emptyToNull(selector) == null ? element.getSimpleName().toString() : selector;
+    }
+
+    private void verifySelector(String selector, Element element, TemplateSelector templateSelector,
+            org.jsoup.nodes.Element root) {
         // make sure to use the same logic for finding matching elements as in TemplateUtils!
-        selector = Strings.emptyToNull(selector) == null ? element.getSimpleName().toString() : selector;
         Elements elements = root.getElementsByAttributeValue("data-element", selector);
         if (elements.isEmpty()) {
             abortWithError(element,
@@ -365,7 +376,6 @@ public class TemplatedProcessor extends AbstractProcessor {
                     "Found %d matching elements in %s using \"[data-element=%s]\" as selector. Only the first will be used.",
                     elements.size(), templateSelector, selector);
         }
-        return selector;
     }
 
 
@@ -373,33 +383,95 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     private List<PostConstructInfo> processPostConstruct(TypeElement type) {
         List<PostConstructInfo> postConstructs = new ArrayList<>();
-        List<ExecutableElement> methods = ElementFilter.methodsIn(type.getEnclosedElements());
-        for (ExecutableElement method : methods) {
-            if (MoreElements.isAnnotationPresent(method, PostConstruct.class)) {
 
-                // verify method
-                if (method.getModifiers().contains(Modifier.PRIVATE)) {
-                    abortWithError(method, "@%s method must not be private", PostConstruct.class.getSimpleName());
-                }
-                if (method.getModifiers().contains(Modifier.STATIC)) {
-                    abortWithError(method, "@%s method must not be static", PostConstruct.class.getSimpleName());
-                }
-                if (!method.getReturnType().equals(typeUtils.getNoType(TypeKind.VOID))) {
-                    abortWithError(method, "@%s method must return void", PostConstruct.class.getSimpleName());
-                }
-                if (!method.getParameters().isEmpty()) {
-                    abortWithError(method, "@%s method must not have parameters", PostConstruct.class.getSimpleName());
-                }
+        ElementFilter.methodsIn(type.getEnclosedElements()).stream()
+                .filter(method -> MoreElements.isAnnotationPresent(method, PostConstruct.class))
+                .forEach(method -> {
 
-                postConstructs.add(new PostConstructInfo(method.getSimpleName().toString()));
-            }
-        }
+                    // verify method
+                    if (method.getModifiers().contains(Modifier.PRIVATE)) {
+                        abortWithError(method, "@%s method must not be private", PostConstruct.class.getSimpleName());
+                    }
+                    if (method.getModifiers().contains(Modifier.STATIC)) {
+                        abortWithError(method, "@%s method must not be static", PostConstruct.class.getSimpleName());
+                    }
+                    if (!method.getReturnType().equals(typeUtils.getNoType(TypeKind.VOID))) {
+                        abortWithError(method, "@%s method must return void", PostConstruct.class.getSimpleName());
+                    }
+                    if (!method.getParameters().isEmpty()) {
+                        abortWithError(method, "@%s method must not have parameters",
+                                PostConstruct.class.getSimpleName());
+                    }
+
+                    postConstructs.add(new PostConstructInfo(method.getSimpleName().toString()));
+                });
 
         if (postConstructs.size() > 1) {
             warning(type, "%d methods annotated with @%s found. Order is not guaranteed!", postConstructs.size(),
                     PostConstruct.class.getSimpleName());
         }
         return postConstructs;
+    }
+
+
+    // ------------------------------------------------------ process @EventHandler
+
+    private List<EventHandlerInfo> processEventHandler(final TypeElement type, TemplateSelector templateSelector,
+            org.jsoup.nodes.Element root) {
+        List<EventHandlerInfo> eventHandler = new ArrayList<>();
+
+        ElementFilter.methodsIn(type.getEnclosedElements()).stream()
+                .filter(method -> MoreElements.isAnnotationPresent(method, EventHandler.class))
+                .forEach(method -> {
+
+                    // verify method
+                    if (method.getModifiers().contains(Modifier.PRIVATE)) {
+                        abortWithError(method, "@%s method must not be private", EventHandler.class.getSimpleName());
+                    }
+                    if (method.getModifiers().contains(Modifier.STATIC)) {
+                        abortWithError(method, "@%s method must not be static", EventHandler.class.getSimpleName());
+                    }
+                    if (!method.getReturnType().equals(typeUtils.getNoType(TypeKind.VOID))) {
+                        abortWithError(method, "@%s method must return void", EventHandler.class.getSimpleName());
+                    }
+                    if (method.getParameters().size() != 1) {
+                        abortWithError(method, "@%s method must have one parameter of type %s",
+                                EventHandler.class.getSimpleName(), Event.class.getName());
+                    }
+                    VariableElement parameter = method.getParameters().get(0);
+                    if (!parameter.asType().toString().equals(elemental.events.Event.class.getName())) {
+                        abortWithError(method, "@%s method must have one parameter of type %s",
+                                EventHandler.class.getSimpleName(), Event.class.getName());
+                    }
+
+                    String selector = null;
+                    String eventType = null;
+                    Optional<AnnotationMirror> annotationMirror = MoreElements
+                            .getAnnotationMirror(method, EventHandler.class);
+                    if (annotationMirror.isPresent()) {
+                        Map<? extends ExecutableElement, ? extends AnnotationValue> values = elementUtils
+                                .getElementValuesWithDefaults(annotationMirror.get());
+                        for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : values
+                                .entrySet()) {
+                            if (String.valueOf(entry.getKey()).equals("element()")) {
+                                selector = String.valueOf(entry.getValue().getValue());
+                            } else if (String.valueOf(entry.getKey()).equals("on()")) {
+                                eventType = String.valueOf(entry.getValue());
+                            }
+                        }
+                        if (Strings.emptyToNull(selector) == null || Strings.emptyToNull(eventType) == null) {
+                            abortWithError(method, "Required values missing on @%s annotation",
+                                    EventHandler.class.getSimpleName());
+                        }
+                        verifySelector(selector, method, templateSelector, root);
+                        eventHandler.add(new EventHandlerInfo(method.getSimpleName().toString(), selector, eventType));
+
+                    } else {
+                        abortWithError(method, "No @%s annotation found", EventHandler.class.getSimpleName());
+                    }
+                });
+
+        return eventHandler;
     }
 
 

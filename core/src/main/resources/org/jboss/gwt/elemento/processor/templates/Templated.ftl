@@ -8,8 +8,8 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
 import elemental.client.Browser;
 import elemental.dom.Element;
-<#if (context.dataElements?size > 0)>
-import org.jboss.gwt.elemento.core.TemplateUtils;
+<#if (context.dataElements?size > 0 || context.eventHandler?size > 0)>
+import org.jboss.gwt.elemento.core.TemplateUtil;
 </#if>
 
 import javax.annotation.Generated;
@@ -43,30 +43,33 @@ final class ${context.subclass} extends ${context.base} {
             <#-- Element -->
             <#if dataElement.kind.name() == "Element">
                 <#if dataElement.returnedByMethod>
-        TemplateUtils.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name}());
+        TemplateUtil.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name}());
                 <#else>
         if (this.${dataElement.name} == null) {
                     <#if dataElement.needsCast()>
-            this.${dataElement.name} = TemplateUtils.<${dataElement.type}>resolveElementAs(${context.root.member}, "${dataElement.selector}");
+            this.${dataElement.name} = TemplateUtil.<${dataElement.type}>resolveElementAs(${context.root.member}, "${dataElement.selector}");
                     <#else>
-            this.${dataElement.name} = TemplateUtils.resolveElement(${context.root.member}, "${dataElement.selector}");
+            this.${dataElement.name} = TemplateUtil.resolveElement(${context.root.member}, "${dataElement.selector}");
                     </#if>
         } else {
-            TemplateUtils.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name});
+            TemplateUtil.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name});
         }
                 </#if>
             <#-- IsElement -->
             <#elseif dataElement.kind.name() == "IsElement">
-        TemplateUtils.replaceIsElement(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
+        TemplateUtil.replaceIsElement(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
             <#-- Widget -->
             <#elseif dataElement.kind.name() == "Widget">
-        TemplateUtils.replaceWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
+        TemplateUtil.replaceWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
             <#-- IsElement -->
             <#elseif dataElement.kind.name() == "IsWidget">
-        TemplateUtils.replaceIsWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
+        TemplateUtil.replaceIsWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
             </#if>
         </#list>
         <#-- @EventHandler -->
+        <#list context.eventHandler as handler>
+        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, this::${handler.method});
+        </#list>
         <#-- @PostConstruct -->
         <#list context.postConstructs as postConstruct>
         ${postConstruct.name}();

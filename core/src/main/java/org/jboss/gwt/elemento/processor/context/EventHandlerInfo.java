@@ -19,22 +19,37 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.core;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package org.jboss.gwt.elemento.processor.context;
 
 /**
  * @author Harald Pehl
  */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface EventHandler {
+public class EventHandlerInfo {
 
-    String element();
-    EventType on();
+    private final String method;
+    private final String selector;
+    private final String eventType;
+
+    public EventHandlerInfo(final String method, final String selector, final String eventType) {
+        this.method = method;
+        this.selector = selector;
+        this.eventType = eventType;
+    }
+
+    @Override
+    public String toString() {
+        return "@EventHandler(" + selector + ", " + eventType + ") -> " + method + "(event)";
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public String getSelector() {
+        return selector;
+    }
+
+    public String getEventType() {
+        return eventType;
+    }
 }

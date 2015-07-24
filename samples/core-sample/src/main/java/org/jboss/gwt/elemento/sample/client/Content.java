@@ -28,6 +28,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.IsWidget;
 import elemental.dom.Element;
+import elemental.events.Event;
 import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.EventHandler;
@@ -35,6 +36,8 @@ import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 
 import javax.annotation.PostConstruct;
+
+import static org.jboss.gwt.elemento.core.EventType.click;
 
 /**
  * @author Harald Pehl
@@ -111,8 +114,8 @@ public abstract class Content implements IsElement {
         turnToGreen.getStyle().setColor("#339933");
     }
 
-    @EventHandler
-    void onSayHello() {
+    @EventHandler(element = "sayHello", on = click)
+    void onSayHello(Event event) {
         Window.alert("Hello!");
     }
 }

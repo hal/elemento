@@ -21,20 +21,41 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 /**
- * @author Harald Pehl
+ * Known input types used in {@link Elements.Builder#input(InputType)}. If not otherwise specified the created element
+ * is a simple element and cannot contain nested elements.
  */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface EventHandler {
-
-    String element();
-    EventType on();
+public enum InputType {
+    /**
+     * Starts a button element (must be closed using {@link Elements.Builder#end()})
+     */
+    button,
+    checkbox,
+    color,
+    date,
+    datetime,
+    email,
+    file,
+    hidden,
+    image,
+    month,
+    number,
+    password,
+    radio,
+    range,
+    reset,
+    search,
+    /**
+     * Starts a select element (must be closed using {@link Elements.Builder#end()})
+     */
+    select,
+    tel,
+    text,
+    /**
+     * Starts a textarea element (must be closed using {@link Elements.Builder#end()})
+     */
+    textarea,
+    time,
+    url,
+    week
 }
