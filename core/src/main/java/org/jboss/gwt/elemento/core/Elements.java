@@ -21,7 +21,6 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import com.google.common.collect.Lists;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -33,6 +32,7 @@ import elemental.events.EventListener;
 import elemental.html.InputElement;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -271,13 +271,13 @@ public final class Elements {
             while (elements.peek().level == level) {
                 children.add(elements.pop());
             }
-            List<ElementInfo> stackOrder = Lists.reverse(children);
+            Collections.reverse(children);
 
             if (!elements.peek().container) {
                 throw new IllegalStateException("Closing element " + elements.peek().element + " is no container");
             }
             Element closingElement = elements.peek().element;
-            for (ElementInfo child : stackOrder) {
+            for (ElementInfo child : children) {
                 closingElement.appendChild(child.element);
             }
 

@@ -61,6 +61,7 @@
         <dependency>
             <groupId>com.google.auto.service</groupId>
             <artifactId>auto-service</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -73,6 +74,29 @@
                 <configuration>
                     <moduleName>org.jboss.gwt.elemento.Core</moduleName>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>com.google.code.findbugs:*</exclude>
+                                    <exclude>com.google.guava:*</exclude>
+                                    <exclude>com.google.gwt:*</exclude>
+                                    <exclude>javax.validation:*</exclude>
+                                </excludes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
