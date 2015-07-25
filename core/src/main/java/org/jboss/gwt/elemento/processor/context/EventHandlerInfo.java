@@ -29,16 +29,19 @@ public class EventHandlerInfo {
     private final String method;
     private final String selector;
     private final String eventType;
+    private final boolean eventParameter;
 
-    public EventHandlerInfo(final String method, final String selector, final String eventType) {
+    public EventHandlerInfo(final String method, final String selector, final String eventType,
+            final boolean eventParameter) {
         this.method = method;
         this.selector = selector;
         this.eventType = eventType;
+        this.eventParameter = eventParameter;
     }
 
     @Override
     public String toString() {
-        return "@EventHandler(" + selector + ", " + eventType + ") -> " + method + "(event)";
+        return "@EventHandler(" + selector + ", " + eventType + ") -> " + method + "(" + (eventParameter ? "event" : "") + ")";
     }
 
     public String getMethod() {
@@ -51,5 +54,9 @@ public class EventHandlerInfo {
 
     public String getEventType() {
         return eventType;
+    }
+
+    public boolean isEventParameter() {
+        return eventParameter;
     }
 }

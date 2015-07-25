@@ -75,7 +75,11 @@ final class ${context.subclass} extends ${context.base} {
         </#list>
         <#-- @EventHandler -->
         <#list context.eventHandler as handler>
+        <#if handler.eventParameter>
         TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, this::${handler.method});
+        <#else>
+        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, (event) -> ${handler.method}());
+        </#if>
         </#list>
         <#-- @PostConstruct -->
         <#list context.postConstructs as postConstruct>

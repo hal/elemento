@@ -470,14 +470,18 @@ public class TemplatedProcessor extends AbstractProcessor {
                     if (!method.getReturnType().equals(typeUtils.getNoType(TypeKind.VOID))) {
                         abortWithError(method, "@%s method must return void", EventHandler.class.getSimpleName());
                     }
-                    if (method.getParameters().size() != 1) {
-                        abortWithError(method, "@%s method must have one parameter of type %s",
-                                EventHandler.class.getSimpleName(), Event.class.getName());
-                    }
-                    VariableElement parameter = method.getParameters().get(0);
-                    if (!parameter.asType().toString().equals(elemental.events.Event.class.getName())) {
-                        abortWithError(method, "@%s method must have one parameter of type %s",
-                                EventHandler.class.getSimpleName(), Event.class.getName());
+                    boolean eventParameter = false;
+                    if (!method.getParameters().isEmpty()) {
+                        if (method.getParameters().size() != 1) {
+                            abortWithError(method, "@%s method must have one parameter of type %s",
+                                    EventHandler.class.getSimpleName(), Event.class.getName());
+                        }
+                        VariableElement parameter = method.getParameters().get(0);
+                        if (!parameter.asType().toString().equals(elemental.events.Event.class.getName())) {
+                            abortWithError(method, "@%s method must have one parameter of type %s",
+                                    EventHandler.class.getSimpleName(), Event.class.getName());
+                        }
+                        eventParameter = true;
                     }
 
                     String selector = null;
@@ -500,7 +504,8 @@ public class TemplatedProcessor extends AbstractProcessor {
                                     EventHandler.class.getSimpleName());
                         }
                         verifySelector(selector, method, templateSelector, root);
-                        eventHandler.add(new EventHandlerInfo(method.getSimpleName().toString(), selector, eventType));
+                        eventHandler.add(new EventHandlerInfo(method.getSimpleName().toString(), selector, eventType,
+                                eventParameter));
 
                     } else {
                         abortWithError(method, "No @%s annotation found", EventHandler.class.getSimpleName());
@@ -549,7 +554,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     }
 
     private String nameWithoutPrefix(String name) {
-        String withoutPrefix = name;
+        String withoutPrefix;
         if (name.startsWith("get") && !name.equals("get")) {
             withoutPrefix = name.substring(3);
         } else {
