@@ -556,6 +556,20 @@ public final class Elements {
     // ------------------------------------------------------ element helper methods
 
     /**
+     * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
+     */
+    public static Element dataElement(String name) {
+        return Browser.getDocument().querySelector("[data-element=" + name + "]");
+    }
+
+    /**
+     * Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]}
+     */
+    public static Element dataElement(Element context, String name) {
+        return context.querySelector("[data-element=" + name + "]");
+    }
+
+    /**
      * Removes all child elements from {@code element}
      */
     public static void removeChildrenFrom(final Element element) {
@@ -572,7 +586,6 @@ public final class Elements {
 
 
     // ------------------------------------------------------ conversions
-
 
     private static class ElementWidget extends Widget {
 
