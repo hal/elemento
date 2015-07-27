@@ -29,26 +29,25 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.0.2</version>
+        <version>0.0.3</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
     <name>Elemento :: Samples</name>
+    <description>GWT sample applications using different aspects of Elemento</description>
     <packaging>pom</packaging>
 
+    <properties>
+        <nodejs.version>v0.12.5</nodejs.version>
+        <npm.version>2.11.2</npm.version>
+        <plugin.version.frontend>0.0.23</plugin.version.frontend>
+    </properties>
+
     <modules>
-        <module>core-sample</module>
+        <module>builder</module>
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>elemento-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>elemento-gin</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-dev</artifactId>
@@ -62,8 +61,20 @@
             <artifactId>gwt-elemental</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.gwt.inject</groupId>
-            <artifactId>gin</artifactId>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>${plugin.version.frontend}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

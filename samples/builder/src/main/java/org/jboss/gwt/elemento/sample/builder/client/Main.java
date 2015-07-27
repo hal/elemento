@@ -19,44 +19,25 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor.context;
+package org.jboss.gwt.elemento.sample.builder.client;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.History;
+import elemental.client.Browser;
+import elemental.dom.Element;
 
 /**
  * @author Harald Pehl
  */
-public class EventHandlerInfo {
-
-    private final String method;
-    private final String selector;
-    private final String eventType;
-    private final boolean eventParameter;
-
-    public EventHandlerInfo(final String method, final String selector, final String eventType,
-            final boolean eventParameter) {
-        this.method = method;
-        this.selector = selector;
-        this.eventType = eventType;
-        this.eventParameter = eventParameter;
-    }
+public class Main implements EntryPoint {
 
     @Override
-    public String toString() {
-        return "@EventHandler(" + selector + ", " + eventType + ") -> " + method + "(" + (eventParameter ? "event" : "") + ")";
-    }
+    public void onModuleLoad() {
+        Todos todos = new Todos();
+        Element body = Browser.getDocument().getBody();
+        body.insertBefore(todos.asElement(), body.getFirstElementChild());
 
-    public String getMethod() {
-        return method;
-    }
-
-    public String getSelector() {
-        return selector;
-    }
-
-    public String getEventType() {
-        return eventType;
-    }
-
-    public boolean isEventParameter() {
-        return eventParameter;
+        History.addValueChangeHandler(event -> todos.filter(event.getValue()));
+        History.fireCurrentHistoryState();
     }
 }

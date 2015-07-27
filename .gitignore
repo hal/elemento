@@ -7,5 +7,6 @@
 .classpath
 out
 target
+dependency-reduced-pom.xml
 gwt-unitCache
 hs_err*

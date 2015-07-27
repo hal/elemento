@@ -19,44 +19,54 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor.context;
+package org.jboss.gwt.elemento.core;
+
+import elemental.dom.Element;
+import elemental.html.HTMLCollection;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * @author Harald Pehl
  */
-public class EventHandlerInfo {
+public class ChildrenIterator implements Iterator<Element> {
 
-    private final String method;
-    private final String selector;
-    private final String eventType;
-    private final boolean eventParameter;
+    private final Element parent;
+    private final HTMLCollection children;
+    private int size;
+    private int index;
 
-    public EventHandlerInfo(final String method, final String selector, final String eventType,
-            final boolean eventParameter) {
-        this.method = method;
-        this.selector = selector;
-        this.eventType = eventType;
-        this.eventParameter = eventParameter;
+    public ChildrenIterator(final Element parent) {
+        this.parent = parent;
+        this.children = parent.getChildren();
+        this.size = children.getLength();
+        this.index = 0;
+    }
+
+
+    @Override
+    public boolean hasNext() {
+        return index < size;
     }
 
     @Override
-    public String toString() {
-        return "@EventHandler(" + selector + ", " + eventType + ") -> " + method + "(" + (eventParameter ? "event" : "") + ")";
+    public Element next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        Element child = (Element) children.item(index);
+        index++;
+        return child;
     }
 
-    public String getMethod() {
-        return method;
-    }
-
-    public String getSelector() {
-        return selector;
-    }
-
-    public String getEventType() {
-        return eventType;
-    }
-
-    public boolean isEventParameter() {
-        return eventParameter;
+    @Override
+    public void remove() {
+        if (index == 0) {
+            throw new IllegalStateException();
+        }
+        index--;
+        parent.removeChild(children.item(index));
+        size = children.getLength();
     }
 }

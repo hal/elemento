@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JBoss, Home of Professional Open Source.
+  ~ Copyright 2010, Red Hat, Inc., and individual contributors
+  ~ as indicated by the @author tags. See the copyright.txt file in the
+  ~ distribution for a full listing of individual contributors.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.gwt.elemento</groupId>
+        <artifactId>elemento-samples</artifactId>
+        <version>0.0.3</version>
+    </parent>
+
+    <artifactId>builder-todo-sample</artifactId>
+    <name>Elemento :: Samples :: Builder</name>
+    <packaging>gwt-app</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-elemental</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <workingDirectory>src/main/resources/org/jboss/gwt/elemento/sample/builder/public</workingDirectory>
+                            <nodeVersion>${nodejs.version}</nodeVersion>
+                            <npmVersion>${npm.version}</npmVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <workingDirectory>src/main/resources/org/jboss/gwt/elemento/sample/builder/public</workingDirectory>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <compilerArg>-XjsInteropMode</compilerArg>
+                        <compilerArg>JS</compilerArg>
+                        <compilerArg>-gen</compilerArg>
+                        <compilerArg>${project.build.directory}/generated-sources/gwt</compilerArg>
+                    </compilerArgs>
+                    <devmodeArgs>
+                        <devmodeArg>-startupUrl</devmodeArg>
+                        <devmodeArg>builder/index.html</devmodeArg>
+                        <devmodeArg>-incremental</devmodeArg>
+                        <devmodeArg>-XjsInteropMode</devmodeArg>
+                        <devmodeArg>JS</devmodeArg>
+                    </devmodeArgs>
+                    <draftCompile>true</draftCompile>
+                    <logLevel>INFO</logLevel>
+                    <moduleName>org.jboss.gwt.elemento.sample.builder.BuilderTodoSample</moduleName>
+                    <moduleShortName>builder</moduleShortName>
+                    <sourceLevel>1.8</sourceLevel>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
