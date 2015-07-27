@@ -100,6 +100,11 @@
             <!-- GWT related -->
             <dependency>
                 <groupId>com.google.gwt</groupId>
+                <artifactId>gwt-dev</artifactId>
+                <version>${gwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.gwt</groupId>
                 <artifactId>gwt-user</artifactId>
                 <version>${gwt.version}</version>
             </dependency>
@@ -192,4 +197,17 @@
             </modules>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>google-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>

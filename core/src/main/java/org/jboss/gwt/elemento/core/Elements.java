@@ -34,6 +34,7 @@ import elemental.html.InputElement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -185,56 +186,84 @@ public final class Elements {
         // ------------------------------------------------------ container elements
 
         /**
-         * Starts a new heading container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;header&gt;} container. The element must be closed with {@link #end()}.
+         */
+        public Builder header() {
+            return start("header");
+        }
+
+        /**
+         * Starts a new {@code &lt;h&amp;&gt;}  container. The element must be closed with {@link #end()}.
          */
         public Builder h(int ordinal) {
             return start("h" + ordinal);
         }
 
         /**
-         * Starts a new paragraph container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;section&gt;} container. The element must be closed with {@link #end()}.
+         */
+        public Builder section() {
+            return start(document.createElement("section"));
+        }
+
+        /**
+         * Starts a new {@code &lt;aside&gt;} container. The element must be closed with {@link #end()}.
+         */
+        public Builder aside() {
+            return start(document.createElement("aside"));
+        }
+
+        /**
+         * Starts a new {@code &lt;footer&gt;} container. The element must be closed with {@link #end()}.
+         */
+        public Builder footer() {
+            return start(document.createElement("footer"));
+        }
+
+        /**
+         * Starts a new {@code &lt;p&gt;} container. The element must be closed with {@link #end()}.
          */
         public Builder p() {
             return start(document.createElement("p"));
         }
 
         /**
-         * Starts a new ordered list container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;ol&gt;} container. The element must be closed with {@link #end()}.
          */
         public Builder ol() {
             return start(document.createElement("ol"));
         }
 
         /**
-         * Starts a new unordered list container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;ul&gt;} container. The element must be closed with {@link #end()}.
          */
         public Builder ul() {
             return start(document.createElement("ul"));
         }
 
         /**
-         * Starts a new list container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;li&gt;} container. The element must be closed with {@link #end()}.
          */
         public Builder li() {
             return start(document.createLIElement());
         }
 
         /**
-         * Starts a new anchor container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;a&gt;} container. The element must be closed with {@link #end()}.
          */
         public Builder a() {
             return start(document.createElement("a"));
         }
 
         /**
-         * Starts a new div container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;div&gt;} container. The element must be closed with {@link #end()}.
          */
         public Builder div() {
             return start(document.createDivElement());
         }
 
         /**
-         * Starts a new span container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;span&gt;} container. The element must be closed with {@link #end()}.
          */
         public Builder span() {
             return start(document.createSpanElement());
@@ -555,6 +584,27 @@ public final class Elements {
 
     // ------------------------------------------------------ element helper methods
 
+    public static Iterator<Element> iterator(Element parent) {
+        return new ChildrenIterator(parent);
+    }
+
+    public static Iterable<Element> children(Element parent) {
+        return () -> iterator(parent);
+    }
+
+    public static void innerHtml(Element element, SafeHtml html) {
+        element.setInnerHTML(html.asString());
+    }
+
+    /**
+     * Removes all child elements from {@code element}
+     */
+    public static void removeChildrenFrom(final Element element) {
+        while (element.getFirstChild() != null) {
+            element.removeChild(element.getFirstChild());
+        }
+    }
+
     /**
      * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
      */
@@ -569,23 +619,13 @@ public final class Elements {
         return context.querySelector("[data-element=" + name + "]");
     }
 
-    /**
-     * Removes all child elements from {@code element}
-     */
-    public static void removeChildrenFrom(final Element element) {
-        if (element != null) {
-            while (element.getFirstChild() != null) {
-                element.removeChild(element.getFirstChild());
-            }
-        }
-    }
-
     public static void setVisible(Element element, boolean visible) {
         element.getStyle().setDisplay(visible ? "" : "none");
     }
 
 
     // ------------------------------------------------------ conversions
+
 
     private static class ElementWidget extends Widget {
 
@@ -599,7 +639,7 @@ public final class Elements {
     }
 
     public static Widget asWidget(Element element) {
-        return new ElementWidget(element).asWidget();
+        return new ElementWidget(element);
     }
 
     public static Element asElement(IsWidget widget) {
