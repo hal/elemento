@@ -48,7 +48,7 @@ import static org.jboss.gwt.elemento.sample.templated.client.Filter.COMPLETED;
 abstract class ApplicationElement implements IsElement {
 
     static ApplicationElement create(TodoItemRepository repository, TodoMessages messages) {
-        return new Templated_AppElement(repository, messages);
+        return new Templated_ApplicationElement(repository, messages);
     }
 
     abstract TodoItemRepository repository();
