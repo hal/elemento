@@ -99,7 +99,6 @@ class Item implements IsElement {
             li.getClassList().remove("editing");
 
         } else if (keyboardEvent.getKeyCode() == ENTER) {
-            escape = false;
             blur();
         }
     }

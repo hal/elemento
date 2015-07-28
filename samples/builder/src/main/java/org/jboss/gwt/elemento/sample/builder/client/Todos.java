@@ -42,13 +42,6 @@ import static org.jboss.gwt.elemento.sample.builder.client.Todos.Filter.*;
 
 class Todos implements IsElement {
 
-    interface CountHtml extends SafeHtmlTemplates {
-
-        @SafeHtmlTemplates.Template("<strong>{0}</strong> {1} left")
-        SafeHtml items(int items, String text);
-    }
-
-
     enum Filter {
         ALL("#/"), ACTIVE("#/active"), COMPLETED("#/completed");
 
@@ -82,6 +75,13 @@ class Todos implements IsElement {
                 }
             }
         }
+    }
+
+
+    interface CountHtml extends SafeHtmlTemplates {
+
+        @SafeHtmlTemplates.Template("<strong>{0}</strong> {1} left")
+        SafeHtml items(int items, String text);
     }
 
 

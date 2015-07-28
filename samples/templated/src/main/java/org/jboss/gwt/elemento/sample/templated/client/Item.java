@@ -89,7 +89,6 @@ abstract class Item implements IsElement {
             asElement().getClassList().remove("editing");
 
         } else if (keyboardEvent.getKeyCode() == ENTER) {
-            escape = false;
             blur();
         }
     }
