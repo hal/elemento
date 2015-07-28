@@ -45,6 +45,7 @@
 
     <modules>
         <module>builder</module>
+        <module>templated</module>
     </modules>
 
     <dependencies>

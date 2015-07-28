@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.sample.builder.client;
+package org.jboss.gwt.elemento.sample.templated.client;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.safehtml.client.SafeHtmlTemplates;
@@ -29,18 +29,22 @@ import elemental.events.Event;
 import elemental.events.KeyboardEvent;
 import elemental.html.ButtonElement;
 import elemental.html.InputElement;
+import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.Elements;
+import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.core.Templated;
 
+import javax.annotation.PostConstruct;
 import java.util.Iterator;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static org.jboss.gwt.elemento.core.EventType.*;
-import static org.jboss.gwt.elemento.core.InputType.checkbox;
-import static org.jboss.gwt.elemento.core.InputType.text;
-import static org.jboss.gwt.elemento.sample.builder.client.Todos.Filter.*;
+import static org.jboss.gwt.elemento.sample.templated.client.Todos.Filter.ACTIVE;
+import static org.jboss.gwt.elemento.sample.templated.client.Todos.Filter.COMPLETED;
 
-class Todos implements IsElement {
+@Templated("Todos.html#todos")
+abstract class Todos implements IsElement {
 
     interface CountHtml extends SafeHtmlTemplates {
 
@@ -50,21 +54,7 @@ class Todos implements IsElement {
 
 
     enum Filter {
-        ALL("#/"), ACTIVE("#/active"), COMPLETED("#/completed");
-
-        private final String fragment;
-
-        Filter(final String fragment) {
-            this.fragment = fragment;
-        }
-
-        String fragment() {
-            return fragment;
-        }
-
-        String filter() {
-            return name().toLowerCase();
-        }
+        ALL, ACTIVE, COMPLETED;
 
         public static Filter parseToken(final String token) {
             if (token == null) {
@@ -87,93 +77,43 @@ class Todos implements IsElement {
 
     static final CountHtml COUNT_HTML = GWT.create(CountHtml.class);
 
-    private final Element root;
-    private final InputElement newTodo;
-    private final Element main;
-    private final InputElement toggleAll;
-    private final Element list;
-    private final Element footer;
-    private final Element count;
-    private final Element filterAll;
-    private final Element filterActive;
-    private final Element filterCompleted;
-    private final ButtonElement clearCompleted;
-    private Filter filter;
+    static Todos create() {
+        return new Templated_Todos();
+    }
 
-    Todos() {
-        // @formatter:off
-        Elements.Builder builder = new Elements.Builder()
-        .start("section").css("todoapp")
-            .header().css("header")
-                .h(1).innerText("todos").end()
-                .input(text)
-                    .on(keydown, this::newTodo)
-                    .rememberAs("newTodo")
-                    .css("new-todo")
-                    .attr("placeholder", "What needs to be done?")
-                    .attr("autofocus", "autofocus")
-            .end()
-            .section().css("main").rememberAs("main")
-                .input(checkbox).on(change, event -> toggleAll()).css("toggle-all").id("toggle-all").rememberAs("toggleAll")
-                .label().attr("for", "toggle-all").innerText("Mark all as complete").end()
-                .ul().css("todo-list").rememberAs("list").end()
-            .end()
-            .footer().css("footer").rememberAs("footer")
-                .span().css("todo-count").rememberAs("count").innerHtml(COUNT_HTML.items(0, "items")).end()
-                .ul().css("filters")
-                    .li()
-                        .a().attr("href", ALL.fragment()).innerText("All").rememberAs(ALL.filter()).end()
-                    .end()
-                    .li()
-                        .a().attr("href", ACTIVE.fragment()).innerText("Active").rememberAs(ACTIVE.filter()).end()
-                    .end()
-                    .li()
-                        .a().attr("href", COMPLETED.fragment()).innerText("Completed").rememberAs(COMPLETED.filter()).end()
-                    .end()
-                .end()
-                .button().on(click, (event) -> clearCompleted()).css("clear-completed").rememberAs("clearCompleted")
-                    .innerText("Clear completed")
-                .end()
-            .end()
-        .end();
-        // @formatter:on
+    @DataElement InputElement newTodo;
+    @DataElement Element main;
+    @DataElement InputElement toggleAll;
+    @DataElement Element list;
+    @DataElement Element footer;
+    @DataElement Element count;
+    @DataElement("all") Element filterAll;
+    @DataElement("active") Element filterActive;
+    @DataElement("completed") Element filterCompleted;
+    @DataElement ButtonElement clearCompleted;
+    Filter filter;
 
-        this.root = builder.build();
-        this.newTodo = builder.referenceFor("newTodo");
-        this.main = builder.referenceFor("main");
-        this.toggleAll = builder.referenceFor("toggleAll");
-        this.list = builder.referenceFor("list");
-        this.footer = builder.referenceFor("footer");
-        this.count = builder.referenceFor("count");
-        this.filterAll = builder.referenceFor(ALL.filter());
-        this.filterActive = builder.referenceFor(ACTIVE.filter());
-        this.filterCompleted = builder.referenceFor(COMPLETED.filter());
-        this.clearCompleted = builder.referenceFor("clearCompleted");
-
+    @PostConstruct
+    void init() {
+        Elements.removeChildrenFrom(list);
         update();
     }
 
-    @Override
-    public Element asElement() {
-        return root;
-    }
-
-
-    // ------------------------------------------------------ event / token handler
-
-    private void newTodo(Event event) {
+    @EventHandler(element = "newTodo", on = keydown)
+    void newTodo(Event event) {
         KeyboardEvent keyboardEvent = (KeyboardEvent) event;
         if (keyboardEvent.getKeyCode() == ENTER) {
             String label = newTodo.getValue().trim();
             if (label.length() != 0) {
-                list.appendChild(new Item(this, label).asElement());
+                list.appendChild(Item.create(this, label).asElement());
                 newTodo.setValue("");
                 update();
             }
         }
     }
 
-    private void toggleAll() {
+    @EventHandler(element = "toggleAll", on = change)
+    void toggleAll() {
         boolean checked = toggleAll.isChecked();
         for (Element li : Elements.children(list)) {
             if (checked) {
@@ -187,7 +127,8 @@ class Todos implements IsElement {
         update();
     }
 
-    private void clearCompleted() {
+    @EventHandler(element = "clearCompleted", on = click)
+    void clearCompleted() {
         for (Iterator<Element> iterator = Elements.iterator(list); iterator.hasNext(); ) {
             Element li = iterator.next();
             if (li.getClassList().contains("completed")) {
@@ -218,9 +159,6 @@ class Todos implements IsElement {
         }
         update();
     }
-
-
-    // ------------------------------------------------------ state update
 
     void update() {
         int activeCount = 0;

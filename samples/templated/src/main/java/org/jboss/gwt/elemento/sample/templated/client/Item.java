@@ -19,84 +19,74 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.sample.builder.client;
+package org.jboss.gwt.elemento.sample.templated.client;
 
 import elemental.dom.Element;
 import elemental.events.Event;
 import elemental.events.KeyboardEvent;
 import elemental.html.InputElement;
-import org.jboss.gwt.elemento.core.Elements;
-import org.jboss.gwt.elemento.core.InputType;
+import org.jboss.gwt.elemento.core.DataElement;
+import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.core.Templated;
+
+import javax.annotation.PostConstruct;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
-import static org.jboss.gwt.elemento.core.InputType.checkbox;
 
-class Item implements IsElement {
+@Templated("Todos.html#item")
+abstract class Item implements IsElement {
 
-    private final Todos parent;
-    private final Element li;
-    private final InputElement toggle;
-    private final Element label;
-    private final InputElement input;
-    private boolean escape;
-
-    Item(Todos parent, String text) {
-        // @formatter:off
-        Elements.Builder builder = new Elements.Builder()
-        .li()
-            .div().css("view")
-                .input(checkbox).on(change, event -> toggle()).rememberAs("toggle").css("toggle")
-                .label().on(dblclick, (event) -> edit()).innerText(text).rememberAs("label").end()
-                .button().on(click, (event) -> destroy()).css("destroy").end()
-            .end()
-            .input(InputType.text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
-        .end();
-        // @formatter:on
-
-        this.parent = parent;
-        this.li = builder.build();
-        this.toggle = builder.referenceFor("toggle");
-        this.label = builder.referenceFor("label");
-        this.input = builder.referenceFor("input");
+    static Item create(Todos parent, String text) {
+        return new Templated_Item(parent, text);
     }
 
-    @Override
-    public Element asElement() {
-        return li;
+    abstract Todos parent();
+
+    abstract String text();
+
+    @DataElement InputElement toggle;
+    @DataElement Element label;
+    @DataElement InputElement input;
+    boolean escape;
+
+    @PostConstruct
+    void init() {
+        label.setInnerText(text());
     }
 
-
-    // ------------------------------------------------------ event handler
-
-    private void toggle() {
+    @EventHandler(element = "toggle", on = change)
+    void toggle() {
         if (toggle.isChecked()) {
-            li.getClassList().add("completed");
+            asElement().getClassList().add("completed");
         } else {
-            li.getClassList().remove("completed");
+            asElement().getClassList().remove("completed");
         }
-        parent.update();
+        parent().update();
     }
 
-    private void edit() {
+    @EventHandler(element = "label", on = dblclick)
+    void edit() {
         escape = false;
-        li.getClassList().add("editing");
+        asElement().getClassList().add("editing");
         input.setValue(label.getInnerText());
         input.focus();
     }
 
-    private void destroy() {
-        li.getParentElement().removeChild(li);
-        parent.update();
+    @EventHandler(element = "destroy", on = click)
+    void destroy() {
+        asElement().getParentElement().removeChild(asElement());
+        parent().update();
     }
 
-    private void keyDown(Event event) {
+    @EventHandler(element = "input", on = keydown)
+    void keyDown(final Event event) {
         KeyboardEvent keyboardEvent = (KeyboardEvent) event;
         if (keyboardEvent.getKeyCode() == ESC) {
             escape = true;
-            li.getClassList().remove("editing");
+            asElement().getClassList().remove("editing");
 
         } else if (keyboardEvent.getKeyCode() == ENTER) {
             escape = false;
@@ -104,12 +94,13 @@ class Item implements IsElement {
         }
     }
 
-    private void blur() {
+    @EventHandler(element = "input", on = blur)
+    void blur() {
         String value = input.getValue().trim();
         if (value.length() == 0) {
             destroy();
         } else {
-            li.getClassList().remove("editing");
+            asElement().getClassList().remove("editing");
             if (!escape) {
                 label.setInnerText(value);
             }

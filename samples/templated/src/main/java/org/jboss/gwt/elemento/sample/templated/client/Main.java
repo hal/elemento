@@ -19,7 +19,7 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.sample.builder.client;
+package org.jboss.gwt.elemento.sample.templated.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.History;
@@ -30,7 +30,7 @@ public class Main implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        Todos todos = new Todos();
+        Todos todos = Todos.create();
         Element body = Browser.getDocument().getBody();
         body.insertBefore(todos.asElement(), body.getFirstElementChild());
 

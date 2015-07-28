@@ -32,12 +32,57 @@
         <version>0.0.3</version>
     </parent>
 
-    <artifactId>builder-sample</artifactId>
-    <name>Elemento :: Samples :: Builder</name>
+    <artifactId>templated-sample</artifactId>
+    <name>Elemento :: Samples :: Templated</name>
     <packaging>gwt-app</packaging>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>process</id>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <!-- Uncomment to get more messages from the annotation processors -->
+                            <options>
+                                <debug>true</debug>
+                            </options>
+                            <defaultOutputDirectory>${project.build.directory}/generated-sources/annotations</defaultOutputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgument>-proc:none</compilerArgument>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/annotations</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
@@ -48,7 +93,8 @@
                             <goal>install-node-and-npm</goal>
                         </goals>
                         <configuration>
-                            <workingDirectory>src/main/resources/org/jboss/gwt/elemento/sample/builder/public</workingDirectory>
+                            <workingDirectory>src/main/resources/org/jboss/gwt/elemento/sample/templated/public
+                            </workingDirectory>
                             <nodeVersion>${nodejs.version}</nodeVersion>
                             <npmVersion>${npm.version}</npmVersion>
                         </configuration>
@@ -59,7 +105,8 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <workingDirectory>src/main/resources/org/jboss/gwt/elemento/sample/builder/public</workingDirectory>
+                            <workingDirectory>src/main/resources/org/jboss/gwt/elemento/sample/templated/public
+                            </workingDirectory>
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
@@ -77,15 +124,15 @@
                     </compilerArgs>
                     <devmodeArgs>
                         <devmodeArg>-startupUrl</devmodeArg>
-                        <devmodeArg>builder/index.html</devmodeArg>
+                        <devmodeArg>templated/index.html</devmodeArg>
                         <devmodeArg>-incremental</devmodeArg>
                         <devmodeArg>-XjsInteropMode</devmodeArg>
                         <devmodeArg>JS</devmodeArg>
                     </devmodeArgs>
                     <draftCompile>true</draftCompile>
                     <logLevel>INFO</logLevel>
-                    <moduleName>org.jboss.gwt.elemento.sample.builder.BuilderSample</moduleName>
-                    <moduleShortName>builder</moduleShortName>
+                    <moduleName>org.jboss.gwt.elemento.sample.templated.TemplatedSample</moduleName>
+                    <moduleShortName>templated</moduleShortName>
                     <sourceLevel>1.8</sourceLevel>
                 </configuration>
             </plugin>
