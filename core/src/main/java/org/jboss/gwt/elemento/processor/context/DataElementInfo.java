@@ -80,10 +80,6 @@ public class DataElementInfo {
     }
 
     public boolean needsCast() {
-        boolean needsCast = false;
-        if (kind == Kind.Element && !type.equals(Element.class.getName())) {
-            needsCast = true;
-        }
-        return needsCast;
+        return kind == Kind.Element && !type.equals(Element.class.getName());
     }
 }

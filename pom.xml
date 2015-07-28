@@ -71,8 +71,8 @@
         <auto-service.version>1.0-rc2</auto-service.version>
         <auto-value.version>1.2-SNAPSHOT</auto-value.version>
         <gin.version>2.1.2</gin.version>
-        <guava.version>18.0</guava.version>
         <gwt.version>2.8.0-SNAPSHOT</gwt.version>
+        <gwtp.version>1.5-SNAPSHOT</gwtp.version>
         <jsoup.version>1.8.2</jsoup.version>
         <junit.version>4.12</junit.version>
         <mockito.version>1.10.17</mockito.version>
@@ -114,14 +114,19 @@
                 <version>${gwt.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava-gwt</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>com.google.gwt.inject</groupId>
                 <artifactId>gin</artifactId>
                 <version>${gin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gwtplatform</groupId>
+                <artifactId>gwtp-mvp-client</artifactId>
+                <version>${gwtp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.gwtplatform</groupId>
+                <artifactId>gwtp-mvp-shared</artifactId>
+                <version>${gwtp.version}</version>
             </dependency>
 
             <!-- Misc -->

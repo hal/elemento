@@ -23,7 +23,6 @@
 
 <module>
     <inherits name="com.google.gwt.user.User"/>
-    <inherits name="com.google.common.collect.Collect"/>
     <inherits name="elemental.Elemental"/>
     <inherits name="org.jboss.gwt.elemento.Core"/>
 

@@ -30,11 +30,11 @@ public class Main implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        Todos todos = Todos.create();
+        Todo todo = Todo.create();
         Element body = Browser.getDocument().getBody();
-        body.insertBefore(todos.asElement(), body.getFirstElementChild());
+        body.insertBefore(todo.asElement(), body.getFirstElementChild());
 
-        History.addValueChangeHandler(event -> todos.filter(event.getValue()));
+        History.addValueChangeHandler(event -> todo.filter(event.getValue()));
         History.fireCurrentHistoryState();
     }
 }

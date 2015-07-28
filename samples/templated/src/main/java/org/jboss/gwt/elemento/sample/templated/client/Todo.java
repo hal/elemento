@@ -22,10 +22,7 @@
 package org.jboss.gwt.elemento.sample.templated.client;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.safehtml.client.SafeHtmlTemplates;
-import com.google.gwt.safehtml.shared.SafeHtml;
 import elemental.dom.Element;
-import elemental.events.Event;
 import elemental.events.KeyboardEvent;
 import elemental.html.ButtonElement;
 import elemental.html.InputElement;
@@ -40,46 +37,19 @@ import java.util.Iterator;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static org.jboss.gwt.elemento.core.EventType.*;
-import static org.jboss.gwt.elemento.sample.templated.client.Todos.Filter.ACTIVE;
-import static org.jboss.gwt.elemento.sample.templated.client.Todos.Filter.COMPLETED;
+import static org.jboss.gwt.elemento.sample.templated.client.Filter.ACTIVE;
+import static org.jboss.gwt.elemento.sample.templated.client.Filter.COMPLETED;
 
-@Templated("Todos.html#todos")
-abstract class Todos implements IsElement {
+@Templated("Todo.html#todos")
+abstract class Todo implements IsElement {
 
-    enum Filter {
-        ALL, ACTIVE, COMPLETED;
+    static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
 
-        public static Filter parseToken(final String token) {
-            if (token == null) {
-                return ALL;
-            } else {
-                switch (token) {
-                    case "/":
-                        return ALL;
-                    case "/active":
-                        return ACTIVE;
-                    case "/completed":
-                        return COMPLETED;
-                    default:
-                        return ALL;
-                }
-            }
-        }
+    static Todo create() {
+        return new Templated_Todo();
     }
 
-
-    interface CountHtml extends SafeHtmlTemplates {
-
-        @SafeHtmlTemplates.Template("<strong>{0}</strong> {1} left")
-        SafeHtml items(int items, String text);
-    }
-
-
-    static final CountHtml COUNT_HTML = GWT.create(CountHtml.class);
-
-    static Todos create() {
-        return new Templated_Todos();
-    }
+    Filter filter;
 
     @DataElement InputElement newTodo;
     @DataElement Element main;
@@ -91,7 +61,6 @@ abstract class Todos implements IsElement {
     @DataElement("active") Element filterActive;
     @DataElement("completed") Element filterCompleted;
     @DataElement ButtonElement clearCompleted;
-    Filter filter;
 
     @PostConstruct
     void init() {
@@ -100,9 +69,8 @@ abstract class Todos implements IsElement {
     }
 
     @EventHandler(element = "newTodo", on = keydown)
-    void newTodo(Event event) {
-        KeyboardEvent keyboardEvent = (KeyboardEvent) event;
-        if (keyboardEvent.getKeyCode() == ENTER) {
+    void newTodo(KeyboardEvent event) {
+        if (event.getKeyCode() == ENTER) {
             String label = newTodo.getValue().trim();
             if (label.length() != 0) {
                 list.appendChild(Item.create(this, label).asElement());
@@ -177,7 +145,7 @@ abstract class Todos implements IsElement {
             }
         }
         toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, COUNT_HTML.items(activeCount, (activeCount == 1 ? "item" : "items")));
+        Elements.innerHtml(count, MESSAGES.items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 }

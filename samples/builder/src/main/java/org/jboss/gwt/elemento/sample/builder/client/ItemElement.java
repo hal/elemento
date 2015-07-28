@@ -28,37 +28,47 @@ import elemental.html.InputElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.InputType;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 
-class Item implements IsElement {
+class ItemElement implements IsElement {
 
-    private final Todos parent;
+    private final TodoItem item;
+    private final AppElement parent;
+    private final TodoItemRepository repository;
+
     private final Element li;
     private final InputElement toggle;
     private final Element label;
     private final InputElement input;
+
     private boolean escape;
 
-    Item(Todos parent, String text) {
+    ItemElement(final AppElement parent, final TodoItem item, final TodoItemRepository repository) {
+        this.item = item;
+        this.parent = parent;
+        this.repository = repository;
+
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
-        .li()
+        .li().css(item.isCompleted() ? "completed" : "").data("item", item.getId())
             .div().css("view")
                 .input(checkbox).on(change, event -> toggle()).rememberAs("toggle").css("toggle")
-                .label().on(dblclick, (event) -> edit()).innerText(text).rememberAs("label").end()
+                .label().on(dblclick, (event) -> edit()).innerText(item.getText()).rememberAs("label").end()
                 .button().on(click, (event) -> destroy()).css("destroy").end()
             .end()
             .input(InputType.text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
         .end();
         // @formatter:on
 
-        this.parent = parent;
         this.li = builder.build();
         this.toggle = builder.referenceFor("toggle");
+        this.toggle.setChecked(item.isCompleted());
         this.label = builder.referenceFor("label");
         this.input = builder.referenceFor("input");
     }
@@ -77,6 +87,7 @@ class Item implements IsElement {
         } else {
             li.getClassList().remove("completed");
         }
+        repository.complete(item, toggle.isChecked());
         parent.update();
     }
 
@@ -89,6 +100,7 @@ class Item implements IsElement {
 
     private void destroy() {
         li.getParentElement().removeChild(li);
+        repository.remove(item);
         parent.update();
     }
 
@@ -111,6 +123,7 @@ class Item implements IsElement {
             li.getClassList().remove("editing");
             if (!escape) {
                 label.setInnerText(value);
+                repository.rename(item, value);
             }
         }
     }

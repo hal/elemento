@@ -22,8 +22,6 @@
 package org.jboss.gwt.elemento.sample.builder.client;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.safehtml.client.SafeHtmlTemplates;
-import com.google.gwt.safehtml.shared.SafeHtml;
 import elemental.dom.Element;
 import elemental.events.Event;
 import elemental.events.KeyboardEvent;
@@ -31,61 +29,25 @@ import elemental.html.ButtonElement;
 import elemental.html.InputElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.BeanFactory;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
-import static org.jboss.gwt.elemento.sample.builder.client.Todos.Filter.*;
+import static org.jboss.gwt.elemento.sample.builder.client.Filter.*;
 
-class Todos implements IsElement {
+class AppElement implements IsElement {
 
-    enum Filter {
-        ALL("#/"), ACTIVE("#/active"), COMPLETED("#/completed");
-
-        private final String fragment;
-
-        Filter(final String fragment) {
-            this.fragment = fragment;
-        }
-
-        String fragment() {
-            return fragment;
-        }
-
-        String filter() {
-            return name().toLowerCase();
-        }
-
-        public static Filter parseToken(final String token) {
-            if (token == null) {
-                return ALL;
-            } else {
-                switch (token) {
-                    case "/":
-                        return ALL;
-                    case "/active":
-                        return ACTIVE;
-                    case "/completed":
-                        return COMPLETED;
-                    default:
-                        return ALL;
-                }
-            }
-        }
-    }
-
-
-    interface CountHtml extends SafeHtmlTemplates {
-
-        @SafeHtmlTemplates.Template("<strong>{0}</strong> {1} left")
-        SafeHtml items(int items, String text);
-    }
-
-
-    static final CountHtml COUNT_HTML = GWT.create(CountHtml.class);
+    static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
+    static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
 
     private final Element root;
     private final InputElement newTodo;
@@ -98,9 +60,11 @@ class Todos implements IsElement {
     private final Element filterActive;
     private final Element filterCompleted;
     private final ButtonElement clearCompleted;
+
+    private final TodoItemRepository repository;
     private Filter filter;
 
-    Todos() {
+    AppElement() {
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
         .start("section").css("todoapp")
@@ -119,7 +83,7 @@ class Todos implements IsElement {
                 .ul().css("todo-list").rememberAs("list").end()
             .end()
             .footer().css("footer").rememberAs("footer")
-                .span().css("todo-count").rememberAs("count").innerHtml(COUNT_HTML.items(0, "items")).end()
+                .span().css("todo-count").rememberAs("count").innerHtml(MESSAGES.items(0)).end()
                 .ul().css("filters")
                     .li()
                         .a().attr("href", ALL.fragment()).innerText("All").rememberAs(ALL.filter()).end()
@@ -149,7 +113,11 @@ class Todos implements IsElement {
         this.filterActive = builder.referenceFor(ACTIVE.filter());
         this.filterCompleted = builder.referenceFor(COMPLETED.filter());
         this.clearCompleted = builder.referenceFor("clearCompleted");
+        this.repository = new TodoItemRepository("todos-elemento", BEAN_FACTORY);
 
+        for (TodoItem item : repository.items()) {
+            list.appendChild(new ItemElement(this, item, repository).asElement());
+        }
         update();
     }
 
@@ -164,9 +132,10 @@ class Todos implements IsElement {
     private void newTodo(Event event) {
         KeyboardEvent keyboardEvent = (KeyboardEvent) event;
         if (keyboardEvent.getKeyCode() == ENTER) {
-            String label = newTodo.getValue().trim();
-            if (label.length() != 0) {
-                list.appendChild(new Item(this, label).asElement());
+            String text = newTodo.getValue().trim();
+            if (text.length() != 0) {
+                TodoItem item = repository.add(text);
+                list.appendChild(new ItemElement(this, item, repository).asElement());
                 newTodo.setValue("");
                 update();
             }
@@ -184,16 +153,23 @@ class Todos implements IsElement {
             InputElement checkbox = (InputElement) li.getFirstElementChild().getFirstElementChild();
             checkbox.setChecked(checked);
         }
+        repository.completeAll(checked);
         update();
     }
 
     private void clearCompleted() {
+        Set<String> ids = new HashSet<>();
         for (Iterator<Element> iterator = Elements.iterator(list); iterator.hasNext(); ) {
             Element li = iterator.next();
             if (li.getClassList().contains("completed")) {
+                String id = String.valueOf(li.getDataset().at("item"));
+                if (id != null) {
+                    ids.add(id);
+                }
                 iterator.remove();
             }
         }
+        repository.removeAll(ids);
         update();
     }
 
@@ -239,7 +215,7 @@ class Todos implements IsElement {
             }
         }
         toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, COUNT_HTML.items(activeCount, (activeCount == 1 ? "item" : "items")));
+        Elements.innerHtml(count, MESSAGES.items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 }

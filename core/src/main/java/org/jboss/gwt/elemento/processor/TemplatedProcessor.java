@@ -470,18 +470,18 @@ public class TemplatedProcessor extends AbstractProcessor {
                     if (!method.getReturnType().equals(typeUtils.getNoType(TypeKind.VOID))) {
                         abortWithError(method, "@%s method must return void", EventHandler.class.getSimpleName());
                     }
-                    boolean eventParameter = false;
+                    String eventParameterType = null;
                     if (!method.getParameters().isEmpty()) {
                         if (method.getParameters().size() != 1) {
                             abortWithError(method, "@%s method must have one parameter of type %s",
                                     EventHandler.class.getSimpleName(), Event.class.getName());
                         }
                         VariableElement parameter = method.getParameters().get(0);
-                        if (!parameter.asType().toString().equals(elemental.events.Event.class.getName())) {
-                            abortWithError(method, "@%s method must have one parameter of type %s",
+                        if (!isAssignable(parameter.asType(), Event.class)) {
+                            abortWithError(method, "@%s parameter must be assignable to %s",
                                     EventHandler.class.getSimpleName(), Event.class.getName());
                         }
-                        eventParameter = true;
+                        eventParameterType = parameter.asType().toString();
                     }
 
                     String selector = null;
@@ -505,7 +505,7 @@ public class TemplatedProcessor extends AbstractProcessor {
                         }
                         verifySelector(selector, method, templateSelector, root);
                         eventHandler.add(new EventHandlerInfo(method.getSimpleName().toString(), selector, eventType,
-                                eventParameter));
+                                eventParameterType));
 
                     } else {
                         abortWithError(method, "No @%s annotation found", EventHandler.class.getSimpleName());

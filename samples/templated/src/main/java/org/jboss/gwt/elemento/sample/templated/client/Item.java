@@ -22,7 +22,6 @@
 package org.jboss.gwt.elemento.sample.templated.client;
 
 import elemental.dom.Element;
-import elemental.events.Event;
 import elemental.events.KeyboardEvent;
 import elemental.html.InputElement;
 import org.jboss.gwt.elemento.core.DataElement;
@@ -36,14 +35,14 @@ import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 
-@Templated("Todos.html#item")
+@Templated("Todo.html#item")
 abstract class Item implements IsElement {
 
-    static Item create(Todos parent, String text) {
+    static Item create(Todo parent, String text) {
         return new Templated_Item(parent, text);
     }
 
-    abstract Todos parent();
+    abstract Todo parent();
 
     abstract String text();
 
@@ -82,13 +81,12 @@ abstract class Item implements IsElement {
     }
 
     @EventHandler(element = "input", on = keydown)
-    void keyDown(final Event event) {
-        KeyboardEvent keyboardEvent = (KeyboardEvent) event;
-        if (keyboardEvent.getKeyCode() == ESC) {
+    void keyDown(final KeyboardEvent event) {
+        if (event.getKeyCode() == ESC) {
             escape = true;
             asElement().getClassList().remove("editing");
 
-        } else if (keyboardEvent.getKeyCode() == ENTER) {
+        } else if (event.getKeyCode() == ENTER) {
             blur();
         }
     }
