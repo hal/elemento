@@ -21,33 +21,12 @@
  */
 package org.jboss.gwt.elemento.sample.gwtp.client;
 
-import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.PresenterWidget;
-import com.gwtplatform.mvp.client.View;
 
-import javax.inject.Inject;
+/**
+ * @author Harald Pehl
+ */
+public interface HasPresenter<P extends PresenterWidget> {
 
-public class ItemPresenter extends PresenterWidget<ItemPresenter.MyView> {
-
-    public interface MyView extends View {
-        void setText(String text);
-    }
-
-    private String text;
-
-    @Inject
-    public ItemPresenter(final EventBus eventBus,
-            final MyView view) {
-        super(eventBus, view);
-    }
-
-    @Override
-    protected void onBind() {
-        super.onBind();
-        getView().setText(text);
-    }
-
-    public void setText(final String text) {
-        this.text = text;
-    }
+    void setPresenter(P presenter);
 }

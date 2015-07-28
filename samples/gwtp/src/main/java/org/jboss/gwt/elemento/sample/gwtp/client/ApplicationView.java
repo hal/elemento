@@ -34,29 +34,29 @@ import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 import javax.annotation.PostConstruct;
 import java.util.Iterator;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static org.jboss.gwt.elemento.core.EventType.*;
+import static org.jboss.gwt.elemento.sample.gwtp.client.ApplicationPresenter.SLOT_FOOTER_CONTENT;
+import static org.jboss.gwt.elemento.sample.gwtp.client.ApplicationPresenter.SLOT_ITEM_CONTENT;
 import static org.jboss.gwt.elemento.sample.gwtp.client.Filter.ACTIVE;
 import static org.jboss.gwt.elemento.sample.gwtp.client.Filter.COMPLETED;
-import static org.jboss.gwt.elemento.sample.gwtp.client.TodoPresenter.SLOT_FOOTER_CONTENT;
-import static org.jboss.gwt.elemento.sample.gwtp.client.TodoPresenter.SLOT_ITEM_CONTENT;
 
 @Templated("Todo.html#todos")
-public abstract class TodoView extends ViewImpl implements TodoPresenter.MyView, IsElement {
+public abstract class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView, IsElement {
 
-    public static TodoView create(TodoMessages messages) {
-        return new Templated_TodoView(messages);
+    public static ApplicationView create(TodoMessages messages) {
+        return new Templated_ApplicationView(messages);
     }
 
-    public abstract TodoMessages messages();
+    abstract TodoMessages messages();
 
-    Filter filter;
-    TodoPresenter presenter;
 
+    ApplicationPresenter presenter;
     @DataElement InputElement newTodo;
     @DataElement Element main;
     @DataElement InputElement toggleAll;
@@ -74,7 +74,8 @@ public abstract class TodoView extends ViewImpl implements TodoPresenter.MyView,
         initWidget(Elements.asWidget(asElement()));
     }
 
-    public void setPresenter(final TodoPresenter presenter) {
+    @Override
+    public void setPresenter(ApplicationPresenter presenter) {
         this.presenter = presenter;
     }
 
@@ -87,7 +88,7 @@ public abstract class TodoView extends ViewImpl implements TodoPresenter.MyView,
     }
 
     @Override
-    public void addToSlot(final Object slot, final IsWidget content) {
+    public void addToSlot(Object slot, IsWidget content) {
         if (slot == SLOT_ITEM_CONTENT) {
             list.appendChild(Elements.asElement(content));
         }
@@ -101,24 +102,13 @@ public abstract class TodoView extends ViewImpl implements TodoPresenter.MyView,
             if (text.length() != 0) {
                 presenter.newTodo(text);
                 newTodo.setValue("");
-                update();
             }
         }
     }
 
     @EventHandler(element = "toggleAll", on = change)
     void toggleAll() {
-        boolean checked = toggleAll.isChecked();
-        for (Element li : Elements.children(list)) {
-            if (checked) {
-                li.getClassList().add("completed");
-            } else {
-                li.getClassList().remove("completed");
-            }
-            InputElement checkbox = (InputElement) li.getFirstElementChild().getFirstElementChild();
-            checkbox.setChecked(checked);
-        }
-        update();
+        presenter.toggleAll(toggleAll.isChecked());
     }
 
     @EventHandler(element = "clearCompleted", on = click)
@@ -129,7 +119,7 @@ public abstract class TodoView extends ViewImpl implements TodoPresenter.MyView,
                 iterator.remove();
             }
         }
-        update();
+        presenter.clearCompleted();
     }
 
     @Override
@@ -154,7 +144,7 @@ public abstract class TodoView extends ViewImpl implements TodoPresenter.MyView,
     }
 
     @Override
-    public void update() {
+    public void update(Filter filter) {
         int activeCount = 0;
         int completedCount = 0;
         int size = list.getChildElementCount();

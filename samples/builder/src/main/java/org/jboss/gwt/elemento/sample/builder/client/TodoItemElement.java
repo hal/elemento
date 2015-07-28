@@ -39,7 +39,7 @@ import static org.jboss.gwt.elemento.core.InputType.checkbox;
 class TodoItemElement implements IsElement {
 
     private final TodoItem item;
-    private final AppElement parent;
+    private final ApplicationElement parent;
     private final TodoItemRepository repository;
 
     private final Element li;
@@ -49,7 +49,7 @@ class TodoItemElement implements IsElement {
 
     private boolean escape;
 
-    TodoItemElement(final AppElement parent, final TodoItem item, final TodoItemRepository repository) {
+    TodoItemElement(final ApplicationElement parent, final TodoItem item, final TodoItemRepository repository) {
         this.item = item;
         this.parent = parent;
         this.repository = repository;

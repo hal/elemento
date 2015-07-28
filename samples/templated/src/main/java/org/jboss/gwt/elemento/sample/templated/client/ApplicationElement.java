@@ -45,9 +45,9 @@ import static org.jboss.gwt.elemento.sample.templated.client.Filter.ACTIVE;
 import static org.jboss.gwt.elemento.sample.templated.client.Filter.COMPLETED;
 
 @Templated("Todo.html#todos")
-abstract class AppElement implements IsElement {
+abstract class ApplicationElement implements IsElement {
 
-    static AppElement create(TodoItemRepository repository, TodoMessages messages) {
+    static ApplicationElement create(TodoItemRepository repository, TodoMessages messages) {
         return new Templated_AppElement(repository, messages);
     }
 

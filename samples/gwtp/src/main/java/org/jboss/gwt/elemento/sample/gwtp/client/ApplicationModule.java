@@ -22,6 +22,7 @@
 package org.jboss.gwt.elemento.sample.gwtp.client;
 
 import com.google.inject.Provider;
+import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.PresenterWidget;
@@ -33,8 +34,11 @@ import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.shared.proxy.RouteTokenFormatter;
+import org.jboss.gwt.elemento.sample.common.BeanFactory;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
-public class TodoModule extends AbstractPresenterModule {
+public class ApplicationModule extends AbstractPresenterModule {
 
     @Override
     protected void configure() {
@@ -48,20 +52,27 @@ public class TodoModule extends AbstractPresenterModule {
         bindConstant().annotatedWith(UnauthorizedPlace.class).to(NameTokens.Todo);
 
         bind(TodoMessages.class).asEagerSingleton();
+        bind(BeanFactory.class).asEagerSingleton();
 
-        bindTemplatedPresenterWidget(ItemPresenter.class,
-                ItemPresenter.MyView.class,
-                Templated_ItemView_Provider.class);
+        bindTemplatedPresenterWidget(TodoItemPresenter.class,
+                TodoItemPresenter.MyView.class,
+                Templated_TodoItemView_Provider.class);
 
         bindTemplatedSingletonPresenterWidget(FooterPresenter.class,
                 FooterPresenter.MyView.class,
                 Templated_FooterView_Provider.class);
 
-        bindTemplatedPresenter(TodoPresenter.class,
-                TodoPresenter.MyView.class,
-                Templated_TodoView_Provider.class,
-                TodoPresenter.MyProxy.class);
+        bindTemplatedPresenter(ApplicationPresenter.class,
+                ApplicationPresenter.MyView.class,
+                Templated_ApplicationView_Provider.class,
+                ApplicationPresenter.MyProxy.class);
     }
+
+    @Provides
+    TodoItemRepository provideRepository(BeanFactory beanFactory) {
+        return new TodoItemRepository("todos-elemento", beanFactory);
+    }
+
 
     protected <P extends PresenterWidget<?>, V extends View> void bindTemplatedSingletonPresenterWidget(
             Class<P> presenterImpl, Class<V> view, Class<? extends Provider<? extends V>> viewProvider) {

@@ -22,9 +22,10 @@
   -->
 
 <module>
-    <inherits name="com.google.gwt.user.User"/>
     <inherits name="elemental.Elemental"/>
+    <inherits name="com.google.gwt.user.User"/>
     <inherits name="org.jboss.gwt.elemento.Core"/>
+    <inherits name="org.jboss.gwt.elemento.sample.Common"/>
 
     <entry-point class="org.jboss.gwt.elemento.sample.templated.client.Main"/>
 </module>

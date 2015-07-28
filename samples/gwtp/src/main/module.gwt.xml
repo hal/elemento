@@ -22,11 +22,12 @@
   -->
 
 <module>
-    <inherits name="com.google.gwt.user.User"/>
     <inherits name="elemental.Elemental"/>
+    <inherits name="com.google.gwt.user.User"/>
     <inherits name="org.jboss.gwt.elemento.Core"/>
+    <inherits name="org.jboss.gwt.elemento.sample.Common"/>
     <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/>
 
     <extend-configuration-property name="gin.ginjector.modules"
-                                   value="org.jboss.gwt.elemento.sample.gwtp.client.TodoModule"/>
+                                   value="org.jboss.gwt.elemento.sample.gwtp.client.ApplicationModule"/>
 </module>

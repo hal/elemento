@@ -33,38 +33,51 @@ import com.gwtplatform.mvp.client.presenter.slots.PermanentSlot;
 import com.gwtplatform.mvp.client.presenter.slots.Slot;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Harald Pehl
  */
-public class TodoPresenter extends Presenter<TodoPresenter.MyView, TodoPresenter.MyProxy> {
+public class ApplicationPresenter extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy> {
 
     // @formatter:off
     @ProxyStandard
     @NameToken(NameTokens.Todo)
-    public interface MyProxy extends ProxyPlace<TodoPresenter> {}
+    public interface MyProxy extends ProxyPlace<ApplicationPresenter> {}
 
-    public interface MyView extends View {
-        void setPresenter(TodoPresenter presenter);
-        void update();
+    public interface MyView extends View, HasPresenter<ApplicationPresenter> {
+        void update(final Filter filter);
         void filter(Filter filter);
     }
     // @formatter:on
 
 
-    public static final Slot<ItemPresenter> SLOT_ITEM_CONTENT = new Slot<>();
+    public static final Slot<TodoItemPresenter> SLOT_ITEM_CONTENT = new Slot<>();
     public static final IsSingleSlot<FooterPresenter> SLOT_FOOTER_CONTENT = new PermanentSlot<>();
 
-    private final Provider<ItemPresenter> itemPresenterProvider;
+    private final Provider<TodoItemPresenter> itemPresenterProvider;
     private final FooterPresenter footerPresenter;
+    private final TodoItemRepository repository;
+    private final List<TodoItemPresenter> itemPresenters;
+    private Filter filter;
+
 
     @Inject
-    public TodoPresenter(EventBus eventBus, MyView view, MyProxy proxy,
-            Provider<ItemPresenter> itemPresenterProvider,
-            FooterPresenter footerPresenter) {
+    public ApplicationPresenter(EventBus eventBus, MyView view, MyProxy proxy,
+            Provider<TodoItemPresenter> itemPresenterProvider, FooterPresenter footerPresenter,
+            TodoItemRepository repository) {
         super(eventBus, view, proxy, RevealType.Root);
         this.itemPresenterProvider = itemPresenterProvider;
         this.footerPresenter = footerPresenter;
+        this.repository = repository;
+        this.itemPresenters = new ArrayList<>();
     }
 
     @Override
@@ -77,22 +90,49 @@ public class TodoPresenter extends Presenter<TodoPresenter.MyView, TodoPresenter
     @Override
     protected void onReset() {
         super.onReset();
+        for (TodoItem item : repository.items()) {
+            TodoItemPresenter itemPresenter = itemPresenterProvider.get();
+            itemPresenter.setItem(item);
+            addToSlot(SLOT_ITEM_CONTENT, itemPresenter);
+            itemPresenters.add(itemPresenter);
+        }
         update();
     }
 
     @Override
     public void prepareFromRequest(PlaceRequest request) {
         super.prepareFromRequest(request);
-        getView().filter(Filter.parseFilter(request.getParameter("filter", null)));
+        filter = Filter.parseFilter(request.getParameter("filter", null));
     }
 
     public void newTodo(String text) {
-        ItemPresenter itemPresenter = itemPresenterProvider.get();
-        itemPresenter.setText(text);
+        TodoItemPresenter itemPresenter = itemPresenterProvider.get();
+        itemPresenter.setItem(repository.add(text));
         addToSlot(SLOT_ITEM_CONTENT, itemPresenter);
+        itemPresenters.add(itemPresenter);
+        getView().update(filter);
+    }
+
+    public void toggleAll(final boolean checked) {
+        for (TodoItemPresenter itemPresenter : itemPresenters) {
+            itemPresenter.completed(checked);
+        }
+    }
+
+    public void clearCompleted() {
+        Set<String> ids = new HashSet<>();
+        for (Iterator<TodoItemPresenter> iterator = itemPresenters.iterator(); iterator.hasNext(); ) {
+            TodoItemPresenter itemPresenter = iterator.next();
+            if (itemPresenter.getItem().isCompleted()) {
+                ids.add(itemPresenter.getItem().getId());
+                iterator.remove();
+            }
+        }
+        repository.removeAll(ids);
     }
 
     public void update() {
-        getView().update();
+        getView().filter(filter);
+        getView().update(filter);
     }
 }

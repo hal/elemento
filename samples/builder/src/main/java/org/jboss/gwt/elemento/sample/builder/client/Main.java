@@ -30,7 +30,7 @@ public class Main implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        AppElement app = new AppElement();
+        ApplicationElement app = new ApplicationElement();
         Element body = Browser.getDocument().getBody();
         body.insertBefore(app.asElement(), body.getFirstElementChild());
 

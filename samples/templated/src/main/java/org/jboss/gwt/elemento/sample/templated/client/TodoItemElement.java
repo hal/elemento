@@ -40,11 +40,11 @@ import static org.jboss.gwt.elemento.core.EventType.*;
 @Templated("Todo.html#item")
 abstract class TodoItemElement implements IsElement {
 
-    static TodoItemElement create(AppElement parent, TodoItem item, TodoItemRepository repository) {
+    static TodoItemElement create(ApplicationElement parent, TodoItem item, TodoItemRepository repository) {
         return new Templated_TodoItemElement(parent, item, repository);
     }
 
-    abstract AppElement parent();
+    abstract ApplicationElement parent();
 
     abstract TodoItem item();
 

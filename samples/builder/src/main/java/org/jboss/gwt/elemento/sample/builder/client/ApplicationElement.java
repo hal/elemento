@@ -44,7 +44,7 @@ import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
 import static org.jboss.gwt.elemento.sample.builder.client.Filter.*;
 
-class AppElement implements IsElement {
+class ApplicationElement implements IsElement {
 
     static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
     static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
@@ -64,7 +64,7 @@ class AppElement implements IsElement {
     private final TodoItemRepository repository;
     private Filter filter;
 
-    AppElement() {
+    ApplicationElement() {
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
         .start("section").css("todoapp")

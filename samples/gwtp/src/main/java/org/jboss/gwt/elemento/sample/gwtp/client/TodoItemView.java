@@ -31,6 +31,7 @@ import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
 
 import javax.annotation.PostConstruct;
 
@@ -39,18 +40,18 @@ import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 
 @Templated("Todo.html#item")
-public abstract class ItemView extends ViewImpl implements ItemPresenter.MyView, IsElement {
+public abstract class TodoItemView extends ViewImpl implements TodoItemPresenter.MyView, IsElement {
 
-    static ItemView create(TodoPresenter todoPresenter) {
-        return new Templated_ItemView(todoPresenter);
+    static TodoItemView create() {
+        return new Templated_TodoItemView();
     }
 
-    abstract TodoPresenter todoPresenter();
 
+    TodoItemPresenter presenter;
+    boolean escape;
     @DataElement InputElement toggle;
     @DataElement Element label;
     @DataElement InputElement input;
-    boolean escape;
 
     @PostConstruct
     void init() {
@@ -58,18 +59,29 @@ public abstract class ItemView extends ViewImpl implements ItemPresenter.MyView,
     }
 
     @Override
-    public void setText(final String text) {
-        label.setInnerText(text);
+    public void setPresenter(TodoItemPresenter presenter) {
+        this.presenter = presenter;
     }
 
-    @EventHandler(element = "toggle", on = change)
-    void toggle() {
-        if (toggle.isChecked()) {
+    @Override
+    public void attachId(String id) {
+        asElement().getDataset().setAt("item", id);
+    }
+
+    @Override
+    public void update(TodoItem item) {
+        if (item.isCompleted()) {
             asElement().getClassList().add("completed");
         } else {
             asElement().getClassList().remove("completed");
         }
-        todoPresenter().update();
+        toggle.setChecked(item.isCompleted());
+        label.setInnerText(item.getText());
+    }
+
+    @EventHandler(element = "toggle", on = change)
+    void toggle() {
+        presenter.completed(toggle.isChecked());
     }
 
     @EventHandler(element = "label", on = dblclick)
@@ -83,7 +95,7 @@ public abstract class ItemView extends ViewImpl implements ItemPresenter.MyView,
     @EventHandler(element = "destroy", on = click)
     void destroy() {
         asElement().getParentElement().removeChild(asElement());
-        todoPresenter().update();
+        presenter.destroy();
     }
 
     @EventHandler(element = "input", on = keydown)
@@ -107,6 +119,7 @@ public abstract class ItemView extends ViewImpl implements ItemPresenter.MyView,
             asElement().getClassList().remove("editing");
             if (!escape) {
                 label.setInnerText(value);
+                presenter.rename(value);
             }
         }
     }
