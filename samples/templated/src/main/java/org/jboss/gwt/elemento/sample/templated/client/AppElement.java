@@ -21,7 +21,6 @@
  */
 package org.jboss.gwt.elemento.sample.templated.client;
 
-import com.google.gwt.core.client.GWT;
 import elemental.dom.Element;
 import elemental.events.KeyboardEvent;
 import elemental.html.ButtonElement;
@@ -31,9 +30,14 @@ import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 import javax.annotation.PostConstruct;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static org.jboss.gwt.elemento.core.EventType.*;
@@ -41,13 +45,16 @@ import static org.jboss.gwt.elemento.sample.templated.client.Filter.ACTIVE;
 import static org.jboss.gwt.elemento.sample.templated.client.Filter.COMPLETED;
 
 @Templated("Todo.html#todos")
-abstract class Todo implements IsElement {
+abstract class AppElement implements IsElement {
 
-    static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
-
-    static Todo create() {
-        return new Templated_Todo();
+    static AppElement create(TodoItemRepository repository, TodoMessages messages) {
+        return new Templated_AppElement(repository, messages);
     }
+
+    abstract TodoItemRepository repository();
+
+    abstract TodoMessages messages();
+
 
     Filter filter;
 
@@ -65,15 +72,19 @@ abstract class Todo implements IsElement {
     @PostConstruct
     void init() {
         Elements.removeChildrenFrom(list);
+        for (TodoItem item : repository().items()) {
+            list.appendChild(TodoItemElement.create(this, item, repository()).asElement());
+        }
         update();
     }
 
     @EventHandler(element = "newTodo", on = keydown)
     void newTodo(KeyboardEvent event) {
         if (event.getKeyCode() == ENTER) {
-            String label = newTodo.getValue().trim();
-            if (label.length() != 0) {
-                list.appendChild(Item.create(this, label).asElement());
+            String text = newTodo.getValue().trim();
+            if (text.length() != 0) {
+                TodoItem item = repository().add(text);
+                list.appendChild(TodoItemElement.create(this, item, repository()).asElement());
                 newTodo.setValue("");
                 update();
             }
@@ -92,17 +103,24 @@ abstract class Todo implements IsElement {
             InputElement checkbox = (InputElement) li.getFirstElementChild().getFirstElementChild();
             checkbox.setChecked(checked);
         }
+        repository().completeAll(checked);
         update();
     }
 
     @EventHandler(element = "clearCompleted", on = click)
     void clearCompleted() {
+        Set<String> ids = new HashSet<>();
         for (Iterator<Element> iterator = Elements.iterator(list); iterator.hasNext(); ) {
             Element li = iterator.next();
             if (li.getClassList().contains("completed")) {
+                String id = String.valueOf(li.getDataset().at("item"));
+                if (id != null) {
+                    ids.add(id);
+                }
                 iterator.remove();
             }
         }
+        repository().removeAll(ids);
         update();
     }
 
@@ -145,7 +163,7 @@ abstract class Todo implements IsElement {
             }
         }
         toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, MESSAGES.items(activeCount));
+        Elements.innerHtml(count, messages().items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 }

@@ -36,7 +36,7 @@ import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 
-class ItemElement implements IsElement {
+class TodoItemElement implements IsElement {
 
     private final TodoItem item;
     private final AppElement parent;
@@ -49,7 +49,7 @@ class ItemElement implements IsElement {
 
     private boolean escape;
 
-    ItemElement(final AppElement parent, final TodoItem item, final TodoItemRepository repository) {
+    TodoItemElement(final AppElement parent, final TodoItem item, final TodoItemRepository repository) {
         this.item = item;
         this.parent = parent;
         this.repository = repository;

@@ -116,7 +116,7 @@ class AppElement implements IsElement {
         this.repository = new TodoItemRepository("todos-elemento", BEAN_FACTORY);
 
         for (TodoItem item : repository.items()) {
-            list.appendChild(new ItemElement(this, item, repository).asElement());
+            list.appendChild(new TodoItemElement(this, item, repository).asElement());
         }
         update();
     }
@@ -135,7 +135,7 @@ class AppElement implements IsElement {
             String text = newTodo.getValue().trim();
             if (text.length() != 0) {
                 TodoItem item = repository.add(text);
-                list.appendChild(new ItemElement(this, item, repository).asElement());
+                list.appendChild(new TodoItemElement(this, item, repository).asElement());
                 newTodo.setValue("");
                 update();
             }

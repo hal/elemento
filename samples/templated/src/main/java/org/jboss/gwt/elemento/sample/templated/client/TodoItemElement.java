@@ -28,6 +28,8 @@ import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
 import javax.annotation.PostConstruct;
 
@@ -36,15 +38,18 @@ import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 
 @Templated("Todo.html#item")
-abstract class Item implements IsElement {
+abstract class TodoItemElement implements IsElement {
 
-    static Item create(Todo parent, String text) {
-        return new Templated_Item(parent, text);
+    static TodoItemElement create(AppElement parent, TodoItem item, TodoItemRepository repository) {
+        return new Templated_TodoItemElement(parent, item, repository);
     }
 
-    abstract Todo parent();
+    abstract AppElement parent();
 
-    abstract String text();
+    abstract TodoItem item();
+
+    abstract TodoItemRepository repository();
+
 
     @DataElement InputElement toggle;
     @DataElement Element label;
@@ -53,7 +58,12 @@ abstract class Item implements IsElement {
 
     @PostConstruct
     void init() {
-        label.setInnerText(text());
+        asElement().getDataset().setAt("item", item().getId());
+        if (item().isCompleted()) {
+            asElement().getClassList().add("completed");
+        }
+        label.setInnerText(item().getText());
+        toggle.setChecked(item().isCompleted());
     }
 
     @EventHandler(element = "toggle", on = change)
@@ -63,6 +73,7 @@ abstract class Item implements IsElement {
         } else {
             asElement().getClassList().remove("completed");
         }
+        repository().complete(item(), toggle.isChecked());
         parent().update();
     }
 
@@ -77,6 +88,7 @@ abstract class Item implements IsElement {
     @EventHandler(element = "destroy", on = click)
     void destroy() {
         asElement().getParentElement().removeChild(asElement());
+        repository().remove(item());
         parent().update();
     }
 
@@ -100,6 +112,7 @@ abstract class Item implements IsElement {
             asElement().getClassList().remove("editing");
             if (!escape) {
                 label.setInnerText(value);
+                repository().rename(item(), value);
             }
         }
     }
