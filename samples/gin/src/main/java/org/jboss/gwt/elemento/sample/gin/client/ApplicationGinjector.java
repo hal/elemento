@@ -24,11 +24,18 @@ package org.jboss.gwt.elemento.sample.gin.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
+import org.jboss.gwt.elemento.sample.common.BeanFactory;
+import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
+@SuppressWarnings("unused")
 @GinModules(ApplicationModule.class)
 public interface ApplicationGinjector extends Ginjector {
 
     ApplicationGinjector INSTANCE = GWT.create(ApplicationGinjector.class);
 
     ApplicationElement application();
+
+    BeanFactory beanFactory();
+
+    TodoMessages messages();
 }

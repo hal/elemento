@@ -21,6 +21,7 @@
  */
 package org.jboss.gwt.elemento.sample.gin.client;
 
+import com.google.inject.Provider;
 import elemental.dom.Element;
 import elemental.events.KeyboardEvent;
 import elemental.html.ButtonElement;
@@ -46,12 +47,14 @@ import static org.jboss.gwt.elemento.core.EventType.*;
 abstract class ApplicationElement implements IsElement {
 
     // @formatter:off
-    static ApplicationElement create(TodoItemRepository repository, TodoMessages messages) {
-        return new Templated_ApplicationElement(repository, messages);
+    static ApplicationElement create(TodoItemRepository repository, TodoMessages messages,
+            Provider<TodoItemElement> itemElement) {
+        return new Templated_ApplicationElement(repository, messages, itemElement);
     }
 
     abstract TodoItemRepository repository();
     abstract TodoMessages messages();
+    abstract Provider<TodoItemElement> itemElement();
     // @formatter:on
 
 
@@ -71,7 +74,9 @@ abstract class ApplicationElement implements IsElement {
     void init() {
         Elements.removeChildrenFrom(list); // remove the sample items from the template
         for (TodoItem item : repository().items()) {
-            list.appendChild(TodoItemElement.create(this, repository(), item).asElement());
+            TodoItemElement itemElement = itemElement().get();
+            itemElement.init(item);
+            list.appendChild(itemElement.asElement());
         }
         update();
     }
@@ -82,7 +87,9 @@ abstract class ApplicationElement implements IsElement {
             String text = newTodo.getValue().trim();
             if (text.length() != 0) {
                 TodoItem item = repository().add(text);
-                list.appendChild(TodoItemElement.create(this, repository(), item).asElement());
+                TodoItemElement itemElement = itemElement().get();
+                itemElement.init(item);
+                list.appendChild(itemElement.asElement());
                 newTodo.setValue("");
                 update();
             }

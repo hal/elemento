@@ -25,7 +25,6 @@ import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import org.jboss.gwt.elemento.sample.common.BeanFactory;
-import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
 /**
@@ -42,11 +41,5 @@ public class ApplicationModule extends AbstractGinModule {
     @Provides
     TodoItemRepository provideRepository(BeanFactory beanFactory) {
         return new TodoItemRepository(beanFactory);
-    }
-
-    @Provides
-    TodoItem provideItem(BeanFactory beanFactory) {
-        // Workaround!
-        return beanFactory.todoItem().as();
     }
 }

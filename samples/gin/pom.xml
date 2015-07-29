@@ -51,10 +51,6 @@
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-gin</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.google.gwt.inject</groupId>
-            <artifactId>gin</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

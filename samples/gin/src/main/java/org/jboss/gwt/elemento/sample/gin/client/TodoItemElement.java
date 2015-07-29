@@ -21,6 +21,7 @@
  */
 package org.jboss.gwt.elemento.sample.gin.client;
 
+import com.google.inject.Provider;
 import elemental.dom.Element;
 import elemental.events.KeyboardEvent;
 import elemental.html.InputElement;
@@ -31,8 +32,6 @@ import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
-import javax.annotation.PostConstruct;
-
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
@@ -41,29 +40,31 @@ import static org.jboss.gwt.elemento.core.EventType.*;
 abstract class TodoItemElement implements IsElement {
 
     // @formatter:off
-    static TodoItemElement create(ApplicationElement application, TodoItemRepository repository, TodoItem item) {
-        return new Templated_TodoItemElement(application, repository, item);
+    // Don't use ApplicationElement directly as this will lead to a dependency cycle in the generated GIN code!
+    static TodoItemElement create(Provider<ApplicationElement> application, TodoItemRepository repository) {
+        return new Templated_TodoItemElement(application, repository);
     }
 
-    abstract ApplicationElement application();
+    abstract Provider<ApplicationElement> application();
     abstract TodoItemRepository repository();
-    abstract TodoItem item();
     // @formatter:on
 
 
     @DataElement InputElement toggle;
     @DataElement Element label;
     @DataElement InputElement input;
+    TodoItem item;
     boolean escape;
 
-    @PostConstruct
-    void init() {
-        asElement().getDataset().setAt("item", item().getId());
-        if (item().isCompleted()) {
+    // @PostConstruct not possible here since the TodoItem is not injectable!
+    void init(TodoItem item) {
+        this.item = item;
+        asElement().getDataset().setAt("item", item.getId());
+        if (item.isCompleted()) {
             asElement().getClassList().add("completed");
         }
-        label.setInnerText(item().getText());
-        toggle.setChecked(item().isCompleted());
+        label.setInnerText(item.getText());
+        toggle.setChecked(item.isCompleted());
     }
 
     @EventHandler(element = "toggle", on = change)
@@ -73,8 +74,8 @@ abstract class TodoItemElement implements IsElement {
         } else {
             asElement().getClassList().remove("completed");
         }
-        repository().complete(item(), toggle.isChecked());
-        application().update();
+        repository().complete(item, toggle.isChecked());
+        application().get().update();
     }
 
     @EventHandler(element = "label", on = dblclick)
@@ -88,8 +89,8 @@ abstract class TodoItemElement implements IsElement {
     @EventHandler(element = "destroy", on = click)
     void destroy() {
         asElement().getParentElement().removeChild(asElement());
-        repository().remove(item());
-        application().update();
+        repository().remove(item);
+        application().get().update();
     }
 
     @EventHandler(element = "input", on = keydown)
@@ -112,7 +113,7 @@ abstract class TodoItemElement implements IsElement {
             asElement().getClassList().remove("editing");
             if (!escape) {
                 label.setInnerText(value);
-                repository().rename(item(), value);
+                repository().rename(item, value);
             }
         }
     }
