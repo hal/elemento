@@ -26,38 +26,49 @@ import elemental.events.Event;
 import elemental.events.KeyboardEvent;
 import elemental.html.InputElement;
 import org.jboss.gwt.elemento.core.Elements;
+import org.jboss.gwt.elemento.core.InputType;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
-import static org.jboss.gwt.elemento.core.InputType.text;
 
-public class Item implements IsElement {
+class TodoItemElement implements IsElement {
 
-    private final Todos parent;
+    private final TodoItem item;
+    private final ApplicationElement application;
+    private final TodoItemRepository repository;
+
     private final Element li;
     private final InputElement toggle;
     private final Element label;
     private final InputElement input;
 
-    public Item(Todos parent, String label) {
+    private boolean escape;
+
+    TodoItemElement(final ApplicationElement application, final TodoItemRepository repository, final TodoItem item) {
+        this.application = application;
+        this.repository = repository;
+        this.item = item;
+
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
-        .li()
+        .li().css(item.isCompleted() ? "completed" : "").data("item", item.getId())
             .div().css("view")
                 .input(checkbox).on(change, event -> toggle()).rememberAs("toggle").css("toggle")
-                .label().on(dblclick, (event) -> edit()).innerText(label).rememberAs("label").end()
+                .label().on(dblclick, (event) -> edit()).innerText(item.getText()).rememberAs("label").end()
                 .button().on(click, (event) -> destroy()).css("destroy").end()
             .end()
-            .input(text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
+            .input(InputType.text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
         .end();
         // @formatter:on
 
-        this.parent = parent;
         this.li = builder.build();
         this.toggle = builder.referenceFor("toggle");
+        this.toggle.setChecked(item.isCompleted());
         this.label = builder.referenceFor("label");
         this.input = builder.referenceFor("input");
     }
@@ -76,10 +87,12 @@ public class Item implements IsElement {
         } else {
             li.getClassList().remove("completed");
         }
-        parent.update();
+        repository.complete(item, toggle.isChecked());
+        application.update();
     }
 
     private void edit() {
+        escape = false;
         li.getClassList().add("editing");
         input.setValue(label.getInnerText());
         input.focus();
@@ -87,7 +100,19 @@ public class Item implements IsElement {
 
     private void destroy() {
         li.getParentElement().removeChild(li);
-        parent.update();
+        repository.remove(item);
+        application.update();
+    }
+
+    private void keyDown(Event event) {
+        KeyboardEvent keyboardEvent = (KeyboardEvent) event;
+        if (keyboardEvent.getKeyCode() == ESC) {
+            escape = true;
+            li.getClassList().remove("editing");
+
+        } else if (keyboardEvent.getKeyCode() == ENTER) {
+            blur();
+        }
     }
 
     private void blur() {
@@ -96,17 +121,10 @@ public class Item implements IsElement {
             destroy();
         } else {
             li.getClassList().remove("editing");
-            label.setInnerText(value);
-        }
-    }
-
-    private void keyDown(final Event event) {
-        KeyboardEvent keyboardEvent = (KeyboardEvent) event;
-        if (keyboardEvent.getKeyCode() == ESC) {
-            li.getClassList().remove("editing");
-
-        } else if (keyboardEvent.getKeyCode() == ENTER) {
-            blur();
+            if (!escape) {
+                label.setInnerText(value);
+                repository.rename(item, value);
+            }
         }
     }
 }

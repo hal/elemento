@@ -22,22 +22,27 @@
 package org.jboss.gwt.elemento.sample.builder.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.History;
 import elemental.client.Browser;
 import elemental.dom.Element;
+import org.jboss.gwt.elemento.sample.common.BeanFactory;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
-/**
- * @author Harald Pehl
- */
 public class Main implements EntryPoint {
+
+    static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
+    static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
 
     @Override
     public void onModuleLoad() {
-        Todos todos = new Todos();
+        TodoItemRepository repository = new TodoItemRepository(BEAN_FACTORY);
+        ApplicationElement app = new ApplicationElement(repository, MESSAGES);
         Element body = Browser.getDocument().getBody();
-        body.insertBefore(todos.asElement(), body.getFirstElementChild());
+        body.insertBefore(app.asElement(), body.getFirstElementChild());
 
-        History.addValueChangeHandler(event -> todos.filter(event.getValue()));
+        History.addValueChangeHandler(event -> app.filter(event.getValue()));
         History.fireCurrentHistoryState();
     }
 }

@@ -21,6 +21,8 @@
  */
 package org.jboss.gwt.elemento.processor.context;
 
+import elemental.events.Event;
+
 /**
  * @author Harald Pehl
  */
@@ -29,19 +31,20 @@ public class EventHandlerInfo {
     private final String method;
     private final String selector;
     private final String eventType;
-    private final boolean eventParameter;
+    private final String eventParameterType;
 
     public EventHandlerInfo(final String method, final String selector, final String eventType,
-            final boolean eventParameter) {
+            final String eventParameterType) {
         this.method = method;
         this.selector = selector;
         this.eventType = eventType;
-        this.eventParameter = eventParameter;
+        this.eventParameterType = eventParameterType;
     }
 
     @Override
     public String toString() {
-        return "@EventHandler(" + selector + ", " + eventType + ") -> " + method + "(" + (eventParameter ? "event" : "") + ")";
+        return "@EventHandler(" + selector + ", " + eventType + ") -> " + method +
+                "(" + (eventParameterType != null ? eventParameterType : "") + ")";
     }
 
     public String getMethod() {
@@ -56,7 +59,15 @@ public class EventHandlerInfo {
         return eventType;
     }
 
-    public boolean isEventParameter() {
-        return eventParameter;
+    public String getEventParameterType() {
+        return eventParameterType;
+    }
+
+    public boolean hasEventParameter() {
+        return eventParameterType != null;
+    }
+
+    public boolean needsCast() {
+        return hasEventParameter() && !eventParameterType.equals(Event.class.getName());
     }
 }

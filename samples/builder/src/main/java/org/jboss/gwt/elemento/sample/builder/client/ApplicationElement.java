@@ -21,9 +21,6 @@
  */
 package org.jboss.gwt.elemento.sample.builder.client;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.safehtml.client.SafeHtmlTemplates;
-import com.google.gwt.safehtml.shared.SafeHtml;
 import elemental.dom.Element;
 import elemental.events.Event;
 import elemental.events.KeyboardEvent;
@@ -31,33 +28,21 @@ import elemental.html.ButtonElement;
 import elemental.html.InputElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
-import static org.jboss.gwt.elemento.sample.builder.client.Todos.Filter.active;
-import static org.jboss.gwt.elemento.sample.builder.client.Todos.Filter.all;
-import static org.jboss.gwt.elemento.sample.builder.client.Todos.Filter.completed;
+import static org.jboss.gwt.elemento.sample.builder.client.Filter.*;
 
-/**
- * @author Harald Pehl
- */
-public class Todos implements IsElement {
-
-    interface CountHtml extends SafeHtmlTemplates {
-
-        @SafeHtmlTemplates.Template("<strong>{0}</strong> {1} left")
-        SafeHtml items(int items, String text);
-    }
-
-
-    enum Filter {all, active, completed}
-
-
-    static final CountHtml COUNT_HTML = GWT.create(CountHtml.class);
+class ApplicationElement implements IsElement {
 
     private final Element root;
     private final InputElement newTodo;
@@ -70,9 +55,15 @@ public class Todos implements IsElement {
     private final Element filterActive;
     private final Element filterCompleted;
     private final ButtonElement clearCompleted;
+
+    private final TodoItemRepository repository;
+    private final TodoMessages messages;
     private Filter filter;
 
-    public Todos() {
+    ApplicationElement(TodoItemRepository repository, TodoMessages messages) {
+        this.repository = repository;
+        this.messages = messages;
+
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
         .start("section").css("todoapp")
@@ -86,21 +77,21 @@ public class Todos implements IsElement {
                     .attr("autofocus", "autofocus")
             .end()
             .section().css("main").rememberAs("main")
-                .input(checkbox).on(change, event -> toggleAll()).css("toggle-all").rememberAs("toggleAll")
+                .input(checkbox).on(change, event -> toggleAll()).css("toggle-all").id("toggle-all").rememberAs("toggleAll")
                 .label().attr("for", "toggle-all").innerText("Mark all as complete").end()
                 .ul().css("todo-list").rememberAs("list").end()
             .end()
             .footer().css("footer").rememberAs("footer")
-                .span().css("todo-count").rememberAs("count").innerHtml(COUNT_HTML.items(0, "items")).end()
+                .span().css("todo-count").rememberAs("count").innerHtml(messages.items(0)).end()
                 .ul().css("filters")
                     .li()
-                        .a().attr("href", "#" + all.name()).innerText("All").rememberAs(all.name()).end()
+                        .a().attr("href", ALL.fragment()).innerText("All").rememberAs(ALL.filter()).end()
                     .end()
                     .li()
-                        .a().attr("href", "#" + active.name()).innerText("Active").rememberAs(active.name()).end()
+                        .a().attr("href", ACTIVE.fragment()).innerText("Active").rememberAs(ACTIVE.filter()).end()
                     .end()
                     .li()
-                        .a().attr("href", "#" + completed.name()).innerText("Completed").rememberAs(completed.name()).end()
+                        .a().attr("href", COMPLETED.fragment()).innerText("Completed").rememberAs(COMPLETED.filter()).end()
                     .end()
                 .end()
                 .button().on(click, (event) -> clearCompleted()).css("clear-completed").rememberAs("clearCompleted")
@@ -117,11 +108,14 @@ public class Todos implements IsElement {
         this.list = builder.referenceFor("list");
         this.footer = builder.referenceFor("footer");
         this.count = builder.referenceFor("count");
-        this.filterAll = builder.referenceFor(all.name());
-        this.filterActive = builder.referenceFor(active.name());
-        this.filterCompleted = builder.referenceFor(completed.name());
+        this.filterAll = builder.referenceFor(ALL.filter());
+        this.filterActive = builder.referenceFor(ACTIVE.filter());
+        this.filterCompleted = builder.referenceFor(COMPLETED.filter());
         this.clearCompleted = builder.referenceFor("clearCompleted");
 
+        for (TodoItem item : repository.items()) {
+            list.appendChild(new TodoItemElement(this, repository, item).asElement());
+        }
         update();
     }
 
@@ -133,12 +127,13 @@ public class Todos implements IsElement {
 
     // ------------------------------------------------------ event / token handler
 
-    private void newTodo(final Event event) {
+    private void newTodo(Event event) {
         KeyboardEvent keyboardEvent = (KeyboardEvent) event;
         if (keyboardEvent.getKeyCode() == ENTER) {
-            String label = newTodo.getValue().trim();
-            if (label.length() != 0) {
-                list.appendChild(new Item(this, label).asElement());
+            String text = newTodo.getValue().trim();
+            if (text.length() != 0) {
+                TodoItem item = repository.add(text);
+                list.appendChild(new TodoItemElement(this, repository, item).asElement());
                 newTodo.setValue("");
                 update();
             }
@@ -156,33 +151,40 @@ public class Todos implements IsElement {
             InputElement checkbox = (InputElement) li.getFirstElementChild().getFirstElementChild();
             checkbox.setChecked(checked);
         }
+        repository.completeAll(checked);
         update();
     }
 
     private void clearCompleted() {
+        Set<String> ids = new HashSet<>();
         for (Iterator<Element> iterator = Elements.iterator(list); iterator.hasNext(); ) {
             Element li = iterator.next();
             if (li.getClassList().contains("completed")) {
+                String id = String.valueOf(li.getDataset().at("item"));
+                if (id != null) {
+                    ids.add(id);
+                }
                 iterator.remove();
             }
         }
+        repository.removeAll(ids);
         update();
     }
 
-    void filter(final String token) {
-        filter = Filter.valueOf(token.length() == 0 ? "all" : token);
+    void filter(String token) {
+        filter = Filter.parseToken(token);
         switch (filter) {
-            case all:
+            case ALL:
                 filterAll.getClassList().add("selected");
                 filterActive.getClassList().remove("selected");
                 filterCompleted.getClassList().remove("selected");
                 break;
-            case active:
+            case ACTIVE:
                 filterAll.getClassList().remove("selected");
                 filterActive.getClassList().add("selected");
                 filterCompleted.getClassList().remove("selected");
                 break;
-            case completed:
+            case COMPLETED:
                 filterAll.getClassList().remove("selected");
                 filterActive.getClassList().remove("selected");
                 filterCompleted.getClassList().add("selected");
@@ -204,14 +206,14 @@ public class Todos implements IsElement {
         for (Element li : Elements.children(list)) {
             if (li.getClassList().contains("completed")) {
                 completedCount++;
-                Elements.setVisible(li, filter != active);
+                Elements.setVisible(li, filter != ACTIVE);
             } else {
-                Elements.setVisible(li, filter != completed);
+                Elements.setVisible(li, filter != COMPLETED);
                 activeCount++;
             }
         }
         toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, COUNT_HTML.items(activeCount, (activeCount == 1 ? "item" : "items")));
+        Elements.innerHtml(count, messages.items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 }

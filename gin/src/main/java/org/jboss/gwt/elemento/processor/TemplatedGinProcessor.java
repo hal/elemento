@@ -34,12 +34,12 @@ import java.util.List;
 
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("org.jboss.gwt.elemento.core.Templated")
-public class TemplatedProviderProcessor extends TemplatedProcessor {
+public class TemplatedGinProcessor extends TemplatedProcessor {
 
     static final String FREEMARKER_TEMPLATE = "TemplatedProvider.ftl";
 
-    public TemplatedProviderProcessor() {
-        super(TemplatedProviderProcessor.class, "templates");
+    public TemplatedGinProcessor() {
+        super(TemplatedGinProcessor.class, "templates");
     }
 
     @Override

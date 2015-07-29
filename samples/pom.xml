@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.0.3</version>
+        <version>0.0.4</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
@@ -41,13 +41,38 @@
         <nodejs.version>v0.12.5</nodejs.version>
         <npm.version>2.11.2</npm.version>
         <plugin.version.frontend>0.0.23</plugin.version.frontend>
+
+        <gwt.public.directory/>
+        <module.name/>
+        <module.shortName/>
     </properties>
 
     <modules>
+        <module>common</module>
         <module>builder</module>
+        <module>gin</module>
+        <module>templated</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.gwt.elemento</groupId>
+                <artifactId>sample-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-elemental</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-dev</artifactId>
@@ -56,23 +81,119 @@
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-elemental</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>elemento-core</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/node/**</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.bsc.maven</groupId>
+                    <artifactId>maven-processor-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>process</id>
+                            <goals>
+                                <goal>process</goal>
+                            </goals>
+                            <phase>generate-sources</phase>
+                            <configuration>
+                                <!-- Uncomment to get more messages from the annotation processors -->
+                                <options>
+                                    <debug>true</debug>
+                                </options>
+                                <defaultOutputDirectory>${project.build.directory}/generated-sources/annotations</defaultOutputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <compilerArgument>-proc:none</compilerArgument>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>add-source</id>
+                            <phase>process-classes</phase>
+                            <goals>
+                                <goal>add-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>${project.build.directory}/generated-sources/annotations</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${plugin.version.frontend}</version>
+                    <executions>
+                        <execution>
+                            <id>install node and npm</id>
+                            <goals>
+                                <goal>install-node-and-npm</goal>
+                            </goals>
+                            <configuration>
+                                <workingDirectory>${gwt.public.directory}</workingDirectory>
+                                <nodeVersion>${nodejs.version}</nodeVersion>
+                                <npmVersion>${npm.version}</npmVersion>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>npm install</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+                            <configuration>
+                                <workingDirectory>${gwt.public.directory}</workingDirectory>
+                                <arguments>install</arguments>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>net.ltgt.gwt.maven</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <configuration>
+                        <compilerArgs>
+                            <compilerArg>-XjsInteropMode</compilerArg>
+                            <compilerArg>JS</compilerArg>
+                            <compilerArg>-gen</compilerArg>
+                            <compilerArg>${project.build.directory}/generated-sources/gwt</compilerArg>
+                        </compilerArgs>
+                        <devmodeArgs>
+                            <devmodeArg>-startupUrl</devmodeArg>
+                            <devmodeArg>${module.shortName}/index.html</devmodeArg>
+                            <devmodeArg>-incremental</devmodeArg>
+                            <devmodeArg>-XjsInteropMode</devmodeArg>
+                            <devmodeArg>JS</devmodeArg>
+                        </devmodeArgs>
+                        <draftCompile>true</draftCompile>
+                        <logLevel>INFO</logLevel>
+                        <moduleName>${module.name}</moduleName>
+                        <moduleShortName>${module.shortName}</moduleShortName>
+                        <sourceLevel>1.8</sourceLevel>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

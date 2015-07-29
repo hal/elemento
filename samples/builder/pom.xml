@@ -29,25 +29,23 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>0.0.3</version>
+        <version>0.0.4</version>
     </parent>
 
-    <artifactId>builder-todo-sample</artifactId>
+    <artifactId>builder-sample</artifactId>
     <name>Elemento :: Samples :: Builder</name>
     <packaging>gwt-app</packaging>
+
+    <properties>
+        <gwt.public.directory>src/main/resources/org/jboss/gwt/elemento/sample/builder/public</gwt.public.directory>
+        <module.name>org.jboss.gwt.elemento.sample.builder.BuilderSample</module.name>
+        <module.shortName>builder</module.shortName>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>elemento-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-elemental</artifactId>
+            <artifactId>sample-common</artifactId>
         </dependency>
     </dependencies>
 
@@ -56,53 +54,10 @@
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>install node and npm</id>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                        <configuration>
-                            <workingDirectory>src/main/resources/org/jboss/gwt/elemento/sample/builder/public</workingDirectory>
-                            <nodeVersion>${nodejs.version}</nodeVersion>
-                            <npmVersion>${npm.version}</npmVersion>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>npm install</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <workingDirectory>src/main/resources/org/jboss/gwt/elemento/sample/builder/public</workingDirectory>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
-                <configuration>
-                    <compilerArgs>
-                        <compilerArg>-XjsInteropMode</compilerArg>
-                        <compilerArg>JS</compilerArg>
-                        <compilerArg>-gen</compilerArg>
-                        <compilerArg>${project.build.directory}/generated-sources/gwt</compilerArg>
-                    </compilerArgs>
-                    <devmodeArgs>
-                        <devmodeArg>-startupUrl</devmodeArg>
-                        <devmodeArg>builder/index.html</devmodeArg>
-                        <devmodeArg>-incremental</devmodeArg>
-                        <devmodeArg>-XjsInteropMode</devmodeArg>
-                        <devmodeArg>JS</devmodeArg>
-                    </devmodeArgs>
-                    <draftCompile>true</draftCompile>
-                    <logLevel>INFO</logLevel>
-                    <moduleName>org.jboss.gwt.elemento.sample.builder.BuilderTodoSample</moduleName>
-                    <moduleShortName>builder</moduleShortName>
-                    <sourceLevel>1.8</sourceLevel>
-                </configuration>
             </plugin>
         </plugins>
     </build>
