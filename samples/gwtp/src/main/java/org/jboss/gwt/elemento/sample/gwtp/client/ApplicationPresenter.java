@@ -84,6 +84,11 @@ public class ApplicationPresenter extends Presenter<ApplicationPresenter.MyView,
     protected void onBind() {
         super.onBind();
         getView().setPresenter(this);
+    }
+
+    @Override
+    protected void onReveal() {
+        super.onReveal();
         setInSlot(SLOT_FOOTER_CONTENT, footerPresenter);
     }
 

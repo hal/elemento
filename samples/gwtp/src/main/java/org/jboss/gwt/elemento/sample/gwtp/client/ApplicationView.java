@@ -81,15 +81,14 @@ public abstract class ApplicationView extends ViewImpl implements ApplicationPre
 
     @Override
     public void setInSlot(Object slot, IsWidget content) {
-        if (slot == SLOT_FOOTER_CONTENT) {
-            Element body = Browser.getDocument().getBody();
-            body.insertBefore(Elements.asElement(content), body.getFirstElementChild());
+        if (slot == SLOT_FOOTER_CONTENT && content != null) {
+            Browser.getDocument().getBody().appendChild(Elements.asElement(content));
         }
     }
 
     @Override
     public void addToSlot(Object slot, IsWidget content) {
-        if (slot == SLOT_ITEM_CONTENT) {
+        if (slot == SLOT_ITEM_CONTENT && content != null) {
             list.appendChild(Elements.asElement(content));
         }
     }

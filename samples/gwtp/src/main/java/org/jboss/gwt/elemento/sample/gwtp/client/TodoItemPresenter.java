@@ -55,6 +55,11 @@ public class TodoItemPresenter extends PresenterWidget<TodoItemPresenter.MyView>
     protected void onBind() {
         super.onBind();
         getView().setPresenter(this);
+    }
+
+    @Override
+    protected void onReveal() {
+        super.onReveal();
         getView().attachId(item.getId());
     }
 
