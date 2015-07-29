@@ -37,7 +37,7 @@ public class Main implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        TodoItemRepository repository = new TodoItemRepository("todos-elemento", BEAN_FACTORY);
+        TodoItemRepository repository = new TodoItemRepository(BEAN_FACTORY);
         ApplicationElement app = ApplicationElement.create(repository, MESSAGES);
         Element body = Browser.getDocument().getBody();
         body.insertBefore(app.asElement(), body.getFirstElementChild());

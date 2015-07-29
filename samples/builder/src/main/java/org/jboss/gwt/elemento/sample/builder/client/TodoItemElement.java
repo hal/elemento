@@ -39,7 +39,7 @@ import static org.jboss.gwt.elemento.core.InputType.checkbox;
 class TodoItemElement implements IsElement {
 
     private final TodoItem item;
-    private final ApplicationElement parent;
+    private final ApplicationElement application;
     private final TodoItemRepository repository;
 
     private final Element li;
@@ -49,10 +49,10 @@ class TodoItemElement implements IsElement {
 
     private boolean escape;
 
-    TodoItemElement(final ApplicationElement parent, final TodoItem item, final TodoItemRepository repository) {
-        this.item = item;
-        this.parent = parent;
+    TodoItemElement(final ApplicationElement application, final TodoItemRepository repository, final TodoItem item) {
+        this.application = application;
         this.repository = repository;
+        this.item = item;
 
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
@@ -88,7 +88,7 @@ class TodoItemElement implements IsElement {
             li.getClassList().remove("completed");
         }
         repository.complete(item, toggle.isChecked());
-        parent.update();
+        application.update();
     }
 
     private void edit() {
@@ -101,7 +101,7 @@ class TodoItemElement implements IsElement {
     private void destroy() {
         li.getParentElement().removeChild(li);
         repository.remove(item);
-        parent.update();
+        application.update();
     }
 
     private void keyDown(Event event) {

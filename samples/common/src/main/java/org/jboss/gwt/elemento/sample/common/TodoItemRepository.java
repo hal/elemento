@@ -36,10 +36,16 @@ import java.util.Set;
 
 public class TodoItemRepository {
 
+    public static final String DEFAULT_KEY = "todos-elemento";
+
     private final String key;
     private final BeanFactory beanFactory;
     private final Storage storage;
     private final LinkedHashMap<String, TodoItem> items;
+
+    public TodoItemRepository(BeanFactory beanFactory) {
+        this(DEFAULT_KEY, beanFactory);
+    }
 
     public TodoItemRepository(String key, BeanFactory beanFactory) {
         this.key = key;

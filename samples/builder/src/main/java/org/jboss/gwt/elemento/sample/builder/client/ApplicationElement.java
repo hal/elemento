@@ -21,7 +21,6 @@
  */
 package org.jboss.gwt.elemento.sample.builder.client;
 
-import com.google.gwt.core.client.GWT;
 import elemental.dom.Element;
 import elemental.events.Event;
 import elemental.events.KeyboardEvent;
@@ -29,7 +28,6 @@ import elemental.html.ButtonElement;
 import elemental.html.InputElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.sample.common.BeanFactory;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 import org.jboss.gwt.elemento.sample.common.TodoMessages;
@@ -46,9 +44,6 @@ import static org.jboss.gwt.elemento.sample.builder.client.Filter.*;
 
 class ApplicationElement implements IsElement {
 
-    static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
-    static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
-
     private final Element root;
     private final InputElement newTodo;
     private final Element main;
@@ -62,9 +57,13 @@ class ApplicationElement implements IsElement {
     private final ButtonElement clearCompleted;
 
     private final TodoItemRepository repository;
+    private final TodoMessages messages;
     private Filter filter;
 
-    ApplicationElement() {
+    ApplicationElement(TodoItemRepository repository, TodoMessages messages) {
+        this.repository = repository;
+        this.messages = messages;
+
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
         .start("section").css("todoapp")
@@ -83,7 +82,7 @@ class ApplicationElement implements IsElement {
                 .ul().css("todo-list").rememberAs("list").end()
             .end()
             .footer().css("footer").rememberAs("footer")
-                .span().css("todo-count").rememberAs("count").innerHtml(MESSAGES.items(0)).end()
+                .span().css("todo-count").rememberAs("count").innerHtml(messages.items(0)).end()
                 .ul().css("filters")
                     .li()
                         .a().attr("href", ALL.fragment()).innerText("All").rememberAs(ALL.filter()).end()
@@ -113,10 +112,9 @@ class ApplicationElement implements IsElement {
         this.filterActive = builder.referenceFor(ACTIVE.filter());
         this.filterCompleted = builder.referenceFor(COMPLETED.filter());
         this.clearCompleted = builder.referenceFor("clearCompleted");
-        this.repository = new TodoItemRepository("todos-elemento", BEAN_FACTORY);
 
         for (TodoItem item : repository.items()) {
-            list.appendChild(new TodoItemElement(this, item, repository).asElement());
+            list.appendChild(new TodoItemElement(this, repository, item).asElement());
         }
         update();
     }
@@ -135,7 +133,7 @@ class ApplicationElement implements IsElement {
             String text = newTodo.getValue().trim();
             if (text.length() != 0) {
                 TodoItem item = repository.add(text);
-                list.appendChild(new TodoItemElement(this, item, repository).asElement());
+                list.appendChild(new TodoItemElement(this, repository, item).asElement());
                 newTodo.setValue("");
                 update();
             }
@@ -215,7 +213,7 @@ class ApplicationElement implements IsElement {
             }
         }
         toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, MESSAGES.items(activeCount));
+        Elements.innerHtml(count, messages.items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 }

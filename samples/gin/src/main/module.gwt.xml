@@ -21,31 +21,12 @@
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<module>
+    <inherits name="elemental.Elemental"/>
+    <inherits name="com.google.gwt.user.User"/>
+    <inherits name="com.google.gwt.inject.Inject"/>
+    <inherits name="org.jboss.gwt.elemento.Core"/>
+    <inherits name="org.jboss.gwt.elemento.sample.Common"/>
 
-    <parent>
-        <groupId>org.jboss.gwt.elemento</groupId>
-        <artifactId>elemento-samples</artifactId>
-        <version>0.0.3</version>
-    </parent>
-
-    <artifactId>sample-common</artifactId>
-    <name>Elemento :: Samples :: Common</name>
-    <packaging>gwt-lib</packaging>
-
-    <properties>
-        <module.name>org.jboss.gwt.elemento.sample.Common</module.name>
-    </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>net.ltgt.gwt.maven</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+    <entry-point class="org.jboss.gwt.elemento.sample.gin.client.Main"/>
+</module>

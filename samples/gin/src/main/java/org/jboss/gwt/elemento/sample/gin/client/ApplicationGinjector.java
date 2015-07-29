@@ -19,30 +19,16 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.sample.builder.client;
+package org.jboss.gwt.elemento.sample.gin.client;
 
-import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.History;
-import elemental.client.Browser;
-import elemental.dom.Element;
-import org.jboss.gwt.elemento.sample.common.BeanFactory;
-import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
+import com.google.gwt.inject.client.GinModules;
+import com.google.gwt.inject.client.Ginjector;
 
-public class Main implements EntryPoint {
+@GinModules(ApplicationModule.class)
+public interface ApplicationGinjector extends Ginjector {
 
-    static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
-    static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
+    ApplicationGinjector INSTANCE = GWT.create(ApplicationGinjector.class);
 
-    @Override
-    public void onModuleLoad() {
-        TodoItemRepository repository = new TodoItemRepository(BEAN_FACTORY);
-        ApplicationElement app = new ApplicationElement(repository, MESSAGES);
-        Element body = Browser.getDocument().getBody();
-        body.insertBefore(app.asElement(), body.getFirstElementChild());
-
-        History.addValueChangeHandler(event -> app.filter(event.getValue()));
-        History.fireCurrentHistoryState();
-    }
+    ApplicationElement application();
 }

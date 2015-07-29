@@ -19,30 +19,34 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.sample.builder.client;
+package org.jboss.gwt.elemento.sample.gin.client;
 
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.History;
-import elemental.client.Browser;
-import elemental.dom.Element;
+import com.google.gwt.inject.client.AbstractGinModule;
+import com.google.inject.Provides;
+import com.google.inject.Singleton;
 import org.jboss.gwt.elemento.sample.common.BeanFactory;
+import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
-public class Main implements EntryPoint {
-
-    static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
-    static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
+/**
+ * @author Harald Pehl
+ */
+public class ApplicationModule extends AbstractGinModule {
 
     @Override
-    public void onModuleLoad() {
-        TodoItemRepository repository = new TodoItemRepository(BEAN_FACTORY);
-        ApplicationElement app = new ApplicationElement(repository, MESSAGES);
-        Element body = Browser.getDocument().getBody();
-        body.insertBefore(app.asElement(), body.getFirstElementChild());
+    protected void configure() {
+        bind(ApplicationElement.class).toProvider(Templated_ApplicationElement_Provider.class).in(Singleton.class);
+        bind(TodoItemElement.class).toProvider(Templated_TodoItemElement_Provider.class);
+    }
 
-        History.addValueChangeHandler(event -> app.filter(event.getValue()));
-        History.fireCurrentHistoryState();
+    @Provides
+    TodoItemRepository provideRepository(BeanFactory beanFactory) {
+        return new TodoItemRepository(beanFactory);
+    }
+
+    @Provides
+    TodoItem provideItem(BeanFactory beanFactory) {
+        // Workaround!
+        return beanFactory.todoItem().as();
     }
 }
