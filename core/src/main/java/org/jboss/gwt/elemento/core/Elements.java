@@ -619,6 +619,10 @@ public final class Elements {
         return context.querySelector("[data-element=" + name + "]");
     }
 
+    public static boolean isVisible(Element element) {
+        return !"none".equals(element.getStyle().getDisplay());
+    }
+
     public static void setVisible(Element element, boolean visible) {
         element.getStyle().setDisplay(visible ? "" : "none");
     }
