@@ -32,6 +32,9 @@ mvn -q install
 stop_spinner $?
 
 start_spinner "Building $SAMPLE_DIR..."
+cd samples/common
+mvn -q clean install
+cd ${ROOT}
 cd ${SAMPLE_DIR}
 mvn -q clean install
 cd ${ROOT}
