@@ -42,11 +42,12 @@ rm -rf /tmp/${SAMPLE_NAME}
 mv ${SAMPLE_DIR}/target/${SAMPLE_NAME}-sample-*/${SAMPLE_NAME} /tmp/
 git checkout gh-pages > /dev/null 2>&1
 git reset --hard origin/gh-pages > /dev/null 2>&1
-rm -v -rf ${SAMPLE_NAME}
-mv -v /tmp/${SAMPLE_NAME}/ .
+rm -rf samples/ # cleanup samples folder built in other branch!
+rm -rf ${SAMPLE_NAME}
+mv /tmp/${SAMPLE_NAME}/ .
 date > .build
-#git add --all > /dev/null 2>&1
-#git commit -am "Update $SAMPLE_DIR" > /dev/null 2>&1
-#git push -f origin gh-pages > /dev/null 2>&1
-#git checkout ${BRANCH} > /dev/null 2>&1
+git add --all > /dev/null 2>&1
+git commit -am "Update $SAMPLE_DIR" > /dev/null 2>&1
+git push -f origin gh-pages > /dev/null 2>&1
+git checkout ${BRANCH} > /dev/null 2>&1
 stop_spinner $?
