@@ -42,7 +42,6 @@ rm -rf /tmp/${SAMPLE_NAME}
 mv ${SAMPLE_DIR}/target/${SAMPLE_NAME}-sample-*/${SAMPLE_NAME} /tmp/
 git checkout gh-pages > /dev/null 2>&1
 git reset --hard origin/gh-pages > /dev/null 2>&1
-rm -rf samples/ # cleanup samples folder built in other branch!
 rm -rf ${SAMPLE_NAME}
 mv /tmp/${SAMPLE_NAME}/ .
 date > .build
