@@ -37,7 +37,7 @@ mvn -q clean install
 cd ${ROOT}
 stop_spinner $?
 
-start_spinner "Commit and publish to gh-pages..."
+start_spinner "Publishing to gh-pages..."
 rm -rf /tmp/${SAMPLE_NAME}
 mv ${SAMPLE_DIR}/target/${SAMPLE_NAME}-sample-*/${SAMPLE_NAME} /tmp/
 git checkout gh-pages > /dev/null 2>&1
