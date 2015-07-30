@@ -44,6 +44,7 @@ git checkout gh-pages > /dev/null 2>&1
 git reset --hard origin/gh-pages > /dev/null 2>&1
 rm -rf ${SAMPLE_NAME}
 mv /tmp/${SAMPLE_NAME}/ .
+date > .build
 git add --all > /dev/null 2>&1
 git commit -am "Update $SAMPLE_DIR" > /dev/null 2>&1
 git push -f origin gh-pages > /dev/null 2>&1
