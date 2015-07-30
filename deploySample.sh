@@ -32,10 +32,9 @@ mvn -q install
 stop_spinner $?
 
 start_spinner "Building $SAMPLE_DIR..."
-cd samples/common
-mvn -q clean install
-cd ${ROOT}
-cd ${SAMPLE_DIR}
+cd samples
+mvn -q clean install -Dgwt.skipCompilation
+cd ${SAMPLE_NAME}
 mvn -q clean install
 cd ${ROOT}
 stop_spinner $?
