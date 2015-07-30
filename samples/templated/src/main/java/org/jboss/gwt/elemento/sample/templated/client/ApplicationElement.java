@@ -69,6 +69,11 @@ abstract class ApplicationElement implements IsElement {
 
     @PostConstruct
     void init() {
+        reset();
+        repository().onExternalModification(this::reset);
+    }
+
+    private void reset() {
         Elements.removeChildrenFrom(list); // remove the sample items from the template
         for (TodoItem item : repository().items()) {
             list.appendChild(TodoItemElement.create(this, repository(), item).asElement());

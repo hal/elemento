@@ -22,6 +22,7 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import com.google.inject.Provider;
+import elemental.client.Browser;
 import elemental.dom.Element;
 import elemental.events.KeyboardEvent;
 import elemental.html.ButtonElement;
@@ -72,7 +73,14 @@ abstract class ApplicationElement implements IsElement {
 
     @PostConstruct
     void init() {
-        Elements.removeChildrenFrom(list); // remove the sample items from the template
+        reset();
+        repository().onExternalModification(this::reset);
+
+    }
+
+    private void reset() {
+        Browser.getWindow().getConsole().log("Reset todos in gin-sample");
+        Elements.removeChildrenFrom(list);
         for (TodoItem item : repository().items()) {
             TodoItemElement itemElement = itemElement().get();
             itemElement.init(item);
