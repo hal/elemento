@@ -5,8 +5,10 @@
 PROGNAME=`basename "$0"`
 SAMPLE_NAME=$1
 SAMPLE_DIR=samples/${SAMPLE_NAME}
-TMP=/tmp/elemento/sample
 ROOT=$PWD
+BRANCH=$(git symbolic-ref -q HEAD)
+BRANCH=${BRANCH##refs/heads/}
+BRANCH=${BRANCH:-HEAD}
 
 if [ "$#" -ne 1 ]; then
     echo "Illegal number of arguments. Use '$PROGNAME <sample name>'"
@@ -26,28 +28,24 @@ fi
 source "$ROOT/spinner.sh"
 
 start_spinner "Building elemento core..."
-# mvn -q install
-sleep 1
+mvn -q install
 stop_spinner $?
 
 cd ${SAMPLE_DIR}
 start_spinner "Building $SAMPLE_NAME..."
-# mvn -q clean install
-sleep 1
+mvn -q clean install
 stop_spinner $?
 cd ${ROOT}
 
-start_spinner "Commit to gh-pages..."
-rm -rf ${TMP}
-mkdir -p ${TMP}
-cp -R ${SAMPLE_DIR}/target/${SAMPLE_NAME}-sample-*/${SAMPLE_NAME} ${TMP}
-git checkout gh-pages
+start_spinner "Commit and publish to gh-pages..."
+rm -rf /tmp/${SAMPLE_NAME}
+mv ${SAMPLE_DIR}/target/${SAMPLE_NAME}-sample-*/${SAMPLE_NAME} /tmp/
+git checkout gh-pages > /dev/null 2>&1
+git reset --hard origin/gh-pages > /dev/null 2>&1
 rm -rf ${SAMPLE_NAME}
-cp -R ${TMP}/${SAMPLE_NAME} .
+mv /tmp/${SAMPLE_NAME}/ .
 git add --all > /dev/null 2>&1
-git commit -am "Update $SAMPLE_DIR/$SAMPLE_NAME"
-stop_spinner $?
-
-start_spinner "Publish to gh-pages..."
+git commit -am "Update $SAMPLE_DIR/$SAMPLE_NAME" > /dev/null 2>&1
 git push -f origin gh-pages > /dev/null 2>&1
+git checkout ${BRANCH}
 stop_spinner $?
