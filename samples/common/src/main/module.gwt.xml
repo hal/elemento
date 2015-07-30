@@ -22,6 +22,7 @@
   -->
 
 <module>
+    <inherits name="com.google.gwt.core.Core"/>
     <inherits name="com.google.gwt.i18n.I18N"/>
     <inherits name="com.google.gwt.json.JSON"/>
     <inherits name="com.google.web.bindery.autobean.AutoBean"/>

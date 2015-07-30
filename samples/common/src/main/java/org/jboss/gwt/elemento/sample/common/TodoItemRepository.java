@@ -21,14 +21,16 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.json.client.JSONValue;
-import com.google.gwt.storage.client.Storage;
-import com.google.gwt.storage.client.StorageMap;
 import com.google.web.bindery.autobean.shared.AutoBean;
 import com.google.web.bindery.autobean.shared.AutoBeanCodex;
 import com.google.web.bindery.autobean.shared.AutoBeanUtils;
+import elemental.client.Browser;
+import elemental.html.Storage;
+import elemental.html.StorageEvent;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -41,7 +43,6 @@ public class TodoItemRepository {
     private final String key;
     private final BeanFactory beanFactory;
     private final Storage storage;
-    private final LinkedHashMap<String, TodoItem> items;
 
     public TodoItemRepository(BeanFactory beanFactory) {
         this(DEFAULT_KEY, beanFactory);
@@ -50,34 +51,7 @@ public class TodoItemRepository {
     public TodoItemRepository(String key, BeanFactory beanFactory) {
         this.key = key;
         this.beanFactory = beanFactory;
-        this.storage = Storage.getLocalStorageIfSupported();
-        this.items = load();
-    }
-
-    private LinkedHashMap<String, TodoItem> load() {
-        LinkedHashMap<String, TodoItem> items = new LinkedHashMap<>();
-        if (storage != null) {
-            //noinspection MismatchedQueryAndUpdateOfCollection
-            StorageMap storageMap = new StorageMap(storage);
-            if (storageMap.containsKey(key)) {
-                String json = storageMap.get(key);
-                if (json != null) {
-                    JSONValue jsonValue = JSONParser.parseStrict(json);
-                    if (jsonValue != null) {
-                        JSONArray jsonArray = jsonValue.isArray();
-                        if (jsonArray != null) {
-                            for (int i = 0; i < jsonArray.size(); i++) {
-                                AutoBean<TodoItem> bean = AutoBeanCodex.decode(beanFactory, TodoItem.class,
-                                        jsonArray.get(i).toString());
-                                TodoItem todoItem = bean.as();
-                                items.put(todoItem.getId(), todoItem);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return items;
+        this.storage = Browser.getWindow().getLocalStorage();
     }
 
     public TodoItem add(String text) {
@@ -86,8 +60,9 @@ public class TodoItemRepository {
         item.setText(text);
         item.setCompleted(false);
 
+        LinkedHashMap<String, TodoItem> items = load();
         items.put(item.getId(), item);
-        save(items());
+        save(items.values());
 
         return item;
     }
@@ -100,35 +75,72 @@ public class TodoItemRepository {
     }
 
     public void complete(TodoItem item, boolean completed) {
+        LinkedHashMap<String, TodoItem> items = load();
         TodoItem existingItem = items.get(item.getId());
         if (existingItem != null) {
             existingItem.setCompleted(completed);
-            save(items());
+            save(items.values());
         }
     }
 
     public void rename(TodoItem item, String text) {
+        LinkedHashMap<String, TodoItem> items = load();
         TodoItem existingItem = items.get(item.getId());
         if (existingItem != null) {
             existingItem.setText(text);
-            save(items());
+            save(items.values());
         }
     }
 
     public Iterable<TodoItem> items() {
-        return items.values();
+        return load().values();
     }
 
     public void remove(TodoItem item) {
+        LinkedHashMap<String, TodoItem> items = load();
         items.remove(item.getId());
-        save(items());
+        save(items.values());
     }
 
     public void removeAll(Set<String> ids) {
+        LinkedHashMap<String, TodoItem> items = load();
         for (String id : ids) {
             items.remove(id);
         }
-        save(items());
+        save(items.values());
+    }
+
+    public void onExternalModification(Scheduler.ScheduledCommand command) {
+        if (storage != null) {
+            Browser.getWindow().addEventListener("storage", event -> {
+                StorageEvent storageEvent = (StorageEvent) event;
+                if (key.equals(storageEvent.getKey())) {
+                    Scheduler.get().scheduleDeferred(command);
+                }
+            }, false);
+        }
+    }
+
+    private LinkedHashMap<String, TodoItem> load() {
+        LinkedHashMap<String, TodoItem> items = new LinkedHashMap<>();
+        if (storage != null) {
+            String json = storage.getItem(key);
+            if (json != null) {
+                JSONValue jsonValue = JSONParser.parseStrict(json);
+                if (jsonValue != null) {
+                    JSONArray jsonArray = jsonValue.isArray();
+                    if (jsonArray != null) {
+                        for (int i = 0; i < jsonArray.size(); i++) {
+                            AutoBean<TodoItem> bean = AutoBeanCodex.decode(beanFactory, TodoItem.class,
+                                    jsonArray.get(i).toString());
+                            TodoItem todoItem = bean.as();
+                            items.put(todoItem.getId(), todoItem);
+                        }
+                    }
+                }
+            }
+        }
+        return items;
     }
 
     private void save(Iterable<TodoItem> items) {

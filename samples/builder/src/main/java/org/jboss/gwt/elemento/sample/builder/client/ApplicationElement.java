@@ -21,6 +21,7 @@
  */
 package org.jboss.gwt.elemento.sample.builder.client;
 
+import elemental.client.Browser;
 import elemental.dom.Element;
 import elemental.events.Event;
 import elemental.events.KeyboardEvent;
@@ -113,6 +114,13 @@ class ApplicationElement implements IsElement {
         this.filterCompleted = builder.referenceFor(COMPLETED.filter());
         this.clearCompleted = builder.referenceFor("clearCompleted");
 
+        reset();
+        repository.onExternalModification(this::reset);
+    }
+
+    private void reset() {
+        Browser.getWindow().getConsole().log("Reset todos in builder-sample");
+        Elements.removeChildrenFrom(list);
         for (TodoItem item : repository.items()) {
             list.appendChild(new TodoItemElement(this, repository, item).asElement());
         }
