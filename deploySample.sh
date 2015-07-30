@@ -31,11 +31,11 @@ start_spinner "Building elemento..."
 mvn -q install
 stop_spinner $?
 
-cd ${SAMPLE_DIR}
 start_spinner "Building $SAMPLE_DIR..."
+cd ${SAMPLE_DIR}
 mvn -q clean install
-stop_spinner $?
 cd ${ROOT}
+stop_spinner $?
 
 start_spinner "Commit and publish to gh-pages..."
 rm -rf /tmp/${SAMPLE_NAME}
