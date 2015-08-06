@@ -92,4 +92,42 @@ public final class TemplateUtil {
         }
         type.register(element, handler);
     }
+
+
+    // ------------------------------------------------------ handlebars
+
+    /* It seems that NodeFilters are not supported yet:
+       Uncaught TypeError: Failed to execute 'nextNode' on 'TreeWalker': NodeFilter object does not have an acceptNode function
+    public static void replaceHandlebar(Element context, String expression, String value) {
+        NodeFilter nodeFilter = node -> {
+            short result = NodeFilter.FILTER_SKIP;
+            if (node.getNodeValue() != null && node.getNodeValue().contains(expression)) {
+                result = NodeFilter.FILTER_ACCEPT;
+            }
+            return result;
+        };
+        TreeWalker treeWalker = Browser.getDocument()
+                .createTreeWalker(context, NodeFilter.SHOW_TEXT, nodeFilter, false);
+        while (treeWalker.nextNode() != null) {
+            String oldValue = treeWalker.getCurrentNode().getNodeValue();
+            String newValue = oldValue.replace(expression, value);
+            treeWalker.getCurrentNode().setNodeValue(newValue);
+        }
+    }
+    */
+
+    public static native void replaceHandlebar(Element context, String expression, String value) /*-{
+        var treeWalker = $doc.createTreeWalker(context, NodeFilter.SHOW_TEXT, {
+                acceptNode: function (node) {
+                    if (node.nodeValue.indexOf(expression) != -1) {
+                        return NodeFilter.FILTER_ACCEPT;
+                    } else {
+                        return NodeFilter.FILTER_SKIP;
+                    }
+                }
+            }, false);
+        while (treeWalker.nextNode()) {
+            treeWalker.currentNode.nodeValue = treeWalker.currentNode.nodeValue.replace(expression, value);
+        }
+    }-*/;
 }

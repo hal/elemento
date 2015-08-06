@@ -24,6 +24,7 @@ package org.jboss.gwt.elemento.processor.context;
 import org.jsoup.nodes.Attribute;
 
 import java.util.List;
+import java.util.Map;
 
 public class RootElementInfo {
 
@@ -31,13 +32,15 @@ public class RootElementInfo {
     private final String member;
     private final List<Attribute> attributes;
     private final String innerHtml;
+    private final Map<String, String> handlebars;
 
     public RootElementInfo(final String tag, final String member, final List<Attribute> attributes,
-            final String innerHtml) {
+            final String innerHtml, final Map<String, String> handlebars) {
         this.tag = tag;
         this.member = member;
         this.attributes = attributes;
         this.innerHtml = innerHtml;
+        this.handlebars = handlebars;
     }
 
     @Override
@@ -59,5 +62,9 @@ public class RootElementInfo {
 
     public String getTag() {
         return tag;
+    }
+
+    public Map<String, String> getHandlebars() {
+        return handlebars;
     }
 }

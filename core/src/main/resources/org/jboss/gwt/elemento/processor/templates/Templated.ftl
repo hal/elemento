@@ -8,6 +8,10 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
 import elemental.client.Browser;
 import elemental.dom.Element;
+<#if context.root.innerHtml?? && context.root.handlebars??>
+import elemental.dom.NamedNodeMap;
+import elemental.traversal.TreeWalker;
+</#if>
 <#if (context.dataElements?size > 0 || context.eventHandler?size > 0)>
 import org.jboss.gwt.elemento.core.TemplateUtil;
 </#if>
@@ -85,6 +89,12 @@ final class ${context.subclass} extends ${context.base} {
             </#if>
         </#if>
         </#list>
+        <#-- Handlebars -->
+        <#if context.root.innerHtml?? && context.root.handlebars??>
+        <#list context.root.handlebars?keys as handlebar>
+        TemplateUtil.replaceHandlebar(${context.root.member}, "${handlebar}", String.valueOf(${context.root.handlebars?values[handlebar_index]}));
+        </#list>
+        </#if>
         <#-- @PostConstruct -->
         <#list context.postConstructs as postConstruct>
         ${postConstruct.name}();

@@ -24,22 +24,37 @@ package org.jboss.gwt.elemento.core;
 import elemental.dom.Element;
 
 /**
+ * Convenience class to help lazy loading. The bulk of a LazyElement is not instantiated until {@link #asElement()} is
+ * called.
+ *
  * @author Harald Pehl
  */
 public abstract class LazyElement implements IsElement {
 
     private Element element;
 
+    /**
+     * Creates and returns the element on demand by calling {@link #createElement()} or just returns the previously
+     * created element.
+     */
     @Override
     public Element asElement() {
         if (element == null) {
-            element = lazyElement();
+            element = createElement();
         }
         return element;
     }
 
-    protected abstract Element lazyElement();
+    /**
+     * Create the element contained within the {@link LazyElement}.
+     *
+     * @return the lazy element
+     */
+    protected abstract Element createElement();
 
+    /**
+     * @return whether the element was already created
+     */
     protected boolean initialized() {
         return element != null;
     }
