@@ -75,6 +75,7 @@ import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -244,10 +245,16 @@ public class TemplatedProcessor extends AbstractProcessor {
         List<Attribute> attributes = root.attributes().asList().stream()
                 .filter(attribute -> !attribute.getKey().equals("data-element"))
                 .collect(Collectors.toList());
-        String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
+        String html = root.children().isEmpty() ? null : root.html();
+        Map<String, String> handlebars = new HandlebarsParser().parse(html);
+        Map<String, String> safeHandlebars = new HashMap<>();
+        for (Map.Entry<String, String> entry : handlebars.entrySet()) {
+            safeHandlebars.put(JAVA_STRING_ESCAPER.escape(entry.getKey()), entry.getValue());
+        }
+        String safeHtml = html == null ? null : JAVA_STRING_ESCAPER.escape(html);
 
         return new RootElementInfo(root.tagName(), subclass.toLowerCase() + "_root_element",
-                attributes, html);
+                attributes, safeHtml, safeHandlebars);
     }
 
     private TemplateSelector getTemplateSelector(TypeElement type, Templated templated) {

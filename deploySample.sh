@@ -31,6 +31,12 @@ start_spinner "Building elemento..."
 mvn -q install
 stop_spinner $?
 
+start_spinner "Building samples..."
+cd samples
+mvn -q clean install -Dgwt.skipCompilation
+cd ${ROOT}
+stop_spinner $?
+
 start_spinner "Building $SAMPLE_DIR..."
 cd ${SAMPLE_DIR}
 mvn -q clean install

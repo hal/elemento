@@ -585,7 +585,7 @@ public final class Elements {
     // ------------------------------------------------------ element helper methods
 
     public static Iterator<Element> iterator(Element parent) {
-        return new ChildrenIterator(parent);
+        return parent != null ? new ChildrenIterator(parent) : Collections.<Element>emptyList().iterator();
     }
 
     public static Iterable<Element> children(Element parent) {
@@ -593,15 +593,19 @@ public final class Elements {
     }
 
     public static void innerHtml(Element element, SafeHtml html) {
-        element.setInnerHTML(html.asString());
+        if (element != null) {
+            element.setInnerHTML(html.asString());
+        }
     }
 
     /**
      * Removes all child elements from {@code element}
      */
     public static void removeChildrenFrom(final Element element) {
-        while (element.getFirstChild() != null) {
-            element.removeChild(element.getFirstChild());
+        if (element != null) {
+            while (element.getFirstChild() != null) {
+                element.removeChild(element.getFirstChild());
+            }
         }
     }
 
@@ -616,11 +620,17 @@ public final class Elements {
      * Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]}
      */
     public static Element dataElement(Element context, String name) {
-        return context.querySelector("[data-element=" + name + "]");
+        return context != null ? context.querySelector("[data-element=" + name + "]") : null;
+    }
+
+    public static boolean isVisible(Element element) {
+        return element != null && !"none".equals(element.getStyle().getDisplay());
     }
 
     public static void setVisible(Element element, boolean visible) {
-        element.getStyle().setDisplay(visible ? "" : "none");
+        if (element != null) {
+            element.getStyle().setDisplay(visible ? "" : "none");
+        }
     }
 
 
