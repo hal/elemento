@@ -8,10 +8,6 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
 import elemental.client.Browser;
 import elemental.dom.Element;
-<#if (context.root.innerHtml?? && context.root.handlebars?size > 0)>
-import elemental.dom.NamedNodeMap;
-import elemental.traversal.TreeWalker;
-</#if>
 <#if (context.dataElements?size > 0 || context.eventHandler?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
 import org.jboss.gwt.elemento.core.TemplateUtil;
 </#if>
