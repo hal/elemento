@@ -19,28 +19,34 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor;
+package org.jboss.gwt.elemento.sample.builder.client;
 
-class TemplateSelector {
+import elemental.dom.Element;
+import org.jboss.gwt.elemento.core.Elements;
+import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.I18n;
+import org.jboss.gwt.elemento.sample.common.Urls;
 
-    final String template;
-    final String selector;
+public class FooterElement implements IsElement {
 
-    TemplateSelector(final String template) {
-        this(template, null);
-    }
+    private final I18n i18n;
 
-    TemplateSelector(final String template, final String selector) {
-        this.template = template;
-        this.selector = selector;
-    }
-
-    boolean hasSelector() {
-        return selector != null;
-    }
+    public FooterElement(final I18n i18n) {this.i18n = i18n;}
 
     @Override
-    public String toString() {
-        return template + (hasSelector() ? "#" + selector : "");
+    public Element asElement() {
+        // @formatter:off
+        return new Elements.Builder()
+        .start("footer").css("info")
+            .p().innerText(i18n.constants().double_click_to_edit()).end()
+            .p()
+                .span().innerText(i18n.constants().created_by() + " ").end()
+                .a().attr("href", Urls.HPEHL_INFO).innerText("Harald Pehl").end()
+            .end()
+            .p()
+                .span().innerText(i18n.constants().part_of() + " ").end()
+                .a().attr("href", Urls.TODO_MVC).innerText("TodoMVC").end()
+            .end()
+        .end().build();
     }
 }

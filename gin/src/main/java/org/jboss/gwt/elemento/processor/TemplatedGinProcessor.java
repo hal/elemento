@@ -45,7 +45,7 @@ public class TemplatedGinProcessor extends TemplatedProcessor {
     @Override
     protected void processType(final TypeElement type, final Templated templated) {
         String subclass = TypeSimplifier.simpleNameOf(generatedClassName(type, "Templated_", "_Provider"));
-        String createMethod = getCreateMethod(type);
+        String createMethod = verifyCreateMethod(type);
         FreemarkerContext context = new FreemarkerContext(TypeSimplifier.packageNameOf(type),
                 TypeSimplifier.classNameOf(type), subclass, createMethod);
 

@@ -10,25 +10,25 @@
 <body>
 <section data-element="todos" class="todoapp">
     <header class="header">
-        <h1>todos</h1>
-        <input data-element="newTodo" class="new-todo" placeholder="What needs to be done?" autofocus>
+        <h1>{{i18n().constants().todos()}}</h1>
+        <input data-element="newTodo" class="new-todo" placeholder="{{i18n().constants().new_todo()}}" autofocus>
     </header>
     <section data-element="main" class="main">
         <input data-element="toggleAll" class="toggle-all" id="toggle-all" type="checkbox">
-        <label for="toggle-all">Mark all as complete</label>
+        <label for="toggle-all">{{i18n().constants().complete_all()}}</label>
         <ul data-element="list" class="todo-list">
             <li data-element="item">
                 <div class="view">
                     <input data-element="toggle" class="toggle" type="checkbox" checked>
-                    <label data-element="label">Taste JavaScript</label>
+                    <label data-element="label">Taste Elemento</label>
                     <button data-element="destroy" class="destroy"></button>
                 </div>
-                <input data-element="input" class="edit" value="Create a TodoMVC template">
+                <input data-element="input" class="edit" value="Taste Elemento">
             </li>
             <li class="completed">
                 <div class="view">
                     <input class="toggle" type="checkbox">
-                    <label>Buy a unicorn</label>
+                    <label>Rule the web</label>
                     <button class="destroy"></button>
                 </div>
                 <input class="edit" value="Rule the web">
@@ -39,22 +39,22 @@
         <span data-element="count" class="todo-count"><strong>0</strong> item left</span>
         <ul class="filters">
             <li>
-                <a data-element="all" href="#/">All</a>
+                <a data-element="all" href="#/">{{i18n().constants().filter_all()}}</a>
             </li>
             <li>
-                <a data-element="active" href="#/active">Active</a>
+                <a data-element="active" href="#/active">{{i18n().constants().filter_active()}}</a>
             </li>
             <li>
-                <a data-element="completed" href="#/completed">Completed</a>
+                <a data-element="completed" href="#/completed">{{i18n().constants().filter_completed()}}</a>
             </li>
         </ul>
-        <button data-element="clearCompleted" class="clear-completed">Clear completed</button>
+        <button data-element="clearCompleted" class="clear-completed">{{i18n().constants().clear_completed()}}</button>
     </footer>
 </section>
-<footer class="info">
-    <p>Double-click to edit a todo</p>
-    <p>Created by <a href="http://hpehl.info">Harald Pehl</a></p>
-    <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+<footer data-element="info" class="info">
+    <p>{{i18n().constants().double_click_to_edit()}}</p>
+    <p><span>{{i18n().constants().created_by()}}</span>&nbsp;<a href="http://hpehl.info">Harald Pehl</a></p>
+    <p><span>{{i18n().constants().part_of()}}</span>&nbsp;<a href="http://todomvc.com">TodoMVC</a></p>
 </footer>
 </body>
 </html>

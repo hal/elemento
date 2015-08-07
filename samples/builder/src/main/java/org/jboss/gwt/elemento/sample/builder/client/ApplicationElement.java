@@ -21,7 +21,6 @@
  */
 package org.jboss.gwt.elemento.sample.builder.client;
 
-import elemental.client.Browser;
 import elemental.dom.Element;
 import elemental.events.Event;
 import elemental.events.KeyboardEvent;
@@ -29,9 +28,9 @@ import elemental.html.ButtonElement;
 import elemental.html.InputElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -58,45 +57,57 @@ class ApplicationElement implements IsElement {
     private final ButtonElement clearCompleted;
 
     private final TodoItemRepository repository;
-    private final TodoMessages messages;
+    private final I18n i18n;
     private Filter filter;
 
-    ApplicationElement(TodoItemRepository repository, TodoMessages messages) {
+    ApplicationElement(TodoItemRepository repository, I18n i18n) {
         this.repository = repository;
-        this.messages = messages;
+        this.i18n = i18n;
 
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
         .start("section").css("todoapp")
             .header().css("header")
-                .h(1).innerText("todos").end()
+                .h(1).innerText(i18n.constants().todos()).end()
                 .input(text)
                     .on(keydown, this::newTodo)
                     .rememberAs("newTodo")
                     .css("new-todo")
-                    .attr("placeholder", "What needs to be done?")
+                    .attr("placeholder", i18n.constants().new_todo())
                     .attr("autofocus", "autofocus")
             .end()
             .section().css("main").rememberAs("main")
                 .input(checkbox).on(change, event -> toggleAll()).css("toggle-all").id("toggle-all").rememberAs("toggleAll")
-                .label().attr("for", "toggle-all").innerText("Mark all as complete").end()
+                .label().attr("for", "toggle-all").innerText(i18n.constants().complete_all()).end()
                 .ul().css("todo-list").rememberAs("list").end()
             .end()
             .footer().css("footer").rememberAs("footer")
-                .span().css("todo-count").rememberAs("count").innerHtml(messages.items(0)).end()
+                .span().css("todo-count").rememberAs("count").innerHtml(i18n.messages().items(0)).end()
                 .ul().css("filters")
                     .li()
-                        .a().attr("href", ALL.fragment()).innerText("All").rememberAs(ALL.filter()).end()
+                        .a()
+                            .attr("href", ALL.fragment())
+                            .innerText(i18n.constants().filter_all())
+                            .rememberAs(ALL.filter())
+                        .end()
                     .end()
                     .li()
-                        .a().attr("href", ACTIVE.fragment()).innerText("Active").rememberAs(ACTIVE.filter()).end()
+                        .a()
+                            .attr("href", ACTIVE.fragment())
+                            .innerText(i18n.constants().filter_active())
+                            .rememberAs(ACTIVE.filter())
+                        .end()
                     .end()
                     .li()
-                        .a().attr("href", COMPLETED.fragment()).innerText("Completed").rememberAs(COMPLETED.filter()).end()
+                        .a()
+                            .attr("href", COMPLETED.fragment())
+                            .innerText(i18n.constants().filter_completed())
+                            .rememberAs(COMPLETED.filter())
+                        .end()
                     .end()
                 .end()
                 .button().on(click, (event) -> clearCompleted()).css("clear-completed").rememberAs("clearCompleted")
-                    .innerText("Clear completed")
+                    .innerText(i18n.constants().clear_completed())
                 .end()
             .end()
         .end();
@@ -119,7 +130,6 @@ class ApplicationElement implements IsElement {
     }
 
     private void reset() {
-        Browser.getWindow().getConsole().log("Reset todos in builder-sample");
         Elements.removeChildrenFrom(list);
         for (TodoItem item : repository.items()) {
             list.appendChild(new TodoItemElement(this, repository, item).asElement());
@@ -221,7 +231,7 @@ class ApplicationElement implements IsElement {
             }
         }
         toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, messages.items(activeCount));
+        Elements.innerHtml(count, i18n.messages().items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 }

@@ -19,28 +19,23 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor;
+package org.jboss.gwt.elemento.sample.common;
 
-class TemplateSelector {
+public class I18n {
 
-    final String template;
-    final String selector;
+    private final TodoConstants constants;
+    private final TodoMessages messages;
 
-    TemplateSelector(final String template) {
-        this(template, null);
+    public I18n(final TodoConstants constants, final TodoMessages messages) {
+        this.constants = constants;
+        this.messages = messages;
     }
 
-    TemplateSelector(final String template, final String selector) {
-        this.template = template;
-        this.selector = selector;
+    public TodoConstants constants() {
+        return constants;
     }
 
-    boolean hasSelector() {
-        return selector != null;
-    }
-
-    @Override
-    public String toString() {
-        return template + (hasSelector() ? "#" + selector : "");
+    public TodoMessages messages() {
+        return messages;
     }
 }

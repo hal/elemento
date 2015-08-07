@@ -19,28 +19,12 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor;
+package org.jboss.gwt.elemento.sample.common;
 
-class TemplateSelector {
-
-    final String template;
-    final String selector;
-
-    TemplateSelector(final String template) {
-        this(template, null);
-    }
-
-    TemplateSelector(final String template, final String selector) {
-        this.template = template;
-        this.selector = selector;
-    }
-
-    boolean hasSelector() {
-        return selector != null;
-    }
-
-    @Override
-    public String toString() {
-        return template + (hasSelector() ? "#" + selector : "");
-    }
+/**
+ * @author Harald Pehl
+ */
+public interface Urls {
+    String HPEHL_INFO = "http://hpehl.info";
+    String TODO_MVC = "http://todomvc.com";
 }

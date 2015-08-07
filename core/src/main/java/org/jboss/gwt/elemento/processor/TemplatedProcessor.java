@@ -75,7 +75,6 @@ import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -184,7 +183,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     protected void processType(TypeElement type, final Templated templated) {
         // freemarker context
         String subclass = TypeSimplifier.simpleNameOf(generatedClassName(type, "Templated_", ""));
-        String createMethod = getCreateMethod(type);
+        String createMethod = verifyCreateMethod(type);
         FreemarkerContext context = new FreemarkerContext(TypeSimplifier.packageNameOf(type),
                 TypeSimplifier.classNameOf(type), subclass, createMethod);
 
@@ -209,19 +208,20 @@ public class TemplatedProcessor extends AbstractProcessor {
         List<AbstractPropertyInfo> abstractProperties = processAbstractProperties(type);
         context.setAbstractProperties(abstractProperties);
 
+        // generate code
         code(FREEMARKER_TEMPLATE, context.getPackage(), context.getSubclass(),
                 () -> ImmutableMap.of("context", context));
         info("Generated templated implementation [%s] for [%s]", context.getSubclass(), context.getBase());
     }
 
-    protected String getCreateMethod(TypeElement type) {
+    protected String verifyCreateMethod(TypeElement type) {
         java.util.Optional<ExecutableElement> createMethod = ElementFilter.methodsIn(type.getEnclosedElements())
                 .stream()
                 .filter(method -> method.getModifiers().contains(Modifier.STATIC) &&
                         method.getReturnType().equals(type.asType()))
                 .findAny();
         if (!createMethod.isPresent()) {
-            abortWithError(type, "@%s need to define one static method which returns an %s instance",
+            abortWithError(type, "@%s needs to define one static method which returns an %s instance",
                     Templated.class.getSimpleName(), type.getSimpleName());
         }
         return createMethod.get().getSimpleName().toString();
@@ -245,16 +245,12 @@ public class TemplatedProcessor extends AbstractProcessor {
         List<Attribute> attributes = root.attributes().asList().stream()
                 .filter(attribute -> !attribute.getKey().equals("data-element"))
                 .collect(Collectors.toList());
-        String html = root.children().isEmpty() ? null : root.html();
+
+        String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
         Map<String, String> handlebars = new HandlebarsParser().parse(html);
-        Map<String, String> safeHandlebars = new HashMap<>();
-        for (Map.Entry<String, String> entry : handlebars.entrySet()) {
-            safeHandlebars.put(JAVA_STRING_ESCAPER.escape(entry.getKey()), entry.getValue());
-        }
-        String safeHtml = html == null ? null : JAVA_STRING_ESCAPER.escape(html);
 
         return new RootElementInfo(root.tagName(), subclass.toLowerCase() + "_root_element",
-                attributes, safeHtml, safeHandlebars);
+                attributes, html, handlebars);
     }
 
     private TemplateSelector getTemplateSelector(TypeElement type, Templated templated) {

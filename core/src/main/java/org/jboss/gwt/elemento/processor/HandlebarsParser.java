@@ -28,13 +28,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Extracts handlebar expressions like {@code {{foo}}} from a string and returns a map with the expression as key and
+ * the plain text (w/o the curly braces) as value.
+ *
  * @author Harald Pehl
  */
-public class HandlebarsParser {
+class HandlebarsParser {
 
     private final static Pattern PATTERN = Pattern.compile("\\{\\{(.*?)\\}\\}");
 
-    public Map<String, String> parse(String input) {
+    Map<String, String> parse(String input) {
         if (input != null) {
             Map<String, String> matches = new HashMap<>();
             Matcher matcher = PATTERN.matcher(input);

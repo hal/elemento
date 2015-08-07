@@ -19,28 +19,18 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.processor;
+package org.jboss.gwt.elemento.sample.templated.client;
 
-class TemplateSelector {
+import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.sample.common.I18n;
 
-    final String template;
-    final String selector;
+@Templated("Todo.html#info")
+public abstract class FooterElement implements IsElement {
 
-    TemplateSelector(final String template) {
-        this(template, null);
+    static FooterElement create(I18n i18n) {
+        return new Templated_FooterElement(i18n);
     }
 
-    TemplateSelector(final String template, final String selector) {
-        this.template = template;
-        this.selector = selector;
-    }
-
-    boolean hasSelector() {
-        return selector != null;
-    }
-
-    @Override
-    public String toString() {
-        return template + (hasSelector() ? "#" + selector : "");
-    }
+    abstract I18n i18n();
 }

@@ -106,11 +106,10 @@ public final class TemplateUtil {
         // Once it's fixed replace the native JS implementation with this one:
         //        TreeWalker textWalker = Browser.getDocument().createTreeWalker(context, NodeFilter.SHOW_TEXT,
         //                node -> {
-        //                    short result = NodeFilter.FILTER_SKIP;
         //                    if (node.getNodeValue() != null && node.getNodeValue().contains(expression)) {
-        //                        result = NodeFilter.FILTER_ACCEPT;
+        //                        return NodeFilter.FILTER_ACCEPT;
         //                    }
-        //                    return result;
+        //                    return NodeFilter.FILTER_SKIP;
         //                }, false);
         //
         //        while (textWalker.nextNode() != null) {
