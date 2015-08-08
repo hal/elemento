@@ -26,7 +26,6 @@ import elemental.events.Event;
 import elemental.events.KeyboardEvent;
 import elemental.html.InputElement;
 import org.jboss.gwt.elemento.core.Elements;
-import org.jboss.gwt.elemento.core.InputType;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
@@ -35,6 +34,7 @@ import static elemental.events.KeyboardEvent.KeyCode.ENTER;
 import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
+import static org.jboss.gwt.elemento.core.InputType.text;
 
 class TodoItemElement implements IsElement {
 
@@ -62,7 +62,7 @@ class TodoItemElement implements IsElement {
                 .label().on(dblclick, (event) -> edit()).innerText(item.getText()).rememberAs("label").end()
                 .button().on(click, (event) -> destroy()).css("destroy").end()
             .end()
-            .input(InputType.text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
+            .input(text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
         .end();
         // @formatter:on
 

@@ -373,14 +373,14 @@ public class TemplatedProcessor extends AbstractProcessor {
         return dataElements;
     }
 
-    private Kind getDataElementInfoKind(TypeMirror fieldType) {
-        if (isAssignable(fieldType, elemental.dom.Element.class)) {
+    private Kind getDataElementInfoKind(TypeMirror dataElementType) {
+        if (isAssignable(dataElementType, elemental.dom.Element.class)) {
             return Kind.Element;
-        } else if (isAssignable(fieldType, IsElement.class)) {
+        } else if (isAssignable(dataElementType, IsElement.class)) {
             return Kind.IsElement;
-        } else if (isAssignable(fieldType, Widget.class)) {
+        } else if (isAssignable(dataElementType, Widget.class)) {
             return Kind.Widget;
-        } else if (isAssignable(fieldType, IsWidget.class)) {
+        } else if (isAssignable(dataElementType, IsWidget.class)) {
             return Kind.IsWidget;
         } else {
             return null;
