@@ -25,7 +25,7 @@ import elemental.dom.Element;
 import elemental.events.EventListener;
 
 /**
- * Known event types used in {@link Elements.Builder#on(EventType, EventListener)}.
+ * Known event types used in {@link Elements.Builder#on(EventType, EventListener)} and {@link EventHandler}.
  */
 public enum EventType {
 

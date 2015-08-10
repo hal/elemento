@@ -39,6 +39,13 @@
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <packaging>pom</packaging>
 
+    <url>http://github.com/hpehl/elemento</url>
+    <scm>
+        <connection>scm:git@github.com:hpehl/elemento.git</connection>
+        <developerConnection>scm:git:git@github.com:hpehl/elemento.git</developerConnection>
+        <url>git@github.com:hpehl/elemento.git</url>
+    </scm>
+
     <developers>
         <developer>
             <name>Harald Pehl</name>
@@ -61,6 +68,7 @@
         <!-- project / plugin related properties -->
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        <plugin.version.github.site>0.12</plugin.version.github.site>
         <plugin.version.gwt.maven>1.0-rc-2</plugin.version.gwt.maven>
         <plugin.version.processor.plugin>3.1.0-beta1</plugin.version.processor.plugin>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -179,9 +187,64 @@
                     <artifactId>maven-processor-plugin</artifactId>
                     <version>${plugin.version.processor.plugin}</version>
                 </plugin>
+                <plugin>
+                    <groupId>com.github.github</groupId>
+                    <artifactId>site-maven-plugin</artifactId>
+                    <version>0.12</version>
+                </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                        <configuration>
+                            <server>github</server>
+                            <branch>refs/heads/site</branch>
+                            <message>Creating site for ${project.name} ${project.version}</message>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
+
+<!--
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.8</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>index</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>javadoc</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+-->
 
     <profiles>
         <profile>

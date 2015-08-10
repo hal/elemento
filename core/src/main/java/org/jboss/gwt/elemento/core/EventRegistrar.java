@@ -25,7 +25,7 @@ import elemental.dom.Element;
 import elemental.events.EventListener;
 
 /**
- * Function used in {@link EventType} to bind the event type to a method signature for adding the event listener.
+ * Function used in {@link EventType} to bind the event type to a method for adding the event listener.
  *
  * @author Harald Pehl
  */
