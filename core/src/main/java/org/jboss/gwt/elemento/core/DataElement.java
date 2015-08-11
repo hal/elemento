@@ -28,8 +28,26 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation to select elements from HTML templates using the CSS selector {@code [data-element=value()]}. If no value
- * is given the name of the field / method is used.
+ * Declares a mapping between an element from an HTML template and the annotated field / method.
+ * <p>
+ * If no value is provided, the name of the field / method is taken as default. Elemento uses the
+ * following CSS selector to pick elements from the HTML template {@code [data-element=<value()>]}
+ * <p>
+ * Can be applied to fields and methods. Those fields and methods must not be private. Elemento defines some simple
+ * rules when it comes to mapping between the HTML template and the related class:
+ * <dl>
+ * <dt>Fields w/o an initializer</dt>
+ * <dd>The element, its attributes and all children are mapped from the HTML template to the annotated field. The type
+ * of the field is restricted to {@link elemental.dom.Element} and its subclasses.</dd>
+ * <dt>Fields w/ an initializer</dt>
+ * <dd>The element in the HTML template is replaced with the initializer. The type of the field can be one of: {@link
+ * elemental.dom.Element}, {@link IsElement}, {@link com.google.gwt.user.client.ui.Widget}, or {@link
+ * com.google.gwt.user.client.ui.IsWidget}.</dd>
+ * <dt>Methods</dt>
+ * <dd>The element in the HTML template is replaced with the return value of the method. The method must return one of:
+ * {@link elemental.dom.Element}, {@link IsElement}, {@link com.google.gwt.user.client.ui.Widget}, or {@link
+ * com.google.gwt.user.client.ui.IsWidget} and must not have any parameters.</dd>
+ * </dl>
  *
  * @author Harald Pehl
  */

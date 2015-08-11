@@ -28,7 +28,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation to mark a method as an event handler.
+ * Annotation to mark a method as an event handler. The annotated method must not be private, return {@code void} and
+ * can have one optional parameter of type {@link elemental.events.Event} or one of its subtypes.
  *
  * @author Harald Pehl
  */
