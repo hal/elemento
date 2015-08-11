@@ -39,6 +39,13 @@
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <packaging>pom</packaging>
 
+    <url>http://github.com/hpehl/elemento</url>
+    <scm>
+        <connection>scm:git@github.com:hpehl/elemento.git</connection>
+        <developerConnection>scm:git:git@github.com:hpehl/elemento.git</developerConnection>
+        <url>git@github.com:hpehl/elemento.git</url>
+    </scm>
+
     <developers>
         <developer>
             <name>Harald Pehl</name>
@@ -59,10 +66,11 @@
 
     <properties>
         <!-- project / plugin related properties -->
+        <github.global.server>github</github.global.server>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        <plugin.version.github.site>0.12</plugin.version.github.site>
         <plugin.version.gwt.maven>1.0-rc-2</plugin.version.gwt.maven>
-        <plugin.version.processor.plugin>3.1.0-beta1</plugin.version.processor.plugin>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -175,13 +183,73 @@
                     <extensions>true</extensions>
                 </plugin>
                 <plugin>
-                    <groupId>org.bsc.maven</groupId>
-                    <artifactId>maven-processor-plugin</artifactId>
-                    <version>${plugin.version.processor.plugin}</version>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.8</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.github</groupId>
+                    <artifactId>site-maven-plugin</artifactId>
+                    <version>0.12</version>
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <configuration>
+                    <branch>refs/heads/site</branch>
+                    <message>Creating site for ${project.name} ${project.version}</message>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>index</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <detectLinks>true</detectLinks>
+                    <links>
+                        <link>http://www.gwtproject.org/javadoc/latest/</link>
+                    </links>
+                    <excludePackageNames>org.jboss.gwt.elemento.processor:org.jboss.gwt.elemento.processor.context
+                    </excludePackageNames>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <id>aggregate</id>
+                        <reports>
+                            <report>aggregate</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
 
     <profiles>
         <profile>

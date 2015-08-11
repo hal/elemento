@@ -28,6 +28,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Annotation to mark a method as an event handler.
+ *
  * @author Harald Pehl
  */
 @Documented
@@ -35,6 +37,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface EventHandler {
 
+    /**
+     * The value of the {@code data-element} attribute.
+     */
     String element();
+
+    /**
+     * The event type
+     */
     EventType on();
 }

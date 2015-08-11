@@ -66,7 +66,7 @@ class ApplicationElement implements IsElement {
 
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
-        .start("section").css("todoapp")
+        .section().css("todoapp")
             .header().css("header")
                 .h(1).innerText(i18n.constants().todos()).end()
                 .input(text)
