@@ -182,6 +182,11 @@
                     <extensions>true</extensions>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.8</version>
+                </plugin>
+                <plugin>
                     <groupId>com.github.github</groupId>
                     <artifactId>site-maven-plugin</artifactId>
                     <version>0.12</version>
@@ -193,30 +198,27 @@
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
+                <configuration>
+                    <branch>refs/heads/site</branch>
+                    <message>Creating site for ${project.name} ${project.version}</message>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>site</goal>
                         </goals>
                         <phase>site</phase>
-                        <configuration>
-                            <server>github</server>
-                            <branch>refs/heads/site</branch>
-                            <message>Creating site for ${project.name} ${project.version}</message>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
 
-<!--
     <reporting>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.8</version>
                 <reportSets>
                     <reportSet>
                         <reports>
@@ -228,17 +230,21 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <excludePackageNames>org.jboss.gwt.elemento.processor:org.jboss.gwt.elemento.processor.context
+                    </excludePackageNames>
+                </configuration>
                 <reportSets>
                     <reportSet>
+                        <id>aggregate</id>
                         <reports>
-                            <report>javadoc</report>
+                            <report>aggregate</report>
                         </reports>
                     </reportSet>
                 </reportSets>
             </plugin>
         </plugins>
     </reporting>
--->
 
     <profiles>
         <profile>
