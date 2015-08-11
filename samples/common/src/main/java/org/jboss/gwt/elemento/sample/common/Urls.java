@@ -19,31 +19,12 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.core;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package org.jboss.gwt.elemento.sample.common;
 
 /**
- * Annotation to mark a method as an event handler.
- *
  * @author Harald Pehl
  */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface EventHandler {
-
-    /**
-     * The value of the {@code data-element} attribute.
-     */
-    String element();
-
-    /**
-     * The event type
-     */
-    EventType on();
+public interface Urls {
+    String HPEHL_INFO = "http://hpehl.info";
+    String TODO_MVC = "http://todomvc.com";
 }

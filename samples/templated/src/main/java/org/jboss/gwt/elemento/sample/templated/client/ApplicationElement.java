@@ -30,9 +30,9 @@ import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
@@ -46,12 +46,12 @@ import static org.jboss.gwt.elemento.core.EventType.*;
 abstract class ApplicationElement implements IsElement {
 
     // @formatter:off
-    static ApplicationElement create(TodoItemRepository repository, TodoMessages messages) {
-        return new Templated_ApplicationElement(repository, messages);
+    static ApplicationElement create(TodoItemRepository repository, I18n i18n) {
+        return new Templated_ApplicationElement(repository, i18n);
     }
 
     abstract TodoItemRepository repository();
-    abstract TodoMessages messages();
+    abstract I18n i18n();
     // @formatter:off
 
 
@@ -166,7 +166,7 @@ abstract class ApplicationElement implements IsElement {
             }
         }
         toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, messages().items(activeCount));
+        Elements.innerHtml(count, i18n().messages().items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 }

@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>0.0.6</version>
+        <version>0.1.0</version>
     </parent>
 
     <artifactId>gin-sample</artifactId>
@@ -55,14 +55,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.bsc.maven</groupId>
-                <artifactId>maven-processor-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>

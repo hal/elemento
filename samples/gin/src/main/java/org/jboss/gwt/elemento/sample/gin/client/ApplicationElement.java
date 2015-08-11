@@ -32,9 +32,9 @@ import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
@@ -48,13 +48,12 @@ import static org.jboss.gwt.elemento.core.EventType.*;
 abstract class ApplicationElement implements IsElement {
 
     // @formatter:off
-    static ApplicationElement create(TodoItemRepository repository, TodoMessages messages,
-            Provider<TodoItemElement> itemElement) {
-        return new Templated_ApplicationElement(repository, messages, itemElement);
+    static ApplicationElement create(TodoItemRepository repository, I18n i18n, Provider<TodoItemElement> itemElement) {
+        return new Templated_ApplicationElement(repository, i18n, itemElement);
     }
 
     abstract TodoItemRepository repository();
-    abstract TodoMessages messages();
+    abstract I18n i18n();
     abstract Provider<TodoItemElement> itemElement();
     // @formatter:on
 
@@ -75,7 +74,6 @@ abstract class ApplicationElement implements IsElement {
     void init() {
         reset();
         repository().onExternalModification(this::reset);
-
     }
 
     private void reset() {
@@ -176,7 +174,7 @@ abstract class ApplicationElement implements IsElement {
             }
         }
         toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, messages().items(activeCount));
+        Elements.innerHtml(count, i18n().messages().items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 }

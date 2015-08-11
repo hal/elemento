@@ -24,6 +24,8 @@ package org.jboss.gwt.elemento.core;
 import elemental.dom.Element;
 
 /**
+ * The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.IsWidget}.
+ *
  * @author Harald Pehl
  */
 @FunctionalInterface

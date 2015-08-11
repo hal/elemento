@@ -79,88 +79,39 @@ public final class Elements {
      * <p>
      * In order to create this form,
      * <pre>
-     * &lt;form method="get" action="search" class="form form-horizontal"&gt;
-     *     &lt;div class="form-group"&gt;
-     *         &lt;label class="col-md-3 control-label" for="name"&gt;Name&lt;/label&gt;
-     *         &lt;div class="col-md-9"&gt;
-     *             &lt;input type="text" id="name" class="form-control" placeholder="Enter your name"/&gt;
-     *         &lt;/div&gt;
-     *     &lt;/div&gt;
-     *     &lt;div class="form-group"&gt;
-     *         &lt;label class="col-md-3 control-label" for="age"&gt;Age&lt;/label&gt;
-     *         &lt;div class="col-md-9"&gt;
-     *             &lt;input type="number" id="age" class="form-control" placeholder="How old are you?"/&gt;
-     *         &lt;/div&gt;
-     *     &lt;/div&gt;
-     *     &lt;div class="form-group"&gt;
-     *         &lt;label class="col-md-3 control-label" for="hobbies"&gt;Hobbies&lt;/label&gt;
-     *         &lt;div class="col-md-9"&gt;
-     *             &lt;textarea rows="3" id="hobbies" class="form-control"&gt;&lt;/textarea&gt;
-     *             &lt;span class="help-block textarea"&gt;One item per line&lt;/span&gt;
-     *         &lt;/div&gt;
-     *     &lt;/div&gt;
-     *     &lt;div class="form-group"&gt;
-     *         &lt;label class="col-md-3 control-label" for="choose"&gt;Choose&lt;/label&gt;
-     *         &lt;div class="col-md-9"&gt;
-     *             &lt;select id="choose" class="form-control selectpicker"&gt;
-     *                 &lt;option&gt;Lorem&lt;/option&gt;
-     *                 &lt;option&gt;ipsum&lt;/option&gt;
-     *             &lt;/select&gt;
-     *         &lt;/div&gt;
-     *     &lt;/div&gt;
-     *     &lt;div class="form-group"&gt;
-     *         &lt;div class="col-md-offset-3 col-md-9"&gt;
-     *             &lt;div class="pull-right form-buttons"&gt;
-     *                 &lt;button type="button" class="btn btn-default btn-form"&gt;Cancel&lt;/button&gt;
-     *                 &lt;button type="button" class="btn btn-primary btn-form"&gt;Save&lt;/button&gt;
+     * &lt;section class="main"&gt;
+     *     &lt;input class="toggle-all" type="checkbox"&gt;
+     *     &lt;label for="toggle-all"&gt;Mark all as complete&lt;/label&gt;
+     *     &lt;ul class="todo-list"&gt;
+     *         &lt;li&gt;
+     *             &lt;div class="view"&gt;
+     *                 &lt;input class="toggle" type="checkbox" checked&gt;
+     *                 &lt;label&gt;Taste Elemento&lt;/label&gt;
+     *                 &lt;button class="destroy"&gt;&lt;/button&gt;
      *             &lt;/div&gt;
-     *         &lt;/div&gt;
-     *     &lt;/div&gt;
-     * &lt;/form&gt;
+     *             &lt;input class="edit"&gt;
+     *         &lt;/li&gt;
+     *     &lt;/ul&gt;
+     * &lt;/section&gt;
      * </pre>
      * <p>
      * use the following builder code:
      * <pre>
-     * Element form = new Elements.Builder().
-     *     .form().attr("method", "get").attr("action", "search").css("form form-horizontal")
-     *         .div().css("form-group")
-     *             .label().css("col-md-3 control-label").attr("for", "name").innerText("Name").end()
-     *             .div().css("col-md-9")
-     *                 .input(text).id("name").css("form-control").attr("placeholder", "Enter your name")
-     *             .end()
-     *         .end()
-     *         .div().css("form-group")
-     *             .label().css("col-md-3 control-label").attr("for", "age").innerText("Age").end()
-     *             .div().css("col-md-9")
-     *                 .input(number).id("age").css("form-control").attr("placeholder", "How old are you?")
-     *             .end()
-     *         .end()
-     *         .div().css("form-group")
-     *             .label().css("col-md-3 control-label").attr("for", "hobbies").innerText("Hobbies").end()
-     *             .div().css("col-md-9")
-     *                 .textarea().attr("rows", "3").id("hobbies").css("form-control").end()
-     *                 .span().css("help-block textarea").innerText("One item per line").end()
-     *             .end()
-     *         .end()
-     *         .div().css("form-group")
-     *             .label().css("col-md-3 control-label").attr("for", "choose").innerText("Choose").end()
-     *             .div().css("col-md-9")
-     *                 .select().id("choose").css("form-control selectpicker")
-     *                     .option().innerText("Lorem").end()
-     *                     .option().innerText("ipsum").end()
+     * Element element = new Elements.Builder()
+     *     .section().css("main")
+     *         .input(checkbox).css("toggle-all")
+     *         .label().attr("for", "toggle-all").innerText("Mark all as complete").end()
+     *         .ul().css("todo-list")
+     *             .li()
+     *                 .div().css("view")
+     *                     .input(checkbox).css("toggle")
+     *                     .label().innerText("Taste Elemento").end()
+     *                     .button().css("destroy").end()
      *                 .end()
+     *                 .input(text).css("edit")
      *             .end()
      *         .end()
-     *         .div().css("form-group")
-     *             .div().css("col-md-offset-3 col-md-9")
-     *                 .div().css("pull-right form-buttons")
-     *                     .button().css("btn btn-default btn-form").innerText("Cancel").end()
-     *                     .button().css("btn btn-primary btn-form").innerText("Save").end()
-     *                 .end()
-     *             .end()
-     *         .end()
-     *     .end()
-     * .build();
+     *     .end().build();
      * </pre>
      *
      * @author Harald Pehl
@@ -584,14 +535,23 @@ public final class Elements {
 
     // ------------------------------------------------------ element helper methods
 
+    /**
+     * Returns an iterator over the children of the given parent element.
+     */
     public static Iterator<Element> iterator(Element parent) {
         return parent != null ? new ChildrenIterator(parent) : Collections.<Element>emptyList().iterator();
     }
 
+    /**
+     * Returns an iterable collection over the children of the given parent element.
+     */
     public static Iterable<Element> children(Element parent) {
         return () -> iterator(parent);
     }
 
+    /**
+     * Convenience method to set the inner HTML of the given element.
+     */
     public static void innerHtml(Element element, SafeHtml html) {
         if (element != null) {
             element.setInnerHTML(html.asString());
@@ -623,10 +583,16 @@ public final class Elements {
         return context != null ? context.querySelector("[data-element=" + name + "]") : null;
     }
 
+    /**
+     * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
+     */
     public static boolean isVisible(Element element) {
         return element != null && !"none".equals(element.getStyle().getDisplay());
     }
 
+    /**
+     * shows / hide the specified element by modifying the {@code display} property.
+     */
     public static void setVisible(Element element, boolean visible) {
         if (element != null) {
             element.getStyle().setDisplay(visible ? "" : "none");
@@ -644,22 +610,37 @@ public final class Elements {
         }
     }
 
+    /**
+     * Converts from {@link IsElement} &rarr; {@link Widget}.
+     */
     public static Widget asWidget(IsElement element) {
         return asWidget(element.asElement());
     }
 
+    /**
+     * Converts from {@link Element} &rarr; {@link Widget}.
+     */
     public static Widget asWidget(Element element) {
         return new ElementWidget(element);
     }
 
+    /**
+     * Converts from {@link IsWidget} &rarr; {@link Element}.
+     */
     public static Element asElement(IsWidget widget) {
         return asElement(widget.asWidget());
     }
 
+    /**
+     * Converts from {@link Widget} &rarr; {@link Element}.
+     */
     public static Element asElement(Widget widget) {
         return asElement(widget.getElement());
     }
 
+    /**
+     * Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link Element}.
+     */
     public static Element asElement(com.google.gwt.dom.client.Element element) {
         return element.cast();
     }

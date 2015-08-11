@@ -30,12 +30,14 @@ public class Main implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        ApplicationElement app = ApplicationGinjector.INSTANCE.application();
+        ApplicationElement application = ApplicationGinjector.INSTANCE.application();
+        FooterElement footer = ApplicationGinjector.INSTANCE.footer();
 
         Element body = Browser.getDocument().getBody();
-        body.insertBefore(app.asElement(), body.getFirstElementChild());
+        body.appendChild(application.asElement());
+        body.appendChild(footer.asElement());
 
-        History.addValueChangeHandler(event -> app.filter(event.getValue()));
+        History.addValueChangeHandler(event -> application.filter(event.getValue()));
         History.fireCurrentHistoryState();
     }
 }

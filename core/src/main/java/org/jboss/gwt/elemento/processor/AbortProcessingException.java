@@ -23,6 +23,5 @@ package org.jboss.gwt.elemento.processor;
  *
  * @author emcmanus@google.com (Éamonn McManus)
  */
-@SuppressWarnings("serial")
 class AbortProcessingException extends RuntimeException {
 }

@@ -23,9 +23,6 @@ package org.jboss.gwt.elemento.processor.context;
 
 import java.util.List;
 
-/**
- * @author Harald Pehl
- */
 public class FreemarkerContext {
 
     private final String pkg;

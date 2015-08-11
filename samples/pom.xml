@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.0.6</version>
+        <version>0.1.0</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
@@ -98,33 +98,6 @@
 
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.bsc.maven</groupId>
-                    <artifactId>maven-processor-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <id>process</id>
-                            <goals>
-                                <goal>process</goal>
-                            </goals>
-                            <phase>generate-sources</phase>
-                            <configuration>
-                                <!-- Uncomment to get more messages from the annotation processors -->
-                                <options>
-                                    <debug>true</debug>
-                                </options>
-                                <defaultOutputDirectory>${project.build.directory}/generated-sources/annotations</defaultOutputDirectory>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <compilerArgument>-proc:none</compilerArgument>
-                    </configuration>
-                </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>

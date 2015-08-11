@@ -19,18 +19,34 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.core;
+package org.jboss.gwt.elemento.sample.builder.client;
 
 import elemental.dom.Element;
-import elemental.events.EventListener;
+import org.jboss.gwt.elemento.core.Elements;
+import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.I18n;
+import org.jboss.gwt.elemento.sample.common.Urls;
 
-/**
- * Function used in {@link EventType} to bind the event type to a method for adding the event listener.
- *
- * @author Harald Pehl
- */
-@FunctionalInterface
-public interface EventRegistrar {
+public class FooterElement implements IsElement {
 
-    void register(Element element, EventListener listener);
+    private final I18n i18n;
+
+    public FooterElement(final I18n i18n) {this.i18n = i18n;}
+
+    @Override
+    public Element asElement() {
+        // @formatter:off
+        return new Elements.Builder()
+        .start("footer").css("info")
+            .p().innerText(i18n.constants().double_click_to_edit()).end()
+            .p()
+                .span().innerText(i18n.constants().created_by() + " ").end()
+                .a().attr("href", Urls.HPEHL_INFO).innerText("Harald Pehl").end()
+            .end()
+            .p()
+                .span().innerText(i18n.constants().part_of() + " ").end()
+                .a().attr("href", Urls.TODO_MVC).innerText("TodoMVC").end()
+            .end()
+        .end().build();
+    }
 }

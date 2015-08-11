@@ -24,8 +24,8 @@ package org.jboss.gwt.elemento.core;
 import elemental.dom.Element;
 
 /**
- * Convenience class to help lazy loading. The bulk of a LazyElement is not instantiated until {@link #asElement()} is
- * called.
+ * Convenience class to support lazy element creation. The bulk of a LazyElement is not instantiated until {@link
+ * #asElement()} is called.
  *
  * @author Harald Pehl
  */

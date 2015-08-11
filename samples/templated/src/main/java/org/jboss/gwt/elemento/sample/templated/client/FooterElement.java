@@ -19,31 +19,18 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.core;
+package org.jboss.gwt.elemento.sample.templated.client;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.core.Templated;
+import org.jboss.gwt.elemento.sample.common.I18n;
 
-/**
- * Annotation to mark a method as an event handler.
- *
- * @author Harald Pehl
- */
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface EventHandler {
+@Templated("Todo.html#info")
+public abstract class FooterElement implements IsElement {
 
-    /**
-     * The value of the {@code data-element} attribute.
-     */
-    String element();
+    static FooterElement create(I18n i18n) {
+        return new Templated_FooterElement(i18n);
+    }
 
-    /**
-     * The event type
-     */
-    EventType on();
+    abstract I18n i18n();
 }

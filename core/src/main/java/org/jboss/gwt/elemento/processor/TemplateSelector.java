@@ -26,16 +26,16 @@ class TemplateSelector {
     final String template;
     final String selector;
 
-    public TemplateSelector(final String template) {
+    TemplateSelector(final String template) {
         this(template, null);
     }
 
-    public TemplateSelector(final String template, final String selector) {
+    TemplateSelector(final String template, final String selector) {
         this.template = template;
         this.selector = selector;
     }
 
-    public boolean hasSelector() {
+    boolean hasSelector() {
         return selector != null;
     }
 
