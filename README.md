@@ -15,11 +15,28 @@ Before diving into the details here is the link to the [API documentation](http:
 To use Elemento add the following dependency to your pom.xml:
 
 ```xml
-<dependency>
-    <groupId>org.jboss.gwt.elemento</groupId>
-    <artifactId>elemento-core</artifactId>
-    <version>[insert current version]</version>
-</dependency>
+<project>
+    
+    [...]
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+            <version>[insert current version]</version>
+        </dependency>
+    </dependencies>
+    
+    [...]
+    
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+</project>
 ```
 
 In your GWT module inherit from `org.jboss.gwt.elemento.Core`:
