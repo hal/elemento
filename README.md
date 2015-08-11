@@ -53,7 +53,7 @@ When working with GWT Elemental it is often awkward and cumbersome to create an 
 </section>
 ```
 
-lead to vast amount of `Document.createXXXElement()` and chained `Element.appendChild()` calls. However using the builder API, creating the above structure is as easy as
+lead to a vast amount of `Document.createXXXElement()` and chained `Element.appendChild()` calls. However using the builder API, creating the above structure is as easy as
 
 ```java
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
@@ -116,7 +116,7 @@ Element listItem = new Elements.Builder()
 ## Templates
 Elemento provides an easy way to take existing HTML content and use it in your GWT application. Templates can be either HTML snippets or full HTML documents where you select an element and its children. This allows you to preview your templates more easily during design without running the application. 
 
-Elemento uses annotation processors to generate code which picks the HTML content from your template. This code generation is inspired by Google's [AutoValue](https://github.com/google/auto/tree/master/value#how-to-use-autovalue) and it might take some time to get used to it. 
+Elemento leverages annotation processors to generate code which picks the HTML content from your template. This code generation is inspired by Google's [AutoValue](https://github.com/google/auto/tree/master/value#how-to-use-autovalue) and it might take some time to get used to it. 
 
 ### Getting Started
 Let's say you've got the following HTML document called `Todo.html`:
@@ -156,11 +156,12 @@ Let's say you've got the following HTML document called `Todo.html`:
 </html>
 ```
 
-The HTML is enriched with `data-element` attributes. Elemento needs these attributes to select the root element and to map specific HTML elements to fields in the template class. To use the `<section/>` element as a template you need to create an abstract class and annotate it with `@Templated`:
+The HTML is enriched with `data-element` attributes. Elemento needs these attributes to select the root element and to map specific HTML elements to fields in the template class. To create a template class which maps to the `<section/>` element, create an abstract class and annotate it with `@Templated`:
 
 ```java
 @Templated("Todo.html#todos")
 abstract class ApplicationElement implements IsElement {
+
     static ApplicationElement create() {
         return new Templated_ApplicationElement();
     }
@@ -221,11 +222,14 @@ abstract class ApplicationElement implements IsElement {
     @DataElement("active") Element filterActive;
     @DataElement("completed") Element filterCompleted;
     @DataElement ButtonElement clearCompleted;
-    
 }
 ```
 
-If no value is provided for the `@DataElement` annotation, Elemento takes the name of the field as value for the `data-element` element. Thus `@DataElement InputElement newTodo` is turned into the CSS selector `[data-element=newTodo]`. You can override this default by providing a value for the `@DataElement` annotation. 
+If no value is provided for the `@DataElement` annotation, the name of the field / method is taken as default. Elemento uses the following CSS selector to pick elements from the HTML template: 
+
+```css
+[data-element=<value()>]
+```
 
 The `@DataElement` can be applied to fields and methods. Those fields and methods must not be private. Elemento defines some simple rules when it comes to mapping between the HTML template and the related class:
  
@@ -242,7 +246,7 @@ The `@DataElement` can be applied to fields and methods. Those fields and method
     The element in the HTML template is replaced with the return value of the method. The method must return one of: `elemental.dom.Element`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
 
 ### Event Handlers
-It's possible to register event handlers for elements marked with `data-element=<name>`. It does not matter whether the HTML element is mapped to a field / method. Attaching the event handler will work in any case:
+It's possible to register event handlers for elements marked with `data-element=<name>`. It does not matter whether the HTML element is mapped with `@DataElement`. Attaching the event handler will work in any case:
 
 ```java
 import static org.jboss.gwt.elemento.core.EventType.click;
@@ -338,11 +342,53 @@ public class ApplicationModule extends AbstractGinModule {
 
 With this setup you can then inject your template class using GIN. If your static factory method has parameters please make sure these parameters are injectable. For all details please take a look to the source code of the [GIN sample](samples/gin).
 
-## Goodies
-Elemento contains a small set of helper methods to make working with elements easier. One set of methods can be used to convert between `Element` and `Widget`. Finally there are methods to iterate over the children of an element. Take a look at the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.  
- 
-## Samples
+# Goodies
+Elemento contains a small set of static helper methods to make working with elements easier. One set of methods can be used to convert between `Element` and `Widget`: 
 
+```java
+/**
+ * Converts from {@link IsElement} &rarr; {@link Widget}.
+ */
+public static Widget asWidget(IsElement element) {...}
+
+/**
+ * Converts from {@link Element} &rarr; {@link Widget}.
+ */
+public static Widget asWidget(Element element) {...}
+
+/**
+ * Converts from {@link IsWidget} &rarr; {@link Element}.
+ */
+public static Element asElement(IsWidget widget) {...}
+
+/**
+ * Converts from {@link Widget} &rarr; {@link Element}.
+ */
+public static Element asElement(Widget widget) {...}
+
+/**
+ * Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link Element}.
+ */
+public static Element asElement(com.google.gwt.dom.client.Element element) {...}
+```
+
+Finally there are methods to iterate over the children of an element using the Java collection classes: 
+
+```java
+/**
+ * Returns an iterator over the children of the given parent element.
+ */
+public static Iterator<Element> iterator(Element parent) {...}
+
+/**
+ * Returns an iterable collection for the children of the given parent element.
+ */
+public static Iterable<Element> children(Element parent) {...}
+```
+
+Take a look at the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.  
+
+## Samples
 Elemento comes with three different [implementations](http://hpehl.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) sample app. 
 
 - Builder API: [Source](samples/builder) | [Demo](http://hpehl.github.io/elemento/builder/index.html)

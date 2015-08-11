@@ -536,14 +536,15 @@ public final class Elements {
     // ------------------------------------------------------ element helper methods
 
     /**
-     * Returns an iterator over the children of the given parent element.
+     * Returns an iterator over the children of the given parent element. The iterator supports the {@link
+     * Iterator#remove()} operation which removes the current element from its parent.
      */
     public static Iterator<Element> iterator(Element parent) {
         return parent != null ? new ChildrenIterator(parent) : Collections.<Element>emptyList().iterator();
     }
 
     /**
-     * Returns an iterable collection over the children of the given parent element.
+     * Returns an iterable collection for the children of the given parent element.
      */
     public static Iterable<Element> children(Element parent) {
         return () -> iterator(parent);
