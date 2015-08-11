@@ -70,7 +70,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <plugin.version.github.site>0.12</plugin.version.github.site>
         <plugin.version.gwt.maven>1.0-rc-2</plugin.version.gwt.maven>
-        <plugin.version.processor.plugin>3.1.0-beta1</plugin.version.processor.plugin>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -181,11 +180,6 @@
                     <artifactId>gwt-maven-plugin</artifactId>
                     <version>${plugin.version.gwt.maven}</version>
                     <extensions>true</extensions>
-                </plugin>
-                <plugin>
-                    <groupId>org.bsc.maven</groupId>
-                    <artifactId>maven-processor-plugin</artifactId>
-                    <version>${plugin.version.processor.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.github</groupId>
