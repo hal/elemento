@@ -8,13 +8,7 @@ Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/ar
 
 Elemento is heavily inspired by [Errai UI](http://docs.jboss.org/errai/latest/errai/reference/html_single/#sid-51806600) and [AutoValue](https://github.com/google/auto/tree/master/value). If you are familiar with one of the libraries, you'll find similar concepts in Elemento. In fact most of the ideas behind HTML templates are borrowed from Errai and pretty much code from AutoValue is reused for the annotation processing part in Elemento. So much kudos to the authors of Errai and AutoValue!
 
-Before diving into the details here are a some links in case you just want to take a quick look
-
-- [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/index.html)
-- Basic samples source code
-    - [Builder](samples/builder/src/main/java/org/jboss/gwt/elemento/sample/builder/client/ApplicationElement.java)
-    - [Tampleted](samples/templated/src/main/java/org/jboss/gwt/elemento/sample/templated/client/ApplicationElement.java)
-    - [GIN](samples/gin/src/main/java/org/jboss/gwt/elemento/sample/gin/client/ApplicationElement.java)
+Before diving into the details here is the link to the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/index.html). 
  
 ## How to use Elemento
 
@@ -349,7 +343,7 @@ Elemento contains a small set of helper methods to make working with elements ea
  
 ## Samples
 
-Elemento comes with three different implementations of the [TodoMVC](http://todomvc.com/) sample app. 
+Elemento comes with three different [implementations](http://hpehl.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) sample app. 
 
 - Builder API: [Source](samples/builder) | [Demo](http://hpehl.github.io/elemento/builder/index.html)
 - Plain HTML templates: [Source](samples/templated) | [Demo](http://hpehl.github.io/elemento/templated/index.html)
