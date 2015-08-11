@@ -1,6 +1,6 @@
 # Elemento Samples
 
-This folder contains three different implementations of the [TodoMVC](http://todomvc.com/) application:
+This folder contains three different [implementations](http://hpehl.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) application:
  
 - Builder API: [Source](builder) | [Demo](http://hpehl.github.io/elemento/builder/index.html)
 - Plain HTML templates: [Source](templated) | [Demo](http://hpehl.github.io/elemento/templated/index.html)
