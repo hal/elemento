@@ -3,8 +3,8 @@ Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/ar
 
 - Builder like API to easily create arbitrary large element hierarchies
 - HTML templates, declarative event handling and support for [handlebar](http://handlebarsjs.com/)-like expressions
-- Support for dependency injection / [GIN](https://code.google.com/p/google-gin/)
-- Helper methods to mix and match GWT elemental and GWT widgets
+- Support for dependency injection with [GIN](https://code.google.com/p/google-gin/)
+- Helper methods to mix and match GWT Elemental elements and GWT widgets
 
 Elemento is heavily inspired by [Errai UI](http://docs.jboss.org/errai/latest/errai/reference/html_single/#sid-51806600) and [AutoValue](https://github.com/google/auto/tree/master/value). If you are familiar with one of the libraries, you'll find similar concepts in Elemento. In fact most of the ideas behind HTML templates are borrowed from Errai and pretty much code from AutoValue is reused for the annotation processing part in Elemento. So much kudos to the authors of Errai and AutoValue!
 
@@ -156,7 +156,7 @@ Let's say you've got the following HTML document called `Todo.html`:
 </html>
 ```
 
-The HTML is enriched with `data-element` attributes. Elemento needs these attributes to select the root element and to map specific HTML elements to fields in the template class. To use the `<section/>` element as a template you need to create a public abstract class and annotate it with `@Templated`:
+The HTML is enriched with `data-element` attributes. Elemento needs these attributes to select the root element and to map specific HTML elements to fields in the template class. To use the `<section/>` element as a template you need to create an abstract class and annotate it with `@Templated`:
 
 ```java
 @Templated("Todo.html#todos")
@@ -180,7 +180,7 @@ Browser.getDocument().getBody().appendChild(ApplicationElement.create().asElemen
 So to sum it up here are the steps necessary to create and use an HTML template
 
 1. Place `data-element` attributes in your HTML markup
-1. Create a public abstract class annotated with `@Templated` which implements `IsElement`
+1. Create an abstract class annotated with `@Templated` which implements `IsElement`
 1. Add a static factory method (name does not matter) which does return the template class and calls the generated constructor `Templated_<YourClassName>`
 1. Run the annotation processor to get rid of compile errors
 
@@ -267,7 +267,7 @@ void newTodo(KeyboardEvent event) {
 The available event types are provided as enum constants. See [EventType](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) for more details.   
 
 ### Handlebars
-Elemento supports [Handlebars](http://handlebarsjs.com/)-like expressions in HTML templates:
+Elemento supports [handlebar](http://handlebarsjs.com/)-like expressions in HTML templates:
  
 ```html
 <section data-element="todos" class="todoapp">
