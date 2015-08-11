@@ -28,6 +28,9 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
+ * Provides an iterator over an element. The iterator supports the {@link #remove()} operation which removes the current
+ * element from its parent.
+ *
  * @author Harald Pehl
  */
 public class ChildrenIterator implements Iterator<Element> {

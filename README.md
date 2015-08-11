@@ -10,7 +10,7 @@ Elemento is heavily inspired by [Errai UI](http://docs.jboss.org/errai/latest/er
 
 Before diving into the details here are a some links in case you just want to take a quick look
 
-- [API documentation](https://rawgit.com/hpehl/elemento/site/TODO)
+- [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/index.html)
 - Basic samples source code
     - [Builder](samples/builder/src/main/java/org/jboss/gwt/elemento/sample/builder/client/ApplicationElement.java)
     - [Tampleted](samples/templated/src/main/java/org/jboss/gwt/elemento/sample/templated/client/ApplicationElement.java)
@@ -84,7 +84,7 @@ Element element = new Elements.Builder()
 // @formatter:on
 ```
 
-The builder API supports convenience methods to create the most common elements and attributes. It uses a fluent API to create and append elements on the fly. The builder distinguishes between elements which can contain nested elements (container) and simple element w/o children. The former must be closed using `end()`. Take a look at the [API documentation](https://rawgit.com/hpehl/elemento/site/TODO) for all details.
+The builder API supports convenience methods to create the most common elements and attributes. It uses a fluent API to create and append elements on the fly. The builder distinguishes between elements which can contain nested elements (container) and simple element w/o children. The former must be closed using `end()`. Take a look at the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.Builder.html) for all details.
 
 ### References
 When creating large hierarchies of elements you often need to reference an element somewhere in the tree. Use the `Builder.rememberAs(String)` method to save a reference and `Builder.referenceFor(String)` to lookup the reference later on:
@@ -101,7 +101,7 @@ Element count = builder.referenceFor("count");
 ```
 
 ### Event Handlers
-The builder API provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventListener)` to add handlers when building the element tree. There are [enum constants](https://rawgit.com/hpehl/elemento/site/TODO) available which map to all supported events:
+The builder API provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventListener)` to add handlers when building the element tree. There are [enum constants](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
 
 ```java
 import static org.jboss.gwt.elemento.core.EventType.*;
@@ -270,7 +270,7 @@ void newTodo(KeyboardEvent event) {
 }
 ```
 
-The available event types are provided as enum constants. See [EventType](https://rawgit.com/hpehl/elemento/site/TODO) for more details.   
+The available event types are provided as enum constants. See [EventType](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) for more details.   
 
 ### Handlebars
 Elemento supports [Handlebars](http://handlebarsjs.com/)-like expressions in HTML templates:
@@ -345,7 +345,7 @@ public class ApplicationModule extends AbstractGinModule {
 With this setup you can then inject your template class using GIN. If your static factory method has parameters please make sure these parameters are injectable. For all details please take a look to the source code of the [GIN sample](samples/gin).
 
 ## Goodies
-Elemento contains a small set of helper methods to make working with elements easier. One set of methods can be used to convert between `Element` and `Widget`. Finally there are methods to iterate over the children of an element. Take a look at the [API documentation](https://rawgit.com/hpehl/elemento/site/TODO) for more details.  
+Elemento contains a small set of helper methods to make working with elements easier. One set of methods can be used to convert between `Element` and `Widget`. Finally there are methods to iterate over the children of an element. Take a look at the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.  
  
 ## Samples
 

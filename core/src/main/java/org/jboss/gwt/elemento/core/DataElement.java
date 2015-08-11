@@ -28,6 +28,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Annotation to select elements from HTML templates using the CSS selector {@code [data-element=value()]}. If no value
+ * is given the name of the field / method is used.
+ *
  * @author Harald Pehl
  */
 @Documented
@@ -35,5 +38,8 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD})
 public @interface DataElement {
 
+    /**
+     * The value of the {@code data-element} attribute which is the name of the annotated field / method by default.
+     */
     String value() default "";
 }

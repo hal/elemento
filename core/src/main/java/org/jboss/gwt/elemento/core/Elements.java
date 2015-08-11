@@ -535,14 +535,23 @@ public final class Elements {
 
     // ------------------------------------------------------ element helper methods
 
+    /**
+     * Returns an iterator over the children of the given parent element.
+     */
     public static Iterator<Element> iterator(Element parent) {
         return parent != null ? new ChildrenIterator(parent) : Collections.<Element>emptyList().iterator();
     }
 
+    /**
+     * Returns an iterable collection over the children of the given parent element.
+     */
     public static Iterable<Element> children(Element parent) {
         return () -> iterator(parent);
     }
 
+    /**
+     * Convenience method to set the inner HTML of the given element.
+     */
     public static void innerHtml(Element element, SafeHtml html) {
         if (element != null) {
             element.setInnerHTML(html.asString());
@@ -574,10 +583,16 @@ public final class Elements {
         return context != null ? context.querySelector("[data-element=" + name + "]") : null;
     }
 
+    /**
+     * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
+     */
     public static boolean isVisible(Element element) {
         return element != null && !"none".equals(element.getStyle().getDisplay());
     }
 
+    /**
+     * shows / hide the specified element by modifying the {@code display} property.
+     */
     public static void setVisible(Element element, boolean visible) {
         if (element != null) {
             element.getStyle().setDisplay(visible ? "" : "none");
@@ -595,22 +610,37 @@ public final class Elements {
         }
     }
 
+    /**
+     * Converts from {@link IsElement} &rarr; {@link Widget}.
+     */
     public static Widget asWidget(IsElement element) {
         return asWidget(element.asElement());
     }
 
+    /**
+     * Converts from {@link Element} &rarr; {@link Widget}.
+     */
     public static Widget asWidget(Element element) {
         return new ElementWidget(element);
     }
 
+    /**
+     * Converts from {@link IsWidget} &rarr; {@link Element}.
+     */
     public static Element asElement(IsWidget widget) {
         return asElement(widget.asWidget());
     }
 
+    /**
+     * Converts from {@link Widget} &rarr; {@link Element}.
+     */
     public static Element asElement(Widget widget) {
         return asElement(widget.getElement());
     }
 
+    /**
+     * Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link Element}.
+     */
     public static Element asElement(com.google.gwt.dom.client.Element element) {
         return element.cast();
     }
