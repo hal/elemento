@@ -6,7 +6,7 @@ Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/ar
 - Support for dependency injection with [GIN](https://code.google.com/p/google-gin/)
 - Helper methods to mix and match GWT Elemental and GWT Widgets
 
-Elemento is heavily inspired by [Errai UI](http://docs.jboss.org/errai/latest/errai/reference/html_single/#sid-51806600) and [AutoValue](https://github.com/google/auto/tree/master/value). If you are familiar with one of the libraries, you'll find similar concepts in Elemento. In fact most of the ideas behind HTML templates are borrowed from Errai and pretty much code from AutoValue is reused for the annotation processing part in Elemento. So much kudos to the authors of Errai and AutoValue!
+Elemento is inspired by [Errai UI](http://docs.jboss.org/errai/latest/errai/reference/html_single/#sid-51806600) and [AutoValue](https://github.com/google/auto/tree/master/value). If you are familiar with one of the libraries, you'll find similar concepts in Elemento. In fact most of the ideas behind HTML templates are borrowed from Errai and pretty much code from AutoValue is reused for the annotation processing part in Elemento. So much kudos to the authors of Errai and AutoValue!
 
 Before diving into the details here is the link to the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/index.html). 
  
