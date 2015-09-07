@@ -289,7 +289,6 @@ Elemento supports [handlebar](http://handlebarsjs.com/)-like expressions in HTML
         <h1>{{i18n().constants().todos()}}</h1>
         <input data-element="newTodo" class="new-todo" placeholder="{{i18n().constants().new_todo()}}" autofocus>
     </header>
-    [...]
 </section>
 ```
 
