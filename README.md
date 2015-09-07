@@ -4,31 +4,41 @@ Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/ar
 - Builder like API to easily create arbitrary large element hierarchies
 - HTML templates, declarative event handling and support for [handlebar](http://handlebarsjs.com/)-like expressions
 - Support for dependency injection with [GIN](https://code.google.com/p/google-gin/)
-- Helper methods to mix and match GWT Elemental elements and GWT widgets
+- Helper methods to mix and match GWT Elemental and GWT Widgets
 
-Elemento is heavily inspired by [Errai UI](http://docs.jboss.org/errai/latest/errai/reference/html_single/#sid-51806600) and [AutoValue](https://github.com/google/auto/tree/master/value). If you are familiar with one of the libraries, you'll find similar concepts in Elemento. In fact most of the ideas behind HTML templates are borrowed from Errai and pretty much code from AutoValue is reused for the annotation processing part in Elemento. So much kudos to the authors of Errai and AutoValue!
+Elemento is inspired by [Errai UI](http://docs.jboss.org/errai/latest/errai/reference/html_single/#sid-51806600) and [AutoValue](https://github.com/google/auto/tree/master/value). If you are familiar with one of the libraries, you'll find similar concepts in Elemento. In fact some of the ideas behind HTML templates are borrowed from Errai and pretty much code from AutoValue is reused for the annotation processing part in Elemento. So much kudos to the authors of these libraries!
 
-Before diving into the details here is the link to the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/index.html). 
+Before diving into the details here is the link to the [API documentation](http://rawgit.com/hal/elemento/site/apidocs/index.html). 
  
 ## How to use Elemento
 
-To use Elemento add the following dependency to your pom.xml:
+To use Elemento add the following to your pom.xml:
 
 ```xml
-<dependency>
-    <groupId>org.jboss.gwt.elemento</groupId>
-    <artifactId>elemento-core</artifactId>
-    <version>[insert current version]</version>
-</dependency>
+<project>
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+            <version>[insert current version]</version>
+        </dependency>
+    </dependencies>
+    
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+</project>
 ```
 
 In your GWT module inherit from `org.jboss.gwt.elemento.Core`:
 
 ```xml
 <module>
-    [...]
     <inherits name="org.jboss.gwt.elemento.Core"/>
-    [...]
 </module>
 ```
 
@@ -78,7 +88,7 @@ Element element = new Elements.Builder()
 // @formatter:on
 ```
 
-The builder API supports convenience methods to create the most common elements and attributes. It uses a fluent API to create and append elements on the fly. The builder distinguishes between elements which can contain nested elements (container) and simple element w/o children. The former must be closed using `end()`. Take a look at the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.Builder.html) for all details.
+The builder API supports convenience methods to create the most common elements and attributes. It uses a fluent API to create and append elements on the fly. The builder distinguishes between elements which can contain nested elements (container) and simple element w/o children. The former must be closed using `end()`. Take a look at the [API documentation](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.Builder.html) for all details.
 
 ### References
 When creating large hierarchies of elements you often need to reference an element somewhere in the tree. Use the `Builder.rememberAs(String)` method to save a reference and `Builder.referenceFor(String)` to lookup the reference later on:
@@ -95,7 +105,7 @@ Element count = builder.referenceFor("count");
 ```
 
 ### Event Handlers
-The builder API provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventListener)` to add handlers when building the element tree. There are [enum constants](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
+The builder API provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventListener)` to add handlers when building the element tree. There are [enum constants](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
 
 ```java
 import static org.jboss.gwt.elemento.core.EventType.*;
@@ -268,7 +278,7 @@ void newTodo(KeyboardEvent event) {
 }
 ```
 
-The available event types are provided as enum constants. See [EventType](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) for more details.   
+The available event types are provided as enum constants. See [EventType](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) for more details.   
 
 ### Handlebars
 Elemento supports [handlebar](http://handlebarsjs.com/)-like expressions in HTML templates:
@@ -386,13 +396,13 @@ public static Iterator<Element> iterator(Element parent) {...}
 public static Iterable<Element> children(Element parent) {...}
 ```
 
-Take a look at the [API documentation](http://rawgit.com/hpehl/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.  
+Take a look at the [API documentation](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.  
 
 ## Samples
-Elemento comes with three different [implementations](http://hpehl.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) sample app. 
+Elemento comes with three different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) sample app. 
 
-- Builder API: [Source](samples/builder) | [Demo](http://hpehl.github.io/elemento/builder/index.html)
-- Plain HTML templates: [Source](samples/templated) | [Demo](http://hpehl.github.io/elemento/templated/index.html)
-- HTML templates with GIN support: [Source](samples/gin) | [Demo](http://hpehl.github.io/elemento/gin/index.html)
+- Builder API: [Source](samples/builder) | [Demo](http://hal.github.io/elemento/builder/index.html)
+- Plain HTML templates: [Source](samples/templated) | [Demo](http://hal.github.io/elemento/templated/index.html)
+- HTML templates with GIN support: [Source](samples/gin) | [Demo](http://hal.github.io/elemento/gin/index.html)
 
 All three samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)

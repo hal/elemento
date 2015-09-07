@@ -34,16 +34,16 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <packaging>pom</packaging>
 
-    <url>http://github.com/hpehl/elemento</url>
+    <url>http://github.com/hal/elemento</url>
     <scm>
-        <connection>scm:git@github.com:hpehl/elemento.git</connection>
-        <developerConnection>scm:git:git@github.com:hpehl/elemento.git</developerConnection>
-        <url>git@github.com:hpehl/elemento.git</url>
+        <connection>scm:git@github.com:hal/elemento.git</connection>
+        <developerConnection>scm:git:git@github.com:hal/elemento.git</developerConnection>
+        <url>git@github.com:hal/elemento.git</url>
     </scm>
 
     <developers>
@@ -262,14 +262,20 @@
 
     <repositories>
         <repository>
-            <id>google-snapshots</id>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>oss-sonatype</id>
+            <name>oss-sonatype</name>
             <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
             <releases>
                 <enabled>false</enabled>
             </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 </project>
