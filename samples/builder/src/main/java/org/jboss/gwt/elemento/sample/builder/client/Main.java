@@ -48,6 +48,11 @@ public class Main implements EntryPoint {
         body.appendChild(application.asElement());
         body.appendChild(new FooterElement(i18n).asElement());
 
+        Element e = new MyBuilder().ahref( "http://www.google.com" )
+                                   .img( "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" ).end()
+                                   .end().build();
+	    body.appendChild( e );
+
         History.addValueChangeHandler(event -> application.filter(event.getValue()));
         History.fireCurrentHistoryState();
     }
