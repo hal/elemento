@@ -116,18 +116,29 @@ public final class Elements {
      *
      * @author Harald Pehl
      */
-    public static class Builder <B extends Builder> {
+    public static class Builder extends CoreBuilder<Builder>
+    {
+	    public Builder() {
+		    super(Browser.getDocument());
+	    }
+
+	    protected Builder(Document document) {
+		    super( document );
+	    }
+    }
+
+    public static class CoreBuilder <B extends CoreBuilder> {
 
         private final Document document;
         private final Stack<ElementInfo> elements;
         private final Map<String, Element> references;
         private int level;
 
-        public Builder() {
+        public CoreBuilder() {
             this(Browser.getDocument());
         }
 
-        protected Builder(Document document) {
+	    protected CoreBuilder(Document document) {
             this.document = document;
             this.elements = new Stack<>();
             this.references = new HashMap<>();

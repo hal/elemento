@@ -5,7 +5,7 @@ import org.jboss.gwt.elemento.core.Elements;
 /**
  * Created by gte619n on 12/12/15.
  */
-public class MyBuilder extends Elements.Builder<MyBuilder>
+public class MyBuilder extends Elements.CoreBuilder<MyBuilder>
 {
 	/*--------------------------------------------
 	|             C O N S T A N T S             |
