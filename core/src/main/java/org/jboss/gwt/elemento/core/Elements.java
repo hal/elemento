@@ -21,6 +21,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
+import com.google.common.base.Joiner;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -118,6 +119,10 @@ public final class Elements {
      */
     public static class Builder extends CoreBuilder<Builder> {
 
+        public Builder() {
+            super("elements.builder");
+        }
+
         @Override
         protected Builder that() {
             return this;
@@ -127,19 +132,36 @@ public final class Elements {
 
     public static abstract class CoreBuilder<B extends CoreBuilder<B>> {
 
+        private final String id;
         private final Document document;
         private final Stack<ElementInfo> elements;
         private final Map<String, Element> references;
         private int level;
 
-        public CoreBuilder() {
-            this(Browser.getDocument());
+        /**
+         * Creates a new builder.
+         *
+         * @param id an unique id which is used in error messages
+         */
+        protected CoreBuilder(String id) {
+            this(id, Browser.getDocument());
         }
 
-        protected CoreBuilder(Document document) {
+        /**
+         * Creates a new builder.
+         *
+         * @param id       an unique id which is used in error messages
+         * @param document a reference to the document
+         */
+        protected CoreBuilder(String id, Document document) {
+            this.id = id;
             this.document = document;
             this.elements = new Stack<>();
             this.references = new HashMap<>();
+        }
+
+        private String logId() {
+            return "<" + id + "> ";
         }
 
         /**
@@ -260,7 +282,8 @@ public final class Elements {
         public B end() {
             assertCurrent();
             if (level == 0) {
-                throw new IllegalStateException("Unbalanced element hierarchy. Elements stack: " + dumpElements());
+                throw new IllegalStateException(
+                        logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
             }
 
             List<ElementInfo> children = new ArrayList<>();
@@ -270,7 +293,8 @@ public final class Elements {
             Collections.reverse(children);
 
             if (!elements.peek().container) {
-                throw new IllegalStateException("Closing element " + elements.peek().element + " is no container");
+                throw new IllegalStateException(
+                        logId() + "Closing element " + elements.peek().element + " is no container");
             }
             Element closingElement = elements.peek().element;
             for (ElementInfo child : children) {
@@ -420,8 +444,16 @@ public final class Elements {
          * Sets the css classes for the last added element.
          */
         public B css(String classes) {
+            //noinspection NullArgumentToVariableArgMethod
+            return css(classes, null);
+        }
+
+        /**
+         * Sets the css classes for the last added element.
+         */
+        public B css(String first, String... rest) {
             assertCurrent();
-            elements.peek().element.setClassName(classes);
+            elements.peek().element.setClassName(Joiner.on(' ').skipNulls().join(first, rest));
             return that();
         }
 
@@ -485,7 +517,7 @@ public final class Elements {
 
         private void assertCurrent() {
             if (elements.isEmpty()) {
-                throw new IllegalStateException("No current element");
+                throw new IllegalStateException(logId() + "No current element");
             }
         }
 
@@ -524,7 +556,7 @@ public final class Elements {
         @SuppressWarnings("unchecked")
         public <T extends Element> T referenceFor(String id) {
             if (!references.containsKey(id)) {
-                throw new NoSuchElementException("No element reference found for '" + id + "'");
+                throw new NoSuchElementException(logId() + "No element reference found for '" + id + "'");
             }
             return (T) references.get(id);
         }
@@ -542,7 +574,8 @@ public final class Elements {
         @SuppressWarnings("unchecked")
         public <T extends Element> T build() {
             if (level != 0 && elements.size() != 1) {
-                throw new IllegalStateException("Unbalanced element hierarchy. Elements stack: " + dumpElements());
+                throw new IllegalStateException(
+                        logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
             }
             return (T) elements.pop().element;
         }

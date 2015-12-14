@@ -29,7 +29,7 @@ import elemental.dom.Document;
 public class TestableBuilder extends Elements.CoreBuilder<TestableBuilder> {
 
     public TestableBuilder(final Document document) {
-        super(document);
+        super("testable.builder", document);
     }
 
     @Override

@@ -7,6 +7,10 @@ import org.jboss.gwt.elemento.core.Elements;
  */
 public class TodoBuilder extends Elements.CoreBuilder<TodoBuilder> {
 
+    public TodoBuilder() {
+        super("todo.builder");
+    }
+
     @Override
     protected TodoBuilder that() {
         return this;

@@ -132,6 +132,8 @@ Say you want to create an image with a source and an anchor with an href. Use th
 ```java
 public class MyBuilder extends Elements.CoreBuilder<MyBuilder> {
     
+    public MyBuilder() { super("my.builder"); }
+    
     @Override
     protected MyBuilder that() { return this; }
 
