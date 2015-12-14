@@ -22,5 +22,6 @@
   -->
 
 <module>
+    <inherits name="com.google.common.base.Base"/>
     <source path="core"/>
 </module>

@@ -149,8 +149,6 @@
                     <artifactId>gwt-maven-plugin</artifactId>
                     <configuration>
                         <compilerArgs>
-                            <compilerArg>-XjsInteropMode</compilerArg>
-                            <compilerArg>JS</compilerArg>
                             <compilerArg>-gen</compilerArg>
                             <compilerArg>${project.build.directory}/generated-sources/gwt</compilerArg>
                         </compilerArgs>
@@ -158,8 +156,6 @@
                             <devmodeArg>-startupUrl</devmodeArg>
                             <devmodeArg>${module.shortName}/index.html</devmodeArg>
                             <devmodeArg>-incremental</devmodeArg>
-                            <devmodeArg>-XjsInteropMode</devmodeArg>
-                            <devmodeArg>JS</devmodeArg>
                         </devmodeArgs>
                         <draftCompile>true</draftCompile>
                         <logLevel>INFO</logLevel>
