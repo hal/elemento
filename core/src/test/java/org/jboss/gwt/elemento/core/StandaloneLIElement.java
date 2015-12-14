@@ -38,7 +38,5 @@ public class StandaloneLIElement extends StandaloneElement implements LIElement 
     }
 
     @Override
-    public void setValue(final int i) {
-
-    }
+    public void setValue(final int i) {}
 }

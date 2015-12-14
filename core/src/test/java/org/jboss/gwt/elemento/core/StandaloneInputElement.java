@@ -61,16 +61,13 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
         setAttribute("type", type);
     }
 
-
     @Override
     public String getAccept() {
         return null;
     }
 
     @Override
-    public void setAccept(final String s) {
-
-    }
+    public void setAccept(final String s) {}
 
     @Override
     public String getAlt() {
@@ -78,9 +75,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setAlt(final String s) {
-
-    }
+    public void setAlt(final String s) {}
 
     @Override
     public String getAutocomplete() {
@@ -88,9 +83,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setAutocomplete(final String s) {
-
-    }
+    public void setAutocomplete(final String s) {}
 
     @Override
     public boolean isAutofocus() {
@@ -98,9 +91,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setAutofocus(final boolean b) {
-
-    }
+    public void setAutofocus(final boolean b) {}
 
     @Override
     public int getCols() {
@@ -108,9 +99,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setCols(final int i) {
-
-    }
+    public void setCols(final int i) {}
 
     @Override
     public boolean isChecked() {
@@ -118,9 +107,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setChecked(final boolean b) {
-
-    }
+    public void setChecked(final boolean b) {}
 
     @Override
     public boolean isDefaultChecked() {
@@ -128,9 +115,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setDefaultChecked(final boolean b) {
-
-    }
+    public void setDefaultChecked(final boolean b) {}
 
     @Override
     public String getDefaultValue() {
@@ -138,9 +123,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setDefaultValue(final String s) {
-
-    }
+    public void setDefaultValue(final String s) {}
 
     @Override
     public String getDirName() {
@@ -148,9 +131,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setDirName(final String s) {
-
-    }
+    public void setDirName(final String s) {}
 
     @Override
     public boolean isDefaultSelected() {
@@ -158,9 +139,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setDefaultSelected(final boolean b) {
-
-    }
+    public void setDefaultSelected(final boolean b) {}
 
     @Override
     public boolean isDisabled() {
@@ -168,9 +147,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setDisabled(final boolean b) {
-
-    }
+    public void setDisabled(final boolean b) {}
 
     @Override
     public FileList getFiles() {
@@ -178,9 +155,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setFiles(final FileList fileList) {
-
-    }
+    public void setFiles(final FileList fileList) {}
 
     @Override
     public FormElement getForm() {
@@ -198,9 +173,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setLabel(final String s) {
-
-    }
+    public void setLabel(final String s) {}
 
     @Override
     public boolean isSelected() {
@@ -208,14 +181,10 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setSelected(final boolean b) {
-
-    }
+    public void setSelected(final boolean b) {}
 
     @Override
-    public void setText(final String s) {
-
-    }
+    public void setText(final String s) {}
 
     @Override
     public String getFormAction() {
@@ -223,9 +192,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setFormAction(final String s) {
-
-    }
+    public void setFormAction(final String s) {}
 
     @Override
     public String getFormEnctype() {
@@ -233,9 +200,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setFormEnctype(final String s) {
-
-    }
+    public void setFormEnctype(final String s) {}
 
     @Override
     public String getFormMethod() {
@@ -243,9 +208,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setFormMethod(final String s) {
-
-    }
+    public void setFormMethod(final String s) {}
 
     @Override
     public boolean isFormNoValidate() {
@@ -253,9 +216,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setFormNoValidate(final boolean b) {
-
-    }
+    public void setFormNoValidate(final boolean b) {}
 
     @Override
     public String getFormTarget() {
@@ -263,9 +224,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setFormTarget(final String s) {
-
-    }
+    public void setFormTarget(final String s) {}
 
     @Override
     public int getHeight() {
@@ -273,9 +232,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setHeight(final int i) {
-
-    }
+    public void setHeight(final int i) {}
 
     @Override
     public boolean isIncremental() {
@@ -283,9 +240,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setIncremental(final boolean b) {
-
-    }
+    public void setIncremental(final boolean b) {}
 
     @Override
     public boolean isIndeterminate() {
@@ -293,9 +248,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setIndeterminate(final boolean b) {
-
-    }
+    public void setIndeterminate(final boolean b) {}
 
     @Override
     public NodeList getLabels() {
@@ -308,9 +261,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setLength(final int i) {
-
-    }
+    public void setLength(final int i) {}
 
     @Override
     public String getMax() {
@@ -318,9 +269,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setMax(final String s) {
-
-    }
+    public void setMax(final String s) {}
 
     @Override
     public int getMaxLength() {
@@ -328,9 +277,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setMaxLength(final int i) {
-
-    }
+    public void setMaxLength(final int i) {}
 
     @Override
     public String getMin() {
@@ -338,9 +285,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setMin(final String s) {
-
-    }
+    public void setMin(final String s) {}
 
     @Override
     public boolean isMultiple() {
@@ -348,9 +293,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setMultiple(final boolean b) {
-
-    }
+    public void setMultiple(final boolean b) {}
 
     @Override
     public HTMLOptionsCollection getOptions() {
@@ -363,9 +306,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setOnwebkitspeechchange(final EventListener eventListener) {
-
-    }
+    public void setOnwebkitspeechchange(final EventListener eventListener) {}
 
     @Override
     public String getPattern() {
@@ -373,9 +314,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setPattern(final String s) {
-
-    }
+    public void setPattern(final String s) {}
 
     @Override
     public String getPlaceholder() {
@@ -383,9 +322,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setPlaceholder(final String s) {
-
-    }
+    public void setPlaceholder(final String s) {}
 
     @Override
     public boolean isReadOnly() {
@@ -393,9 +330,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setReadOnly(final boolean b) {
-
-    }
+    public void setReadOnly(final boolean b) {}
 
     @Override
     public boolean isRequired() {
@@ -403,9 +338,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setRequired(final boolean b) {
-
-    }
+    public void setRequired(final boolean b) {}
 
     @Override
     public int getRows() {
@@ -413,9 +346,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setRows(final int i) {
-
-    }
+    public void setRows(final int i) {}
 
     @Override
     public int getSelectedIndex() {
@@ -423,9 +354,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setSelectedIndex(final int i) {
-
-    }
+    public void setSelectedIndex(final int i) {}
 
     @Override
     public HTMLCollection getSelectedOptions() {
@@ -438,9 +367,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setSelectionDirection(final String s) {
-
-    }
+    public void setSelectionDirection(final String s) {}
 
     @Override
     public int getSelectionEnd() {
@@ -448,9 +375,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setSelectionEnd(final int i) {
-
-    }
+    public void setSelectionEnd(final int i) {}
 
     @Override
     public int getSelectionStart() {
@@ -458,9 +383,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setSelectionStart(final int i) {
-
-    }
+    public void setSelectionStart(final int i) {}
 
     @Override
     public int getTextLength() {
@@ -473,9 +396,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setSize(final int i) {
-
-    }
+    public void setSize(final int i) {}
 
     @Override
     public String getSrc() {
@@ -483,9 +404,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setSrc(final String s) {
-
-    }
+    public void setSrc(final String s) {}
 
     @Override
     public String getStep() {
@@ -493,9 +412,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setStep(final String s) {
-
-    }
+    public void setStep(final String s) {}
 
     @Override
     public String getUseMap() {
@@ -503,9 +420,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setUseMap(final String s) {
-
-    }
+    public void setUseMap(final String s) {}
 
     @Override
     public String getValidationMessage() {
@@ -523,9 +438,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setValue(final String s) {
-
-    }
+    public void setValue(final String s) {}
 
     @Override
     public Date getValueAsDate() {
@@ -533,9 +446,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setValueAsDate(final Date date) {
-
-    }
+    public void setValueAsDate(final Date date) {}
 
     @Override
     public double getValueAsNumber() {
@@ -543,9 +454,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setValueAsNumber(final double v) {
-
-    }
+    public void setValueAsNumber(final double v) {}
 
     @Override
     public boolean isWebkitGrammar() {
@@ -553,9 +462,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setWebkitGrammar(final boolean b) {
-
-    }
+    public void setWebkitGrammar(final boolean b) {}
 
     @Override
     public boolean isWebkitSpeech() {
@@ -563,9 +470,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setWebkitSpeech(final boolean b) {
-
-    }
+    public void setWebkitSpeech(final boolean b) {}
 
     @Override
     public boolean isWebkitdirectory() {
@@ -573,9 +478,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setWebkitdirectory(final boolean b) {
-
-    }
+    public void setWebkitdirectory(final boolean b) {}
 
     @Override
     public int getWidth() {
@@ -583,9 +486,7 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setWidth(final int i) {
-
-    }
+    public void setWidth(final int i) {}
 
     @Override
     public boolean isWillValidate() {
@@ -598,14 +499,10 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void setWrap(final String s) {
-
-    }
+    public void setWrap(final String s) {}
 
     @Override
-    public void add(final Element element, final Element element1) {
-
-    }
+    public void add(final Element element, final Element element1) {}
 
     @Override
     public boolean checkValidity() {
@@ -623,52 +520,32 @@ public class StandaloneInputElement extends StandaloneElement implements ButtonE
     }
 
     @Override
-    public void remove(final int i) {
-
-    }
+    public void remove(final int i) {}
 
     @Override
-    public void remove(final OptionElement optionElement) {
-
-    }
+    public void remove(final OptionElement optionElement) {}
 
     @Override
-    public void select() {
-
-    }
+    public void select() {}
 
     @Override
-    public void setCustomValidity(final String s) {
-
-    }
+    public void setCustomValidity(final String s) {}
 
     @Override
-    public void setSelectionRange(final int i, final int i1) {
-
-    }
+    public void setSelectionRange(final int i, final int i1) {}
 
     @Override
-    public void setSelectionRange(final int i, final int i1, final String s) {
-
-    }
+    public void setSelectionRange(final int i, final int i1, final String s) {}
 
     @Override
-    public void stepDown() {
-
-    }
+    public void stepDown() {}
 
     @Override
-    public void stepDown(final int i) {
-
-    }
+    public void stepDown(final int i) {}
 
     @Override
-    public void stepUp() {
-
-    }
+    public void stepUp() {}
 
     @Override
-    public void stepUp(final int i) {
-
-    }
+    public void stepUp(final int i) {}
 }
