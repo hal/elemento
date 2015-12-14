@@ -116,18 +116,16 @@ public final class Elements {
      *
      * @author Harald Pehl
      */
-    public static class Builder extends CoreBuilder<Builder>
-    {
-	    public Builder() {
-		    super(Browser.getDocument());
-	    }
+    public static class Builder extends CoreBuilder<Builder> {
 
-	    protected Builder(Document document) {
-		    super( document );
-	    }
+        @Override
+        protected Builder that() {
+            return this;
+        }
     }
 
-    public static class CoreBuilder <B extends CoreBuilder> {
+
+    public static abstract class CoreBuilder<B extends CoreBuilder<B>> {
 
         private final Document document;
         private final Stack<ElementInfo> elements;
@@ -138,11 +136,18 @@ public final class Elements {
             this(Browser.getDocument());
         }
 
-	    protected CoreBuilder(Document document) {
+        protected CoreBuilder(Document document) {
             this.document = document;
             this.elements = new Stack<>();
             this.references = new HashMap<>();
         }
+
+        /**
+         * In order to make builders work with inheritance, sub-builders must return a reference to their instance.
+         *
+         * @return {@code this}
+         */
+        protected abstract B that();
 
 
         // ------------------------------------------------------ container elements
@@ -244,7 +249,7 @@ public final class Elements {
         public B start(Element element) {
             elements.push(new ElementInfo(element, true, level));
             level++;
-            return (B) this;
+            return that();
         }
 
         /**
@@ -273,7 +278,7 @@ public final class Elements {
             }
 
             level--;
-            return (B) this;
+            return that();
         }
 
         private String dumpElements() {
@@ -368,7 +373,7 @@ public final class Elements {
                     start(document.createTextAreaElement());
                     break;
             }
-            return (B) this;
+            return that();
         }
 
 
@@ -387,7 +392,7 @@ public final class Elements {
         public B add(Element element) {
             assertCurrent();
             elements.push(new ElementInfo(element, false, level));
-            return (B) this;
+            return that();
         }
 
 
@@ -399,7 +404,7 @@ public final class Elements {
         public B id(String id) {
             assertCurrent();
             elements.peek().element.setId(id);
-            return (B) this;
+            return that();
         }
 
         /**
@@ -408,7 +413,7 @@ public final class Elements {
         public B title(String title) {
             assertCurrent();
             elements.peek().element.setTitle(title);
-            return (B) this;
+            return that();
         }
 
         /**
@@ -417,7 +422,7 @@ public final class Elements {
         public B css(String classes) {
             assertCurrent();
             elements.peek().element.setClassName(classes);
-            return (B) this;
+            return that();
         }
 
         /**
@@ -426,7 +431,7 @@ public final class Elements {
         public B style(String style) {
             assertCurrent();
             elements.peek().element.getStyle().setCssText(style);
-            return (B) this;
+            return that();
         }
 
         /**
@@ -435,7 +440,7 @@ public final class Elements {
         public B attr(String name, String value) {
             assertCurrent();
             elements.peek().element.setAttribute(name, value);
-            return (B) this;
+            return that();
         }
 
         /**
@@ -466,7 +471,7 @@ public final class Elements {
         public B innerHtml(SafeHtml html) {
             assertCurrent();
             elements.peek().element.setInnerHTML(html.asString());
-            return (B) this;
+            return that();
         }
 
         /**
@@ -475,7 +480,7 @@ public final class Elements {
         public B innerText(String text) {
             assertCurrent();
             elements.peek().element.setTextContent(text);
-            return (B) this;
+            return that();
         }
 
         private void assertCurrent() {
@@ -495,7 +500,7 @@ public final class Elements {
 
             Element element = elements.peek().element;
             type.register(element, listener);
-            return (B) this;
+            return that();
         }
 
 
@@ -508,7 +513,7 @@ public final class Elements {
         public B rememberAs(String id) {
             assertCurrent();
             references.put(id, elements.peek().element);
-            return (B) this;
+            return that();
         }
 
         /**
