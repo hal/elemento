@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
  */
 public class ElementsBuilderTest {
 
-    private Elements.Builder builder;
+    private TestableBuilder builder;
 
     @Before
     public void setUp() {
@@ -43,7 +43,7 @@ public class ElementsBuilderTest {
         when(document.createTextAreaElement()).thenAnswer(invocation -> new StandaloneInputElement("textarea"));
         when(document.createUListElement()).thenAnswer(invocation -> new StandaloneElement("ul"));
 
-        builder = new Elements.Builder(document);
+        builder = new TestableBuilder(document);
     }
 
 

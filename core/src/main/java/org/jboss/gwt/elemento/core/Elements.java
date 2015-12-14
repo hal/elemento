@@ -21,6 +21,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
+import com.google.common.base.Joiner;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -116,22 +117,59 @@ public final class Elements {
      *
      * @author Harald Pehl
      */
-    public static final class Builder {
+    public static class Builder extends CoreBuilder<Builder> {
 
+        public Builder() {
+            super("elements.builder");
+        }
+
+        @Override
+        protected Builder that() {
+            return this;
+        }
+    }
+
+
+    public static abstract class CoreBuilder<B extends CoreBuilder<B>> {
+
+        private final String id;
         private final Document document;
         private final Stack<ElementInfo> elements;
         private final Map<String, Element> references;
         private int level;
 
-        public Builder() {
-            this(Browser.getDocument());
+        /**
+         * Creates a new builder.
+         *
+         * @param id an unique id which is used in error messages
+         */
+        protected CoreBuilder(String id) {
+            this(id, Browser.getDocument());
         }
 
-        protected Builder(Document document) {
+        /**
+         * Creates a new builder.
+         *
+         * @param id       an unique id which is used in error messages
+         * @param document a reference to the document
+         */
+        protected CoreBuilder(String id, Document document) {
+            this.id = id;
             this.document = document;
             this.elements = new Stack<>();
             this.references = new HashMap<>();
         }
+
+        private String logId() {
+            return "<" + id + "> ";
+        }
+
+        /**
+         * In order to make builders work with inheritance, sub-builders must return a reference to their instance.
+         *
+         * @return {@code this}
+         */
+        protected abstract B that();
 
 
         // ------------------------------------------------------ container elements
@@ -139,101 +177,101 @@ public final class Elements {
         /**
          * Starts a new {@code &lt;header&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder header() {
+        public B header() {
             return start("header");
         }
 
         /**
          * Starts a new {@code &lt;h&amp;&gt;}  container. The element must be closed with {@link #end()}.
          */
-        public Builder h(int ordinal) {
+        public B h(int ordinal) {
             return start("h" + ordinal);
         }
 
         /**
          * Starts a new {@code &lt;section&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder section() {
+        public B section() {
             return start(document.createElement("section"));
         }
 
         /**
          * Starts a new {@code &lt;aside&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder aside() {
+        public B aside() {
             return start(document.createElement("aside"));
         }
 
         /**
          * Starts a new {@code &lt;footer&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder footer() {
+        public B footer() {
             return start(document.createElement("footer"));
         }
 
         /**
          * Starts a new {@code &lt;p&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder p() {
+        public B p() {
             return start(document.createElement("p"));
         }
 
         /**
          * Starts a new {@code &lt;ol&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder ol() {
+        public B ol() {
             return start(document.createElement("ol"));
         }
 
         /**
          * Starts a new {@code &lt;ul&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder ul() {
+        public B ul() {
             return start(document.createElement("ul"));
         }
 
         /**
          * Starts a new {@code &lt;li&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder li() {
+        public B li() {
             return start(document.createLIElement());
         }
 
         /**
          * Starts a new {@code &lt;a&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder a() {
+        public B a() {
             return start(document.createElement("a"));
         }
 
         /**
          * Starts a new {@code &lt;div&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder div() {
+        public B div() {
             return start(document.createDivElement());
         }
 
         /**
          * Starts a new {@code &lt;span&gt;} container. The element must be closed with {@link #end()}.
          */
-        public Builder span() {
+        public B span() {
             return start(document.createSpanElement());
         }
 
         /**
          * Starts the named container. The element must be closed with {@link #end()}.
          */
-        public Builder start(String tag) {
+        public B start(String tag) {
             return start(document.createElement(tag));
         }
 
         /**
          * Adds the given element as new container. The element must be closed with {@link #end()}.
          */
-        public Builder start(Element element) {
+        public B start(Element element) {
             elements.push(new ElementInfo(element, true, level));
             level++;
-            return this;
+            return that();
         }
 
         /**
@@ -241,10 +279,11 @@ public final class Elements {
          *
          * @throws IllegalStateException if there's no current element or if the closing element is no container.
          */
-        public Builder end() {
+        public B end() {
             assertCurrent();
             if (level == 0) {
-                throw new IllegalStateException("Unbalanced element hierarchy. Elements stack: " + dumpElements());
+                throw new IllegalStateException(
+                        logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
             }
 
             List<ElementInfo> children = new ArrayList<>();
@@ -254,7 +293,8 @@ public final class Elements {
             Collections.reverse(children);
 
             if (!elements.peek().container) {
-                throw new IllegalStateException("Closing element " + elements.peek().element + " is no container");
+                throw new IllegalStateException(
+                        logId() + "Closing element " + elements.peek().element + " is no container");
             }
             Element closingElement = elements.peek().element;
             for (ElementInfo child : children) {
@@ -262,7 +302,7 @@ public final class Elements {
             }
 
             level--;
-            return this;
+            return that();
         }
 
         private String dumpElements() {
@@ -275,42 +315,42 @@ public final class Elements {
         /**
          * Starts a new form. The element must be closed with {@link #end()}.
          */
-        public Builder form() {
+        public B form() {
             return start(document.createFormElement());
         }
 
         /**
          * Starts a new form label. The element must be closed with {@link #end()}.
          */
-        public Builder label() {
+        public B label() {
             return start(document.createLabelElement());
         }
 
         /**
          * Starts a new button. The element must be closed with {@link #end()}.
          */
-        public Builder button() {
+        public B button() {
             return input(InputType.button);
         }
 
         /**
          * Starts a new select box. The element must be closed with {@link #end()}.
          */
-        public Builder select() {
+        public B select() {
             return input(InputType.select);
         }
 
         /**
          * Starts an option to be used inside a select box. The element must be closed with {@link #end()}.
          */
-        public Builder option() {
+        public B option() {
             return start(document.createOptionElement());
         }
 
         /**
          * Starts a new textarea. The element must be closed with {@link #end()}.
          */
-        public Builder textarea() {
+        public B textarea() {
             return input(InputType.textarea);
         }
 
@@ -318,7 +358,7 @@ public final class Elements {
          * Creates the given input field. See {@link InputType} for details
          * whether a container or simple element is created.
          */
-        public Builder input(InputType type) {
+        public B input(InputType type) {
             switch (type) {
                 case button:
                     start(document.createButtonElement());
@@ -357,7 +397,7 @@ public final class Elements {
                     start(document.createTextAreaElement());
                     break;
             }
-            return this;
+            return that();
         }
 
 
@@ -366,17 +406,17 @@ public final class Elements {
         /**
          * Creates and adds the named element. The element must not be closed using {@link #end()}.
          */
-        public Builder add(String tag) {
+        public B add(String tag) {
             return add(document.createElement(tag));
         }
 
         /**
          * Adds the given element. The element must not be closed using {@link #end()}.
          */
-        public Builder add(Element element) {
+        public B add(Element element) {
             assertCurrent();
             elements.push(new ElementInfo(element, false, level));
-            return this;
+            return that();
         }
 
 
@@ -385,46 +425,54 @@ public final class Elements {
         /**
          * Sets the id of the last added element.
          */
-        public Builder id(String id) {
+        public B id(String id) {
             assertCurrent();
             elements.peek().element.setId(id);
-            return this;
+            return that();
         }
 
         /**
          * Sets the title of the last added element.
          */
-        public Builder title(String title) {
+        public B title(String title) {
             assertCurrent();
             elements.peek().element.setTitle(title);
-            return this;
+            return that();
         }
 
         /**
          * Sets the css classes for the last added element.
          */
-        public Builder css(String classes) {
+        public B css(String classes) {
+            //noinspection NullArgumentToVariableArgMethod
+            return css(classes, null);
+        }
+
+        /**
+         * Sets the css classes for the last added element.
+         */
+        public B css(String first, String... rest) {
             assertCurrent();
-            elements.peek().element.setClassName(classes);
-            return this;
+            elements.peek().element.setClassName(Joiner.on(' ').skipNulls().join(first, rest));
+            return that();
         }
 
         /**
          * Sets the css style for the last added element.
          */
-        public Builder style(String style) {
+        public B style(String style) {
             assertCurrent();
             elements.peek().element.getStyle().setCssText(style);
-            return this;
+            return that();
         }
 
         /**
          * Adds an attribute to the last added element.
          */
-        public Builder attr(String name, String value) {
+        public B attr(String name, String value) {
             assertCurrent();
             elements.peek().element.setAttribute(name, value);
-            return this;
+            return that();
         }
 
         /**
@@ -433,7 +481,7 @@ public final class Elements {
          * @param name The name of the data attribute w/o the {@code data-} prefix. However it won't be added if it's
          *             already present.
          */
-        public Builder data(String name, String value) {
+        public B data(String name, String value) {
             String safeName = name.startsWith("data-") ? name : "data-" + name;
             return attr(safeName, value);
         }
@@ -444,7 +492,7 @@ public final class Elements {
          * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's
          *             already present.
          */
-        public Builder aria(String name, String value) {
+        public B aria(String name, String value) {
             String safeName = name.startsWith("aria-") ? name : "aria-" + name;
             return attr(safeName, value);
         }
@@ -452,24 +500,24 @@ public final class Elements {
         /**
          * Sets the inner HTML on the last added element.
          */
-        public Builder innerHtml(SafeHtml html) {
+        public B innerHtml(SafeHtml html) {
             assertCurrent();
             elements.peek().element.setInnerHTML(html.asString());
-            return this;
+            return that();
         }
 
         /**
          * Sets the inner text on the last added element using {@link Element#setTextContent(String)}.
          */
-        public Builder innerText(String text) {
+        public B innerText(String text) {
             assertCurrent();
             elements.peek().element.setTextContent(text);
-            return this;
+            return that();
         }
 
         private void assertCurrent() {
             if (elements.isEmpty()) {
-                throw new IllegalStateException("No current element");
+                throw new IllegalStateException(logId() + "No current element");
             }
         }
 
@@ -479,12 +527,12 @@ public final class Elements {
         /**
          * Adds the given event listener to the the last added element.
          */
-        public Builder on(EventType type, EventListener listener) {
+        public B on(EventType type, EventListener listener) {
             assertCurrent();
 
             Element element = elements.peek().element;
             type.register(element, listener);
-            return this;
+            return that();
         }
 
 
@@ -494,10 +542,10 @@ public final class Elements {
          * Stores a named reference for the last added element. The element can be retrieved later on using
          * {@link #referenceFor(String)}.
          */
-        public Builder rememberAs(String id) {
+        public B rememberAs(String id) {
             assertCurrent();
             references.put(id, elements.peek().element);
-            return this;
+            return that();
         }
 
         /**
@@ -508,7 +556,7 @@ public final class Elements {
         @SuppressWarnings("unchecked")
         public <T extends Element> T referenceFor(String id) {
             if (!references.containsKey(id)) {
-                throw new NoSuchElementException("No element reference found for '" + id + "'");
+                throw new NoSuchElementException(logId() + "No element reference found for '" + id + "'");
             }
             return (T) references.get(id);
         }
@@ -526,7 +574,8 @@ public final class Elements {
         @SuppressWarnings("unchecked")
         public <T extends Element> T build() {
             if (level != 0 && elements.size() != 1) {
-                throw new IllegalStateException("Unbalanced element hierarchy. Elements stack: " + dumpElements());
+                throw new IllegalStateException(
+                        logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
             }
             return (T) elements.pop().element;
         }

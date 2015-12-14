@@ -21,22 +21,19 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.html.LIElement;
+import elemental.dom.Document;
 
 /**
  * @author Harald Pehl
  */
-public class StandaloneLIElement extends StandaloneElement implements LIElement {
+public class TestableBuilder extends Elements.CoreBuilder<TestableBuilder> {
 
-    public StandaloneLIElement(final String name) {
-        super(name);
+    public TestableBuilder(final Document document) {
+        super("testable.builder", document);
     }
 
     @Override
-    public int getValue() {
-        return 0;
+    protected TestableBuilder that() {
+        return this;
     }
-
-    @Override
-    public void setValue(final int i) {}
 }

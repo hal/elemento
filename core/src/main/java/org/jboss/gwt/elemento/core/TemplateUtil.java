@@ -118,11 +118,13 @@ public final class TemplateUtil {
         //            String newValue = currentValue.replace(expression, value);
         //            treeWalker.getCurrentNode().setNodeValue(newValue);
         //        }
-        replaceHandlebarInText(context, expression, value);
+        replaceNestedHandlebarInText(context, expression, value);
+        replaceNestedHandlebarInAttributes(context, expression, value);
+        // The call above does not catch the attributes in 'context', thus replace them explicitly
         replaceHandlebarInAttributes(context, expression, value);
     }
 
-    private static native void replaceHandlebarInText(Element context, String expression, String value) /*-{
+    private static native void replaceNestedHandlebarInText(Element context, String expression, String value) /*-{
         var treeWalker = $doc.createTreeWalker(context, NodeFilter.SHOW_TEXT, {
             acceptNode: function (node) {
                 if (node.nodeValue.indexOf(expression) != -1) {
@@ -137,20 +139,25 @@ public final class TemplateUtil {
         }
     }-*/;
 
-    private static void replaceHandlebarInAttributes(final Element context, final String expression,
+    private static void replaceNestedHandlebarInAttributes(final Element context, final String expression,
             final String value) {
         TreeWalker elementWalker = Browser.getDocument()
                 .createTreeWalker(context, NodeFilter.SHOW_ELEMENT, null, false);
 
         while (elementWalker.nextNode() != null) {
-            NamedNodeMap attributes = elementWalker.getCurrentNode().getAttributes();
-            for (int i = 0; i < attributes.getLength(); i++) {
-                Node attribute = attributes.item(i);
-                final String currentValue = attribute.getNodeValue();
-                if (currentValue.contains(expression)) {
-                    String newValue = currentValue.replace(expression, value);
-                    attribute.setNodeValue(newValue);
-                }
+            replaceHandlebarInAttributes((Element) elementWalker.getCurrentNode(), expression, value);
+        }
+    }
+
+    private static void replaceHandlebarInAttributes(final Element context, final String expression,
+            final String value) {
+        NamedNodeMap attributes = context.getAttributes();
+        for (int i = 0; i < attributes.getLength(); i++) {
+            Node attribute = attributes.item(i);
+            final String currentValue = attribute.getNodeValue();
+            if (currentValue.contains(expression)) {
+                String newValue = currentValue.replace(expression, value);
+                attribute.setNodeValue(newValue);
             }
         }
     }

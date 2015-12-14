@@ -123,6 +123,30 @@ Element listItem = new Elements.Builder()
 // @formatter:on
 ```
 
+### Extending the Builder
+
+In case you want to have your own (convenience) methods, you can extend the builder that comes with Elemento. Normally inheritance and builders don't play well together. That's why Elemento uses an approach described in a blog post by Eric Ramblings: [Using inheritance with fluent interfaces: get this](http://egalluzzo.blogspot.de/2010/06/using-inheritance-with-fluent.html). 
+
+Say you want to create an image with a source and an anchor with an href. Use the following builder:
+
+```java
+public class MyBuilder extends Elements.CoreBuilder<MyBuilder> {
+    
+    public MyBuilder() { super("my.builder"); }
+    
+    @Override
+    protected MyBuilder that() { return this; }
+
+    public MyBuilder img(String src) {
+        return start("img").attr("src", src);
+    }
+    
+    public MyBuilder ahref(String url) {
+        return a().attr("href", url);
+    }
+}
+```
+
 ## Templates
 Elemento provides an easy way to take existing HTML content and use it in your GWT application. Templates can be either HTML snippets or full HTML documents where you select an element and its children. This allows you to preview your templates more easily during design without running the application. 
 

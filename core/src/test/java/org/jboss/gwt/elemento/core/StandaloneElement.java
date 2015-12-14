@@ -77,7 +77,7 @@ public class StandaloneElement implements AnchorElement,
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("<").append(name);
-        attributes.forEach((name1, value) -> printAttributes(builder, name1, value));
+        attributes.forEach((name, value) -> printAttributes(builder, name, value));
         if (innerText != null) {
             builder.append(">").append(innerText).append("</").append(name).append(">");
         } else if (!children.isEmpty()) {
@@ -173,9 +173,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setInnerHTML(final String s) {
-
-    }
+    public void setInnerHTML(final String s) {}
 
     @Override
     public String getAccessKey() {
@@ -183,9 +181,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setAccessKey(final String s) {
-
-    }
+    public void setAccessKey(final String s) {}
 
     @Override
     public int getChildElementCount() {
@@ -228,9 +224,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setContentEditable(final String s) {
-
-    }
+    public void setContentEditable(final String s) {}
 
     @Override
     public Mappable getDataset() {
@@ -243,9 +237,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setDir(final String s) {
-
-    }
+    public void setDir(final String s) {}
 
     @Override
     public boolean isDraggable() {
@@ -253,9 +245,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setDraggable(final boolean b) {
-
-    }
+    public void setDraggable(final boolean b) {}
 
     @Override
     public Element getFirstElementChild() {
@@ -268,9 +258,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setHidden(final boolean b) {
-
-    }
+    public void setHidden(final boolean b) {}
 
     @Override
     public boolean isTranslate() {
@@ -278,9 +266,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setTranslate(final boolean b) {
-
-    }
+    public void setTranslate(final boolean b) {}
 
     @Override
     public String getWebkitRegionOverflow() {
@@ -293,19 +279,13 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setWebkitdropzone(final String s) {
-
-    }
+    public void setWebkitdropzone(final String s) {}
 
     @Override
-    public void blur() {
-
-    }
+    public void blur() {}
 
     @Override
-    public void focus() {
-
-    }
+    public void focus() {}
 
     @Override
     public String getAttributeNS(final String s, final String s1) {
@@ -368,14 +348,10 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void removeAttribute(final String s) {
-
-    }
+    public void removeAttribute(final String s) {}
 
     @Override
-    public void removeAttributeNS(final String s, final String s1) {
-
-    }
+    public void removeAttributeNS(final String s, final String s1) {}
 
     @Override
     public Attr removeAttributeNode(final Attr attr) {
@@ -383,39 +359,25 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void scrollByLines(final int i) {
-
-    }
+    public void scrollByLines(final int i) {}
 
     @Override
-    public void scrollByPages(final int i) {
-
-    }
+    public void scrollByPages(final int i) {}
 
     @Override
-    public void scrollIntoView() {
-
-    }
+    public void scrollIntoView() {}
 
     @Override
-    public void scrollIntoView(final boolean b) {
-
-    }
+    public void scrollIntoView(final boolean b) {}
 
     @Override
-    public void scrollIntoViewIfNeeded() {
-
-    }
+    public void scrollIntoViewIfNeeded() {}
 
     @Override
-    public void scrollIntoViewIfNeeded(final boolean b) {
-
-    }
+    public void scrollIntoViewIfNeeded(final boolean b) {}
 
     @Override
-    public void setAttributeNS(final String s, final String s1, final String s2) {
-
-    }
+    public void setAttributeNS(final String s, final String s1, final String s2) {}
 
     @Override
     public Attr setAttributeNode(final Attr attr) {
@@ -433,19 +395,13 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void webkitRequestFullScreen(final int i) {
-
-    }
+    public void webkitRequestFullScreen(final int i) {}
 
     @Override
-    public void webkitRequestFullscreen() {
-
-    }
+    public void webkitRequestFullscreen() {}
 
     @Override
-    public void click() {
-
-    }
+    public void click() {}
 
     @Override
     public Element insertAdjacentElement(final String s, final Element element) {
@@ -453,14 +409,10 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void insertAdjacentHTML(final String s, final String s1) {
-
-    }
+    public void insertAdjacentHTML(final String s, final String s1) {}
 
     @Override
-    public void insertAdjacentText(final String s, final String s1) {
-
-    }
+    public void insertAdjacentText(final String s, final String s1) {}
 
     @Override
     public String getCharset() {
@@ -468,9 +420,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setCharset(final String s) {
-
-    }
+    public void setCharset(final String s) {}
 
     @Override
     public String getCoords() {
@@ -478,9 +428,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setCoords(final String s) {
-
-    }
+    public void setCoords(final String s) {}
 
     @Override
     public String getDownload() {
@@ -488,9 +436,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setDownload(final String s) {
-
-    }
+    public void setDownload(final String s) {}
 
     @Override
     public String getHash() {
@@ -498,9 +444,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setHash(final String s) {
-
-    }
+    public void setHash(final String s) {}
 
     @Override
     public String getHost() {
@@ -508,9 +452,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setHost(final String s) {
-
-    }
+    public void setHost(final String s) {}
 
     @Override
     public String getHostname() {
@@ -518,9 +460,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setHostname(final String s) {
-
-    }
+    public void setHostname(final String s) {}
 
     @Override
     public String getHref() {
@@ -528,9 +468,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setHref(final String s) {
-
-    }
+    public void setHref(final String s) {}
 
     @Override
     public String getHreflang() {
@@ -538,9 +476,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setHreflang(final String s) {
-
-    }
+    public void setHreflang(final String s) {}
 
     @Override
     public String getAcceptCharset() {
@@ -548,9 +484,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setAcceptCharset(final String s) {
-
-    }
+    public void setAcceptCharset(final String s) {}
 
     @Override
     public String getAction() {
@@ -558,9 +492,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setAction(final String s) {
-
-    }
+    public void setAction(final String s) {}
 
     @Override
     public String getAutocomplete() {
@@ -568,9 +500,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setAutocomplete(final String s) {
-
-    }
+    public void setAutocomplete(final String s) {}
 
     @Override
     public HTMLCollection getElements() {
@@ -583,9 +513,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setEncoding(final String s) {
-
-    }
+    public void setEncoding(final String s) {}
 
     @Override
     public String getEnctype() {
@@ -593,9 +521,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setEnctype(final String s) {
-
-    }
+    public void setEnctype(final String s) {}
 
     @Override
     public int getLength() {
@@ -608,9 +534,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setMethod(final String s) {
-
-    }
+    public void setMethod(final String s) {}
 
     @Override
     public String getName() {
@@ -618,9 +542,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setName(final String s) {
-
-    }
+    public void setName(final String s) {}
 
     @Override
     public boolean isNoValidate() {
@@ -628,9 +550,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setNoValidate(final boolean b) {
-
-    }
+    public void setNoValidate(final boolean b) {}
 
     @Override
     public String getOrigin() {
@@ -643,9 +563,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setPathname(final String s) {
-
-    }
+    public void setPathname(final String s) {}
 
     @Override
     public String getPing() {
@@ -653,9 +571,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setPing(final String s) {
-
-    }
+    public void setPing(final String s) {}
 
     @Override
     public String getPort() {
@@ -663,9 +579,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setPort(final String s) {
-
-    }
+    public void setPort(final String s) {}
 
     @Override
     public String getProtocol() {
@@ -673,9 +587,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setProtocol(final String s) {
-
-    }
+    public void setProtocol(final String s) {}
 
     @Override
     public String getRel() {
@@ -683,9 +595,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setRel(final String s) {
-
-    }
+    public void setRel(final String s) {}
 
     @Override
     public String getRev() {
@@ -693,9 +603,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setRev(final String s) {
-
-    }
+    public void setRev(final String s) {}
 
     @Override
     public String getSearch() {
@@ -703,9 +611,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setSearch(final String s) {
-
-    }
+    public void setSearch(final String s) {}
 
     @Override
     public String getShape() {
@@ -713,9 +619,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setShape(final String s) {
-
-    }
+    public void setShape(final String s) {}
 
     @Override
     public String getTarget() {
@@ -723,9 +627,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setTarget(final String s) {
-
-    }
+    public void setTarget(final String s) {}
 
     @Override
     public boolean checkValidity() {
@@ -733,14 +635,10 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void reset() {
-
-    }
+    public void reset() {}
 
     @Override
-    public void submit() {
-
-    }
+    public void submit() {}
 
     @Override
     public String getText() {
@@ -753,9 +651,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setType(final String s) {
-
-    }
+    public void setType(final String s) {}
 
     @Override
     public boolean isCompact() {
@@ -763,9 +659,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setCompact(final boolean b) {
-
-    }
+    public void setCompact(final boolean b) {}
 
     @Override
     public boolean isReversed() {
@@ -773,9 +667,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setReversed(final boolean b) {
-
-    }
+    public void setReversed(final boolean b) {}
 
     @Override
     public int getStart() {
@@ -783,9 +675,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setStart(final int i) {
-
-    }
+    public void setStart(final int i) {}
 
     @Override
     public boolean isContentEditable() {
@@ -798,9 +688,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setLang(final String s) {
-
-    }
+    public void setLang(final String s) {}
 
     @Override
     public Element getLastElementChild() {
@@ -843,9 +731,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnabort(final EventListener eventListener) {
-
-    }
+    public void setOnabort(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnbeforecopy() {
@@ -853,9 +739,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnbeforecopy(final EventListener eventListener) {
-
-    }
+    public void setOnbeforecopy(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnbeforecut() {
@@ -863,9 +747,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnbeforecut(final EventListener eventListener) {
-
-    }
+    public void setOnbeforecut(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnbeforepaste() {
@@ -873,9 +755,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnbeforepaste(final EventListener eventListener) {
-
-    }
+    public void setOnbeforepaste(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnblur() {
@@ -883,9 +763,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnblur(final EventListener eventListener) {
-
-    }
+    public void setOnblur(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnchange() {
@@ -893,9 +771,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnchange(final EventListener eventListener) {
-
-    }
+    public void setOnchange(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnclick() {
@@ -903,9 +779,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnclick(final EventListener eventListener) {
-
-    }
+    public void setOnclick(final EventListener eventListener) {}
 
     @Override
     public EventListener getOncontextmenu() {
@@ -913,9 +787,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOncontextmenu(final EventListener eventListener) {
-
-    }
+    public void setOncontextmenu(final EventListener eventListener) {}
 
     @Override
     public EventListener getOncopy() {
@@ -923,9 +795,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOncopy(final EventListener eventListener) {
-
-    }
+    public void setOncopy(final EventListener eventListener) {}
 
     @Override
     public EventListener getOncut() {
@@ -933,9 +803,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOncut(final EventListener eventListener) {
-
-    }
+    public void setOncut(final EventListener eventListener) {}
 
     @Override
     public EventListener getOndblclick() {
@@ -943,9 +811,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOndblclick(final EventListener eventListener) {
-
-    }
+    public void setOndblclick(final EventListener eventListener) {}
 
     @Override
     public EventListener getOndrag() {
@@ -953,9 +819,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOndrag(final EventListener eventListener) {
-
-    }
+    public void setOndrag(final EventListener eventListener) {}
 
     @Override
     public EventListener getOndragend() {
@@ -963,9 +827,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOndragend(final EventListener eventListener) {
-
-    }
+    public void setOndragend(final EventListener eventListener) {}
 
     @Override
     public EventListener getOndragenter() {
@@ -973,9 +835,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOndragenter(final EventListener eventListener) {
-
-    }
+    public void setOndragenter(final EventListener eventListener) {}
 
     @Override
     public EventListener getOndragleave() {
@@ -983,9 +843,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOndragleave(final EventListener eventListener) {
-
-    }
+    public void setOndragleave(final EventListener eventListener) {}
 
     @Override
     public EventListener getOndragover() {
@@ -993,9 +851,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOndragover(final EventListener eventListener) {
-
-    }
+    public void setOndragover(final EventListener eventListener) {}
 
     @Override
     public EventListener getOndragstart() {
@@ -1003,9 +859,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOndragstart(final EventListener eventListener) {
-
-    }
+    public void setOndragstart(final EventListener eventListener) {}
 
     @Override
     public EventListener getOndrop() {
@@ -1013,9 +867,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOndrop(final EventListener eventListener) {
-
-    }
+    public void setOndrop(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnerror() {
@@ -1023,9 +875,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnerror(final EventListener eventListener) {
-
-    }
+    public void setOnerror(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnfocus() {
@@ -1033,9 +883,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnfocus(final EventListener eventListener) {
-
-    }
+    public void setOnfocus(final EventListener eventListener) {}
 
     @Override
     public EventListener getOninput() {
@@ -1043,9 +891,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOninput(final EventListener eventListener) {
-
-    }
+    public void setOninput(final EventListener eventListener) {}
 
     @Override
     public EventListener getOninvalid() {
@@ -1053,9 +899,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOninvalid(final EventListener eventListener) {
-
-    }
+    public void setOninvalid(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnkeydown() {
@@ -1063,9 +907,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnkeydown(final EventListener eventListener) {
-
-    }
+    public void setOnkeydown(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnkeypress() {
@@ -1073,9 +915,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnkeypress(final EventListener eventListener) {
-
-    }
+    public void setOnkeypress(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnkeyup() {
@@ -1083,9 +923,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnkeyup(final EventListener eventListener) {
-
-    }
+    public void setOnkeyup(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnload() {
@@ -1093,9 +931,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnload(final EventListener eventListener) {
-
-    }
+    public void setOnload(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnmousedown() {
@@ -1103,9 +939,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnmousedown(final EventListener eventListener) {
-
-    }
+    public void setOnmousedown(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnmousemove() {
@@ -1113,9 +947,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnmousemove(final EventListener eventListener) {
-
-    }
+    public void setOnmousemove(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnmouseout() {
@@ -1123,9 +955,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnmouseout(final EventListener eventListener) {
-
-    }
+    public void setOnmouseout(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnmouseover() {
@@ -1133,9 +963,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnmouseover(final EventListener eventListener) {
-
-    }
+    public void setOnmouseover(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnmouseup() {
@@ -1143,9 +971,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnmouseup(final EventListener eventListener) {
-
-    }
+    public void setOnmouseup(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnmousewheel() {
@@ -1153,9 +979,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnmousewheel(final EventListener eventListener) {
-
-    }
+    public void setOnmousewheel(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnpaste() {
@@ -1163,9 +987,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnpaste(final EventListener eventListener) {
-
-    }
+    public void setOnpaste(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnreset() {
@@ -1173,9 +995,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnreset(final EventListener eventListener) {
-
-    }
+    public void setOnreset(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnscroll() {
@@ -1183,9 +1003,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnscroll(final EventListener eventListener) {
-
-    }
+    public void setOnscroll(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnsearch() {
@@ -1193,9 +1011,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnsearch(final EventListener eventListener) {
-
-    }
+    public void setOnsearch(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnselect() {
@@ -1203,9 +1019,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnselect(final EventListener eventListener) {
-
-    }
+    public void setOnselect(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnselectstart() {
@@ -1213,9 +1027,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnselectstart(final EventListener eventListener) {
-
-    }
+    public void setOnselectstart(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnsubmit() {
@@ -1223,9 +1035,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnsubmit(final EventListener eventListener) {
-
-    }
+    public void setOnsubmit(final EventListener eventListener) {}
 
     @Override
     public EventListener getOntouchcancel() {
@@ -1233,9 +1043,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOntouchcancel(final EventListener eventListener) {
-
-    }
+    public void setOntouchcancel(final EventListener eventListener) {}
 
     @Override
     public EventListener getOntouchend() {
@@ -1243,9 +1051,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOntouchend(final EventListener eventListener) {
-
-    }
+    public void setOntouchend(final EventListener eventListener) {}
 
     @Override
     public EventListener getOntouchmove() {
@@ -1253,9 +1059,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOntouchmove(final EventListener eventListener) {
-
-    }
+    public void setOntouchmove(final EventListener eventListener) {}
 
     @Override
     public EventListener getOntouchstart() {
@@ -1263,9 +1067,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOntouchstart(final EventListener eventListener) {
-
-    }
+    public void setOntouchstart(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnwebkitfullscreenchange() {
@@ -1273,9 +1075,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnwebkitfullscreenchange(final EventListener eventListener) {
-
-    }
+    public void setOnwebkitfullscreenchange(final EventListener eventListener) {}
 
     @Override
     public EventListener getOnwebkitfullscreenerror() {
@@ -1283,9 +1083,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOnwebkitfullscreenerror(final EventListener eventListener) {
-
-    }
+    public void setOnwebkitfullscreenerror(final EventListener eventListener) {}
 
     @Override
     public String getOuterHTML() {
@@ -1293,9 +1091,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOuterHTML(final String s) {
-
-    }
+    public void setOuterHTML(final String s) {}
 
     @Override
     public String getOuterText() {
@@ -1303,9 +1099,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setOuterText(final String s) {
-
-    }
+    public void setOuterText(final String s) {}
 
     @Override
     public Element getPreviousElementSibling() {
@@ -1323,9 +1117,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setScrollLeft(final int i) {
-
-    }
+    public void setScrollLeft(final int i) {}
 
     @Override
     public int getScrollTop() {
@@ -1333,9 +1125,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setScrollTop(final int i) {
-
-    }
+    public void setScrollTop(final int i) {}
 
     @Override
     public int getScrollWidth() {
@@ -1348,9 +1138,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setSpellcheck(final boolean b) {
-
-    }
+    public void setSpellcheck(final boolean b) {}
 
     @Override
     public CSSStyleDeclaration getStyle() {
@@ -1363,9 +1151,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setTabIndex(final int i) {
-
-    }
+    public void setTabIndex(final int i) {}
 
     @Override
     public NamedNodeMap getAttributes() {
@@ -1423,9 +1209,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setNodeValue(final String s) {
-
-    }
+    public void setNodeValue(final String s) {}
 
     @Override
     public Document getOwnerDocument() {
@@ -1448,9 +1232,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setPrefix(final String s) {
-
-    }
+    public void setPrefix(final String s) {}
 
     @Override
     public Node getPreviousSibling() {
@@ -1463,9 +1245,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setTextContent(final String s) {
-
-    }
+    public void setTextContent(final String s) {}
 
     @Override
     public EventRemover addEventListener(final String s, final EventListener eventListener) {
@@ -1543,9 +1323,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void normalize() {
-
-    }
+    public void normalize() {}
 
     @Override
     public Node removeChild(final Node node) {
@@ -1553,14 +1331,10 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void removeEventListener(final String s, final EventListener eventListener) {
-
-    }
+    public void removeEventListener(final String s, final EventListener eventListener) {}
 
     @Override
-    public void removeEventListener(final String s, final EventListener eventListener, final boolean b) {
-
-    }
+    public void removeEventListener(final String s, final EventListener eventListener, final boolean b) {}
 
     @Override
     public Node replaceChild(final Node node, final Node node1) {
@@ -1573,9 +1347,7 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setAlign(final String s) {
-
-    }
+    public void setAlign(final String s) {}
 
     @Override
     public Element getControl() {
@@ -1593,7 +1365,5 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
-    public void setHtmlFor(final String s) {
-
-    }
+    public void setHtmlFor(final String s) {}
 }
