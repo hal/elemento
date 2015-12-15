@@ -62,6 +62,10 @@
             <groupId>com.google.auto.service</groupId>
             <artifactId>auto-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -94,6 +98,7 @@
                                     <exclude>com.google.j2objc:*</exclude>
                                     <exclude>com.google.jsinterop:*</exclude>
                                     <exclude>javax.validation:*</exclude>
+                                    <exclude>org.jetbrains:*</exclude>
                                 </excludes>
                             </artifactSet>
                         </configuration>

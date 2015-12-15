@@ -31,6 +31,7 @@ import elemental.dom.Document;
 import elemental.dom.Element;
 import elemental.events.EventListener;
 import elemental.html.InputElement;
+import org.jetbrains.annotations.NonNls;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -143,7 +144,7 @@ public final class Elements {
          *
          * @param id an unique id which is used in error messages
          */
-        protected CoreBuilder(String id) {
+        protected CoreBuilder(@NonNls String id) {
             this(id, Browser.getDocument());
         }
 
@@ -153,7 +154,7 @@ public final class Elements {
          * @param id       an unique id which is used in error messages
          * @param document a reference to the document
          */
-        protected CoreBuilder(String id, Document document) {
+        protected CoreBuilder(@NonNls String id, Document document) {
             this.id = id;
             this.document = document;
             this.elements = new Stack<>();
@@ -261,7 +262,7 @@ public final class Elements {
         /**
          * Starts the named container. The element must be closed with {@link #end()}.
          */
-        public B start(String tag) {
+        public B start(@NonNls String tag) {
             return start(document.createElement(tag));
         }
 
@@ -406,7 +407,7 @@ public final class Elements {
         /**
          * Creates and adds the named element. The element must not be closed using {@link #end()}.
          */
-        public B add(String tag) {
+        public B add(@NonNls String tag) {
             return add(document.createElement(tag));
         }
 
@@ -425,7 +426,7 @@ public final class Elements {
         /**
          * Sets the id of the last added element.
          */
-        public B id(String id) {
+        public B id(@NonNls String id) {
             assertCurrent();
             elements.peek().element.setId(id);
             return that();
@@ -443,7 +444,7 @@ public final class Elements {
         /**
          * Sets the css classes for the last added element.
          */
-        public B css(String classes) {
+        public B css(@NonNls String classes) {
             //noinspection NullArgumentToVariableArgMethod
             return css(classes, null);
         }
@@ -451,7 +452,7 @@ public final class Elements {
         /**
          * Sets the css classes for the last added element.
          */
-        public B css(String first, String... rest) {
+        public B css(@NonNls String first, @NonNls String... rest) {
             assertCurrent();
             elements.peek().element.setClassName(Joiner.on(' ').skipNulls().join(first, rest));
             return that();
@@ -460,7 +461,7 @@ public final class Elements {
         /**
          * Sets the css style for the last added element.
          */
-        public B style(String style) {
+        public B style(@NonNls String style) {
             assertCurrent();
             elements.peek().element.getStyle().setCssText(style);
             return that();
@@ -469,7 +470,7 @@ public final class Elements {
         /**
          * Adds an attribute to the last added element.
          */
-        public B attr(String name, String value) {
+        public B attr(@NonNls String name, String value) {
             assertCurrent();
             elements.peek().element.setAttribute(name, value);
             return that();
@@ -481,7 +482,7 @@ public final class Elements {
          * @param name The name of the data attribute w/o the {@code data-} prefix. However it won't be added if it's
          *             already present.
          */
-        public B data(String name, String value) {
+        public B data(@NonNls String name, String value) {
             String safeName = name.startsWith("data-") ? name : "data-" + name;
             return attr(safeName, value);
         }
@@ -492,7 +493,7 @@ public final class Elements {
          * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's
          *             already present.
          */
-        public B aria(String name, String value) {
+        public B aria(@NonNls String name, String value) {
             String safeName = name.startsWith("aria-") ? name : "aria-" + name;
             return attr(safeName, value);
         }
@@ -542,7 +543,7 @@ public final class Elements {
          * Stores a named reference for the last added element. The element can be retrieved later on using
          * {@link #referenceFor(String)}.
          */
-        public B rememberAs(String id) {
+        public B rememberAs(@NonNls String id) {
             assertCurrent();
             references.put(id, elements.peek().element);
             return that();
@@ -554,7 +555,7 @@ public final class Elements {
          * @throws NoSuchElementException if no element was stored under that id.
          */
         @SuppressWarnings("unchecked")
-        public <T extends Element> T referenceFor(String id) {
+        public <T extends Element> T referenceFor(@NonNls String id) {
             if (!references.containsKey(id)) {
                 throw new NoSuchElementException(logId() + "No element reference found for '" + id + "'");
             }
@@ -622,14 +623,14 @@ public final class Elements {
     /**
      * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
      */
-    public static Element dataElement(String name) {
+    public static Element dataElement(@NonNls String name) {
         return Browser.getDocument().querySelector("[data-element=" + name + "]");
     }
 
     /**
      * Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]}
      */
-    public static Element dataElement(Element context, String name) {
+    public static Element dataElement(Element context, @NonNls String name) {
         return context != null ? context.querySelector("[data-element=" + name + "]") : null;
     }
 
