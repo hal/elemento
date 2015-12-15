@@ -88,7 +88,11 @@
                             <artifactSet>
                                 <excludes>
                                     <exclude>com.google.code.findbugs:*</exclude>
+                                    <exclude>com.google.errorprone:*</exclude>
+                                    <exclude>com.google.guava:*</exclude>
                                     <exclude>com.google.gwt:*</exclude>
+                                    <exclude>com.google.j2objc:*</exclude>
+                                    <exclude>com.google.jsinterop:*</exclude>
                                     <exclude>javax.validation:*</exclude>
                                 </excludes>
                             </artifactSet>
