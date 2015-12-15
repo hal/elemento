@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.1.4</version>
+        <version>0.1.5</version>
     </parent>
 
     <artifactId>elemento-core</artifactId>
@@ -88,7 +88,11 @@
                             <artifactSet>
                                 <excludes>
                                     <exclude>com.google.code.findbugs:*</exclude>
+                                    <exclude>com.google.errorprone:*</exclude>
+                                    <exclude>com.google.guava:*</exclude>
                                     <exclude>com.google.gwt:*</exclude>
+                                    <exclude>com.google.j2objc:*</exclude>
+                                    <exclude>com.google.jsinterop:*</exclude>
                                     <exclude>javax.validation:*</exclude>
                                 </excludes>
                             </artifactSet>
