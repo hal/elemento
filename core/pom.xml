@@ -98,7 +98,6 @@
                                     <exclude>com.google.j2objc:*</exclude>
                                     <exclude>com.google.jsinterop:*</exclude>
                                     <exclude>javax.validation:*</exclude>
-                                    <exclude>org.jetbrains:*</exclude>
                                 </excludes>
                             </artifactSet>
                         </configuration>
