@@ -42,6 +42,8 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
+import static com.google.common.collect.Lists.asList;
+
 /**
  * Helper methods for working with {@link Element}s.
  *
@@ -454,7 +456,10 @@ public final class Elements {
          */
         public B css(@NonNls String first, @NonNls String... rest) {
             assertCurrent();
-            elements.peek().element.setClassName(Joiner.on(' ').skipNulls().join(first, rest));
+            String combined = rest != null && rest.length != 0
+                    ? Joiner.on(' ').skipNulls().join(asList(first, rest))
+                    : first;
+            elements.peek().element.setClassName(combined);
             return that();
         }
 
