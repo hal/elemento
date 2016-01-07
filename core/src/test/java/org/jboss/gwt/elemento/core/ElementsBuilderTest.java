@@ -58,6 +58,14 @@ public class ElementsBuilderTest {
     }
 
     @Test
+    public void headingsWithText() {
+        for (int i = 0; i < 6; i++) {
+            assertEquals("<h" + i + ">Heading " + i + "</h" + i + ">",
+                    builder.h(i, "Heading " + i).end().build().toString());
+        }
+    }
+
+    @Test
     public void p() {
         assertEquals("<p>Lorem ipsum</p>", builder.p().innerText("Lorem ipsum").end().build().toString());
     }
@@ -78,6 +86,13 @@ public class ElementsBuilderTest {
     public void a() {
         assertEquals("<a href=\"http://hpehl.info/\" title=\"Visit my blog\">hpehl.info</a>",
                 builder.a().attr("href", "http://hpehl.info/").title("Visit my blog").innerText("hpehl.info")
+                        .end().build().toString());
+    }
+
+    @Test
+    public void aHref() {
+        assertEquals("<a href=\"http://hpehl.info/\" title=\"Visit my blog\">hpehl.info</a>",
+                builder.a("http://hpehl.info/").title("Visit my blog").innerText("hpehl.info")
                         .end().build().toString());
     }
 
@@ -239,7 +254,7 @@ public class ElementsBuilderTest {
         // not a real test - just there to show the API
         builder
                 .div()
-                    .button().on(click, event -> System.out.println("Hit!"))
+                .button().on(click, event -> System.out.println("Hit!"))
                 .end();
     }
 

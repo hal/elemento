@@ -185,10 +185,18 @@ public final class Elements {
         }
 
         /**
-         * Starts a new {@code &lt;h&amp;&gt;}  container. The element must be closed with {@link #end()}.
+         * Starts a new {@code &lt;h&amp;&gt;} container. The element must be closed with {@link #end()}.
          */
         public B h(int ordinal) {
             return start("h" + ordinal);
+        }
+
+        /**
+         * Starts a new {@code &lt;h&amp;&gt;} container with the specified inner text.
+         * The element must be closed with {@link #end()}.
+         */
+        public B h(int ordinal, String text) {
+            return start("h" + ordinal).innerText(text);
         }
 
         /**
@@ -245,6 +253,14 @@ public final class Elements {
          */
         public B a() {
             return start(document.createElement("a"));
+        }
+
+        /**
+         * Starts a new {@code &lt;a&gt;} container with the specified href.
+         * The element must be closed with {@link #end()}.
+         */
+        public B a(@NonNls String href) {
+            return start(document.createElement("a")).attr("href", href);
         }
 
         /**
@@ -330,10 +346,26 @@ public final class Elements {
         }
 
         /**
+         * Starts a new form label with the specified inner text.
+         * The element must be closed with {@link #end()}.
+         */
+        public B label(String text) {
+            return start(document.createLabelElement()).innerText(text);
+        }
+
+        /**
          * Starts a new button. The element must be closed with {@link #end()}.
          */
         public B button() {
             return input(InputType.button);
+        }
+
+        /**
+         * Starts a new button with the specified inner text.
+         * The element must be closed with {@link #end()}.
+         */
+        public B button(String text) {
+            return input(InputType.button).innerText(text);
         }
 
         /**
@@ -348,6 +380,13 @@ public final class Elements {
          */
         public B option() {
             return start(document.createOptionElement());
+        }
+
+        /**
+         * Starts an option with the specified inner text. The element must be closed with {@link #end()}.
+         */
+        public B option(String text) {
+            return start(document.createOptionElement()).innerText(text);
         }
 
         /**
