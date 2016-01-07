@@ -147,6 +147,16 @@ public class StandaloneElement implements AnchorElement,
     }
 
     @Override
+    public String getTextContent() {
+        return innerText;
+    }
+
+    @Override
+    public void setTextContent(final String textContent) {
+        this.innerText = textContent;
+    }
+
+    @Override
     public String getAttribute(final String s) {
         return attributes.get(s);
     }
@@ -1238,14 +1248,6 @@ public class StandaloneElement implements AnchorElement,
     public Node getPreviousSibling() {
         return null;
     }
-
-    @Override
-    public String getTextContent() {
-        return null;
-    }
-
-    @Override
-    public void setTextContent(final String s) {}
 
     @Override
     public EventRemover addEventListener(final String s, final EventListener eventListener) {

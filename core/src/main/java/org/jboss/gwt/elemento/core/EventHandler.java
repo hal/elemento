@@ -21,6 +21,8 @@
  */
 package org.jboss.gwt.elemento.core;
 
+import org.jetbrains.annotations.NonNls;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -41,7 +43,7 @@ public @interface EventHandler {
     /**
      * The value of the {@code data-element} attribute.
      */
-    String element();
+    @NonNls String element();
 
     /**
      * The event type
