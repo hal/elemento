@@ -22,6 +22,7 @@
 package org.jboss.gwt.elemento.core;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.Iterables;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -628,6 +629,22 @@ public final class Elements {
                         logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
             }
             return (T) elements.pop().element;
+        }
+
+        /**
+         * Returns the top level elements added so far. This is useful if you don't want to build a single root
+         * container, but work with a list of elements.
+         */
+        public Iterable<Element> elements() {
+            if (level != 0) {
+                throw new IllegalStateException(
+                        logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
+            }
+            if (elements.isEmpty()) {
+                throw new IllegalStateException(logId() + "Empty elements stack");
+            }
+            //noinspection StaticPseudoFunctionalStyleMethod
+            return Iterables.transform(elements, elementInfo -> elementInfo.element);
         }
     }
 

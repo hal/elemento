@@ -1,6 +1,8 @@
 package org.jboss.gwt.elemento.core;
 
+import com.google.common.collect.Iterables;
 import elemental.dom.Document;
+import elemental.dom.Element;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -221,6 +223,27 @@ public class ElementsBuilderTest {
 
         assertEquals("<div><span><br/><div><br/><span><br/><br/></span><br/></div><br/><br/></span></div>",
                 builder.build().toString());
+    }
+
+    @Test
+    public void list() {
+        // @formatter:off
+        builder
+                .p().innerText("Some text").end()
+                .ol()
+                    .li().innerText("one").end()
+                    .li().innerText("two").end()
+                    .li().innerText("three").end()
+                .end()
+                .div().innerText("foo").end()
+                .add("br");
+        // @formatter:on
+        Iterable<Element> elements = builder.elements();
+        assertEquals(4, Iterables.size(elements));
+        StringBuilder html = new StringBuilder();
+        elements.forEach(html::append);
+        assertEquals("<p>Some text</p><ol><li>one</li><li>two</li><li>three</li></ol><div>foo</div><br/>",
+                html.toString());
     }
 
 
