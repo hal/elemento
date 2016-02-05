@@ -65,12 +65,14 @@ public class StandaloneElement implements AnchorElement,
     private final String name;
     private final List<StandaloneElement> children;
     private final Map<String, String> attributes;
+    private final Dataset dataset;
     private String innerText;
 
     public StandaloneElement(final String name) {
         this.name = name;
         this.children = new ArrayList<>();
         this.attributes = new LinkedHashMap<>();
+        this.dataset = new Dataset();
     }
 
     @Override
@@ -78,6 +80,7 @@ public class StandaloneElement implements AnchorElement,
         StringBuilder builder = new StringBuilder();
         builder.append("<").append(name);
         attributes.forEach((name, value) -> printAttributes(builder, name, value));
+        dataset.data.forEach((name, value) -> printAttributes(builder, name, String.valueOf(value)));
         if (innerText != null) {
             builder.append(">").append(innerText).append("</").append(name).append(">");
         } else if (!children.isEmpty()) {
@@ -238,7 +241,7 @@ public class StandaloneElement implements AnchorElement,
 
     @Override
     public Mappable getDataset() {
-        return null;
+        return dataset;
     }
 
     @Override

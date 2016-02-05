@@ -265,8 +265,13 @@ public class ElementsBuilderTest {
 
     @Test
     public void data() {
-        assertEquals("<div data-one=\"1\" data-two=\"2\" data-three=\"3\"/>",
-                builder.div().attr("data-one", "1").data("two", "2").data("data-three", "3").build().toString());
+        assertEquals("<div data-one=\"1\" data-two=\"2\" data-three=\"3\" data-camel-case=\"4\" data-foo-bar=\"5\"/>",
+                builder.div().attr("data-one", "1")
+                        .data("two", "2")
+                        .data("data-three", "3")
+                        .data("camelCase", "4")
+                        .data("data-fooBar", "5")
+                        .build().toString());
     }
 
 
