@@ -534,7 +534,7 @@ public final class Elements {
          */
         public B data(@NonNls String name, String value) {
             String safeName = name.startsWith("data-") ? name.substring("data-".length()) : name;
-            elements.peek().element.getDataset().setAt(name, value);
+            elements.peek().element.getDataset().setAt(safeName, value);
             return that();
         }
 
