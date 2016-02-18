@@ -56,13 +56,13 @@ public final class Elements {
     private Elements() {}
 
 
-    private static class ElementInfo {
+    static class ElementInfo {
 
         int level;
         Element element;
         boolean container;
 
-        public ElementInfo(final Element element, final boolean container, final int level) {
+        ElementInfo(final Element element, final boolean container, final int level) {
             this.container = container;
             this.element = element;
             this.level = level;
@@ -645,7 +645,7 @@ public final class Elements {
                 throw new IllegalStateException(logId() + "Empty elements stack");
             }
             //noinspection StaticPseudoFunctionalStyleMethod
-            return Iterables.transform(elements, elementInfo -> elementInfo.element);
+            return Iterables.transform(this.elements, elementInfo -> elementInfo.element);
         }
     }
 
