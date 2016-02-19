@@ -337,15 +337,15 @@ public final class Elements {
         }
 
         public B thead() {
-            return start("tr");
+            return start("thead");
         }
 
         public B tbody() {
-            return start("tr");
+            return start("tbody");
         }
 
         public B tfoot() {
-            return start("tr");
+            return start("tfoot");
         }
 
         public B tr() {
@@ -353,11 +353,11 @@ public final class Elements {
         }
 
         public B th() {
-            return start("tr");
+            return start("th");
         }
 
         public B td() {
-            return start("tr");
+            return start("td");
         }
 
 
