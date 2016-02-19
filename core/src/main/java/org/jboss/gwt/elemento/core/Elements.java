@@ -330,6 +330,37 @@ public final class Elements {
         }
 
 
+        // ------------------------------------------------------ table elements
+
+        public B table() {
+            return start("table");
+        }
+
+        public B thead() {
+            return start("tr");
+        }
+
+        public B tbody() {
+            return start("tr");
+        }
+
+        public B tfoot() {
+            return start("tr");
+        }
+
+        public B tr() {
+            return start("tr");
+        }
+
+        public B th() {
+            return start("tr");
+        }
+
+        public B td() {
+            return start("tr");
+        }
+
+
         // ------------------------------------------------------ form elements
 
         /**
