@@ -59,7 +59,7 @@ class TodoItemElement implements IsElement {
         .li().css(item.isCompleted() ? "completed" : "").data("item", item.getId())
             .div().css("view")
                 .input(checkbox).on(change, event -> toggle()).rememberAs("toggle").css("toggle")
-                .label().on(dblclick, (event) -> edit()).innerText(item.getText()).rememberAs("label").end()
+                .label().on(dblclick, (event) -> edit()).textContent(item.getText()).rememberAs("label").end()
                 .button().on(click, (event) -> destroy()).css("destroy").end()
             .end()
             .input(text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
