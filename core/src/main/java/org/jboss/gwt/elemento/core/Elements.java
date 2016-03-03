@@ -197,7 +197,7 @@ public final class Elements {
          * The element must be closed with {@link #end()}.
          */
         public B h(int ordinal, String text) {
-            return start("h" + ordinal).innerText(text);
+            return start("h" + ordinal).textContent(text);
         }
 
         /**
@@ -382,7 +382,7 @@ public final class Elements {
          * The element must be closed with {@link #end()}.
          */
         public B label(String text) {
-            return start(document.createLabelElement()).innerText(text);
+            return start(document.createLabelElement()).textContent(text);
         }
 
         /**
@@ -397,7 +397,7 @@ public final class Elements {
          * The element must be closed with {@link #end()}.
          */
         public B button(String text) {
-            return input(InputType.button).innerText(text);
+            return input(InputType.button).textContent(text);
         }
 
         /**
@@ -418,7 +418,7 @@ public final class Elements {
          * Starts an option with the specified inner text. The element must be closed with {@link #end()}.
          */
         public B option(String text) {
-            return start(document.createOptionElement()).innerText(text);
+            return start(document.createOptionElement()).textContent(text);
         }
 
         /**
@@ -591,8 +591,20 @@ public final class Elements {
 
         /**
          * Sets the inner text on the last added element using {@link Element#setTextContent(String)}.
+         *
+         * @deprecated Use {@link #textContent(String)} instead.
          */
+        @Deprecated
         public B innerText(String text) {
+            assertCurrent();
+            elements.peek().element.setTextContent(text);
+            return that();
+        }
+
+        /**
+         * Sets the inner text on the last added element using {@link Element#setTextContent(String)}.
+         */
+        public B textContent(String text) {
             assertCurrent();
             elements.peek().element.setTextContent(text);
             return that();

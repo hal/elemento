@@ -55,7 +55,7 @@ public class ElementsBuilderTest {
     public void headings() {
         for (int i = 0; i < 6; i++) {
             assertEquals("<h" + i + ">Heading " + i + "</h" + i + ">",
-                    builder.h(i).innerText("Heading " + i).end().build().toString());
+                    builder.h(i).textContent("Heading " + i).end().build().toString());
         }
     }
 
@@ -69,32 +69,32 @@ public class ElementsBuilderTest {
 
     @Test
     public void p() {
-        assertEquals("<p>Lorem ipsum</p>", builder.p().innerText("Lorem ipsum").end().build().toString());
+        assertEquals("<p>Lorem ipsum</p>", builder.p().textContent("Lorem ipsum").end().build().toString());
     }
 
     @Test
     public void ol() {
         assertEquals("<ol><li>first</li><li>second</li></ol>",
-                builder.ol().li().innerText("first").end().li().innerText("second").end().end().build().toString());
+                builder.ol().li().textContent("first").end().li().textContent("second").end().end().build().toString());
     }
 
     @Test
     public void ul() {
         assertEquals("<ul><li>foo</li><li>bar</li></ul>",
-                builder.ul().li().innerText("foo").end().li().innerText("bar").end().end().build().toString());
+                builder.ul().li().textContent("foo").end().li().textContent("bar").end().end().build().toString());
     }
 
     @Test
     public void a() {
         assertEquals("<a href=\"http://hpehl.info/\" title=\"Visit my blog\">hpehl.info</a>",
-                builder.a().attr("href", "http://hpehl.info/").title("Visit my blog").innerText("hpehl.info")
+                builder.a().attr("href", "http://hpehl.info/").title("Visit my blog").textContent("hpehl.info")
                         .end().build().toString());
     }
 
     @Test
     public void aHref() {
         assertEquals("<a href=\"http://hpehl.info/\" title=\"Visit my blog\">hpehl.info</a>",
-                builder.a("http://hpehl.info/").title("Visit my blog").innerText("hpehl.info")
+                builder.a("http://hpehl.info/").title("Visit my blog").textContent("hpehl.info")
                         .end().build().toString());
     }
 
@@ -117,38 +117,38 @@ public class ElementsBuilderTest {
         builder
             .form().attr("method", "get").attr("action", "search").css("form form-horizontal")
                 .div().css("form-group")
-                    .label().css("col-md-3 control-label").attr("for", "name").innerText("Name").end()
+                    .label().css("col-md-3 control-label").attr("for", "name").textContent("Name").end()
                     .div().css("col-md-9")
                         .input(text).id("name").css("form-control").attr("placeholder", "Enter your name")
                     .end()
                 .end()
                 .div().css("form-group")
-                    .label().css("col-md-3 control-label").attr("for", "age").innerText("Age").end()
+                    .label().css("col-md-3 control-label").attr("for", "age").textContent("Age").end()
                     .div().css("col-md-9")
                         .input(number).id("age").css("form-control").attr("placeholder", "How old are you?")
                     .end()
                 .end()
                 .div().css("form-group")
-                    .label().css("col-md-3 control-label").attr("for", "hobbies").innerText("Hobbies").end()
+                    .label().css("col-md-3 control-label").attr("for", "hobbies").textContent("Hobbies").end()
                     .div().css("col-md-9")
                         .textarea().attr("rows", "3").id("hobbies").css("form-control").end()
-                        .span().css("help-block textarea").innerText("One item per line").end()
+                        .span().css("help-block textarea").textContent("One item per line").end()
                     .end()
                 .end()
                 .div().css("form-group")
-                    .label().css("col-md-3 control-label").attr("for", "choose").innerText("Choose").end()
+                    .label().css("col-md-3 control-label").attr("for", "choose").textContent("Choose").end()
                     .div().css("col-md-9")
                         .select().id("choose").css("form-control selectpicker")
-                            .option().innerText("Lorem").end()
-                            .option().innerText("ipsum").end()
+                            .option().textContent("Lorem").end()
+                            .option().textContent("ipsum").end()
                         .end()
                     .end()
                 .end()
                 .div().css("form-group")
                     .div().css("col-md-offset-3 col-md-9")
                         .div().css("pull-right form-buttons")
-                            .button().css("btn btn-default btn-form").innerText("Cancel").end()
-                            .button().css("btn btn-primary btn-form").innerText("Save").end()
+                            .button().css("btn btn-default btn-form").textContent("Cancel").end()
+                            .button().css("btn btn-primary btn-form").textContent("Save").end()
                         .end()
                     .end()
                 .end()
@@ -229,13 +229,13 @@ public class ElementsBuilderTest {
     public void list() {
         // @formatter:off
         builder
-                .p().innerText("Some text").end()
+                .p().textContent("Some text").end()
                 .ol()
-                    .li().innerText("one").end()
-                    .li().innerText("two").end()
-                    .li().innerText("three").end()
+                    .li().textContent("one").end()
+                    .li().textContent("two").end()
+                    .li().textContent("three").end()
                 .end()
-                .div().innerText("foo").end()
+                .div().textContent("foo").end()
                 .add("br");
         // @formatter:on
         Iterable<Element> elements = builder.elements();
