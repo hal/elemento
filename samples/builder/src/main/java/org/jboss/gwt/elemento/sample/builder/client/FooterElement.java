@@ -38,14 +38,14 @@ public class FooterElement implements IsElement {
         // @formatter:off
         return new Elements.Builder()
         .start("footer").css("info")
-            .p().innerText(i18n.constants().double_click_to_edit()).end()
+            .p().textContent(i18n.constants().double_click_to_edit()).end()
             .p()
-                .span().innerText(i18n.constants().created_by() + " ").end()
-                .a().attr("href", Urls.HPEHL_INFO).innerText("Harald Pehl").end()
+                .span().textContent(i18n.constants().created_by() + " ").end()
+                .a().attr("href", Urls.HPEHL_INFO).textContent("Harald Pehl").end()
             .end()
             .p()
-                .span().innerText(i18n.constants().part_of() + " ").end()
-                .a().attr("href", Urls.TODO_MVC).innerText("TodoMVC").end()
+                .span().textContent(i18n.constants().part_of() + " ").end()
+                .a().attr("href", Urls.TODO_MVC).textContent("TodoMVC").end()
             .end()
         .end().build();
     }

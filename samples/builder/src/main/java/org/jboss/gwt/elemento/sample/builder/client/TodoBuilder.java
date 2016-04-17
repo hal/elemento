@@ -26,6 +26,6 @@ public class TodoBuilder extends Elements.CoreBuilder<TodoBuilder> {
      * @return an anchor element which needs to be closed
      */
     public TodoBuilder filter(String fragment, String text, String rememberAs) {
-        return li().a().attr("href", fragment).innerText(text).rememberAs(rememberAs).end().end();
+        return li().a().attr("href", fragment).textContent(text).rememberAs(rememberAs).end().end();
     }
 }

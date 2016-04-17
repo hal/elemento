@@ -21,7 +21,7 @@ if [ ! -d "$SAMPLE_DIR" ]; then
 fi
 
 if ! git diff --no-ext-diff --quiet --exit-code; then
-    echo "Cannot deploy to gh-pages. You have uncommited changes in the current branch."
+    echo "Cannot deploy to gh-pages. You have uncommitted changes in the current branch."
     exit -1
 fi
 

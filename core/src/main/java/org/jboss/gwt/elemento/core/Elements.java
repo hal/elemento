@@ -21,6 +21,15 @@
  */
 package org.jboss.gwt.elemento.core;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Stack;
+
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -33,15 +42,6 @@ import elemental.dom.Element;
 import elemental.events.EventListener;
 import elemental.html.InputElement;
 import org.jetbrains.annotations.NonNls;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Stack;
 
 import static java.util.Arrays.asList;
 
@@ -105,12 +105,12 @@ public final class Elements {
      * Element element = new Elements.Builder()
      *     .section().css("main")
      *         .input(checkbox).css("toggle-all")
-     *         .label().attr("for", "toggle-all").innerText("Mark all as complete").end()
+     *         .label().attr("for", "toggle-all").textContent("Mark all as complete").end()
      *         .ul().css("todo-list")
      *             .li()
      *                 .div().css("view")
      *                     .input(checkbox).css("toggle")
-     *                     .label().innerText("Taste Elemento").end()
+     *                     .label().textContent("Taste Elemento").end()
      *                     .button().css("destroy").end()
      *                 .end()
      *                 .input(text).css("edit")
@@ -475,13 +475,31 @@ public final class Elements {
         }
 
 
-        // ------------------------------------------------------ simple elements
+        // ------------------------------------------------------ simple element(s)
 
         /**
          * Creates and adds the named element. The element must not be closed using {@link #end()}.
          */
         public B add(@NonNls String tag) {
             return add(document.createElement(tag));
+        }
+
+        /**
+         * Add the given element by calling {@code element.asElement()}. The element must not be closed using {@link
+         * #end()}.
+         */
+        public B add(IsElement element) {
+            return add(element.asElement());
+        }
+
+        /**
+         * Adds all elements from {@code elements.asElements()}.
+         */
+        public B addAll(HasElements elements) {
+            for (Element element : elements.asElements()) {
+                add(element);
+            }
+            return that();
         }
 
         /**
