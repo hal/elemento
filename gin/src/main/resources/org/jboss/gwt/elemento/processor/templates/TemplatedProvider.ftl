@@ -9,8 +9,8 @@ import javax.inject.Inject;
 import javax.annotation.Generated;
 
 /*
-* WARNING! This class is generated. Do not modify.
-*/
+ * WARNING! This class is generated. Do not modify.
+ */
 @Generated("org.jboss.gwt.elemento.processor.TemplatedProviderProcessor")
 public class ${context.subclass} implements Provider<${context.base}> {
 

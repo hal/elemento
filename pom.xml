@@ -34,7 +34,7 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <packaging>pom</packaging>
@@ -77,7 +77,7 @@
 
         <!-- dependency versions -->
         <annotations.version>15.0</annotations.version>
-        <apt-tools.version>0.0.2</apt-tools.version>
+        <apt-tools.version>0.0.3</apt-tools.version>
         <auto-service.version>1.0-rc2</auto-service.version>
         <auto-value.version>1.2-SNAPSHOT</auto-value.version>
         <gin.version>2.1.2</gin.version>
