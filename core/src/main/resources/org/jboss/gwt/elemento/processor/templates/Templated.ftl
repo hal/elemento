@@ -15,8 +15,8 @@ import org.jboss.gwt.elemento.core.TemplateUtil;
 import javax.annotation.Generated;
 
 /*
-* WARNING! This class is generated. Do not modify.
-*/
+ * WARNING! This class is generated. Do not modify.
+ */
 @Generated("org.jboss.gwt.elemento.processor.TemplatedProcessor")
 final class ${context.subclass} extends ${context.base} {
 
