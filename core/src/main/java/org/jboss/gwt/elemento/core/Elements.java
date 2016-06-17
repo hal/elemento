@@ -29,6 +29,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Stack;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
@@ -39,6 +41,7 @@ import com.google.gwt.user.client.ui.Widget;
 import elemental.client.Browser;
 import elemental.dom.Document;
 import elemental.dom.Element;
+import elemental.dom.NodeList;
 import elemental.events.EventListener;
 import elemental.html.InputElement;
 import org.jetbrains.annotations.NonNls;
@@ -722,10 +725,39 @@ public final class Elements {
     }
 
     /**
+     * Returns a stream for the children of the given parent element.
+     */
+    public static Stream<Element> stream(Element parent) {
+        return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : Stream.empty();
+    }
+
+    /**
      * Returns an iterable collection for the children of the given parent element.
      */
     public static Iterable<Element> children(Element parent) {
         return () -> iterator(parent);
+    }
+
+    /**
+     * Returns an iterator over the given node list. The iterator will only iterate over elements while skipping nodes.
+     * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
+     */
+    public static Iterator<Element> iterator(NodeList nodes) {
+        return nodes != null ? new NodeListIterator(nodes) : Collections.<Element>emptyList().iterator();
+    }
+
+    /**
+     * Returns a stream for the elements in the given node list.
+     */
+    public static Stream<Element> stream(NodeList nodes) {
+        return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : Stream.empty();
+    }
+
+    /**
+     * Returns an iterable collection for the elements in the given node list.
+     */
+    public static Iterable<Element> elements(NodeList nodes) {
+        return () -> iterator(nodes);
     }
 
     /**
