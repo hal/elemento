@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.2.4</version>
+        <version>0.2.5</version>
     </parent>
 
     <artifactId>elemento-core</artifactId>
