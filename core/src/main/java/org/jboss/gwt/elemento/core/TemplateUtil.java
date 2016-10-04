@@ -120,7 +120,7 @@ public final class TemplateUtil {
         //        }
         replaceNestedHandlebarInText(context, expression, value);
         replaceNestedHandlebarInAttributes(context, expression, value);
-        // The call above does not catch the attributes in 'context', thus replace them explicitly
+        // The call above does not catch the attributes in 'context', we need to replace them explicitly.
         replaceHandlebarInAttributes(context, expression, value);
     }
 
@@ -139,18 +139,14 @@ public final class TemplateUtil {
         }
     }-*/;
 
-    private static void replaceNestedHandlebarInAttributes(final Element context, final String expression,
-            final String value) {
-        TreeWalker elementWalker = Browser.getDocument()
-                .createTreeWalker(context, NodeFilter.SHOW_ELEMENT, null, false);
-
-        while (elementWalker.nextNode() != null) {
-            replaceHandlebarInAttributes((Element) elementWalker.getCurrentNode(), expression, value);
+    private static void replaceNestedHandlebarInAttributes(Element context, String expression, String value) {
+        TreeWalker treeWalker = Browser.getDocument().createTreeWalker(context, NodeFilter.SHOW_ELEMENT, null, false);
+        while (treeWalker.nextNode() != null) {
+            replaceHandlebarInAttributes((Element) treeWalker.getCurrentNode(), expression, value);
         }
     }
 
-    private static void replaceHandlebarInAttributes(final Element context, final String expression,
-            final String value) {
+    private static void replaceHandlebarInAttributes(Element context, String expression, String value) {
         NamedNodeMap attributes = context.getAttributes();
         for (int i = 0; i < attributes.getLength(); i++) {
             Node attribute = attributes.item(i);
