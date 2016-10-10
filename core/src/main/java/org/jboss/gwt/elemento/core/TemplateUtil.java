@@ -125,14 +125,12 @@ public final class TemplateUtil {
     }
 
     private static native void replaceNestedHandlebarInText(Element context, String expression, String value) /*-{
-        var treeWalker = $doc.createTreeWalker(context, NodeFilter.SHOW_TEXT, {
-            acceptNode: function (node) {
-                if (node.nodeValue.indexOf(expression) != -1) {
-                    return NodeFilter.FILTER_ACCEPT;
-                } else {
-                    return NodeFilter.FILTER_SKIP;
-                }
-            }
+        var treeWalker = $doc.createTreeWalker(context, NodeFilter.SHOW_TEXT, function (node) {
+		if (node.nodeValue.indexOf(expression) != -1) {
+		    return NodeFilter.FILTER_ACCEPT;
+		} else {
+		    return NodeFilter.FILTER_SKIP;
+		}            
         }, false);
         while (treeWalker.nextNode()) {
             treeWalker.currentNode.nodeValue = treeWalker.currentNode.nodeValue.replace(expression, value);
