@@ -8,6 +8,8 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
 import elemental.client.Browser;
 import elemental.dom.Element;
+import elemental.events.Event;
+import elemental.events.EventListener;
 <#if (context.dataElements?size > 0 || context.eventHandler?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
 import org.jboss.gwt.elemento.core.TemplateUtil;
 </#if>
@@ -76,12 +78,27 @@ final class ${context.subclass} extends ${context.base} {
         <#-- @EventHandler -->
         <#list context.eventHandler as handler>
         <#if handler.needsCast()>
-        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, event -> ${handler.method}((${handler.eventParameterType}) event));
+        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, new EventListener() {
+            @Override
+            public void handleEvent(Event event) {
+                ${handler.method}((${handler.eventParameterType}) event);
+            }
+         });
         <#else>
             <#if handler.hasEventParameter()>
-        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, this::${handler.method});
+        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, new EventListener() {
+            @Override
+            public void handleEvent(Event event) {
+                ${handler.method}(event);
+            }
+        });
             <#else>
-        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, event -> ${handler.method}());
+        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, new EventListener() {
+            @Override
+            public void handleEvent(Event event) {
+                ${handler.method}();
+            }
+        });
             </#if>
         </#if>
         </#list>

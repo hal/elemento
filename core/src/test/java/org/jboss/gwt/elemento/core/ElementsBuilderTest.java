@@ -3,10 +3,15 @@ package org.jboss.gwt.elemento.core;
 import com.google.common.collect.Iterables;
 import elemental.dom.Document;
 import elemental.dom.Element;
+import elemental.events.Event;
+import elemental.events.EventListener;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 import static org.jboss.gwt.elemento.core.EventType.click;
 import static org.jboss.gwt.elemento.core.InputType.number;
@@ -28,22 +33,96 @@ public class ElementsBuilderTest {
     public void setUp() {
         Document document = mock(Document.class);
 
-        when(document.createElement(anyString())).thenAnswer(
-                invocation -> new StandaloneElement(String.valueOf(invocation.getArguments()[0])));
-        when(document.createAnchorElement()).thenAnswer(invocation -> new StandaloneElement("a"));
-        when(document.createButtonElement()).thenAnswer(invocation -> new StandaloneInputElement("button"));
-        when(document.createDivElement()).thenAnswer(invocation -> new StandaloneElement("div"));
-        when(document.createFormElement()).thenAnswer(invocation -> new StandaloneElement("form"));
-        when(document.createInputElement()).thenAnswer(invocation -> new StandaloneInputElement("input"));
-        when(document.createLabelElement()).thenAnswer(invocation -> new StandaloneLIElement("label"));
-        when(document.createLIElement()).thenAnswer(invocation -> new StandaloneLIElement("li"));
-        when(document.createOListElement()).thenAnswer(invocation -> new StandaloneElement("ol"));
-        when(document.createOptionElement()).thenAnswer(invocation -> new StandaloneInputElement("option"));
-        when(document.createParagraphElement()).thenAnswer(invocation -> new StandaloneElement("p"));
-        when(document.createSelectElement()).thenAnswer(invocation -> new StandaloneInputElement("select"));
-        when(document.createSpanElement()).thenAnswer(invocation -> new StandaloneElement("span"));
-        when(document.createTextAreaElement()).thenAnswer(invocation -> new StandaloneInputElement("textarea"));
-        when(document.createUListElement()).thenAnswer(invocation -> new StandaloneElement("ul"));
+        when(document.createElement(anyString())).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf(invocation.getArguments()[0]));
+            }
+        });
+        when(document.createAnchorElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf("a"));
+            }
+        });
+        when(document.createButtonElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneInputElement(String.valueOf("button"));
+            }
+        });
+        when(document.createDivElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf("div"));
+            }
+        });
+        when(document.createFormElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf("form"));
+            }
+        });
+        when(document.createInputElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneInputElement(String.valueOf("input"));
+            }
+        });
+        when(document.createLabelElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf("label"));
+            }
+        });
+        when(document.createLIElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneLIElement(String.valueOf("li"));
+            }
+        });
+        when(document.createOListElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf("ol"));
+            }
+        });
+        when(document.createOptionElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneInputElement(String.valueOf("option"));
+            }
+        });
+        when(document.createParagraphElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf("p"));
+            }
+        });
+        when(document.createSelectElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneInputElement(String.valueOf("select"));
+            }
+        });
+        when(document.createSpanElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf("span"));
+            }
+        });
+        when(document.createTextAreaElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneInputElement(String.valueOf("textarea"));
+            }
+        });
+        when(document.createUListElement()).thenAnswer(new Answer<Object>() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                return new StandaloneElement(String.valueOf("ul"));
+            }
+        });
 
         builder = new TestableBuilder(document);
     }
@@ -240,8 +319,13 @@ public class ElementsBuilderTest {
         // @formatter:on
         Iterable<Element> elements = builder.elements();
         assertEquals(4, Iterables.size(elements));
-        StringBuilder html = new StringBuilder();
-        elements.forEach(html::append);
+        final StringBuilder html = new StringBuilder();
+        elements.forEach(new Consumer<Element>() {
+            @Override
+            public void accept(Element element) {
+                html.append(element);
+            }
+        });
         assertEquals("<p>Some text</p><ol><li>one</li><li>two</li><li>three</li></ol><div>foo</div><br/>",
                 html.toString());
     }
@@ -282,7 +366,13 @@ public class ElementsBuilderTest {
         // not a real test - just there to show the API
         builder
                 .div()
-                .button().on(click, event -> System.out.println("Hit!"))
+                .button().on(click, new EventListener() {
+                    @Override
+                    public void handleEvent(Event event)
+                    {
+                        System.out.println("Hit!");
+                    }
+                })
                 .end();
     }
 
