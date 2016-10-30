@@ -46,8 +46,14 @@ public final class TemplateUtil {
     }
 
 
-    private static SelectorFunction DATA_ELEMENT = (context, identifier) ->
-            context.querySelector("[data-element=" + identifier + "]");
+    private static SelectorFunction DATA_ELEMENT = new SelectorFunction() {
+        @Override
+        public Element select(Element context, String identifier)
+        {
+            return context.querySelector("[data-element=" + identifier + "]");
+        }
+    };
+
 
     private TemplateUtil() {}
 

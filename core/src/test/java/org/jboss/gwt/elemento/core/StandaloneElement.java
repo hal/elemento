@@ -49,6 +49,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 
 /**
  * @author Harald Pehl
@@ -77,10 +78,21 @@ public class StandaloneElement implements AnchorElement,
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         builder.append("<").append(name);
-        attributes.forEach((name, value) -> printAttributes(builder, name, value));
-        dataset.data.forEach((name, value) -> printAttributes(builder, name, String.valueOf(value)));
+        attributes.forEach(new BiConsumer<String, String>() {
+            @Override
+            public void accept(String name, String value) {
+                printAttributes(builder, name, value);
+            }
+        });
+        dataset.data.forEach(new BiConsumer<String, Object>() {
+            @Override
+            public void accept(String name, Object value)
+            {
+                printAttributes(builder, name, String.valueOf(value));
+            }
+        });
         if (innerText != null) {
             builder.append(">").append(innerText).append("</").append(name).append(">");
         } else if (!children.isEmpty()) {

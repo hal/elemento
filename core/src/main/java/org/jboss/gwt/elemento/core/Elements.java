@@ -21,17 +21,11 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Stack;
+import java.util.*;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -45,6 +39,8 @@ import elemental.dom.NodeList;
 import elemental.events.EventListener;
 import elemental.html.InputElement;
 import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nullable;
 
 import static java.util.Arrays.asList;
 
@@ -709,7 +705,13 @@ public final class Elements {
                 throw new IllegalStateException(logId() + "Empty elements stack");
             }
             //noinspection StaticPseudoFunctionalStyleMethod
-            return Iterables.transform(this.elements, elementInfo -> elementInfo.element);
+            return Iterables.transform(this.elements, new Function<ElementInfo, Element>() {
+                @Nullable
+                @Override
+                public Element apply(@Nullable ElementInfo elementInfo) {
+                    return elementInfo.element;
+                }
+            });
         }
     }
 
@@ -728,14 +730,19 @@ public final class Elements {
      * Returns a stream for the children of the given parent element.
      */
     public static Stream<Element> stream(Element parent) {
-        return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : Stream.empty();
+        return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : StreamSupport.stream(Spliterators.<Element>emptySpliterator(), false);
     }
 
     /**
      * Returns an iterable collection for the children of the given parent element.
      */
-    public static Iterable<Element> children(Element parent) {
-        return () -> iterator(parent);
+    public static Iterable<Element> children(final Element parent) {
+        return new Iterable<Element>() {
+            @Override
+            public Iterator<Element> iterator() {
+                return Elements.iterator(parent);
+            }
+        };
     }
 
     /**
@@ -750,14 +757,19 @@ public final class Elements {
      * Returns a stream for the elements in the given node list.
      */
     public static Stream<Element> stream(NodeList nodes) {
-        return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : Stream.empty();
+        return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : StreamSupport.stream(Spliterators.<Element>emptySpliterator(), false);
     }
 
     /**
      * Returns an iterable collection for the elements in the given node list.
      */
-    public static Iterable<Element> elements(NodeList nodes) {
-        return () -> iterator(nodes);
+    public static Iterable<Element> elements(final NodeList nodes) {
+        return new Iterable<Element>() {
+            @Override
+            public Iterator<Element> iterator() {
+                return Elements.iterator(nodes);
+            }
+        };
     }
 
     /**

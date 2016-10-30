@@ -29,51 +29,276 @@ import elemental.events.EventListener;
  */
 public enum EventType {
 
-    abort(Element::setOnabort),
-    beforecopy(Element::setOnbeforecopy),
-    beforecut(Element::setOnbeforecut),
-    beforepaste(Element::setOnbeforepaste),
-    blur(Element::setOnblur),
-    change(Element::setOnchange),
-    click(Element::setOnclick),
-    contextmenu(Element::setOncontextmenu),
-    copy(Element::setOncopy),
-    cut(Element::setOncut),
-    dblclick(Element::setOndblclick),
-    drag(Element::setOndrag),
-    dragend(Element::setOndragend),
-    dragenter(Element::setOndragenter),
-    dragleave(Element::setOndragleave),
-    dragover(Element::setOndragover),
-    dragstart(Element::setOndragstart),
-    drop(Element::setOndrop),
-    error(Element::setOnerror),
-    focus(Element::setOnfocus),
-    input(Element::setOninput),
-    invalid(Element::setOninvalid),
-    keydown(Element::setOnkeydown),
-    keypress(Element::setOnkeypress),
-    keyup(Element::setOnkeyup),
-    load(Element::setOnload),
-    mousedown(Element::setOnmousedown),
-    mousemove(Element::setOnmousemove),
-    mouseout(Element::setOnmouseout),
-    mouseover(Element::setOnmouseover),
-    mouseup(Element::setOnmouseup),
-    mousewheel(Element::setOnmousewheel),
-    paste(Element::setOnpaste),
-    reset(Element::setOnreset),
-    scroll(Element::setOnscroll),
-    search(Element::setOnsearch),
-    select(Element::setOnselect),
-    selectstart(Element::setOnselectstart),
-    submit(Element::setOnsubmit),
-    touchcancel(Element::setOntouchcancel),
-    touchend(Element::setOntouchend),
-    touchmove(Element::setOntouchmove),
-    touchstart(Element::setOntouchstart),
-    webkitfullscreenchange(Element::setOnwebkitfullscreenchange),
-    webkitfullscreenerror(Element::setOnwebkitfullscreenerror);
+    abort(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnabort(listener);
+        }
+    }),
+    beforecopy(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnbeforecopy(listener);
+        }
+    }),
+    beforecut(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnbeforecut(listener);
+        }
+    }),
+    beforepaste(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnbeforepaste(listener);
+        }
+    }),
+    blur(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnblur(listener);
+        }
+    }),
+    change(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnchange(listener);
+        }
+    }),
+    click(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnclick(listener);
+        }
+    }),
+    contextmenu(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOncontextmenu(listener);
+        }
+    }),
+    copy(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOncopy(listener);
+        }
+    }),
+    cut(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOncut(listener);
+        }
+    }),
+    dblclick(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOndblclick(listener);
+        }
+    }),
+    drag(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOndrag(listener);
+        }
+    }),
+    dragend(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOndragend(listener);
+        }
+    }),
+    dragenter(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOndragenter(listener);
+        }
+    }),
+    dragleave(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOndragleave(listener);
+        }
+    }),
+    dragover(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOndragover(listener);
+        }
+    }),
+    dragstart(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOndragstart(listener);
+        }
+    }),
+    drop(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOndrop(listener);
+        }
+    }),
+    error(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnerror(listener);
+        }
+    }),
+    focus(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnfocus(listener);
+        }
+    }),
+    input(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOninput(listener);
+        }
+    }),
+    invalid(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOninvalid(listener);
+        }
+    }),
+    keydown(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnkeydown(listener);
+        }
+    }),
+    keypress(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnkeypress(listener);
+        }
+    }),
+    keyup(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnkeyup(listener);
+        }
+    }),
+    load(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnload(listener);
+        }
+    }),
+    mousedown(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnmousedown(listener);
+        }
+    }),
+    mousemove(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnmousemove(listener);
+        }
+    }),
+    mouseout(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnmouseout(listener);
+        }
+    }),
+    mouseover(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnmouseover(listener);
+        }
+    }),
+    mouseup(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnmouseup(listener);
+        }
+    }),
+    mousewheel(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnmousewheel(listener);
+        }
+    }),
+    paste(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnpaste(listener);
+        }
+    }),
+    reset(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnreset(listener);
+        }
+    }),
+    scroll(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnscroll(listener);
+        }
+    }),
+    search(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnsearch(listener);
+        }
+    }),
+    select(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnselect(listener);
+        }
+    }),
+    selectstart(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnselectstart(listener);
+        }
+    }),
+    submit(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnsubmit(listener);
+        }
+    }),
+    touchcancel(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOntouchcancel(listener);
+        }
+    }),
+    touchend(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOntouchend(listener);
+        }
+    }),
+    touchmove(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOntouchmove(listener);
+        }
+    }),
+    touchstart(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOntouchstart(listener);
+        }
+    }),
+    webkitfullscreenchange(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnwebkitfullscreenchange(listener);
+        }
+    }),
+    webkitfullscreenerror(new EventRegistrar() {
+        @Override
+        public void register(Element element, EventListener listener) {
+            element.setOnwebkitfullscreenerror(listener);
+        }
+    });
 
     private final EventRegistrar registrar;
 
