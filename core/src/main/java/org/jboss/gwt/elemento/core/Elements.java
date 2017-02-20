@@ -781,6 +781,15 @@ public final class Elements {
     }
 
     /**
+     * Removes the child from parent if both parent and child are not null and parent contains child.
+     */
+    public static void failSafeRemove(final Element parent, final Element child) {
+        if (parent != null && child != null && parent.contains(child)) {
+            parent.removeChild(child);
+        }
+    }
+
+    /**
      * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
      */
     public static Element dataElement(@NonNls String name) {
