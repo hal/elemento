@@ -782,11 +782,14 @@ public final class Elements {
 
     /**
      * Removes the child from parent if both parent and child are not null and parent contains child.
+     *
+     * @return {@code true} if the the element was a child of the parent element, {@code false} otherwise.
      */
-    public static void failSafeRemove(final Element parent, final Element child) {
+    public static boolean failSafeRemove(final Element parent, final Element child) {
         if (parent != null && child != null && parent.contains(child)) {
-            parent.removeChild(child);
+            return parent.removeChild(child) != null;
         }
+        return null
     }
 
     /**
