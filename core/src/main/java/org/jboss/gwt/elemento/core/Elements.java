@@ -770,6 +770,26 @@ public final class Elements {
     }
 
     /**
+     * Appends the specified element to the parent element if not already present. If parent already contains child,
+     * this method does nothing.
+     */
+    public static void lazyAppend(final Element parent, final Element child) {
+        if (!parent.contains(child)) {
+            parent.appendChild(child);
+        }
+    }
+
+    /**
+     * Inserts the specified element into the parent element if not already present. If parent already contains child,
+     * this method does nothing.
+     */
+    public static void lazyInsertBefore(final Element parent, final Element child, final Element before) {
+        if (!parent.contains(child)) {
+            parent.insertBefore(child, before);
+        }
+    }
+
+    /**
      * Removes all child elements from {@code element}
      */
     public static void removeChildrenFrom(final Element element) {
