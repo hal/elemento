@@ -499,7 +499,14 @@ public final class Elements {
          * Adds all elements from {@code elements.asElements()}.
          */
         public B addAll(HasElements elements) {
-            for (Element element : elements.asElements()) {
+            return addAll(elements.asElements());
+        }
+
+        /**
+         * Adds all elements.
+         */
+        public B addAll(Iterable<Element> elements) {
+            for (Element element : elements()) {
                 add(element);
             }
             return that();
