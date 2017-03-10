@@ -506,7 +506,7 @@ public final class Elements {
          * Adds all elements.
          */
         public B addAll(Iterable<Element> elements) {
-            for (Element element : elements()) {
+            for (Element element : elements) {
                 add(element);
             }
             return that();
