@@ -813,7 +813,7 @@ public final class Elements {
      * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
      */
     public static boolean failSafeRemoveFromParent(final Element element) {
-        return failSafeRemove(element, element != null ? element.getParentElement() : null);
+        return failSafeRemove(element != null ? element.getParentElement() : null, element);
     }
 
     /**
