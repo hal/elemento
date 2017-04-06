@@ -859,11 +859,11 @@ public final class Elements {
     }
 
     /**
-     * Adds the specified CSS class to the element if {@code flag} is {@code true}, removes it otherwise.
+     * Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise.
      */
-    public static void toggle(Element element, String css, boolean flag) {
+    public static void toggle(Element element, String css, boolean condition) {
         if (element != null) {
-            if (flag) {
+            if (condition) {
                 element.getClassList().add(css);
             } else {
                 element.getClassList().remove(css);
