@@ -21,17 +21,15 @@
  */
 package org.jboss.gwt.elemento.sample.builder.client;
 
-import elemental.dom.Element;
-import elemental.events.Event;
-import elemental.events.KeyboardEvent;
-import elemental.html.InputElement;
+import elemental2.dom.Event;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLInputElement;
+import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
-import static elemental.events.KeyboardEvent.KeyCode.ENTER;
-import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
@@ -42,10 +40,10 @@ class TodoItemElement implements IsElement {
     private final ApplicationElement application;
     private final TodoItemRepository repository;
 
-    private final Element li;
-    private final InputElement toggle;
-    private final Element label;
-    private final InputElement input;
+    private final HTMLElement li;
+    private final HTMLInputElement toggle;
+    private final HTMLElement label;
+    private final HTMLInputElement input;
 
     private boolean escape;
 
@@ -68,13 +66,13 @@ class TodoItemElement implements IsElement {
 
         this.li = builder.build();
         this.toggle = builder.referenceFor("toggle");
-        this.toggle.setChecked(item.isCompleted());
+        this.toggle.checked = item.isCompleted();
         this.label = builder.referenceFor("label");
         this.input = builder.referenceFor("input");
     }
 
     @Override
-    public Element asElement() {
+    public HTMLElement asElement() {
         return li;
     }
 
@@ -82,47 +80,47 @@ class TodoItemElement implements IsElement {
     // ------------------------------------------------------ event handler
 
     private void toggle() {
-        if (toggle.isChecked()) {
-            li.getClassList().add("completed");
+        if (toggle.checked) {
+            li.classList.add("completed");
         } else {
-            li.getClassList().remove("completed");
+            li.classList.remove("completed");
         }
-        repository.complete(item, toggle.isChecked());
+        repository.complete(item, toggle.checked);
         application.update();
     }
 
     private void edit() {
         escape = false;
-        li.getClassList().add("editing");
-        input.setValue(label.getInnerText());
+        li.classList.add("editing");
+        input.value = label.textContent;
         input.focus();
     }
 
     private void destroy() {
-        li.getParentElement().removeChild(li);
+        li.parentNode.removeChild(li);
         repository.remove(item);
         application.update();
     }
 
     private void keyDown(Event event) {
         KeyboardEvent keyboardEvent = (KeyboardEvent) event;
-        if (keyboardEvent.getKeyCode() == ESC) {
+        if ("Escape".equals(keyboardEvent.code)) {
             escape = true;
-            li.getClassList().remove("editing");
+            li.classList.remove("editing");
 
-        } else if (keyboardEvent.getKeyCode() == ENTER) {
+        } else if ("Enter".equals(keyboardEvent.key)) {
             blur();
         }
     }
 
     private void blur() {
-        String value = input.getValue().trim();
+        String value = input.value.trim();
         if (value.length() == 0) {
             destroy();
         } else {
-            li.getClassList().remove("editing");
+            li.classList.remove("editing");
             if (!escape) {
-                label.setInnerText(value);
+                label.textContent = value;
                 repository.rename(item, value);
             }
         }

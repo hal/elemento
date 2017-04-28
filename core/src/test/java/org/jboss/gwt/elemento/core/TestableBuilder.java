@@ -21,14 +21,14 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.dom.Document;
+import elemental2.dom.Document;
 
 /**
  * @author Harald Pehl
  */
 public class TestableBuilder extends Elements.CoreBuilder<TestableBuilder> {
 
-    public TestableBuilder(final Document document) {
+    TestableBuilder(final Document document) {
         super("testable.builder", document);
     }
 

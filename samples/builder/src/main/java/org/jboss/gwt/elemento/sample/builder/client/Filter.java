@@ -38,7 +38,8 @@ enum Filter {
         return name().toLowerCase();
     }
 
-    public static Filter parseToken(final String token) {
+    @SuppressWarnings("Duplicates")
+    static Filter parseToken(final String token) {
         if (token == null) {
             return ALL;
         } else {

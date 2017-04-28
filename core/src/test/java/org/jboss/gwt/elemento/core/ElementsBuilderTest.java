@@ -1,12 +1,12 @@
 package org.jboss.gwt.elemento.core;
 
+import java.util.NoSuchElementException;
+
 import com.google.common.collect.Iterables;
-import elemental.dom.Document;
-import elemental.dom.Element;
+import elemental2.dom.Document;
+import elemental2.dom.HTMLElement;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.NoSuchElementException;
 
 import static org.jboss.gwt.elemento.core.EventType.click;
 import static org.jboss.gwt.elemento.core.InputType.number;
@@ -30,20 +30,20 @@ public class ElementsBuilderTest {
 
         when(document.createElement(anyString())).thenAnswer(
                 invocation -> new StandaloneElement(String.valueOf(invocation.getArguments()[0])));
-        when(document.createAnchorElement()).thenAnswer(invocation -> new StandaloneElement("a"));
-        when(document.createButtonElement()).thenAnswer(invocation -> new StandaloneInputElement("button"));
-        when(document.createDivElement()).thenAnswer(invocation -> new StandaloneElement("div"));
-        when(document.createFormElement()).thenAnswer(invocation -> new StandaloneElement("form"));
-        when(document.createInputElement()).thenAnswer(invocation -> new StandaloneInputElement("input"));
-        when(document.createLabelElement()).thenAnswer(invocation -> new StandaloneLIElement("label"));
-        when(document.createLIElement()).thenAnswer(invocation -> new StandaloneLIElement("li"));
-        when(document.createOListElement()).thenAnswer(invocation -> new StandaloneElement("ol"));
-        when(document.createOptionElement()).thenAnswer(invocation -> new StandaloneInputElement("option"));
-        when(document.createParagraphElement()).thenAnswer(invocation -> new StandaloneElement("p"));
-        when(document.createSelectElement()).thenAnswer(invocation -> new StandaloneInputElement("select"));
-        when(document.createSpanElement()).thenAnswer(invocation -> new StandaloneElement("span"));
-        when(document.createTextAreaElement()).thenAnswer(invocation -> new StandaloneInputElement("textarea"));
-        when(document.createUListElement()).thenAnswer(invocation -> new StandaloneElement("ul"));
+        when(document.createElement("a")).thenAnswer(invocation -> new StandaloneElement("a"));
+        when(document.createElement("button")).thenAnswer(invocation -> new StandaloneInputElement("button"));
+        when(document.createElement("div")).thenAnswer(invocation -> new StandaloneElement("div"));
+        when(document.createElement("form")).thenAnswer(invocation -> new StandaloneElement("form"));
+        when(document.createElement("input")).thenAnswer(invocation -> new StandaloneInputElement("input"));
+        when(document.createElement("label")).thenAnswer(invocation -> new StandaloneElement("label"));
+        when(document.createElement("li")).thenAnswer(invocation -> new StandaloneLIElement("li"));
+        when(document.createElement("ol")).thenAnswer(invocation -> new StandaloneElement("ol"));
+        when(document.createElement("option")).thenAnswer(invocation -> new StandaloneInputElement("option"));
+        when(document.createElement("p")).thenAnswer(invocation -> new StandaloneElement("p"));
+        when(document.createElement("select")).thenAnswer(invocation -> new StandaloneInputElement("select"));
+        when(document.createElement("span")).thenAnswer(invocation -> new StandaloneElement("span"));
+        when(document.createElement("textarea")).thenAnswer(invocation -> new StandaloneInputElement("textarea"));
+        when(document.createElement("ul")).thenAnswer(invocation -> new StandaloneElement("ul"));
 
         builder = new TestableBuilder(document);
     }
@@ -238,7 +238,7 @@ public class ElementsBuilderTest {
                 .div().textContent("foo").end()
                 .add("br");
         // @formatter:on
-        Iterable<Element> elements = builder.elements();
+        Iterable<HTMLElement> elements = builder.elements();
         assertEquals(4, Iterables.size(elements));
         StringBuilder html = new StringBuilder();
         elements.forEach(html::append);

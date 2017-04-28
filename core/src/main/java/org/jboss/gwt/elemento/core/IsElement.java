@@ -21,7 +21,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.dom.Element;
+import elemental2.dom.HTMLElement;
 
 /**
  * The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.IsWidget}.
@@ -31,5 +31,5 @@ import elemental.dom.Element;
 @FunctionalInterface
 public interface IsElement {
 
-    Element asElement();
+    HTMLElement asElement();
 }

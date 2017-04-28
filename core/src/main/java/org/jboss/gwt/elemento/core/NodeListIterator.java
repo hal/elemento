@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import elemental.dom.Element;
-import elemental.dom.NodeList;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
+import elemental2.dom.NodeList;
 
 /**
  * Provides an iterator over a list of nodes. Iterates only over elements, nodes will be skipped. The iterator does
@@ -13,15 +14,15 @@ import elemental.dom.NodeList;
  *
  * @author Harald Pehl
  */
-public class NodeListIterator implements Iterator<Element> {
+public class NodeListIterator implements Iterator<HTMLElement> {
 
-    private final Iterator<Element> iterator;
+    private final Iterator<HTMLElement> iterator;
 
-    public NodeListIterator(final NodeList nodes) {
-        List<Element> elements = new ArrayList<>();
+    NodeListIterator(final NodeList<Node> nodes) {
+        List<HTMLElement> elements = new ArrayList<>();
         for (int i = 0; i < nodes.getLength(); i++) {
-            if (nodes.item(i) instanceof Element) {
-                elements.add(((Element) nodes.item(i)));
+            if (nodes.item(i) instanceof HTMLElement) {
+                elements.add(((HTMLElement) nodes.item(i)));
             }
         }
         this.iterator = elements.iterator();
@@ -33,7 +34,7 @@ public class NodeListIterator implements Iterator<Element> {
     }
 
     @Override
-    public Element next() {
+    public HTMLElement next() {
         return iterator.next();
     }
 }

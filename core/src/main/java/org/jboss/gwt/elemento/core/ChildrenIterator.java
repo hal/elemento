@@ -21,11 +21,12 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.dom.Element;
-import elemental.html.HTMLCollection;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import elemental2.core.Array;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 
 /**
  * Provides an iterator over an element. The iterator supports the {@link #remove()} operation which removes the current
@@ -33,16 +34,22 @@ import java.util.NoSuchElementException;
  *
  * @author Harald Pehl
  */
-public class ChildrenIterator implements Iterator<Element> {
+public class ChildrenIterator implements Iterator<HTMLElement> {
 
-    private final Element parent;
-    private final HTMLCollection children;
+    private final HTMLElement parent;
+    private final Array<HTMLElement> children;
     private int size;
     private int index;
 
-    public ChildrenIterator(final Element parent) {
+    ChildrenIterator(final HTMLElement parent) {
         this.parent = parent;
-        this.children = parent.getChildren();
+        this.children = new Array<>();
+        for (int i = 0, length = parent.childNodes.getLength(); i < length; i++) {
+            Node node = parent.childNodes.item(i);
+            if (node instanceof HTMLElement) {
+                children.push(((HTMLElement) node));
+            }
+        }
         this.size = children.getLength();
         this.index = 0;
     }
@@ -54,11 +61,11 @@ public class ChildrenIterator implements Iterator<Element> {
     }
 
     @Override
-    public Element next() {
+    public HTMLElement next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        Element child = (Element) children.item(index);
+        HTMLElement child = children.getAt(index);
         index++;
         return child;
     }
@@ -69,7 +76,7 @@ public class ChildrenIterator implements Iterator<Element> {
             throw new IllegalStateException();
         }
         index--;
-        parent.removeChild(children.item(index));
+        parent.removeChild(children.getAt(index));
         size = children.getLength();
     }
 }

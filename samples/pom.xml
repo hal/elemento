@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.2.15</version>
+        <version>0.3.0</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
@@ -50,8 +50,8 @@
     <modules>
         <module>common</module>
         <module>builder</module>
-        <module>gin</module>
-        <module>templated</module>
+        <!--<module>gin</module>-->
+        <!--<module>templated</module>-->
     </modules>
 
     <dependencyManagement>
@@ -70,8 +70,16 @@
             <artifactId>elemento-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-elemental</artifactId>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-webstorage</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>

@@ -21,22 +21,14 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.html.LIElement;
+import elemental2.dom.HTMLLIElement;
 
 /**
  * @author Harald Pehl
  */
-public class StandaloneLIElement extends StandaloneElement implements LIElement {
+class StandaloneLIElement extends HTMLLIElement {
 
-    public StandaloneLIElement(final String name) {
-        super(name);
+    StandaloneLIElement(final String name) {
+        this.tagName = name;
     }
-
-    @Override
-    public int getValue() {
-        return 0;
-    }
-
-    @Override
-    public void setValue(final int i) {}
 }
