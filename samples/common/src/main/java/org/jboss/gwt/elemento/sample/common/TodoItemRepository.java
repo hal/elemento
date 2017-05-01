@@ -21,6 +21,10 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Set;
+
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONParser;
@@ -28,17 +32,14 @@ import com.google.gwt.json.client.JSONValue;
 import com.google.web.bindery.autobean.shared.AutoBean;
 import com.google.web.bindery.autobean.shared.AutoBeanCodex;
 import com.google.web.bindery.autobean.shared.AutoBeanUtils;
-import elemental.client.Browser;
-import elemental.html.Storage;
-import elemental.html.StorageEvent;
-
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Set;
+import elemental2.dom.DomGlobal;
+import elemental2.webstorage.Storage;
+import elemental2.webstorage.StorageEvent;
+import elemental2.webstorage.WebStorageWindow;
 
 public class TodoItemRepository {
 
-    public static final String DEFAULT_KEY = "todos-elemento";
+    private static final String DEFAULT_KEY = "todos-elemento";
 
     private final String key;
     private final BeanFactory beanFactory;
@@ -51,7 +52,7 @@ public class TodoItemRepository {
     public TodoItemRepository(String key, BeanFactory beanFactory) {
         this.key = key;
         this.beanFactory = beanFactory;
-        this.storage = Browser.getWindow().getLocalStorage();
+        this.storage = WebStorageWindow.of(DomGlobal.window).localStorage;
     }
 
     public TodoItem add(String text) {
@@ -112,9 +113,9 @@ public class TodoItemRepository {
 
     public void onExternalModification(Scheduler.ScheduledCommand command) {
         if (storage != null) {
-            Browser.getWindow().addEventListener("storage", event -> {
+            WebStorageWindow.of(DomGlobal.window).addEventListener("storage", event -> {
                 StorageEvent storageEvent = (StorageEvent) event;
-                if (key.equals(storageEvent.getKey())) {
+                if (key.equals(storageEvent.key)) {
                     Scheduler.get().scheduleDeferred(command);
                 }
             }, false);

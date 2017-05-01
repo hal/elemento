@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.2.15</version>
+        <version>0.3.0</version>
     </parent>
 
     <artifactId>elemento-core</artifactId>
@@ -43,8 +43,12 @@
             <artifactId>gwt-user</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-elemental</artifactId>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>

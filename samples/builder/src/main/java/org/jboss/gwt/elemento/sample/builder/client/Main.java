@@ -24,19 +24,19 @@ package org.jboss.gwt.elemento.sample.builder.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.History;
-import elemental.client.Browser;
-import elemental.dom.Element;
 import org.jboss.gwt.elemento.sample.common.BeanFactory;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoConstants;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
+import static elemental2.dom.DomGlobal.document;
+
 public class Main implements EntryPoint {
 
-    static final TodoConstants CONSTANTS = GWT.create(TodoConstants.class);
-    static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
-    static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
+    private static final TodoConstants CONSTANTS = GWT.create(TodoConstants.class);
+    private static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
+    private static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
 
     @Override
     public void onModuleLoad() {
@@ -44,9 +44,8 @@ public class Main implements EntryPoint {
         TodoItemRepository repository = new TodoItemRepository(BEAN_FACTORY);
         ApplicationElement application = new ApplicationElement(repository, i18n);
 
-        Element body = Browser.getDocument().getBody();
-        body.appendChild(application.asElement());
-        body.appendChild(new FooterElement(i18n).asElement());
+        document.body.appendChild(application.asElement());
+        document.body.appendChild(new FooterElement(i18n).asElement());
 
         History.addValueChangeHandler(event -> application.filter(event.getValue()));
         History.fireCurrentHistoryState();

@@ -21,8 +21,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.dom.Element;
-import elemental.events.EventListener;
+import elemental2.dom.HTMLElement;
 
 /**
  * Function used in {@link EventType} to bind the event type to a method for adding the event listener.
@@ -32,5 +31,5 @@ import elemental.events.EventListener;
 @FunctionalInterface
 public interface EventRegistrar {
 
-    void register(Element element, EventListener listener);
+    void register(HTMLElement element, EventCallbackFn callback);
 }

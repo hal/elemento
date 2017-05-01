@@ -21,17 +21,17 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import org.jetbrains.annotations.NonNls;
-
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.jetbrains.annotations.NonNls;
+
 /**
  * Annotation to mark a method as an event handler. The annotated method must not be private, return {@code void} and
- * can have one optional parameter of type {@link elemental.events.Event} or one of its subtypes.
+ * can have one optional parameter of type {@link elemental2.dom.Event} or one of its subtypes.
  *
  * @author Harald Pehl
  */

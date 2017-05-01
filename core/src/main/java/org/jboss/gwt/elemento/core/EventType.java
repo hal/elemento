@@ -21,65 +21,123 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.dom.Element;
-import elemental.events.EventListener;
+import elemental2.dom.HTMLElement;
 
 /**
- * Known event types used in {@link Elements.Builder#on(EventType, EventListener)} and {@link EventHandler}.
+ * Known event types used in {@link Elements.Builder#on(EventType, EventCallbackFn)} and {@link EventHandler}.
  */
 public enum EventType {
 
-    abort(Element::setOnabort),
-    beforecopy(Element::setOnbeforecopy),
-    beforecut(Element::setOnbeforecut),
-    beforepaste(Element::setOnbeforepaste),
-    blur(Element::setOnblur),
-    change(Element::setOnchange),
-    click(Element::setOnclick),
-    contextmenu(Element::setOncontextmenu),
-    copy(Element::setOncopy),
-    cut(Element::setOncut),
-    dblclick(Element::setOndblclick),
-    drag(Element::setOndrag),
-    dragend(Element::setOndragend),
-    dragenter(Element::setOndragenter),
-    dragleave(Element::setOndragleave),
-    dragover(Element::setOndragover),
-    dragstart(Element::setOndragstart),
-    drop(Element::setOndrop),
-    error(Element::setOnerror),
-    focus(Element::setOnfocus),
-    input(Element::setOninput),
-    invalid(Element::setOninvalid),
-    keydown(Element::setOnkeydown),
-    keypress(Element::setOnkeypress),
-    keyup(Element::setOnkeyup),
-    load(Element::setOnload),
-    mousedown(Element::setOnmousedown),
-    mousemove(Element::setOnmousemove),
-    mouseout(Element::setOnmouseout),
-    mouseover(Element::setOnmouseover),
-    mouseup(Element::setOnmouseup),
-    mousewheel(Element::setOnmousewheel),
-    paste(Element::setOnpaste),
-    reset(Element::setOnreset),
-    scroll(Element::setOnscroll),
-    search(Element::setOnsearch),
-    select(Element::setOnselect),
-    selectstart(Element::setOnselectstart),
-    submit(Element::setOnsubmit),
-    touchcancel(Element::setOntouchcancel),
-    touchend(Element::setOntouchend),
-    touchmove(Element::setOntouchmove),
-    touchstart(Element::setOntouchstart),
-    webkitfullscreenchange(Element::setOnwebkitfullscreenchange),
-    webkitfullscreenerror(Element::setOnwebkitfullscreenerror);
+    abort((element, callback) -> element.onabort = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    blur((element, callback) -> element.onblur = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    change((element, callback) -> element.onchange = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    click((element, callback) -> element.onclick = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    contextmenu((element, callback) -> element.oncontextmenu = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    copy((element, callback) -> element.oncopy = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    cut((element, callback) -> element.oncut = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    dblclick((element, callback) -> element.ondblclick = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    error((element, callback) -> element.onerror = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    focus((element, callback) -> element.onfocus = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    input((element, callback) -> element.oninput = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    keydown((element, callback) -> element.onkeydown = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    keypress((element, callback) -> element.onkeypress = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    keyup((element, callback) -> element.onkeyup = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    load((element, callback) -> element.onload = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    mousedown((element, callback) -> element.onmousedown = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    mousemove((element, callback) -> element.onmousemove = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    mouseout((element, callback) -> element.onmouseout = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    mouseover((element, callback) -> element.onmouseover = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    mouseup((element, callback) -> element.onmouseup = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    mousewheel((element, callback) -> element.onmousewheel = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    paste((element, callback) -> element.onpaste = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    reset((element, callback) -> element.onreset = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    scroll((element, callback) -> element.onscroll = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    select((element, callback) -> element.onselect = event -> {
+        callback.onInvoke(event);
+        return null;
+    }),
+    submit((element, callback) -> element.onsubmit = event -> {
+        callback.onInvoke(event);
+        return null;
+    });
 
     private final EventRegistrar registrar;
 
     EventType(final EventRegistrar registrar) {this.registrar = registrar;}
 
-    public void register(Element element, EventListener listener) {
+    public void register(HTMLElement element, EventCallbackFn listener) {
         registrar.register(element, listener);
     }
 }

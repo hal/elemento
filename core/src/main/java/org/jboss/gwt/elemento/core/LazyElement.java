@@ -21,7 +21,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.dom.Element;
+import elemental2.dom.HTMLElement;
 
 /**
  * Convenience class to support lazy element creation. The bulk of a LazyElement is not instantiated until {@link
@@ -31,14 +31,14 @@ import elemental.dom.Element;
  */
 public abstract class LazyElement implements IsElement {
 
-    private Element element;
+    private HTMLElement element;
 
     /**
      * Creates and returns the element on demand by calling {@link #createElement()} or just returns the previously
      * created element.
      */
     @Override
-    public Element asElement() {
+    public HTMLElement asElement() {
         if (element == null) {
             element = createElement();
         }
@@ -50,7 +50,7 @@ public abstract class LazyElement implements IsElement {
      *
      * @return the lazy element
      */
-    protected abstract Element createElement();
+    protected abstract HTMLElement createElement();
 
     /**
      * @return whether the element was already created

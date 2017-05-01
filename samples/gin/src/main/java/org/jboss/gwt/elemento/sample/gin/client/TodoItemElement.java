@@ -22,9 +22,9 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import com.google.inject.Provider;
-import elemental.dom.Element;
-import elemental.events.KeyboardEvent;
-import elemental.html.InputElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLInputElement;
+import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
@@ -32,11 +32,10 @@ import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
-import static elemental.events.KeyboardEvent.KeyCode.ENTER;
-import static elemental.events.KeyboardEvent.KeyCode.ESC;
 import static org.jboss.gwt.elemento.core.EventType.*;
 
 @Templated("Todo.html#item")
+@SuppressWarnings("WeakerAccess")
 abstract class TodoItemElement implements IsElement {
 
     // @formatter:off
@@ -50,69 +49,70 @@ abstract class TodoItemElement implements IsElement {
     // @formatter:on
 
 
-    @DataElement InputElement toggle;
-    @DataElement Element label;
-    @DataElement InputElement input;
+    @DataElement HTMLInputElement toggle;
+    @DataElement HTMLElement label;
+    @DataElement HTMLInputElement input;
     TodoItem item;
     boolean escape;
 
     // @PostConstruct not possible here since the TodoItem is not injectable!
     void init(TodoItem item) {
         this.item = item;
-        asElement().getDataset().setAt("item", item.getId());
+        asElement().dataset.set("item", item.getId());
         if (item.isCompleted()) {
-            asElement().getClassList().add("completed");
+            asElement().classList.add("completed");
         }
-        label.setInnerText(item.getText());
-        toggle.setChecked(item.isCompleted());
+        label.textContent = item.getText();
+        toggle.checked = item.isCompleted();
     }
 
     @EventHandler(element = "toggle", on = change)
     void toggle() {
-        if (toggle.isChecked()) {
-            asElement().getClassList().add("completed");
+        if (toggle.checked) {
+            asElement().classList.add("completed");
         } else {
-            asElement().getClassList().remove("completed");
+            asElement().classList.remove("completed");
         }
-        repository().complete(item, toggle.isChecked());
+        repository().complete(item, toggle.checked);
         application().get().update();
     }
 
     @EventHandler(element = "label", on = dblclick)
     void edit() {
         escape = false;
-        asElement().getClassList().add("editing");
-        input.setValue(label.getInnerText());
+        asElement().classList.add("editing");
+        input.value = label.textContent;
         input.focus();
     }
 
     @EventHandler(element = "destroy", on = click)
     void destroy() {
-        asElement().getParentElement().removeChild(asElement());
+        asElement().parentNode.removeChild(asElement());
         repository().remove(item);
         application().get().update();
     }
 
+    @SuppressWarnings("Duplicates")
     @EventHandler(element = "input", on = keydown)
     void keyDown(final KeyboardEvent event) {
-        if (event.getKeyCode() == ESC) {
+        if ("Esc".equals(event.key)) {
             escape = true;
-            asElement().getClassList().remove("editing");
+            asElement().classList.remove("editing");
 
-        } else if (event.getKeyCode() == ENTER) {
+        } else if ("Enter".equals(event.key)) {
             blur();
         }
     }
 
     @EventHandler(element = "input", on = blur)
     void blur() {
-        String value = input.getValue().trim();
+        String value = input.value.trim();
         if (value.length() == 0) {
             destroy();
         } else {
-            asElement().getClassList().remove("editing");
+            asElement().classList.remove("editing");
             if (!escape) {
-                label.setInnerText(value);
+                label.textContent = value;
                 repository().rename(item, value);
             }
         }

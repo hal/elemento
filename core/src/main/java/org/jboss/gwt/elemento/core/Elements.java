@@ -34,22 +34,23 @@ import java.util.stream.StreamSupport;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import elemental.client.Browser;
-import elemental.dom.Document;
-import elemental.dom.Element;
-import elemental.dom.NodeList;
-import elemental.events.EventListener;
-import elemental.html.InputElement;
+import elemental2.dom.Document;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLInputElement;
+import elemental2.dom.Node;
+import elemental2.dom.NodeList;
+import jsinterop.base.Js;
 import org.jetbrains.annotations.NonNls;
 
 import static java.util.Arrays.asList;
 
 /**
- * Helper methods for working with {@link Element}s.
+ * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
  *
  * @author Harald Pehl
  */
@@ -62,10 +63,10 @@ public final class Elements {
     static class ElementInfo {
 
         int level;
-        Element element;
+        HTMLElement element;
         boolean container;
 
-        ElementInfo(final Element element, final boolean container, final int level) {
+        ElementInfo(final HTMLElement element, final boolean container, final int level) {
             this.container = container;
             this.element = element;
             this.level = level;
@@ -73,13 +74,13 @@ public final class Elements {
 
         @Override
         public String toString() {
-            return (container ? "container" : "simple") + " @ " + level + ": " + element.getTagName();
+            return (container ? "container" : "simple") + " @ " + level + ": " + element.tagName;
         }
     }
 
 
     /**
-     * Builder to create a hierarchy of {@link Element}s. Supports convenience methods to create common elements
+     * Builder to create a hierarchy of {@link HTMLElement}s. Supports convenience methods to create common elements
      * and attributes. Uses a fluent API to create and append elements on the fly.
      * <p>
      * The builder distinguishes between elements which can contain nested elements (container) and simple element w/o
@@ -105,7 +106,7 @@ public final class Elements {
      * <p>
      * use the following builder code:
      * <pre>
-     * Element element = new Elements.Builder()
+     * HTMLElement element = new Elements.Builder()
      *     .section().css("main")
      *         .input(checkbox).css("toggle-all")
      *         .label().attr("for", "toggle-all").textContent("Mark all as complete").end()
@@ -142,7 +143,7 @@ public final class Elements {
         private final String id;
         private final Document document;
         private final Stack<ElementInfo> elements;
-        private final Map<String, Element> references;
+        private final Map<String, HTMLElement> references;
         private int level;
 
         /**
@@ -151,7 +152,7 @@ public final class Elements {
          * @param id an unique id which is used in error messages
          */
         protected CoreBuilder(@NonNls String id) {
-            this(id, Browser.getDocument());
+            this(id, DomGlobal.document);
         }
 
         /**
@@ -207,56 +208,56 @@ public final class Elements {
          * Starts a new {@code &lt;section&gt;} container. The element must be closed with {@link #end()}.
          */
         public B section() {
-            return start(document.createElement("section"));
+            return start((HTMLElement) document.createElement("section"));
         }
 
         /**
          * Starts a new {@code &lt;aside&gt;} container. The element must be closed with {@link #end()}.
          */
         public B aside() {
-            return start(document.createElement("aside"));
+            return start((HTMLElement) document.createElement("aside"));
         }
 
         /**
          * Starts a new {@code &lt;footer&gt;} container. The element must be closed with {@link #end()}.
          */
         public B footer() {
-            return start(document.createElement("footer"));
+            return start((HTMLElement) document.createElement("footer"));
         }
 
         /**
          * Starts a new {@code &lt;p&gt;} container. The element must be closed with {@link #end()}.
          */
         public B p() {
-            return start(document.createElement("p"));
+            return start((HTMLElement) document.createElement("p"));
         }
 
         /**
          * Starts a new {@code &lt;ol&gt;} container. The element must be closed with {@link #end()}.
          */
         public B ol() {
-            return start(document.createElement("ol"));
+            return start((HTMLElement) document.createElement("ol"));
         }
 
         /**
          * Starts a new {@code &lt;ul&gt;} container. The element must be closed with {@link #end()}.
          */
         public B ul() {
-            return start(document.createElement("ul"));
+            return start((HTMLElement) document.createElement("ul"));
         }
 
         /**
          * Starts a new {@code &lt;li&gt;} container. The element must be closed with {@link #end()}.
          */
         public B li() {
-            return start(document.createLIElement());
+            return start((HTMLElement) document.createElement("li"));
         }
 
         /**
          * Starts a new {@code &lt;a&gt;} container. The element must be closed with {@link #end()}.
          */
         public B a() {
-            return start(document.createElement("a"));
+            return start((HTMLElement) document.createElement("a"));
         }
 
         /**
@@ -264,34 +265,34 @@ public final class Elements {
          * The element must be closed with {@link #end()}.
          */
         public B a(@NonNls String href) {
-            return start(document.createElement("a")).attr("href", href);
+            return start((HTMLElement) document.createElement("a")).attr("href", href);
         }
 
         /**
          * Starts a new {@code &lt;div&gt;} container. The element must be closed with {@link #end()}.
          */
         public B div() {
-            return start(document.createDivElement());
+            return start((HTMLElement) document.createElement("div"));
         }
 
         /**
          * Starts a new {@code &lt;span&gt;} container. The element must be closed with {@link #end()}.
          */
         public B span() {
-            return start(document.createSpanElement());
+            return start((HTMLElement) document.createElement("span"));
         }
 
         /**
          * Starts the named container. The element must be closed with {@link #end()}.
          */
         public B start(@NonNls String tag) {
-            return start(document.createElement(tag));
+            return start((HTMLElement) document.createElement(tag));
         }
 
         /**
          * Adds the given element as new container. The element must be closed with {@link #end()}.
          */
-        public B start(Element element) {
+        public B start(HTMLElement element) {
             elements.push(new ElementInfo(element, true, level));
             level++;
             return that();
@@ -317,9 +318,9 @@ public final class Elements {
 
             if (!elements.peek().container) {
                 throw new IllegalStateException(
-                        logId() + "Closing element " + elements.peek().element + " is no container");
+                        logId() + "Closing element " + currentElement() + " is no container");
             }
-            Element closingElement = elements.peek().element;
+            Element closingElement = currentElement();
             for (ElementInfo child : children) {
                 closingElement.appendChild(child.element);
             }
@@ -370,14 +371,14 @@ public final class Elements {
          * Starts a new form. The element must be closed with {@link #end()}.
          */
         public B form() {
-            return start(document.createFormElement());
+            return start((HTMLElement) document.createElement("form"));
         }
 
         /**
          * Starts a new form label. The element must be closed with {@link #end()}.
          */
         public B label() {
-            return start(document.createLabelElement());
+            return start((HTMLElement) document.createElement("label"));
         }
 
         /**
@@ -385,7 +386,7 @@ public final class Elements {
          * The element must be closed with {@link #end()}.
          */
         public B label(String text) {
-            return start(document.createLabelElement()).textContent(text);
+            return start((HTMLElement) document.createElement("label")).textContent(text);
         }
 
         /**
@@ -414,14 +415,14 @@ public final class Elements {
          * Starts an option to be used inside a select box. The element must be closed with {@link #end()}.
          */
         public B option() {
-            return start(document.createOptionElement());
+            return start((HTMLElement) document.createElement("option"));
         }
 
         /**
          * Starts an option with the specified inner text. The element must be closed with {@link #end()}.
          */
         public B option(String text) {
-            return start(document.createOptionElement()).textContent(text);
+            return start((HTMLElement) document.createElement("option")).textContent(text);
         }
 
         /**
@@ -438,7 +439,7 @@ public final class Elements {
         public B input(InputType type) {
             switch (type) {
                 case button:
-                    start(document.createButtonElement());
+                    start((HTMLElement) document.createElement("button"));
                     break;
 
                 case color:
@@ -461,17 +462,17 @@ public final class Elements {
                 case time:
                 case url:
                 case week:
-                    InputElement inputElement = document.createInputElement();
-                    inputElement.setType(type.name());
+                    HTMLInputElement inputElement = (HTMLInputElement) document.createElement("input");
+                    inputElement.type = type.name();
                     add(inputElement);
                     break;
 
                 case select:
-                    start(document.createSelectElement());
+                    start((HTMLElement) document.createElement("select"));
                     break;
 
                 case textarea:
-                    start(document.createTextAreaElement());
+                    start((HTMLElement) document.createElement("textarea"));
                     break;
             }
             return that();
@@ -484,7 +485,7 @@ public final class Elements {
          * Creates and adds the named element. The element must not be closed using {@link #end()}.
          */
         public B add(@NonNls String tag) {
-            return add(document.createElement(tag));
+            return add((HTMLElement) document.createElement(tag));
         }
 
         /**
@@ -505,8 +506,8 @@ public final class Elements {
         /**
          * Adds all elements.
          */
-        public B addAll(Iterable<Element> elements) {
-            for (Element element : elements) {
+        public B addAll(Iterable<HTMLElement> elements) {
+            for (HTMLElement element : elements) {
                 add(element);
             }
             return that();
@@ -515,7 +516,7 @@ public final class Elements {
         /**
          * Adds the given element. The element must not be closed using {@link #end()}.
          */
-        public B add(Element element) {
+        public B add(HTMLElement element) {
             assertCurrent();
             elements.push(new ElementInfo(element, false, level));
             return that();
@@ -529,7 +530,7 @@ public final class Elements {
          */
         public B id(@NonNls String id) {
             assertCurrent();
-            elements.peek().element.setId(id);
+            currentElement().id = id;
             return that();
         }
 
@@ -538,7 +539,7 @@ public final class Elements {
          */
         public B title(String title) {
             assertCurrent();
-            elements.peek().element.setTitle(title);
+            currentElement().title = title;
             return that();
         }
 
@@ -560,10 +561,9 @@ public final class Elements {
             if (rest != null) {
                 classes.addAll(asList(rest));
             }
-            String combined = rest != null && rest.length != 0
+            currentElement().className = rest != null && rest.length != 0
                     ? Joiner.on(' ').skipNulls().join(classes)
                     : first;
-            elements.peek().element.setClassName(combined);
             return that();
         }
 
@@ -572,7 +572,7 @@ public final class Elements {
          */
         public B style(@NonNls String style) {
             assertCurrent();
-            elements.peek().element.getStyle().setCssText(style);
+            currentElement().style.cssText = style;
             return that();
         }
 
@@ -581,7 +581,7 @@ public final class Elements {
          */
         public B attr(@NonNls String name, String value) {
             assertCurrent();
-            elements.peek().element.setAttribute(name, value);
+            currentElement().setAttribute(name, value);
             return that();
         }
 
@@ -592,8 +592,9 @@ public final class Elements {
          *             already present.
          */
         public B data(@NonNls String name, String value) {
+            assertCurrent();
             String safeName = name.startsWith("data-") ? name.substring("data-".length()) : name;
-            elements.peek().element.getDataset().setAt(safeName, value);
+            currentElement().dataset.set(safeName, value);
             return that();
         }
 
@@ -613,28 +614,28 @@ public final class Elements {
          */
         public B innerHtml(SafeHtml html) {
             assertCurrent();
-            elements.peek().element.setInnerHTML(html.asString());
+            currentElement().innerHTML = html.asString();
             return that();
         }
 
         /**
-         * Sets the inner text on the last added element using {@link Element#setTextContent(String)}.
+         * Sets the inner text on the last added element using {@link Element#textContent}.
          *
          * @deprecated Use {@link #textContent(String)} instead.
          */
         @Deprecated
         public B innerText(String text) {
             assertCurrent();
-            elements.peek().element.setTextContent(text);
+            currentElement().textContent = text;
             return that();
         }
 
         /**
-         * Sets the inner text on the last added element using {@link Element#setTextContent(String)}.
+         * Sets the inner text on the last added element using {@link Element#textContent}.
          */
         public B textContent(String text) {
             assertCurrent();
-            elements.peek().element.setTextContent(text);
+            currentElement().textContent = text;
             return that();
         }
 
@@ -644,17 +645,19 @@ public final class Elements {
             }
         }
 
+        protected HTMLElement currentElement() {
+            return elements.peek().element;
+        }
+
 
         // ------------------------------------------------------ event handler
 
         /**
-         * Adds the given event listener to the the last added element.
+         * Adds the given callback to the the last added element.
          */
-        public B on(EventType type, EventListener listener) {
+        public B on(EventType type, EventCallbackFn callback) {
             assertCurrent();
-
-            Element element = elements.peek().element;
-            type.register(element, listener);
+            type.register(currentElement(), callback);
             return that();
         }
 
@@ -667,7 +670,7 @@ public final class Elements {
          */
         public B rememberAs(@NonNls String id) {
             assertCurrent();
-            references.put(id, elements.peek().element);
+            references.put(id, currentElement());
             return that();
         }
 
@@ -707,7 +710,7 @@ public final class Elements {
          * Returns the top level elements added so far. This is useful if you don't want to build a single root
          * container, but work with a list of elements.
          */
-        public Iterable<Element> elements() {
+        public Iterable<HTMLElement> elements() {
             if (level != 0) {
                 throw new IllegalStateException(
                         logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
@@ -727,21 +730,21 @@ public final class Elements {
      * Returns an iterator over the children of the given parent element. The iterator supports the {@link
      * Iterator#remove()} operation which removes the current element from its parent.
      */
-    public static Iterator<Element> iterator(Element parent) {
-        return parent != null ? new ChildrenIterator(parent) : Collections.<Element>emptyList().iterator();
+    public static Iterator<HTMLElement> iterator(HTMLElement parent) {
+        return parent != null ? new ChildrenIterator(parent) : Collections.<HTMLElement>emptyList().iterator();
     }
 
     /**
      * Returns a stream for the children of the given parent element.
      */
-    public static Stream<Element> stream(Element parent) {
+    public static Stream<HTMLElement> stream(HTMLElement parent) {
         return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : Stream.empty();
     }
 
     /**
      * Returns an iterable collection for the children of the given parent element.
      */
-    public static Iterable<Element> children(Element parent) {
+    public static Iterable<HTMLElement> children(HTMLElement parent) {
         return () -> iterator(parent);
     }
 
@@ -749,30 +752,30 @@ public final class Elements {
      * Returns an iterator over the given node list. The iterator will only iterate over elements while skipping nodes.
      * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
      */
-    public static Iterator<Element> iterator(NodeList nodes) {
-        return nodes != null ? new NodeListIterator(nodes) : Collections.<Element>emptyList().iterator();
+    public static Iterator<HTMLElement> iterator(NodeList<Node> nodes) {
+        return nodes != null ? new NodeListIterator(nodes) : Collections.<HTMLElement>emptyList().iterator();
     }
 
     /**
      * Returns a stream for the elements in the given node list.
      */
-    public static Stream<Element> stream(NodeList nodes) {
+    public static Stream<HTMLElement> stream(NodeList<Node> nodes) {
         return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : Stream.empty();
     }
 
     /**
      * Returns an iterable collection for the elements in the given node list.
      */
-    public static Iterable<Element> elements(NodeList nodes) {
+    public static Iterable<HTMLElement> elements(NodeList<Node> nodes) {
         return () -> iterator(nodes);
     }
 
     /**
      * Convenience method to set the inner HTML of the given element.
      */
-    public static void innerHtml(Element element, SafeHtml html) {
+    public static void innerHtml(HTMLElement element, SafeHtml html) {
         if (element != null) {
-            element.setInnerHTML(html.asString());
+            element.innerHTML = html.asString();
         }
     }
 
@@ -780,7 +783,7 @@ public final class Elements {
      * Appends the specified element to the parent element if not already present. If parent already contains child,
      * this method does nothing.
      */
-    public static void lazyAppend(final Element parent, final Element child) {
+    public static void lazyAppend(final HTMLElement parent, final HTMLElement child) {
         if (!parent.contains(child)) {
             parent.appendChild(child);
         }
@@ -790,7 +793,7 @@ public final class Elements {
      * Inserts the specified element into the parent element if not already present. If parent already contains child,
      * this method does nothing.
      */
-    public static void lazyInsertBefore(final Element parent, final Element child, final Element before) {
+    public static void lazyInsertBefore(final HTMLElement parent, final HTMLElement child, final HTMLElement before) {
         if (!parent.contains(child)) {
             parent.insertBefore(child, before);
         }
@@ -799,10 +802,10 @@ public final class Elements {
     /**
      * Removes all child elements from {@code element}
      */
-    public static void removeChildrenFrom(final Element element) {
+    public static void removeChildrenFrom(final HTMLElement element) {
         if (element != null) {
-            while (element.getFirstChild() != null) {
-                element.removeChild(element.getFirstChild());
+            while (element.firstChild != null) {
+                element.removeChild(element.firstChild);
             }
         }
     }
@@ -812,8 +815,8 @@ public final class Elements {
      *
      * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
      */
-    public static boolean failSafeRemoveFromParent(final Element element) {
-        return failSafeRemove(element != null ? element.getParentElement() : null, element);
+    public static boolean failSafeRemoveFromParent(final HTMLElement element) {
+        return failSafeRemove(element != null ? element.parentNode : null, element);
     }
 
     /**
@@ -821,7 +824,7 @@ public final class Elements {
      *
      * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
      */
-    public static boolean failSafeRemove(final Element parent, final Element child) {
+    public static boolean failSafeRemove(final Node parent, final HTMLElement child) {
         if (parent != null && child != null && parent.contains(child)) {
             return parent.removeChild(child) != null;
         }
@@ -831,42 +834,42 @@ public final class Elements {
     /**
      * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
      */
-    public static Element dataElement(@NonNls String name) {
-        return Browser.getDocument().querySelector("[data-element=" + name + "]");
+    public static HTMLElement dataElement(@NonNls String name) {
+        return (HTMLElement) DomGlobal.document.querySelector("[data-element=" + name + "]");
     }
 
     /**
      * Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]}
      */
-    public static Element dataElement(Element context, @NonNls String name) {
-        return context != null ? context.querySelector("[data-element=" + name + "]") : null;
+    public static HTMLElement dataElement(HTMLElement context, @NonNls String name) {
+        return context != null ? (HTMLElement) context.querySelector("[data-element=" + name + "]") : null;
     }
 
     /**
      * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
      */
-    public static boolean isVisible(Element element) {
-        return element != null && !"none".equals(element.getStyle().getDisplay());
+    public static boolean isVisible(HTMLElement element) {
+        return element != null && !"none".equals(element.style.display);
     }
 
     /**
      * shows / hide the specified element by modifying the {@code display} property.
      */
-    public static void setVisible(Element element, boolean visible) {
+    public static void setVisible(HTMLElement element, boolean visible) {
         if (element != null) {
-            element.getStyle().setDisplay(visible ? "" : "none");
+            element.style.display = visible ? "" : "none";
         }
     }
 
     /**
      * Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise.
      */
-    public static void toggle(Element element, String css, boolean condition) {
+    public static void toggle(HTMLElement element, String css, boolean condition) {
         if (element != null) {
             if (condition) {
-                element.getClassList().add(css);
+                element.classList.add(css);
             } else {
-                element.getClassList().remove(css);
+                element.classList.remove(css);
             }
         }
     }
@@ -877,8 +880,8 @@ public final class Elements {
 
     private static class ElementWidget extends Widget {
 
-        ElementWidget(final Element element) {
-            setElement(com.google.gwt.dom.client.Element.as((JavaScriptObject) element));
+        ElementWidget(final HTMLElement element) {
+            setElement(com.google.gwt.dom.client.Element.as(Js.cast(element)));
         }
     }
 
@@ -890,30 +893,30 @@ public final class Elements {
     }
 
     /**
-     * Converts from {@link Element} &rarr; {@link Widget}.
+     * Converts from {@link HTMLElement} &rarr; {@link Widget}.
      */
-    public static Widget asWidget(Element element) {
+    public static Widget asWidget(HTMLElement element) {
         return new ElementWidget(element);
     }
 
     /**
-     * Converts from {@link IsWidget} &rarr; {@link Element}.
+     * Converts from {@link IsWidget} &rarr; {@link HTMLElement}.
      */
-    public static Element asElement(IsWidget widget) {
+    public static HTMLElement asElement(IsWidget widget) {
         return asElement(widget.asWidget());
     }
 
     /**
-     * Converts from {@link Widget} &rarr; {@link Element}.
+     * Converts from {@link Widget} &rarr; {@link HTMLElement}.
      */
-    public static Element asElement(Widget widget) {
+    public static HTMLElement asElement(Widget widget) {
         return asElement(widget.getElement());
     }
 
     /**
-     * Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link Element}.
+     * Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link HTMLElement}.
      */
-    public static Element asElement(com.google.gwt.dom.client.Element element) {
-        return element.cast();
+    public static HTMLElement asElement(com.google.gwt.dom.client.Element element) {
+        return Js.cast(element);
     }
 }

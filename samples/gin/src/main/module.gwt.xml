@@ -22,7 +22,8 @@
   -->
 
 <module>
-    <inherits name="elemental.Elemental"/>
+    <inherits name="elemental2.dom.Dom"/>
+    <inherits name="elemental2.webstorage.WebStorage"/>
     <inherits name="com.google.gwt.user.User"/>
     <inherits name="com.google.gwt.inject.Inject"/>
     <inherits name="org.jboss.gwt.elemento.Core"/>

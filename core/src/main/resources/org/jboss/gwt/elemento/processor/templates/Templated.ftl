@@ -6,8 +6,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
-import elemental.client.Browser;
-import elemental.dom.Element;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLElement;
 <#if (context.dataElements?size > 0 || context.eventHandler?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
 import org.jboss.gwt.elemento.core.TemplateUtil;
 </#if>
@@ -31,24 +31,24 @@ final class ${context.subclass} extends ${context.base} {
     <#list context.abstractProperties as abstractProperty>
     private final ${abstractProperty.type} ${abstractProperty.field};
     </#list>
-    private final Element ${context.root.member};
+    private final HTMLElement ${context.root.member};
 
     ${context.subclass}(<#list context.abstractProperties as abstractProperty>${abstractProperty.type} ${abstractProperty.field}<#if abstractProperty_has_next>, </#if></#list>) {
         <#list context.abstractProperties as abstractProperty>
         this.${abstractProperty.field} = ${abstractProperty.field};
         </#list>
 
-        this.${context.root.member} = Browser.getDocument().createElement("${context.root.tag}");
+        this.${context.root.member} = (HTMLElement)DomGlobal.document.createElement("${context.root.tag}");
         <#list context.root.attributes as attribute>
         this.${context.root.member}.setAttribute("${attribute.key}", "${attribute.value}");
         </#list>
         <#if context.root.innerHtml??>
-        this.${context.root.member}.setInnerHTML(INNER_HTML.value().asString());
+        this.${context.root.member}.innerHTML = INNER_HTML.value().asString();
         </#if>
 
         <#list context.dataElements as dataElement>
-            <#-- Element -->
-            <#if dataElement.kind.name() == "Element">
+            <#-- HTMLElement -->
+            <#if dataElement.kind.name() == "HTMLElement">
                 <#if dataElement.returnedByMethod>
         TemplateUtil.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name}());
                 <#else>
@@ -98,7 +98,7 @@ final class ${context.subclass} extends ${context.base} {
     }
 
     @Override
-    public Element asElement() {
+    public HTMLElement asElement() {
         return ${context.root.member};
     }
     <#-- Abstract properties -->

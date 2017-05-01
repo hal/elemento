@@ -21,20 +21,20 @@
  */
 package org.jboss.gwt.elemento.sample.builder.client;
 
-import elemental.dom.Element;
+import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.Urls;
 
-public class FooterElement implements IsElement {
+class FooterElement implements IsElement {
 
     private final I18n i18n;
 
-    public FooterElement(final I18n i18n) {this.i18n = i18n;}
+    FooterElement(final I18n i18n) {this.i18n = i18n;}
 
     @Override
-    public Element asElement() {
+    public HTMLElement asElement() {
         // @formatter:off
         return new Elements.Builder()
         .start("footer").css("info")

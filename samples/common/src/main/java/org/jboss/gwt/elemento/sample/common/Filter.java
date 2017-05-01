@@ -19,9 +19,9 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.gwt.elemento.sample.builder.client;
+package org.jboss.gwt.elemento.sample.common;
 
-enum Filter {
+public enum Filter {
     ALL("#/"), ACTIVE("#/active"), COMPLETED("#/completed");
 
     private final String fragment;
@@ -30,14 +30,15 @@ enum Filter {
         this.fragment = fragment;
     }
 
-    String fragment() {
+    public String fragment() {
         return fragment;
     }
 
-    String filter() {
+    public String filter() {
         return name().toLowerCase();
     }
 
+    @SuppressWarnings("Duplicates")
     public static Filter parseToken(final String token) {
         if (token == null) {
             return ALL;
