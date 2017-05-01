@@ -48,7 +48,7 @@ final class ${context.subclass} extends ${context.base} {
 
         <#list context.dataElements as dataElement>
             <#-- HTMLElement -->
-            <#if dataElement.kind.name() == "Element">
+            <#if dataElement.kind.name() == "HTMLElement">
                 <#if dataElement.returnedByMethod>
         TemplateUtil.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name}());
                 <#else>
