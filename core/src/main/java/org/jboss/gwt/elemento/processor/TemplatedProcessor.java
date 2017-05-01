@@ -63,7 +63,8 @@ import com.google.common.escape.Escaper;
 import com.google.common.escape.Escapers;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import elemental.events.Event;
+import elemental2.dom.Event;
+import elemental2.dom.HTMLElement;
 import org.jboss.auto.AbstractProcessor;
 import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.EventHandler;
@@ -374,8 +375,8 @@ public class TemplatedProcessor extends AbstractProcessor {
     }
 
     private Kind getDataElementInfoKind(TypeMirror dataElementType) {
-        if (isAssignable(dataElementType, elemental.dom.Element.class)) {
-            return Kind.Element;
+        if (isAssignable(dataElementType, HTMLElement.class)) {
+            return Kind.HTMLElement;
         } else if (isAssignable(dataElementType, IsElement.class)) {
             return Kind.IsElement;
         } else if (isAssignable(dataElementType, Widget.class)) {

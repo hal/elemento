@@ -38,14 +38,14 @@ import java.lang.annotation.Target;
  * <dl>
  * <dt>Fields w/o an initializer</dt>
  * <dd>The element, its attributes and all children are mapped from the HTML template to the annotated field. The type
- * of the field is restricted to {@link elemental.dom.Element} and its subclasses.</dd>
+ * of the field is restricted to {@link elemental2.dom.HTMLElement} and its subclasses.</dd>
  * <dt>Fields w/ an initializer</dt>
  * <dd>The element in the HTML template is replaced with the initializer. The type of the field can be one of: {@link
- * elemental.dom.Element}, {@link IsElement}, {@link com.google.gwt.user.client.ui.Widget}, or {@link
+ * elemental2.dom.HTMLElement}, {@link IsElement}, {@link com.google.gwt.user.client.ui.Widget}, or {@link
  * com.google.gwt.user.client.ui.IsWidget}.</dd>
  * <dt>Methods</dt>
  * <dd>The element in the HTML template is replaced with the return value of the method. The method must return one of:
- * {@link elemental.dom.Element}, {@link IsElement}, {@link com.google.gwt.user.client.ui.Widget}, or {@link
+ * {@link elemental2.dom.HTMLElement}, {@link IsElement}, {@link com.google.gwt.user.client.ui.Widget}, or {@link
  * com.google.gwt.user.client.ui.IsWidget} and must not have any parameters.</dd>
  * </dl>
  *

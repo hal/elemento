@@ -23,8 +23,7 @@ package org.jboss.gwt.elemento.sample.gin.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.History;
-import elemental.client.Browser;
-import elemental.dom.Element;
+import elemental2.dom.DomGlobal;
 
 public class Main implements EntryPoint {
 
@@ -33,9 +32,8 @@ public class Main implements EntryPoint {
         ApplicationElement application = ApplicationGinjector.INSTANCE.application();
         FooterElement footer = ApplicationGinjector.INSTANCE.footer();
 
-        Element body = Browser.getDocument().getBody();
-        body.appendChild(application.asElement());
-        body.appendChild(footer.asElement());
+        DomGlobal.document.body.appendChild(application.asElement());
+        DomGlobal.document.body.appendChild(footer.asElement());
 
         History.addValueChangeHandler(event -> application.filter(event.getValue()));
         History.fireCurrentHistoryState();

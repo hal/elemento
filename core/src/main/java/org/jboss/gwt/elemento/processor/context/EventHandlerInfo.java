@@ -21,7 +21,7 @@
  */
 package org.jboss.gwt.elemento.processor.context;
 
-import elemental.events.Event;
+import elemental2.dom.Event;
 
 /**
  * @author Harald Pehl

@@ -22,7 +22,7 @@
 package org.jboss.gwt.elemento.processor.context;
 
 import com.google.common.base.Strings;
-import elemental.dom.Element;
+import elemental2.dom.HTMLElement;
 
 /**
  * @author Harald Pehl
@@ -31,7 +31,7 @@ public class DataElementInfo {
 
     public enum Kind {
         // Name them after the related type for nicer error messages
-        Element, IsElement, Widget, IsWidget
+        HTMLElement, IsElement, Widget, IsWidget
     }
 
 
@@ -80,6 +80,6 @@ public class DataElementInfo {
     }
 
     public boolean needsCast() {
-        return kind == Kind.Element && !type.equals(Element.class.getName());
+        return kind == Kind.HTMLElement && !type.equals(HTMLElement.class.getName());
     }
 }

@@ -21,7 +21,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental.dom.Element;
+import elemental2.dom.HTMLElement;
 
 /**
  * The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.HasWidgets}.
@@ -30,5 +30,5 @@ import elemental.dom.Element;
  */
 public interface HasElements {
 
-    Iterable<Element> asElements();
+    Iterable<HTMLElement> asElements();
 }

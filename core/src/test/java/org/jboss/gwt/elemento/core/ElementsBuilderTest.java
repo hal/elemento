@@ -1,12 +1,12 @@
 package org.jboss.gwt.elemento.core;
 
+import java.util.NoSuchElementException;
+
 import com.google.common.collect.Iterables;
-import elemental.dom.Document;
-import elemental.dom.Element;
+import elemental2.dom.Document;
+import elemental2.dom.HTMLElement;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.NoSuchElementException;
 
 import static org.jboss.gwt.elemento.core.EventType.click;
 import static org.jboss.gwt.elemento.core.InputType.number;
@@ -30,20 +30,7 @@ public class ElementsBuilderTest {
 
         when(document.createElement(anyString())).thenAnswer(
                 invocation -> new StandaloneElement(String.valueOf(invocation.getArguments()[0])));
-        when(document.createAnchorElement()).thenAnswer(invocation -> new StandaloneElement("a"));
-        when(document.createButtonElement()).thenAnswer(invocation -> new StandaloneInputElement("button"));
-        when(document.createDivElement()).thenAnswer(invocation -> new StandaloneElement("div"));
-        when(document.createFormElement()).thenAnswer(invocation -> new StandaloneElement("form"));
-        when(document.createInputElement()).thenAnswer(invocation -> new StandaloneInputElement("input"));
-        when(document.createLabelElement()).thenAnswer(invocation -> new StandaloneLIElement("label"));
-        when(document.createLIElement()).thenAnswer(invocation -> new StandaloneLIElement("li"));
-        when(document.createOListElement()).thenAnswer(invocation -> new StandaloneElement("ol"));
-        when(document.createOptionElement()).thenAnswer(invocation -> new StandaloneInputElement("option"));
-        when(document.createParagraphElement()).thenAnswer(invocation -> new StandaloneElement("p"));
-        when(document.createSelectElement()).thenAnswer(invocation -> new StandaloneInputElement("select"));
-        when(document.createSpanElement()).thenAnswer(invocation -> new StandaloneElement("span"));
-        when(document.createTextAreaElement()).thenAnswer(invocation -> new StandaloneInputElement("textarea"));
-        when(document.createUListElement()).thenAnswer(invocation -> new StandaloneElement("ul"));
+        when(document.createElement("input")).thenAnswer(invocation -> new StandaloneInputElement("input"));
 
         builder = new TestableBuilder(document);
     }
@@ -86,14 +73,14 @@ public class ElementsBuilderTest {
 
     @Test
     public void a() {
-        assertEquals("<a href=\"http://hpehl.info/\" title=\"Visit my blog\">hpehl.info</a>",
+        assertEquals("<a title=\"Visit my blog\" href=\"http://hpehl.info/\">hpehl.info</a>",
                 builder.a().attr("href", "http://hpehl.info/").title("Visit my blog").textContent("hpehl.info")
                         .end().build().toString());
     }
 
     @Test
     public void aHref() {
-        assertEquals("<a href=\"http://hpehl.info/\" title=\"Visit my blog\">hpehl.info</a>",
+        assertEquals("<a title=\"Visit my blog\" href=\"http://hpehl.info/\">hpehl.info</a>",
                 builder.a("http://hpehl.info/").title("Visit my blog").textContent("hpehl.info")
                         .end().build().toString());
     }
@@ -155,7 +142,7 @@ public class ElementsBuilderTest {
             .end();
         // @formatter:on
 
-        String markup = "<form method=\"get\" action=\"search\" class=\"form form-horizontal\">" +
+        String markup = "<form class=\"form form-horizontal\" method=\"get\" action=\"search\">" +
                 "<div class=\"form-group\">" +
                 "<label class=\"col-md-3 control-label\" for=\"name\">Name</label>" +
                 "<div class=\"col-md-9\">" +
@@ -171,7 +158,7 @@ public class ElementsBuilderTest {
                 "<div class=\"form-group\">" +
                 "<label class=\"col-md-3 control-label\" for=\"hobbies\">Hobbies</label>" +
                 "<div class=\"col-md-9\">" +
-                "<textarea rows=\"3\" id=\"hobbies\" class=\"form-control\"/>" +
+                "<textarea id=\"hobbies\" class=\"form-control\" rows=\"3\"/>" +
                 "<span class=\"help-block textarea\">One item per line</span>" +
                 "</div>" +
                 "</div>" +
@@ -238,7 +225,7 @@ public class ElementsBuilderTest {
                 .div().textContent("foo").end()
                 .add("br");
         // @formatter:on
-        Iterable<Element> elements = builder.elements();
+        Iterable<HTMLElement> elements = builder.elements();
         assertEquals(4, Iterables.size(elements));
         StringBuilder html = new StringBuilder();
         elements.forEach(html::append);
@@ -265,12 +252,10 @@ public class ElementsBuilderTest {
 
     @Test
     public void data() {
-        assertEquals("<div data-one=\"1\" data-two=\"2\" data-three=\"3\" data-camel-case=\"4\" data-foo-bar=\"5\"/>",
+        assertEquals("<div data-one=\"1\" data-two=\"2\" data-three=\"3\"/>",
                 builder.div().attr("data-one", "1")
                         .data("two", "2")
                         .data("data-three", "3")
-                        .data("camelCase", "4")
-                        .data("data-fooBar", "5")
                         .build().toString());
     }
 

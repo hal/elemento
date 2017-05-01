@@ -21,40 +21,41 @@
  */
 package org.jboss.gwt.elemento.sample.builder.client;
 
-import elemental.dom.Element;
-import elemental.events.Event;
-import elemental.events.KeyboardEvent;
-import elemental.html.ButtonElement;
-import elemental.html.InputElement;
+import elemental2.dom.Event;
+import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLInputElement;
+import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.Application;
+import org.jboss.gwt.elemento.sample.common.Filter;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
-import static elemental.events.KeyboardEvent.KeyCode.ENTER;
-import static org.jboss.gwt.elemento.core.EventType.*;
+import static org.jboss.gwt.elemento.core.EventType.change;
+import static org.jboss.gwt.elemento.core.EventType.click;
+import static org.jboss.gwt.elemento.core.EventType.keydown;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
-import static org.jboss.gwt.elemento.sample.builder.client.Filter.*;
+import static org.jboss.gwt.elemento.sample.common.Filter.ACTIVE;
+import static org.jboss.gwt.elemento.sample.common.Filter.ALL;
+import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
 class ApplicationElement implements IsElement {
 
-    private final Element root;
-    private final InputElement newTodo;
-    private final Element main;
-    private final InputElement toggleAll;
-    private final Element list;
-    private final Element footer;
-    private final Element count;
-    private final Element filterAll;
-    private final Element filterActive;
-    private final Element filterCompleted;
-    private final ButtonElement clearCompleted;
+    private final HTMLElement root;
+    private final HTMLInputElement newTodo;
+    private final HTMLElement main;
+    private final HTMLInputElement toggleAll;
+    private final HTMLElement list;
+    private final HTMLElement footer;
+    private final HTMLElement count;
+    private final HTMLElement filterAll;
+    private final HTMLElement filterActive;
+    private final HTMLElement filterCompleted;
+    private final HTMLButtonElement clearCompleted;
 
     private final TodoItemRepository repository;
     private final I18n i18n;
@@ -120,7 +121,7 @@ class ApplicationElement implements IsElement {
     }
 
     @Override
-    public Element asElement() {
+    public HTMLElement asElement() {
         return root;
     }
 
@@ -129,67 +130,31 @@ class ApplicationElement implements IsElement {
 
     private void newTodo(Event event) {
         KeyboardEvent keyboardEvent = (KeyboardEvent) event;
-        if (keyboardEvent.getKeyCode() == ENTER) {
-            String text = newTodo.getValue().trim();
+        if ("Enter".equals(keyboardEvent.key)) {
+            String text = newTodo.value.trim();
             if (text.length() != 0) {
                 TodoItem item = repository.add(text);
                 list.appendChild(new TodoItemElement(this, repository, item).asElement());
-                newTodo.setValue("");
+                newTodo.value = "";
                 update();
             }
         }
     }
 
     private void toggleAll() {
-        boolean checked = toggleAll.isChecked();
-        for (Element li : Elements.children(list)) {
-            if (checked) {
-                li.getClassList().add("completed");
-            } else {
-                li.getClassList().remove("completed");
-            }
-            InputElement checkbox = (InputElement) li.getFirstElementChild().getFirstElementChild();
-            checkbox.setChecked(checked);
-        }
-        repository.completeAll(checked);
+        Application.toggleAll(list, toggleAll.checked);
+        repository.completeAll(toggleAll.checked);
         update();
     }
 
     private void clearCompleted() {
-        Set<String> ids = new HashSet<>();
-        for (Iterator<Element> iterator = Elements.iterator(list); iterator.hasNext(); ) {
-            Element li = iterator.next();
-            if (li.getClassList().contains("completed")) {
-                String id = String.valueOf(li.getDataset().at("item"));
-                if (id != null) {
-                    ids.add(id);
-                }
-                iterator.remove();
-            }
-        }
-        repository.removeAll(ids);
+        repository.removeAll(Application.getCompleted(list));
         update();
     }
 
     void filter(String token) {
         filter = Filter.parseToken(token);
-        switch (filter) {
-            case ALL:
-                filterAll.getClassList().add("selected");
-                filterActive.getClassList().remove("selected");
-                filterCompleted.getClassList().remove("selected");
-                break;
-            case ACTIVE:
-                filterAll.getClassList().remove("selected");
-                filterActive.getClassList().add("selected");
-                filterCompleted.getClassList().remove("selected");
-                break;
-            case COMPLETED:
-                filterAll.getClassList().remove("selected");
-                filterActive.getClassList().remove("selected");
-                filterCompleted.getClassList().add("selected");
-                break;
-        }
+        Application.filter(filter, filterAll, filterActive, filterCompleted);
         update();
     }
 
@@ -197,23 +162,6 @@ class ApplicationElement implements IsElement {
     // ------------------------------------------------------ state update
 
     void update() {
-        int activeCount = 0;
-        int completedCount = 0;
-        int size = list.getChildElementCount();
-
-        Elements.setVisible(main, size > 0);
-        Elements.setVisible(footer, size > 0);
-        for (Element li : Elements.children(list)) {
-            if (li.getClassList().contains("completed")) {
-                completedCount++;
-                Elements.setVisible(li, filter != ACTIVE);
-            } else {
-                Elements.setVisible(li, filter != COMPLETED);
-                activeCount++;
-            }
-        }
-        toggleAll.setChecked(size == completedCount);
-        Elements.innerHtml(count, i18n.messages().items(activeCount));
-        Elements.setVisible(clearCompleted, completedCount != 0);
+        Application.update(filter, i18n, list, main, footer, toggleAll, count, clearCompleted);
     }
 }
