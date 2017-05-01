@@ -27,13 +27,14 @@ import java.util.List;
 import java.util.Map;
 
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 
 /**
  * @author Harald Pehl
  */
-public class StandaloneElement extends HTMLElement {
+public class StandaloneElement extends HTMLElement implements TestElement {
 
-    private final List<StandaloneElement> children;
+    private final List<TestElement> children;
     private final Map<String, String> attributes;
 
     StandaloneElement(final String name) {
@@ -44,27 +45,63 @@ public class StandaloneElement extends HTMLElement {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("<").append(tagName);
-        attributes.forEach((name, value) -> printAttributes(builder, name, value));
-        // dataset.data.forEach((name, value) -> printAttributes(builder, name, String.valueOf(value)));
-        if (innerHTML != null) {
-            builder.append(">").append(innerHTML).append("</").append(tagName).append(">");
-        } else if (!children.isEmpty()) {
-            builder.append(">");
-            for (StandaloneElement child : children) {
-                builder.append(child.toString());
-            }
-            builder.append("</").append(tagName).append(">");
-        } else {
-            builder.append("/>");
-        }
-        return builder.toString();
+        return ElementToString.asString(this);
     }
 
-    private void printAttributes(StringBuilder builder, String name, String value) {
-        if (value != null) {
-            builder.append(String.format(" %s=\"%s\"", name, value));
+    void setStringAttribute(final String name, final String value) {
+        attributes.put(name, value);
+    }
+
+    @Override
+    public Node appendChild(final Node newChild) {
+        if (newChild instanceof TestElement) {
+            children.add((TestElement) newChild);
         }
+        return newChild;
+    }
+
+    @Override
+    public String id() {
+        return id;
+    }
+
+    @Override
+    public String tagName() {
+        return tagName;
+    }
+
+    @Override
+    public String type() {
+        return null;
+    }
+
+    @Override
+    public String title() {
+        return title;
+    }
+
+    @Override
+    public String className() {
+        return className;
+    }
+
+    @Override
+    public Map<String, String> attributes() {
+        return attributes;
+    }
+
+    @Override
+    public String innerHtml() {
+        return innerHTML;
+    }
+
+    @Override
+    public String textContent() {
+        return textContent;
+    }
+
+    @Override
+    public List<TestElement> children() {
+        return children;
     }
 }

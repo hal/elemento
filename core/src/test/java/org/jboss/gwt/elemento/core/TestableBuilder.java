@@ -22,6 +22,7 @@
 package org.jboss.gwt.elemento.core;
 
 import elemental2.dom.Document;
+import elemental2.dom.HTMLElement;
 
 /**
  * @author Harald Pehl
@@ -35,5 +36,23 @@ public class TestableBuilder extends Elements.CoreBuilder<TestableBuilder> {
     @Override
     protected TestableBuilder that() {
         return this;
+    }
+
+    @Override
+    public TestableBuilder attr(final String name, final String value) {
+        HTMLElement element = currentElement();
+        if (element instanceof StandaloneElement) {
+            ((StandaloneElement) currentElement()).setStringAttribute(name, value);
+        } else if (element instanceof StandaloneInputElement) {
+            ((StandaloneInputElement) currentElement()).setStringAttribute(name, value);
+        }
+        return that();
+    }
+
+    @Override
+    public TestableBuilder data(final String name, final String value) {
+        String safeName = name.startsWith("data-") ? name.substring("data-".length()) : name;
+        ((StandaloneElement) currentElement()).setStringAttribute("data-" + safeName, value);
+        return that();
     }
 }

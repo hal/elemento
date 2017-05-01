@@ -30,20 +30,7 @@ public class ElementsBuilderTest {
 
         when(document.createElement(anyString())).thenAnswer(
                 invocation -> new StandaloneElement(String.valueOf(invocation.getArguments()[0])));
-        when(document.createElement("a")).thenAnswer(invocation -> new StandaloneElement("a"));
-        when(document.createElement("button")).thenAnswer(invocation -> new StandaloneInputElement("button"));
-        when(document.createElement("div")).thenAnswer(invocation -> new StandaloneElement("div"));
-        when(document.createElement("form")).thenAnswer(invocation -> new StandaloneElement("form"));
         when(document.createElement("input")).thenAnswer(invocation -> new StandaloneInputElement("input"));
-        when(document.createElement("label")).thenAnswer(invocation -> new StandaloneElement("label"));
-        when(document.createElement("li")).thenAnswer(invocation -> new StandaloneLIElement("li"));
-        when(document.createElement("ol")).thenAnswer(invocation -> new StandaloneElement("ol"));
-        when(document.createElement("option")).thenAnswer(invocation -> new StandaloneInputElement("option"));
-        when(document.createElement("p")).thenAnswer(invocation -> new StandaloneElement("p"));
-        when(document.createElement("select")).thenAnswer(invocation -> new StandaloneInputElement("select"));
-        when(document.createElement("span")).thenAnswer(invocation -> new StandaloneElement("span"));
-        when(document.createElement("textarea")).thenAnswer(invocation -> new StandaloneInputElement("textarea"));
-        when(document.createElement("ul")).thenAnswer(invocation -> new StandaloneElement("ul"));
 
         builder = new TestableBuilder(document);
     }
@@ -86,14 +73,14 @@ public class ElementsBuilderTest {
 
     @Test
     public void a() {
-        assertEquals("<a href=\"http://hpehl.info/\" title=\"Visit my blog\">hpehl.info</a>",
+        assertEquals("<a title=\"Visit my blog\" href=\"http://hpehl.info/\">hpehl.info</a>",
                 builder.a().attr("href", "http://hpehl.info/").title("Visit my blog").textContent("hpehl.info")
                         .end().build().toString());
     }
 
     @Test
     public void aHref() {
-        assertEquals("<a href=\"http://hpehl.info/\" title=\"Visit my blog\">hpehl.info</a>",
+        assertEquals("<a title=\"Visit my blog\" href=\"http://hpehl.info/\">hpehl.info</a>",
                 builder.a("http://hpehl.info/").title("Visit my blog").textContent("hpehl.info")
                         .end().build().toString());
     }
@@ -155,7 +142,7 @@ public class ElementsBuilderTest {
             .end();
         // @formatter:on
 
-        String markup = "<form method=\"get\" action=\"search\" class=\"form form-horizontal\">" +
+        String markup = "<form class=\"form form-horizontal\" method=\"get\" action=\"search\">" +
                 "<div class=\"form-group\">" +
                 "<label class=\"col-md-3 control-label\" for=\"name\">Name</label>" +
                 "<div class=\"col-md-9\">" +
@@ -171,7 +158,7 @@ public class ElementsBuilderTest {
                 "<div class=\"form-group\">" +
                 "<label class=\"col-md-3 control-label\" for=\"hobbies\">Hobbies</label>" +
                 "<div class=\"col-md-9\">" +
-                "<textarea rows=\"3\" id=\"hobbies\" class=\"form-control\"/>" +
+                "<textarea id=\"hobbies\" class=\"form-control\" rows=\"3\"/>" +
                 "<span class=\"help-block textarea\">One item per line</span>" +
                 "</div>" +
                 "</div>" +
@@ -265,12 +252,10 @@ public class ElementsBuilderTest {
 
     @Test
     public void data() {
-        assertEquals("<div data-one=\"1\" data-two=\"2\" data-three=\"3\" data-camel-case=\"4\" data-foo-bar=\"5\"/>",
+        assertEquals("<div data-one=\"1\" data-two=\"2\" data-three=\"3\"/>",
                 builder.div().attr("data-one", "1")
                         .data("two", "2")
                         .data("data-three", "3")
-                        .data("camelCase", "4")
-                        .data("data-fooBar", "5")
                         .build().toString());
     }
 

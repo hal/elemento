@@ -21,10 +21,6 @@
  */
 package org.jboss.gwt.elemento.sample.builder.client;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
@@ -32,6 +28,8 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.sample.common.Application;
+import org.jboss.gwt.elemento.sample.common.Filter;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
@@ -41,9 +39,9 @@ import static org.jboss.gwt.elemento.core.EventType.click;
 import static org.jboss.gwt.elemento.core.EventType.keydown;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
-import static org.jboss.gwt.elemento.sample.builder.client.Filter.ACTIVE;
-import static org.jboss.gwt.elemento.sample.builder.client.Filter.ALL;
-import static org.jboss.gwt.elemento.sample.builder.client.Filter.COMPLETED;
+import static org.jboss.gwt.elemento.sample.common.Filter.ACTIVE;
+import static org.jboss.gwt.elemento.sample.common.Filter.ALL;
+import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
 class ApplicationElement implements IsElement {
 
@@ -144,55 +142,19 @@ class ApplicationElement implements IsElement {
     }
 
     private void toggleAll() {
-        boolean checked = toggleAll.checked;
-        for (HTMLElement li : Elements.children(list)) {
-            if (checked) {
-                li.classList.add("completed");
-            } else {
-                li.classList.remove("completed");
-            }
-            HTMLInputElement checkbox = (HTMLInputElement) li.firstElementChild.firstElementChild;
-            checkbox.checked = checked;
-        }
-        repository.completeAll(checked);
+        Application.toggleAll(list, toggleAll.checked);
+        repository.completeAll(toggleAll.checked);
         update();
     }
 
     private void clearCompleted() {
-        Set<String> ids = new HashSet<>();
-        for (Iterator<HTMLElement> iterator = Elements.iterator(list); iterator.hasNext(); ) {
-            HTMLElement li = iterator.next();
-            if (li.classList.contains("completed")) {
-                String id = String.valueOf(li.dataset.get("item"));
-                if (id != null) {
-                    ids.add(id);
-                }
-                iterator.remove();
-            }
-        }
-        repository.removeAll(ids);
+        repository.removeAll(Application.getCompleted(list));
         update();
     }
 
     void filter(String token) {
         filter = Filter.parseToken(token);
-        switch (filter) {
-            case ALL:
-                filterAll.classList.add("selected");
-                filterActive.classList.remove("selected");
-                filterCompleted.classList.remove("selected");
-                break;
-            case ACTIVE:
-                filterAll.classList.remove("selected");
-                filterActive.classList.add("selected");
-                filterCompleted.classList.remove("selected");
-                break;
-            case COMPLETED:
-                filterAll.classList.remove("selected");
-                filterActive.classList.remove("selected");
-                filterCompleted.classList.add("selected");
-                break;
-        }
+        Application.filter(filter, filterAll, filterActive, filterCompleted);
         update();
     }
 
@@ -200,23 +162,6 @@ class ApplicationElement implements IsElement {
     // ------------------------------------------------------ state update
 
     void update() {
-        int activeCount = 0;
-        int completedCount = 0;
-        int size = (int) list.childElementCount;
-
-        Elements.setVisible(main, size > 0);
-        Elements.setVisible(footer, size > 0);
-        for (HTMLElement li : Elements.children(list)) {
-            if (li.classList.contains("completed")) {
-                completedCount++;
-                Elements.setVisible(li, filter != ACTIVE);
-            } else {
-                Elements.setVisible(li, filter != COMPLETED);
-                activeCount++;
-            }
-        }
-        toggleAll.checked = size == completedCount;
-        Elements.innerHtml(count, i18n.messages().items(activeCount));
-        Elements.setVisible(clearCompleted, completedCount != 0);
+        Application.update(filter, i18n, list, main, footer, toggleAll, count, clearCompleted);
     }
 }

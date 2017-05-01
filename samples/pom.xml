@@ -50,8 +50,8 @@
     <modules>
         <module>common</module>
         <module>builder</module>
-        <!--<module>gin</module>-->
-        <!--<module>templated</module>-->
+        <module>gin</module>
+        <module>templated</module>
     </modules>
 
     <dependencyManagement>

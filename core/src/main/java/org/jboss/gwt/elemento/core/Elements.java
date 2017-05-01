@@ -318,9 +318,9 @@ public final class Elements {
 
             if (!elements.peek().container) {
                 throw new IllegalStateException(
-                        logId() + "Closing element " + elements.peek().element + " is no container");
+                        logId() + "Closing element " + currentElement() + " is no container");
             }
-            Element closingElement = elements.peek().element;
+            Element closingElement = currentElement();
             for (ElementInfo child : children) {
                 closingElement.appendChild(child.element);
             }
@@ -530,7 +530,7 @@ public final class Elements {
          */
         public B id(@NonNls String id) {
             assertCurrent();
-            elements.peek().element.id = id;
+            currentElement().id = id;
             return that();
         }
 
@@ -539,7 +539,7 @@ public final class Elements {
          */
         public B title(String title) {
             assertCurrent();
-            elements.peek().element.title = title;
+            currentElement().title = title;
             return that();
         }
 
@@ -561,10 +561,9 @@ public final class Elements {
             if (rest != null) {
                 classes.addAll(asList(rest));
             }
-            String combined = rest != null && rest.length != 0
+            currentElement().className = rest != null && rest.length != 0
                     ? Joiner.on(' ').skipNulls().join(classes)
                     : first;
-            elements.peek().element.className = combined;
             return that();
         }
 
@@ -573,7 +572,7 @@ public final class Elements {
          */
         public B style(@NonNls String style) {
             assertCurrent();
-            elements.peek().element.style.cssText = style;
+            currentElement().style.cssText = style;
             return that();
         }
 
@@ -582,7 +581,7 @@ public final class Elements {
          */
         public B attr(@NonNls String name, String value) {
             assertCurrent();
-            elements.peek().element.setAttribute(name, value);
+            currentElement().setAttribute(name, value);
             return that();
         }
 
@@ -593,8 +592,9 @@ public final class Elements {
          *             already present.
          */
         public B data(@NonNls String name, String value) {
+            assertCurrent();
             String safeName = name.startsWith("data-") ? name.substring("data-".length()) : name;
-            elements.peek().element.dataset.set(safeName, value);
+            currentElement().dataset.set(safeName, value);
             return that();
         }
 
@@ -614,7 +614,7 @@ public final class Elements {
          */
         public B innerHtml(SafeHtml html) {
             assertCurrent();
-            elements.peek().element.innerHTML = html.asString();
+            currentElement().innerHTML = html.asString();
             return that();
         }
 
@@ -626,7 +626,7 @@ public final class Elements {
         @Deprecated
         public B innerText(String text) {
             assertCurrent();
-            elements.peek().element.textContent = text;
+            currentElement().textContent = text;
             return that();
         }
 
@@ -635,7 +635,7 @@ public final class Elements {
          */
         public B textContent(String text) {
             assertCurrent();
-            elements.peek().element.textContent = text;
+            currentElement().textContent = text;
             return that();
         }
 
@@ -643,6 +643,10 @@ public final class Elements {
             if (elements.isEmpty()) {
                 throw new IllegalStateException(logId() + "No current element");
             }
+        }
+
+        protected HTMLElement currentElement() {
+            return elements.peek().element;
         }
 
 
@@ -653,9 +657,7 @@ public final class Elements {
          */
         public B on(EventType type, EventCallbackFn callback) {
             assertCurrent();
-
-            HTMLElement element = elements.peek().element;
-            type.register(element, callback);
+            type.register(currentElement(), callback);
             return that();
         }
 
@@ -668,7 +670,7 @@ public final class Elements {
          */
         public B rememberAs(@NonNls String id) {
             assertCurrent();
-            references.put(id, elements.peek().element);
+            references.put(id, currentElement());
             return that();
         }
 
