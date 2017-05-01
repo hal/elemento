@@ -77,6 +77,7 @@ public class ChildrenIterator implements Iterator<HTMLElement> {
         }
         index--;
         parent.removeChild(children.getAt(index));
+        children.splice(index, 1);
         size = children.getLength();
     }
 }
