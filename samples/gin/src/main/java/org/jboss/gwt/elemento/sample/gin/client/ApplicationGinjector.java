@@ -24,7 +24,6 @@ package org.jboss.gwt.elemento.sample.gin.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
-import org.jboss.gwt.elemento.sample.common.BeanFactory;
 import org.jboss.gwt.elemento.sample.common.I18n;
 
 @SuppressWarnings("unused")
@@ -36,8 +35,6 @@ public interface ApplicationGinjector extends Ginjector {
     ApplicationElement application();
 
     FooterElement footer();
-
-    BeanFactory beanFactory();
 
     I18n i18n();
 }

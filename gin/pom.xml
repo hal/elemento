@@ -41,6 +41,7 @@
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+            <type>gwt-lib</type>
         </dependency>
         <dependency>
             <groupId>com.google.gwt.inject</groupId>
