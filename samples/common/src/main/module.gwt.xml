@@ -24,7 +24,6 @@
 <module>
     <inherits name="com.google.gwt.core.Core"/>
     <inherits name="com.google.gwt.i18n.I18N"/>
-    <inherits name="com.intendia.rxgwt.RxElemental2"/>
 
     <source path="common"/>
 </module>

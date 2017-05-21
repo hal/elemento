@@ -21,7 +21,6 @@
  */
 package org.jboss.gwt.elemento.sample.gin.client;
 
-import com.intendia.rxgwt.elemental2.RxElemental2;
 import javax.annotation.PostConstruct;
 
 import com.google.inject.Provider;
@@ -32,6 +31,7 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.Elements;
+import org.jboss.gwt.elemento.core.EventType;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.Application;
@@ -83,9 +83,9 @@ abstract class ApplicationElement implements IsElement {
         }
         update();
 
-        RxElemental2.fromEvent(newTodo, RxElemental2.keydown).subscribe(e -> newTodo(e));
-        RxElemental2.fromEvent(toggleAll, RxElemental2.change).subscribe(e -> toggleAll());
-        RxElemental2.fromEvent(clearCompleted, RxElemental2.click).subscribe(e -> clearCompleted());
+        EventType.fromEvent(newTodo, EventType.keydown, e -> newTodo(e));
+        EventType.fromEvent(toggleAll, EventType.change, e -> toggleAll());
+        EventType.fromEvent(clearCompleted, EventType.click, e -> clearCompleted());
     }
 
     void newTodo(KeyboardEvent event) {

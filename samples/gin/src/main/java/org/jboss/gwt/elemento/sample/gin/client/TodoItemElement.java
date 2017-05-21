@@ -22,11 +22,11 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import com.google.inject.Provider;
-import com.intendia.rxgwt.elemental2.RxElemental2;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.DataElement;
+import org.jboss.gwt.elemento.core.EventType;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
@@ -64,11 +64,11 @@ abstract class TodoItemElement implements IsElement {
         label.textContent = item.text;
         toggle.checked = item.completed;
 
-        RxElemental2.fromEvent(toggle, RxElemental2.change).subscribe(e -> toggle());
-        RxElemental2.fromEvent(label, RxElemental2.dblclick).subscribe(e -> edit());
-        RxElemental2.fromEvent(destroy, RxElemental2.click).subscribe(e -> destroy());
-        RxElemental2.fromEvent(input, RxElemental2.keydown).subscribe(e -> keyDown(e));
-        RxElemental2.fromEvent(input, RxElemental2.blur).subscribe(e -> blur());
+        EventType.fromEvent(toggle, EventType.change, e -> toggle());
+        EventType.fromEvent(label, EventType.dblclick, e -> edit());
+        EventType.fromEvent(destroy, EventType.click, e -> destroy());
+        EventType.fromEvent(input, EventType.keydown, e -> keyDown(e));
+        EventType.fromEvent(input, EventType.blur, e -> blur());
     }
 
     void toggle() {

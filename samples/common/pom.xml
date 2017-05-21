@@ -48,11 +48,4 @@
             </plugin>
         </plugins>
     </build>
-    <dependencies>
-        <dependency>
-            <groupId>com.intendia.gwt.rxgwt</groupId>
-            <artifactId>rxgwt</artifactId>
-            <version>HEAD-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 </project>
