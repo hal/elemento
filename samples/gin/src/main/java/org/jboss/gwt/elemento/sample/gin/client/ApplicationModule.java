@@ -24,7 +24,6 @@ package org.jboss.gwt.elemento.sample.gin.client;
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
-import org.jboss.gwt.elemento.sample.common.BeanFactory;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoConstants;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
@@ -40,11 +39,6 @@ public class ApplicationModule extends AbstractGinModule {
         bind(ApplicationElement.class).toProvider(Templated_ApplicationElement_Provider.class).in(Singleton.class);
         bind(FooterElement.class).toProvider(Templated_FooterElement_Provider.class).in(Singleton.class);
         bind(TodoItemElement.class).toProvider(Templated_TodoItemElement_Provider.class);
-    }
-
-    @Provides
-    TodoItemRepository provideRepository(BeanFactory beanFactory) {
-        return new TodoItemRepository(beanFactory);
     }
 
     @Provides
