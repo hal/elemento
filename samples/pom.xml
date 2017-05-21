@@ -60,6 +60,7 @@
                 <groupId>org.jboss.gwt.elemento</groupId>
                 <artifactId>sample-common</artifactId>
                 <version>${project.version}</version>
+                <type>gwt-lib</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -68,6 +69,8 @@
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+            <version>${project.version}</version>
+            <type>gwt-lib</type>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
