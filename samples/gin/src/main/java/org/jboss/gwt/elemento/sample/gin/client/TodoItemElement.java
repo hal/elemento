@@ -58,12 +58,12 @@ abstract class TodoItemElement implements IsElement {
     // @PostConstruct not possible here since the TodoItem is not injectable!
     void init(TodoItem item) {
         this.item = item;
-        asElement().dataset.set("item", item.getId());
-        if (item.isCompleted()) {
+        asElement().dataset.set("item", item.id);
+        if (item.completed) {
             asElement().classList.add("completed");
         }
-        label.textContent = item.getText();
-        toggle.checked = item.isCompleted();
+        label.textContent = item.text;
+        toggle.checked = item.completed;
     }
 
     @EventHandler(element = "toggle", on = change)

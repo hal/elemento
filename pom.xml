@@ -102,6 +102,7 @@
                 <groupId>org.jboss.gwt.elemento</groupId>
                 <artifactId>elemento-core</artifactId>
                 <version>${project.version}</version>
+                <type>gwt-lib</type>
             </dependency>
             <dependency>
                 <groupId>org.jboss.gwt.elemento</groupId>
@@ -254,6 +255,19 @@
                         <phase>site</phase>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <devmodeArgs>
+                        <devmodeArg>-incremental</devmodeArg>
+                    </devmodeArgs>
+                    <startupUrls>
+                        <url>http://localhost:8888/</url>
+                    </startupUrls>
+                </configuration>
             </plugin>
         </plugins>
     </build>
