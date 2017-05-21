@@ -21,6 +21,7 @@
  */
 package org.jboss.gwt.elemento.sample.templated.client;
 
+import com.intendia.rxgwt.elemental2.RxElemental2;
 import javax.annotation.PostConstruct;
 
 import elemental2.dom.HTMLButtonElement;
@@ -29,7 +30,6 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.Elements;
-import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.Application;
@@ -80,9 +80,12 @@ abstract class ApplicationElement implements IsElement {
             list.appendChild(TodoItemElement.create(this, repository(), item).asElement());
         }
         update();
+
+        RxElemental2.fromEvent(newTodo, RxElemental2.keydown).subscribe(e -> newTodo(e));
+        RxElemental2.fromEvent(toggleAll, RxElemental2.change).subscribe(e -> toggleAll());
+        RxElemental2.fromEvent(clearCompleted, RxElemental2.click).subscribe(e -> clearCompleted());
     }
 
-    @EventHandler(element = "newTodo", on = keydown)
     void newTodo(KeyboardEvent event) {
         if ("Enter".equals(event.key)) {
             String text = newTodo.value.trim();
@@ -95,14 +98,12 @@ abstract class ApplicationElement implements IsElement {
         }
     }
 
-    @EventHandler(element = "toggleAll", on = change)
     void toggleAll() {
         Application.toggleAll(list, toggleAll.checked);
         repository().completeAll(toggleAll.checked);
         update();
     }
 
-    @EventHandler(element = "clearCompleted", on = click)
     void clearCompleted() {
         repository().removeAll(Application.getCompleted(list));
         update();

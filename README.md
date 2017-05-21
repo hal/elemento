@@ -2,7 +2,7 @@
 Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/articles/elemental.html) as easy as possible. In a nutshell Elemento brings the following features to the table:
 
 - Builder like API to easily create arbitrary large element hierarchies
-- HTML templates, declarative event handling and support for [handlebar](http://handlebarsjs.com/)-like expressions
+- HTML templates and support for [handlebar](http://handlebarsjs.com/)-like expressions
 - Support for dependency injection with [GIN](https://code.google.com/p/google-gin/)
 - Helper methods to mix and match GWT Elemental and GWT Widgets
 
@@ -102,25 +102,6 @@ Elements.Builder builder = new Elements.Builder()
 // @formatter:on
     
 HTMLElement count = builder.referenceFor("count");
-```
-
-### Event Handlers
-The builder API provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventCallbackFn)` to add handlers when building the element tree. There are [enum constants](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
-
-```java
-import static org.jboss.gwt.elemento.core.EventType.*;
-
-// @formatter:off
-HTMLElement listItem = new Elements.Builder()
-    .li()
-        .div().css("view")
-            .input(checkbox).on(change, event -> toggle()).css("toggle")
-            .label().on(dblclick, (event) -> edit()).textContent("...").end()
-            .button().on(click, (event) -> destroy()).css("destroy").end()
-        .end()
-        .input(text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit")
-    .end().build();
-// @formatter:on
 ```
 
 ### Extending the Builder
@@ -279,31 +260,6 @@ The `@DataElement` can be applied to fields and methods. Those fields and method
     
     The element in the HTML template is replaced with the return value of the method. The method must return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
 
-### Event Handlers
-It's possible to register event handlers for elements marked with `data-element=<name>`. It does not matter whether the HTML element is mapped with `@DataElement`. Attaching the event handler will work in any case:
-
-```java
-import static org.jboss.gwt.elemento.core.EventType.click;
-
-@Templated("Todo.html#todos")
-abstract class ApplicationElement implements IsElement {
-
-    @EventHandler(element = "clearCompleted", on = click)
-    void clearCompleted() {
-    }
-}
-```
-
-The annotated methods must return void and can have one optional parameter of type `elemental.events.Event` or one of its subtypes. It's your responsibility that the event parameter matches to the register event type like in: 
-
-```java
-@EventHandler(element = "newTodo", on = keydown)
-void newTodo(KeyboardEvent event) {
-}
-```
-
-The available event types are provided as enum constants. See [EventType](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) for more details.   
-
 ### Handlebars
 Elemento supports [handlebar](http://handlebarsjs.com/)-like expressions in HTML templates:
  
@@ -321,7 +277,7 @@ The expressions between `{{` and `}}` need to be valid Java expressions. They're
 Handlebars expressions are supported in text nodes and attribute values. 
 
 ### PostConstruct
-Since templated classes cannot have a constructor it's possible to annotate a method with `javax.annotation.PostConstruct`. This method will be called from the generated constructor **after** all initialization steps (element mapping, event handlers, handlebars). So it's safe to use the abstract accessor methods and data elements from the initialization method:
+Since templated classes cannot have a constructor it's possible to annotate a method with `javax.annotation.PostConstruct`. This method will be called from the generated constructor **after** all initialization steps (element mapping, handlebars). So it's safe to use the abstract accessor methods and data elements from the initialization method:
  
 ```java
 @Templated("Todo.html#todos")

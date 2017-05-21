@@ -24,7 +24,7 @@ package org.jboss.gwt.elemento.core;
 import elemental2.dom.HTMLElement;
 
 /**
- * Known event types used in {@link Elements.Builder#on(EventType, EventCallbackFn)} and {@link EventHandler}.
+ * Known event types used in {@link Elements.Builder#on(EventType, EventCallbackFn)}.
  */
 public enum EventType {
 

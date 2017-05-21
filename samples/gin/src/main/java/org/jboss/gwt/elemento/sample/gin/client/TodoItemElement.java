@@ -22,17 +22,15 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import com.google.inject.Provider;
+import com.intendia.rxgwt.elemental2.RxElemental2;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.DataElement;
-import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-
-import static org.jboss.gwt.elemento.core.EventType.*;
 
 @Templated("Todo.html#item")
 @SuppressWarnings("WeakerAccess")
@@ -51,6 +49,7 @@ abstract class TodoItemElement implements IsElement {
 
     @DataElement HTMLInputElement toggle;
     @DataElement HTMLElement label;
+    @DataElement HTMLElement destroy;
     @DataElement HTMLInputElement input;
     TodoItem item;
     boolean escape;
@@ -64,9 +63,14 @@ abstract class TodoItemElement implements IsElement {
         }
         label.textContent = item.text;
         toggle.checked = item.completed;
+
+        RxElemental2.fromEvent(toggle, RxElemental2.change).subscribe(e -> toggle());
+        RxElemental2.fromEvent(label, RxElemental2.dblclick).subscribe(e -> edit());
+        RxElemental2.fromEvent(destroy, RxElemental2.click).subscribe(e -> destroy());
+        RxElemental2.fromEvent(input, RxElemental2.keydown).subscribe(e -> keyDown(e));
+        RxElemental2.fromEvent(input, RxElemental2.blur).subscribe(e -> blur());
     }
 
-    @EventHandler(element = "toggle", on = change)
     void toggle() {
         if (toggle.checked) {
             asElement().classList.add("completed");
@@ -77,7 +81,6 @@ abstract class TodoItemElement implements IsElement {
         application().get().update();
     }
 
-    @EventHandler(element = "label", on = dblclick)
     void edit() {
         escape = false;
         asElement().classList.add("editing");
@@ -85,7 +88,6 @@ abstract class TodoItemElement implements IsElement {
         input.focus();
     }
 
-    @EventHandler(element = "destroy", on = click)
     void destroy() {
         asElement().parentNode.removeChild(asElement());
         repository().remove(item);
@@ -93,18 +95,15 @@ abstract class TodoItemElement implements IsElement {
     }
 
     @SuppressWarnings("Duplicates")
-    @EventHandler(element = "input", on = keydown)
     void keyDown(final KeyboardEvent event) {
         if ("Esc".equals(event.key)) {
             escape = true;
             asElement().classList.remove("editing");
-
         } else if ("Enter".equals(event.key)) {
             blur();
         }
     }
 
-    @EventHandler(element = "input", on = blur)
     void blur() {
         String value = input.value.trim();
         if (value.length() == 0) {
