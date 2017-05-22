@@ -1,4 +1,6 @@
 # Elemento
+
+[![Join the chat at https://gitter.im/hal/elemento](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/articles/elemental.html) as easy as possible. In a nutshell Elemento brings the following features to the table:
 
 - Builder like API to easily create arbitrary large element hierarchies
