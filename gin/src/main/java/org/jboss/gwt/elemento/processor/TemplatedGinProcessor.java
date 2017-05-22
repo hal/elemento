@@ -21,22 +21,22 @@
  */
 package org.jboss.gwt.elemento.processor;
 
-import com.google.auto.service.AutoService;
-import com.google.common.collect.ImmutableMap;
-import org.jboss.gwt.elemento.core.Templated;
-import org.jboss.gwt.elemento.processor.context.AbstractPropertyInfo;
-import org.jboss.gwt.elemento.processor.context.FreemarkerContext;
-
+import java.util.List;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.lang.model.element.TypeElement;
-import java.util.List;
+
+import com.google.auto.service.AutoService;
+import com.google.common.collect.ImmutableMap;
+import org.jboss.gwt.elemento.processor.context.AbstractPropertyInfo;
+import org.jboss.gwt.elemento.processor.context.FreemarkerContext;
+import org.jboss.gwt.elemento.template.Templated;
 
 @AutoService(Processor.class)
-@SupportedAnnotationTypes("org.jboss.gwt.elemento.core.Templated")
+@SupportedAnnotationTypes("org.jboss.gwt.elemento.template.Templated")
 public class TemplatedGinProcessor extends TemplatedProcessor {
 
-    static final String FREEMARKER_TEMPLATE = "TemplatedProvider.ftl";
+    private static final String FREEMARKER_TEMPLATE = "TemplatedProvider.ftl";
 
     public TemplatedGinProcessor() {
         super(TemplatedGinProcessor.class, "templates");

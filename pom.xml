@@ -34,7 +34,7 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <packaging>pom</packaging>
@@ -93,6 +93,7 @@
     <modules>
         <module>core</module>
         <module>gin</module>
+        <module>template</module>
     </modules>
 
     <dependencyManagement>
@@ -101,6 +102,11 @@
             <dependency>
                 <groupId>org.jboss.gwt.elemento</groupId>
                 <artifactId>elemento-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.gwt.elemento</groupId>
+                <artifactId>elemento-template</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -254,6 +260,19 @@
                         <phase>site</phase>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <devmodeArgs>
+                        <devmodeArg>-incremental</devmodeArg>
+                    </devmodeArgs>
+                    <startupUrls>
+                        <url>http://localhost:8888/</url>
+                    </startupUrls>
+                </configuration>
             </plugin>
         </plugins>
     </build>

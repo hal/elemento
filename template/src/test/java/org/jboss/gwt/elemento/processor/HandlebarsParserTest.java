@@ -1,9 +1,9 @@
 package org.jboss.gwt.elemento.processor;
 
+import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

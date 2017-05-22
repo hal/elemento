@@ -25,17 +25,15 @@ import com.google.inject.Provider;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
-import org.jboss.gwt.elemento.core.DataElement;
-import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+import org.jboss.gwt.elemento.template.DataElement;
+import org.jboss.gwt.elemento.template.Templated;
 
 import static org.jboss.gwt.elemento.core.EventType.*;
 
 @Templated("Todo.html#item")
-@SuppressWarnings("WeakerAccess")
 abstract class TodoItemElement implements IsElement {
 
     // @formatter:off
@@ -51,23 +49,31 @@ abstract class TodoItemElement implements IsElement {
 
     @DataElement HTMLInputElement toggle;
     @DataElement HTMLElement label;
+    @DataElement HTMLElement destroy;
     @DataElement HTMLInputElement input;
-    TodoItem item;
-    boolean escape;
+    private TodoItem item;
+    private boolean escape;
 
     // @PostConstruct not possible here since the TodoItem is not injectable!
     void init(TodoItem item) {
         this.item = item;
-        asElement().dataset.set("item", item.getId());
-        if (item.isCompleted()) {
+        asElement().dataset.set("item", item.id);
+        if (item.completed) {
             asElement().classList.add("completed");
         }
-        label.textContent = item.getText();
-        toggle.checked = item.isCompleted();
+        label.textContent = item.text;
+        toggle.checked = item.completed;
+
+        bind(toggle, change, e -> toggle());
+        bind(label, dblclick, e -> edit());
+        bind(destroy, click, e -> destroy());
+        bind(input, keydown, this::keyDown);
+        bind(input, blur, e -> blur());
     }
 
-    @EventHandler(element = "toggle", on = change)
-    void toggle() {
+    // ------------------------------------------------------ event handler
+
+    private void toggle() {
         if (toggle.checked) {
             asElement().classList.add("completed");
         } else {
@@ -77,35 +83,30 @@ abstract class TodoItemElement implements IsElement {
         application().get().update();
     }
 
-    @EventHandler(element = "label", on = dblclick)
-    void edit() {
+    private void edit() {
         escape = false;
         asElement().classList.add("editing");
         input.value = label.textContent;
         input.focus();
     }
 
-    @EventHandler(element = "destroy", on = click)
-    void destroy() {
+    private void destroy() {
         asElement().parentNode.removeChild(asElement());
         repository().remove(item);
         application().get().update();
     }
 
     @SuppressWarnings("Duplicates")
-    @EventHandler(element = "input", on = keydown)
-    void keyDown(final KeyboardEvent event) {
+    private void keyDown(final KeyboardEvent event) {
         if ("Esc".equals(event.key)) {
             escape = true;
             asElement().classList.remove("editing");
-
         } else if ("Enter".equals(event.key)) {
             blur();
         }
     }
 
-    @EventHandler(element = "input", on = blur)
-    void blur() {
+    private void blur() {
         String value = input.value.trim();
         if (value.length() == 0) {
             destroy();

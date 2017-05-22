@@ -24,7 +24,6 @@ package org.jboss.gwt.elemento.sample.builder.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.History;
-import org.jboss.gwt.elemento.sample.common.BeanFactory;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoConstants;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
@@ -36,12 +35,11 @@ public class Main implements EntryPoint {
 
     private static final TodoConstants CONSTANTS = GWT.create(TodoConstants.class);
     private static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
-    private static final BeanFactory BEAN_FACTORY = GWT.create(BeanFactory.class);
 
     @Override
     public void onModuleLoad() {
         I18n i18n = new I18n(CONSTANTS, MESSAGES);
-        TodoItemRepository repository = new TodoItemRepository(BEAN_FACTORY);
+        TodoItemRepository repository = new TodoItemRepository();
         ApplicationElement application = new ApplicationElement(repository, i18n);
 
         document.body.appendChild(application.asElement());

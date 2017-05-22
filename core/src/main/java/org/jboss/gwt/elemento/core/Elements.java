@@ -40,6 +40,7 @@ import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.Document;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
+import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.Node;
@@ -655,9 +656,9 @@ public final class Elements {
         /**
          * Adds the given callback to the the last added element.
          */
-        public B on(EventType type, EventCallbackFn callback) {
+        public <E extends Event> B on(EventType<E, ?> type, EventCallbackFn<E> callback) {
             assertCurrent();
-            type.register(currentElement(), callback);
+            EventType.bind(currentElement(), type, callback);
             return that();
         }
 

@@ -26,12 +26,12 @@ import javax.lang.model.type.TypeMirror;
  *
  * @author emcmanus@google.com (Éamonn McManus)
  */
-public final class TypeSimplifier {
+final class TypeSimplifier {
 
     /**
      * Returns the name of the given type, including any enclosing types but not the package.
      */
-    public static String classNameOf(TypeElement type) {
+    static String classNameOf(TypeElement type) {
         String name = type.getQualifiedName().toString();
         String pkgName = packageNameOf(type);
         return pkgName.isEmpty() ? name : name.substring(pkgName.length() + 1);
@@ -41,7 +41,7 @@ public final class TypeSimplifier {
      * Returns the name of the package that the given type is in. If the type is in the default
      * (unnamed) package then the name is the empty string.
      */
-    public static String packageNameOf(TypeElement type) {
+    static String packageNameOf(TypeElement type) {
         while (true) {
             Element enclosing = type.getEnclosingElement();
             if (enclosing instanceof PackageElement) {
@@ -51,7 +51,7 @@ public final class TypeSimplifier {
         }
     }
 
-    public static String simpleNameOf(String s) {
+    static String simpleNameOf(String s) {
         if (s.contains(".")) {
             return s.substring(s.lastIndexOf('.') + 1);
         } else {
@@ -59,7 +59,7 @@ public final class TypeSimplifier {
         }
     }
 
-    public static String simpleTypeName(final TypeMirror type) {
+    static String simpleTypeName(final TypeMirror type) {
         String name = type.toString();
         if (name.startsWith("java.lang.")) {
             return name.substring("java.lang.".length());

@@ -8,8 +8,8 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
-<#if (context.dataElements?size > 0 || context.eventHandler?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
-import org.jboss.gwt.elemento.core.TemplateUtil;
+<#if (context.dataElements?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
+import org.jboss.gwt.elemento.template.TemplateUtil;
 </#if>
 
 import javax.annotation.Generated;
@@ -72,18 +72,6 @@ final class ${context.subclass} extends ${context.base} {
             <#elseif dataElement.kind.name() == "IsWidget">
         TemplateUtil.replaceIsWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
             </#if>
-        </#list>
-        <#-- @EventHandler -->
-        <#list context.eventHandler as handler>
-        <#if handler.needsCast()>
-        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, event -> ${handler.method}((${handler.eventParameterType}) event));
-        <#else>
-            <#if handler.hasEventParameter()>
-        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, this::${handler.method});
-            <#else>
-        TemplateUtil.registerEventHandler(${context.root.member}, "${handler.selector}", ${handler.eventType}, event -> ${handler.method}());
-            </#if>
-        </#if>
         </#list>
         <#-- Handlebars -->
         <#if (context.root.innerHtml?? && context.root.handlebars?size > 0)>

@@ -89,7 +89,7 @@ class ApplicationElement implements IsElement {
                     .filter(ACTIVE.fragment(), i18n.constants().filter_active(), ACTIVE.filter())
                     .filter(COMPLETED.fragment(), i18n.constants().filter_completed(), COMPLETED.filter())
                 .end()
-                .button().on(click, (event) -> clearCompleted()).css("clear-completed").rememberAs("clearCompleted")
+                .button().on(click, event -> clearCompleted()).css("clear-completed").rememberAs("clearCompleted")
                     .textContent(i18n.constants().clear_completed())
                 .end()
             .end()

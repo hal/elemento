@@ -54,11 +54,11 @@ class TodoItemElement implements IsElement {
 
         // @formatter:off
         Elements.Builder builder = new Elements.Builder()
-        .li().css(item.isCompleted() ? "completed" : "").data("item", item.getId())
+        .li().css(item.completed ? "completed" : "").data("item", item.id)
             .div().css("view")
                 .input(checkbox).on(change, event -> toggle()).rememberAs("toggle").css("toggle")
-                .label().on(dblclick, (event) -> edit()).textContent(item.getText()).rememberAs("label").end()
-                .button().on(click, (event) -> destroy()).css("destroy").end()
+                .label().on(dblclick, event -> edit()).textContent(item.text).rememberAs("label").end()
+                .button().on(click, event -> destroy()).css("destroy").end()
             .end()
             .input(text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
         .end();
@@ -66,7 +66,7 @@ class TodoItemElement implements IsElement {
 
         this.li = builder.build();
         this.toggle = builder.referenceFor("toggle");
-        this.toggle.checked = item.isCompleted();
+        this.toggle.checked = item.completed;
         this.label = builder.referenceFor("label");
         this.input = builder.referenceFor("input");
     }

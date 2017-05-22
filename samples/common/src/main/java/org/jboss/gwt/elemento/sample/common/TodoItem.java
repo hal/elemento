@@ -21,17 +21,15 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
-public interface TodoItem {
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsType;
 
-    String getId();
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public class TodoItem {
 
-    void setId(String id);
+    public String id;
 
-    String getText();
+    public String text;
 
-    void setText(String text);
-
-    boolean isCompleted();
-
-    void setCompleted(boolean completed);
+    public boolean completed;
 }
