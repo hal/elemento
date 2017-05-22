@@ -42,8 +42,6 @@ In your GWT module inherit from `org.jboss.gwt.elemento.Core`:
 </module>
 ```
 
-The HTML templates rely on annotation processing. The annotation processors are configured in `META-INF/services/javax.annotation.processing.Processor` and should be detected automatically.
-
 ## Builder API
 When working with GWT Elemental it is often awkward and cumbersome to create an hierarchy of elements. Even simple structures like
 ```html
@@ -105,7 +103,7 @@ HTMLElement count = builder.referenceFor("count");
 ```
 
 ### Event Handlers
-The builder API provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventCallbackFn)` to add handlers when building the element tree. There are [enum constants](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
+The builder API provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventCallbackFn)` to add handlers when building the element tree. There are [constants](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
 
 ```java
 import static org.jboss.gwt.elemento.core.EventType.*;
@@ -115,8 +113,8 @@ HTMLElement listItem = new Elements.Builder()
     .li()
         .div().css("view")
             .input(checkbox).on(change, event -> toggle()).css("toggle")
-            .label().on(dblclick, (event) -> edit()).textContent("...").end()
-            .button().on(click, (event) -> destroy()).css("destroy").end()
+            .label().on(dblclick, event -> edit()).textContent("...").end()
+            .button().on(click, event -> destroy()).css("destroy").end()
         .end()
         .input(text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit")
     .end().build();
@@ -151,6 +149,27 @@ public class MyBuilder extends Elements.CoreBuilder<MyBuilder> {
 Elemento provides an easy way to take existing HTML content and use it in your GWT application. Templates can be either HTML snippets or full HTML documents where you select an element and its children. This allows you to preview your templates more easily during design without running the application. 
 
 Elemento leverages annotation processors to generate code which picks the HTML content from your template. This code generation is inspired by Google's [AutoValue](https://github.com/google/auto/tree/master/value#how-to-use-autovalue) and it might take some time to get used to it. 
+
+To use HTML templates add the following maven dependency:
+ 
+```xml
+<dependency>
+    <groupId>org.jboss.gwt.elemento</groupId>
+    <artifactId>elemento-core</artifactId>
+    <version>[insert current version]</version>
+</dependency>
+```
+
+The HTML templates rely on annotation processing. The annotation processors are configured in `META-INF/services/javax.annotation.processing.Processor` and should be detected automatically.
+
+
+In your GWT module inherit from `org.jboss.gwt.elemento.Template`:
+
+```xml
+<module>
+    <inherits name="org.jboss.gwt.elemento.Template"/>
+</module>
+```
 
 ### Getting Started
 Let's say you've got the following HTML document called `Todo.html`:
