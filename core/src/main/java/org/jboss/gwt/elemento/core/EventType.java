@@ -44,53 +44,55 @@ import jsinterop.base.Js;
 
 /**
  * Known event types used in {@link Elements.Builder#on(EventType, EventCallbackFn)}.
+ *
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a>
  */
 @SuppressWarnings("unused")
 public class EventType<T extends Event, V extends EventTarget> {
 
-    // network events
+    // Network Events
     public static final EventType<Event, Window> online = new EventType<>("online");
     public static final EventType<Event, Window> offline = new EventType<>("offline");
 
-    // focus events
+    // Focus Events
     public static final EventType<FocusEvent, Element> focus = new EventType<>("focus");
     public static final EventType<FocusEvent, Element> blur = new EventType<>("blur");
 
-    // session history events
+    // Session History Events
     public static final EventType<PageTransitionEvent, Document> pagehide = new EventType<>("pagehide");
     public static final EventType<PageTransitionEvent, Document> pageshow = new EventType<>("pageshow");
     public static final EventType<PopStateEvent, Window> popstate = new EventType<>("popstate");
 
-    // form events
+    // Form Events
     public static final EventType<Event, Element> reset = new EventType<>("reset");
     public static final EventType<Event, Element> submit = new EventType<>("submit");
 
-    // printing events
+    // Printing Events
     public static final EventType<Event, Window> beforeprint = new EventType<>("beforeprint");
     public static final EventType<Event, Window> afterprint = new EventType<>("afterprint");
 
-    // text composition events
+    // Text Composition Events
     public static final EventType<TouchEvent, Element> compositionstart = new EventType<>("compositionstart");
     public static final EventType<TouchEvent, Element> compositionupdate = new EventType<>("compositionupdate");
     public static final EventType<TouchEvent, Element> compositionend = new EventType<>("compositionend");
 
-    // view events
+    // View Events
     public static final EventType<Event, Document> fullscreenchange = new EventType<>("fullscreenchange");
     public static final EventType<Event, Document> fullscreenerror = new EventType<>("fullscreenerror");
     public static final EventType<UIEvent, Window> resize = new EventType<>("resize");
     public static final EventType<UIEvent, EventTarget> scroll = new EventType<>("scroll");
 
-    // clipboard events
+    // Clipboard Events
     public static final EventType<ClipboardEvent, EventTarget> cut = new EventType<>("cut");
     public static final EventType<ClipboardEvent, EventTarget> copy = new EventType<>("copy");
     public static final EventType<ClipboardEvent, EventTarget> paste = new EventType<>("paste");
 
-    // keyboard events
+    // Keyboard Events
     public static final EventType<KeyboardEvent, EventTarget> keydown = new EventType<>("keydown");
     public static final EventType<KeyboardEvent, EventTarget> keypress = new EventType<>("keypress");
     public static final EventType<KeyboardEvent, EventTarget> keyup = new EventType<>("keyup");
 
-    // mouse events
+    // Mouse Events
     public static final EventType<MouseEvent, EventTarget> mouseenter = new EventType<>("mouseenter");
     public static final EventType<MouseEvent, EventTarget> mouseover = new EventType<>("mouseover");
     public static final EventType<MouseEvent, EventTarget> mousemove = new EventType<>("mousemove");
@@ -106,7 +108,7 @@ public class EventType<T extends Event, V extends EventTarget> {
     public static final EventType<Event, Document> pointerlockchange = new EventType<>("pointerlockchange");
     public static final EventType<Event, Document> pointerlockerror = new EventType<>("pointerlockerror");
 
-    // drag & drop events
+    // Drag & Drop Events
     public static final EventType<DragEvent, EventTarget> dragstart = new EventType<>("dragstart");
     public static final EventType<DragEvent, EventTarget> drag = new EventType<>("drag");
     public static final EventType<DragEvent, EventTarget> dragend = new EventType<>("dragend");
@@ -115,19 +117,19 @@ public class EventType<T extends Event, V extends EventTarget> {
     public static final EventType<DragEvent, EventTarget> dragleave = new EventType<>("dragleave");
     public static final EventType<DragEvent, EventTarget> drop = new EventType<>("drop");
 
-    // touch events
+    // Touch Events
     public static final EventType<TouchEvent, Element> touchcancel = new EventType<>("touchcancel");
     public static final EventType<TouchEvent, Element> touchend = new EventType<>("touchend");
     public static final EventType<TouchEvent, Element> touchmove = new EventType<>("touchmove");
     public static final EventType<TouchEvent, Element> touchstart = new EventType<>("touchstart");
 
-    // value change events
+    // Value Change Events
     public static final EventType<HashChangeEvent, Window> hashchange = new EventType<>("hashchange");
     public static final EventType<InputEvent, Element> input = new EventType<>("input");
     public static final EventType<Event, Document> readystatechange = new EventType<>("readystatechange");
     public static final EventType<InputEvent, Element> change = new EventType<>("change");
 
-    // uncategorized events
+    // Uncategorized Events
     public static final EventType<Event, Element> invalid = new EventType<>("invalid");
     public static final EventType<Event, Element> show = new EventType<>("show");
 
