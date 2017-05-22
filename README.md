@@ -300,31 +300,6 @@ The `@DataElement` can be applied to fields and methods. Those fields and method
     
     The element in the HTML template is replaced with the return value of the method. The method must return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
 
-### Event Handlers
-It's possible to register event handlers for elements marked with `data-element=<name>`. It does not matter whether the HTML element is mapped with `@DataElement`. Attaching the event handler will work in any case:
-
-```java
-import static org.jboss.gwt.elemento.core.EventType.click;
-
-@Templated("Todo.html#todos")
-abstract class ApplicationElement implements IsElement {
-
-    @EventHandler(element = "clearCompleted", on = click)
-    void clearCompleted() {
-    }
-}
-```
-
-The annotated methods must return void and can have one optional parameter of type `elemental.events.Event` or one of its subtypes. It's your responsibility that the event parameter matches to the register event type like in: 
-
-```java
-@EventHandler(element = "newTodo", on = keydown)
-void newTodo(KeyboardEvent event) {
-}
-```
-
-The available event types are provided as enum constants. See [EventType](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) for more details.   
-
 ### Handlebars
 Elemento supports [handlebar](http://handlebarsjs.com/)-like expressions in HTML templates:
  
