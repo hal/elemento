@@ -40,6 +40,13 @@
         <module.name>org.jboss.gwt.elemento.sample.Common</module.name>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

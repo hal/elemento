@@ -22,9 +22,7 @@
   -->
 
 <module>
-    <inherits name="com.google.gwt.core.Core"/>
-    <inherits name="com.google.gwt.i18n.I18N"/>
-    <inherits name="org.jboss.gwt.elemento.Core"/>
-
-    <source path="common"/>
+    <inherits name="com.google.common.base.Base"/>
+    <inherits name="com.google.common.collect.Collect"/>
+    <source path="template"/>
 </module>

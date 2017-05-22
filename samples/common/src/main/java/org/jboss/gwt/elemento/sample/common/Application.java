@@ -14,6 +14,7 @@ import org.jboss.gwt.elemento.core.Elements;
 public final class Application {
 
     public static void toggleAll(HTMLElement list, boolean checked) {
+
         for (HTMLElement li : Elements.children(list)) {
             if (checked) {
                 li.classList.add("completed");

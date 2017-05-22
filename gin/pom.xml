@@ -34,13 +34,17 @@
 
     <artifactId>elemento-gin</artifactId>
     <name>Elemento :: GIN</name>
-    <description>Processor which generated GIN providers for injecting templated classes</description>
+    <description>Annotation processor which generated GIN providers for injectable HTML templates</description>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-template</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.gwt.inject</groupId>

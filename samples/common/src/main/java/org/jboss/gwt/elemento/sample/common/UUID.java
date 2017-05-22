@@ -46,8 +46,7 @@ public final class UUID {
      * </ul>
      *
      * @param len   the desired number of characters
-     * @param radix the number of allowable values for each character (must be <=
-     *              62)
+     * @param radix the number of allowable values for each character (must be <= 62)
      */
     public static String uuid(int len, int radix) {
         if (radix > CHARS.length) {

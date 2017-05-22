@@ -9,7 +9,7 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 <#if (context.dataElements?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
-import org.jboss.gwt.elemento.core.TemplateUtil;
+import org.jboss.gwt.elemento.template.TemplateUtil;
 </#if>
 
 import javax.annotation.Generated;

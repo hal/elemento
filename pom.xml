@@ -93,6 +93,7 @@
     <modules>
         <module>core</module>
         <module>gin</module>
+        <module>template</module>
     </modules>
 
     <dependencyManagement>
@@ -101,6 +102,11 @@
             <dependency>
                 <groupId>org.jboss.gwt.elemento</groupId>
                 <artifactId>elemento-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.gwt.elemento</groupId>
+                <artifactId>elemento-template</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

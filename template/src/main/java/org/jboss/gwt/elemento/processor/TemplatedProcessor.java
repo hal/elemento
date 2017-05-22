@@ -64,26 +64,26 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.HTMLElement;
 import org.jboss.auto.AbstractProcessor;
-import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.processor.context.AbstractPropertyInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo.Kind;
 import org.jboss.gwt.elemento.processor.context.FreemarkerContext;
 import org.jboss.gwt.elemento.processor.context.PostConstructInfo;
 import org.jboss.gwt.elemento.processor.context.RootElementInfo;
+import org.jboss.gwt.elemento.template.DataElement;
+import org.jboss.gwt.elemento.template.Templated;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 @AutoService(Processor.class)
-@SupportedAnnotationTypes("org.jboss.gwt.elemento.core.Templated")
+@SupportedAnnotationTypes("org.jboss.gwt.elemento.template.Templated")
 public class TemplatedProcessor extends AbstractProcessor {
 
-    static final String FREEMARKER_TEMPLATE = "Templated.ftl";
-    static final Escaper JAVA_STRING_ESCAPER = Escapers.builder()
+    private static final String FREEMARKER_TEMPLATE = "Templated.ftl";
+    private static final Escaper JAVA_STRING_ESCAPER = Escapers.builder()
             .addEscape('"', "\\\"")
             .addEscape('\n', "")
             .addEscape('\r', "")
@@ -207,7 +207,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         info("Generated templated implementation [%s] for [%s]", context.getSubclass(), context.getBase());
     }
 
-    protected String verifyCreateMethod(TypeElement type) {
+    String verifyCreateMethod(TypeElement type) {
         java.util.Optional<ExecutableElement> createMethod = ElementFilter.methodsIn(type.getEnclosedElements())
                 .stream()
                 .filter(method -> method.getModifiers().contains(Modifier.STATIC) &&
@@ -216,15 +216,17 @@ public class TemplatedProcessor extends AbstractProcessor {
         if (!createMethod.isPresent()) {
             abortWithError(type, "@%s needs to define one static method which returns an %s instance",
                     Templated.class.getSimpleName(), type.getSimpleName());
+        } else {
+            return createMethod.get().getSimpleName().toString();
         }
-        return createMethod.get().getSimpleName().toString();
+        return null;
     }
 
-    protected String generatedClassName(TypeElement type, String prefix, String suffix) {
-        String name = type.getSimpleName().toString();
+    String generatedClassName(TypeElement type, @SuppressWarnings("SameParameterValue") String prefix, String suffix) {
+        StringBuilder name = new StringBuilder(type.getSimpleName().toString());
         while (type.getEnclosingElement() instanceof TypeElement) {
             type = (TypeElement) type.getEnclosingElement();
-            name = type.getSimpleName() + "_" + name;
+            name.insert(0, type.getSimpleName() + "_");
         }
         String pkg = TypeSimplifier.packageNameOf(type);
         String dot = pkg.isEmpty() ? "" : ".";
@@ -248,7 +250,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     private TemplateSelector getTemplateSelector(TypeElement type, Templated templated) {
         if (Strings.emptyToNull(templated.value()) == null) {
-                return new TemplateSelector(type.getSimpleName().toString() + ".html");
+            return new TemplateSelector(type.getSimpleName().toString() + ".html");
         } else {
             if (templated.value().contains("#")) {
                 Iterator<String> iterator = Splitter.on('#')
@@ -383,6 +385,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     private String getSelector(Element element) {
         String selector = null;
 
+        //noinspection Guava
         Optional<AnnotationMirror> annotationMirror = MoreElements
                 .getAnnotationMirror(element, DataElement.class);
         if (annotationMirror.isPresent()) {
@@ -448,7 +451,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     // ------------------------------------------------------ abstract properties
 
-    protected List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
+    List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
         List<AbstractPropertyInfo> abstractProperties = new ArrayList<>();
 
         ElementFilter.methodsIn(type.getEnclosedElements()).stream()

@@ -45,6 +45,10 @@
     <dependencies>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-template</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>sample-common</artifactId>
             <type>gwt-lib</type>
         </dependency>

@@ -21,10 +21,10 @@
  */
 package org.jboss.gwt.elemento.processor.context;
 
-import org.jsoup.nodes.Attribute;
-
 import java.util.List;
 import java.util.Map;
+
+import org.jsoup.nodes.Attribute;
 
 public class RootElementInfo {
 
