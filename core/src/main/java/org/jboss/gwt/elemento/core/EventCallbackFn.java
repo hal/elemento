@@ -8,5 +8,6 @@ import jsinterop.annotations.JsFunction;
  */
 @JsFunction
 public interface EventCallbackFn<E extends Event> {
+
     void onInvoke(E event);
 }

@@ -40,57 +40,57 @@ import elemental2.dom.TouchEvent;
 import elemental2.dom.UIEvent;
 import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
-import java.util.function.Consumer;
 import jsinterop.base.Js;
 
 /**
  * Known event types used in {@link Elements.Builder#on(EventType, EventCallbackFn)}.
  */
+@SuppressWarnings("unused")
 public class EventType<T extends Event, V extends EventTarget> {
 
-    // Network Events
+    // network events
     public static final EventType<Event, Window> online = new EventType<>("online");
     public static final EventType<Event, Window> offline = new EventType<>("offline");
 
-    // Focus event
+    // focus events
     public static final EventType<FocusEvent, Element> focus = new EventType<>("focus");
     public static final EventType<FocusEvent, Element> blur = new EventType<>("blur");
 
-    // Session History Events
+    // session history events
     public static final EventType<PageTransitionEvent, Document> pagehide = new EventType<>("pagehide");
     public static final EventType<PageTransitionEvent, Document> pageshow = new EventType<>("pageshow");
     public static final EventType<PopStateEvent, Window> popstate = new EventType<>("popstate");
 
-    // Form Events
+    // form events
     public static final EventType<Event, Element> reset = new EventType<>("reset");
     public static final EventType<Event, Element> submit = new EventType<>("submit");
 
-    // Printing Events
+    // printing events
     public static final EventType<Event, Window> beforeprint = new EventType<>("beforeprint");
     public static final EventType<Event, Window> afterprint = new EventType<>("afterprint");
 
-    // Text Composition Events
+    // text composition events
     public static final EventType<TouchEvent, Element> compositionstart = new EventType<>("compositionstart");
     public static final EventType<TouchEvent, Element> compositionupdate = new EventType<>("compositionupdate");
     public static final EventType<TouchEvent, Element> compositionend = new EventType<>("compositionend");
 
-    // View Events
+    // view events
     public static final EventType<Event, Document> fullscreenchange = new EventType<>("fullscreenchange");
     public static final EventType<Event, Document> fullscreenerror = new EventType<>("fullscreenerror");
     public static final EventType<UIEvent, Window> resize = new EventType<>("resize");
     public static final EventType<UIEvent, EventTarget> scroll = new EventType<>("scroll");
 
-    // Clipboard Events
+    // clipboard events
     public static final EventType<ClipboardEvent, EventTarget> cut = new EventType<>("cut");
     public static final EventType<ClipboardEvent, EventTarget> copy = new EventType<>("copy");
     public static final EventType<ClipboardEvent, EventTarget> paste = new EventType<>("paste");
 
-    // Keyboard Events
+    // keyboard events
     public static final EventType<KeyboardEvent, EventTarget> keydown = new EventType<>("keydown");
     public static final EventType<KeyboardEvent, EventTarget> keypress = new EventType<>("keypress");
     public static final EventType<KeyboardEvent, EventTarget> keyup = new EventType<>("keyup");
 
-    // Mouse Events
+    // mouse events
     public static final EventType<MouseEvent, EventTarget> mouseenter = new EventType<>("mouseenter");
     public static final EventType<MouseEvent, EventTarget> mouseover = new EventType<>("mouseover");
     public static final EventType<MouseEvent, EventTarget> mousemove = new EventType<>("mousemove");
@@ -106,7 +106,7 @@ public class EventType<T extends Event, V extends EventTarget> {
     public static final EventType<Event, Document> pointerlockchange = new EventType<>("pointerlockchange");
     public static final EventType<Event, Document> pointerlockerror = new EventType<>("pointerlockerror");
 
-    // Drag & Drop Events
+    // drag & drop events
     public static final EventType<DragEvent, EventTarget> dragstart = new EventType<>("dragstart");
     public static final EventType<DragEvent, EventTarget> drag = new EventType<>("drag");
     public static final EventType<DragEvent, EventTarget> dragend = new EventType<>("dragend");
@@ -115,43 +115,51 @@ public class EventType<T extends Event, V extends EventTarget> {
     public static final EventType<DragEvent, EventTarget> dragleave = new EventType<>("dragleave");
     public static final EventType<DragEvent, EventTarget> drop = new EventType<>("drop");
 
-    // Touch Events
+    // touch events
     public static final EventType<TouchEvent, Element> touchcancel = new EventType<>("touchcancel");
     public static final EventType<TouchEvent, Element> touchend = new EventType<>("touchend");
     public static final EventType<TouchEvent, Element> touchmove = new EventType<>("touchmove");
     public static final EventType<TouchEvent, Element> touchstart = new EventType<>("touchstart");
 
-    // Value Change Events
+    // value change events
     public static final EventType<HashChangeEvent, Window> hashchange = new EventType<>("hashchange");
     public static final EventType<InputEvent, Element> input = new EventType<>("input");
     public static final EventType<Event, Document> readystatechange = new EventType<>("readystatechange");
     public static final EventType<InputEvent, Element> change = new EventType<>("change");
 
-    // Uncategorized Events
+    // uncategorized events
     public static final EventType<Event, Element> invalid = new EventType<>("invalid");
     public static final EventType<Event, Element> show = new EventType<>("show");
 
-    public static HandlerRegistration fromEvent(EventTarget target, String type, EventListener listener) {
+
+    // ------------------------------------------------------ binding methods
+
+    public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
+            EventCallbackFn<T> listener) {
+        return bind(target, type.name, e -> listener.onInvoke(Js.cast(e)));
+    }
+
+    public static HandlerRegistration bind(EventTarget target, String type, EventListener listener) {
         target.addEventListener(type, listener);
         return () -> target.removeEventListener(type, listener);
     }
 
-    public static HandlerRegistration fromEvent(EventTarget source, String type, boolean useCapture, EventListener listener) {
+    public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
+            boolean useCapture, EventCallbackFn<T> listener) {
+        return bind(target, type.name, useCapture, e -> listener.onInvoke(Js.cast(e)));
+    }
+
+    public static HandlerRegistration bind(EventTarget source, String type, boolean useCapture,
+            EventListener listener) {
         source.addEventListener(type, listener, useCapture);
         return () -> source.removeEventListener(type, listener, useCapture);
     }
 
-    public static <T extends Event> HandlerRegistration fromEvent(EventTarget target, EventType<T, ?> type,
-            EventCallbackFn<T> listener) {
-        return fromEvent(target, type.name, e -> listener.onInvoke(Js.cast(e)));
-    }
 
-    public static <T extends Event> HandlerRegistration fromEvent(EventTarget target, EventType<T, ?> type, boolean useCapture,
-            EventCallbackFn<T> listener) {
-        return fromEvent(target, type.name, useCapture, e -> listener.onInvoke(Js.cast(e)));
-    }
+    // ------------------------------------------------------ instance
 
     public final String name;
 
+    @SuppressWarnings("WeakerAccess")
     public EventType(String name) { this.name = name; }
 }

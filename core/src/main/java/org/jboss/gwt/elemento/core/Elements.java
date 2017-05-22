@@ -21,7 +21,6 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import elemental2.dom.Event;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -41,6 +40,7 @@ import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.Document;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
+import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.Node;
@@ -658,7 +658,7 @@ public final class Elements {
          */
         public <E extends Event> B on(EventType<E, ?> type, EventCallbackFn<E> callback) {
             assertCurrent();
-            EventType.fromEvent(currentElement(), type, callback);
+            EventType.bind(currentElement(), type, callback);
             return that();
         }
 

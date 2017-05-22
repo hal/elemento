@@ -29,7 +29,6 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.Elements;
-import org.jboss.gwt.elemento.core.EventType;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.Application;
@@ -37,6 +36,11 @@ import org.jboss.gwt.elemento.sample.common.Filter;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+
+import static org.jboss.gwt.elemento.core.EventType.bind;
+import static org.jboss.gwt.elemento.core.EventType.change;
+import static org.jboss.gwt.elemento.core.EventType.click;
+import static org.jboss.gwt.elemento.core.EventType.keydown;
 
 @Templated("Todo.html#todos")
 @SuppressWarnings("WeakerAccess")
@@ -77,9 +81,9 @@ abstract class ApplicationElement implements IsElement {
         }
         update();
 
-        EventType.fromEvent(newTodo, EventType.keydown, e -> newTodo(e));
-        EventType.fromEvent(toggleAll, EventType.change, e -> toggleAll());
-        EventType.fromEvent(clearCompleted, EventType.click, e -> clearCompleted());
+        bind(newTodo, keydown, this::newTodo);
+        bind(toggleAll, change, e -> toggleAll());
+        bind(clearCompleted, click, e -> clearCompleted());
     }
 
     void newTodo(KeyboardEvent event) {
