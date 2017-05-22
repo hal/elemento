@@ -43,7 +43,6 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
-import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
@@ -63,17 +62,14 @@ import com.google.common.escape.Escaper;
 import com.google.common.escape.Escapers;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import org.jboss.auto.AbstractProcessor;
 import org.jboss.gwt.elemento.core.DataElement;
-import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.processor.context.AbstractPropertyInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo.Kind;
-import org.jboss.gwt.elemento.processor.context.EventHandlerInfo;
 import org.jboss.gwt.elemento.processor.context.FreemarkerContext;
 import org.jboss.gwt.elemento.processor.context.PostConstructInfo;
 import org.jboss.gwt.elemento.processor.context.RootElementInfo;
@@ -196,10 +192,6 @@ public class TemplatedProcessor extends AbstractProcessor {
         // find and verify all @DataElement members
         List<DataElementInfo> dataElements = processDataElements(type, templateSelector, root);
         context.setDataElements(dataElements);
-
-        // find and verify all @EventHandler methods
-        List<EventHandlerInfo> eventHandler = processEventHandler(type, templateSelector, root);
-        context.setEventHandler(eventHandler);
 
         // find and verify all @PostConstruct methods
         List<PostConstructInfo> postConstructs = processPostConstruct(type);
@@ -451,72 +443,6 @@ public class TemplatedProcessor extends AbstractProcessor {
                     PostConstruct.class.getSimpleName());
         }
         return postConstructs;
-    }
-
-
-    // ------------------------------------------------------ @EventHandler methods
-
-    private List<EventHandlerInfo> processEventHandler(final TypeElement type, TemplateSelector templateSelector,
-            org.jsoup.nodes.Element root) {
-        List<EventHandlerInfo> eventHandler = new ArrayList<>();
-
-        ElementFilter.methodsIn(type.getEnclosedElements()).stream()
-                .filter(method -> MoreElements.isAnnotationPresent(method, EventHandler.class))
-                .forEach(method -> {
-
-                    // verify method
-                    if (method.getModifiers().contains(Modifier.PRIVATE)) {
-                        abortWithError(method, "@%s method must not be private", EventHandler.class.getSimpleName());
-                    }
-                    if (method.getModifiers().contains(Modifier.STATIC)) {
-                        abortWithError(method, "@%s method must not be static", EventHandler.class.getSimpleName());
-                    }
-                    if (!method.getReturnType().equals(typeUtils.getNoType(TypeKind.VOID))) {
-                        abortWithError(method, "@%s method must return void", EventHandler.class.getSimpleName());
-                    }
-                    String eventParameterType = null;
-                    if (!method.getParameters().isEmpty()) {
-                        if (method.getParameters().size() != 1) {
-                            abortWithError(method, "@%s method must have one parameter of type %s",
-                                    EventHandler.class.getSimpleName(), Event.class.getName());
-                        }
-                        VariableElement parameter = method.getParameters().get(0);
-                        if (!isAssignable(parameter.asType(), Event.class)) {
-                            abortWithError(method, "@%s parameter must be assignable to %s",
-                                    EventHandler.class.getSimpleName(), Event.class.getName());
-                        }
-                        eventParameterType = parameter.asType().toString();
-                    }
-
-                    String selector = null;
-                    String eventType = null;
-                    Optional<AnnotationMirror> annotationMirror = MoreElements
-                            .getAnnotationMirror(method, EventHandler.class);
-                    if (annotationMirror.isPresent()) {
-                        Map<? extends ExecutableElement, ? extends AnnotationValue> values = elementUtils
-                                .getElementValuesWithDefaults(annotationMirror.get());
-                        for (Map.Entry<? extends ExecutableElement, ? extends AnnotationValue> entry : values
-                                .entrySet()) {
-                            if (String.valueOf(entry.getKey()).equals("element()")) {
-                                selector = String.valueOf(entry.getValue().getValue());
-                            } else if (String.valueOf(entry.getKey()).equals("on()")) {
-                                eventType = String.valueOf(entry.getValue());
-                            }
-                        }
-                        if (Strings.emptyToNull(selector) == null || Strings.emptyToNull(eventType) == null) {
-                            abortWithError(method, "Required values missing on @%s annotation",
-                                    EventHandler.class.getSimpleName());
-                        }
-                        verifySelector(selector, method, templateSelector, root);
-                        eventHandler.add(new EventHandlerInfo(method.getSimpleName().toString(), selector, eventType,
-                                eventParameterType));
-
-                    } else {
-                        abortWithError(method, "No @%s annotation found", EventHandler.class.getSimpleName());
-                    }
-                });
-
-        return eventHandler;
     }
 
 

@@ -7,6 +7,7 @@ import jsinterop.annotations.JsFunction;
  * @author Harald Pehl
  */
 @JsFunction
-public interface EventCallbackFn {
-    void onInvoke(Event event);
+public interface EventCallbackFn<E extends Event> {
+
+    void onInvoke(E event);
 }

@@ -89,18 +89,6 @@ public final class TemplateUtil {
     }
 
 
-    // ------------------------------------------------------ event handler
-
-    public static void registerEventHandler(HTMLElement context, String identifier, EventType type,
-            EventCallbackFn callback) {
-        HTMLElement element = resolveElement(context, identifier);
-        if (element == null) {
-            throw new NullPointerException("HTMLElement must not be null in TemplateUtils.registerEventHandler()");
-        }
-        type.register(element, callback);
-    }
-
-
     // ------------------------------------------------------ handlebars
 
     public static void replaceHandlebar(HTMLElement context, String expression, String value) {

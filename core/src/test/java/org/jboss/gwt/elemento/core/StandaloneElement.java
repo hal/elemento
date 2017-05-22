@@ -21,6 +21,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
+import elemental2.dom.EventListener;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -103,5 +104,13 @@ public class StandaloneElement extends HTMLElement implements TestElement {
     @Override
     public List<TestElement> children() {
         return children;
+    }
+
+    @Override
+    public void addEventListener(String type, EventListener listener) {
+    }
+
+    @Override
+    public void addEventListener(String type, EventListener listener, boolean options) {
     }
 }

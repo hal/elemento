@@ -31,7 +31,6 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.DataElement;
 import org.jboss.gwt.elemento.core.Elements;
-import org.jboss.gwt.elemento.core.EventHandler;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Templated;
 import org.jboss.gwt.elemento.sample.common.Application;
@@ -40,6 +39,7 @@ import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
+import static org.jboss.gwt.elemento.core.EventType.bind;
 import static org.jboss.gwt.elemento.core.EventType.change;
 import static org.jboss.gwt.elemento.core.EventType.click;
 import static org.jboss.gwt.elemento.core.EventType.keydown;
@@ -86,9 +86,12 @@ abstract class ApplicationElement implements IsElement {
             list.appendChild(itemElement.asElement());
         }
         update();
+
+        bind(newTodo, keydown, this::newTodo);
+        bind(toggleAll, change, e -> toggleAll());
+        bind(clearCompleted, click, e -> clearCompleted());
     }
 
-    @EventHandler(element = "newTodo", on = keydown)
     void newTodo(KeyboardEvent event) {
         if ("Enter".equals(event.key)) {
             String text = newTodo.value.trim();
@@ -103,14 +106,12 @@ abstract class ApplicationElement implements IsElement {
         }
     }
 
-    @EventHandler(element = "toggleAll", on = change)
     void toggleAll() {
         Application.toggleAll(list, toggleAll.checked);
         repository().completeAll(toggleAll.checked);
         update();
     }
 
-    @EventHandler(element = "clearCompleted", on = click)
     void clearCompleted() {
         repository().removeAll(Application.getCompleted(list));
         update();
