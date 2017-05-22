@@ -1,4 +1,4 @@
-[![Chat on Gitter](https://badges.gitter.im/hal/hal.next.svg)](https://gitter.im/hal/elemento)
+[![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
 
 # Elemento
 Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/articles/elemental.html) as easy as possible. In a nutshell Elemento brings the following features to the table:
