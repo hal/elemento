@@ -33,13 +33,12 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.Iterables;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 import elemental2.dom.Document;
 import elemental2.dom.DomGlobal;
-import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
@@ -49,6 +48,8 @@ import jsinterop.base.Js;
 import org.jetbrains.annotations.NonNls;
 
 import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
+import static org.jboss.gwt.elemento.core.EventType.bind;
 
 /**
  * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
@@ -145,6 +146,7 @@ public final class Elements {
         private final Document document;
         private final Stack<ElementInfo> elements;
         private final Map<String, HTMLElement> references;
+        private final List<HandlerRegistration> handlers;
         private int level;
 
         /**
@@ -167,6 +169,7 @@ public final class Elements {
             this.document = document;
             this.elements = new Stack<>();
             this.references = new HashMap<>();
+            this.handlers = new ArrayList<>();
         }
 
         private String logId() {
@@ -321,7 +324,7 @@ public final class Elements {
                 throw new IllegalStateException(
                         logId() + "Closing element " + currentElement() + " is no container");
             }
-            Element closingElement = currentElement();
+            HTMLElement closingElement = currentElement();
             for (ElementInfo child : children) {
                 closingElement.appendChild(child.element);
             }
@@ -620,7 +623,7 @@ public final class Elements {
         }
 
         /**
-         * Sets the inner text on the last added element using {@link Element#textContent}.
+         * Sets the inner text on the last added element using {@link HTMLElement#textContent}.
          *
          * @deprecated Use {@link #textContent(String)} instead.
          */
@@ -632,7 +635,7 @@ public final class Elements {
         }
 
         /**
-         * Sets the inner text on the last added element using {@link Element#textContent}.
+         * Sets the inner text on the last added element using {@link HTMLElement#textContent}.
          */
         public B textContent(String text) {
             assertCurrent();
@@ -658,8 +661,20 @@ public final class Elements {
          */
         public <E extends Event> B on(EventType<E, ?> type, EventCallbackFn<E> callback) {
             assertCurrent();
-            EventType.bind(currentElement(), type, callback);
+            handlers.add(bind(currentElement(), type, callback));
             return that();
+        }
+
+        /**
+         * Removes all event handlers registered with {@link #on(EventType, EventCallbackFn)}. Should be called after
+         * the element(s) have been removed from the DOM.
+         */
+        public void removeHandlers() {
+            for (Iterator<HandlerRegistration> iterator = handlers.iterator(); iterator.hasNext(); ) {
+                HandlerRegistration handler = iterator.next();
+                handler.removeHandler();
+                iterator.remove();
+            }
         }
 
 
@@ -681,7 +696,7 @@ public final class Elements {
          * @throws NoSuchElementException if no element was stored under that id.
          */
         @SuppressWarnings("unchecked")
-        public <T extends Element> T referenceFor(@NonNls String id) {
+        public <T extends HTMLElement> T referenceFor(@NonNls String id) {
             if (!references.containsKey(id)) {
                 throw new NoSuchElementException(logId() + "No element reference found for '" + id + "'");
             }
@@ -699,12 +714,24 @@ public final class Elements {
          * @throws IllegalStateException If the hierarchy is unbalanced.
          */
         @SuppressWarnings("unchecked")
-        public <T extends Element> T build() {
+        public <T extends HTMLElement> T build() {
             if (level != 0 && elements.size() != 1) {
                 throw new IllegalStateException(
                         logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
             }
             return (T) elements.pop().element;
+        }
+
+        /**
+         * Builds the element hierarchy and returns an artificial element which removes all event handlers registered
+         * with {@link #on(EventType, EventCallbackFn)} when it's {@linkplain Attachable#detach() detached}.
+         *
+         * @return an artificial element which implements {@link IsElement} to return the top level element of this
+         * builder and {@link Attachable} to remove all event handlers when it's {@linkplain Attachable#detach()
+         * detached}.
+         */
+        public AttachableElement buildAttachable() {
+            return new AttachableElement(this);
         }
 
         /**
@@ -719,8 +746,7 @@ public final class Elements {
             if (elements.isEmpty()) {
                 throw new IllegalStateException(logId() + "Empty elements stack");
             }
-            //noinspection StaticPseudoFunctionalStyleMethod
-            return Iterables.transform(this.elements, elementInfo -> elementInfo.element);
+            return elements.stream().map(elementInfo -> elementInfo.element).collect(toList());
         }
     }
 

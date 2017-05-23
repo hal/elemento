@@ -25,6 +25,7 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
+import org.jboss.gwt.elemento.core.AttachableElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
@@ -40,6 +41,7 @@ class TodoItemElement implements IsElement {
     private final ApplicationElement application;
     private final TodoItemRepository repository;
 
+    private final AttachableElement element;
     private final HTMLElement li;
     private final HTMLInputElement toggle;
     private final HTMLElement label;
@@ -64,7 +66,8 @@ class TodoItemElement implements IsElement {
         .end();
         // @formatter:on
 
-        this.li = builder.build();
+        this.element = builder.buildAttachable();
+        this.li = element.asElement();
         this.toggle = builder.referenceFor("toggle");
         this.toggle.checked = item.completed;
         this.label = builder.referenceFor("label");
@@ -98,6 +101,7 @@ class TodoItemElement implements IsElement {
 
     private void destroy() {
         li.parentNode.removeChild(li);
+        element.detach();
         repository.remove(item);
         application.update();
     }

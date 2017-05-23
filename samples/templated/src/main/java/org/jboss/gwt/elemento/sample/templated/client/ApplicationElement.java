@@ -53,7 +53,7 @@ abstract class ApplicationElement implements IsElement {
 
     abstract TodoItemRepository repository();
     abstract I18n i18n();
-    // @formatter:off
+    // @formatter:on
 
 
     @DataElement HTMLInputElement newTodo;

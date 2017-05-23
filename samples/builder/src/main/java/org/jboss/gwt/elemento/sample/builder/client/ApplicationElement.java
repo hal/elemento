@@ -26,6 +26,7 @@ import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
+import org.jboss.gwt.elemento.core.AttachableElement;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.Application;
@@ -45,7 +46,7 @@ import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
 class ApplicationElement implements IsElement {
 
-    private final HTMLElement root;
+    private final AttachableElement root;
     private final HTMLInputElement newTodo;
     private final HTMLElement main;
     private final HTMLInputElement toggleAll;
@@ -96,7 +97,7 @@ class ApplicationElement implements IsElement {
         .end();
         // @formatter:on
 
-        this.root = builder.build();
+        this.root = builder.buildAttachable();
         this.newTodo = builder.referenceFor("newTodo");
         this.main = builder.referenceFor("main");
         this.toggleAll = builder.referenceFor("toggleAll");
@@ -122,7 +123,7 @@ class ApplicationElement implements IsElement {
 
     @Override
     public HTMLElement asElement() {
-        return root;
+        return root.asElement();
     }
 
 

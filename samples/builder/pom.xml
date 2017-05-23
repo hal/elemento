@@ -42,14 +42,6 @@
         <module.shortName>builder</module.shortName>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>sample-common</artifactId>
-            <type>gwt-lib</type>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>
