@@ -317,7 +317,7 @@ The expressions between `{{` and `}}` need to be valid Java expressions. They're
 Handlebars expressions are supported in text nodes and attribute values. 
 
 ### PostConstruct
-Since templated classes cannot have a constructor it's possible to annotate a method with `javax.annotation.PostConstruct`. This method will be called from the generated constructor **after** all initialization steps (element mapping, event handlers, handlebars). So it's safe to use the abstract accessor methods and data elements from the initialization method:
+Since templated classes cannot have a constructor it's possible to annotate a method with `javax.annotation.PostConstruct`. This method will be called from the generated constructor **after** all initialization steps (element mapping, handlebars). So it's safe to use the abstract accessor methods and data elements from the initialization method:
  
 ```java
 @Templated("Todo.html#todos")
