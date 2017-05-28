@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>0.3.1</version>
+        <version>HEAD-SNAPSHOT</version>
     </parent>
 
     <artifactId>builder-sample</artifactId>
@@ -41,6 +41,13 @@
         <module.name>org.jboss.gwt.elemento.sample.builder.BuilderSample</module.name>
         <module.shortName>builder</module.shortName>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>sample-common</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
