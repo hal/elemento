@@ -51,6 +51,10 @@
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-gin</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>sample-common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
