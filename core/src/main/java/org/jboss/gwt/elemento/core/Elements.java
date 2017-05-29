@@ -21,733 +21,232 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Stack;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import com.google.common.base.Joiner;
+import com.google.common.annotations.VisibleForTesting;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.web.bindery.event.shared.HandlerRegistration;
-import elemental2.dom.Document;
 import elemental2.dom.DomGlobal;
-import elemental2.dom.Event;
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLBRElement;
+import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLFormElement;
+import elemental2.dom.HTMLHRElement;
+import elemental2.dom.HTMLHeadingElement;
 import elemental2.dom.HTMLInputElement;
+import elemental2.dom.HTMLLIElement;
+import elemental2.dom.HTMLLabelElement;
+import elemental2.dom.HTMLOListElement;
+import elemental2.dom.HTMLOptionElement;
+import elemental2.dom.HTMLParagraphElement;
+import elemental2.dom.HTMLSelectElement;
+import elemental2.dom.HTMLTableCellElement;
+import elemental2.dom.HTMLTableElement;
+import elemental2.dom.HTMLTableRowElement;
+import elemental2.dom.HTMLTableSectionElement;
+import elemental2.dom.HTMLTextAreaElement;
+import elemental2.dom.HTMLUListElement;
 import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 import jsinterop.base.Js;
 import org.jetbrains.annotations.NonNls;
 
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
-import static org.jboss.gwt.elemento.core.EventType.bind;
+import static elemental2.dom.DomGlobal.document;
 
 /**
  * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
- *
- * @author Harald Pehl
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public final class Elements {
 
-    // this is a static helper class which must never be instantiated!
-    private Elements() {}
-
-
-    static class ElementInfo {
-
-        int level;
-        HTMLElement element;
-        boolean container;
-
-        ElementInfo(final HTMLElement element, final boolean container, final int level) {
-            this.container = container;
-            this.element = element;
-            this.level = level;
-        }
-
+    @VisibleForTesting static ElementCreator createElement = new ElementCreator() {
         @Override
-        public String toString() {
-            return (container ? "container" : "simple") + " @ " + level + ": " + element.tagName;
+        public <E extends HTMLElement> E create(String tag, Class<E> type) {
+            return Js.cast(document.createElement(tag));
         }
+    };
+
+
+    // ------------------------------------------------------ builder factories
+
+    public static <B extends BaseBuilder> B element(ElementType<B> type) { return type.builder(); }
+
+    public static <E extends HTMLElement, B extends BaseBuilder<E, B>> B element(ElementType<B> type, Consumer<E> apply) {
+        return type.builder().apply(apply);
     }
 
-
-    /**
-     * Builder to create a hierarchy of {@link HTMLElement}s. Supports convenience methods to create common elements
-     * and attributes. Uses a fluent API to create and append elements on the fly.
-     * <p>
-     * The builder distinguishes between elements which can contain nested elements (container) and simple element w/o
-     * children. The former must be closed using {@link #end()}.
-     * <p>
-     * In order to create this form,
-     * <pre>
-     * &lt;section class="main"&gt;
-     *     &lt;input class="toggle-all" type="checkbox"&gt;
-     *     &lt;label for="toggle-all"&gt;Mark all as complete&lt;/label&gt;
-     *     &lt;ul class="todo-list"&gt;
-     *         &lt;li&gt;
-     *             &lt;div class="view"&gt;
-     *                 &lt;input class="toggle" type="checkbox" checked&gt;
-     *                 &lt;label&gt;Taste Elemento&lt;/label&gt;
-     *                 &lt;button class="destroy"&gt;&lt;/button&gt;
-     *             &lt;/div&gt;
-     *             &lt;input class="edit"&gt;
-     *         &lt;/li&gt;
-     *     &lt;/ul&gt;
-     * &lt;/section&gt;
-     * </pre>
-     * <p>
-     * use the following builder code:
-     * <pre>
-     * HTMLElement element = new Elements.Builder()
-     *     .section().css("main")
-     *         .input(checkbox).css("toggle-all")
-     *         .label().attr("for", "toggle-all").textContent("Mark all as complete").end()
-     *         .ul().css("todo-list")
-     *             .li()
-     *                 .div().css("view")
-     *                     .input(checkbox).css("toggle")
-     *                     .label().textContent("Taste Elemento").end()
-     *                     .button().css("destroy").end()
-     *                 .end()
-     *                 .input(text).css("edit")
-     *             .end()
-     *         .end()
-     *     .end().build();
-     * </pre>
-     *
-     * @author Harald Pehl
-     */
-    public static class Builder extends CoreBuilder<Builder> {
-
-        public Builder() {
-            super("elements.builder");
-        }
-
-        @Override
-        protected Builder that() {
-            return this;
-        }
+    public static HtmlContentBuilder<HTMLElement> html(@NonNls String tag) {
+        return new HtmlContentBuilder<>(createElement(tag, HTMLElement.class));
     }
 
+    public static <E extends HTMLElement> EmptyType<E> emptyElement(String tag, Class<E> type) {
+        return emptyElement(() -> createElement(tag, type));
+    }
 
-    public static abstract class CoreBuilder<B extends CoreBuilder<B>> {
-
-        private final String id;
-        private final Document document;
-        private final Stack<ElementInfo> elements;
-        private final Map<String, HTMLElement> references;
-        private final List<HandlerRegistration> handlers;
-        private int level;
-
-        /**
-         * Creates a new builder.
-         *
-         * @param id an unique id which is used in error messages
-         */
-        protected CoreBuilder(@NonNls String id) {
-            this(id, DomGlobal.document);
-        }
-
-        /**
-         * Creates a new builder.
-         *
-         * @param id       an unique id which is used in error messages
-         * @param document a reference to the document
-         */
-        protected CoreBuilder(@NonNls String id, Document document) {
-            this.id = id;
-            this.document = document;
-            this.elements = new Stack<>();
-            this.references = new HashMap<>();
-            this.handlers = new ArrayList<>();
-        }
-
-        private String logId() {
-            return "<" + id + "> ";
-        }
-
-        /**
-         * In order to make builders work with inheritance, sub-builders must return a reference to their instance.
-         *
-         * @return {@code this}
-         */
-        protected abstract B that();
-
-
-        // ------------------------------------------------------ container elements
-
-        /**
-         * Starts a new {@code &lt;header&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B header() {
-            return start("header");
-        }
-
-        /**
-         * Starts a new {@code &lt;h&amp;&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B h(int ordinal) {
-            return start("h" + ordinal);
-        }
-
-        /**
-         * Starts a new {@code &lt;h&amp;&gt;} container with the specified inner text.
-         * The element must be closed with {@link #end()}.
-         */
-        public B h(int ordinal, String text) {
-            return start("h" + ordinal).textContent(text);
-        }
-
-        /**
-         * Starts a new {@code &lt;section&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B section() {
-            return start((HTMLElement) document.createElement("section"));
-        }
-
-        /**
-         * Starts a new {@code &lt;aside&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B aside() {
-            return start((HTMLElement) document.createElement("aside"));
-        }
-
-        /**
-         * Starts a new {@code &lt;footer&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B footer() {
-            return start((HTMLElement) document.createElement("footer"));
-        }
-
-        /**
-         * Starts a new {@code &lt;p&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B p() {
-            return start((HTMLElement) document.createElement("p"));
-        }
-
-        /**
-         * Starts a new {@code &lt;ol&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B ol() {
-            return start((HTMLElement) document.createElement("ol"));
-        }
-
-        /**
-         * Starts a new {@code &lt;ul&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B ul() {
-            return start((HTMLElement) document.createElement("ul"));
-        }
-
-        /**
-         * Starts a new {@code &lt;li&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B li() {
-            return start((HTMLElement) document.createElement("li"));
-        }
-
-        /**
-         * Starts a new {@code &lt;a&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B a() {
-            return start((HTMLElement) document.createElement("a"));
-        }
-
-        /**
-         * Starts a new {@code &lt;a&gt;} container with the specified href.
-         * The element must be closed with {@link #end()}.
-         */
-        public B a(@NonNls String href) {
-            return start((HTMLElement) document.createElement("a")).attr("href", href);
-        }
-
-        /**
-         * Starts a new {@code &lt;div&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B div() {
-            return start((HTMLElement) document.createElement("div"));
-        }
-
-        /**
-         * Starts a new {@code &lt;span&gt;} container. The element must be closed with {@link #end()}.
-         */
-        public B span() {
-            return start((HTMLElement) document.createElement("span"));
-        }
-
-        /**
-         * Starts the named container. The element must be closed with {@link #end()}.
-         */
-        public B start(@NonNls String tag) {
-            return start((HTMLElement) document.createElement(tag));
-        }
-
-        /**
-         * Adds the given element as new container. The element must be closed with {@link #end()}.
-         */
-        public B start(HTMLElement element) {
-            elements.push(new ElementInfo(element, true, level));
-            level++;
-            return that();
-        }
-
-        /**
-         * Closes the current container element.
-         *
-         * @throws IllegalStateException if there's no current element or if the closing element is no container.
-         */
-        public B end() {
-            assertCurrent();
-            if (level == 0) {
-                throw new IllegalStateException(
-                        logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
-            }
-
-            List<ElementInfo> children = new ArrayList<>();
-            while (elements.peek().level == level) {
-                children.add(elements.pop());
-            }
-            Collections.reverse(children);
-
-            if (!elements.peek().container) {
-                throw new IllegalStateException(
-                        logId() + "Closing element " + currentElement() + " is no container");
-            }
-            HTMLElement closingElement = currentElement();
-            for (ElementInfo child : children) {
-                closingElement.appendChild(child.element);
-            }
-
-            level--;
-            return that();
-        }
-
-        private String dumpElements() {
-            return elements.toString();
-        }
-
-
-        // ------------------------------------------------------ table elements
-
-        public B table() {
-            return start("table");
-        }
-
-        public B thead() {
-            return start("thead");
-        }
-
-        public B tbody() {
-            return start("tbody");
-        }
-
-        public B tfoot() {
-            return start("tfoot");
-        }
-
-        public B tr() {
-            return start("tr");
-        }
-
-        public B th() {
-            return start("th");
-        }
-
-        public B td() {
-            return start("td");
-        }
-
-
-        // ------------------------------------------------------ form elements
-
-        /**
-         * Starts a new form. The element must be closed with {@link #end()}.
-         */
-        public B form() {
-            return start((HTMLElement) document.createElement("form"));
-        }
-
-        /**
-         * Starts a new form label. The element must be closed with {@link #end()}.
-         */
-        public B label() {
-            return start((HTMLElement) document.createElement("label"));
-        }
-
-        /**
-         * Starts a new form label with the specified inner text.
-         * The element must be closed with {@link #end()}.
-         */
-        public B label(String text) {
-            return start((HTMLElement) document.createElement("label")).textContent(text);
-        }
-
-        /**
-         * Starts a new button. The element must be closed with {@link #end()}.
-         */
-        public B button() {
-            return input(InputType.button);
-        }
-
-        /**
-         * Starts a new button with the specified inner text.
-         * The element must be closed with {@link #end()}.
-         */
-        public B button(String text) {
-            return input(InputType.button).textContent(text);
-        }
-
-        /**
-         * Starts a new select box. The element must be closed with {@link #end()}.
-         */
-        public B select() {
-            return input(InputType.select);
-        }
-
-        /**
-         * Starts an option to be used inside a select box. The element must be closed with {@link #end()}.
-         */
-        public B option() {
-            return start((HTMLElement) document.createElement("option"));
-        }
-
-        /**
-         * Starts an option with the specified inner text. The element must be closed with {@link #end()}.
-         */
-        public B option(String text) {
-            return start((HTMLElement) document.createElement("option")).textContent(text);
-        }
-
-        /**
-         * Starts a new textarea. The element must be closed with {@link #end()}.
-         */
-        public B textarea() {
-            return input(InputType.textarea);
-        }
-
-        /**
-         * Creates the given input field. See {@link InputType} for details
-         * whether a container or simple element is created.
-         */
-        public B input(InputType type) {
-            switch (type) {
-                case button:
-                    start((HTMLElement) document.createElement("button"));
-                    break;
-
-                case color:
-                case checkbox:
-                case date:
-                case datetime:
-                case email:
-                case file:
-                case hidden:
-                case image:
-                case month:
-                case number:
-                case password:
-                case radio:
-                case range:
-                case reset:
-                case search:
-                case tel:
-                case text:
-                case time:
-                case url:
-                case week:
-                    HTMLInputElement inputElement = (HTMLInputElement) document.createElement("input");
-                    inputElement.type = type.name();
-                    add(inputElement);
-                    break;
-
-                case select:
-                    start((HTMLElement) document.createElement("select"));
-                    break;
-
-                case textarea:
-                    start((HTMLElement) document.createElement("textarea"));
-                    break;
-            }
-            return that();
-        }
-
-
-        // ------------------------------------------------------ simple element(s)
-
-        /**
-         * Creates and adds the named element. The element must not be closed using {@link #end()}.
-         */
-        public B add(@NonNls String tag) {
-            return add((HTMLElement) document.createElement(tag));
-        }
-
-        /**
-         * Add the given element by calling {@code element.asElement()}. The element must not be closed using {@link
-         * #end()}.
-         */
-        public B add(IsElement element) {
-            return add(element.asElement());
-        }
-
-        /**
-         * Adds all elements from {@code elements.asElements()}.
-         */
-        public B addAll(HasElements elements) {
-            return addAll(elements.asElements());
-        }
-
-        /**
-         * Adds all elements.
-         */
-        public B addAll(Iterable<HTMLElement> elements) {
-            for (HTMLElement element : elements) {
-                add(element);
-            }
-            return that();
-        }
-
-        /**
-         * Adds the given element. The element must not be closed using {@link #end()}.
-         */
-        public B add(HTMLElement element) {
-            assertCurrent();
-            elements.push(new ElementInfo(element, false, level));
-            return that();
-        }
-
-
-        // ------------------------------------------------------ modify current element
-
-        /**
-         * Sets the id of the last added element.
-         */
-        public B id(@NonNls String id) {
-            assertCurrent();
-            currentElement().id = id;
-            return that();
-        }
-
-        /**
-         * Sets the title of the last added element.
-         */
-        public B title(String title) {
-            assertCurrent();
-            currentElement().title = title;
-            return that();
-        }
-
-        /**
-         * Sets the css classes for the last added element.
-         */
-        public B css(@NonNls String classes) {
-            //noinspection NullArgumentToVariableArgMethod
-            return css(classes, null);
-        }
-
-        /**
-         * Sets the css classes for the last added element.
-         */
-        public B css(@NonNls String first, @NonNls String... rest) {
-            assertCurrent();
-            List<String> classes = new ArrayList<>();
-            classes.add(first);
-            if (rest != null) {
-                classes.addAll(asList(rest));
-            }
-            currentElement().className = rest != null && rest.length != 0
-                    ? Joiner.on(' ').skipNulls().join(classes)
-                    : first;
-            return that();
-        }
-
-        /**
-         * Sets the css style for the last added element.
-         */
-        public B style(@NonNls String style) {
-            assertCurrent();
-            currentElement().style.cssText = style;
-            return that();
-        }
-
-        /**
-         * Adds an attribute to the last added element.
-         */
-        public B attr(@NonNls String name, String value) {
-            assertCurrent();
-            currentElement().setAttribute(name, value);
-            return that();
-        }
-
-        /**
-         * Adds a {@code data-} attribute to the last added element.
-         *
-         * @param name The name of the data attribute w/o the {@code data-} prefix. However it won't be added if it's
-         *             already present.
-         */
-        public B data(@NonNls String name, String value) {
-            assertCurrent();
-            String safeName = name.startsWith("data-") ? name.substring("data-".length()) : name;
-            currentElement().dataset.set(safeName, value);
-            return that();
-        }
-
-        /**
-         * Adds an {@code aria-} attribute to the last added element.
-         *
-         * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's
-         *             already present.
-         */
-        public B aria(@NonNls String name, String value) {
-            String safeName = name.startsWith("aria-") ? name : "aria-" + name;
-            return attr(safeName, value);
-        }
-
-        /**
-         * Sets the inner HTML on the last added element.
-         */
-        public B innerHtml(SafeHtml html) {
-            assertCurrent();
-            currentElement().innerHTML = html.asString();
-            return that();
-        }
-
-        /**
-         * Sets the inner text on the last added element using {@link HTMLElement#textContent}.
-         *
-         * @deprecated Use {@link #textContent(String)} instead.
-         */
-        @Deprecated
-        public B innerText(String text) {
-            assertCurrent();
-            currentElement().textContent = text;
-            return that();
-        }
-
-        /**
-         * Sets the inner text on the last added element using {@link HTMLElement#textContent}.
-         */
-        public B textContent(String text) {
-            assertCurrent();
-            currentElement().textContent = text;
-            return that();
-        }
-
-        private void assertCurrent() {
-            if (elements.isEmpty()) {
-                throw new IllegalStateException(logId() + "No current element");
-            }
-        }
-
-        protected HTMLElement currentElement() {
-            return elements.peek().element;
-        }
-
-
-        // ------------------------------------------------------ event handler
-
-        /**
-         * Adds the given callback to the the last added element.
-         */
-        public <E extends Event> B on(EventType<E, ?> type, EventCallbackFn<E> callback) {
-            assertCurrent();
-            handlers.add(bind(currentElement(), type, callback));
-            return that();
-        }
-
-        /**
-         * Removes all event handlers registered with {@link #on(EventType, EventCallbackFn)}. Should be called after
-         * the element(s) have been removed from the DOM.
-         */
-        public void removeHandlers() {
-            for (Iterator<HandlerRegistration> iterator = handlers.iterator(); iterator.hasNext(); ) {
-                HandlerRegistration handler = iterator.next();
-                handler.removeHandler();
-                iterator.remove();
-            }
-        }
-
-
-        // ------------------------------------------------------ references
-
-        /**
-         * Stores a named reference for the last added element. The element can be retrieved later on using
-         * {@link #referenceFor(String)}.
-         */
-        public B rememberAs(@NonNls String id) {
-            assertCurrent();
-            references.put(id, currentElement());
-            return that();
-        }
-
-        /**
-         * Returns the element which was stored using {@link #rememberAs(String)}.
-         *
-         * @throws NoSuchElementException if no element was stored under that id.
-         */
-        @SuppressWarnings("unchecked")
-        public <T extends HTMLElement> T referenceFor(@NonNls String id) {
-            if (!references.containsKey(id)) {
-                throw new NoSuchElementException(logId() + "No element reference found for '" + id + "'");
-            }
-            return (T) references.get(id);
-        }
-
-
-        // ------------------------------------------------------ builder
-
-        /**
-         * Builds the element hierarchy and returns the top level element casted to the specified element type.
-         *
-         * @param <T> The target element type
-         *
-         * @throws IllegalStateException If the hierarchy is unbalanced.
-         */
-        @SuppressWarnings("unchecked")
-        public <T extends HTMLElement> T build() {
-            if (level != 0 && elements.size() != 1) {
-                throw new IllegalStateException(
-                        logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
-            }
-            return (T) elements.pop().element;
-        }
-
-        /**
-         * Builds the element hierarchy and returns an artificial element which removes all event handlers registered
-         * with {@link #on(EventType, EventCallbackFn)} when it's {@linkplain Attachable#detach() detached}.
-         *
-         * @return an artificial element which implements {@link IsElement} to return the top level element of this
-         * builder and {@link Attachable} to remove all event handlers when it's {@linkplain Attachable#detach()
-         * detached}.
-         */
-        public AttachableElement buildAttachable() {
-            return new AttachableElement(this);
-        }
-
-        /**
-         * Returns the top level elements added so far. This is useful if you don't want to build a single root
-         * container, but work with a list of elements.
-         */
-        public Iterable<HTMLElement> elements() {
-            if (level != 0) {
-                throw new IllegalStateException(
-                        logId() + "Unbalanced element hierarchy. Elements stack: " + dumpElements());
-            }
-            if (elements.isEmpty()) {
-                throw new IllegalStateException(logId() + "Empty elements stack");
-            }
-            return elements.stream().map(elementInfo -> elementInfo.element).collect(toList());
-        }
+    public static <E extends HTMLElement> EmptyType<E> emptyElement(Supplier<E> element) {
+        return new EmptyType<>(() -> new EmptyContentBuilder<>(element.get()));
+    }
+
+    public static <E extends HTMLElement> TextType<E> textElement(String tag, Class<E> type) {
+        return new TextType<>(() -> new TextContentBuilder<>(createElement(tag, type)));
+    }
+
+    public static <E extends HTMLElement> HtmlType<E> htmlElement(String tag, Class<E> type) {
+        return new HtmlType<>(() -> new HtmlContentBuilder<>(createElement(tag, type)));
+    }
+
+    private static <E extends HTMLElement> E createElement(String tag, Class<E> type) {
+        return createElement.create(tag, type);
+    }
+
+    // ------------------------------------------------------ container elements (a-z)
+
+    public static final HtmlType<HTMLAnchorElement> a = htmlElement("a", HTMLAnchorElement.class);
+
+    public static HtmlContentBuilder<HTMLAnchorElement> a() { return a.builder(); }
+
+    public static HtmlContentBuilder<HTMLAnchorElement> a(@NonNls String href) { return a().attr("href", href); }
+
+    public static final HtmlType<HTMLElement> aside = htmlElement("aside", HTMLElement.class);
+
+    public static HtmlContentBuilder<HTMLElement> aside() { return aside.builder(); }
+
+    public static final EmptyType<HTMLBRElement> br = emptyElement("br", HTMLBRElement.class);
+
+    public static EmptyContentBuilder<HTMLBRElement> br() { return br.builder(); }
+
+    public static final HtmlType<HTMLDivElement> div = htmlElement("div", HTMLDivElement.class);
+
+    public static HtmlContentBuilder<HTMLDivElement> div() { return div.builder(); }
+
+    public static final HtmlType<HTMLElement> footer = htmlElement("footer", HTMLElement.class);
+
+    public static HtmlContentBuilder<HTMLElement> footer() { return footer.builder(); }
+
+    public static HtmlContentBuilder<HTMLHeadingElement> h(int n) {
+        return htmlElement("h" + n, HTMLHeadingElement.class).builder();
+    }
+
+    public static HtmlContentBuilder<HTMLHeadingElement> h(int n, String text) { return h(n).textContent(text); }
+
+    public static final HtmlType<HTMLElement> header = htmlElement("header", HTMLElement.class);
+
+    public static HtmlContentBuilder<HTMLElement> header() { return header.builder(); }
+
+    public static final EmptyType<HTMLHRElement> hr = emptyElement("hr", HTMLHRElement.class);
+
+    public static EmptyContentBuilder<HTMLHRElement> hr() { return hr.builder(); }
+
+    public static final HtmlType<HTMLLIElement> li = htmlElement("li", HTMLLIElement.class);
+
+    public static HtmlContentBuilder<HTMLLIElement> li() { return li.builder(); }
+
+    public static final HtmlType<HTMLOListElement> ol = htmlElement("ol", HTMLOListElement.class);
+
+    public static HtmlContentBuilder<HTMLOListElement> ol() { return ol.builder(); }
+
+    public static final HtmlType<HTMLParagraphElement> p = htmlElement("p", HTMLParagraphElement.class);
+
+    public static HtmlContentBuilder<HTMLParagraphElement> p() { return p.builder(); }
+
+    public static final HtmlType<HTMLElement> section = htmlElement("section", HTMLElement.class);
+
+    public static HtmlContentBuilder<HTMLElement> section() { return section.builder(); }
+
+    public static final HtmlType<HTMLElement> span = htmlElement("span", HTMLElement.class);
+
+    public static HtmlContentBuilder<HTMLElement> span() { return span.builder(); }
+
+    public static final HtmlType<HTMLUListElement> ul = htmlElement("ul", HTMLUListElement.class);
+
+    public static HtmlContentBuilder<HTMLUListElement> ul() { return ul.builder(); }
+
+
+    // ------------------------------------------------------ table elements
+
+    public static final HtmlType<HTMLTableElement> table = htmlElement("table", HTMLTableElement.class);
+
+    public static HtmlContentBuilder<HTMLTableElement> table() { return table.builder(); }
+
+    public static final HtmlType<HTMLTableSectionElement> thead = htmlElement("thead", HTMLTableSectionElement.class);
+
+    public static HtmlContentBuilder<HTMLTableSectionElement> thead() { return thead.builder(); }
+
+    public static final HtmlType<HTMLTableSectionElement> tbody = htmlElement("tbody", HTMLTableSectionElement.class);
+
+    public static HtmlContentBuilder<HTMLTableSectionElement> tbody() { return tbody.builder(); }
+
+    public static final HtmlType<HTMLTableRowElement> tr = htmlElement("tr", HTMLTableRowElement.class);
+
+    public static HtmlContentBuilder<HTMLTableRowElement> tr() { return tr.builder(); }
+
+    public static final HtmlType<HTMLTableCellElement> th = htmlElement("th", HTMLTableCellElement.class);
+
+    public static HtmlContentBuilder<HTMLTableCellElement> th() { return th.builder(); }
+
+    public static final HtmlType<HTMLTableCellElement> td = htmlElement("td", HTMLTableCellElement.class);
+
+    public static HtmlContentBuilder<HTMLTableCellElement> td() { return td.builder(); }
+
+    public static final HtmlType<HTMLTableSectionElement> tfoot = htmlElement("tfoot", HTMLTableSectionElement.class);
+
+    public static HtmlContentBuilder<HTMLTableSectionElement> tfoot() { return tfoot.builder(); }
+
+
+    // ------------------------------------------------------ form elements
+
+    public static final HtmlType<HTMLFormElement> form = htmlElement("form", HTMLFormElement.class);
+
+    public static HtmlContentBuilder<HTMLFormElement> form() { return form.builder(); }
+
+    public static final HtmlType<HTMLLabelElement> label = htmlElement("label", HTMLLabelElement.class);
+
+    public static HtmlContentBuilder<HTMLLabelElement> label() { return label.builder(); }
+
+    public static HtmlContentBuilder<HTMLLabelElement> label(String text) { return label().textContent(text); }
+
+    public static final HtmlType<HTMLButtonElement> button = htmlElement("button", HTMLButtonElement.class);
+
+    public static HtmlContentBuilder<HTMLButtonElement> button() { return button.builder(); }
+
+    public static HtmlContentBuilder<HTMLButtonElement> button(String text) { return button().textContent(text); }
+
+    public static final HtmlType<HTMLSelectElement> select = htmlElement("select", HTMLSelectElement.class);
+
+    public static HtmlContentBuilder<HTMLSelectElement> select() { return select.builder(); }
+
+    public static final HtmlType<HTMLOptionElement> option = htmlElement("option", HTMLOptionElement.class);
+
+    public static HtmlContentBuilder<HTMLOptionElement> option() { return option.builder(); }
+
+    public static HtmlContentBuilder<HTMLOptionElement> option(String text) { return option().textContent(text); }
+
+    public static final TextType<HTMLTextAreaElement> textarea = textElement("textarea", HTMLTextAreaElement.class);
+
+    public static TextContentBuilder<HTMLTextAreaElement> textarea() { return textarea.builder(); }
+
+    public static final EmptyType<HTMLInputElement> input = emptyElement("input", HTMLInputElement.class);
+
+    public static EmptyContentBuilder<HTMLInputElement> input(InputType type) { return input(type.name()); }
+
+    public static EmptyContentBuilder<HTMLInputElement> input(String type) {
+        return input(type, HTMLInputElement.class).builder();
+    }
+
+    public static <E extends HTMLInputElement> EmptyType<E> input(String type, Class<E> jType) {
+        return emptyElement(() -> {
+            E el = createElement("input", jType);
+            el.type = type;
+            return el;
+        });
     }
 
 
@@ -946,4 +445,8 @@ public final class Elements {
     public static HTMLElement asElement(com.google.gwt.dom.client.Element element) {
         return Js.cast(element);
     }
+
+
+    // this is a static helper class which must never be instantiated!
+    private Elements() {}
 }
