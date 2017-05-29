@@ -25,12 +25,12 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
-import org.jboss.gwt.elemento.core.AttachableElement;
-import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
+import static org.jboss.gwt.elemento.core.Elements.*;
+import static org.jboss.gwt.elemento.core.Elements.input;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
@@ -41,67 +41,51 @@ class TodoItemElement implements IsElement {
     private final ApplicationElement application;
     private final TodoItemRepository repository;
 
-    private final AttachableElement element;
-    private final HTMLElement li;
+    private final HTMLElement container;
     private final HTMLInputElement toggle;
     private final HTMLElement label;
-    private final HTMLInputElement input;
+    private final HTMLInputElement summary;
 
     private boolean escape;
 
-    TodoItemElement(final ApplicationElement application, final TodoItemRepository repository, final TodoItem item) {
+    TodoItemElement(ApplicationElement application, TodoItemRepository repository, TodoItem item) {
         this.application = application;
         this.repository = repository;
         this.item = item;
-
-        // @formatter:off
-        Elements.Builder builder = new Elements.Builder()
-        .li().css(item.completed ? "completed" : "").data("item", item.id)
-            .div().css("view")
-                .input(checkbox).on(change, event -> toggle()).rememberAs("toggle").css("toggle")
-                .label().on(dblclick, event -> edit()).textContent(item.text).rememberAs("label").end()
-                .button().on(click, event -> destroy()).css("destroy").end()
-            .end()
-            .input(text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit").rememberAs("input")
-        .end();
-        // @formatter:on
-
-        this.element = builder.buildAttachable();
-        this.li = element.asElement();
-        this.toggle = builder.referenceFor("toggle");
+        this.container = li().data("item", item.id)
+                .add(div().css("view")
+                        .add(toggle = input(checkbox).on(change, ev -> toggle()).css("toggle").asElement())
+                        .add(label = label().on(dblclick, ev -> edit()).textContent(item.text).asElement())
+                        .add(button().on(click, ev -> destroy()).css("destroy")))
+                .add(summary = input(text).on(keydown, this::keyDown).on(blur, ev -> blur()).css("edit").asElement())
+                .asElement();
+        this.container.classList.toggle("completed", item.completed);
         this.toggle.checked = item.completed;
-        this.label = builder.referenceFor("label");
-        this.input = builder.referenceFor("input");
     }
 
     @Override
     public HTMLElement asElement() {
-        return li;
+        return container;
     }
 
 
     // ------------------------------------------------------ event handler
 
     private void toggle() {
-        if (toggle.checked) {
-            li.classList.add("completed");
-        } else {
-            li.classList.remove("completed");
-        }
+        container.classList.toggle("completed", toggle.checked);
         repository.complete(item, toggle.checked);
         application.update();
     }
 
     private void edit() {
         escape = false;
-        li.classList.add("editing");
-        input.value = label.textContent;
-        input.focus();
+        container.classList.add("editing");
+        summary.value = label.textContent;
+        summary.focus();
     }
 
     private void destroy() {
-        li.parentNode.removeChild(li);
-        element.detach();
+        container.parentNode.removeChild(container);
         repository.remove(item);
         application.update();
     }
@@ -110,7 +94,7 @@ class TodoItemElement implements IsElement {
         KeyboardEvent keyboardEvent = (KeyboardEvent) event;
         if ("Escape".equals(keyboardEvent.code)) {
             escape = true;
-            li.classList.remove("editing");
+            container.classList.remove("editing");
 
         } else if ("Enter".equals(keyboardEvent.key)) {
             blur();
@@ -118,11 +102,11 @@ class TodoItemElement implements IsElement {
     }
 
     private void blur() {
-        String value = input.value.trim();
+        String value = summary.value.trim();
         if (value.length() == 0) {
             destroy();
         } else {
-            li.classList.remove("editing");
+            container.classList.remove("editing");
             if (!escape) {
                 label.textContent = value;
                 repository.rename(item, value);
