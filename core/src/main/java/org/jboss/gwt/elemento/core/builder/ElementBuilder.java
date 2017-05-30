@@ -6,18 +6,20 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.EventCallbackFn;
 import org.jboss.gwt.elemento.core.EventType;
+import org.jboss.gwt.elemento.core.IsElement;
 import org.jetbrains.annotations.NonNls;
 
 import static java.util.Objects.requireNonNull;
 import static org.jboss.gwt.elemento.core.EventType.bind;
 
 /** Base builder with methods common to all typed builder. */
-public abstract class BaseBuilder<E extends HTMLElement, B extends BaseBuilder<E, B>> implements TypedBuilder<E, B> {
+public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBuilder<E, B>>
+        implements TypedBuilder<E, B>, IsElement {
 
     protected final E element;
 
     /** Creates a new element builder to mutate the passed element. */
-    public BaseBuilder(E element) {
+    public ElementBuilder(E element) {
         this.element = requireNonNull(element, "element required");
     }
 
