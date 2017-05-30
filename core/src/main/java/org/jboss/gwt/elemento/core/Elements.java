@@ -249,20 +249,6 @@ public final class Elements {
     }
 
     /**
-     * Returns a stream for the children of the given parent element.
-     */
-    public static Stream<HTMLElement> stream(HTMLElement parent) {
-        return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : Stream.empty();
-    }
-
-    /**
-     * Returns an iterable collection for the children of the given parent element.
-     */
-    public static Iterable<HTMLElement> children(HTMLElement parent) {
-        return () -> iterator(parent);
-    }
-
-    /**
      * Returns an iterator over the given node list. The iterator will only iterate over elements while skipping nodes.
      * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
      */
@@ -271,10 +257,24 @@ public final class Elements {
     }
 
     /**
+     * Returns a stream for the children of the given parent element.
+     */
+    public static Stream<HTMLElement> stream(HTMLElement parent) {
+        return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : Stream.empty();
+    }
+
+    /**
      * Returns a stream for the elements in the given node list.
      */
     public static Stream<HTMLElement> stream(NodeList<Node> nodes) {
         return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : Stream.empty();
+    }
+
+    /**
+     * Returns an iterable collection for the children of the given parent element.
+     */
+    public static Iterable<HTMLElement> children(HTMLElement parent) {
+        return () -> iterator(parent);
     }
 
     /**
