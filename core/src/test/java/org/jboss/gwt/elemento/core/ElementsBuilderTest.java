@@ -11,6 +11,7 @@ import com.google.common.collect.Iterables;
 import com.google.gwtmockito.GwtMockitoTestRunner;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
+import org.jboss.gwt.elemento.core.builder.ElementCreator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

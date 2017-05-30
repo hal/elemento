@@ -29,26 +29,51 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLAreaElement;
+import elemental2.dom.HTMLAudioElement;
 import elemental2.dom.HTMLBRElement;
 import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLCanvasElement;
+import elemental2.dom.HTMLDListElement;
+import elemental2.dom.HTMLDataListElement;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLEmbedElement;
+import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.HTMLFormElement;
 import elemental2.dom.HTMLHRElement;
 import elemental2.dom.HTMLHeadingElement;
+import elemental2.dom.HTMLImageElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLLIElement;
 import elemental2.dom.HTMLLabelElement;
+import elemental2.dom.HTMLLegendElement;
+import elemental2.dom.HTMLMapElement;
+import elemental2.dom.HTMLMeterElement;
+import elemental2.dom.HTMLModElement;
 import elemental2.dom.HTMLOListElement;
+import elemental2.dom.HTMLObjectElement;
+import elemental2.dom.HTMLOptGroupElement;
 import elemental2.dom.HTMLOptionElement;
+import elemental2.dom.HTMLOutputElement;
 import elemental2.dom.HTMLParagraphElement;
+import elemental2.dom.HTMLParamElement;
+import elemental2.dom.HTMLPreElement;
+import elemental2.dom.HTMLProgressElement;
+import elemental2.dom.HTMLQuoteElement;
+import elemental2.dom.HTMLScriptElement;
 import elemental2.dom.HTMLSelectElement;
+import elemental2.dom.HTMLSourceElement;
+import elemental2.dom.HTMLTableCaptionElement;
 import elemental2.dom.HTMLTableCellElement;
+import elemental2.dom.HTMLTableColElement;
 import elemental2.dom.HTMLTableElement;
 import elemental2.dom.HTMLTableRowElement;
 import elemental2.dom.HTMLTableSectionElement;
 import elemental2.dom.HTMLTextAreaElement;
+import elemental2.dom.HTMLTrackElement;
 import elemental2.dom.HTMLUListElement;
+import elemental2.dom.HTMLVideoElement;
 import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 import java.util.Collections;
@@ -57,12 +82,16 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import jsinterop.base.Js;
+import org.jboss.gwt.elemento.core.builder.ElementCreator;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
 import org.jetbrains.annotations.NonNls;
 
-/** Helper methods for working with {@link elemental2.dom.HTMLElement}s. */
+/**
+ * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+ */
 @SuppressWarnings("unused")
 public final class Elements {
 
@@ -73,26 +102,18 @@ public final class Elements {
         }
     };
 
-    // ------------------------------------------------------ container elements (a-z)
+    // ------------------------------------------------------ content sectioning
 
-    public static HtmlContentBuilder<HTMLAnchorElement> a() {
-        return htmlElement("a", HTMLAnchorElement.class);
+    public static HtmlContentBuilder<HTMLElement> address() {
+        return htmlElement("address", HTMLElement.class);
     }
 
-    public static HtmlContentBuilder<HTMLAnchorElement> a(@NonNls String href) {
-        return a().attr("href", href);
+    public static HtmlContentBuilder<HTMLElement> article() {
+        return htmlElement("article", HTMLElement.class);
     }
 
     public static HtmlContentBuilder<HTMLElement> aside() {
         return htmlElement("aside", HTMLElement.class);
-    }
-
-    public static EmptyContentBuilder<HTMLBRElement> br() {
-        return emptyElement("br", HTMLBRElement.class);
-    }
-
-    public static HtmlContentBuilder<HTMLDivElement> div() {
-        return htmlElement("div", HTMLDivElement.class);
     }
 
     public static HtmlContentBuilder<HTMLElement> footer() {
@@ -111,6 +132,48 @@ public final class Elements {
         return htmlElement("header", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> hgroup() {
+        return htmlElement("hgroup", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> nav() {
+        return htmlElement("nav", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> section() {
+        return htmlElement("section", HTMLElement.class);
+    }
+
+    // ------------------------------------------------------ text content
+
+    public static HtmlContentBuilder<HTMLQuoteElement> blockquote() {
+        return htmlElement("blockquote", HTMLQuoteElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> dd() {
+        return htmlElement("dd", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLDivElement> div() {
+        return htmlElement("div", HTMLDivElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLDListElement> dl() {
+        return htmlElement("dl", HTMLDListElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> dt() {
+        return htmlElement("dt", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> figcaption() {
+        return htmlElement("figcaption", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> figure() {
+        return htmlElement("figure", HTMLElement.class);
+    }
+
     public static EmptyContentBuilder<HTMLHRElement> hr() {
         return emptyElement("hr", HTMLHRElement.class);
     }
@@ -118,6 +181,11 @@ public final class Elements {
     public static HtmlContentBuilder<HTMLLIElement> li() {
         return htmlElement("li", HTMLLIElement.class);
     }
+
+    public static HtmlContentBuilder<HTMLElement> main() {
+        return htmlElement("main", HTMLElement.class);
+    }
+
 
     public static HtmlContentBuilder<HTMLOListElement> ol() {
         return htmlElement("ol", HTMLOListElement.class);
@@ -127,38 +195,193 @@ public final class Elements {
         return htmlElement("p", HTMLParagraphElement.class);
     }
 
-    public static HtmlContentBuilder<HTMLElement> section() {
-        return htmlElement("section", HTMLElement.class);
-    }
-
-    public static HtmlContentBuilder<HTMLElement> span() {
-        return htmlElement("span", HTMLElement.class);
+    public static HtmlContentBuilder<HTMLPreElement> pre() {
+        return htmlElement("pre", HTMLPreElement.class);
     }
 
     public static HtmlContentBuilder<HTMLUListElement> ul() {
         return htmlElement("ul", HTMLUListElement.class);
     }
 
-    // ------------------------------------------------------ table elements
+    // ------------------------------------------------------ inline text semantics
+
+    public static HtmlContentBuilder<HTMLAnchorElement> a() {
+        return htmlElement("a", HTMLAnchorElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLAnchorElement> a(@NonNls String href) {
+        return a().attr("href", href);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> abbr() {
+        return htmlElement("abbr", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> b() {
+        return htmlElement("b", HTMLElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLBRElement> br() {
+        return emptyElement("br", HTMLBRElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> cite() {
+        return htmlElement("cite", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> code() {
+        return htmlElement("code", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> dfn() {
+        return htmlElement("dfn", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> em() {
+        return htmlElement("em", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> i() {
+        return htmlElement("i", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> kbd() {
+        return htmlElement("kbd", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> mark() {
+        return htmlElement("mark", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLQuoteElement> q() {
+        return htmlElement("q", HTMLQuoteElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> small() {
+        return htmlElement("small", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> span() {
+        return htmlElement("span", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> strong() {
+        return htmlElement("strong", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> sub() {
+        return htmlElement("sub", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> sup() {
+        return htmlElement("sup", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> time() {
+        return htmlElement("time", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> u() {
+        return htmlElement("u", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> var() {
+        return htmlElement("var", HTMLElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLElement> wbr() {
+        return emptyElement("wbr", HTMLElement.class);
+    }
+
+    // ------------------------------------------------------ image and multimedia
+
+    public static EmptyContentBuilder<HTMLAreaElement> area() {
+        return emptyElement("area", HTMLAreaElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLAudioElement> audio() {
+        return htmlElement("audio", HTMLAudioElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLImageElement> img() {
+        return emptyElement("img", HTMLImageElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLMapElement> map() {
+        return htmlElement("map", HTMLMapElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLTrackElement> track() {
+        return emptyElement("track", HTMLTrackElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLVideoElement> video() {
+        return htmlElement("video", HTMLVideoElement.class);
+    }
+
+    // ------------------------------------------------------ embedded content
+
+    public static EmptyContentBuilder<HTMLEmbedElement> embed() {
+        return emptyElement("embed", HTMLEmbedElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLObjectElement> object() {
+        return htmlElement("object", HTMLObjectElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLParamElement> param() {
+        return emptyElement("param", HTMLParamElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLSourceElement> source() {
+        return emptyElement("source", HTMLSourceElement.class);
+    }
+
+    // ------------------------------------------------------ scripting
+
+    public static HtmlContentBuilder<HTMLCanvasElement> canvas() {
+        return htmlElement("canvas", HTMLCanvasElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> noscript() {
+        return htmlElement("noscript", HTMLElement.class);
+    }
+
+    public static TextContentBuilder<HTMLScriptElement> script() {
+        return textElement("script", HTMLScriptElement.class);
+    }
+
+    // ------------------------------------------------------ demarcating edits
+
+    public static HtmlContentBuilder<HTMLModElement> del() {
+        return htmlElement("del", HTMLModElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLModElement> ins() {
+        return htmlElement("ins", HTMLModElement.class);
+    }
+
+
+    // ------------------------------------------------------ table content
+
+    public static HtmlContentBuilder<HTMLTableCaptionElement> caption() {
+        return htmlElement("caption", HTMLTableCaptionElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLTableColElement> col() {
+        return emptyElement("col", HTMLTableColElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLTableColElement> colgroup() {
+        return htmlElement("colgroup", HTMLTableColElement.class);
+    }
 
     public static HtmlContentBuilder<HTMLTableElement> table() {
         return htmlElement("table", HTMLTableElement.class);
     }
 
-    public static HtmlContentBuilder<HTMLTableSectionElement> thead() {
-        return htmlElement("thead", HTMLTableSectionElement.class);
-    }
-
     public static HtmlContentBuilder<HTMLTableSectionElement> tbody() {
         return htmlElement("tbody", HTMLTableSectionElement.class);
-    }
-
-    public static HtmlContentBuilder<HTMLTableRowElement> tr() {
-        return htmlElement("tr", HTMLTableRowElement.class);
-    }
-
-    public static HtmlContentBuilder<HTMLTableCellElement> th() {
-        return htmlElement("th", HTMLTableCellElement.class);
     }
 
     public static HtmlContentBuilder<HTMLTableCellElement> td() {
@@ -169,7 +392,19 @@ public final class Elements {
         return htmlElement("tfoot", HTMLTableSectionElement.class);
     }
 
-    // ------------------------------------------------------ form elements (a-z)
+    public static HtmlContentBuilder<HTMLTableCellElement> th() {
+        return htmlElement("th", HTMLTableCellElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLTableSectionElement> thead() {
+        return htmlElement("thead", HTMLTableSectionElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLTableRowElement> tr() {
+        return htmlElement("tr", HTMLTableRowElement.class);
+    }
+
+    // ------------------------------------------------------ forms
 
     public static HtmlContentBuilder<HTMLButtonElement> button() {
         return htmlElement("button", HTMLButtonElement.class);
@@ -177,6 +412,14 @@ public final class Elements {
 
     public static HtmlContentBuilder<HTMLButtonElement> button(String text) {
         return button().textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLDataListElement> datalist() {
+        return htmlElement("datalist", HTMLDataListElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLFieldSetElement> fieldset() {
+        return htmlElement("fieldset", HTMLFieldSetElement.class);
     }
 
     public static HtmlContentBuilder<HTMLFormElement> form() {
@@ -207,12 +450,32 @@ public final class Elements {
         return label().textContent(text);
     }
 
-    public static HtmlContentBuilder<HTMLOptionElement> option() {
-        return htmlElement("option", HTMLOptionElement.class);
+    public static HtmlContentBuilder<HTMLLegendElement> legend() {
+        return htmlElement("legend", HTMLLegendElement.class);
     }
 
-    public static HtmlContentBuilder<HTMLOptionElement> option(String text) {
+    public static HtmlContentBuilder<HTMLMeterElement> meter() {
+        return htmlElement("meter", HTMLMeterElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLOptGroupElement> optgroup() {
+        return htmlElement("optgroup", HTMLOptGroupElement.class);
+    }
+
+    public static TextContentBuilder<HTMLOptionElement> option() {
+        return textElement("option", HTMLOptionElement.class);
+    }
+
+    public static TextContentBuilder<HTMLOptionElement> option(String text) {
         return option().textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLOutputElement> output() {
+        return htmlElement("output", HTMLOutputElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLProgressElement> progress() {
+        return htmlElement("progress", HTMLProgressElement.class);
     }
 
     public static HtmlContentBuilder<HTMLSelectElement> select() {
@@ -241,7 +504,7 @@ public final class Elements {
         return new HtmlContentBuilder<>(createElement(tag, type));
     }
 
-    private static <E extends HTMLElement> E createElement(String tag, Class<E> type) {
+    public static <E extends HTMLElement> E createElement(String tag, Class<E> type) {
         return createElement.create(tag, type);
     }
 
