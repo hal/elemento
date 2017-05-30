@@ -3,6 +3,8 @@ package org.jboss.gwt.elemento.core;
 import elemental2.dom.HTMLElement;
 
 /**
+ * Factory to create elements.
+ *
  * @author Harald Pehl
  */
 @FunctionalInterface

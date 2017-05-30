@@ -22,13 +22,9 @@
 package org.jboss.gwt.elemento.core;
 
 /**
- * Known input types used in {@link Elements.Builder#input(InputType)}. If not otherwise specified the created element
- * is a simple element and cannot contain nested elements.
+ * Known input types used in {@link Elements#input(InputType)}.
  */
 public enum InputType {
-    /**
-     * Starts a button element (must be closed using {@link Elements.Builder#end()})
-     */
     button,
     checkbox,
     color,
@@ -45,15 +41,9 @@ public enum InputType {
     range,
     reset,
     search,
-    /**
-     * Starts a select element (must be closed using {@link Elements.Builder#end()})
-     */
     select,
     tel,
     text,
-    /**
-     * Starts a textarea element (must be closed using {@link Elements.Builder#end()})
-     */
     textarea,
     time,
     url,
