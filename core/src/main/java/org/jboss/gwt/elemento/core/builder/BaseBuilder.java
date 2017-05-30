@@ -1,34 +1,28 @@
-package org.jboss.gwt.elemento.core;
+package org.jboss.gwt.elemento.core.builder;
 
 import java.util.function.Consumer;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
+import org.jboss.gwt.elemento.core.EventCallbackFn;
+import org.jboss.gwt.elemento.core.EventType;
 import org.jetbrains.annotations.NonNls;
 
 import static java.util.Objects.requireNonNull;
 import static org.jboss.gwt.elemento.core.EventType.bind;
 
-/**
- * Base builder with methods common to all typed builder.
- *
- * @author Harald Pehl
- */
-abstract class BaseBuilder<E extends HTMLElement, B extends BaseBuilder<E, B>>
-        implements TypedBuilder<E, B> {
+/** Base builder with methods common to all typed builder. */
+public abstract class BaseBuilder<E extends HTMLElement, B extends BaseBuilder<E, B>> implements TypedBuilder<E, B> {
 
     protected final E element;
 
     /** Creates a new element builder to mutate the passed element. */
-    BaseBuilder(E element) {
+    public BaseBuilder(E element) {
         this.element = requireNonNull(element, "element required");
     }
 
     @Override
     public E asElement() { return element; }
-
-    /** An unique id which is used in error messages. */
-    protected abstract String logId();
 
     /** In order to make builders work with inheritance, sub-builders must return a reference to their instance. */
     public abstract B that();

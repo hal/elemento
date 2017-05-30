@@ -1,15 +1,12 @@
-package org.jboss.gwt.elemento.core;
+package org.jboss.gwt.elemento.core.builder;
 
 import com.google.gwt.safehtml.shared.SafeHtml;
 import elemental2.dom.HTMLElement;
+import org.jboss.gwt.elemento.core.HasElements;
+import org.jboss.gwt.elemento.core.IsElement;
 
-/**
- * Builder for container-like elements with inner HTML.
- *
- * @author Harald Pehl
- */
-public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>>
-        extends TextContent<E, B> {
+/** Builder for container-like elements with inner HTML. */
+public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TextContent<E, B> {
 
     /** Sets the inner HTML on the element using {@link HTMLElement#innerHTML}. */
     default B innerHtml(SafeHtml html) {

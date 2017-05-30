@@ -41,6 +41,7 @@ import elemental2.dom.UIEvent;
 import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
 import jsinterop.base.Js;
+import org.jboss.gwt.elemento.core.builder.BaseBuilder;
 
 /**
  * Known event types used in {@link BaseBuilder#on(EventType, EventCallbackFn)}.

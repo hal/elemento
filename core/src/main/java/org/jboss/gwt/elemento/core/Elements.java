@@ -21,11 +21,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
+import static elemental2.dom.DomGlobal.document;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.gwt.safehtml.shared.SafeHtml;
@@ -55,14 +51,18 @@ import elemental2.dom.HTMLTextAreaElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.Node;
 import elemental2.dom.NodeList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 import jsinterop.base.Js;
+import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
+import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
+import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
 import org.jetbrains.annotations.NonNls;
 
-import static elemental2.dom.DomGlobal.document;
-
-/**
- * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
- */
+/** Helper methods for working with {@link elemental2.dom.HTMLElement}s. */
 @SuppressWarnings("unused")
 public final class Elements {
 
@@ -73,120 +73,125 @@ public final class Elements {
         }
     };
 
-
     // ------------------------------------------------------ container elements (a-z)
 
-    private static final ElementTypes.HTML<HTMLAnchorElement> a = htmlElement("a", HTMLAnchorElement.class);
-
-    public static HtmlContentBuilder<HTMLAnchorElement> a() { return a.builder(); }
-
-    public static HtmlContentBuilder<HTMLAnchorElement> a(@NonNls String href) { return a().attr("href", href); }
-
-    private static final ElementTypes.HTML<HTMLElement> aside = htmlElement("aside", HTMLElement.class);
-
-    public static HtmlContentBuilder<HTMLElement> aside() { return aside.builder(); }
-
-    private static final ElementTypes.Empty<HTMLBRElement> br = emptyElement("br", HTMLBRElement.class);
-
-    public static EmptyContentBuilder<HTMLBRElement> br() { return br.builder(); }
-
-    private static final ElementTypes.HTML<HTMLDivElement> div = htmlElement("div", HTMLDivElement.class);
-
-    public static HtmlContentBuilder<HTMLDivElement> div() { return div.builder(); }
-
-    private static final ElementTypes.HTML<HTMLElement> footer = htmlElement("footer", HTMLElement.class);
-
-    public static HtmlContentBuilder<HTMLElement> footer() { return footer.builder(); }
-
-    public static HtmlContentBuilder<HTMLHeadingElement> h(int n) {
-        return htmlElement("h" + n, HTMLHeadingElement.class).builder();
+    public static HtmlContentBuilder<HTMLAnchorElement> a() {
+        return htmlElement("a", HTMLAnchorElement.class);
     }
 
-    public static HtmlContentBuilder<HTMLHeadingElement> h(int n, String text) { return h(n).textContent(text); }
+    public static HtmlContentBuilder<HTMLAnchorElement> a(@NonNls String href) {
+        return a().attr("href", href);
+    }
 
-    private static final ElementTypes.HTML<HTMLElement> header = htmlElement("header", HTMLElement.class);
+    public static HtmlContentBuilder<HTMLElement> aside() {
+        return htmlElement("aside", HTMLElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLElement> header() { return header.builder(); }
+    public static EmptyContentBuilder<HTMLBRElement> br() {
+        return emptyElement("br", HTMLBRElement.class);
+    }
 
-    private static final ElementTypes.Empty<HTMLHRElement> hr = emptyElement("hr", HTMLHRElement.class);
+    public static HtmlContentBuilder<HTMLDivElement> div() {
+        return htmlElement("div", HTMLDivElement.class);
+    }
 
-    public static EmptyContentBuilder<HTMLHRElement> hr() { return hr.builder(); }
+    public static HtmlContentBuilder<HTMLElement> footer() {
+        return htmlElement("footer", HTMLElement.class);
+    }
 
-    private static final ElementTypes.HTML<HTMLLIElement> li = htmlElement("li", HTMLLIElement.class);
+    public static HtmlContentBuilder<HTMLHeadingElement> h(int n) {
+        return htmlElement("h" + n, HTMLHeadingElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLLIElement> li() { return li.builder(); }
+    public static HtmlContentBuilder<HTMLHeadingElement> h(int n, String text) {
+        return h(n).textContent(text);
+    }
 
-    private static final ElementTypes.HTML<HTMLOListElement> ol = htmlElement("ol", HTMLOListElement.class);
+    public static HtmlContentBuilder<HTMLElement> header() {
+        return htmlElement("header", HTMLElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLOListElement> ol() { return ol.builder(); }
+    public static EmptyContentBuilder<HTMLHRElement> hr() {
+        return emptyElement("hr", HTMLHRElement.class);
+    }
 
-    private static final ElementTypes.HTML<HTMLParagraphElement> p = htmlElement("p", HTMLParagraphElement.class);
+    public static HtmlContentBuilder<HTMLLIElement> li() {
+        return htmlElement("li", HTMLLIElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLParagraphElement> p() { return p.builder(); }
+    public static HtmlContentBuilder<HTMLOListElement> ol() {
+        return htmlElement("ol", HTMLOListElement.class);
+    }
 
-    private static final ElementTypes.HTML<HTMLElement> section = htmlElement("section", HTMLElement.class);
+    public static HtmlContentBuilder<HTMLParagraphElement> p() {
+        return htmlElement("p", HTMLParagraphElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLElement> section() { return section.builder(); }
+    public static HtmlContentBuilder<HTMLElement> section() {
+        return htmlElement("section", HTMLElement.class);
+    }
 
-    private static final ElementTypes.HTML<HTMLElement> span = htmlElement("span", HTMLElement.class);
+    public static HtmlContentBuilder<HTMLElement> span() {
+        return htmlElement("span", HTMLElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLElement> span() { return span.builder(); }
-
-    private static final ElementTypes.HTML<HTMLUListElement> ul = htmlElement("ul", HTMLUListElement.class);
-
-    public static HtmlContentBuilder<HTMLUListElement> ul() { return ul.builder(); }
-
+    public static HtmlContentBuilder<HTMLUListElement> ul() {
+        return htmlElement("ul", HTMLUListElement.class);
+    }
 
     // ------------------------------------------------------ table elements
 
-    private static final ElementTypes.HTML<HTMLTableElement> table = htmlElement("table", HTMLTableElement.class);
+    public static HtmlContentBuilder<HTMLTableElement> table() {
+        return htmlElement("table", HTMLTableElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLTableElement> table() { return table.builder(); }
+    public static HtmlContentBuilder<HTMLTableSectionElement> thead() {
+        return htmlElement("thead", HTMLTableSectionElement.class);
+    }
 
-    private static final ElementTypes.HTML<HTMLTableSectionElement> thead = htmlElement("thead", HTMLTableSectionElement.class);
+    public static HtmlContentBuilder<HTMLTableSectionElement> tbody() {
+        return htmlElement("tbody", HTMLTableSectionElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLTableSectionElement> thead() { return thead.builder(); }
+    public static HtmlContentBuilder<HTMLTableRowElement> tr() {
+        return htmlElement("tr", HTMLTableRowElement.class);
+    }
 
-    private static final ElementTypes.HTML<HTMLTableSectionElement> tbody = htmlElement("tbody", HTMLTableSectionElement.class);
+    public static HtmlContentBuilder<HTMLTableCellElement> th() {
+        return htmlElement("th", HTMLTableCellElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLTableSectionElement> tbody() { return tbody.builder(); }
+    public static HtmlContentBuilder<HTMLTableCellElement> td() {
+        return htmlElement("td", HTMLTableCellElement.class);
+    }
 
-    private static final ElementTypes.HTML<HTMLTableRowElement> tr = htmlElement("tr", HTMLTableRowElement.class);
-
-    public static HtmlContentBuilder<HTMLTableRowElement> tr() { return tr.builder(); }
-
-    private static final ElementTypes.HTML<HTMLTableCellElement> th = htmlElement("th", HTMLTableCellElement.class);
-
-    public static HtmlContentBuilder<HTMLTableCellElement> th() { return th.builder(); }
-
-    private static final ElementTypes.HTML<HTMLTableCellElement> td = htmlElement("td", HTMLTableCellElement.class);
-
-    public static HtmlContentBuilder<HTMLTableCellElement> td() { return td.builder(); }
-
-    private static final ElementTypes.HTML<HTMLTableSectionElement> tfoot = htmlElement("tfoot", HTMLTableSectionElement.class);
-
-    public static HtmlContentBuilder<HTMLTableSectionElement> tfoot() { return tfoot.builder(); }
-
+    public static HtmlContentBuilder<HTMLTableSectionElement> tfoot() {
+        return htmlElement("tfoot", HTMLTableSectionElement.class);
+    }
 
     // ------------------------------------------------------ form elements (a-z)
 
-    private static final ElementTypes.HTML<HTMLButtonElement> button = htmlElement("button", HTMLButtonElement.class);
-
-    public static HtmlContentBuilder<HTMLButtonElement> button() { return button.builder(); }
-
-    public static HtmlContentBuilder<HTMLButtonElement> button(String text) { return button().textContent(text); }
-
-    private static final ElementTypes.HTML<HTMLFormElement> form = htmlElement("form", HTMLFormElement.class);
-
-    public static HtmlContentBuilder<HTMLFormElement> form() { return form.builder(); }
-
-    public static EmptyContentBuilder<HTMLInputElement> input(InputType type) { return input(type.name()); }
-
-    public static EmptyContentBuilder<HTMLInputElement> input(String type) {
-        return input(type, HTMLInputElement.class).builder();
+    public static HtmlContentBuilder<HTMLButtonElement> button() {
+        return htmlElement("button", HTMLButtonElement.class);
     }
 
-    public static <E extends HTMLInputElement> ElementTypes.Empty<E> input(String type, Class<E> jType) {
+    public static HtmlContentBuilder<HTMLButtonElement> button(String text) {
+        return button().textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLFormElement> form() {
+        return htmlElement("form", HTMLFormElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLInputElement> input(InputType type) {
+        return input(type.name());
+    }
+
+    public static EmptyContentBuilder<HTMLInputElement> input(String type) {
+        return input(type, HTMLInputElement.class);
+    }
+
+    public static <E extends HTMLInputElement> EmptyContentBuilder<E> input(String type, Class<E> jType) {
         return emptyElement(() -> {
             E el = createElement("input", jType);
             el.type = type;
@@ -194,49 +199,51 @@ public final class Elements {
         });
     }
 
-    private static final ElementTypes.HTML<HTMLLabelElement> label = htmlElement("label", HTMLLabelElement.class);
+    public static HtmlContentBuilder<HTMLLabelElement> label() {
+        return htmlElement("label", HTMLLabelElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLLabelElement> label() { return label.builder(); }
+    public static HtmlContentBuilder<HTMLLabelElement> label(String text) {
+        return label().textContent(text);
+    }
 
-    public static HtmlContentBuilder<HTMLLabelElement> label(String text) { return label().textContent(text); }
+    public static HtmlContentBuilder<HTMLOptionElement> option() {
+        return htmlElement("option", HTMLOptionElement.class);
+    }
 
-    private static final ElementTypes.HTML<HTMLOptionElement> option = htmlElement("option", HTMLOptionElement.class);
+    public static HtmlContentBuilder<HTMLOptionElement> option(String text) {
+        return option().textContent(text);
+    }
 
-    public static HtmlContentBuilder<HTMLOptionElement> option() { return option.builder(); }
+    public static HtmlContentBuilder<HTMLSelectElement> select() {
+        return htmlElement("select", HTMLSelectElement.class);
+    }
 
-    public static HtmlContentBuilder<HTMLOptionElement> option(String text) { return option().textContent(text); }
-
-    private static final ElementTypes.HTML<HTMLSelectElement> select = htmlElement("select", HTMLSelectElement.class);
-
-    public static HtmlContentBuilder<HTMLSelectElement> select() { return select.builder(); }
-
-    private static final ElementTypes.TextType<HTMLTextAreaElement> textarea = textElement("textarea", HTMLTextAreaElement.class);
-
-    public static TextContentBuilder<HTMLTextAreaElement> textarea() { return textarea.builder(); }
-
+    public static TextContentBuilder<HTMLTextAreaElement> textarea() {
+        return textElement("textarea", HTMLTextAreaElement.class);
+    }
 
     // ------------------------------------------------------ builder factories
 
-    public static <E extends HTMLElement> ElementTypes.Empty<E> emptyElement(String tag, Class<E> type) {
+    public static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(String tag, Class<E> type) {
         return emptyElement(() -> createElement(tag, type));
     }
 
-    public static <E extends HTMLElement> ElementTypes.Empty<E> emptyElement(Supplier<E> element) {
-        return new ElementTypes.Empty<>(() -> new EmptyContentBuilder<>(element.get()));
+    public static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(Supplier<E> element) {
+        return new EmptyContentBuilder<>(element.get());
     }
 
-    public static <E extends HTMLElement> ElementTypes.TextType<E> textElement(String tag, Class<E> type) {
-        return new ElementTypes.TextType<>(() -> new TextContentBuilder<>(createElement(tag, type)));
+    public static <E extends HTMLElement> TextContentBuilder<E> textElement(String tag, Class<E> type) {
+        return new TextContentBuilder<>(createElement(tag, type));
     }
 
-    public static <E extends HTMLElement> ElementTypes.HTML<E> htmlElement(String tag, Class<E> type) {
-        return new ElementTypes.HTML<>(() -> new HtmlContentBuilder<>(createElement(tag, type)));
+    public static <E extends HTMLElement> HtmlContentBuilder<E> htmlElement(String tag, Class<E> type) {
+        return new HtmlContentBuilder<>(createElement(tag, type));
     }
 
     private static <E extends HTMLElement> E createElement(String tag, Class<E> type) {
         return createElement.create(tag, type);
     }
-
 
     // ------------------------------------------------------ element helper methods
 
@@ -389,9 +396,7 @@ public final class Elements {
         }
     }
 
-
     // ------------------------------------------------------ conversions
-
 
     private static class ElementWidget extends Widget {
 
@@ -434,7 +439,6 @@ public final class Elements {
     public static HTMLElement asElement(com.google.gwt.dom.client.Element element) {
         return Js.cast(element);
     }
-
 
     // this is a static helper class which must never be instantiated!
     private Elements() {}
