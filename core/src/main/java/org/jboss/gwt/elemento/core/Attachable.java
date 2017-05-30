@@ -7,7 +7,9 @@ package org.jboss.gwt.elemento.core;
  */
 public interface Attachable {
 
+    /** Default implementation does nothing. */
     default void attach() {}
 
+    /** Default implementation does nothing. */
     default void detach() {}
 }

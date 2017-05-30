@@ -4,10 +4,12 @@ import elemental2.dom.Event;
 import jsinterop.annotations.JsFunction;
 
 /**
+ * Event handler callback.
+ *
  * @author Harald Pehl
  */
 @JsFunction
 public interface EventCallbackFn<E extends Event> {
 
-    void onInvoke(E event);
+    void onEvent(E event);
 }

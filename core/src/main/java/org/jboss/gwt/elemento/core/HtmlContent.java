@@ -4,12 +4,14 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 import elemental2.dom.HTMLElement;
 
 /**
+ * Builder for container-like elements with inner HTML.
+ *
  * @author Harald Pehl
  */
 public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>>
         extends TextContent<E, B> {
 
-    /** Sets the inner HTML on the last added element. */
+    /** Sets the inner HTML on the element using {@link HTMLElement#innerHTML}. */
     default B innerHtml(SafeHtml html) {
         asElement().innerHTML = html.asString();
         return that();

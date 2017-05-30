@@ -3,6 +3,8 @@ package org.jboss.gwt.elemento.core;
 import elemental2.dom.HTMLElement;
 
 /**
+ * Builder for container-like elements with inner HTML.
+ *
  * @author Harald Pehl
  */
 public class HtmlContentBuilder<E extends HTMLElement> extends BaseBuilder<E, HtmlContentBuilder<E>>
@@ -14,5 +16,5 @@ public class HtmlContentBuilder<E extends HTMLElement> extends BaseBuilder<E, Ht
     public HtmlContentBuilder<E> that() { return this; }
 
     @Override
-    protected String logId() { return "<elements.htmlContent>"; }
+    protected String logId() { return "<elements.html>"; }
 }

@@ -10,9 +10,11 @@ import static java.util.Objects.requireNonNull;
 import static org.jboss.gwt.elemento.core.EventType.bind;
 
 /**
+ * Base builder with methods common to all typed builder.
+ *
  * @author Harald Pehl
  */
-public abstract class BaseBuilder<E extends HTMLElement, B extends BaseBuilder<E, B>>
+abstract class BaseBuilder<E extends HTMLElement, B extends BaseBuilder<E, B>>
         implements TypedBuilder<E, B> {
 
     protected final E element;
@@ -34,33 +36,38 @@ public abstract class BaseBuilder<E extends HTMLElement, B extends BaseBuilder<E
 
     // ------------------------------------------------------ modify current element
 
+    /** Sets the id on the element. */
     public B id(@NonNls String id) {
         asElement().id = id;
         return that();
     }
 
+    /** Sets the title on the element. */
     public B title(String title) {
         asElement().title = title;
         return that();
     }
 
+    /** Adds the specified CSS classes to the class list of the element. */
     public B css(@NonNls String... classes) {
         asElement().classList.add(classes);
         return that();
     }
 
+    /** Sets the CSS style of the element. */
     public B style(@NonNls String style) {
         asElement().style.cssText = style;
         return that();
     }
 
+    /** Sets the specified attribute of the element. */
     public B attr(@NonNls String name, String value) {
         asElement().setAttribute(name, value);
         return that();
     }
 
     /**
-     * Adds a {@code data-} attribute to the last added element.
+     * Adds a {@code data-} attribute to the element.
      *
      * @param name The name of the data attribute w/o the {@code data-} prefix. However it won't be added if it's
      *             already present.
@@ -71,7 +78,7 @@ public abstract class BaseBuilder<E extends HTMLElement, B extends BaseBuilder<E
     }
 
     /**
-     * Adds an {@code aria-} attribute to the last added element.
+     * Adds an {@code aria-} attribute to the element.
      *
      * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's
      *             already present.
@@ -81,6 +88,7 @@ public abstract class BaseBuilder<E extends HTMLElement, B extends BaseBuilder<E
         return attr(safeName, value);
     }
 
+    /** Provides a way to modify the element using the specified consumer. */
     public B apply(Consumer<E> consumer) {
         consumer.accept(asElement());
         return that();
