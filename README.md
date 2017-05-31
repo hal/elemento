@@ -3,8 +3,8 @@
 # Elemento
 Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/articles/elemental.html) as easy as possible. In a nutshell Elemento brings the following features to the table:
 
-- Builder like API to easily create arbitrary large element hierarchies
-- HTML templates, declarative event handling and support for [handlebar](http://handlebarsjs.com/)-like expressions
+- Type safe builders to easily create arbitrary large element hierarchies
+- HTML templates with support for [handlebar](http://handlebarsjs.com/)-like expressions
 - Support for dependency injection with [GIN](https://code.google.com/p/google-gin/)
 - Helper methods to mix and match GWT Elemental and GWT Widgets
 
@@ -63,49 +63,44 @@ When working with GWT Elemental it is often awkward and cumbersome to create an 
 </section>
 ```
 
-lead to a vast amount of `Document.createElement()` and chained `Node.appendChild()` calls. However using the builder API, creating the above structure is as easy as
+lead to a vast amount of `Document.createElement()` and chained `Node.appendChild()` calls. However using the builders, creating the above structure is as easy as
 
 ```java
+import static org.jboss.gwt.elemento.core.Elements.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
 
-// @formatter:off
-HTMLElement element = new Elements.Builder()
-    .section().css("main")
-        .input(checkbox).css("toggle-all")
-        .label().attr("for", "toggle-all").textContent("Mark all as complete").end()
-        .ul().css("todo-list")
-            .li()
-                .div().css("view")
-                    .input(checkbox).css("toggle")
-                    .label().textContent("Taste Elemento").end()
-                    .button().css("destroy").end()
-                .end()
-                .input(text).css("edit")
-            .end()
-        .end()
-    .end().build();
-// @formatter:on
+HTMLElement section = section().css("main")
+        .add(input(checkbox).id("toggle-all").css("toggle-all"))
+        .add(label()
+                .apply(l -> l.htmlFor = "toggle-all")
+                .textContent("Mark all as complete"))
+        .add(ul().css("todo-list")
+                .add(li()
+                        .add(div().css("view")
+                                .add(input(checkbox)
+                                        .css("toggle")
+                                        .apply(cb -> cb.checked = true))
+                                .add(label().textContent("Taste Elemento"))
+                                .add(button().css("destroy")))
+                        .add(input(text).css("edit"))))
+        .asElement();
 ```
 
-The builder API supports convenience methods to create the most common elements and attributes. It uses a fluent API to create and append elements on the fly. The builder distinguishes between elements which can contain nested elements (container) and simple element w/o children. The former must be closed using `end()`. Take a look at the [API documentation](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.Builder.html) for all details.
+The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for all details.
 
 ### References
-When creating large hierarchies of elements you often need to reference an element somewhere in the tree. Use the `Builder.rememberAs(String)` method to save a reference and `Builder.referenceFor(String)` to lookup the reference later on:
+When creating large hierarchies of elements you often need to assign an element somewhere in the tree. You can use an inline assignment to create an assign the element on the fly:
 
 ```java
-// @formatter:off
-Elements.Builder builder = new Elements.Builder()
-    .footer().css("footer")
-        .span().css("todo-count").rememberAs("count").end()
-    .end();
-// @formatter:on
-    
-HTMLElement count = builder.referenceFor("count");
+final HTMLElement count;
+final HTMLElement footer = footer()
+        .add(count = span().css("todo-count").asElement())
+        .asElement();
 ```
 
 ### Event Handlers
-The builder API provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventCallbackFn)` to add handlers when building the element tree. There are [constants](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
+Elemento provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventCallbackFn)` to add handlers when building the element tree. There are [constants](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
 
 ```java
 import static org.jboss.gwt.elemento.core.EventType.*;
@@ -123,29 +118,9 @@ HTMLElement listItem = new Elements.Builder()
 // @formatter:on
 ```
 
-### Extending the Builder
+You can always register events later using...
 
-In case you want to have your own (convenience) methods, you can extend the builder that comes with Elemento. Normally inheritance and builders don't play well together. That's why Elemento uses an approach described in a blog post by Eric Ramblings: [Using inheritance with fluent interfaces: get this](http://egalluzzo.blogspot.de/2010/06/using-inheritance-with-fluent.html). 
-
-Say you want to create an image with a source and an anchor with an href. Use the following builder:
-
-```java
-public class MyBuilder extends Elements.CoreBuilder<MyBuilder> {
-    
-    public MyBuilder() { super("my.builder"); }
-    
-    @Override
-    protected MyBuilder that() { return this; }
-
-    public MyBuilder img(String src) {
-        return start("img").attr("src", src);
-    }
-    
-    public MyBuilder ahref(String url) {
-        return a().attr("href", url);
-    }
-}
-```
+TODO Code sample which collects the handler registrations
 
 ## Templates
 Elemento provides an easy way to take existing HTML content and use it in your GWT application. Templates can be either HTML snippets or full HTML documents where you select an element and its children. This allows you to preview your templates more easily during design without running the application. 
