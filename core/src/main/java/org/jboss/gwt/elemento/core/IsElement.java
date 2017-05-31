@@ -23,13 +23,9 @@ package org.jboss.gwt.elemento.core;
 
 import elemental2.dom.HTMLElement;
 
-/**
- * The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.IsWidget}.
- *
- * @author Harald Pehl
- */
+/** The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.IsWidget}. */
 @FunctionalInterface
-public interface IsElement {
+public interface IsElement<E extends HTMLElement> {
 
-    HTMLElement asElement();
+    E asElement();
 }
