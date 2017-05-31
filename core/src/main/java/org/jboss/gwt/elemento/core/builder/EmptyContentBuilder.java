@@ -9,5 +9,4 @@ public class EmptyContentBuilder<E extends HTMLElement> extends ElementBuilder<E
 
     @Override
     public EmptyContentBuilder<E> that() { return this; }
-
 }

@@ -6,9 +6,6 @@ import java.util.Map;
 import jsinterop.base.JsForEachCallbackFn;
 import jsinterop.base.JsPropertyMap;
 
-/**
- * @author Harald Pehl
- */
 class JrePropertyMap<T> implements JsPropertyMap<T> {
 
     final Map<String, T> store = new HashMap<>();

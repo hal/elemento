@@ -10,5 +10,4 @@ public class TextContentBuilder<E extends HTMLElement> extends ElementBuilder<E,
 
     @Override
     public TextContentBuilder<E> that() { return this; }
-
 }

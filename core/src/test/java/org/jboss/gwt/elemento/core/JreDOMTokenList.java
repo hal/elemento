@@ -8,9 +8,6 @@ import elemental2.dom.DOMTokenList;
 
 import static java.util.stream.Collectors.joining;
 
-/**
- * @author Harald Pehl
- */
 class JreDOMTokenList extends DOMTokenList {
 
     final Set<String> store = new LinkedHashSet<>();

@@ -26,8 +26,6 @@ import elemental2.dom.HTMLElement;
 /**
  * Convenience class to support lazy element creation. The bulk of a LazyElement is not instantiated until {@link
  * #asElement()} is called.
- *
- * @author Harald Pehl
  */
 public abstract class LazyElement implements IsElement {
 

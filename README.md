@@ -63,7 +63,7 @@ When working with GWT Elemental it is often awkward and cumbersome to create an 
 </section>
 ```
 
-lead to a vast amount of `Document.createElement()` and chained `Node.appendChild()` calls. However using the builders, creating the above structure is as easy as
+lead to a vast amount of `Document.createElement()` and chained `Node.appendChild()` calls. With Elemento creating the above structure is as easy as
 
 ```java
 import static org.jboss.gwt.elemento.core.Elements.*;
@@ -90,7 +90,7 @@ HTMLElement section = section().css("main")
 The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for all details.
 
 ### References
-When creating large hierarchies of elements you often need to assign an element somewhere in the tree. You can use an inline assignment to create an assign the element on the fly:
+When creating large hierarchies of elements you often need to assign an element somewhere in the tree. Use `asElement()` to assign the element inline:
 
 ```java
 final HTMLElement count;
@@ -100,27 +100,38 @@ final HTMLElement footer = footer()
 ```
 
 ### Event Handlers
-Elemento provides methods to easily register event handlers. Use the method `Builder.on(EventType, EventCallbackFn)` to add handlers when building the element tree. There are [constants](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) available which map to all supported events:
+Elemento provides methods to easily register event handlers. There are [constants](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/EventType.html) for most supported events:
 
 ```java
+import static org.jboss.gwt.elemento.core.Elements.*;
 import static org.jboss.gwt.elemento.core.EventType.*;
+import static org.jboss.gwt.elemento.core.InputType.checkbox;
+import static org.jboss.gwt.elemento.core.InputType.text;
 
-// @formatter:off
-HTMLElement listItem = new Elements.Builder()
-    .li()
-        .div().css("view")
-            .input(checkbox).on(change, event -> toggle()).css("toggle")
-            .label().on(dblclick, event -> edit()).textContent("...").end()
-            .button().on(click, event -> destroy()).css("destroy").end()
-        .end()
-        .input(text).on(keydown, this::keyDown).on(blur, event -> blur()).css("edit")
-    .end().build();
-// @formatter:on
+HTMLLIElement listItem = li()
+        .add(div().css("view")
+                .add(input(checkbox)
+                        .css("toggle")
+                        .apply(cb -> cb.checked = true)
+                        .on(change, event -> toggle()))
+                .add(label()
+                        .textContent("Taste Elemento")
+                        .on(dblclick, event -> edit()))
+                .add(button()
+                        .css("destroy")
+                        .on(click, event -> destroy())))
+        .add(input(text)
+                .css("edit")
+                .on(keydown, this::keyDown)
+                .on(blur, event -> blur()))
+        .asElement();
 ```
 
-You can always register events later using...
+You can always register events later using the `EventType.bind()` methods: 
 
-TODO Code sample which collects the handler registrations
+```java
+EventType.bind(listItem, click, event -> DomGlobal.window.alert("Clicked"));
+```
 
 ## Templates
 Elemento provides an easy way to take existing HTML content and use it in your GWT application. Templates can be either HTML snippets or full HTML documents where you select an element and its children. This allows you to preview your templates more easily during design without running the application. 

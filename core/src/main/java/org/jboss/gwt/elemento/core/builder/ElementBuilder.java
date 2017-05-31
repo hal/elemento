@@ -12,22 +12,19 @@ import org.jetbrains.annotations.NonNls;
 import static java.util.Objects.requireNonNull;
 import static org.jboss.gwt.elemento.core.EventType.bind;
 
-/** Base builder with methods common to all typed builder. */
+/** Base builder with methods common to all typed builders. */
 public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBuilder<E, B>>
-        implements TypedBuilder<E, B>, IsElement {
+        implements TypedBuilder<E, B>, IsElement<E> {
 
     protected final E element;
 
     /** Creates a new element builder to mutate the passed element. */
-    public ElementBuilder(E element) {
+    ElementBuilder(E element) {
         this.element = requireNonNull(element, "element required");
     }
 
     @Override
     public E asElement() { return element; }
-
-    /** In order to make builders work with inheritance, sub-builders must return a reference to their instance. */
-    public abstract B that();
 
 
     // ------------------------------------------------------ modify current element

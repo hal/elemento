@@ -498,18 +498,21 @@ public final class Elements {
 
     // ------------------------------------------------------ builder factories
 
+    /** Returns a builder for the specified empty tag. */
     public static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(String tag, Class<E> type) {
         return emptyElement(() -> createElement(tag, type));
     }
 
-    public static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(Supplier<E> element) {
+    private static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(Supplier<E> element) {
         return new EmptyContentBuilder<>(element.get());
     }
 
+    /** Returns a builder for the specified text tag. */
     public static <E extends HTMLElement> TextContentBuilder<E> textElement(String tag, Class<E> type) {
         return new TextContentBuilder<>(createElement(tag, type));
     }
 
+    /** Returns a builder for the specified html tag. */
     public static <E extends HTMLElement> HtmlContentBuilder<E> htmlElement(String tag, Class<E> type) {
         return new HtmlContentBuilder<>(createElement(tag, type));
     }
