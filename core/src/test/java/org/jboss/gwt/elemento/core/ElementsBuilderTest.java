@@ -11,6 +11,7 @@ import com.google.common.collect.Iterables;
 import com.google.gwtmockito.GwtMockitoTestRunner;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
+import org.jboss.gwt.elemento.core.builder.ElementCreator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,9 +28,6 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-/**
- * @author Harald Pehl
- */
 @RunWith(GwtMockitoTestRunner.class)
 public class ElementsBuilderTest {
 
@@ -93,7 +91,6 @@ public class ElementsBuilderTest {
         }
         return b.toString();
     }
-
 
     private void assertElement(String expected, IsElement actual) {
         assertEquals(expected.replace("\"", ""), actual.asElement().toString().replace("\"", ""));
