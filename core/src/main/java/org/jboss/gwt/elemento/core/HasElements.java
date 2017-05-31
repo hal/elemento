@@ -23,11 +23,7 @@ package org.jboss.gwt.elemento.core;
 
 import elemental2.dom.HTMLElement;
 
-/**
- * The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.HasWidgets}.
- *
- * @author Harald Pehl
- */
+/** The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.HasWidgets}. */
 public interface HasElements {
 
     Iterable<HTMLElement> asElements();

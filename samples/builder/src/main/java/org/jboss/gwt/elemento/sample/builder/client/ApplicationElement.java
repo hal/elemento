@@ -34,6 +34,11 @@ import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
+import static org.jboss.gwt.elemento.core.Elements.*;
+import static org.jboss.gwt.elemento.core.Elements.button;
+import static org.jboss.gwt.elemento.core.Elements.span;
+import static org.jboss.gwt.elemento.core.Elements.ul;
+import static org.jboss.gwt.elemento.core.EventType.bind;
 import static org.jboss.gwt.elemento.core.EventType.change;
 import static org.jboss.gwt.elemento.core.EventType.click;
 import static org.jboss.gwt.elemento.core.EventType.keydown;
@@ -44,6 +49,14 @@ import static org.jboss.gwt.elemento.sample.common.Filter.ALL;
 import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
 class ApplicationElement implements IsElement {
+
+    private static HTMLElement filter(Filter f, String text) {
+        return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).asElement();
+    }
+
+    private final TodoItemRepository repository;
+    private final I18n i18n;
+    private Filter filter;
 
     private final HTMLElement root;
     private final HTMLInputElement newTodo;
@@ -57,56 +70,39 @@ class ApplicationElement implements IsElement {
     private final HTMLElement filterCompleted;
     private final HTMLButtonElement clearCompleted;
 
-    private final TodoItemRepository repository;
-    private final I18n i18n;
-    private Filter filter;
 
     ApplicationElement(TodoItemRepository repository, I18n i18n) {
         this.repository = repository;
+
+        this.root = section().css("todoapp")
+                .add(header().css("header")
+                        .add(h(1).textContent(i18n.constants().todos()))
+                        .add(newTodo = input(text).css("new-todo").apply(input -> {
+                            input.placeholder = i18n.constants().new_todo();
+                            input.autofocus = true;
+                        }).asElement()))
+                .add(main = section().css("main")
+                        .add(toggleAll = input(checkbox).css("toggle-all").id("toggle-all").asElement())
+                        .add(label().attr("for", "toggle-all").textContent(i18n.constants().complete_all()))
+                        .add(list = ul().css("todo-list").asElement())
+                        .asElement())
+                .add(footer = footer().css("footer")
+                        .add(count = span().css("todo-count").innerHtml(i18n.messages().items(0)).asElement())
+                        .add(ul().css("filters")
+                                .add(filterAll = filter(ALL, i18n.constants().filter_all()))
+                                .add(filterActive = filter(ACTIVE, i18n.constants().filter_active()))
+                                .add(filterCompleted = filter(COMPLETED, i18n.constants().filter_completed())))
+                        .add(clearCompleted = button()
+                                .css("clear-completed")
+                                .textContent(i18n.constants().clear_completed())
+                                .asElement())
+                        .asElement())
+                .asElement();
         this.i18n = i18n;
 
-        // @formatter:off
-        TodoBuilder builder = new TodoBuilder()
-        .section().css("todoapp")
-            .header().css("header")
-                .h(1).textContent(i18n.constants().todos()).end()
-                .input(text)
-                    .on(keydown, this::newTodo)
-                    .rememberAs("newTodo")
-                    .css("new-todo")
-                    .attr("placeholder", i18n.constants().new_todo())
-                    .attr("autofocus", "autofocus")
-            .end()
-            .section().css("main").rememberAs("main")
-                .input(checkbox).on(change, event -> toggleAll()).css("toggle-all").id("toggle-all").rememberAs("toggleAll")
-                .label().attr("for", "toggle-all").textContent(i18n.constants().complete_all()).end()
-                .ul().css("todo-list").rememberAs("list").end()
-            .end()
-            .footer().css("footer").rememberAs("footer")
-                .span().css("todo-count").rememberAs("count").innerHtml(i18n.messages().items(0)).end()
-                .ul().css("filters")
-                    .filter(ALL.fragment(), i18n.constants().filter_all(), ALL.filter())
-                    .filter(ACTIVE.fragment(), i18n.constants().filter_active(), ACTIVE.filter())
-                    .filter(COMPLETED.fragment(), i18n.constants().filter_completed(), COMPLETED.filter())
-                .end()
-                .button().on(click, event -> clearCompleted()).css("clear-completed").rememberAs("clearCompleted")
-                    .textContent(i18n.constants().clear_completed())
-                .end()
-            .end()
-        .end();
-        // @formatter:on
-
-        this.root = builder.build();
-        this.newTodo = builder.referenceFor("newTodo");
-        this.main = builder.referenceFor("main");
-        this.toggleAll = builder.referenceFor("toggleAll");
-        this.list = builder.referenceFor("list");
-        this.footer = builder.referenceFor("footer");
-        this.count = builder.referenceFor("count");
-        this.filterAll = builder.referenceFor(ALL.filter());
-        this.filterActive = builder.referenceFor(ACTIVE.filter());
-        this.filterCompleted = builder.referenceFor(COMPLETED.filter());
-        this.clearCompleted = builder.referenceFor("clearCompleted");
+        bind(newTodo, keydown, this::newTodo);
+        bind(toggleAll, change, event -> toggleAll());
+        bind(clearCompleted, click, event -> clearCompleted());
 
         reset();
         repository.onExternalModification(this::reset);

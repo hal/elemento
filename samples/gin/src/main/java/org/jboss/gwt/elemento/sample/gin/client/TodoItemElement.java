@@ -22,6 +22,8 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import com.google.inject.Provider;
+import com.google.web.bindery.event.shared.HandlerRegistration;
+import com.google.web.bindery.event.shared.HandlerRegistrations;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
@@ -51,6 +53,7 @@ abstract class TodoItemElement implements IsElement {
     @DataElement HTMLElement label;
     @DataElement HTMLElement destroy;
     @DataElement HTMLInputElement input;
+    private HandlerRegistration handlerRegistration;
     private TodoItem item;
     private boolean escape;
 
@@ -64,11 +67,12 @@ abstract class TodoItemElement implements IsElement {
         label.textContent = item.text;
         toggle.checked = item.completed;
 
-        bind(toggle, change, e -> toggle());
-        bind(label, dblclick, e -> edit());
-        bind(destroy, click, e -> destroy());
-        bind(input, keydown, this::keyDown);
-        bind(input, blur, e -> blur());
+        handlerRegistration = HandlerRegistrations.compose(
+                bind(toggle, change, e -> toggle()),
+                bind(label, dblclick, e -> edit()),
+                bind(destroy, click, e -> destroy()),
+                bind(input, keydown, this::keyDown),
+                bind(input, blur, e -> blur()));
     }
 
     // ------------------------------------------------------ event handler
@@ -92,6 +96,7 @@ abstract class TodoItemElement implements IsElement {
 
     private void destroy() {
         asElement().parentNode.removeChild(asElement());
+        handlerRegistration.removeHandler();
         repository().remove(item);
         application().get().update();
     }

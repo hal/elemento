@@ -41,9 +41,10 @@ import elemental2.dom.UIEvent;
 import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
 import jsinterop.base.Js;
+import org.jboss.gwt.elemento.core.builder.ElementBuilder;
 
 /**
- * Known event types used in {@link Elements.Builder#on(EventType, EventCallbackFn)}.
+ * Known event types used in {@link ElementBuilder#on(EventType, EventCallbackFn)}.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a>
  */
@@ -138,7 +139,7 @@ public class EventType<T extends Event, V extends EventTarget> {
 
     public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
             EventCallbackFn<T> listener) {
-        return bind(target, type.name, e -> listener.onInvoke(Js.cast(e)));
+        return bind(target, type.name, e -> listener.onEvent(Js.cast(e)));
     }
 
     public static HandlerRegistration bind(EventTarget target, String type, EventListener listener) {
@@ -148,7 +149,7 @@ public class EventType<T extends Event, V extends EventTarget> {
 
     public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
             boolean useCapture, EventCallbackFn<T> listener) {
-        return bind(target, type.name, useCapture, e -> listener.onInvoke(Js.cast(e)));
+        return bind(target, type.name, useCapture, e -> listener.onEvent(Js.cast(e)));
     }
 
     public static HandlerRegistration bind(EventTarget source, String type, boolean useCapture,
@@ -162,6 +163,5 @@ public class EventType<T extends Event, V extends EventTarget> {
 
     public final String name;
 
-    @SuppressWarnings("WeakerAccess")
-    public EventType(String name) { this.name = name; }
+    private EventType(String name) { this.name = name; }
 }

@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.3.1</version>
+        <version>0.4.0</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
@@ -60,7 +60,6 @@
                 <groupId>org.jboss.gwt.elemento</groupId>
                 <artifactId>sample-common</artifactId>
                 <version>${project.version}</version>
-                <type>gwt-lib</type>
             </dependency>
         </dependencies>
     </dependencyManagement>

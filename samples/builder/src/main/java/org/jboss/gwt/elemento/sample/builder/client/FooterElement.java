@@ -22,10 +22,14 @@
 package org.jboss.gwt.elemento.sample.builder.client;
 
 import elemental2.dom.HTMLElement;
-import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.Urls;
+
+import static org.jboss.gwt.elemento.core.Elements.a;
+import static org.jboss.gwt.elemento.core.Elements.footer;
+import static org.jboss.gwt.elemento.core.Elements.p;
+import static org.jboss.gwt.elemento.core.Elements.span;
 
 class FooterElement implements IsElement {
 
@@ -35,18 +39,12 @@ class FooterElement implements IsElement {
 
     @Override
     public HTMLElement asElement() {
-        // @formatter:off
-        return new Elements.Builder()
-        .start("footer").css("info")
-            .p().textContent(i18n.constants().double_click_to_edit()).end()
-            .p()
-                .span().textContent(i18n.constants().created_by() + " ").end()
-                .a().attr("href", Urls.HPEHL_INFO).textContent("Harald Pehl").end()
-            .end()
-            .p()
-                .span().textContent(i18n.constants().part_of() + " ").end()
-                .a().attr("href", Urls.TODO_MVC).textContent("TodoMVC").end()
-            .end()
-        .end().build();
+        return footer().css("info")
+                .add(p().textContent(i18n.constants().double_click_to_edit()))
+                .add(p().add(span().textContent(i18n.constants().created_by() + " "))
+                        .add(a(Urls.HPEHL_INFO).textContent("Harald Pehl")))
+                .add(p().add(span().textContent(i18n.constants().part_of() + " "))
+                        .add(a(Urls.TODO_MVC).textContent("TodoMVC")))
+                .asElement();
     }
 }

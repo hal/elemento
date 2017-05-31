@@ -11,8 +11,6 @@ import elemental2.dom.NodeList;
 /**
  * Provides an iterator over a list of nodes. Iterates only over elements, nodes will be skipped. The iterator does
  * <strong>not</strong> support the {@link #remove()} operation.
- *
- * @author Harald Pehl
  */
 public class NodeListIterator implements Iterator<HTMLElement> {
 

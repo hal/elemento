@@ -29,10 +29,8 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
 /**
- * Provides an iterator over an element. The iterator supports the {@link #remove()} operation which removes the current
- * element from its parent.
- *
- * @author Harald Pehl
+ * Provides an iterator over an element. The iterator supports the {@link #remove()} operation which removes the
+ * current element from its parent.
  */
 public class ChildrenIterator implements Iterator<HTMLElement> {
 
