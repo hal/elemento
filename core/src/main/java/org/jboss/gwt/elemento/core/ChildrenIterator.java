@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import elemental2.core.Array;
+import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
@@ -32,14 +33,14 @@ import elemental2.dom.Node;
  * Provides an iterator over an element. The iterator supports the {@link #remove()} operation which removes the
  * current element from its parent.
  */
-public class ChildrenIterator implements Iterator<HTMLElement> {
+public class ChildrenIterator implements Iterator<Element> {
 
-    private final HTMLElement parent;
-    private final Array<HTMLElement> children;
+    private final Element parent;
+    private final Array<Element> children;
     private int size;
     private int index;
 
-    ChildrenIterator(final HTMLElement parent) {
+    ChildrenIterator(final Element parent) {
         this.parent = parent;
         this.children = new Array<>();
         for (int i = 0, length = parent.childNodes.getLength(); i < length; i++) {
@@ -59,11 +60,11 @@ public class ChildrenIterator implements Iterator<HTMLElement> {
     }
 
     @Override
-    public HTMLElement next() {
+    public Element next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        HTMLElement child = children.getAt(index);
+        Element child = children.getAt(index);
         index++;
         return child;
     }

@@ -32,6 +32,7 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.DomGlobal;
+import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLAreaElement;
 import elemental2.dom.HTMLAudioElement;
@@ -528,60 +529,51 @@ public final class Elements {
      * Returns an iterator over the children of the given parent element. The iterator supports the {@link
      * Iterator#remove()} operation which removes the current element from its parent.
      */
-    public static Iterator<HTMLElement> iterator(HTMLElement parent) {
-        return parent != null ? new ChildrenIterator(parent) : Collections.<HTMLElement>emptyList().iterator();
+    public static Iterator<Element> iterator(Element parent) {
+        return parent != null ? new ChildrenIterator(parent) : Collections.<Element>emptyList().iterator();
     }
 
     /**
      * Returns an iterator over the given node list. The iterator will only iterate over elements while skipping nodes.
      * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
      */
-    public static Iterator<HTMLElement> iterator(NodeList<Node> nodes) {
-        return nodes != null ? new NodeListIterator(nodes) : Collections.<HTMLElement>emptyList().iterator();
+    public static Iterator<Element> iterator(NodeList<Node> nodes) {
+        return nodes != null ? new NodeListIterator(nodes) : Collections.<Element>emptyList().iterator();
     }
 
     /**
      * Returns a stream for the children of the given parent element.
      */
-    public static Stream<HTMLElement> stream(HTMLElement parent) {
+    public static Stream<Element> stream(Element parent) {
         return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : Stream.empty();
     }
 
     /**
      * Returns a stream for the elements in the given node list.
      */
-    public static Stream<HTMLElement> stream(NodeList<Node> nodes) {
+    public static Stream<Element> stream(NodeList<Node> nodes) {
         return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : Stream.empty();
     }
 
     /**
      * Returns an iterable collection for the children of the given parent element.
      */
-    public static Iterable<HTMLElement> children(HTMLElement parent) {
+    public static Iterable<Element> children(Element parent) {
         return () -> iterator(parent);
     }
 
     /**
      * Returns an iterable collection for the elements in the given node list.
      */
-    public static Iterable<HTMLElement> elements(NodeList<Node> nodes) {
+    public static Iterable<Element> elements(NodeList<Node> nodes) {
         return () -> iterator(nodes);
-    }
-
-    /**
-     * Convenience method to set the inner HTML of the given element.
-     */
-    public static void innerHtml(HTMLElement element, SafeHtml html) {
-        if (element != null) {
-            element.innerHTML = html.asString();
-        }
     }
 
     /**
      * Appends the specified element to the parent element if not already present. If parent already contains child,
      * this method does nothing.
      */
-    public static void lazyAppend(final HTMLElement parent, final HTMLElement child) {
+    public static void lazyAppend(final Element parent, final Element child) {
         if (!parent.contains(child)) {
             parent.appendChild(child);
         }
@@ -591,7 +583,7 @@ public final class Elements {
      * Inserts the specified element into the parent element if not already present. If parent already contains child,
      * this method does nothing.
      */
-    public static void lazyInsertBefore(final HTMLElement parent, final HTMLElement child, final HTMLElement before) {
+    public static void lazyInsertBefore(final Element parent, final Element child, final Element before) {
         if (!parent.contains(child)) {
             parent.insertBefore(child, before);
         }
@@ -600,7 +592,7 @@ public final class Elements {
     /**
      * Removes all child elements from {@code element}
      */
-    public static void removeChildrenFrom(final HTMLElement element) {
+    public static void removeChildrenFrom(final Element element) {
         if (element != null) {
             while (element.firstChild != null) {
                 element.removeChild(element.firstChild);
@@ -613,7 +605,7 @@ public final class Elements {
      *
      * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
      */
-    public static boolean failSafeRemoveFromParent(final HTMLElement element) {
+    public static boolean failSafeRemoveFromParent(final Element element) {
         return failSafeRemove(element != null ? element.parentNode : null, element);
     }
 
@@ -622,7 +614,7 @@ public final class Elements {
      *
      * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
      */
-    public static boolean failSafeRemove(final Node parent, final HTMLElement child) {
+    public static boolean failSafeRemove(final Node parent, final Element child) {
         //noinspection SimplifiableIfStatement
         if (parent != null && child != null && parent.contains(child)) {
             return parent.removeChild(child) != null;
@@ -633,15 +625,15 @@ public final class Elements {
     /**
      * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
      */
-    public static HTMLElement dataElement(@NonNls String name) {
-        return (HTMLElement) DomGlobal.document.querySelector("[data-element=" + name + "]");
+    public static Element dataElement(@NonNls String name) {
+        return DomGlobal.document.querySelector("[data-element=" + name + "]");
     }
 
     /**
      * Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]}
      */
-    public static HTMLElement dataElement(HTMLElement context, @NonNls String name) {
-        return context != null ? (HTMLElement) context.querySelector("[data-element=" + name + "]") : null;
+    public static Element dataElement(Element context, @NonNls String name) {
+        return context != null ? context.querySelector("[data-element=" + name + "]") : null;
     }
 
     /**
@@ -672,6 +664,16 @@ public final class Elements {
             }
         }
     }
+
+    /**
+     * Convenience method to set the inner HTML of the given element.
+     */
+    public static void innerHtml(HTMLElement element, SafeHtml html) {
+        if (element != null) {
+            element.innerHTML = html.asString();
+        }
+    }
+
 
     // ------------------------------------------------------ conversions
 
