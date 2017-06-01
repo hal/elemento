@@ -6,7 +6,6 @@ import java.util.List;
 
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 
 /**
@@ -17,7 +16,7 @@ public class NodeListIterator implements Iterator<Element> {
 
     private final Iterator<Element> iterator;
 
-    NodeListIterator(final NodeList<Node> nodes) {
+    NodeListIterator(final NodeList<Element> nodes) {
         List<Element> elements = new ArrayList<>();
         for (int i = 0; i < nodes.getLength(); i++) {
             if (nodes.item(i) instanceof HTMLElement) {

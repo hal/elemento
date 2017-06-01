@@ -537,7 +537,7 @@ public final class Elements {
      * Returns an iterator over the given node list. The iterator will only iterate over elements while skipping nodes.
      * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
      */
-    public static Iterator<Element> iterator(NodeList<Node> nodes) {
+    public static Iterator<Element> iterator(NodeList<Element> nodes) {
         return nodes != null ? new NodeListIterator(nodes) : Collections.<Element>emptyList().iterator();
     }
 
@@ -551,7 +551,7 @@ public final class Elements {
     /**
      * Returns a stream for the elements in the given node list.
      */
-    public static Stream<Element> stream(NodeList<Node> nodes) {
+    public static Stream<Element> stream(NodeList<Element> nodes) {
         return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : Stream.empty();
     }
 
@@ -565,7 +565,7 @@ public final class Elements {
     /**
      * Returns an iterable collection for the elements in the given node list.
      */
-    public static Iterable<Element> elements(NodeList<Node> nodes) {
+    public static Iterable<Element> elements(NodeList<Element> nodes) {
         return () -> iterator(nodes);
     }
 
