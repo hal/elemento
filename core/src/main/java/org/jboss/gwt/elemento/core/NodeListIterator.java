@@ -12,15 +12,16 @@ import elemental2.dom.NodeList;
  * Provides an iterator over a list of nodes. Iterates only over elements, nodes will be skipped. The iterator does
  * <strong>not</strong> support the {@link #remove()} operation.
  */
-public class NodeListIterator implements Iterator<Element> {
+public class NodeListIterator implements Iterator<HTMLElement> {
 
-    private final Iterator<Element> iterator;
+    private final Iterator<HTMLElement> iterator;
 
-    NodeListIterator(final NodeList<Element> nodes) {
-        List<Element> elements = new ArrayList<>();
+    <E extends Element> NodeListIterator(final NodeList<E> nodes) {
+        List<HTMLElement> elements = new ArrayList<>();
         for (int i = 0; i < nodes.getLength(); i++) {
-            if (nodes.item(i) instanceof HTMLElement) {
-                elements.add(((HTMLElement) nodes.item(i)));
+            E item = nodes.item(i);
+            if (item instanceof HTMLElement) {
+                elements.add((HTMLElement) item);
             }
         }
         this.iterator = elements.iterator();
@@ -32,7 +33,7 @@ public class NodeListIterator implements Iterator<Element> {
     }
 
     @Override
-    public Element next() {
+    public HTMLElement next() {
         return iterator.next();
     }
 }

@@ -529,43 +529,43 @@ public final class Elements {
      * Returns an iterator over the children of the given parent element. The iterator supports the {@link
      * Iterator#remove()} operation which removes the current element from its parent.
      */
-    public static Iterator<Element> iterator(Element parent) {
-        return parent != null ? new ChildrenIterator(parent) : Collections.<Element>emptyList().iterator();
+    public static Iterator<HTMLElement> iterator(HTMLElement parent) {
+        return parent != null ? new ChildrenIterator(parent) : Collections.<HTMLElement>emptyList().iterator();
     }
 
     /**
      * Returns an iterator over the given node list. The iterator will only iterate over elements while skipping nodes.
      * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
      */
-    public static Iterator<Element> iterator(NodeList<Element> nodes) {
-        return nodes != null ? new NodeListIterator(nodes) : Collections.<Element>emptyList().iterator();
+    public static <E extends Element> Iterator<HTMLElement> iterator(NodeList<E> nodes) {
+        return nodes != null ? new NodeListIterator(nodes) : Collections.<HTMLElement>emptyList().iterator();
     }
 
     /**
      * Returns a stream for the children of the given parent element.
      */
-    public static Stream<Element> stream(Element parent) {
+    public static Stream<HTMLElement> stream(HTMLElement parent) {
         return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : Stream.empty();
     }
 
     /**
      * Returns a stream for the elements in the given node list.
      */
-    public static Stream<Element> stream(NodeList<Element> nodes) {
+    public static <E extends Element> Stream<HTMLElement> stream(NodeList<E> nodes) {
         return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : Stream.empty();
     }
 
     /**
      * Returns an iterable collection for the children of the given parent element.
      */
-    public static Iterable<Element> children(Element parent) {
+    public static Iterable<HTMLElement> children(HTMLElement parent) {
         return () -> iterator(parent);
     }
 
     /**
      * Returns an iterable collection for the elements in the given node list.
      */
-    public static Iterable<Element> elements(NodeList<Element> nodes) {
+    public static <E extends Element> Iterable<HTMLElement> elements(NodeList<E> nodes) {
         return () -> iterator(nodes);
     }
 
