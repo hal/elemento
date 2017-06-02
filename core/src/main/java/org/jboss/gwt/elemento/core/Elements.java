@@ -83,6 +83,7 @@ import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 import jsinterop.base.Js;
 import org.jboss.gwt.elemento.core.builder.ElementCreator;
+import org.jboss.gwt.elemento.core.builder.ElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
@@ -498,6 +499,11 @@ public final class Elements {
     }
 
     // ------------------------------------------------------ builder factories
+
+    /** Returns a builder to collect elements in a flat list as {@link HasElements}. */
+    public static ElementsBuilder elements() {
+        return new ElementsBuilder();
+    }
 
     /** Returns a builder for the specified empty tag. */
     public static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(String tag, Class<E> type) {
