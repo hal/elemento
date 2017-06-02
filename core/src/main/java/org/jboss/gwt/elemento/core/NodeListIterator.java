@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 
 /**
@@ -16,11 +16,12 @@ public class NodeListIterator implements Iterator<HTMLElement> {
 
     private final Iterator<HTMLElement> iterator;
 
-    NodeListIterator(final NodeList<Node> nodes) {
+    <E extends Element> NodeListIterator(final NodeList<E> nodes) {
         List<HTMLElement> elements = new ArrayList<>();
         for (int i = 0; i < nodes.getLength(); i++) {
-            if (nodes.item(i) instanceof HTMLElement) {
-                elements.add(((HTMLElement) nodes.item(i)));
+            E item = nodes.item(i);
+            if (item instanceof HTMLElement) {
+                elements.add((HTMLElement) item);
             }
         }
         this.iterator = elements.iterator();

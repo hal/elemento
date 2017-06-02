@@ -25,27 +25,29 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import elemental2.core.Array;
+import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
+import jsinterop.base.Js;
 
 /**
  * Provides an iterator over an element. The iterator supports the {@link #remove()} operation which removes the
  * current element from its parent.
  */
-public class ChildrenIterator implements Iterator<HTMLElement> {
+public class ChildrenIterator<E extends Element> implements Iterator<E> {
 
-    private final HTMLElement parent;
-    private final Array<HTMLElement> children;
+    private final Element parent;
+    private final Array<E> children;
     private int size;
     private int index;
 
-    ChildrenIterator(final HTMLElement parent) {
+    ChildrenIterator(final Element parent) {
         this.parent = parent;
         this.children = new Array<>();
         for (int i = 0, length = parent.childNodes.getLength(); i < length; i++) {
             Node node = parent.childNodes.item(i);
             if (node instanceof HTMLElement) {
-                children.push(((HTMLElement) node));
+                children.push(Js.cast(node));
             }
         }
         this.size = children.getLength();
@@ -59,11 +61,11 @@ public class ChildrenIterator implements Iterator<HTMLElement> {
     }
 
     @Override
-    public HTMLElement next() {
+    public E next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        HTMLElement child = children.getAt(index);
+        E child = children.getAt(index);
         index++;
         return child;
     }
@@ -75,6 +77,7 @@ public class ChildrenIterator implements Iterator<HTMLElement> {
         }
         index--;
         parent.removeChild(children.getAt(index));
+        //noinspection unchecked
         children.splice(index, 1);
         size = children.getLength();
     }
