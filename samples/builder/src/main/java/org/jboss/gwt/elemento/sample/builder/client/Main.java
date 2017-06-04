@@ -24,6 +24,7 @@ package org.jboss.gwt.elemento.sample.builder.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.History;
+import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoConstants;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
@@ -41,9 +42,9 @@ public class Main implements EntryPoint {
         I18n i18n = new I18n(CONSTANTS, MESSAGES);
         TodoItemRepository repository = new TodoItemRepository();
         ApplicationElement application = new ApplicationElement(repository, i18n);
+        FooterElement footer = new FooterElement(i18n);
 
-        document.body.appendChild(application.asElement());
-        document.body.appendChild(new FooterElement(i18n).asElement());
+        Elements.body().add(application).add(footer);
 
         History.addValueChangeHandler(event -> application.filter(event.getValue()));
         History.fireCurrentHistoryState();

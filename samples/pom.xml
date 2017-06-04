@@ -54,16 +54,6 @@
         <module>templated</module>
     </modules>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.jboss.gwt.elemento</groupId>
-                <artifactId>sample-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>com.google.elemental2</groupId>
@@ -89,9 +79,6 @@
 
     <build>
         <resources>
-            <resource>
-                <directory>src/main/java</directory>
-            </resource>
             <resource>
                 <directory>src/main/resources</directory>
                 <excludes>
