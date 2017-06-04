@@ -38,6 +38,7 @@ import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLAreaElement;
 import elemental2.dom.HTMLAudioElement;
 import elemental2.dom.HTMLBRElement;
+import elemental2.dom.HTMLBodyElement;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLCanvasElement;
 import elemental2.dom.HTMLDListElement;
@@ -81,8 +82,10 @@ import elemental2.dom.HTMLTrackElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.HTMLVideoElement;
 import elemental2.dom.Node;
+import java.util.function.IntSupplier;
 import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
+import jsinterop.base.JsPropertyMapOfAny;
 import org.jboss.gwt.elemento.core.builder.ElementCreator;
 import org.jboss.gwt.elemento.core.builder.ElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
@@ -109,6 +112,17 @@ public final class Elements {
         }
     };
 
+    @VisibleForTesting static IntSupplier createDocumentUniqueId = () -> {
+        JsPropertyMapOfAny map = Js.uncheckedCast(document);
+        if (!map.has("elementoUid")) map.set("elementoUid", 0);
+        int uid = map.getAny("elementoUid").asInt() + 1;
+        map.set("elementoUid", uid);
+        return uid;
+    };
+
+    public static HtmlContentBuilder<HTMLBodyElement> body() {
+        return new HtmlContentBuilder<>(document.body);
+    }
 
     // ------------------------------------------------------ content sectioning
 
@@ -574,6 +588,7 @@ public final class Elements {
         private Node parent, last, next;
 
         public JsArrayNodeIterator(Node parent) {
+            this.parent = parent;
             next = parent.firstChild;
         }
 
@@ -612,6 +627,7 @@ public final class Elements {
         private HTMLElement parent, last, next;
 
         public JsArrayElementIterator(HTMLElement parent) {
+            this.parent = parent;
             next = (HTMLElement) parent.firstElementChild;
         }
 
@@ -784,6 +800,13 @@ public final class Elements {
         if (element != null) {
             element.innerHTML = html.asString();
         }
+    }
+
+    /**
+     * Creates an identifier guaranteed to be unique within this document. This is useful for allocating element id's.
+     */
+    public static String createDocumentUniqueId() {
+        return "elemento-uid-" + createDocumentUniqueId.getAsInt();
     }
 
 

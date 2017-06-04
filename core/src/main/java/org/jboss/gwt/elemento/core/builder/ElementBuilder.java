@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
+import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.EventCallbackFn;
 import org.jboss.gwt.elemento.core.EventType;
 import org.jboss.gwt.elemento.core.IsElement;
@@ -32,6 +33,12 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     /** Sets the id on the element. */
     public B id(@NonNls String id) {
         asElement().id = id;
+        return that();
+    }
+
+    /** Generates and sets an unique id on the element. */
+    public B id() {
+        id(Elements.createDocumentUniqueId());
         return that();
     }
 

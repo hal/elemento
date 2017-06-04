@@ -40,6 +40,7 @@ import elemental2.dom.TouchEvent;
 import elemental2.dom.UIEvent;
 import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
+import elemental2.webstorage.StorageEvent;
 import jsinterop.base.Js;
 import org.jboss.gwt.elemento.core.builder.ElementBuilder;
 
@@ -133,6 +134,9 @@ public class EventType<T extends Event, V extends EventTarget> {
     // Uncategorized Events
     public static final EventType<Event, Element> invalid = new EventType<>("invalid");
     public static final EventType<Event, Element> show = new EventType<>("show");
+
+    // Storage Events
+    public static final EventType<StorageEvent, Window> storage = new EventType<>("storage");
 
 
     // ------------------------------------------------------ binding methods

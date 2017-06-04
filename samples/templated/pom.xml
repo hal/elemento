@@ -49,7 +49,20 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-template</artifactId>
+            <version>${project.version}</version>
+            <classifier>sources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>sample-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>sample-common</artifactId>
+            <version>${project.version}</version>
+            <classifier>sources</classifier>
         </dependency>
     </dependencies>
 
