@@ -38,6 +38,7 @@ import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLAreaElement;
 import elemental2.dom.HTMLAudioElement;
 import elemental2.dom.HTMLBRElement;
+import elemental2.dom.HTMLBodyElement;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLCanvasElement;
 import elemental2.dom.HTMLDListElement;
@@ -119,6 +120,9 @@ public final class Elements {
         return uid;
     };
 
+    public static HtmlContentBuilder<HTMLBodyElement> body() {
+        return new HtmlContentBuilder<>(document.body);
+    }
 
     // ------------------------------------------------------ content sectioning
 
