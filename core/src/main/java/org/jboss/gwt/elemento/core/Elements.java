@@ -588,6 +588,7 @@ public final class Elements {
         private Node parent, last, next;
 
         public JsArrayNodeIterator(Node parent) {
+            this.parent = parent;
             next = parent.firstChild;
         }
 
@@ -626,6 +627,7 @@ public final class Elements {
         private HTMLElement parent, last, next;
 
         public JsArrayElementIterator(HTMLElement parent) {
+            this.parent = parent;
             next = (HTMLElement) parent.firstElementChild;
         }
 
