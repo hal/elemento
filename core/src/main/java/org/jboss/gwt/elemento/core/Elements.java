@@ -21,8 +21,12 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import static elemental2.dom.DomGlobal.document;
-import static java.util.Spliterators.spliteratorUnknownSize;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.gwt.safehtml.shared.SafeHtml;
@@ -77,12 +81,6 @@ import elemental2.dom.HTMLTrackElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.HTMLVideoElement;
 import elemental2.dom.Node;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
 import org.jboss.gwt.elemento.core.builder.ElementCreator;
@@ -91,6 +89,9 @@ import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
 import org.jetbrains.annotations.NonNls;
+
+import static elemental2.dom.DomGlobal.document;
+import static java.util.Spliterators.spliteratorUnknownSize;
 
 /**
  * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
@@ -499,6 +500,7 @@ public final class Elements {
         return textElement("textarea", HTMLTextAreaElement.class);
     }
 
+
     // ------------------------------------------------------ builder factories
 
     /** Returns a builder to collect elements in a flat list as {@link HasElements}. */
@@ -604,8 +606,8 @@ public final class Elements {
         return parent != null ? new JsArrayElementIterator(parent) : Collections.emptyIterator();
     }
 
-    //XXX this should be Iterator<Element> but it was used frequently as HTMLElement, so to be more user friendly the
-    //cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
+    // This should be Iterator<Element> but it was used frequently as HTMLElement, so to be more user friendly the
+    // cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
     private static class JsArrayElementIterator implements Iterator<HTMLElement> {
         private HTMLElement parent, last, next;
 
