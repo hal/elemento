@@ -23,6 +23,7 @@ package org.jboss.gwt.elemento.core;
 
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -80,8 +81,8 @@ import elemental2.dom.HTMLTrackElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.HTMLVideoElement;
 import elemental2.dom.Node;
-import elemental2.dom.NodeList;
 import jsinterop.base.Js;
+import jsinterop.base.JsArrayLike;
 import org.jboss.gwt.elemento.core.builder.ElementCreator;
 import org.jboss.gwt.elemento.core.builder.ElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
@@ -90,6 +91,7 @@ import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
 import org.jetbrains.annotations.NonNls;
 
 import static elemental2.dom.DomGlobal.document;
+import static java.util.Spliterators.spliteratorUnknownSize;
 
 /**
  * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
@@ -498,6 +500,7 @@ public final class Elements {
         return textElement("textarea", HTMLTextAreaElement.class);
     }
 
+
     // ------------------------------------------------------ builder factories
 
     /** Returns a builder to collect elements in a flat list as {@link HasElements}. */
@@ -532,47 +535,150 @@ public final class Elements {
     // ------------------------------------------------------ element helper methods
 
     /**
+     * Returns an iterator over the given array-like. The iterator does <strong>not</strong> support the
+     * {@link Iterator#remove()} operation.
+     */
+    public static <E> Iterator<E> iterator(JsArrayLike<E> data) {
+        return data != null ? new JsArrayLikeIterator<>(data) : Collections.emptyIterator();
+    }
+
+    private static class JsArrayLikeIterator<T> implements Iterator<T> {
+        private int pos = 0;
+        private final JsArrayLike<? extends T> data;
+
+        JsArrayLikeIterator(JsArrayLike<? extends T> nodes) {
+            this.data = nodes;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return pos < data.getLength();
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) throw new NoSuchElementException();
+            return data.getAt(pos++);
+        }
+    }
+
+    /**
+     * Returns an iterator over the children of the given parent node. The iterator supports the {@link
+     * Iterator#remove()} operation which removes the current node from its parent.
+     */
+    public static Iterator<Node> iterator(Node parent) {
+        return parent != null ? new JsArrayNodeIterator(parent) : Collections.emptyIterator();
+    }
+
+    private static class JsArrayNodeIterator implements Iterator<Node> {
+        private Node parent, last, next;
+
+        public JsArrayNodeIterator(Node parent) {
+            next = parent.firstChild;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public Node next() {
+            if (!hasNext()) throw new NoSuchElementException();
+            last = next;
+            next = last.nextSibling;
+            return last;
+        }
+
+        @Override
+        public void remove() {
+            if (last == null) throw new IllegalStateException();
+            parent.removeChild(last);
+            last = null;
+        }
+    }
+
+    /**
      * Returns an iterator over the children of the given parent element. The iterator supports the {@link
-     * Iterator#remove()} operation which removes the current element from its parent.
+     * Iterator#remove()} operation which removes the current node from its parent.
      */
     public static Iterator<HTMLElement> iterator(HTMLElement parent) {
-        return parent != null ? new ChildrenIterator(parent) : Collections.<HTMLElement>emptyList().iterator();
+        return parent != null ? new JsArrayElementIterator(parent) : Collections.emptyIterator();
+    }
+
+    // This should be Iterator<Element> but it was used frequently as HTMLElement, so to be more user friendly the
+    // cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
+    private static class JsArrayElementIterator implements Iterator<HTMLElement> {
+        private HTMLElement parent, last, next;
+
+        public JsArrayElementIterator(HTMLElement parent) {
+            next = (HTMLElement) parent.firstElementChild;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public HTMLElement next() {
+            if (!hasNext()) throw new NoSuchElementException();
+            last = next;
+            next = (HTMLElement) last.nextElementSibling;
+            return last;
+        }
+
+        @Override
+        public void remove() {
+            if (last == null) throw new IllegalStateException();
+            parent.removeChild(last);
+            last = null;
+        }
     }
 
     /**
-     * Returns an iterator over the given node list. The iterator will only iterate over elements while skipping nodes.
-     * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
+     * Returns a stream for the elements in the given array-like.
      */
-    public static <E extends Element> Iterator<HTMLElement> iterator(NodeList<E> nodes) {
-        return nodes != null ? new NodeListIterator(nodes) : Collections.<HTMLElement>emptyList().iterator();
+    public static <E> Stream<E> stream(JsArrayLike<E> nodes) {
+        if (nodes == null) return Stream.empty();
+        else return StreamSupport.stream(spliteratorUnknownSize(iterator(nodes), 0), false);
     }
 
     /**
-     * Returns a stream for the children of the given parent element.
+     * Returns a stream for the child nodes of the given parent node.
+     */
+    public static Stream<Node> stream(Node parent) {
+        if (parent == null) return Stream.empty();
+        else return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
+    }
+
+    /**
+     * Returns a stream for the child elements of the given parent element.
      */
     public static Stream<HTMLElement> stream(HTMLElement parent) {
-        return parent != null ? StreamSupport.stream(children(parent).spliterator(), false) : Stream.empty();
+        if (parent == null) return Stream.empty();
+        else return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
     }
 
     /**
-     * Returns a stream for the elements in the given node list.
+     * Returns an iterable collection for the elements in the given array-like.
      */
-    public static <E extends Element> Stream<HTMLElement> stream(NodeList<E> nodes) {
-        return nodes != null ? StreamSupport.stream(elements(nodes).spliterator(), false) : Stream.empty();
+    public static <E> Iterable<E> elements(JsArrayLike<E> nodes) {
+        return () -> iterator(nodes);
     }
 
     /**
-     * Returns an iterable collection for the children of the given parent element.
+     * Returns an iterable collection for the child nodes of the given parent node.
      */
-    public static Iterable<HTMLElement> children(HTMLElement parent) {
+    public static Iterable<Node> children(Node parent) {
         return () -> iterator(parent);
     }
 
     /**
-     * Returns an iterable collection for the elements in the given node list.
+     * Returns an iterable collection for the child elements of the given parent element.
      */
-    public static <E extends Element> Iterable<HTMLElement> elements(NodeList<E> nodes) {
-        return () -> iterator(nodes);
+    public static Iterable<HTMLElement> children(HTMLElement parent) {
+        return () -> iterator(parent);
     }
 
     /**
