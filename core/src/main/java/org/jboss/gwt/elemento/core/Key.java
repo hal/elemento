@@ -1,9 +1,12 @@
 package org.jboss.gwt.elemento.core;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import elemental2.dom.KeyboardEvent;
 
 /**
- * Key values according to <a href="https://www.w3.org/TR/DOM-Level-3-Events-key/">https://www.w3.org/TR/DOM-Level-3-Events-key/</a>.
+ * Selected Key values according to <a href="https://www.w3.org/TR/DOM-Level-3-Events-key/">https://www.w3.org/TR/DOM-Level-3-Events-key/</a>.
  *
  * @see <a href="https://developer.mozilla.org/de/docs/Web/API/KeyboardEvent/key/Key_Values">https://developer.mozilla.org/de/docs/Web/API/KeyboardEvent/key/Key_Values</a>
  */
@@ -95,6 +98,25 @@ public enum Key {
     ZoomIn("ZoomIn"),
     ZoomOut("ZoomOut");
 
+
+    private static Map<String, Key> keys = new HashMap<>();
+
+    static {
+        for (Key key : Key.values()) {
+            keys.put(key.key, key);
+            if (key.alternatives != null) {
+                for (String alternative : key.alternatives) {
+                    keys.put(alternative, key);
+                }
+            }
+        }
+    }
+
+    public static Key fromEvent(KeyboardEvent event) {
+        return keys.getOrDefault(event.key, Unidentified);
+    }
+
+    
     private final String key;
     private final String[] alternatives;
 
@@ -119,14 +141,5 @@ public enum Key {
             }
         }
         return false;
-    }
-
-    public static Key fromEvent(KeyboardEvent event) {
-        for (Key key : Key.values()) {
-            if (key.match(event)) {
-                return key;
-            }
-        }
-        return Unidentified;
     }
 }
