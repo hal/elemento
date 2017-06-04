@@ -24,6 +24,7 @@ package org.jboss.gwt.elemento.core;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -82,7 +83,6 @@ import elemental2.dom.HTMLTrackElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.HTMLVideoElement;
 import elemental2.dom.Node;
-import java.util.function.IntSupplier;
 import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMapOfAny;
@@ -123,6 +123,7 @@ public final class Elements {
     public static HtmlContentBuilder<HTMLBodyElement> body() {
         return new HtmlContentBuilder<>(document.body);
     }
+
 
     // ------------------------------------------------------ content sectioning
 

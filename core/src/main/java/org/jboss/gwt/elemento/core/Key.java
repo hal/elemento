@@ -116,7 +116,7 @@ public enum Key {
         return keys.getOrDefault(event.key, Unidentified);
     }
 
-    
+
     private final String key;
     private final String[] alternatives;
 
