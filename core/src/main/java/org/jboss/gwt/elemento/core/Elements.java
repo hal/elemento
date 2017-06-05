@@ -90,6 +90,7 @@ import org.jboss.gwt.elemento.core.builder.ElementCreator;
 import org.jboss.gwt.elemento.core.builder.ElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
+import org.jboss.gwt.elemento.core.builder.InputBuilder;
 import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
 import org.jetbrains.annotations.NonNls;
 
@@ -455,20 +456,18 @@ public final class Elements {
         return htmlElement("form", HTMLFormElement.class);
     }
 
-    public static EmptyContentBuilder<HTMLInputElement> input(InputType type) {
+    public static InputBuilder<HTMLInputElement> input(InputType type) {
         return input(type.name());
     }
 
-    public static EmptyContentBuilder<HTMLInputElement> input(String type) {
+    public static InputBuilder<HTMLInputElement> input(String type) {
         return input(type, HTMLInputElement.class);
     }
 
-    public static <E extends HTMLInputElement> EmptyContentBuilder<E> input(String type, Class<E> jType) {
-        return emptyElement(() -> {
-            E el = createElement("input", jType);
-            el.type = type;
-            return el;
-        });
+    public static <E extends HTMLInputElement> InputBuilder<E> input(String type, Class<E> jType) {
+        E el = createElement("input", jType);
+        el.type = type;
+        return new InputBuilder<>(el);
     }
 
     public static HtmlContentBuilder<HTMLLabelElement> label() {

@@ -54,6 +54,12 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
         return that();
     }
 
+    /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
+    public B css(@NonNls String className, boolean force) {
+        asElement().classList.toggle(className, force);
+        return that();
+    }
+
     /** Sets the CSS style of the element. */
     public B style(@NonNls String style) {
         asElement().style.cssText = style;
