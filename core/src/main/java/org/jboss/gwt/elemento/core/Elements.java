@@ -24,7 +24,9 @@ package org.jboss.gwt.elemento.core;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.function.Function;
 import java.util.function.IntSupplier;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -101,7 +103,6 @@ import static java.util.Spliterators.spliteratorUnknownSize;
  * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
- *
  */
 @SuppressWarnings("unused")
 public final class Elements {
@@ -115,7 +116,7 @@ public final class Elements {
 
     @VisibleForTesting static IntSupplier createDocumentUniqueId = () -> {
         JsPropertyMapOfAny map = Js.uncheckedCast(document);
-        if (!map.has("elementoUid")) map.set("elementoUid", 0);
+        if (!map.has("elementoUid")) { map.set("elementoUid", 0); }
         int uid = map.getAny("elementoUid").asInt() + 1;
         map.set("elementoUid", uid);
         return uid;
@@ -546,7 +547,41 @@ public final class Elements {
     }
 
 
-    // ------------------------------------------------------ element helper methods
+    // ------------------------------------------------------ element iterator / stream methods
+
+
+    private static class FilterHTMLElements<T extends Node> implements Predicate<T> {
+
+        @Override
+        public boolean test(final T t) {
+            return t instanceof HTMLElement;
+        }
+    }
+
+    /**
+     * Returns a predicate for {@linkplain HTMLElement HTML elements}. Useful in streams of {@linkplain Node nodes} or
+     * {@linkplain Element elements}.
+     */
+    public static <T extends Node> Predicate<T> htmlElements() {
+        return new FilterHTMLElements<>();
+    }
+
+    private static class AsHTMLElement<T extends Node> implements Function<T, HTMLElement> {
+
+        @Override
+        public HTMLElement apply(final T t) {
+            return ((HTMLElement) t);
+        }
+    }
+
+    /**
+     * Casts to {@link HTMLElement}. Make sure to {@linkplain #htmlElements() filter} for HTML elements before using
+     * this function.
+     */
+    public static <T extends Node> Function<T, HTMLElement> asHtmlElement() {
+        return new AsHTMLElement<>();
+    }
+
 
     /**
      * Returns an iterator over the given array-like. The iterator does <strong>not</strong> support the
@@ -557,6 +592,7 @@ public final class Elements {
     }
 
     private static class JsArrayLikeIterator<T> implements Iterator<T> {
+
         private int pos = 0;
         private final JsArrayLike<? extends T> data;
 
@@ -571,7 +607,7 @@ public final class Elements {
 
         @Override
         public T next() {
-            if (!hasNext()) throw new NoSuchElementException();
+            if (!hasNext()) { throw new NoSuchElementException(); }
             return data.getAt(pos++);
         }
     }
@@ -585,6 +621,7 @@ public final class Elements {
     }
 
     private static class JsArrayNodeIterator implements Iterator<Node> {
+
         private Node parent, last, next;
 
         public JsArrayNodeIterator(Node parent) {
@@ -599,7 +636,7 @@ public final class Elements {
 
         @Override
         public Node next() {
-            if (!hasNext()) throw new NoSuchElementException();
+            if (!hasNext()) { throw new NoSuchElementException(); }
             last = next;
             next = last.nextSibling;
             return last;
@@ -607,7 +644,7 @@ public final class Elements {
 
         @Override
         public void remove() {
-            if (last == null) throw new IllegalStateException();
+            if (last == null) { throw new IllegalStateException(); }
             parent.removeChild(last);
             last = null;
         }
@@ -624,6 +661,7 @@ public final class Elements {
     // This should be Iterator<Element> but it was used frequently as HTMLElement, so to be more user friendly the
     // cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
     private static class JsArrayElementIterator implements Iterator<HTMLElement> {
+
         private HTMLElement parent, last, next;
 
         public JsArrayElementIterator(HTMLElement parent) {
@@ -638,7 +676,7 @@ public final class Elements {
 
         @Override
         public HTMLElement next() {
-            if (!hasNext()) throw new NoSuchElementException();
+            if (!hasNext()) { throw new NoSuchElementException(); }
             last = next;
             next = (HTMLElement) last.nextElementSibling;
             return last;
@@ -646,7 +684,7 @@ public final class Elements {
 
         @Override
         public void remove() {
-            if (last == null) throw new IllegalStateException();
+            if (last == null) { throw new IllegalStateException(); }
             parent.removeChild(last);
             last = null;
         }
@@ -656,24 +694,27 @@ public final class Elements {
      * Returns a stream for the elements in the given array-like.
      */
     public static <E> Stream<E> stream(JsArrayLike<E> nodes) {
-        if (nodes == null) return Stream.empty();
-        else return StreamSupport.stream(spliteratorUnknownSize(iterator(nodes), 0), false);
+        if (nodes == null) { return Stream.empty(); } else {
+            return StreamSupport.stream(spliteratorUnknownSize(iterator(nodes), 0), false);
+        }
     }
 
     /**
      * Returns a stream for the child nodes of the given parent node.
      */
     public static Stream<Node> stream(Node parent) {
-        if (parent == null) return Stream.empty();
-        else return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
+        if (parent == null) { return Stream.empty(); } else {
+            return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
+        }
     }
 
     /**
      * Returns a stream for the child elements of the given parent element.
      */
     public static Stream<HTMLElement> stream(HTMLElement parent) {
-        if (parent == null) return Stream.empty();
-        else return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
+        if (parent == null) { return Stream.empty(); } else {
+            return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
+        }
     }
 
     /**
@@ -696,6 +737,9 @@ public final class Elements {
     public static Iterable<HTMLElement> children(HTMLElement parent) {
         return () -> iterator(parent);
     }
+
+
+    // ------------------------------------------------------ element append, insert & remove methods
 
     /**
      * Appends the specified element to the parent element if not already present. If parent already contains child,
@@ -749,6 +793,9 @@ public final class Elements {
         }
         return false;
     }
+
+
+    // ------------------------------------------------------ misc element helper methods
 
     /**
      * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
@@ -811,6 +858,7 @@ public final class Elements {
 
 
     // ------------------------------------------------------ conversions
+
 
     private static class ElementWidget extends Widget {
 
