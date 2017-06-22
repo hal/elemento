@@ -334,6 +334,10 @@ public final class Elements {
         return emptyElement("img", HTMLImageElement.class);
     }
 
+    public static EmptyContentBuilder<HTMLImageElement> img(String src) {
+        return emptyElement("img", HTMLImageElement.class).attr("src", src);
+    }
+
     public static HtmlContentBuilder<HTMLMapElement> map() {
         return htmlElement("map", HTMLMapElement.class);
     }
