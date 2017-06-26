@@ -223,13 +223,13 @@ So to sum it up here are the steps necessary to create and use an HTML template
 
 1. Place `data-element` attributes in your HTML markup
 1. Create an abstract class annotated with `@Templated` which implements `IsElement`
-1. Add a static factory method (name does not matter) which does return the template class and calls the generated constructor `Templated_<YourClassName>`
+1. Add a static factory method (name does not matter) which returns the template class and calls the generated constructor `Templated_<YourClassName>`
 1. Run the annotation processor to get rid of compile errors
 
 Besides these rules you're free to implement additional interfaces or extend from arbitrary base classes. 
 
 ### Dependencies
-Now what if your template class has dependencies which you want to pass as constructor argument? In that case change the signature of the static factory method to accept your dependencies:
+Now what if your template class has dependencies which you want to pass as constructor arguments? In that case change the signature of the static factory method to accept your dependencies:
   
 ```java
 @Templated("Todo.html#todos")
