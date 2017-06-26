@@ -33,18 +33,20 @@ import static org.jboss.gwt.elemento.core.Elements.span;
 
 class FooterElement implements IsElement {
 
-    private final I18n i18n;
+    private final HTMLElement root;
 
-    FooterElement(final I18n i18n) {this.i18n = i18n;}
-
-    @Override
-    public HTMLElement asElement() {
-        return footer().css("info")
+    FooterElement(final I18n i18n) {
+        root = footer().css("info")
                 .add(p().textContent(i18n.constants().double_click_to_edit()))
                 .add(p().add(span().textContent(i18n.constants().created_by() + " "))
                         .add(a(Urls.HPEHL_INFO).textContent("Harald Pehl")))
                 .add(p().add(span().textContent(i18n.constants().part_of() + " "))
                         .add(a(Urls.TODO_MVC).textContent("TodoMVC")))
                 .asElement();
+    }
+
+    @Override
+    public HTMLElement asElement() {
+        return root;
     }
 }

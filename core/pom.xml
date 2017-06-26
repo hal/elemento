@@ -29,7 +29,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.4.1</version>
+        <version>0.4.2</version>
     </parent>
 
     <artifactId>elemento-core</artifactId>
@@ -49,6 +49,10 @@
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-dom</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-webstorage</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>

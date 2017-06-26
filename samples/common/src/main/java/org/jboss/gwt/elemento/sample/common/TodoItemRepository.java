@@ -21,6 +21,8 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
+import static elemental2.dom.DomGlobal.console;
+
 import elemental2.core.Array;
 import elemental2.core.Global;
 import java.util.Collection;
@@ -122,12 +124,17 @@ public class TodoItemRepository {
         if (storage != null) {
             String json = storage.getItem(key);
             if (json != null) {
-                Array<TodoItem> jsonArray = Js.cast(Global.JSON.parse(json));
-                if (jsonArray != null) {
-                    for (int i = 0; i < jsonArray.length; i++) {
-                        TodoItem todoItem = jsonArray.getAt(i);
-                        items.put(todoItem.id, todoItem);
+                try {
+                    Array<TodoItem> jsonArray = Js.cast(Global.JSON.parse(json));
+                    if (jsonArray != null) {
+                        for (int i = 0; i < jsonArray.length; i++) {
+                            TodoItem todoItem = jsonArray.getAt(i);
+                            items.put(todoItem.id, todoItem);
+                        }
                     }
+                } catch (Exception parseError) {
+                    console.error("error parsing stored data", parseError);
+                    console.log("discarding stored data", json);
                 }
             }
         }
