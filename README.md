@@ -143,7 +143,7 @@ To use HTML templates add the following maven dependency:
 ```xml
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
-    <artifactId>elemento-core</artifactId>
+    <artifactId>elemento-template</artifactId>
     <version>[insert current version]</version>
 </dependency>
 ```
