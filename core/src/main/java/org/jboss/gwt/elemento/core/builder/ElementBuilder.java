@@ -1,5 +1,7 @@
 package org.jboss.gwt.elemento.core.builder;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 import elemental2.dom.Event;
@@ -10,6 +12,7 @@ import org.jboss.gwt.elemento.core.EventType;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jetbrains.annotations.NonNls;
 
+import static java.util.Arrays.asList;
 import static java.util.Objects.requireNonNull;
 import static org.jboss.gwt.elemento.core.EventType.bind;
 
@@ -50,7 +53,21 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Adds the specified CSS classes to the class list of the element. */
     public B css(@NonNls String... classes) {
-        asElement().classList.add(classes);
+        if (classes != null) {
+            List<String> failSafeClasses = new ArrayList<>();
+            for (String c : classes) {
+                if (c != null) {
+                    if (c.contains(" ")) {
+                        failSafeClasses.addAll(asList(c.split(" ")));
+                    } else {
+                        failSafeClasses.add(c);
+                    }
+                }
+            }
+            if (!failSafeClasses.isEmpty()) {
+                asElement().classList.add(failSafeClasses.toArray(new String[]{}));
+            }
+        }
         return that();
     }
 
