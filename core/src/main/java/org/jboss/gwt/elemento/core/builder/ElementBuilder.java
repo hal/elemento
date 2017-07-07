@@ -10,7 +10,6 @@ import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.EventCallbackFn;
 import org.jboss.gwt.elemento.core.EventType;
 import org.jboss.gwt.elemento.core.IsElement;
-import org.jetbrains.annotations.NonNls;
 
 import static java.util.Arrays.asList;
 import static java.util.Objects.requireNonNull;
@@ -34,7 +33,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     // ------------------------------------------------------ modify current element
 
     /** Sets the id on the element. */
-    public B id(@NonNls String id) {
+    public B id(String id) {
         asElement().id = id;
         return that();
     }
@@ -52,7 +51,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     }
 
     /** Adds the specified CSS classes to the class list of the element. */
-    public B css(@NonNls String... classes) {
+    public B css(String... classes) {
         if (classes != null) {
             List<String> failSafeClasses = new ArrayList<>();
             for (String c : classes) {
@@ -72,19 +71,19 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     }
 
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
-    public B css(@NonNls String className, boolean force) {
+    public B css(String className, boolean force) {
         asElement().classList.toggle(className, force);
         return that();
     }
 
     /** Sets the CSS style of the element. */
-    public B style(@NonNls String style) {
+    public B style(String style) {
         asElement().style.cssText = style;
         return that();
     }
 
     /** Sets the specified attribute of the element. */
-    public B attr(@NonNls String name, String value) {
+    public B attr(String name, String value) {
         asElement().setAttribute(name, value);
         return that();
     }
@@ -95,7 +94,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
      * @param name The name of the data attribute w/o the {@code data-} prefix. However it won't be added if it's
      *             already present.
      */
-    public B data(@NonNls String name, String value) {
+    public B data(String name, String value) {
         asElement().dataset.set(name.replaceFirst("^data-", ""), value);
         return that();
     }
@@ -106,7 +105,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
      * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's
      *             already present.
      */
-    public B aria(@NonNls String name, String value) {
+    public B aria(String name, String value) {
         String safeName = name.startsWith("aria-") ? name : "aria-" + name;
         return attr(safeName, value);
     }

@@ -93,7 +93,6 @@ import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 import org.jboss.gwt.elemento.core.builder.InputBuilder;
 import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
-import org.jetbrains.annotations.NonNls;
 
 import static elemental2.dom.DomGlobal.document;
 import static java.util.Spliterators.spliteratorUnknownSize;
@@ -234,7 +233,7 @@ public final class Elements {
         return htmlElement("a", HTMLAnchorElement.class);
     }
 
-    public static HtmlContentBuilder<HTMLAnchorElement> a(@NonNls String href) {
+    public static HtmlContentBuilder<HTMLAnchorElement> a(String href) {
         return a().attr("href", href);
     }
 
@@ -803,14 +802,14 @@ public final class Elements {
     /**
      * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
      */
-    public static Element dataElement(@NonNls String name) {
+    public static Element dataElement(String name) {
         return DomGlobal.document.querySelector("[data-element=" + name + "]");
     }
 
     /**
      * Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]}
      */
-    public static Element dataElement(Element context, @NonNls String name) {
+    public static Element dataElement(Element context, String name) {
         return context != null ? context.querySelector("[data-element=" + name + "]") : null;
     }
 
