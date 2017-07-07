@@ -27,4 +27,5 @@
     <inherits name="org.jboss.gwt.elemento.Core"/>
 
     <source path="common"/>
+    <collapse-all-properties/>
 </module>

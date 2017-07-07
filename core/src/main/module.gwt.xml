@@ -22,8 +22,7 @@
   -->
 
 <module>
-    <inherits name="com.google.common.base.Base"/>
-    <inherits name="com.google.common.collect.Collect"/>
+    <inherits name="elemental2.core.Core"/>
     <inherits name="elemental2.dom.Dom"/>
     <inherits name="elemental2.webstorage.WebStorage"/>
     <source path="core"/>

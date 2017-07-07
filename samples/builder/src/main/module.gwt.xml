@@ -29,4 +29,5 @@
     <inherits name="org.jboss.gwt.elemento.sample.Common"/>
 
     <entry-point class="org.jboss.gwt.elemento.sample.builder.client.Main"/>
+    <collapse-all-properties/>
 </module>

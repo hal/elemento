@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import com.google.common.collect.Iterables;
 import com.google.gwtmockito.GwtMockitoTestRunner;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
@@ -255,7 +254,7 @@ public class ElementsBuilderTest {
                 ol().add(li().textContent("one")).add(li().textContent("two")).add(li().textContent("three")),
                 div().textContent("foo"),
                 Elements.br());
-        assertEquals(4, Iterables.size(elements));
+        assertEquals(4, elements.size());
         assertEquals("<p>Some text</p><ol><li>one</li><li>two</li><li>three</li></ol><div>foo</div><br/>",
                 elements.stream().map(e -> e.asElement().toString()).collect(joining()));
     }

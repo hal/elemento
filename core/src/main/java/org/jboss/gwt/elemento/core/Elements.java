@@ -31,7 +31,6 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
@@ -107,14 +106,14 @@ import static java.util.Spliterators.spliteratorUnknownSize;
 @SuppressWarnings("unused")
 public final class Elements {
 
-    @VisibleForTesting static ElementCreator createElement = new ElementCreator() {
+    /* @VisibleForTesting */ static ElementCreator createElement = new ElementCreator() {
         @Override
         public <E extends HTMLElement> E create(String tag, Class<E> type) {
             return Js.cast(document.createElement(tag));
         }
     };
 
-    @VisibleForTesting static IntSupplier createDocumentUniqueId = () -> {
+    /* @VisibleForTesting */ static IntSupplier createDocumentUniqueId = () -> {
         JsPropertyMapOfAny map = Js.uncheckedCast(document);
         if (!map.has("elementoUid")) { map.set("elementoUid", 0); }
         int uid = map.getAny("elementoUid").asInt() + 1;
