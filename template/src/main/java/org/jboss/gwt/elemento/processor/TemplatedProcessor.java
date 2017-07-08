@@ -124,6 +124,7 @@ public class TemplatedProcessor extends AbstractProcessor {
             return false;
         }
 
+        String inject = ginInClasspath() ? "@javax.inject.Inject " : "";
         Collection<? extends Element> annotatedElements = roundEnv.getElementsAnnotatedWith(Templated.class);
         List<TypeElement> types = new ImmutableList.Builder<TypeElement>()
                 .addAll(deferredTypes)
@@ -134,7 +135,7 @@ public class TemplatedProcessor extends AbstractProcessor {
             try {
                 Templated templated = type.getAnnotation(Templated.class);
                 validateType(type, templated);
-                processType(type, templated);
+                processType(type, templated, inject);
             } catch (AbortProcessingException e) {
                 // We abandoned this type; continue with the next.
             } catch (MissingTypeException e) {
@@ -177,12 +178,12 @@ public class TemplatedProcessor extends AbstractProcessor {
         }
     }
 
-    protected void processType(TypeElement type, final Templated templated) {
+    protected void processType(TypeElement type, final Templated templated, String inject) {
         // freemarker context
         String subclass = TypeSimplifier.simpleNameOf(generatedClassName(type, "Templated_", ""));
         String createMethod = verifyCreateMethod(type);
         FreemarkerContext context = new FreemarkerContext(TypeSimplifier.packageNameOf(type),
-                TypeSimplifier.classNameOf(type), subclass, createMethod);
+                TypeSimplifier.classNameOf(type), subclass, createMethod, inject);
 
         // root element and template
         TemplateSelector templateSelector = getTemplateSelector(type, templated);
@@ -548,5 +549,13 @@ public class TemplatedProcessor extends AbstractProcessor {
     private void abortWithError(Element element, String msg, Object... args) throws AbortProcessingException {
         error(element, msg, args);
         throw new AbortProcessingException();
+    }
+
+    private boolean ginInClasspath() {
+        try {
+            return getClass().getClassLoader().loadClass("com.google.gwt.inject.client.GinModule") != null;
+        } catch (ClassNotFoundException notFound) {
+            return false;
+        }
     }
 }
