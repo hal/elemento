@@ -35,7 +35,6 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
-import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLAreaElement;
@@ -805,7 +804,7 @@ public final class Elements {
      * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
      */
     public static Element dataElement(@NonNls String name) {
-        return DomGlobal.document.querySelector("[data-element=" + name + "]");
+        return document.querySelector("[data-element=" + name + "]");
     }
 
     /**

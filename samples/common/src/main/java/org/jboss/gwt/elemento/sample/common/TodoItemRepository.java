@@ -21,20 +21,20 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
-import static elemental2.dom.DomGlobal.console;
-
-import elemental2.core.Array;
-import elemental2.core.Global;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
 import com.google.gwt.core.client.Scheduler;
-import elemental2.dom.DomGlobal;
+import elemental2.core.Array;
+import elemental2.core.Global;
 import elemental2.webstorage.Storage;
 import elemental2.webstorage.StorageEvent;
 import elemental2.webstorage.WebStorageWindow;
 import jsinterop.base.Js;
+
+import static elemental2.dom.DomGlobal.console;
+import static elemental2.dom.DomGlobal.window;
 
 public class TodoItemRepository {
 
@@ -49,7 +49,7 @@ public class TodoItemRepository {
 
     public TodoItemRepository(String key) {
         this.key = key;
-        this.storage = WebStorageWindow.of(DomGlobal.window).localStorage;
+        this.storage = WebStorageWindow.of(window).localStorage;
     }
 
     public TodoItem add(String text) {
@@ -110,7 +110,7 @@ public class TodoItemRepository {
 
     public void onExternalModification(Scheduler.ScheduledCommand command) {
         if (storage != null) {
-            WebStorageWindow.of(DomGlobal.window).addEventListener("storage", event -> {
+            WebStorageWindow.of(window).addEventListener("storage", event -> {
                 StorageEvent storageEvent = (StorageEvent) event;
                 if (key.equals(storageEvent.key)) {
                     Scheduler.get().scheduleDeferred(command);

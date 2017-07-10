@@ -24,7 +24,6 @@ package org.jboss.gwt.elemento.sample.gin.client;
 import javax.annotation.PostConstruct;
 
 import com.google.inject.Provider;
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
@@ -39,6 +38,7 @@ import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 import org.jboss.gwt.elemento.template.DataElement;
 import org.jboss.gwt.elemento.template.Templated;
 
+import static elemental2.dom.DomGlobal.console;
 import static org.jboss.gwt.elemento.core.EventType.bind;
 import static org.jboss.gwt.elemento.core.EventType.change;
 import static org.jboss.gwt.elemento.core.EventType.click;
@@ -78,7 +78,7 @@ abstract class ApplicationElement implements IsElement {
     }
 
     private void reset() {
-        DomGlobal.window.console.log("Reset todos in gin-sample");
+        console.log("Reset todos in gin-sample");
         Elements.removeChildrenFrom(list);
         for (TodoItem item : repository().items()) {
             TodoItemElement itemElement = itemElement().get();
