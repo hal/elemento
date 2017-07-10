@@ -36,9 +36,9 @@ public class ApplicationModule extends AbstractGinModule {
 
     @Override
     protected void configure() {
-        bind(ApplicationElement.class).toProvider(Templated_ApplicationElement_Provider.class).in(Singleton.class);
-        bind(FooterElement.class).toProvider(Templated_FooterElement_Provider.class).in(Singleton.class);
-        bind(TodoItemElement.class).toProvider(Templated_TodoItemElement_Provider.class);
+        bind(ApplicationElement.class).to(Templated_ApplicationElement.class).in(Singleton.class);
+        bind(FooterElement.class).to(Templated_FooterElement.class).in(Singleton.class);
+        bind(TodoItemElement.class).to(Templated_TodoItemElement.class);
     }
 
     @Provides

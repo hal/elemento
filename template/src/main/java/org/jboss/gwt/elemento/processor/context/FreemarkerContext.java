@@ -28,18 +28,22 @@ public class FreemarkerContext {
     private final String pkg;
     private final String base;
     private final String subclass;
-    private final String createMethod;
+    private final String inject;
 
     private RootElementInfo root;
     private List<DataElementInfo> dataElements;
     private List<PostConstructInfo> postConstructs;
     private List<AbstractPropertyInfo> abstractProperties;
 
-    public FreemarkerContext(final String pkg, final String base, final String subclass, final String createMethod) {
+    public FreemarkerContext(
+            final String pkg,
+            final String base,
+            final String subclass,
+            final String inject) {
         this.pkg = pkg;
         this.base = base;
         this.subclass = subclass;
-        this.createMethod = createMethod;
+        this.inject = inject;
     }
 
     @Override
@@ -55,8 +59,8 @@ public class FreemarkerContext {
         return pkg;
     }
 
-    public String getCreateMethod() {
-        return createMethod;
+    public String getInject() {
+        return inject;
     }
 
     public RootElementInfo getRoot() {

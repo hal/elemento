@@ -124,6 +124,7 @@ public class TemplatedProcessor extends AbstractProcessor {
             return false;
         }
 
+        String inject = ginInClasspath() ? "@javax.inject.Inject" : "";
         Collection<? extends Element> annotatedElements = roundEnv.getElementsAnnotatedWith(Templated.class);
         List<TypeElement> types = new ImmutableList.Builder<TypeElement>()
                 .addAll(deferredTypes)
@@ -134,7 +135,7 @@ public class TemplatedProcessor extends AbstractProcessor {
             try {
                 Templated templated = type.getAnnotation(Templated.class);
                 validateType(type, templated);
-                processType(type, templated);
+                processType(type, templated, inject);
             } catch (AbortProcessingException e) {
                 // We abandoned this type; continue with the next.
             } catch (MissingTypeException e) {
@@ -177,12 +178,11 @@ public class TemplatedProcessor extends AbstractProcessor {
         }
     }
 
-    protected void processType(TypeElement type, final Templated templated) {
+    private void processType(TypeElement type, final Templated templated, String inject) {
         // freemarker context
         String subclass = TypeSimplifier.simpleNameOf(generatedClassName(type, "Templated_", ""));
-        String createMethod = verifyCreateMethod(type);
         FreemarkerContext context = new FreemarkerContext(TypeSimplifier.packageNameOf(type),
-                TypeSimplifier.classNameOf(type), subclass, createMethod);
+                TypeSimplifier.classNameOf(type), subclass, inject);
 
         // root element and template
         TemplateSelector templateSelector = getTemplateSelector(type, templated);
@@ -207,22 +207,8 @@ public class TemplatedProcessor extends AbstractProcessor {
         info("Generated templated implementation [%s] for [%s]", context.getSubclass(), context.getBase());
     }
 
-    String verifyCreateMethod(TypeElement type) {
-        java.util.Optional<ExecutableElement> createMethod = ElementFilter.methodsIn(type.getEnclosedElements())
-                .stream()
-                .filter(method -> method.getModifiers().contains(Modifier.STATIC) &&
-                        method.getReturnType().equals(type.asType()))
-                .findAny();
-        if (!createMethod.isPresent()) {
-            abortWithError(type, "@%s needs to define one static method which returns an %s instance",
-                    Templated.class.getSimpleName(), type.getSimpleName());
-        } else {
-            return createMethod.get().getSimpleName().toString();
-        }
-        return null;
-    }
-
-    String generatedClassName(TypeElement type, @SuppressWarnings("SameParameterValue") String prefix, String suffix) {
+    @SuppressWarnings("SameParameterValue")
+    private String generatedClassName(TypeElement type, String prefix, String suffix) {
         StringBuilder name = new StringBuilder(type.getSimpleName().toString());
         while (type.getEnclosingElement() instanceof TypeElement) {
             type = (TypeElement) type.getEnclosingElement();
@@ -548,5 +534,13 @@ public class TemplatedProcessor extends AbstractProcessor {
     private void abortWithError(Element element, String msg, Object... args) throws AbortProcessingException {
         error(element, msg, args);
         throw new AbortProcessingException();
+    }
+
+    private boolean ginInClasspath() {
+        try {
+            return getClass().getClassLoader().loadClass("com.google.gwt.inject.client.GinModule") != null;
+        } catch (ClassNotFoundException notFound) {
+            return false;
+        }
     }
 }
