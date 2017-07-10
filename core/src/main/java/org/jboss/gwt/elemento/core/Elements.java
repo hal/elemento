@@ -31,7 +31,6 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
@@ -93,7 +92,6 @@ import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 import org.jboss.gwt.elemento.core.builder.InputBuilder;
 import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
-import org.jetbrains.annotations.NonNls;
 
 import static elemental2.dom.DomGlobal.document;
 import static java.util.Spliterators.spliteratorUnknownSize;
@@ -103,17 +101,17 @@ import static java.util.Spliterators.spliteratorUnknownSize;
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 public final class Elements {
 
-    @VisibleForTesting static ElementCreator createElement = new ElementCreator() {
+    static ElementCreator createElement = new ElementCreator() {
         @Override
         public <E extends HTMLElement> E create(String tag, Class<E> type) {
             return Js.cast(document.createElement(tag));
         }
     };
 
-    @VisibleForTesting static IntSupplier createDocumentUniqueId = () -> {
+    private static IntSupplier createDocumentUniqueId = () -> {
         JsPropertyMapOfAny map = Js.uncheckedCast(document);
         if (!map.has("elementoUid")) { map.set("elementoUid", 0); }
         int uid = map.getAny("elementoUid").asInt() + 1;
@@ -234,7 +232,7 @@ public final class Elements {
         return htmlElement("a", HTMLAnchorElement.class);
     }
 
-    public static HtmlContentBuilder<HTMLAnchorElement> a(@NonNls String href) {
+    public static HtmlContentBuilder<HTMLAnchorElement> a(String href) {
         return a().attr("href", href);
     }
 
@@ -693,50 +691,38 @@ public final class Elements {
         }
     }
 
-    /**
-     * Returns a stream for the elements in the given array-like.
-     */
+    /** Returns a stream for the elements in the given array-like. */
     public static <E> Stream<E> stream(JsArrayLike<E> nodes) {
         if (nodes == null) { return Stream.empty(); } else {
             return StreamSupport.stream(spliteratorUnknownSize(iterator(nodes), 0), false);
         }
     }
 
-    /**
-     * Returns a stream for the child nodes of the given parent node.
-     */
+    /** Returns a stream for the child nodes of the given parent node. */
     public static Stream<Node> stream(Node parent) {
         if (parent == null) { return Stream.empty(); } else {
             return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
         }
     }
 
-    /**
-     * Returns a stream for the child elements of the given parent element.
-     */
+    /** Returns a stream for the child elements of the given parent element. */
     public static Stream<HTMLElement> stream(HTMLElement parent) {
         if (parent == null) { return Stream.empty(); } else {
             return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
         }
     }
 
-    /**
-     * Returns an iterable collection for the elements in the given array-like.
-     */
+    /** Returns an iterable collection for the elements in the given array-like. */
     public static <E> Iterable<E> elements(JsArrayLike<E> nodes) {
         return () -> iterator(nodes);
     }
 
-    /**
-     * Returns an iterable collection for the child nodes of the given parent node.
-     */
+    /** Returns an iterable collection for the child nodes of the given parent node. */
     public static Iterable<Node> children(Node parent) {
         return () -> iterator(parent);
     }
 
-    /**
-     * Returns an iterable collection for the child elements of the given parent element.
-     */
+    /** Returns an iterable collection for the child elements of the given parent element. */
     public static Iterable<HTMLElement> children(HTMLElement parent) {
         return () -> iterator(parent);
     }
@@ -764,9 +750,7 @@ public final class Elements {
         }
     }
 
-    /**
-     * Removes all child elements from {@code element}
-     */
+    /** Removes all child elements from {@code element} */
     public static void removeChildrenFrom(final Element element) {
         if (element != null) {
             while (element.firstChild != null) {
@@ -800,39 +784,29 @@ public final class Elements {
 
     // ------------------------------------------------------ misc element helper methods
 
-    /**
-     * Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}.
-     */
-    public static Element dataElement(@NonNls String name) {
+    /** Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}. */
+    public static Element dataElement(String name) {
         return document.querySelector("[data-element=" + name + "]");
     }
 
-    /**
-     * Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]}
-     */
-    public static Element dataElement(Element context, @NonNls String name) {
+    /** Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]} */
+    public static Element dataElement(Element context, String name) {
         return context != null ? context.querySelector("[data-element=" + name + "]") : null;
     }
 
-    /**
-     * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
-     */
+    /** Checks whether the given element is visible (i.e. {@code display} is not {@code none}) */
     public static boolean isVisible(HTMLElement element) {
         return element != null && !"none".equals(element.style.display);
     }
 
-    /**
-     * shows / hide the specified element by modifying the {@code display} property.
-     */
+    /** Shows / hide the specified element by modifying the {@code display} property. */
     public static void setVisible(HTMLElement element, boolean visible) {
         if (element != null) {
             element.style.display = visible ? "" : "none";
         }
     }
 
-    /**
-     * Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise.
-     */
+    /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
     public static void toggle(HTMLElement element, String css, boolean condition) {
         if (element != null) {
             if (condition) {
@@ -843,18 +817,14 @@ public final class Elements {
         }
     }
 
-    /**
-     * Convenience method to set the inner HTML of the given element.
-     */
+    /** Convenience method to set the inner HTML of the given element. */
     public static void innerHtml(HTMLElement element, SafeHtml html) {
         if (element != null) {
             element.innerHTML = html.asString();
         }
     }
 
-    /**
-     * Creates an identifier guaranteed to be unique within this document. This is useful for allocating element id's.
-     */
+    /** Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs. */
     public static String createDocumentUniqueId() {
         return "elemento-uid-" + createDocumentUniqueId.getAsInt();
     }
@@ -870,37 +840,27 @@ public final class Elements {
         }
     }
 
-    /**
-     * Converts from {@link IsElement} &rarr; {@link Widget}.
-     */
+    /** Converts from {@link IsElement} &rarr; {@link Widget}. */
     public static Widget asWidget(IsElement element) {
         return asWidget(element.asElement());
     }
 
-    /**
-     * Converts from {@link HTMLElement} &rarr; {@link Widget}.
-     */
+    /** Converts from {@link HTMLElement} &rarr; {@link Widget}. */
     public static Widget asWidget(HTMLElement element) {
         return new ElementWidget(element);
     }
 
-    /**
-     * Converts from {@link IsWidget} &rarr; {@link HTMLElement}.
-     */
+    /** Converts from {@link IsWidget} &rarr; {@link HTMLElement}. */
     public static HTMLElement asElement(IsWidget widget) {
         return asElement(widget.asWidget());
     }
 
-    /**
-     * Converts from {@link Widget} &rarr; {@link HTMLElement}.
-     */
+    /** Converts from {@link Widget} &rarr; {@link HTMLElement}. */
     public static HTMLElement asElement(Widget widget) {
         return asElement(widget.getElement());
     }
 
-    /**
-     * Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link HTMLElement}.
-     */
+    /** Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link HTMLElement}. */
     public static HTMLElement asElement(com.google.gwt.dom.client.Element element) {
         return Js.cast(element);
     }
