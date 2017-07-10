@@ -28,7 +28,6 @@ public class FreemarkerContext {
     private final String pkg;
     private final String base;
     private final String subclass;
-    private final String createMethod;
     private final String inject;
 
     private RootElementInfo root;
@@ -40,12 +39,10 @@ public class FreemarkerContext {
             final String pkg,
             final String base,
             final String subclass,
-            final String createMethod,
             final String inject) {
         this.pkg = pkg;
         this.base = base;
         this.subclass = subclass;
-        this.createMethod = createMethod;
         this.inject = inject;
     }
 
@@ -60,10 +57,6 @@ public class FreemarkerContext {
 
     public String getPackage() {
         return pkg;
-    }
-
-    public String getCreateMethod() {
-        return createMethod;
     }
 
     public String getInject() {

@@ -18,7 +18,7 @@ import javax.annotation.Generated;
  * WARNING! This class is generated. Do not modify.
  */
 @Generated("org.jboss.gwt.elemento.processor.TemplatedProcessor")
-final class ${context.subclass} extends ${context.base} {
+public final class ${context.subclass} extends ${context.base} {
 
     <#if context.root.innerHtml??>
     static interface InnerHtml extends SafeHtmlTemplates {
@@ -33,7 +33,7 @@ final class ${context.subclass} extends ${context.base} {
     </#list>
     private final HTMLElement ${context.root.member};
 
-    ${context.inject}${context.subclass}(<#list context.abstractProperties as abstractProperty>${abstractProperty.type} ${abstractProperty.field}<#if abstractProperty_has_next>, </#if></#list>) {
+${context.inject} public ${context.subclass}(<#list context.abstractProperties as abstractProperty>${abstractProperty.type} ${abstractProperty.field}<#if abstractProperty_has_next>, </#if></#list>) {
         <#list context.abstractProperties as abstractProperty>
         this.${abstractProperty.field} = ${abstractProperty.field};
         </#list>
