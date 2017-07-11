@@ -25,25 +25,20 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     exit -1
 fi
 
-source "$ROOT/spinner.sh"
+# Building elemento
+mvn install
 
-start_spinner "Building elemento..."
-mvn -q install
-stop_spinner $?
-
-start_spinner "Building samples..."
+# Building samples
 cd samples
-mvn -q clean install -Dgwt.skipCompilation
+mvn clean install -Dgwt.skipCompilation
 cd ${ROOT}
-stop_spinner $?
 
-start_spinner "Building $SAMPLE_DIR..."
+# Building $SAMPLE_DIR
 cd ${SAMPLE_DIR}
-mvn -q clean install
+mvn clean install
 cd ${ROOT}
-stop_spinner $?
 
-start_spinner "Publishing to gh-pages..."
+# Publishing to gh-pages
 rm -rf /tmp/${SAMPLE_NAME}
 mv ${SAMPLE_DIR}/target/${SAMPLE_NAME}-sample-*/${SAMPLE_NAME} /tmp/
 git checkout gh-pages > /dev/null 2>&1
@@ -55,4 +50,12 @@ git add --all > /dev/null 2>&1
 git commit -am "Update $SAMPLE_DIR" > /dev/null 2>&1
 git push -f origin gh-pages > /dev/null 2>&1
 git checkout ${BRANCH} > /dev/null 2>&1
-stop_spinner $?
+
+echo
+echo
+echo "+-------------------------------------------------------------+"
+echo "|                                                             |"
+echo "| Elemento sample successfully build, deployed and published. |"
+echo "|                                                             |"
+echo "+-------------------------------------------------------------+"
+echo
