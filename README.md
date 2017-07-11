@@ -1,7 +1,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
 
 # Elemento
-Elemento tries to make working with GWT [Elemental](http://www.gwtproject.org/articles/elemental.html) as easy as possible. In a nutshell Elemento brings the following features to the table:
+Elemento tries to make working with GWT [Elemental2](http://www.gwtproject.org/articles/elemental.html) as easy as possible. In a nutshell Elemento brings the following features to the table:
 
 - Type safe builders to easily create arbitrary large element hierarchies
 - HTML templates with support for [handlebar](http://handlebarsjs.com/)-like expressions
@@ -331,31 +331,6 @@ abstract class ApplicationElement implements IsElement {
 ```
 
 The method annotated with `javax.annotation.PostConstruct` must not be private, return void and must not have any parameters. 
-
-## GIN
-Elemento provides support for dependency injection using [GIN](https://code.google.com/p/google-gin/). To use it add this dependency to your pom.xml:
-
-```xml
-<dependency>
-    <groupId>org.jboss.gwt.elemento</groupId>
-    <artifactId>elemento-gin</artifactId>
-    <version>[insert current version]</version>
-</dependency>
-```
-
-This will activate an additional annotation processor which will generate a GIN provider named `Templated_<YourTemplateClass>_Provider`. You need to register this provider in your GIN module. Say you have a template class called `ApplicationElement`:
-
-```java
-public class ApplicationModule extends AbstractGinModule {
-
-    @Override
-    protected void configure() {
-        bind(ApplicationElement.class).toProvider(Templated_ApplicationElement_Provider.class).in(Singleton.class);
-    }
-}
-```
-
-With this setup you can then inject your template class using GIN. If your static factory method has parameters please make sure these parameters are injectable. For all details please take a look to the source code of the [GIN sample](samples/gin).
 
 # Goodies
 Elemento contains a small set of static helper methods to make working with elements easier. One set of methods can be used to convert between `HTMLElement` and `Widget`: 
