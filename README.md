@@ -1,7 +1,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
 
 # Elemento
-Elemento tries to make working with GWT [Elemental2](http://www.gwtproject.org/articles/elemental.html) as easy as possible. In a nutshell Elemento brings the following features to the table:
+Elemento tries to make working with GWT [Elemental2](https://github.com/google/elemental2) as easy as possible. In a nutshell Elemento brings the following features to the table:
 
 - Type safe builders to easily create arbitrary large element hierarchies
 - HTML templates with support for [handlebar](http://handlebarsjs.com/)-like expressions
