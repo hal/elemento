@@ -35,6 +35,7 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
@@ -48,13 +49,61 @@ import com.google.common.base.Optional;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.base.Throwables;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.SetMultimap;
 import com.google.common.escape.Escaper;
 import com.google.common.escape.Escapers;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
+import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLAreaElement;
+import elemental2.dom.HTMLAudioElement;
+import elemental2.dom.HTMLBRElement;
+import elemental2.dom.HTMLButtonElement;
+import elemental2.dom.HTMLCanvasElement;
+import elemental2.dom.HTMLDataListElement;
+import elemental2.dom.HTMLDetailsElement;
+import elemental2.dom.HTMLDialogElement;
+import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLEmbedElement;
+import elemental2.dom.HTMLFieldSetElement;
+import elemental2.dom.HTMLFormElement;
+import elemental2.dom.HTMLHRElement;
+import elemental2.dom.HTMLHeadingElement;
+import elemental2.dom.HTMLImageElement;
+import elemental2.dom.HTMLInputElement;
+import elemental2.dom.HTMLLIElement;
+import elemental2.dom.HTMLLabelElement;
+import elemental2.dom.HTMLLegendElement;
+import elemental2.dom.HTMLMapElement;
+import elemental2.dom.HTMLMenuElement;
+import elemental2.dom.HTMLMenuItemElement;
+import elemental2.dom.HTMLMeterElement;
+import elemental2.dom.HTMLOListElement;
+import elemental2.dom.HTMLObjectElement;
+import elemental2.dom.HTMLOptGroupElement;
+import elemental2.dom.HTMLOptionElement;
+import elemental2.dom.HTMLOutputElement;
+import elemental2.dom.HTMLParagraphElement;
+import elemental2.dom.HTMLParamElement;
+import elemental2.dom.HTMLPreElement;
+import elemental2.dom.HTMLProgressElement;
+import elemental2.dom.HTMLQuoteElement;
+import elemental2.dom.HTMLScriptElement;
+import elemental2.dom.HTMLSelectElement;
+import elemental2.dom.HTMLSourceElement;
+import elemental2.dom.HTMLTableCaptionElement;
+import elemental2.dom.HTMLTableCellElement;
+import elemental2.dom.HTMLTableColElement;
+import elemental2.dom.HTMLTableElement;
+import elemental2.dom.HTMLTableRowElement;
+import elemental2.dom.HTMLTextAreaElement;
+import elemental2.dom.HTMLTrackElement;
+import elemental2.dom.HTMLUListElement;
+import elemental2.dom.HTMLVideoElement;
 import org.jboss.auto.AbstractProcessor;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.processor.context.AbstractPropertyInfo;
@@ -70,6 +119,9 @@ import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.joining;
+
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("org.jboss.gwt.elemento.template.Templated")
 public class TemplatedProcessor extends AbstractProcessor {
@@ -80,6 +132,60 @@ public class TemplatedProcessor extends AbstractProcessor {
             .addEscape('\n', "")
             .addEscape('\r', "")
             .build();
+
+    // List of elements from https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+    // which have a class in elemental2.dom, are standardized and not obsolete or deprecated
+    private static final SetMultimap<String, String> HTML_ELEMENTS = HashMultimap.create();
+
+    static {
+        HTML_ELEMENTS.put(HTMLAnchorElement.class.getName(), "a");
+        HTML_ELEMENTS.put(HTMLAreaElement.class.getName(), "area");
+        HTML_ELEMENTS.put(HTMLAudioElement.class.getName(), "audio");
+        HTML_ELEMENTS.put(HTMLQuoteElement.class.getName(), "blockquote");
+        HTML_ELEMENTS.put(HTMLBRElement.class.getName(), "br");
+        HTML_ELEMENTS.put(HTMLButtonElement.class.getName(), "button");
+        HTML_ELEMENTS.put(HTMLCanvasElement.class.getName(), "canvas");
+        HTML_ELEMENTS.put(HTMLTableCaptionElement.class.getName(), "caption");
+        HTML_ELEMENTS.put(HTMLTableColElement.class.getName(), "col");
+        HTML_ELEMENTS.put(HTMLDataListElement.class.getName(), "datalist");
+        HTML_ELEMENTS.put(HTMLDetailsElement.class.getName(), "details");
+        HTML_ELEMENTS.put(HTMLDialogElement.class.getName(), "dialog");
+        HTML_ELEMENTS.put(HTMLDivElement.class.getName(), "div");
+        HTML_ELEMENTS.put(HTMLEmbedElement.class.getName(), "embed");
+        HTML_ELEMENTS.put(HTMLFieldSetElement.class.getName(), "fieldset");
+        HTML_ELEMENTS.put(HTMLFormElement.class.getName(), "form");
+        HTML_ELEMENTS.putAll(HTMLHeadingElement.class.getName(), asList("h1", "h2", "h3", "h4", "h5", "h6"));
+        HTML_ELEMENTS.put(HTMLHRElement.class.getName(), "hr");
+        HTML_ELEMENTS.put(HTMLImageElement.class.getName(), "img");
+        HTML_ELEMENTS.put(HTMLInputElement.class.getName(), "input");
+        HTML_ELEMENTS.put(HTMLLabelElement.class.getName(), "label");
+        HTML_ELEMENTS.put(HTMLLegendElement.class.getName(), "legend");
+        HTML_ELEMENTS.put(HTMLLIElement.class.getName(), "li");
+        HTML_ELEMENTS.put(HTMLMapElement.class.getName(), "map");
+        HTML_ELEMENTS.put(HTMLMenuElement.class.getName(), "menu");
+        HTML_ELEMENTS.put(HTMLMenuItemElement.class.getName(), "menuitem");
+        HTML_ELEMENTS.put(HTMLMeterElement.class.getName(), "meter");
+        HTML_ELEMENTS.put(HTMLObjectElement.class.getName(), "object");
+        HTML_ELEMENTS.put(HTMLOListElement.class.getName(), "ol");
+        HTML_ELEMENTS.put(HTMLOptGroupElement.class.getName(), "optgroup");
+        HTML_ELEMENTS.put(HTMLOptionElement.class.getName(), "option");
+        HTML_ELEMENTS.put(HTMLOutputElement.class.getName(), "output");
+        HTML_ELEMENTS.put(HTMLParagraphElement.class.getName(), "p");
+        HTML_ELEMENTS.put(HTMLParamElement.class.getName(), "param");
+        HTML_ELEMENTS.put(HTMLPreElement.class.getName(), "pre");
+        HTML_ELEMENTS.put(HTMLProgressElement.class.getName(), "progress");
+        HTML_ELEMENTS.put(HTMLQuoteElement.class.getName(), "q");
+        HTML_ELEMENTS.put(HTMLScriptElement.class.getName(), "script");
+        HTML_ELEMENTS.put(HTMLSelectElement.class.getName(), "select");
+        HTML_ELEMENTS.put(HTMLSourceElement.class.getName(), "source");
+        HTML_ELEMENTS.put(HTMLTableElement.class.getName(), "table");
+        HTML_ELEMENTS.put(HTMLTableCellElement.class.getName(), "td");
+        HTML_ELEMENTS.put(HTMLTextAreaElement.class.getName(), "textarea");
+        HTML_ELEMENTS.put(HTMLTableRowElement.class.getName(), "tr");
+        HTML_ELEMENTS.put(HTMLTrackElement.class.getName(), "track");
+        HTML_ELEMENTS.put(HTMLUListElement.class.getName(), "ul");
+        HTML_ELEMENTS.put(HTMLVideoElement.class.getName(), "video");
+    }
 
 
     /**
@@ -296,16 +402,21 @@ public class TemplatedProcessor extends AbstractProcessor {
                     }
                     Kind kind = getDataElementInfoKind(field.asType());
                     if (kind == null) {
-                        abortWithError(field, "Unsupported type %s. Please choose one of %s",
-                                field.asType(), EnumSet.allOf(Kind.class));
+                        abortWithError(field, "Unsupported type %s. Please choose one of %s", field.asType(),
+                                EnumSet.allOf(Kind.class));
                     }
 
                     // verify the selector
                     String selector = getSelector(field);
                     verifySelector(selector, field, templateSelector, root);
 
-                    // create info class for template processing
+                    // verify the HTMLElement type
                     String typeName = MoreTypes.asTypeElement(typeUtils, field.asType()).getQualifiedName().toString();
+                    if (kind == Kind.HTMLElement) {
+                        verifyHTMLElement(typeName, selector, field, templateSelector, root);
+                    }
+
+                    // create info class for template processing
                     dataElements.add(new DataElementInfo(typeName, field.getSimpleName().toString(), selector,
                             kind, false));
                 });
@@ -336,9 +447,13 @@ public class TemplatedProcessor extends AbstractProcessor {
                     String selector = getSelector(method);
                     verifySelector(selector, method, templateSelector, root);
 
+                    // verify the HTMLElement type
+                    String typeName = MoreTypes.asTypeElement(typeUtils, method.getReturnType())
+                            .getQualifiedName().toString();
+                    if (kind == Kind.HTMLElement) {
+                        verifyHTMLElement(typeName, selector, method, templateSelector, root);
+                    }
                     // create info class for template processing
-                    String typeName = MoreTypes.asTypeElement(typeUtils, method.getReturnType()).getQualifiedName()
-                            .toString();
                     dataElements.add(new DataElementInfo(typeName, method.getSimpleName().toString(), selector,
                             kind, true));
                 });
@@ -391,6 +506,27 @@ public class TemplatedProcessor extends AbstractProcessor {
         }
     }
 
+    private void verifyHTMLElement(String htmlType, String selector, Element element, TemplateSelector templateSelector,
+            org.jsoup.nodes.Element root) {
+        // make sure the HTMLElement subtype maps to the right HTML tag
+        Set<String> tags = HTML_ELEMENTS.get(htmlType);
+        if (!tags.isEmpty()) {
+            Elements elements = root.getElementsByAttributeValue("data-element", selector);
+            if (!elements.isEmpty()) {
+                String tagName = elements.get(0).tagName().toLowerCase();
+                if (!tags.contains(tagName)) {
+                    String fieldOrMethod = element instanceof VariableElement ? "field" : "method";
+                    String expected = tags.size() == 1
+                            ? "\"" + tags.iterator().next() + "\""
+                            : "one of " + tags.stream().map(t -> "\"" + t + "\"").collect(joining(", "));
+                    abortWithError(element,
+                            "The %s maps to the wrong HTML element: Expected %s, but found \"%s\" in %s using \"[data-element=%s]\" as selector.",
+                            fieldOrMethod, expected, tagName, templateSelector, selector);
+                }
+            }
+        }
+    }
+
 
     // ------------------------------------------------------ @PostConstruct methods
 
@@ -429,7 +565,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     // ------------------------------------------------------ abstract properties
 
-    List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
+    private List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
         List<AbstractPropertyInfo> abstractProperties = new ArrayList<>();
 
         ElementFilter.methodsIn(type.getEnclosedElements()).stream()
