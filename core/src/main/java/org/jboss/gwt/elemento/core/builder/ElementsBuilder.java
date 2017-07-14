@@ -13,7 +13,8 @@
  */
 package org.jboss.gwt.elemento.core.builder;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.HasElements;
@@ -22,9 +23,9 @@ import org.jboss.gwt.elemento.core.IsElement;
 /** A builder to collect elements in a flat list as {@link HasElements} */
 public class ElementsBuilder implements HasElements {
 
-    private final LinkedList<HTMLElement> elements;
+    private final List<HTMLElement> elements;
 
-    public ElementsBuilder() {elements = new LinkedList<>();}
+    public ElementsBuilder() {elements = new ArrayList<>();}
 
 
     // ------------------------------------------------------ mirror add() methods from HtmlContent
@@ -61,11 +62,6 @@ public class ElementsBuilder implements HasElements {
     public ElementsBuilder addAll(IsElement... elements) {
         for (IsElement element : elements) { add(element); }
         return this;
-    }
-
-    /** Returns the last added element. Returns {@code null} if no elements have been added so far. */
-    public HTMLElement last() {
-        return elements.isEmpty() ? null : elements.getLast();
     }
 
     /** Returns the elements added so far. */
