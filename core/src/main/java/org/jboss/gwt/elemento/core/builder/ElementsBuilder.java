@@ -30,7 +30,7 @@ public class ElementsBuilder implements HasElements {
 
     // ------------------------------------------------------ mirror add() methods from HtmlContent
 
-    /** Add the given element by calling {@code element.asElement()}. */
+    /** Adds the given element by calling {@code element.asElement()}. */
     public ElementsBuilder add(IsElement element) {
         return add(element.asElement());
     }
