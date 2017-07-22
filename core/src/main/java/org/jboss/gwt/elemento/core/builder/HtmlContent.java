@@ -24,7 +24,7 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
 
     /** Sets the inner HTML on the element using {@link HTMLElement#innerHTML}. */
     default B innerHtml(SafeHtml html) {
-        asElement().innerHTML = html.asString();
+        get().innerHTML = html.asString();
         return that();
     }
 
@@ -38,12 +38,12 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
 
     /** Adds the given text as a text node. */
     default B add(String text) {
-        return add(asElement().ownerDocument.createTextNode(text));
+        return add(get().ownerDocument.createTextNode(text));
     }
 
     /** Adds the given element. */
     default B add(Node element) {
-        asElement().appendChild(element);
+        get().appendChild(element);
         return that();
     }
 
