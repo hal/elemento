@@ -20,6 +20,7 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.core.Key;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 import org.jboss.gwt.elemento.template.DataElement;
@@ -27,6 +28,7 @@ import org.jboss.gwt.elemento.template.Templated;
 
 import static org.jboss.gwt.elemento.core.EventType.*;
 
+@SuppressWarnings({"Duplicates", "unused"})
 @Templated("Todo.html#item")
 abstract class TodoItemElement implements IsElement {
 
@@ -93,12 +95,12 @@ abstract class TodoItemElement implements IsElement {
         application().get().update();
     }
 
-    @SuppressWarnings("Duplicates")
     private void keyDown(final KeyboardEvent event) {
-        if ("Esc".equals(event.key)) {
+        if (Key.Escape.match(event)) {
             escape = true;
             asElement().classList.remove("editing");
-        } else if ("Enter".equals(event.key)) {
+
+        } else if (Key.Enter.match(event)) {
             blur();
         }
     }

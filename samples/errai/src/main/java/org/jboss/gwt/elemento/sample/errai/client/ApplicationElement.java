@@ -11,7 +11,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.gwt.elemento.sample.builder.client;
+package org.jboss.gwt.elemento.sample.errai.client;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
@@ -37,8 +40,9 @@ import static org.jboss.gwt.elemento.sample.common.Filter.ACTIVE;
 import static org.jboss.gwt.elemento.sample.common.Filter.ALL;
 import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
-@SuppressWarnings("Duplicates")
-class ApplicationElement implements IsElement {
+@ApplicationScoped
+@SuppressWarnings({"Duplicates", "CdiInjectionPointsInspection"})
+public class ApplicationElement implements IsElement {
 
     private static HTMLElement filter(Filter f, String text) {
         return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).asElement();
@@ -60,8 +64,8 @@ class ApplicationElement implements IsElement {
     private final HTMLElement filterCompleted;
     private final HTMLButtonElement clearCompleted;
 
-
-    ApplicationElement(TodoItemRepository repository, I18n i18n) {
+    @Inject
+    public ApplicationElement(TodoItemRepository repository, I18n i18n) {
         this.repository = repository;
 
         this.root = section().css("todoapp")

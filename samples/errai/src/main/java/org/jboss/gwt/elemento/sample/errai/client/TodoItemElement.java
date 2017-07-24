@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.gwt.elemento.sample.builder.client;
+package org.jboss.gwt.elemento.sample.errai.client;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
@@ -29,8 +29,8 @@ import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
 
-@SuppressWarnings("Duplicates")
-class TodoItemElement implements IsElement {
+@SuppressWarnings({"CdiInjectionPointsInspection", "Duplicates"})
+public class TodoItemElement implements IsElement {
 
     private final TodoItem item;
     private final ApplicationElement application;

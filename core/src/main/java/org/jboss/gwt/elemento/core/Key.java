@@ -16,6 +16,7 @@ package org.jboss.gwt.elemento.core;
 import java.util.HashMap;
 import java.util.Map;
 
+import elemental2.dom.Event;
 import elemental2.dom.KeyboardEvent;
 
 /**
@@ -140,6 +141,10 @@ public enum Key {
     Key(final String key, final String[] alternatives) {
         this.key = key;
         this.alternatives = alternatives;
+    }
+
+    public boolean match(Event event) {
+        return event instanceof KeyboardEvent && match(((KeyboardEvent) event));
     }
 
     public boolean match(KeyboardEvent event) {

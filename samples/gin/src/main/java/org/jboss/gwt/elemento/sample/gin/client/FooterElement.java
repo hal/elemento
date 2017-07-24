@@ -17,6 +17,7 @@ import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.template.Templated;
 
+@SuppressWarnings("unused")
 @Templated("Todo.html#info")
 public abstract class FooterElement implements IsElement {
 
