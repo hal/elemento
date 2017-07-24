@@ -20,7 +20,7 @@ public interface TextContent<E extends HTMLElement, B extends TypedBuilder<E, B>
 
     /** Sets the inner text on the element using {@link HTMLElement#textContent}. */
     default B textContent(String text) {
-        asElement().textContent = text;
+        get().textContent = text;
         return that();
     }
 }
