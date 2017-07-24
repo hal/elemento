@@ -1,7 +1,7 @@
 package org.jboss.gwt.elemento.sample.errai.client;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Singleton;
 
 import com.google.gwt.core.client.GWT;
 import org.jboss.gwt.elemento.sample.common.I18n;
@@ -9,7 +9,7 @@ import org.jboss.gwt.elemento.sample.common.TodoConstants;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
-@ApplicationScoped
+@Singleton
 public class Dependencies {
 
     private static final TodoConstants CONSTANTS = GWT.create(TodoConstants.class);

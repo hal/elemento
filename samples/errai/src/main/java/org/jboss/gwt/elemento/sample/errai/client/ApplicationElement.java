@@ -13,8 +13,8 @@
  */
 package org.jboss.gwt.elemento.sample.errai.client;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
@@ -40,7 +40,7 @@ import static org.jboss.gwt.elemento.sample.common.Filter.ACTIVE;
 import static org.jboss.gwt.elemento.sample.common.Filter.ALL;
 import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
-@ApplicationScoped
+@Singleton
 @SuppressWarnings({"Duplicates", "CdiInjectionPointsInspection"})
 public class ApplicationElement implements IsElement {
 

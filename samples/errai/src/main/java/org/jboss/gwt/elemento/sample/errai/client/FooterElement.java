@@ -14,6 +14,7 @@
 package org.jboss.gwt.elemento.sample.errai.client;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.IsElement;
@@ -25,6 +26,7 @@ import static org.jboss.gwt.elemento.core.Elements.footer;
 import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.jboss.gwt.elemento.core.Elements.span;
 
+@Singleton
 @SuppressWarnings("CdiInjectionPointsInspection")
 public class FooterElement implements IsElement {
 
