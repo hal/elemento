@@ -23,7 +23,7 @@ public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, 
     public InputBuilder<E> that() { return this; }
 
     public InputBuilder<E> checked(boolean checked) {
-        asElement().checked = checked;
+        get().checked = checked;
         return that();
     }
 }
