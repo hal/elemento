@@ -1,11 +1,15 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
 
+# Elemento
+
 Elemento simplifies working with GWT [Elemental2](https://github.com/google/elemental2). In a nutshell Elemento brings the following features to the table:
 
 - Type safe [builders](#builder-api) and [event handlers](#event-handlers)
 - [HTML templates](#html-templates) with support for [handlebars](#handlebars)-like expressions
 - Easy integration with other libraries such as [Errai](#errai), [RxGWT](#rxgwt) or [GIN](#gin)
 - [Helper methods](#helper-methods) to mix and match GWT Elemental and GWT Widgets
+
+---
 
 **TOC**  
 * [Get Started](#get-started)
