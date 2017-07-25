@@ -13,50 +13,17 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
-public final class UUID {
+final class UUID {
 
     private UUID() {}
 
     private static final char[] CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
 
     /**
-     * Generate a random uuid of the specified length. Example: uuid(15) returns
-     * "VcydxgltxrVZSTV"
-     *
-     * @param len the desired number of characters
-     */
-    public static String uuid(int len) {
-        return uuid(len, CHARS.length);
-    }
-
-    /**
-     * Generate a random uuid of the specified length, and radix. Examples:
-     * <ul>
-     * <li>uuid(8, 2) returns "01001010" (8 character ID, base=2)
-     * <li>uuid(8, 10) returns "47473046" (8 character ID, base=10)
-     * <li>uuid(8, 16) returns "098F4D35" (8 character ID, base=16)
-     * </ul>
-     *
-     * @param len   the desired number of characters
-     * @param radix the number of allowable values for each character (must be <= 62)
-     */
-    public static String uuid(int len, int radix) {
-        if (radix > CHARS.length) {
-            throw new IllegalArgumentException();
-        }
-        char[] uuid = new char[len];
-        // Compact form
-        for (int i = 0; i < len; i++) {
-            uuid[i] = CHARS[(int) (Math.random() * radix)];
-        }
-        return new String(uuid);
-    }
-
-    /**
      * Generate a RFC4122, version 4 ID. Example:
      * "92329D39-6F5C-4520-ABFC-AAB64544E172"
      */
-    public static String uuid() {
+    static String uuid() {
         char[] uuid = new char[36];
         int r;
 

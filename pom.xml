@@ -25,7 +25,7 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.5.0</version>
+    <version>0.5.1</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -90,7 +90,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <plugin.version.github.site>0.12</plugin.version.github.site>
-        <plugin.version.gwt.maven>1.0-rc-7</plugin.version.gwt.maven>
+        <plugin.version.gwt.maven>1.0-rc-8</plugin.version.gwt.maven>
         <plugin.version.processor.plugin>3.1.0</plugin.version.processor.plugin>
         <plugin.version.project.info.report>2.8</plugin.version.project.info.report>
         <plugin.version.sonatype>1.6.3</plugin.version.sonatype>

@@ -13,12 +13,13 @@
  */
 package org.jboss.gwt.elemento.sample.templated.client;
 
+import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.template.Templated;
 
 @Templated("Todo.html#info")
-public abstract class FooterElement implements IsElement {
+public abstract class FooterElement implements IsElement<HTMLElement> {
 
     static FooterElement create(I18n i18n) {
         return new Templated_FooterElement(i18n);

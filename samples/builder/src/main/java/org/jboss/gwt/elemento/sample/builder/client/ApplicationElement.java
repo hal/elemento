@@ -17,9 +17,9 @@ import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
-import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.core.Key;
 import org.jboss.gwt.elemento.sample.common.Application;
 import org.jboss.gwt.elemento.sample.common.Filter;
 import org.jboss.gwt.elemento.sample.common.I18n;
@@ -27,9 +27,6 @@ import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.jboss.gwt.elemento.core.Elements.button;
-import static org.jboss.gwt.elemento.core.Elements.span;
-import static org.jboss.gwt.elemento.core.Elements.ul;
 import static org.jboss.gwt.elemento.core.EventType.bind;
 import static org.jboss.gwt.elemento.core.EventType.change;
 import static org.jboss.gwt.elemento.core.EventType.click;
@@ -40,7 +37,8 @@ import static org.jboss.gwt.elemento.sample.common.Filter.ACTIVE;
 import static org.jboss.gwt.elemento.sample.common.Filter.ALL;
 import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
-class ApplicationElement implements IsElement {
+@SuppressWarnings("Duplicates")
+class ApplicationElement implements IsElement<HTMLElement> {
 
     private static HTMLElement filter(Filter f, String text) {
         return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).asElement();
@@ -117,8 +115,7 @@ class ApplicationElement implements IsElement {
     // ------------------------------------------------------ event / token handler
 
     private void newTodo(Event event) {
-        KeyboardEvent keyboardEvent = (KeyboardEvent) event;
-        if ("Enter".equals(keyboardEvent.key)) {
+        if (Key.Enter.match(event)) {
             String text = newTodo.value.trim();
             if (text.length() != 0) {
                 TodoItem item = repository.add(text);

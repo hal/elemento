@@ -21,6 +21,7 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
+import org.jboss.gwt.elemento.core.Key;
 import org.jboss.gwt.elemento.sample.common.Application;
 import org.jboss.gwt.elemento.sample.common.Filter;
 import org.jboss.gwt.elemento.sample.common.I18n;
@@ -36,7 +37,7 @@ import static org.jboss.gwt.elemento.core.EventType.keydown;
 
 @SuppressWarnings("WeakerAccess")
 @Templated("Todo.html#todos")
-abstract class ApplicationElement implements IsElement {
+abstract class ApplicationElement implements IsElement<HTMLElement> {
 
     // @formatter:off
     static ApplicationElement create(TodoItemRepository repository, I18n i18n) {
@@ -79,7 +80,7 @@ abstract class ApplicationElement implements IsElement {
     }
 
     void newTodo(KeyboardEvent event) {
-        if ("Enter".equals(event.key)) {
+        if (Key.Enter.match(event)) {
             String text = newTodo.value.trim();
             if (text.length() != 0) {
                 TodoItem item = repository().add(text);

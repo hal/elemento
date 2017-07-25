@@ -15,6 +15,7 @@ package org.jboss.gwt.elemento.core.builder;
 
 import com.google.gwt.safehtml.shared.SafeHtml;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
@@ -23,21 +24,26 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
 
     /** Sets the inner HTML on the element using {@link HTMLElement#innerHTML}. */
     default B innerHtml(SafeHtml html) {
-        asElement().innerHTML = html.asString();
+        get().innerHTML = html.asString();
         return that();
     }
 
 
     // ------------------------------------------------------ child element(s)
 
-    /** Add the given element by calling {@code element.asElement()}. */
+    /** Adds the given element by calling {@code element.asElement()}. */
     default B add(IsElement element) {
         return add(element.asElement());
     }
 
+    /** Adds the given text as a text node. */
+    default B add(String text) {
+        return add(get().ownerDocument.createTextNode(text));
+    }
+
     /** Adds the given element. */
-    default B add(HTMLElement element) {
-        asElement().appendChild(element);
+    default B add(Node element) {
+        get().appendChild(element);
         return that();
     }
 
@@ -53,8 +59,8 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
     }
 
     /** Adds all elements. */
-    default B addAll(Iterable<HTMLElement> elements) {
-        for (HTMLElement element : elements) { add(element); }
+    default B addAll(Iterable<? extends Node> elements) {
+        for (Node element : elements) { add(element); }
         return that();
     }
 

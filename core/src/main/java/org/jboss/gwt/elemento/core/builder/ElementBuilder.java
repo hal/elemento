@@ -40,6 +40,9 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     }
 
     @Override
+    public E get() { return element; }
+
+    @Override
     public E asElement() { return element; }
 
 
@@ -47,7 +50,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Sets the id on the element. */
     public B id(String id) {
-        asElement().id = id;
+        get().id = id;
         return that();
     }
 
@@ -59,7 +62,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Sets the title on the element. */
     public B title(String title) {
-        asElement().title = title;
+        get().title = title;
         return that();
     }
 
@@ -77,7 +80,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
                 }
             }
             if (!failSafeClasses.isEmpty()) {
-                asElement().classList.add(failSafeClasses.toArray(new String[]{}));
+                get().classList.add(failSafeClasses.toArray(new String[]{}));
             }
         }
         return that();
@@ -85,19 +88,19 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
     public B css(String className, boolean force) {
-        asElement().classList.toggle(className, force);
+        get().classList.toggle(className, force);
         return that();
     }
 
     /** Sets the CSS style of the element. */
     public B style(String style) {
-        asElement().style.cssText = style;
+        get().style.cssText = style;
         return that();
     }
 
     /** Sets the specified attribute of the element. */
     public B attr(String name, String value) {
-        asElement().setAttribute(name, value);
+        get().setAttribute(name, value);
         return that();
     }
 
@@ -108,7 +111,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
      *             already present.
      */
     public B data(String name, String value) {
-        asElement().dataset.set(name.replaceFirst("^data-", ""), value);
+        get().dataset.set(name.replaceFirst("^data-", ""), value);
         return that();
     }
 
@@ -125,7 +128,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Provides a way to modify the element using the specified consumer. */
     public B apply(Consumer<E> consumer) {
-        consumer.accept(asElement());
+        consumer.accept(get());
         return that();
     }
 
@@ -133,7 +136,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Adds the given callback to the element. */
     public <V extends Event> B on(EventType<V, ?> type, EventCallbackFn<V> callback) {
-        bind(asElement(), type, callback);
+        bind(get(), type, callback);
         return that();
     }
 }
