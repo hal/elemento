@@ -9,8 +9,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 - Easy integration with other libraries such as [Errai](#errai), [RxGWT](#rxgwt) or [GIN](#gin)
 - [Helper methods](#helper-methods) to mix and match GWT Elemental and GWT Widgets
 
-# TOC
-
+**TOC**  
 * [Get Started](#get-started)
 * [Builder API](#builder-api)
   * [References](#references)
@@ -418,9 +417,47 @@ Handlebars expressions are supported in text nodes and attribute values.
 
 ## Errai
 
+[Errai](http://erraiframework.org/) is a very powerful, general-purpose framework for writing rich web applications using next-generation web technologies. You can use many EE related technologies such as CDI, JPA or JAX-RS on the client side. As such Errai is particularly useful when you want to develop large RIAs. 
+
+Elemento on the other hand is very focused around [Elemental2](https://github.com/google/elemental2). The main goal is to provide a type safe API for working with HTML elements.  
+ 
+Although there are overlapping parts like HTML templates you can still use Elemento's builder API as part of an Errai application. This can also be combined with Errai HTML templates. Since Errai UI is API agnostic when it comes to the DOM. You can use *any* native JS type DOM wrapper in an Errai UI template. However I would not recommend to use Elemento's HTML templates in an Errai application.
+
+The [samples](#samples) section contains an Errai version of the TodoMVC app using Errai for dependency injection and the builder API to create the elements. 
+
 ## RxGWT
 
+[RxGWT](https://github.com/intendia-oss/rxgwt) provides reactive extensions for GWT. It enables you to use [RxJava](https://github.com/ReactiveX/RxJava) on the client. RxJava is a library for composing asynchronous and event-based programs by using observable sequences.
+
+Speaking of Elemento you can use RxGWT to bind events and turn them into an observable. To use RxGWT inherit from `com.intendia.rxgwt.RxElemento`: 
+
+```xml
+<module rename-to="elemental2">
+    <inherits name="com.intendia.rxgwt.RxElemento"/>
+</module>
+```
+
+Then use `<T extends Event> Observable<T> fromEvent(EventTarget src, EventType<T, ?> type)` to listen to event and turn them into an observable:
+
+```java
+HTMLElement info; 
+document.body.appendChild(info = span().asElement());
+
+Observable<double[]> touch$ = RxElemento.fromEvent(document, touchmove)
+        .map(ev -> ev.touches.item(0))
+        .map(touch -> new double[] { touch.clientX, touch.clientY });
+Observable<double[]> mouse$ = RxElemento.fromEvent(document, mousemove)
+        .map(ev -> new double[] { ev.clientX, ev.clientY });
+Observable.merge(touch$, mouse$)
+        .map(p -> "position (" + p[0] + "," + p[1] + ")")
+        .forEach(n -> info.textContent = n);
+```
+
 ## GIN
+
+Elemento provides support for dependency injection in HTML templates using [GIN](https://code.google.com/p/google-gin/). If GIN is on the classpath, the annotation processor, which generates the HTML template class, will place an `@@javax.inject.Inject` annotation on the generated constructor. 
+
+The [samples](#samples) section contains a GIN version of the TodoMVC app using GIN for dependency injection. 
 
 # Helper Methods
 
