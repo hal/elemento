@@ -31,7 +31,7 @@ import org.jboss.gwt.elemento.template.Templated;
 import static org.jboss.gwt.elemento.core.EventType.*;
 
 @Templated("Todo.html#item")
-abstract class TodoItemElement implements IsElement {
+abstract class TodoItemElement implements IsElement<HTMLElement> {
 
     // @formatter:off
     static TodoItemElement create(ApplicationElement application, TodoItemRepository repository, TodoItem item) {

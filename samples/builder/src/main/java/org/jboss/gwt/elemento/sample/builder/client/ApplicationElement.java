@@ -38,7 +38,7 @@ import static org.jboss.gwt.elemento.sample.common.Filter.ALL;
 import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
 @SuppressWarnings("Duplicates")
-class ApplicationElement implements IsElement {
+class ApplicationElement implements IsElement<HTMLElement> {
 
     private static HTMLElement filter(Filter f, String text) {
         return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).asElement();

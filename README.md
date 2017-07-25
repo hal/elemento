@@ -465,8 +465,8 @@ Besides the builder API and the HTML templates, Elemento comes with a bunch of s
 
 1. Element iterator / stream methods
 1. Element append, insert & remove methods
-1. conversions between HTML elements and widgets
-1. Misc element helper methods
+1. Conversions between HTML elements and widgets
+1. Misc element helper methods (show, hide, toggle CSS classes)
 
 See the API documentation of [Elements](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.
 

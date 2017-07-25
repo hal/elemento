@@ -37,7 +37,7 @@ import static org.jboss.gwt.elemento.core.EventType.keydown;
 
 @SuppressWarnings("WeakerAccess")
 @Templated("Todo.html#todos")
-abstract class ApplicationElement implements IsElement {
+abstract class ApplicationElement implements IsElement<HTMLElement> {
 
     // @formatter:off
     static ApplicationElement create(TodoItemRepository repository, I18n i18n) {

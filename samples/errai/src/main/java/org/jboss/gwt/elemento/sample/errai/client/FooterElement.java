@@ -28,7 +28,7 @@ import static org.jboss.gwt.elemento.core.Elements.span;
 
 @Singleton
 @SuppressWarnings("CdiInjectionPointsInspection")
-public class FooterElement implements IsElement {
+public class FooterElement implements IsElement<HTMLElement> {
 
     private final HTMLElement root;
 

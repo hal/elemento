@@ -42,7 +42,7 @@ import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 
 @Singleton
 @SuppressWarnings({"Duplicates", "CdiInjectionPointsInspection"})
-public class ApplicationElement implements IsElement {
+public class ApplicationElement implements IsElement<HTMLElement> {
 
     private static HTMLElement filter(Filter f, String text) {
         return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).asElement();

@@ -30,7 +30,7 @@ import static org.jboss.gwt.elemento.core.EventType.*;
 
 @SuppressWarnings({"Duplicates", "unused"})
 @Templated("Todo.html#item")
-abstract class TodoItemElement implements IsElement {
+abstract class TodoItemElement implements IsElement<HTMLElement> {
 
     // @formatter:off
     // Don't use ApplicationElement directly as this will lead to a dependency cycle in the generated GIN code!

@@ -23,7 +23,7 @@ import static org.jboss.gwt.elemento.core.Elements.footer;
 import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.jboss.gwt.elemento.core.Elements.span;
 
-class FooterElement implements IsElement {
+class FooterElement implements IsElement<HTMLElement> {
 
     private final HTMLElement root;
 

@@ -13,11 +13,12 @@
  */
 package org.jboss.gwt.elemento.sample.errai.client;
 
+import com.google.web.bindery.event.shared.HandlerRegistration;
+import com.google.web.bindery.event.shared.HandlerRegistrations;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
-import org.jboss.gwt.elemento.core.EventType;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Key;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
@@ -30,7 +31,7 @@ import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
 
 @SuppressWarnings({"CdiInjectionPointsInspection", "Duplicates"})
-public class TodoItemElement implements IsElement {
+public class TodoItemElement implements IsElement<HTMLElement> {
 
     private final TodoItem item;
     private final ApplicationElement application;
@@ -40,6 +41,7 @@ public class TodoItemElement implements IsElement {
     private final HTMLInputElement toggle;
     private final HTMLElement label;
     private final HTMLInputElement summary;
+    private HandlerRegistration handlerRegistration;
 
     private boolean escape;
 
@@ -59,11 +61,12 @@ public class TodoItemElement implements IsElement {
         this.root.classList.toggle("completed", item.completed);
         this.toggle.checked = item.completed;
 
-        EventType.bind(toggle, change, ev -> toggle());
-        EventType.bind(label, dblclick, ev -> edit());
-        EventType.bind(destroy, click, ev -> destroy());
-        EventType.bind(summary, keydown, this::keyDown);
-        EventType.bind(summary, blur, ev -> blur());
+        handlerRegistration = HandlerRegistrations.compose(
+                bind(toggle, change, ev -> toggle()),
+                bind(label, dblclick, ev -> edit()),
+                bind(destroy, click, ev -> destroy()),
+                bind(summary, keydown, this::keyDown),
+                bind(summary, blur, ev -> blur()));
     }
 
     @Override
@@ -89,6 +92,7 @@ public class TodoItemElement implements IsElement {
 
     private void destroy() {
         root.parentNode.removeChild(root);
+        handlerRegistration.removeHandler();
         repository.remove(item);
         application.update();
     }
