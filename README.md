@@ -146,7 +146,7 @@ or register them later using `EventType.bind()`:
 EventType.bind(listItem, click, event -> DomGlobal.alert("Clicked"));
 ```
 
-The latter approach returns an `com.google.web.bindery.event.shared.HandlerRegistration` which you can use to remove the handler again.
+The latter approach returns `com.google.web.bindery.event.shared.HandlerRegistration` which you can use to remove the handler again.
 
 In order to make it easier to work with keyboard events, Elemento provides an [enum](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Key.html) with the most common keyboard codes:
 
@@ -437,7 +437,7 @@ Speaking of Elemento you can use RxGWT to bind events and turn them into an obse
 </module>
 ```
 
-Then use `<T extends Event> Observable<T> fromEvent(EventTarget src, EventType<T, ?> type)` to listen to event and turn them into an observable:
+Then use `<T extends Event> Observable<T> fromEvent(EventTarget src, EventType<T, ?> type)` to listen for events and turn them into an observable:
 
 ```java
 HTMLElement info; 
@@ -455,7 +455,7 @@ Observable.merge(touch$, mouse$)
 
 ## GIN
 
-Elemento provides support for dependency injection in HTML templates using [GIN](https://code.google.com/p/google-gin/). If GIN is on the classpath, the annotation processor, which generates the HTML template class, will place an `@@javax.inject.Inject` annotation on the generated constructor. 
+Elemento provides support for dependency injection in HTML templates using [GIN](https://code.google.com/p/google-gin/). If GIN is on the classpath, the annotation processor, which generates the HTML template class, will place an `@javax.inject.Inject` annotation on the generated constructor. 
 
 The [samples](#samples) section contains a GIN version of the TodoMVC app using GIN for dependency injection. 
 
@@ -487,4 +487,4 @@ If you need help feel free to contact us at Gitter, browse the API documentation
 
 - [Gitter Channel](https://gitter.im/hal/elemento)
 - [API documentation](http://rawgit.com/hal/elemento/site/apidocs/index.html)
-- [Issue](https://github.com/hal/elemento/issues)
+- [Issues](https://github.com/hal/elemento/issues)
