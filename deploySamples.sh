@@ -13,33 +13,24 @@ if ! git diff --no-ext-diff --quiet --exit-code; then
     exit -1
 fi
 
-# Building elemento
-mvn install
-
-# Building samples
-cd samples
-mvn clean install
-cd ${ROOT}
+# Building elemento w/ samples
+mvn install -P samples
 
 # Publishing to gh-pages
-rm -rf /tmp/samples
-mkdir /tmp/samples
-for SAMPLE in "${SAMPLES[@]}"
-do
-    mv ${SAMPLE}/target/${SAMPLE}-sample-*/${SAMPLE} /tmp/samples/
-done
-git checkout gh-pages > /dev/null 2>&1
-git reset --hard origin/gh-pages > /dev/null 2>&1
+rm -rf /tmp/elemento
+cd /tmp/
+git clone -b gh-pages --single-branch git@github.com:hal/elemento.git
+cd elemento
 for SAMPLE in "${SAMPLES[@]}"
 do
     rm -rf ${SAMPLE}
-    mv /tmp/samples/${SAMPLE}/ .
+    cp -R ${ROOT}/samples/${SAMPLE}/target/${SAMPLE}-sample-*/${SAMPLE} .
 done
 date > .build
-git add --all > /dev/null 2>&1
-git commit -am "Update samples" > /dev/null 2>&1
-git push -f origin gh-pages > /dev/null 2>&1
-git checkout ${BRANCH} > /dev/null 2>&1
+git add --all
+git commit -am "Update samples"
+git push -f origin gh-pages
+cd ${ROOT}
 
 echo
 echo
