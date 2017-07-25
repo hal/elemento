@@ -9,9 +9,8 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 - Easy integration with other libraries such as [Errai](#errai), [RxGWT](#rxgwt) or [GIN](#gin)
 - [Helper methods](#helper-methods) to mix and match GWT Elemental and GWT Widgets
 
----
+# TOC
 
-**TOC**  
 * [Get Started](#get-started)
 * [Builder API](#builder-api)
   * [References](#references)
