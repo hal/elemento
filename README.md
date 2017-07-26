@@ -421,7 +421,7 @@ Handlebars expressions are supported in text nodes and attribute values.
 
 Elemento on the other hand is very focused around [Elemental2](https://github.com/google/elemental2). The main goal is to provide a type safe API for working with HTML elements.  
  
-Although there are overlapping parts like HTML templates you can still use Elemento's builder API as part of an Errai application. This can also be combined with Errai HTML templates. Since Errai UI is API agnostic when it comes to the DOM. You can use *any* native JS type DOM wrapper in an Errai UI template. However I would not recommend to use Elemento's HTML templates in an Errai application.
+Although there are overlapping parts like HTML templates you can still use Elemento's builder API as part of an Errai application. This can also be combined with Errai HTML templates. Since Errai UI is API agnostic when it comes to the DOM, you can use *any* native JS type DOM wrapper in an Errai UI template. However I would not recommend using Elemento's HTML templates in an Errai application.
 
 The [samples](#samples) section contains an Errai version of the TodoMVC app using Errai for dependency injection and the builder API to create the elements. 
 
