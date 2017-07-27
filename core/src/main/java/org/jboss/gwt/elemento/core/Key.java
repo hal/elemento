@@ -22,7 +22,7 @@ import elemental2.dom.KeyboardEvent;
 /**
  * Selected Key values according to <a href="https://www.w3.org/TR/DOM-Level-3-Events-key/">https://www.w3.org/TR/DOM-Level-3-Events-key/</a>.
  *
- * @see <a href="https://developer.mozilla.org/de/docs/Web/API/KeyboardEvent/key/Key_Values">https://developer.mozilla.org/de/docs/Web/API/KeyboardEvent/key/Key_Values</a>
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values</a>
  */
 public enum Key {
 
