@@ -347,7 +347,7 @@ The `@DataElement` can be applied to fields and methods. Those fields and method
     
     The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
     
-You're also free to use custom types when mapping fields and methods. In this case the generated code will use `Js.cast()`. This might lead to strange errors and it's up to you to make sure the cast works.    
+You're also free to use custom types when mapping fields and methods. In this case the generated code will use `Js.cast()`. It's up to you to make sure the cast works. Otherwise this can lead to strange errors which are hard to detect.
 
 ## Dependencies
 
