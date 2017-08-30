@@ -21,6 +21,7 @@ import elemental2.dom.NamedNodeMap;
 import elemental2.dom.Node;
 import elemental2.dom.NodeFilter;
 import elemental2.dom.TreeWalker;
+import jsinterop.base.Js;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
 
@@ -51,9 +52,9 @@ public final class TemplateUtil {
         return DATA_ELEMENT.select(context, identifier);
     }
 
-    @SuppressWarnings("unchecked")
     public static <E extends HTMLElement> E resolveElementAs(HTMLElement context, String identifier) {
-        return (E) DATA_ELEMENT.select(context, identifier);
+        HTMLElement element = DATA_ELEMENT.select(context, identifier);
+        return Js.cast(element);
     }
 
     public static void replaceElement(HTMLElement context, String identifier, HTMLElement newElement) {
@@ -79,6 +80,19 @@ public final class TemplateUtil {
 
     public static void replaceIsWidget(HTMLElement context, String identifier, IsWidget newWidget) {
         replaceElement(context, identifier, Elements.asElement(newWidget));
+    }
+
+
+    // ------------------------------------------------------ custom elements
+
+    public static <E> E resolveCustomElement(HTMLElement context, String identifier) {
+        HTMLElement element = DATA_ELEMENT.select(context, identifier);
+        return Js.cast(element);
+    }
+
+    public static <E> void replaceCustomElement(HTMLElement context, String identifier, E customElement) {
+        HTMLElement element = Js.cast(customElement);
+        replaceElement(context, identifier, element);
     }
 
 

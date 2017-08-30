@@ -20,7 +20,7 @@ public class DataElementInfo {
 
     public enum Kind {
         // Name them after the related type for nicer error messages
-        HTMLElement, IsElement, Widget, IsWidget
+        HTMLElement, IsElement, Widget, IsWidget, Custom
     }
 
 

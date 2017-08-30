@@ -401,9 +401,9 @@ public class TemplatedProcessor extends AbstractProcessor {
                         abortWithError(field, "@%s member must not be static", DataElement.class.getSimpleName());
                     }
                     Kind kind = getDataElementInfoKind(field.asType());
-                    if (kind == null) {
-                        abortWithError(field, "Unsupported type %s. Please choose one of %s", field.asType(),
-                                EnumSet.allOf(Kind.class));
+                    if (kind == Kind.Custom) {
+                        warning(field, "Unknown type %s. Consider using one of %s.", field.asType(),
+                                EnumSet.complementOf(EnumSet.of(Kind.Custom)));
                     }
 
                     // verify the selector
@@ -434,9 +434,9 @@ public class TemplatedProcessor extends AbstractProcessor {
                         abortWithError(method, "@%s method must not be static", DataElement.class.getSimpleName());
                     }
                     Kind kind = getDataElementInfoKind(method.getReturnType());
-                    if (kind == null) {
-                        abortWithError(method, "Unsupported return type %s. Please choose one of %s",
-                                method.getReceiverType(), EnumSet.allOf(Kind.class));
+                    if (kind == Kind.Custom) {
+                        warning(method, "Unknown return type %s. Consider using one of %s.", method.getReceiverType(),
+                                EnumSet.complementOf(EnumSet.of(Kind.Custom)));
                     }
                     if (!method.getParameters().isEmpty()) {
                         abortWithError(method, "@%s method must not have parameters",
@@ -471,7 +471,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         } else if (isAssignable(dataElementType, IsWidget.class)) {
             return Kind.IsWidget;
         } else {
-            return null;
+            return Kind.Custom;
         }
     }
 
