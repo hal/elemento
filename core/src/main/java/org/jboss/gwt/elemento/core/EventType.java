@@ -41,7 +41,7 @@ import org.jboss.gwt.elemento.core.builder.ElementBuilder;
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a>
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "SpellCheckingInspection"})
 public class EventType<T extends Event, V extends EventTarget> {
 
     // Network Events
@@ -130,6 +130,10 @@ public class EventType<T extends Event, V extends EventTarget> {
     // Storage Events
     public static final EventType<StorageEvent, Window> storage = of("storage");
 
+    public static <T extends Event, V extends EventTarget> EventType<T, V> of(String name) {
+        return new EventType<>(name);
+    }
+
 
     // ------------------------------------------------------ binding methods
 
@@ -162,8 +166,4 @@ public class EventType<T extends Event, V extends EventTarget> {
     private EventType(String name) { this.name = name; }
 
     public String getName() { return name; }
-
-    public static <T extends Event, V extends EventTarget> EventType<T, V> of(String name) {
-        return new EventType<>(name);
-    }
 }
