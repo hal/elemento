@@ -337,15 +337,17 @@ The `@DataElement` can be applied to fields and methods. Those fields and method
  
 - **Fields w/o an initializer**
 
-    The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field is restricted to `elemental2.dom.HTMLElement` and its subclasses.
+    The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field should be `elemental2.dom.HTMLElement` or a subclass of `elemental2.dom.HTMLElement`.
      
 - **Fields w/ an initializer**
 
-    The element in the HTML template is replaced with the initializer. The type of the field can be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`.
+    The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`.
     
 - **Methods**
     
-    The element in the HTML template is replaced with the return value of the method. The method must return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
+    The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
+    
+You're also free to use custom types when mapping fields and methods. In this case the generated code will use `Js.cast()`. This might lead to strange errors and it's up to you to make sure the cast works.    
 
 ## Dependencies
 
