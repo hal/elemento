@@ -479,7 +479,7 @@ Elemento comes with four different [implementations](https://hal.github.io/eleme
 - Errai DI and builder API: [Source](samples/errai) | [Demo](http://hal.github.io/elemento/errai/index.html)
 - GIN DI and HTML templates: [Source](samples/gin) | [Demo](http://hal.github.io/elemento/gin/index.html)
 
-All three samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+All four samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
 
 # Get Help
 
