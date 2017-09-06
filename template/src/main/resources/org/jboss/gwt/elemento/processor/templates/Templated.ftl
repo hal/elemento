@@ -79,7 +79,7 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
         if (this.${dataElement.name} == null) {
             this.${dataElement.name} = TemplateUtil.<${dataElement.type}>resolveCustomElement(${context.root.member}, "${dataElement.selector}");
         } else {
-            TemplateUtil.replaceElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name});
+            TemplateUtil.replaceCustomElement(${context.root.member}, "${dataElement.selector}", ${dataElement.name});
         }
                 </#if>
             </#if>
