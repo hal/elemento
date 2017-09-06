@@ -39,7 +39,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>0.5.1</version>
+    <version>0.5.2</version>
 </dependency>
 ```
  
@@ -224,7 +224,7 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
-    <version>0.5.1</version>
+    <version>0.5.2</version>
 </dependency>
 ```
 
@@ -337,15 +337,17 @@ The `@DataElement` can be applied to fields and methods. Those fields and method
  
 - **Fields w/o an initializer**
 
-    The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field is restricted to `elemental2.dom.HTMLElement` and its subclasses.
+    The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field should be `elemental2.dom.HTMLElement` or a subclass of `elemental2.dom.HTMLElement`.
      
 - **Fields w/ an initializer**
 
-    The element in the HTML template is replaced with the initializer. The type of the field can be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`.
+    The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`.
     
 - **Methods**
     
-    The element in the HTML template is replaced with the return value of the method. The method must return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
+    The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
+    
+You're also free to use custom types when mapping fields and methods. In this case the generated code will use `Js.cast()`. It's up to you to make sure the cast works. Otherwise this can lead to strange errors which are hard to detect.
 
 ## Dependencies
 
@@ -421,7 +423,7 @@ Handlebars expressions are supported in text nodes and attribute values.
 
 Elemento on the other hand is very focused around [Elemental2](https://github.com/google/elemental2). The main goal is to provide a type safe API for working with HTML elements.  
  
-Although there are overlapping parts like HTML templates you can still use Elemento's builder API as part of an Errai application. This can also be combined with Errai HTML templates. Since Errai UI is API agnostic when it comes to the DOM. You can use *any* native JS type DOM wrapper in an Errai UI template. However I would not recommend to use Elemento's HTML templates in an Errai application.
+Although there are overlapping parts like HTML templates you can still use Elemento's builder API as part of an Errai application. This can also be combined with Errai HTML templates. Since Errai UI is API agnostic when it comes to the DOM, you can use *any* native JS type DOM wrapper in an Errai UI template. However I would not recommend using Elemento's HTML templates in an Errai application.
 
 The [samples](#samples) section contains an Errai version of the TodoMVC app using Errai for dependency injection and the builder API to create the elements. 
 
@@ -479,7 +481,7 @@ Elemento comes with four different [implementations](https://hal.github.io/eleme
 - Errai DI and builder API: [Source](samples/errai) | [Demo](http://hal.github.io/elemento/errai/index.html)
 - GIN DI and HTML templates: [Source](samples/gin) | [Demo](http://hal.github.io/elemento/gin/index.html)
 
-All three samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+All four samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
 
 # Get Help
 
