@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  */
 class HandlebarsParser {
 
-    private final static Pattern PATTERN = Pattern.compile("\\{\\{(.*?)\\}\\}");
+    private final static Pattern PATTERN = Pattern.compile("\\#\\{\\{(.*?)\\}\\}");
 
     Map<String, String> parse(String input) {
         if (input != null) {
@@ -45,14 +45,14 @@ class HandlebarsParser {
         if (!isHandlebar(pattern)) {
             throw new IllegalArgumentException("Invalid handlebar pattern: " + pattern);
         }
-        if (pattern.lastIndexOf("{{") != 0 || pattern.indexOf("}}") != pattern.length() - 2) {
+        if (pattern.lastIndexOf("#{{") != 0 || pattern.indexOf("}}") != pattern.length() - 2) {
             throw new IllegalArgumentException("Invalid handlebar pattern: " + pattern);
         }
     }
 
     private String stripHandlebar(String pattern) {
         if (isHandlebar(pattern)) {
-            int start = "{{".length();
+            int start = "#{{".length();
             int end = pattern.length() - "}}".length();
             return pattern.substring(start, end);
         }
@@ -60,6 +60,7 @@ class HandlebarsParser {
     }
 
     private boolean isHandlebar(String value) {
-        return value != null && value.startsWith("{{") && value.endsWith("}}");
+        return value != null && value.startsWith("#{{") && value.endsWith("}}");
     }
+
 }
