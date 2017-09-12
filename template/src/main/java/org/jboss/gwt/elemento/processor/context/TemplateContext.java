@@ -15,11 +15,12 @@ package org.jboss.gwt.elemento.processor.context;
 
 import java.util.List;
 
-public class FreemarkerContext {
+public class TemplateContext {
 
     private final String pkg;
     private final String base;
     private final String subclass;
+    private final String isElementTypeParameter;
     private final String inject;
 
     private RootElementInfo root;
@@ -27,14 +28,16 @@ public class FreemarkerContext {
     private List<PostConstructInfo> postConstructs;
     private List<AbstractPropertyInfo> abstractProperties;
 
-    public FreemarkerContext(
-            final String pkg,
-            final String base,
-            final String subclass,
-            final String inject) {
+    public TemplateContext(
+            String pkg,
+            String base,
+            String subclass,
+            String isElementTypeParameter,
+            String inject) {
         this.pkg = pkg;
         this.base = base;
         this.subclass = subclass;
+        this.isElementTypeParameter = isElementTypeParameter;
         this.inject = inject;
     }
 
@@ -65,6 +68,10 @@ public class FreemarkerContext {
 
     public String getSubclass() {
         return subclass;
+    }
+
+    public String getIsElementTypeParameter() {
+        return isElementTypeParameter;
     }
 
     public List<DataElementInfo> getDataElements() {

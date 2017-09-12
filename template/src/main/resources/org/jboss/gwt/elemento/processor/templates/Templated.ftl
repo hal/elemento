@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="context" type="org.jboss.gwt.elemento.processor.context.FreemarkerContext" -->
+<#-- @ftlvariable name="context" type="org.jboss.gwt.elemento.processor.context.TemplateContext" -->
 package ${context.package};
 
 <#if context.root.innerHtml??>
@@ -7,7 +7,6 @@ import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
 import elemental2.dom.DomGlobal;
-import elemental2.dom.HTMLElement;
 <#if (context.dataElements?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
 import org.jboss.gwt.elemento.template.TemplateUtil;
 </#if>
@@ -31,14 +30,14 @@ public final class ${context.subclass} extends ${context.base} {
     <#list context.abstractProperties as abstractProperty>
     private final ${abstractProperty.type} ${abstractProperty.field};
     </#list>
-    private final HTMLElement ${context.root.member};
+    private final ${context.isElementTypeParameter} ${context.root.member};
 
 ${context.inject} public ${context.subclass}(<#list context.abstractProperties as abstractProperty>${abstractProperty.type} ${abstractProperty.field}<#if abstractProperty_has_next>, </#if></#list>) {
         <#list context.abstractProperties as abstractProperty>
         this.${abstractProperty.field} = ${abstractProperty.field};
         </#list>
 
-        this.${context.root.member} = (HTMLElement)DomGlobal.document.createElement("${context.root.tag}");
+        this.${context.root.member} = (${context.isElementTypeParameter})DomGlobal.document.createElement("${context.root.tag}");
         <#list context.root.attributes as attribute>
         this.${context.root.member}.setAttribute("${attribute.key}", "${attribute.value}");
         </#list>
@@ -97,7 +96,7 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
     }
 
     @Override
-    public HTMLElement asElement() {
+    public ${context.isElementTypeParameter} asElement() {
         return ${context.root.member};
     }
     <#-- Abstract properties -->

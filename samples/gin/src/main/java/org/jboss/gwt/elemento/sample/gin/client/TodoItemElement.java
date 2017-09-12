@@ -18,6 +18,7 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 import com.google.web.bindery.event.shared.HandlerRegistrations;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
+import elemental2.dom.HTMLLIElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Key;
@@ -30,7 +31,7 @@ import static org.jboss.gwt.elemento.core.EventType.*;
 
 @SuppressWarnings({"Duplicates", "unused"})
 @Templated("Todo.html#item")
-abstract class TodoItemElement implements IsElement<HTMLElement> {
+abstract class TodoItemElement implements IsElement<HTMLLIElement> {
 
     // @formatter:off
     // Don't use ApplicationElement directly as this will lead to a dependency cycle in the generated GIN code!
