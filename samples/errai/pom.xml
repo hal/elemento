@@ -28,7 +28,7 @@
     <packaging>gwt-app</packaging>
 
     <properties>
-        <errai.version>4.0.0.Final</errai.version>
+        <errai.version>4.0.2.Final</errai.version>
         <gwt.public.directory>src/main/resources/org/jboss/gwt/elemento/sample/errai/public</gwt.public.directory>
         <module.name>org.jboss.gwt.elemento.sample.errai.ErraiSample</module.name>
         <module.shortName>errai</module.shortName>
@@ -59,8 +59,20 @@
             <classifier>sources</classifier>
         </dependency>
         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava-gwt</artifactId>
+            <!-- Latest version defined in root POM is not compatible with Errai -->
+            <version>20.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.jboss.errai</groupId>
             <artifactId>errai-cdi-client</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava-gwt</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
