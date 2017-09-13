@@ -405,13 +405,13 @@ Elemento supports [handlebars](http://handlebarsjs.com/)-like expressions in HTM
 ```html
 <section data-element="todos" class="todoapp">
     <header class="header">
-        <h1>{{i18n().constants().todos()}}</h1>
-        <input data-element="newTodo" class="new-todo" placeholder="{{i18n().constants().new_todo()}}" autofocus>
+        <h1>#{{i18n().constants().todos()}}</h1>
+        <input data-element="newTodo" class="new-todo" placeholder="#{{i18n().constants().new_todo()}}" autofocus>
     </header>
 </section>
 ```
 
-The expressions between `{{` and `}}` need to be valid Java expressions. They're executed in the constructor of the generated class. `{{<expression>}}` is replaced with the result of `String.valueOf(<expression>)`. The example above makes use of the template's `i18n()` method (see example above) and inserts the language specific header. But you could also use any other valid expressions like `{{com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().format(new java.util.Date())}}`.
+The expressions between `#{{` and `}}` need to be valid Java expressions. They're executed in the constructor of the generated class. `#{{<expression>}}` is replaced with the result of `String.valueOf(<expression>)`. The example above makes use of the template's `i18n()` method (see example above) and inserts the language specific header. But you could also use any other valid expressions like `#{{com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().format(new java.util.Date())}}`.
 
 Handlebars expressions are supported in text nodes and attribute values. 
 
