@@ -1,13 +1,8 @@
 <#-- @ftlvariable name="context" type="org.jboss.gwt.elemento.processor.context.TemplateContext" -->
 package ${context.package};
 
-<#if context.root.innerHtml??>
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.safehtml.client.SafeHtmlTemplates;
-import com.google.gwt.safehtml.shared.SafeHtml;
-</#if>
 import elemental2.dom.DomGlobal;
-<#if (context.dataElements?size > 0 || (context.root.innerHtml?? && context.root.expressions?size > 0))>
+<#if (context.dataElements?size > 0 || context.root.expressions?size > 0)>
 import org.jboss.gwt.elemento.template.TemplateUtil;
 </#if>
 
@@ -19,14 +14,6 @@ import javax.annotation.Generated;
 @Generated("org.jboss.gwt.elemento.processor.TemplatedProcessor")
 public final class ${context.subclass} extends ${context.base} {
 
-    <#if context.root.innerHtml??>
-    static interface InnerHtml extends SafeHtmlTemplates {
-        @Template("${context.root.innerHtml}")
-        SafeHtml value();
-    }
-
-    private final static InnerHtml INNER_HTML = GWT.create(InnerHtml.class);
-    </#if>
     <#list context.abstractProperties as abstractProperty>
     private final ${abstractProperty.type} ${abstractProperty.field};
     </#list>
@@ -42,7 +29,7 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
         this.${context.root.member}.setAttribute("${attribute.key}", "${attribute.value}");
         </#list>
         <#if context.root.innerHtml??>
-        this.${context.root.member}.innerHTML = INNER_HTML.value().asString();
+        this.${context.root.member}.innerHTML = "${context.root.innerHtml}";
         </#if>
 
         <#list context.dataElements as dataElement>

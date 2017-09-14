@@ -13,7 +13,7 @@
  */
 package org.jboss.gwt.elemento.template;
 
-import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.common.html.HtmlEscapers;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.Attr;
@@ -106,7 +106,7 @@ public final class TemplateUtil {
     // ------------------------------------------------------ expressions
 
     public static void replaceExpression(HTMLElement context, String expression, String value) {
-        String safeValue = SafeHtmlUtils.fromString(value).asString();
+        String safeValue = HtmlEscapers.htmlEscaper().escape(value);
         replaceNestedExpressionInText(context, expression, safeValue);
         replaceNestedExpressionInAttributes(context, expression, safeValue);
         // The call above does not catch the attributes in 'context', we need to replace them explicitly.
