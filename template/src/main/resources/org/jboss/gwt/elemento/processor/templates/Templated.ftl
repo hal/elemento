@@ -7,7 +7,7 @@ import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
 </#if>
 import elemental2.dom.DomGlobal;
-<#if (context.dataElements?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
+<#if (context.dataElements?size > 0 || (context.root.innerHtml?? && context.root.expressions?size > 0))>
 import org.jboss.gwt.elemento.template.TemplateUtil;
 </#if>
 
@@ -83,10 +83,10 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
                 </#if>
             </#if>
         </#list>
-        <#-- Handlebars -->
-        <#if (context.root.innerHtml?? && context.root.handlebars?size > 0)>
-            <#list context.root.handlebars?keys as handlebar>
-        TemplateUtil.replaceHandlebar(${context.root.member}, "${handlebar}", String.valueOf(${context.root.handlebars?values[handlebar_index]}));
+        <#-- Expressions -->
+        <#if (context.root.innerHtml?? && context.root.expressions?size > 0)>
+            <#list context.root.expressions?keys as expression>
+        TemplateUtil.replaceExpression(${context.root.member}, "${expression}", String.valueOf(${context.root.expressions?values[expression_index]}));
             </#list>
         </#if>
         <#-- @PostConstruct -->

@@ -21,13 +21,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class HandlebarsParserTest {
+public class ExpressionParserTest {
 
-    private HandlebarsParser parser;
+    private ExpressionParser parser;
 
     @Before
     public void setUp() {
-        parser = new HandlebarsParser();
+        parser = new ExpressionParser();
     }
 
     @Test
@@ -47,27 +47,27 @@ public class HandlebarsParserTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void malformed() {
-        parser.parse("{{foo{{bar}}");
+        parser.parse("${foo${bar}}");
     }
 
     @Test
     public void oneMatch() {
-        Map<String, String> handlebars = parser.parse("{{foo}}");
-        assertEquals(1, handlebars.size());
-        assertEquals("foo", handlebars.get("{{foo}}"));
+        Map<String, String> expressions = parser.parse("${foo}");
+        assertEquals(1, expressions.size());
+        assertEquals("foo", expressions.get("${foo}"));
 
-        handlebars = parser.parse("before  {{foo}}after   ");
-        assertEquals(1, handlebars.size());
-        assertEquals("foo", handlebars.get("{{foo}}"));
+        expressions = parser.parse("before  ${foo}after   ");
+        assertEquals(1, expressions.size());
+        assertEquals("foo", expressions.get("${foo}"));
     }
 
     @Test
     public void moreMatches() {
-        Map<String, String> handlebars = parser.parse("fo{{o}} {{b}}{{a}}r ba{{z}}");
-        assertEquals(4, handlebars.size());
-        assertEquals("o", handlebars.get("{{o}}"));
-        assertEquals("b", handlebars.get("{{b}}"));
-        assertEquals("a", handlebars.get("{{a}}"));
-        assertEquals("z", handlebars.get("{{z}}"));
+        Map<String, String> expressions = parser.parse("fo${o} ${b}${a}r ba${z}");
+        assertEquals(4, expressions.size());
+        assertEquals("o", expressions.get("${o}"));
+        assertEquals("b", expressions.get("${b}"));
+        assertEquals("a", expressions.get("${a}"));
+        assertEquals("z", expressions.get("${z}"));
     }
 }

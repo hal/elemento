@@ -28,7 +28,7 @@
     <packaging>gwt-app</packaging>
 
     <properties>
-        <errai.version>4.0.2.Final</errai.version>
+        <errai.version>4.1.0-SNAPSHOT</errai.version>
         <gwt.public.directory>src/main/resources/org/jboss/gwt/elemento/sample/errai/public</gwt.public.directory>
         <module.name>org.jboss.gwt.elemento.sample.errai.ErraiSample</module.name>
         <module.shortName>errai</module.shortName>
@@ -50,13 +50,6 @@
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>sample-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>sample-common</artifactId>
-            <version>${project.version}</version>
-            <classifier>sources</classifier>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -77,14 +70,101 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/node/**</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
+                <version>${plugin.frontend.version}</version>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <workingDirectory>${gwt.public.directory}</workingDirectory>
+                            <nodeVersion>${node.version}</nodeVersion>
+                            <npmVersion>${npm.version}</npmVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <workingDirectory>${gwt.public.directory}</workingDirectory>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <configuration>
+                            <options>
+                                <!-- Uncomment to get more messages from the annotation processors -->
+                                <!--<debug>true</debug>-->
+                            </options>
+                            <defaultOutputDirectory>${project.build.directory}/generated-sources/annotations
+                            </defaultOutputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgument>-proc:none</compilerArgument>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/annotations</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <devmodeArgs>
+                        <devmodeArg>-startupUrl</devmodeArg>
+                        <devmodeArg>${module.shortName}/index.html</devmodeArg>
+                    </devmodeArgs>
+                    <logLevel>INFO</logLevel>
+                    <moduleName>${module.name}</moduleName>
+                    <moduleShortName>${module.shortName}</moduleShortName>
+                </configuration>
             </plugin>
         </plugins>
     </build>

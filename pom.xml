@@ -132,6 +132,13 @@
 
             <!-- GWT related -->
             <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt</artifactId>
+                <version>${gwt.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>com.google.elemental2</groupId>
                 <artifactId>elemental2-core</artifactId>
                 <version>${elemental.version}</version>
@@ -145,16 +152,6 @@
                 <groupId>com.google.elemental2</groupId>
                 <artifactId>elemental2-webstorage</artifactId>
                 <version>${elemental.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.gwt</groupId>
-                <artifactId>gwt-dev</artifactId>
-                <version>${gwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.gwt</groupId>
-                <artifactId>gwt-user</artifactId>
-                <version>${gwt.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.gwt.inject</groupId>
@@ -246,20 +243,6 @@
         </pluginManagement>
 
         <plugins>
-            <plugin>
-                <groupId>net.ltgt.gwt.maven</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-                <inherited>false</inherited>
-                <configuration>
-                    <devmodeArgs>
-                        <devmodeArg>-incremental</devmodeArg>
-                    </devmodeArgs>
-                    <moduleName/> <!-- must be overridden in sub modules -->
-                    <startupUrls>
-                        <url>http://localhost:8888/</url>
-                    </startupUrls>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

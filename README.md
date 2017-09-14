@@ -5,7 +5,7 @@
 Elemento simplifies working with GWT [Elemental2](https://github.com/google/elemental2). In a nutshell Elemento brings the following features to the table:
 
 - Type safe [builders](#builder-api) and [event handlers](#event-handlers)
-- [HTML templates](#html-templates) with support for [handlebars](#handlebars)-like expressions
+- [HTML templates](#html-templates) with support for expressions
 - Easy integration with other libraries such as [Errai](#errai), [RxGWT](#rxgwt) or [GIN](#gin)
 - [Helper methods](#helper-methods) to mix and match GWT Elemental and GWT Widgets
 
@@ -22,7 +22,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
   * [Data Elements](#data-elements)
   * [Dependencies](#dependencies)
   * [PostConstruct](#postconstruct)
-  * [Handlebars](#handlebars)
+  * [Expressions](#expressions)
 * [Integrations](#integrations)
   * [Errai](#errai)
   * [RxGWT](#rxgwt)
@@ -369,7 +369,7 @@ abstract class ApplicationElement implements IsElement<HTMLElement> {
 For each constructor parameter you can define an abstract accessor method which returns the dependency and does not accept parameters. The generated code will implement these methods. Please make sure that parameters are passed to the auto-generated constructor in the same order the corresponding accessor methods are defined in the file. Take extra care that the order remains valid if you refactor your code!
   
 ## PostConstruct
-Since templated classes cannot have a constructor it's possible to annotate a method with `javax.annotation.PostConstruct`. This method will be called from the generated constructor **after** all initialization steps (element mapping, handlebars). So it's safe to use the abstract accessor methods and data elements from the initialization method:
+Since templated classes cannot have a constructor it's possible to annotate a method with `javax.annotation.PostConstruct`. This method will be called from the generated constructor **after** all initialization steps (element mapping, expressions). So it's safe to use the abstract accessor methods and data elements from the initialization method:
  
 ```java
 @Templated("Todo.html#todos")
@@ -398,22 +398,22 @@ abstract class ApplicationElement implements IsElement<HTMLElement> {
 
 The method annotated with `javax.annotation.PostConstruct` must not be private, return void and must not have any parameters. 
 
-## Handlebars
+## Expressions
 
-Elemento supports [handlebars](http://handlebarsjs.com/)-like expressions in HTML templates:
+Elemento supports expressions like `${foo}` in HTML templates:
  
 ```html
 <section data-element="todos" class="todoapp">
     <header class="header">
-        <h1>{{i18n().constants().todos()}}</h1>
-        <input data-element="newTodo" class="new-todo" placeholder="{{i18n().constants().new_todo()}}" autofocus>
+        <h1>${i18n().constants().todos()}</h1>
+        <input data-element="newTodo" class="new-todo" placeholder="${i18n().constants().new_todo()}" autofocus>
     </header>
 </section>
 ```
 
-The expressions between `{{` and `}}` need to be valid Java expressions. They're executed in the constructor of the generated class. `{{<expression>}}` is replaced with the result of `String.valueOf(<expression>)`. The example above makes use of the template's `i18n()` method (see example above) and inserts the language specific header. But you could also use any other valid expressions like `{{com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().format(new java.util.Date())}}`.
+The expressions between `${` and `}` need to be valid Java expressions. They're executed in the constructor of the generated class. `${<expression>}` is replaced with the result of `String.valueOf(<expression>)`. The example above makes use of the template's `i18n()` method (see example above) and inserts the language specific header. But you could also use any other valid expressions like `${com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().format(new java.util.Date())}`.
 
-Handlebars expressions are supported in text nodes and attribute values. 
+Expressions are supported in text nodes and attribute values. 
 
 # Integrations
 

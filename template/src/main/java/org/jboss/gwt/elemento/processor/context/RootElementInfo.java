@@ -24,15 +24,15 @@ public class RootElementInfo {
     private final String member;
     private final List<Attribute> attributes;
     private final String innerHtml;
-    private final Map<String, String> handlebars;
+    private final Map<String, String> expressions;
 
     public RootElementInfo(final String tag, final String member, final List<Attribute> attributes,
-            final String innerHtml, final Map<String, String> handlebars) {
+            final String innerHtml, final Map<String, String> expressions) {
         this.tag = tag;
         this.member = member;
         this.attributes = attributes;
         this.innerHtml = innerHtml;
-        this.handlebars = handlebars;
+        this.expressions = expressions;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class RootElementInfo {
         return tag;
     }
 
-    public Map<String, String> getHandlebars() {
-        return handlebars;
+    public Map<String, String> getExpressions() {
+        return expressions;
     }
 }

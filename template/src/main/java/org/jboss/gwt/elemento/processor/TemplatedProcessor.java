@@ -327,10 +327,10 @@ public class TemplatedProcessor extends AbstractProcessor {
                 .collect(Collectors.toList());
 
         String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
-        Map<String, String> handlebars = new HandlebarsParser().parse(html);
+        Map<String, String> expressions = new ExpressionParser().parse(html);
 
         return new RootElementInfo(root.tagName(), subclass.toLowerCase() + "_root_element",
-                attributes, html, handlebars);
+                attributes, html, expressions);
     }
 
     private TemplateSelector getTemplateSelector(TypeElement type, Templated templated) {

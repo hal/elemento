@@ -13,6 +13,7 @@
  */
 package org.jboss.gwt.elemento.template;
 
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.Attr;
@@ -102,16 +103,17 @@ public final class TemplateUtil {
     }
 
 
-    // ------------------------------------------------------ handlebars
+    // ------------------------------------------------------ expressions
 
-    public static void replaceHandlebar(HTMLElement context, String expression, String value) {
-        replaceNestedHandlebarInText(context, expression, value);
-        replaceNestedHandlebarInAttributes(context, expression, value);
+    public static void replaceExpression(HTMLElement context, String expression, String value) {
+        String safeValue = SafeHtmlUtils.fromString(value).asString();
+        replaceNestedExpressionInText(context, expression, safeValue);
+        replaceNestedExpressionInAttributes(context, expression, safeValue);
         // The call above does not catch the attributes in 'context', we need to replace them explicitly.
-        replaceHandlebarInAttributes(context, expression, value);
+        replaceExpressionInAttributes(context, expression, safeValue);
     }
 
-    private static void replaceNestedHandlebarInText(HTMLElement context, String expression, String value) {
+    private static void replaceNestedExpressionInText(HTMLElement context, String expression, String value) {
         TreeWalker treeWalker = document.createTreeWalker(context, NodeFilter.SHOW_TEXT, node -> {
             if (node.nodeValue != null && node.nodeValue.contains(expression)) {
                 return NodeFilter.FILTER_ACCEPT;
@@ -124,16 +126,16 @@ public final class TemplateUtil {
         }
     }
 
-    private static void replaceNestedHandlebarInAttributes(HTMLElement context, String expression, String value) {
+    private static void replaceNestedExpressionInAttributes(HTMLElement context, String expression, String value) {
         TreeWalker treeWalker = document.createTreeWalker(context, NodeFilter.SHOW_ELEMENT, null, false);
         while (treeWalker.nextNode() != null) {
             if (treeWalker.getCurrentNode() instanceof HTMLElement) {
-                replaceHandlebarInAttributes((HTMLElement) treeWalker.getCurrentNode(), expression, value);
+                replaceExpressionInAttributes((HTMLElement) treeWalker.getCurrentNode(), expression, value);
             }
         }
     }
 
-    private static void replaceHandlebarInAttributes(HTMLElement context, String expression, String value) {
+    private static void replaceExpressionInAttributes(HTMLElement context, String expression, String value) {
         NamedNodeMap<Attr> attributes = context.attributes;
         for (int i = 0; i < attributes.getLength(); i++) {
             Node attribute = attributes.item(i);
