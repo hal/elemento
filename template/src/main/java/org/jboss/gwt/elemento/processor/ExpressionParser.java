@@ -43,10 +43,10 @@ class ExpressionParser {
 
     private void validate(final String pattern) {
         if (!isExpression(pattern)) {
-            throw new IllegalArgumentException("Invalid pattern: " + pattern);
+            throw new IllegalArgumentException("Invalid expression: " + pattern);
         }
         if (pattern.lastIndexOf("${") != 0 || pattern.indexOf("}") != pattern.length() - 1) {
-            throw new IllegalArgumentException("Invalid pattern: " + pattern);
+            throw new IllegalArgumentException("Invalid expression: " + pattern);
         }
     }
 
