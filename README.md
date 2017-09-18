@@ -26,7 +26,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [Integrations](#integrations)
   * [Errai](#errai)
   * [RxGWT](#rxgwt)
-  * [GIN](#gin)
+  * [GIN and Dagger](#gin-and-dagger)
 * [Helper Methods](#helper-methods)
 * [Samples](#samples)
 * [Get Help](#get-help)
@@ -449,11 +449,11 @@ Observable.merge(touch$, mouse$)
         .forEach(n -> info.textContent = n);
 ```
 
-## GIN
+## Dagger adn GIN
 
-Elemento provides support for dependency injection in HTML templates using [GIN](https://code.google.com/p/google-gin/). If GIN is on the classpath, the annotation processor, which generates the HTML template class, will place an `@javax.inject.Inject` annotation on the generated constructor. 
+Elemento provides support for dependency injection in HTML templates using [Dagger](https://google.github.io/dagger/) or [GIN](https://code.google.com/p/google-gin/). If one of these DI libraries is on the classpath, the annotation processor, which generates the HTML template class, will place a `@javax.inject.Inject` annotation on the generated constructor. 
 
-The [samples](#samples) section contains a GIN version of the TodoMVC app using GIN for dependency injection. 
+There are [samples](#samples) which show the usage of both Dagger and GIN (see below).
 
 # Helper Methods
 
@@ -468,14 +468,15 @@ See the API documentation of [Elements](http://rawgit.com/hal/elemento/site/apid
 
 # Samples
 
-Elemento comes with four different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) sample app. 
+Elemento comes with five different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) sample app. 
 
 - Builder API: [Source](samples/builder) | [Demo](http://hal.github.io/elemento/builder/index.html)
 - HTML templates: [Source](samples/templated) | [Demo](http://hal.github.io/elemento/templated/index.html)
 - Errai DI and builder API: [Source](samples/errai) | [Demo](http://hal.github.io/elemento/errai/index.html)
+- Dagger DI and HTML templates: [Source](samples/dagger) | [Demo](http://hal.github.io/elemento/dagger/index.html)
 - GIN DI and HTML templates: [Source](samples/gin) | [Demo](http://hal.github.io/elemento/gin/index.html)
 
-All four samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+All five samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
 
 # Get Help
 
