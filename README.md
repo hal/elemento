@@ -333,17 +333,17 @@ If no value is provided for the `@DataElement` annotation, the name of the field
 [data-element=<value()>]
 ```
 
-The `@DataElement` can be applied to fields and methods. Those fields and methods must not be private. Elemento defines some simple rules when it comes to mapping between the HTML template and the related class:
+The `@DataElement` can be applied to fields and methods. Those fields and methods must not be private. Elemento defines three simple rules for the mapping between the HTML template and the related class:
  
-- **Fields w/o an initializer**
+1. **Fields w/o an initializer** <span style="float:right">HTML &rarr; Java</span>
 
     The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field should be `elemental2.dom.HTMLElement` or a subclass of `elemental2.dom.HTMLElement`.
      
-- **Fields w/ an initializer**
+1. **Fields w/ an initializer** <span style="float:right">Java &rarr; HTML</span>
 
     The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`.
     
-- **Methods**
+1. **Methods** <span style="float:right">Java &rarr; HTML</span>
     
     The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
     
