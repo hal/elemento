@@ -104,7 +104,6 @@
         <auto-value.version>1.2-SNAPSHOT</auto-value.version>
         <elemental.version>1.0.0-beta-1</elemental.version>
         <gin.version>2.1.2</gin.version>
-        <guava.version>23.0</guava.version>
         <gwt.version>2.8.1</gwt.version>
         <gwtmockito.version>1.1.6</gwtmockito.version>
         <jsoup.version>1.10.3</jsoup.version>
@@ -157,11 +156,6 @@
                 <groupId>com.google.gwt.inject</groupId>
                 <artifactId>gin</artifactId>
                 <version>${gin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava-gwt</artifactId>
-                <version>${guava.version}</version>
             </dependency>
 
             <!-- Misc -->

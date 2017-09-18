@@ -52,20 +52,8 @@
             <artifactId>sample-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava-gwt</artifactId>
-            <!-- Latest version defined in root POM is not compatible with Errai -->
-            <version>20.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.errai</groupId>
             <artifactId>errai-cdi-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava-gwt</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
