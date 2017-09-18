@@ -115,6 +115,7 @@ import org.jboss.gwt.elemento.processor.context.RootElementInfo;
 import org.jboss.gwt.elemento.processor.context.TemplateContext;
 import org.jboss.gwt.elemento.template.DataElement;
 import org.jboss.gwt.elemento.template.Templated;
+import org.jboss.gwt.elemento.template.Templated.Injectable;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
@@ -133,6 +134,11 @@ public class TemplatedProcessor extends AbstractProcessor {
             .addEscape('\n', "")
             .addEscape('\r', "")
             .build();
+
+    private static final String[] DEPENDENCY_INJECTION_FRAMEWORKS = {
+        "dagger.Component",
+        "com.google.gwt.inject.client.GinModule",
+    };
 
     // List of elements from https://developer.mozilla.org/en-US/docs/Web/HTML/Element
     // which have a class in elemental2.dom, are standardized and not obsolete or deprecated
@@ -223,7 +229,6 @@ public class TemplatedProcessor extends AbstractProcessor {
             return false;
         }
 
-        String inject = ginInClasspath() ? "@javax.inject.Inject" : "";
         Collection<? extends Element> annotatedElements = roundEnv.getElementsAnnotatedWith(Templated.class);
         List<TypeElement> types = new ImmutableList.Builder<TypeElement>()
                 .addAll(deferredTypes)
@@ -234,6 +239,11 @@ public class TemplatedProcessor extends AbstractProcessor {
             try {
                 Templated templated = type.getAnnotation(Templated.class);
                 validateType(type, templated);
+
+                boolean isInjectable = templated.injectable() == Injectable.TRUE
+                        || (templated.injectable() == Injectable.IF_DI_DETECTED && diInClasspath());
+                String inject = isInjectable ? "@javax.inject.Inject" : "";
+
                 processType(type, templated, inject);
             } catch (AbortProcessingException e) {
                 // We abandoned this type; continue with the next.
@@ -680,11 +690,14 @@ public class TemplatedProcessor extends AbstractProcessor {
         throw new AbortProcessingException();
     }
 
-    private boolean ginInClasspath() {
-        try {
-            return getClass().getClassLoader().loadClass("com.google.gwt.inject.client.GinModule") != null;
-        } catch (ClassNotFoundException notFound) {
-            return false;
+    private boolean diInClasspath() {
+        for (String clazz : DEPENDENCY_INJECTION_FRAMEWORKS) {
+            try {
+                if (getClass().getClassLoader().loadClass(clazz) != null) {
+                    return true;
+                }
+            } catch (ClassNotFoundException ignore) {}
         }
+        return false;
     }
 }
