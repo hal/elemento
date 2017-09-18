@@ -242,9 +242,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
                 boolean isInjectable = templated.injectable() == Injectable.TRUE
                         || (templated.injectable() == Injectable.IF_DI_DETECTED && diInClasspath());
-                String inject = isInjectable ? "@javax.inject.Inject" : "";
-
-                processType(type, templated, inject);
+                processType(type, templated, isInjectable ? "@javax.inject.Inject" : "");
             } catch (AbortProcessingException e) {
                 // We abandoned this type; continue with the next.
             } catch (MissingTypeException e) {

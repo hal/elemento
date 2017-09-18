@@ -46,8 +46,10 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Templated {
 
-    enum Injectable { TRUE, FALSE, IF_DI_DETECTED };
+    enum Injectable {TRUE, FALSE, IF_DI_DETECTED}
 
     String value() default "";
+
+    /** Whether to place a {@code javax.inject.Inject} annotation on the generated constructor. */
     Injectable injectable() default Injectable.IF_DI_DETECTED;
 }
