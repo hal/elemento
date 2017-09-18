@@ -29,6 +29,10 @@
     <packaging>pom</packaging>
 
     <properties>
+        <dagger.version>2.11</dagger.version>
+        <errai.version>4.1.0-SNAPSHOT</errai.version>
+        <gin.version>2.1.2</gin.version>
+        <javax.inject.version>1</javax.inject.version>
         <node.version>v8.1.2</node.version>
         <npm.version>5.0.4</npm.version>
         <plugin.frontend.version>1.4</plugin.frontend.version>
@@ -53,6 +57,33 @@
                 <groupId>org.jboss.gwt.elemento</groupId>
                 <artifactId>sample-common</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.errai.bom</groupId>
+                <artifactId>errai-bom</artifactId>
+                <version>${errai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>${javax.inject.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.dagger</groupId>
+                <artifactId>dagger-gwt</artifactId>
+                <version>${dagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.dagger</groupId>
+                <artifactId>dagger-compiler</artifactId>
+                <version>${dagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.gwt.inject</groupId>
+                <artifactId>gin</artifactId>
+                <version>${gin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

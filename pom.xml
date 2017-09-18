@@ -98,13 +98,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- dependency versions -->
-        <annotations.version>15.0</annotations.version>
         <apt-tools.version>0.0.3</apt-tools.version>
         <auto-service.version>1.0-rc3</auto-service.version>
         <auto-value.version>1.2-SNAPSHOT</auto-value.version>
-        <dagger.version>2.11</dagger.version>
         <elemental.version>1.0.0-beta-1</elemental.version>
-        <gin.version>2.1.2</gin.version>
         <gwt.version>2.8.1</gwt.version>
         <gwtmockito.version>1.1.6</gwtmockito.version>
         <javax.inject.version>1</javax.inject.version>
@@ -154,37 +151,12 @@
                 <artifactId>elemental2-webstorage</artifactId>
                 <version>${elemental.version}</version>
             </dependency>
-            <dependency>
-                <groupId>javax.inject</groupId>
-                <artifactId>javax.inject</artifactId>
-                <version>${javax.inject.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.dagger</groupId>
-                <artifactId>dagger-gwt</artifactId>
-                <version>${dagger.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.dagger</groupId>
-                <artifactId>dagger-compiler</artifactId>
-                <version>${dagger.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.gwt.inject</groupId>
-                <artifactId>gin</artifactId>
-                <version>${gin.version}</version>
-            </dependency>
 
             <!-- Misc -->
             <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jetbrains</groupId>
-                <artifactId>annotations</artifactId>
-                <version>${annotations.version}</version>
             </dependency>
 
             <!-- APT processing -->

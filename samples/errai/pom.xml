@@ -34,18 +34,6 @@
         <module.shortName>errai</module.shortName>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.jboss.errai.bom</groupId>
-                <artifactId>errai-bom</artifactId>
-                <version>${errai.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>

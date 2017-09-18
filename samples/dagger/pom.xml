@@ -44,7 +44,6 @@
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>sample-common</artifactId>
         </dependency>
-
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
