@@ -476,7 +476,7 @@ Elemento comes with five different [implementations](https://hal.github.io/eleme
 - Dagger DI and HTML templates: [Source](samples/dagger) | [Demo](http://hal.github.io/elemento/dagger/index.html)
 - GIN DI and HTML templates: [Source](samples/gin) | [Demo](http://hal.github.io/elemento/gin/index.html)
 
-All five samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+All samples use the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
 
 # Get Help
 
