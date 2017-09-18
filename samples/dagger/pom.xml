@@ -57,13 +57,6 @@
             <groupId>com.google.dagger</groupId>
             <artifactId>dagger-compiler</artifactId>
         </dependency>
-        
-        <!-- GIN maintained as a dependency until the Elemento template
-             processor supports Dagger -->
-        <dependency>
-            <groupId>com.google.gwt.inject</groupId>
-            <artifactId>gin</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
