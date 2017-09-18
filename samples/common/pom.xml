@@ -20,28 +20,17 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>0.5.2</version>
+        <version>0.6.0</version>
     </parent>
 
     <artifactId>sample-common</artifactId>
     <name>Elemento :: Samples :: Common</name>
     <packaging>gwt-lib</packaging>
 
-    <properties>
-        <module.name>org.jboss.gwt.elemento.sample.Common</module.name>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>elemento-core</artifactId>
-            <classifier>sources</classifier>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
@@ -50,6 +39,9 @@
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <moduleName>org.jboss.gwt.elemento.sample.Common</moduleName>
+                </configuration>
             </plugin>
         </plugins>
     </build>

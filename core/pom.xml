@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.5.2</version>
+        <version>0.6.0</version>
     </parent>
 
     <artifactId>elemento-core</artifactId>
@@ -44,6 +44,11 @@
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-webstorage</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt.gwtmockito</groupId>
+            <artifactId>gwtmockito</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

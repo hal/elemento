@@ -36,6 +36,7 @@ import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
+import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
@@ -109,9 +110,9 @@ import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.processor.context.AbstractPropertyInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo;
 import org.jboss.gwt.elemento.processor.context.DataElementInfo.Kind;
-import org.jboss.gwt.elemento.processor.context.FreemarkerContext;
 import org.jboss.gwt.elemento.processor.context.PostConstructInfo;
 import org.jboss.gwt.elemento.processor.context.RootElementInfo;
+import org.jboss.gwt.elemento.processor.context.TemplateContext;
 import org.jboss.gwt.elemento.template.DataElement;
 import org.jboss.gwt.elemento.template.Templated;
 import org.jsoup.Jsoup;
@@ -277,10 +278,10 @@ public class TemplatedProcessor extends AbstractProcessor {
     }
 
     private void processType(TypeElement type, final Templated templated, String inject) {
-        // freemarker context
+        String isElementTypeParameter = getIsElementTypeParameter(type.getInterfaces());
         String subclass = TypeSimplifier.simpleNameOf(generatedClassName(type, "Templated_", ""));
-        FreemarkerContext context = new FreemarkerContext(TypeSimplifier.packageNameOf(type),
-                TypeSimplifier.classNameOf(type), subclass, inject);
+        TemplateContext context = new TemplateContext(TypeSimplifier.packageNameOf(type),
+                TypeSimplifier.classNameOf(type), subclass, isElementTypeParameter, inject);
 
         // root element and template
         TemplateSelector templateSelector = getTemplateSelector(type, templated);
@@ -326,10 +327,10 @@ public class TemplatedProcessor extends AbstractProcessor {
                 .collect(Collectors.toList());
 
         String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
-        Map<String, String> handlebars = new HandlebarsParser().parse(html);
+        Map<String, String> expressions = new ExpressionParser().parse(html);
 
         return new RootElementInfo(root.tagName(), subclass.toLowerCase() + "_root_element",
-                attributes, html, handlebars);
+                attributes, html, expressions);
     }
 
     private TemplateSelector getTemplateSelector(TypeElement type, Templated templated) {
@@ -637,6 +638,21 @@ public class TemplatedProcessor extends AbstractProcessor {
             }
             type = parentElement;
         }
+    }
+
+    private String getIsElementTypeParameter(List<? extends TypeMirror> interfaces) {
+        String typeParam = "elemental2.dom.HTMLElement";
+        for (TypeMirror interfaceMirror : interfaces) {
+            if (MoreTypes.isTypeOf(IsElement.class, interfaceMirror)) {
+                DeclaredType interfaceDeclaration = MoreTypes.asDeclared(interfaceMirror);
+                List<? extends TypeMirror> typeArguments = interfaceDeclaration.getTypeArguments();
+                if (!typeArguments.isEmpty()) {
+                    TypeElement typeArgument = (TypeElement) typeUtils.asElement(typeArguments.get(0));
+                    return typeArgument.getQualifiedName().toString();
+                }
+            }
+        }
+        return typeParam;
     }
 
     private boolean isAssignable(TypeElement subType, Class<?> baseType) {

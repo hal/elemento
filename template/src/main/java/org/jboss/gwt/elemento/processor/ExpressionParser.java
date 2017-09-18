@@ -20,12 +20,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Extracts handlebar expressions like {@code {{foo}}} from a string and returns a map with the expression as key and
- * the plain text (w/o the curly braces) as value.
+ * Extracts expressions like {@code ${foo}} from a string and returns a map with the expression as key and
+ * the plain text (w/o {@code ${}}) as value.
  */
-class HandlebarsParser {
+class ExpressionParser {
 
-    private final static Pattern PATTERN = Pattern.compile("\\{\\{(.*?)\\}\\}");
+    private final static Pattern PATTERN = Pattern.compile("\\$\\{(.*?)\\}");
 
     Map<String, String> parse(String input) {
         if (input != null) {
@@ -34,7 +34,7 @@ class HandlebarsParser {
             while (matcher.find()) {
                 String match = matcher.group();
                 validate(match);
-                matches.put(match, stripHandlebar(match));
+                matches.put(match, stripExpression(match));
             }
             return matches;
         }
@@ -42,24 +42,24 @@ class HandlebarsParser {
     }
 
     private void validate(final String pattern) {
-        if (!isHandlebar(pattern)) {
-            throw new IllegalArgumentException("Invalid handlebar pattern: " + pattern);
+        if (!isExpression(pattern)) {
+            throw new IllegalArgumentException("Invalid expression: " + pattern);
         }
-        if (pattern.lastIndexOf("{{") != 0 || pattern.indexOf("}}") != pattern.length() - 2) {
-            throw new IllegalArgumentException("Invalid handlebar pattern: " + pattern);
+        if (pattern.lastIndexOf("${") != 0 || pattern.indexOf("}") != pattern.length() - 1) {
+            throw new IllegalArgumentException("Invalid expression: " + pattern);
         }
     }
 
-    private String stripHandlebar(String pattern) {
-        if (isHandlebar(pattern)) {
-            int start = "{{".length();
-            int end = pattern.length() - "}}".length();
+    private String stripExpression(String pattern) {
+        if (isExpression(pattern)) {
+            int start = "${".length();
+            int end = pattern.length() - "}".length();
             return pattern.substring(start, end);
         }
         return pattern;
     }
 
-    private boolean isHandlebar(String value) {
-        return value != null && value.startsWith("{{") && value.endsWith("}}");
+    private boolean isExpression(String value) {
+        return value != null && value.startsWith("${") && value.endsWith("}");
     }
 }

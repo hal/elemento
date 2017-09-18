@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.5.2</version>
+        <version>0.6.0</version>
     </parent>
 
     <artifactId>elemento-template</artifactId>
@@ -29,13 +29,10 @@
     <packaging>gwt-lib</packaging>
 
     <dependencies>
+        <!-- Dependencies -->
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
@@ -46,9 +43,10 @@
             <artifactId>elemental2-dom</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava-gwt</artifactId>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
         </dependency>
+        <!-- Shaded dependencies -->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
@@ -60,10 +58,6 @@
         <dependency>
             <groupId>com.google.auto.service</groupId>
             <artifactId>auto-service</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
         </dependency>
     </dependencies>
 
@@ -88,17 +82,40 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <minimizeJar>true</minimizeJar>
                             <artifactSet>
                                 <excludes>
-                                    <exclude>com.google.code.findbugs:*</exclude>
-                                    <exclude>com.google.errorprone:*</exclude>
-                                    <exclude>com.google.guava:*</exclude>
-                                    <exclude>com.google.gwt:*</exclude>
-                                    <exclude>com.google.j2objc:*</exclude>
+                                    <exclude>com.google.elemental2:*</exclude>
+                                    <exclude>com.google.gwt:gwt-user</exclude>
                                     <exclude>com.google.jsinterop:*</exclude>
-                                    <exclude>javax.validation:*</exclude>
+                                    <exclude>javax.validation:validation-api</exclude>
+                                    <exclude>javax.servlet:javax.servlet-api</exclude>
+                                    <exclude>org.jboss.gwt.elemento:elemento-core</exclude>
+                                    <exclude>org.w3c.css:sac</exclude>
                                 </excludes>
                             </artifactSet>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.google.auto</pattern>
+                                    <shadedPattern>elemento.shaded.com.google.auto</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>com.google.common</pattern>
+                                    <shadedPattern>elemento.shaded.com.google.common</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>freemarker</pattern>
+                                    <shadedPattern>elemento.shaded.freemarker</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.jboss.auto</pattern>
+                                    <shadedPattern>elemento.shaded.org.jboss.auto</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.jsoup</pattern>
+                                    <shadedPattern>elemento.shaded.org.jsoup</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>

@@ -1,14 +1,8 @@
-<#-- @ftlvariable name="context" type="org.jboss.gwt.elemento.processor.context.FreemarkerContext" -->
+<#-- @ftlvariable name="context" type="org.jboss.gwt.elemento.processor.context.TemplateContext" -->
 package ${context.package};
 
-<#if context.root.innerHtml??>
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.safehtml.client.SafeHtmlTemplates;
-import com.google.gwt.safehtml.shared.SafeHtml;
-</#if>
 import elemental2.dom.DomGlobal;
-import elemental2.dom.HTMLElement;
-<#if (context.dataElements?size > 0 || (context.root.innerHtml?? && context.root.handlebars?size > 0))>
+<#if (context.dataElements?size > 0 || context.root.expressions?size > 0)>
 import org.jboss.gwt.elemento.template.TemplateUtil;
 </#if>
 
@@ -20,30 +14,22 @@ import javax.annotation.Generated;
 @Generated("org.jboss.gwt.elemento.processor.TemplatedProcessor")
 public final class ${context.subclass} extends ${context.base} {
 
-    <#if context.root.innerHtml??>
-    static interface InnerHtml extends SafeHtmlTemplates {
-        @Template("${context.root.innerHtml}")
-        SafeHtml value();
-    }
-
-    private final static InnerHtml INNER_HTML = GWT.create(InnerHtml.class);
-    </#if>
     <#list context.abstractProperties as abstractProperty>
     private final ${abstractProperty.type} ${abstractProperty.field};
     </#list>
-    private final HTMLElement ${context.root.member};
+    private final ${context.isElementTypeParameter} ${context.root.member};
 
 ${context.inject} public ${context.subclass}(<#list context.abstractProperties as abstractProperty>${abstractProperty.type} ${abstractProperty.field}<#if abstractProperty_has_next>, </#if></#list>) {
         <#list context.abstractProperties as abstractProperty>
         this.${abstractProperty.field} = ${abstractProperty.field};
         </#list>
 
-        this.${context.root.member} = (HTMLElement)DomGlobal.document.createElement("${context.root.tag}");
+        this.${context.root.member} = (${context.isElementTypeParameter})DomGlobal.document.createElement("${context.root.tag}");
         <#list context.root.attributes as attribute>
         this.${context.root.member}.setAttribute("${attribute.key}", "${attribute.value}");
         </#list>
         <#if context.root.innerHtml??>
-        this.${context.root.member}.innerHTML = INNER_HTML.value().asString();
+        this.${context.root.member}.innerHTML = "${context.root.innerHtml}";
         </#if>
 
         <#list context.dataElements as dataElement>
@@ -84,10 +70,10 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
                 </#if>
             </#if>
         </#list>
-        <#-- Handlebars -->
-        <#if (context.root.innerHtml?? && context.root.handlebars?size > 0)>
-            <#list context.root.handlebars?keys as handlebar>
-        TemplateUtil.replaceHandlebar(${context.root.member}, "${handlebar}", String.valueOf(${context.root.handlebars?values[handlebar_index]}));
+        <#-- Expressions -->
+        <#if (context.root.innerHtml?? && context.root.expressions?size > 0)>
+            <#list context.root.expressions?keys as expression>
+        TemplateUtil.replaceExpression(${context.root.member}, "${expression}", String.valueOf(${context.root.expressions?values[expression_index]}));
             </#list>
         </#if>
         <#-- @PostConstruct -->
@@ -97,7 +83,7 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
     }
 
     @Override
-    public HTMLElement asElement() {
+    public ${context.isElementTypeParameter} asElement() {
         return ${context.root.member};
     }
     <#-- Abstract properties -->
