@@ -41,6 +41,7 @@
     <modules>
         <module>common</module>
         <module>builder</module>
+        <module>dagger</module>
         <module>errai</module>
         <module>gin</module>
         <module>templated</module>
