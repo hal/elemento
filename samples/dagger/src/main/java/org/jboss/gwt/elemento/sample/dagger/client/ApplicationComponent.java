@@ -13,16 +13,19 @@
  */
 package org.jboss.gwt.elemento.sample.dagger.client;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.inject.client.GinModules;
-import com.google.gwt.inject.client.Ginjector;
+import javax.inject.Singleton;
+
+import dagger.Component;
 import org.jboss.gwt.elemento.sample.common.I18n;
 
 @SuppressWarnings("unused")
-@GinModules(ApplicationModule.class)
-public interface ApplicationGinjector extends Ginjector {
+@Singleton
+@Component(modules = ApplicationModule.class)
+public interface ApplicationComponent {
 
-    ApplicationGinjector INSTANCE = GWT.create(ApplicationGinjector.class);
+    ApplicationComponent INSTANCE = DaggerApplicationComponent.builder()
+            .applicationModule(new ApplicationModule())
+            .build();
 
     ApplicationElement application();
 

@@ -44,6 +44,22 @@
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>sample-common</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger-gwt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger-compiler</artifactId>
+        </dependency>
+        
+        <!-- GIN maintained as a dependency until the Elemento template
+             processor supports Dagger -->
         <dependency>
             <groupId>com.google.gwt.inject</groupId>
             <artifactId>gin</artifactId>
@@ -92,6 +108,11 @@
             <plugin>
                 <groupId>org.bsc.maven</groupId>
                 <artifactId>maven-processor-plugin</artifactId>
+                <!-- Dagger depends on Guava 23, but maven-processor-plugin
+                     3.1.0 depends on Guava 10.
+                     Here we override the parent project's maven-processor-plugin
+                     version down to 2.2.4 (the latest 2.x release) -->
+                <version>2.2.4</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>

@@ -13,7 +13,8 @@
  */
 package org.jboss.gwt.elemento.sample.dagger.client;
 
-import com.google.inject.Provider;
+import javax.inject.Provider;
+
 import com.google.web.bindery.event.shared.HandlerRegistration;
 import com.google.web.bindery.event.shared.HandlerRegistrations;
 import elemental2.dom.HTMLElement;

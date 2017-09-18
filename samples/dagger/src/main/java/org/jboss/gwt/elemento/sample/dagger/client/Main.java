@@ -22,8 +22,8 @@ public class Main implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        ApplicationElement application = ApplicationGinjector.INSTANCE.application();
-        FooterElement footer = ApplicationGinjector.INSTANCE.footer();
+        ApplicationElement application = ApplicationComponent.INSTANCE.application();
+        FooterElement footer = ApplicationComponent.INSTANCE.footer();
 
         document.body.appendChild(application.asElement());
         document.body.appendChild(footer.asElement());

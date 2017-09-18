@@ -14,8 +14,8 @@
 package org.jboss.gwt.elemento.sample.dagger.client;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Provider;
 
-import com.google.inject.Provider;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;

@@ -13,20 +13,47 @@
  */
 package org.jboss.gwt.elemento.sample.dagger.client;
 
-import com.google.gwt.inject.client.AbstractGinModule;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
+import javax.inject.Singleton;
+
+import com.google.gwt.core.client.GWT;
+import dagger.Module;
+import dagger.Provides;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoConstants;
 import org.jboss.gwt.elemento.sample.common.TodoMessages;
+import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
-public class ApplicationModule extends AbstractGinModule {
+@Module
+public class ApplicationModule {
 
-    @Override
-    protected void configure() {
-        bind(ApplicationElement.class).to(Templated_ApplicationElement.class).in(Singleton.class);
-        bind(FooterElement.class).to(Templated_FooterElement.class).in(Singleton.class);
-        bind(TodoItemElement.class).to(Templated_TodoItemElement.class);
+    @Provides @Singleton
+    ApplicationElement provideApplicationElement(Templated_ApplicationElement impl) {
+        return impl;
+    }
+
+    @Provides @Singleton
+    FooterElement provideFooterElement(Templated_FooterElement impl) {
+        return impl;
+    }
+
+    @Provides
+    TodoItemElement provideTodoItemElement(Templated_TodoItemElement impl) {
+        return impl;
+    }
+
+    @Provides @Singleton
+    TodoItemRepository provideTodoItemRepository() {
+        return new TodoItemRepository();
+    }
+
+    @Provides @Singleton
+    TodoConstants provideTodoConstants() {
+        return GWT.create(TodoConstants.class);
+    }
+
+    @Provides @Singleton
+    TodoMessages provideTodoMessages() {
+        return GWT.create(TodoMessages.class);
     }
 
     @Provides
