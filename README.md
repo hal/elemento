@@ -335,18 +335,12 @@ If no value is provided for the `@DataElement` annotation, the name of the field
 
 The `@DataElement` can be applied to fields and methods. Those fields and methods must not be private. Elemento defines three simple rules for the mapping between the HTML template and the related class:
  
-1. **Fields w/o an initializer** <div style="display:inline;float:right">HTML &rarr; Java</div>
+| Java Element | Direction |
+| --- | --- |
+| **1. Fields w/o an initializer**<br/>The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field should be `elemental2.dom.HTMLElement` or a subclass of `elemental2.dom.HTMLElement`. | HTML&nbsp;&rarr;&nbsp;Java |
+| **2. Fields w/ an initializer**<br/>The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`. | Java &rarr; HTML |
+| **3. Methods**<br/>The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters. | Java &rarr; HTML |
 
-    The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field should be `elemental2.dom.HTMLElement` or a subclass of `elemental2.dom.HTMLElement`.
-     
-1. **Fields w/ an initializer** <div style="display:inline;float:right">Java &rarr; HTML</div>
-
-    The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`.
-    
-1. **Methods** <div style="display:inline;float:right">Java &rarr; HTML</div>
-    
-    The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
-    
 You're also free to use custom types when mapping fields and methods. In this case the generated code will use `Js.cast()`. It's up to you to make sure the cast works. Otherwise this can lead to strange errors which are hard to detect.
 
 ## Dependencies
