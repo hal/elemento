@@ -6,7 +6,7 @@ ROOT=$PWD
 BRANCH=$(git symbolic-ref -q HEAD)
 BRANCH=${BRANCH##refs/heads/}
 BRANCH=${BRANCH:-HEAD}
-SAMPLES=( builder errai gin templates )
+SAMPLES=( builder dagger errai gin templates )
 
 if ! git diff --no-ext-diff --quiet --exit-code; then
     echo "Cannot deploy to gh-pages. You have uncommitted changes in the current branch."

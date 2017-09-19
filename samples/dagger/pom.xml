@@ -25,14 +25,14 @@
         <version>0.6.1</version>
     </parent>
 
-    <artifactId>gin-sample</artifactId>
-    <name>Elemento :: Samples :: GIN</name>
+    <artifactId>dagger-sample</artifactId>
+    <name>Elemento :: Samples :: Dagger</name>
     <packaging>gwt-app</packaging>
 
     <properties>
-        <gwt.public.directory>src/main/resources/org/jboss/gwt/elemento/sample/gin/public</gwt.public.directory>
-        <module.name>org.jboss.gwt.elemento.sample.gin.GinSample</module.name>
-        <module.shortName>gin</module.shortName>
+        <gwt.public.directory>src/main/resources/org/jboss/gwt/elemento/sample/dagger/public</gwt.public.directory>
+        <module.name>org.jboss.gwt.elemento.sample.dagger.DaggerSample</module.name>
+        <module.shortName>dagger</module.shortName>
     </properties>
 
     <dependencies>
@@ -49,8 +49,12 @@
             <artifactId>javax.inject</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.gwt.inject</groupId>
-            <artifactId>gin</artifactId>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger-gwt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger-compiler</artifactId>
         </dependency>
     </dependencies>
 
@@ -96,6 +100,11 @@
             <plugin>
                 <groupId>org.bsc.maven</groupId>
                 <artifactId>maven-processor-plugin</artifactId>
+                <!-- Dagger depends on Guava 23, but maven-processor-plugin
+                     3.1.0 depends on Guava 10.
+                     Here we override the parent project's maven-processor-plugin
+                     version down to 2.2.4 (the latest 2.x release) -->
+                <version>2.2.4</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>

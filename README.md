@@ -26,7 +26,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [Integrations](#integrations)
   * [Errai](#errai)
   * [RxGWT](#rxgwt)
-  * [GIN](#gin)
+  * [GIN and Dagger](#gin-and-dagger)
 * [Helper Methods](#helper-methods)
 * [Samples](#samples)
 * [Get Help](#get-help)
@@ -39,7 +39,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>0.6.0</version>
+    <version>0.6.1</version>
 </dependency>
 ```
  
@@ -224,7 +224,7 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
-    <version>0.6.0</version>
+    <version>0.6.1</version>
 </dependency>
 ```
 
@@ -333,20 +333,14 @@ If no value is provided for the `@DataElement` annotation, the name of the field
 [data-element=<value()>]
 ```
 
-The `@DataElement` can be applied to fields and methods. Those fields and methods must not be private. Elemento defines some simple rules when it comes to mapping between the HTML template and the related class:
+The `@DataElement` can be applied to fields and methods. Those fields and methods must not be private. Elemento defines three simple rules for the mapping between the HTML template and the related class:
  
-- **Fields w/o an initializer**
+| Java Element | Direction |
+| --- | --- |
+| **1. Fields w/o an initializer**<br/>The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field should be `elemental2.dom.HTMLElement` or a subclass of `elemental2.dom.HTMLElement`. | HTML&nbsp;&rarr;&nbsp;Java |
+| **2. Fields w/ an initializer**<br/>The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`. | Java &rarr; HTML |
+| **3. Methods**<br/>The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters. | Java &rarr; HTML |
 
-    The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field should be `elemental2.dom.HTMLElement` or a subclass of `elemental2.dom.HTMLElement`.
-     
-- **Fields w/ an initializer**
-
-    The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`.
-    
-- **Methods**
-    
-    The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters.
-    
 You're also free to use custom types when mapping fields and methods. In this case the generated code will use `Js.cast()`. It's up to you to make sure the cast works. Otherwise this can lead to strange errors which are hard to detect.
 
 ## Dependencies
@@ -455,11 +449,11 @@ Observable.merge(touch$, mouse$)
         .forEach(n -> info.textContent = n);
 ```
 
-## GIN
+## Dagger adn GIN
 
-Elemento provides support for dependency injection in HTML templates using [GIN](https://code.google.com/p/google-gin/). If GIN is on the classpath, the annotation processor, which generates the HTML template class, will place an `@javax.inject.Inject` annotation on the generated constructor. 
+Elemento provides support for dependency injection in HTML templates using [Dagger](https://google.github.io/dagger/) or [GIN](https://code.google.com/p/google-gin/). If one of these DI libraries is on the classpath, the annotation processor, which generates the HTML template class, will place a `@javax.inject.Inject` annotation on the generated constructor. 
 
-The [samples](#samples) section contains a GIN version of the TodoMVC app using GIN for dependency injection. 
+There are [samples](#samples) which show the usage of both Dagger and GIN (see below).
 
 # Helper Methods
 
@@ -474,14 +468,15 @@ See the API documentation of [Elements](http://rawgit.com/hal/elemento/site/apid
 
 # Samples
 
-Elemento comes with four different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) sample app. 
+Elemento comes with five different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) sample app. 
 
 - Builder API: [Source](samples/builder) | [Demo](http://hal.github.io/elemento/builder/index.html)
 - HTML templates: [Source](samples/templated) | [Demo](http://hal.github.io/elemento/templated/index.html)
 - Errai DI and builder API: [Source](samples/errai) | [Demo](http://hal.github.io/elemento/errai/index.html)
+- Dagger DI and HTML templates: [Source](samples/dagger) | [Demo](http://hal.github.io/elemento/dagger/index.html)
 - GIN DI and HTML templates: [Source](samples/gin) | [Demo](http://hal.github.io/elemento/gin/index.html)
 
-All four samples are using the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+All samples use the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
 
 # Get Help
 

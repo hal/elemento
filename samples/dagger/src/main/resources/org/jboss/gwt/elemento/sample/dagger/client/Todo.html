@@ -1,0 +1,73 @@
+<!doctype html>
+<!--
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Template • TodoMVC</title>
+    <link rel="stylesheet" href="../public/node_modules/todomvc-common/base.css">
+    <link rel="stylesheet" href="../public/node_modules/todomvc-app-css/index.css">
+</head>
+<body>
+<section data-element="todos" class="todoapp">
+    <header class="header">
+        <h1>${i18n().constants().todos()}</h1>
+        <input data-element="newTodo" class="new-todo" placeholder="${i18n().constants().new_todo()}" autofocus>
+    </header>
+    <section data-element="main" class="main">
+        <input data-element="toggleAll" class="toggle-all" id="toggle-all" type="checkbox">
+        <label for="toggle-all">${i18n().constants().complete_all()}</label>
+        <ul data-element="list" class="todo-list">
+            <li data-element="item">
+                <div class="view">
+                    <input data-element="toggle" class="toggle" type="checkbox" checked>
+                    <label data-element="label">Taste Elemento</label>
+                    <button data-element="destroy" class="destroy"></button>
+                </div>
+                <input data-element="input" class="edit" value="Taste Elemento">
+            </li>
+            <li class="completed">
+                <div class="view">
+                    <input class="toggle" type="checkbox">
+                    <label>Rule the web</label>
+                    <button class="destroy"></button>
+                </div>
+                <input class="edit" value="Rule the web">
+            </li>
+        </ul>
+    </section>
+    <footer data-element="footer" class="footer">
+        <span data-element="count" class="todo-count"><strong>0</strong> item left</span>
+        <ul class="filters">
+            <li>
+                <a data-element="all" href="#/">${i18n().constants().filter_all()}</a>
+            </li>
+            <li>
+                <a data-element="active" href="#/active">${i18n().constants().filter_active()}</a>
+            </li>
+            <li>
+                <a data-element="completed" href="#/completed">${i18n().constants().filter_completed()}</a>
+            </li>
+        </ul>
+        <button data-element="clearCompleted" class="clear-completed">${i18n().constants().clear_completed()}</button>
+    </footer>
+</section>
+<footer data-element="info" class="info">
+    <p>${i18n().constants().double_click_to_edit()}</p>
+    <p><span>${i18n().constants().created_by()}</span>&nbsp;<a href="http://hpehl.info">Harald Pehl</a></p>
+    <p><span>${i18n().constants().part_of()}</span>&nbsp;<a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
+</body>
+</html>

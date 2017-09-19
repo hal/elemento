@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>0.6.0</version>
+        <version>0.6.1</version>
     </parent>
 
     <artifactId>errai-sample</artifactId>
@@ -33,18 +33,6 @@
         <module.name>org.jboss.gwt.elemento.sample.errai.ErraiSample</module.name>
         <module.shortName>errai</module.shortName>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.jboss.errai.bom</groupId>
-                <artifactId>errai-bom</artifactId>
-                <version>${errai.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
