@@ -451,9 +451,9 @@ Observable.merge(touch$, mouse$)
 
 ## Dagger and GIN
 
-Elemento provides support for dependency injection in HTML templates using [Dagger](https://google.github.io/dagger/) or [GIN](https://code.google.com/p/google-gin/). If one of these DI libraries is on the classpath, the annotation processor, which generates the HTML template class, will place a `@javax.inject.Inject` annotation on the generated constructor. 
+Elemento provides support for dependency injection in HTML templates using [Dagger](https://google.github.io/dagger/) or [GIN](https://code.google.com/p/google-gin/). If one of these libraries is on the classpath, the annotation processor will place a `@javax.inject.Inject` annotation on the generated constructor. 
 
-There are [samples](#samples) which show the usage of both Dagger and GIN (see below).
+See the [samples](#samples) how this works and how you can inject the templates classes into other classes.
 
 # Helper Methods
 
