@@ -26,7 +26,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [Integrations](#integrations)
   * [Errai](#errai)
   * [RxGWT](#rxgwt)
-  * [GIN and Dagger](#gin-and-dagger)
+  * [Dagger and GIN](#dagger-and-gin)
 * [Helper Methods](#helper-methods)
 * [Samples](#samples)
 * [Get Help](#get-help)
@@ -449,7 +449,7 @@ Observable.merge(touch$, mouse$)
         .forEach(n -> info.textContent = n);
 ```
 
-## Dagger adn GIN
+## Dagger and GIN
 
 Elemento provides support for dependency injection in HTML templates using [Dagger](https://google.github.io/dagger/) or [GIN](https://code.google.com/p/google-gin/). If one of these DI libraries is on the classpath, the annotation processor, which generates the HTML template class, will place a `@javax.inject.Inject` annotation on the generated constructor. 
 
