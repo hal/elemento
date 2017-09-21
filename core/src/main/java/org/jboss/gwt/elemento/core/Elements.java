@@ -798,6 +798,17 @@ public final class Elements {
         }
     }
 
+    /** Adds the specified CSS class to the element if it's not there, removes it otherwise. */
+    public static void toggle(HTMLElement element, String css) {
+        if (element != null) {
+            if (element.classList.contains(css)) {
+                element.classList.remove(css);
+            } else {
+                element.classList.add(css);
+            }
+        }
+    }
+
     /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
     public static void toggle(HTMLElement element, String css, boolean condition) {
         if (element != null) {
