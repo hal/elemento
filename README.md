@@ -1,4 +1,5 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
+[![TC Build](https://ci.wildfly.org/app/rest/builds/buildType:(id:hal_Elemento)/statusIcon.svg)](https://ci.wildfly.org/viewType.html?buildTypeId=hal_Elemento&guest=1) [![Known Vulnerabilities](https://snyk.io/test/github/hal/elemento/badge.svg)](https://snyk.io/test/github/hal/elemento)
 
 # Elemento
 
