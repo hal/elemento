@@ -17,10 +17,14 @@ import elemental2.dom.HTMLInputElement;
 
 public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, InputBuilder<E>> {
 
-    public InputBuilder(E element) { super(element); }
+    public InputBuilder(E element) {
+        super(element);
+    }
 
     @Override
-    public InputBuilder<E> that() { return this; }
+    public InputBuilder<E> that() {
+        return this;
+    }
 
     public InputBuilder<E> checked(boolean checked) {
         get().checked = checked;

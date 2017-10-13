@@ -40,10 +40,14 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     }
 
     @Override
-    public E get() { return element; }
+    public E get() {
+        return element;
+    }
 
     @Override
-    public E asElement() { return element; }
+    public E asElement() {
+        return element;
+    }
 
 
     // ------------------------------------------------------ modify current element

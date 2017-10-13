@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  */
 class ExpressionParser {
 
-    private final static Pattern PATTERN = Pattern.compile("\\$\\{(.*?)\\}");
+    private static final Pattern PATTERN = Pattern.compile("\\$\\{(.*?)\\}");
 
     Map<String, String> parse(String input) {
         if (input != null) {

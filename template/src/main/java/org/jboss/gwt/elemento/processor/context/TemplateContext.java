@@ -28,12 +28,7 @@ public class TemplateContext {
     private List<PostConstructInfo> postConstructs;
     private List<AbstractPropertyInfo> abstractProperties;
 
-    public TemplateContext(
-            String pkg,
-            String base,
-            String subclass,
-            String isElementTypeParameter,
-            String inject) {
+    public TemplateContext(String pkg, String base, String subclass, String isElementTypeParameter, String inject) {
         this.pkg = pkg;
         this.base = base;
         this.subclass = subclass;

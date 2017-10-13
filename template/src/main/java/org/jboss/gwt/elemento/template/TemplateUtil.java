@@ -35,17 +35,8 @@ import static elemental2.dom.DomGlobal.document;
 @SuppressWarnings("UnnecessaryLocalVariable")
 public final class TemplateUtil {
 
-    @FunctionalInterface
-    private interface SelectorFunction {
-
-        Element select(HTMLElement context, String identifier);
-    }
-
-
     private static SelectorFunction DATA_ELEMENT = (context, identifier) ->
             context.querySelector("[data-element=" + identifier + "]");
-
-    private TemplateUtil() {}
 
 
     // ------------------------------------------------------ HTMLElement methods
@@ -142,5 +133,14 @@ public final class TemplateUtil {
                 attribute.nodeValue = currentValue.replace(expression, value);
             }
         }
+    }
+
+    private TemplateUtil() {
+    }
+
+    @FunctionalInterface
+    private interface SelectorFunction {
+
+        Element select(HTMLElement context, String identifier);
     }
 }

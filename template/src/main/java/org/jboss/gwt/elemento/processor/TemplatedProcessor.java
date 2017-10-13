@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
@@ -128,6 +129,8 @@ import static java.util.stream.Collectors.joining;
 @SupportedAnnotationTypes("org.jboss.gwt.elemento.template.Templated")
 public class TemplatedProcessor extends AbstractProcessor {
 
+    private static final String GET = "get";
+    private static final String QUOTE = "\"";
     private static final String FREEMARKER_TEMPLATE = "Templated.ftl";
     private static final Escaper JAVA_STRING_ESCAPER = Escapers.builder()
             .addEscape('"', "\\\"")
@@ -136,8 +139,8 @@ public class TemplatedProcessor extends AbstractProcessor {
             .build();
 
     private static final String[] DEPENDENCY_INJECTION_FRAMEWORKS = {
-        "dagger.Component",
-        "com.google.gwt.inject.client.GinModule",
+            "dagger.Component",
+            "com.google.gwt.inject.client.GinModule",
     };
 
     // List of elements from https://developer.mozilla.org/en-US/docs/Web/HTML/Element
@@ -526,8 +529,8 @@ public class TemplatedProcessor extends AbstractProcessor {
                 if (!tags.contains(tagName)) {
                     String fieldOrMethod = element instanceof VariableElement ? "field" : "method";
                     String expected = tags.size() == 1
-                            ? "\"" + tags.iterator().next() + "\""
-                            : "one of " + tags.stream().map(t -> "\"" + t + "\"").collect(joining(", "));
+                            ? QUOTE + tags.iterator().next() + QUOTE
+                            : "one of " + tags.stream().map(t -> QUOTE + t + QUOTE).collect(joining(", "));
                     abortWithError(element,
                             "The %s maps to the wrong HTML element: Expected %s, but found \"%s\" in %s using \"[data-element=%s]\" as selector.",
                             fieldOrMethod, expected, tagName, templateSelector, selector);
@@ -603,7 +606,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     private boolean isGetter(ExecutableElement method) {
         String name = method.getSimpleName().toString();
-        boolean get = name.startsWith("get") && !name.equals("get");
+        boolean get = name.startsWith(GET) && !name.equals(GET);
         boolean is = name.startsWith("is") && !name.equals("is")
                 && method.getReturnType().getKind() == TypeKind.BOOLEAN;
         return get || is;
@@ -611,7 +614,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     private String nameWithoutPrefix(String name) {
         String withoutPrefix;
-        if (name.startsWith("get") && !name.equals("get")) {
+        if (name.startsWith(GET) && !name.equals(GET)) {
             withoutPrefix = name.substring(3);
         } else {
             assert name.startsWith("is");
@@ -694,7 +697,9 @@ public class TemplatedProcessor extends AbstractProcessor {
                 if (getClass().getClassLoader().loadClass(clazz) != null) {
                     return true;
                 }
-            } catch (ClassNotFoundException ignore) {}
+            } catch (ClassNotFoundException ignore) {
+                // noop
+            }
         }
         return false;
     }

@@ -19,8 +19,12 @@ import elemental2.dom.HTMLElement;
 public class HtmlContentBuilder<E extends HTMLElement> extends ElementBuilder<E, HtmlContentBuilder<E>>
         implements HtmlContent<E, HtmlContentBuilder<E>> {
 
-    public HtmlContentBuilder(E element) { super(element); }
+    public HtmlContentBuilder(E element) {
+        super(element);
+    }
 
     @Override
-    public HtmlContentBuilder<E> that() { return this; }
+    public HtmlContentBuilder<E> that() {
+        return this;
+    }
 }
