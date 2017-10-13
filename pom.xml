@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>24</version>
+        <version>25</version>
     </parent>
 
     <groupId>org.jboss.gwt.elemento</groupId>
@@ -101,6 +101,7 @@
         <apt-tools.version>0.0.3</apt-tools.version>
         <auto-service.version>1.0-rc3</auto-service.version>
         <auto-value.version>1.2-SNAPSHOT</auto-value.version>
+        <checkstyle.hal-config.version>2</checkstyle.hal-config.version>
         <elemental.version>1.0.0-beta-1</elemental.version>
         <gwt.version>2.8.1</gwt.version>
         <gwtmockito.version>1.1.6</gwtmockito.version>
@@ -226,6 +227,36 @@
         </pluginManagement>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${version.checkstyle}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.jboss.hal</groupId>
+                        <artifactId>checkstyle-config</artifactId>
+                        <version>${checkstyle.hal-config.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>checkstyle</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <configLocation>checkstyle/checkstyle.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
