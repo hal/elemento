@@ -15,7 +15,8 @@ package org.jboss.gwt.elemento.sample.common;
 
 final class UUID {
 
-    private UUID() {}
+    private UUID() {
+    }
 
     private static final char[] CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
 

@@ -20,18 +20,20 @@ import dagger.Module;
 import dagger.Provides;
 import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoConstants;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
+import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 @Module
 public class ApplicationModule {
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     ApplicationElement provideApplicationElement(Templated_ApplicationElement impl) {
         return impl;
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     FooterElement provideFooterElement(Templated_FooterElement impl) {
         return impl;
     }
@@ -41,17 +43,20 @@ public class ApplicationModule {
         return impl;
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     TodoItemRepository provideTodoItemRepository() {
         return new TodoItemRepository();
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     TodoConstants provideTodoConstants() {
         return GWT.create(TodoConstants.class);
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     TodoMessages provideTodoMessages() {
         return GWT.create(TodoMessages.class);
     }
