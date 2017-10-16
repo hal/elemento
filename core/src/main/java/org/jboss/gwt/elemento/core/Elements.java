@@ -773,7 +773,7 @@ public final class Elements {
     private static class AsHTMLElement<T extends Node> implements Function<T, HTMLElement> {
 
         @Override
-        public HTMLElement apply(final T t) {
+        public HTMLElement apply(T t) {
             return ((HTMLElement) t);
         }
     }
@@ -781,7 +781,7 @@ public final class Elements {
 
     private static class ElementWidget extends Widget {
 
-        ElementWidget(final HTMLElement element) {
+        ElementWidget(HTMLElement element) {
             setElement(com.google.gwt.dom.client.Element.as(Js.cast(element)));
         }
     }
@@ -790,7 +790,7 @@ public final class Elements {
     private static class FilterHTMLElements<T extends Node> implements Predicate<T> {
 
         @Override
-        public boolean test(final T t) {
+        public boolean test(T t) {
             return t instanceof HTMLElement;
         }
     }

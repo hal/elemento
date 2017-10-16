@@ -29,6 +29,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
   * [Dagger and GIN](#dagger-and-gin)
 * [Helper Methods](#helper-methods)
 * [Samples](#samples)
+* [Contributing](#contributing)
 * [Get Help](#get-help)
 
 # Get Started
@@ -477,6 +478,10 @@ Elemento comes with five different [implementations](https://hal.github.io/eleme
 - GIN DI and HTML templates: [Source](samples/gin) | [Demo](http://hal.github.io/elemento/gin/index.html)
 
 All samples use the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+
+# Contributing
+
+
 
 # Get Help
 
