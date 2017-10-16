@@ -481,7 +481,7 @@ All samples use the same key to persist the todo items in the local storage. So 
 
 # Contributing
 
-
+If you want to contribute to Elemento, please follow the steps in [contribution](CONTRIBUTING.md).
 
 # Get Help
 
