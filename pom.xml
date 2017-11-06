@@ -101,7 +101,7 @@
         <apt-tools.version>0.0.3</apt-tools.version>
         <auto-service.version>1.0-rc3</auto-service.version>
         <auto-value.version>1.2-SNAPSHOT</auto-value.version>
-        <checkstyle.hal-config.version>2</checkstyle.hal-config.version>
+        <checkstyle.hal.version>2</checkstyle.hal.version>
         <elemental.version>1.0.0-beta-1</elemental.version>
         <gwt.version>2.8.1</gwt.version>
         <gwtmockito.version>1.1.6</gwtmockito.version>
@@ -239,7 +239,7 @@
                     <dependency>
                         <groupId>org.jboss.hal</groupId>
                         <artifactId>checkstyle-config</artifactId>
-                        <version>${checkstyle.hal-config.version}</version>
+                        <version>${checkstyle.hal.version}</version>
                     </dependency>
                 </dependencies>
                 <executions>
