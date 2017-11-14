@@ -47,6 +47,12 @@
     <build>
         <resources>
             <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.html</include>
+                </includes>
+            </resource>
+            <resource>
                 <directory>src/main/resources</directory>
                 <excludes>
                     <exclude>**/node/**</exclude>
@@ -95,7 +101,7 @@
                         <configuration>
                             <options>
                                 <!-- Uncomment to get more messages from the annotation processors -->
-                                <!--<debug>true</debug>-->
+                                <debug>true</debug>
                             </options>
                             <defaultOutputDirectory>${project.build.directory}/generated-sources/annotations
                             </defaultOutputDirectory>

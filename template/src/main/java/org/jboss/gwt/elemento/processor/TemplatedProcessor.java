@@ -42,6 +42,7 @@ import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
 import javax.tools.FileObject;
+import javax.tools.JavaFileManager;
 import javax.tools.StandardLocation;
 
 import com.google.auto.common.MoreElements;
@@ -365,9 +366,15 @@ public class TemplatedProcessor extends AbstractProcessor {
     private org.jsoup.nodes.Element parseTemplate(TypeElement type, TemplateSelector templateSelector) {
         org.jsoup.nodes.Element root = null;
         String fqTemplate = TypeSimplifier.packageNameOf(type).replace('.', '/') + "/" + templateSelector.template;
+
+        FileObject templateResource = null;
         try {
-            FileObject templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_PATH, "",
+            templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_PATH, "",
                     fqTemplate);
+        } catch (IOException e) {
+            abortWithError(type, "Cannot find template \"%s\". Please make sure the template exists.", fqTemplate);
+        }
+        try {
             Document document = Jsoup.parse(templateResource.getCharContent(true).toString());
             if (templateSelector.hasSelector()) {
                 String query = "[data-element=" + templateSelector.selector + "]";
@@ -386,11 +393,30 @@ public class TemplatedProcessor extends AbstractProcessor {
                 }
             }
         } catch (IOException e) {
-            abortWithError(type,
-                    "Cannot find template \"%s\". Please make sure the template exists and resides in the source path.",
-                    fqTemplate);
+            abortWithError(type, "Unable to read template \"%s\": %s", fqTemplate, e.getMessage());
         }
         return root;
+    }
+
+    private FileObject findTemplate(String name) {
+        FileObject resource = null;
+        JavaFileManager.Location[] locations = new JavaFileManager.Location[]{
+                StandardLocation.SOURCE_PATH,
+                StandardLocation.CLASS_PATH,
+                StandardLocation.SOURCE_OUTPUT,
+                StandardLocation.CLASS_OUTPUT,
+        };
+        for (JavaFileManager.Location location : locations) {
+            try {
+                resource = processingEnv.getFiler().getResource(location, "", name);
+                if (resource != null) {
+                    return resource;
+                }
+            } catch (IOException ignored) {
+                debug("Unable to find %s in %s: %s", name, location.getName(), ignored.getMessage());
+            }
+        }
+        return null;
     }
 
 
