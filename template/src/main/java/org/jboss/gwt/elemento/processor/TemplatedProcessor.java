@@ -338,8 +338,10 @@ public class TemplatedProcessor extends AbstractProcessor {
                 .filter(attribute -> !attribute.getKey().equals("data-element"))
                 .collect(Collectors.toList());
 
+        final ExpressionParser expressionParser = new ExpressionParser();
         String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
-        Map<String, String> expressions = new ExpressionParser().parse(html);
+        Map<String, String> expressions = expressionParser.parse(html);
+        expressions.putAll(expressionParser.parse(root.outerHtml()));
 
         return new RootElementInfo(root.tagName(), subclass.toLowerCase() + "_root_element",
                 attributes, html, expressions);
