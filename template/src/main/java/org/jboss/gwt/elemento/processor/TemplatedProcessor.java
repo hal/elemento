@@ -371,7 +371,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
         FileObject templateResource = null;
         try {
-            templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_PATH, "",
+            templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_OUTPUT, "",
                     fqTemplate);
         } catch (IOException e) {
             abortWithError(type, "Cannot find template \"%s\". Please make sure the template exists.", fqTemplate);
