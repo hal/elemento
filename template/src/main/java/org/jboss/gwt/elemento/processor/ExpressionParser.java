@@ -41,7 +41,7 @@ class ExpressionParser {
         return Collections.emptyMap();
     }
 
-    private void validate(final String pattern) {
+    private void validate(String pattern) {
         if (!isExpression(pattern)) {
             throw new IllegalArgumentException("Invalid expression: " + pattern);
         }

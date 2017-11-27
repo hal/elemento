@@ -13,6 +13,8 @@
  */
 package org.jboss.gwt.elemento.template;
 
+import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.Attr;
@@ -95,11 +97,17 @@ public final class TemplateUtil {
 
     // ------------------------------------------------------ expressions
 
-    public static void replaceExpression(HTMLElement context, String expression, String value) {
-        replaceNestedExpressionInText(context, expression, value);
-        replaceNestedExpressionInAttributes(context, expression, value);
+    public static void replaceExpression(HTMLElement context, String expression, Object value) {
+        SafeHtml safeValue;
+        if (value instanceof SafeHtml) {
+            safeValue = (SafeHtml) value;
+        } else {
+            safeValue = SafeHtmlUtils.fromString(String.valueOf(value));
+        }
+        replaceNestedExpressionInText(context, expression, safeValue.asString());
+        replaceNestedExpressionInAttributes(context, expression, safeValue.asString());
         // The call above does not catch the attributes in 'context', we need to replace them explicitly.
-        replaceExpressionInAttributes(context, expression, value);
+        replaceExpressionInAttributes(context, expression, safeValue.asString());
     }
 
     private static void replaceNestedExpressionInText(HTMLElement context, String expression, String value) {
@@ -129,7 +137,7 @@ public final class TemplateUtil {
         for (int i = 0; i < attributes.getLength(); i++) {
             Node attribute = attributes.item(i);
             String currentValue = attribute.nodeValue;
-            if (currentValue.contains(expression)) {
+            if (currentValue != null && currentValue.contains(expression)) {
                 attribute.nodeValue = currentValue.replace(expression, value);
             }
         }

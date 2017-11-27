@@ -406,7 +406,7 @@ Elemento supports expressions like `${foo}` in HTML templates:
 </section>
 ```
 
-The expressions between `${` and `}` need to be valid Java expressions. They're executed in the constructor of the generated class. `${<expression>}` is replaced with the result of `String.valueOf(<expression>)`. The example above makes use of the template's `i18n()` method (see example above) and inserts the language specific header. But you could also use any other valid expressions like `${com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().format(new java.util.Date())}`.
+The expressions between `${` and `}` need to be valid Java expressions. They're executed in the scope of the generated class. `${<expression>}` is replaced with the safe HTML result of `String.valueOf(<expression>)`. The example above makes use of the template's `i18n()` method (see example above) and inserts the language specific header. But you could also use any other valid expressions like `${com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().format(new java.util.Date())}`.
 
 Expressions are supported in text nodes and attribute values. 
 
