@@ -63,7 +63,7 @@ class JreDOMTokenList extends DOMTokenList {
     @Override
     public void setAt(int index, String value) { throw new UnsupportedOperationException(); }
 
-    @Override
+    @Deprecated//no longer exists in JsArrayLike, method should be removed entirely when possible
     public String[] asArray() { return store.toArray(new String[0]); }
 
     @Override
