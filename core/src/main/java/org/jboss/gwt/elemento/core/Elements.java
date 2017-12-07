@@ -77,7 +77,7 @@ import elemental2.dom.HTMLVideoElement;
 import elemental2.dom.Node;
 import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
-import jsinterop.base.JsPropertyMapOfAny;
+import jsinterop.base.JsPropertyMap;
 import org.jboss.gwt.elemento.core.builder.ElementCreator;
 import org.jboss.gwt.elemento.core.builder.ElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
@@ -106,7 +106,7 @@ public final class Elements {
     };
 
     private static IntSupplier createDocumentUniqueId = () -> {
-        JsPropertyMapOfAny map = Js.uncheckedCast(document);
+        JsPropertyMap<Object> map = Js.uncheckedCast(document);
         if (!map.has(ELEMENTO_UID)) {
             map.set(ELEMENTO_UID, 0);
         }
