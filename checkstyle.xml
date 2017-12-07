@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright 2015-2016 Red Hat, Inc, and individual contributors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+
+    <!-- Please refer to this document to check details about particular check: -->
+    <!-- http://checkstyle.sourceforge.net/availablechecks.html -->
+
+    <property name="charset" value="UTF-8"/>
+    <property name="fileExtensions" value="java, xml, properties"/>
+
+    <!--Check for presence of tab character-->
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+    </module>
+
+    <!-- There must be no trailing whitespace at the end of any line -->
+    <module name="RegexpSingleline">
+        <!-- \s matches whitespace character, $ matches end of line. -->
+        <property name="format" value="\s+$"/>
+        <property name="message" value="Line has trailing spaces."/>
+    </module>
+
+    <module name="SuppressionFilter">
+        <property name="file" value="/checkstyle/checkstyle-ignore.xml"/>
+        <property name="optional" value="true"/>
+    </module>
+
+    <module name="TreeWalker">
+        <property name="fileExtensions" value="java"/>
+
+        <!-- java and javax first -->
+        <module name="ImportOrder">
+            <property name="groups" value="/^java\./,javax"/>
+            <property name="ordered" value="true"/>
+            <property name="separated" value="true"/>
+            <property name="option" value="bottom"/>
+            <property name="sortStaticImportsAlphabetically" value="true"/>
+        </module>
+
+        <!-- Checks for star imports -->
+        <module name="AvoidStarImport">
+            <property name="allowStaticMemberImports" value="true"/>
+        </module>
+
+        <!-- Redundant imports...-->
+        <module name="RedundantImport"/>
+
+        <module name="UnusedImports"/>
+
+        <module name="IllegalImport"/>
+
+        <module name="GenericWhitespace"/>
+
+        <module name="MethodParamPad">
+            <property name="allowLineBreaks" value="true"/>
+        </module>
+
+        <module name="ParenPad"/>
+
+        <module name="NoWhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+
+        <module name="WhitespaceAround"/>
+
+        <!-- Modifier Checks-->
+        <!-- RIGHT: public static WRONG: static public -->
+        <module name="ModifierOrder"/>
+
+        <!-- Checks for redundant modifiers in interface and annotation definitions. -->
+        <!-- Ignore INTERFACE_DEF as this errors on static methods of interfaces. When Java8 supported this might improve -->
+        <module name="RedundantModifier">
+            <property name="tokens" value="METHOD_DEF, VARIABLE_DEF, ANNOTATION_FIELD_DEF"/>
+        </module>
+
+        <module name="NeedBraces"/>
+
+        <!-- Checks for blocks and if curly is place correctly. You know, those {}'s -->
+        <module name="LeftCurly"/>
+        <module name="RightCurly"/>
+
+
+        <!-- Checks for common coding problems -->
+
+        <!-- Detects empty statements (standalone ;). -->
+        <module name="EmptyStatement"/>
+
+        <!-- Checks that classes that override equals() also override hashCode(). -->
+        <module name="EqualsHashCode"/>
+
+        <module name="DefaultComesLast"/>
+
+        <!-- Checks for illegal instantiations where a extension method is preferred -->
+        <module name="IllegalInstantiation"/>
+
+        <module name="MissingSwitchDefault"/>
+
+        <module name="HideUtilityClassConstructor"/>
+
+        <module name="MissingOverride"/>
+
+
+        <!-- Miscellaneous other checks. -->
+
+        <!-- Checks that long constants are defined with an upper ell. That is ' L' and not 'l'. -->
+        <module name="UpperEll"/>
+
+        <!-- This check makes sure that all package annotations are in the package-info.java file -->
+        <module name="PackageAnnotation"/>
+
+        <!-- Checks that classes that define a covariant equals() method
+             also override method equals(java.lang.Object). -->
+        <module name="CovariantEquals"/>
+
+        <!-- RIGHT: int[] buff WRONG: inf buff[] -->
+        <module name="ArrayTypeStyle"/>
+
+        <module name="MultipleStringLiterals">
+            <property name="allowedDuplicates" value="3"/>
+            <property name="ignoreStringsRegexp" value='^(("")|(", ")|(":")|("/"))$'/>
+        </module>
+
+        <module name="StringLiteralEquality"/>
+
+        <module name="InnerTypeLast"/>
+
+        <module name="ArrayTypeStyle"/>
+    </module>
+</module>
