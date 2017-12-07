@@ -209,7 +209,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         this(TemplatedProcessor.class, "templates");
     }
 
-    public TemplatedProcessor(final Class resourceLoaderClass, final String templates) {
+    public TemplatedProcessor(Class resourceLoaderClass, String templates) {
         super(resourceLoaderClass, templates);
         this.deferredTypeNames = new ArrayList<>();
     }
@@ -218,7 +218,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     // ------------------------------------------------------ @Templated types
 
     @Override
-    protected boolean onProcess(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv) {
+    protected boolean onProcess(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         List<TypeElement> deferredTypes = deferredTypeNames.stream()
                 .map(deferred -> processingEnv.getElementUtils().getTypeElement(deferred)).collect(Collectors.toList());
 
@@ -267,7 +267,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         return false;  // never claim annotation, because who knows what other processors want?
     }
 
-    private void validateType(final TypeElement type, final Templated templated) {
+    private void validateType(TypeElement type, Templated templated) {
         if (templated == null) {
             // This shouldn't happen unless the compilation environment is buggy,
             // but it has happened in the past and can crash the compiler.
@@ -289,7 +289,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         }
     }
 
-    private void processType(TypeElement type, final Templated templated, String inject) {
+    private void processType(TypeElement type, Templated templated, String inject) {
         String isElementTypeParameter = getIsElementTypeParameter(type.getInterfaces());
         String subclass = TypeSimplifier.simpleNameOf(generatedClassName(type, "Templated_", ""));
         TemplateContext context = new TemplateContext(TypeSimplifier.packageNameOf(type),
@@ -338,7 +338,7 @@ public class TemplatedProcessor extends AbstractProcessor {
                 .filter(attribute -> !attribute.getKey().equals("data-element"))
                 .collect(Collectors.toList());
 
-        final ExpressionParser expressionParser = new ExpressionParser();
+        ExpressionParser expressionParser = new ExpressionParser();
         String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
         Map<String, String> expressions = expressionParser.parse(html);
         expressions.putAll(expressionParser.parse(root.outerHtml()));
@@ -605,7 +605,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     // ------------------------------------------------------ abstract properties
 
-    private List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
+    private List<AbstractPropertyInfo> processAbstractProperties(TypeElement type) {
         List<AbstractPropertyInfo> abstractProperties = new ArrayList<>();
 
         ElementFilter.methodsIn(type.getEnclosedElements()).stream()
@@ -651,7 +651,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         return Introspector.decapitalize(withoutPrefix);
     }
 
-    private String getModifier(final ExecutableElement method) {
+    private String getModifier(ExecutableElement method) {
         String modifier = null;
         Set<Modifier> modifiers = method.getModifiers();
         if (modifiers.contains(Modifier.PUBLIC)) {
