@@ -20,12 +20,12 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>24</version>
+        <version>25</version>
     </parent>
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.6.1</version>
+    <version>0.6.2</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -90,7 +90,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <plugin.version.github.site>0.12</plugin.version.github.site>
-        <plugin.version.gwt.maven>1.0-rc-8</plugin.version.gwt.maven>
+        <plugin.version.gwt.maven>1.0-rc-9</plugin.version.gwt.maven>
         <plugin.version.processor.plugin>3.1.0</plugin.version.processor.plugin>
         <plugin.version.project.info.report>2.8</plugin.version.project.info.report>
         <plugin.version.sonatype>1.6.3</plugin.version.sonatype>
@@ -101,8 +101,8 @@
         <apt-tools.version>0.0.3</apt-tools.version>
         <auto-service.version>1.0-rc3</auto-service.version>
         <auto-value.version>1.2-SNAPSHOT</auto-value.version>
-        <elemental.version>1.0.0-beta-1</elemental.version>
-        <gwt.version>2.8.1</gwt.version>
+        <elemental.version>1.0.0-beta-3</elemental.version>
+        <gwt.version>2.8.2</gwt.version>
         <gwtmockito.version>1.1.6</gwtmockito.version>
         <javax.inject.version>1</javax.inject.version>
         <jsoup.version>1.10.3</jsoup.version>
@@ -226,6 +226,31 @@
         </pluginManagement>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${version.checkstyle}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>checkstyle</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <configLocation>checkstyle.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

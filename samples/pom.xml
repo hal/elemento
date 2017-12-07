@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.6.1</version>
+        <version>0.6.2</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
@@ -30,11 +30,11 @@
 
     <properties>
         <dagger.version>2.11</dagger.version>
-        <errai.version>4.1.0-SNAPSHOT</errai.version>
+        <errai.version>4.1.1.Final</errai.version>
         <gin.version>2.1.2</gin.version>
         <javax.inject.version>1</javax.inject.version>
-        <node.version>v8.1.2</node.version>
-        <npm.version>5.0.4</npm.version>
+        <node.version>v8.5.0</node.version>
+        <npm.version>5.4.2</npm.version>
         <plugin.frontend.version>1.4</plugin.frontend.version>
 
         <gwt.public.directory/>

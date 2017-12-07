@@ -54,19 +54,25 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
 
     /** Adds all elements. */
     default B addAll(HTMLElement... elements) {
-        for (HTMLElement element : elements) { add(element); }
+        for (HTMLElement element : elements) {
+            add(element);
+        }
         return that();
     }
 
     /** Adds all elements. */
     default B addAll(Iterable<? extends Node> elements) {
-        for (Node element : elements) { add(element); }
+        for (Node element : elements) {
+            add(element);
+        }
         return that();
     }
 
     /** Adds all elements. */
     default B addAll(IsElement... elements) {
-        for (IsElement element : elements) { add(element); }
+        for (IsElement element : elements) {
+            add(element);
+        }
         return that();
     }
 }

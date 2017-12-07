@@ -25,7 +25,9 @@ public class ElementsBuilder implements HasElements {
 
     private final List<HTMLElement> elements;
 
-    public ElementsBuilder() {elements = new ArrayList<>();}
+    public ElementsBuilder() {
+        elements = new ArrayList<>();
+    }
 
 
     // ------------------------------------------------------ mirror add() methods from HtmlContent
@@ -48,19 +50,25 @@ public class ElementsBuilder implements HasElements {
 
     /** Adds all elements. */
     public ElementsBuilder addAll(HTMLElement... elements) {
-        for (HTMLElement element : elements) { add(element); }
+        for (HTMLElement element : elements) {
+            add(element);
+        }
         return this;
     }
 
     /** Adds all elements. */
     public ElementsBuilder addAll(Iterable<HTMLElement> elements) {
-        for (HTMLElement element : elements) { add(element); }
+        for (HTMLElement element : elements) {
+            add(element);
+        }
         return this;
     }
 
     /** Adds all elements. */
     public ElementsBuilder addAll(IsElement... elements) {
-        for (IsElement element : elements) { add(element); }
+        for (IsElement element : elements) {
+            add(element);
+        }
         return this;
     }
 

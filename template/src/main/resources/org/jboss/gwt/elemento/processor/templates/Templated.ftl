@@ -73,7 +73,7 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
         <#-- Expressions -->
         <#if (context.root.innerHtml?? && context.root.expressions?size > 0)>
             <#list context.root.expressions?keys as expression>
-        TemplateUtil.replaceExpression(${context.root.member}, "${expression}", String.valueOf(${context.root.expressions?values[expression_index]}));
+        TemplateUtil.replaceExpression(${context.root.member}, "${expression}", ${context.root.expressions?values[expression_index]});
             </#list>
         </#if>
         <#-- @PostConstruct -->

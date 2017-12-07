@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>0.6.1</version>
+        <version>0.6.2</version>
     </parent>
 
     <artifactId>dagger-sample</artifactId>
@@ -96,38 +96,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.bsc.maven</groupId>
-                <artifactId>maven-processor-plugin</artifactId>
-                <!-- Dagger depends on Guava 23, but maven-processor-plugin
-                     3.1.0 depends on Guava 10.
-                     Here we override the parent project's maven-processor-plugin
-                     version down to 2.2.4 (the latest 2.x release) -->
-                <version>2.2.4</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                        <configuration>
-                            <options>
-                                <!-- Uncomment to get more messages from the annotation processors -->
-                                <!--<debug>true</debug>-->
-                            </options>
-                            <defaultOutputDirectory>${project.build.directory}/generated-sources/annotations
-                            </defaultOutputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <compilerArgument>-proc:none</compilerArgument>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

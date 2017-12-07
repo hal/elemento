@@ -23,13 +23,16 @@ import org.jboss.gwt.elemento.core.Elements;
 
 public final class Application {
 
+    private static final String COMPLETED = "completed";
+    private static final String SELECTED = "selected";
+
     public static void toggleAll(HTMLElement list, boolean checked) {
 
         for (HTMLElement li : Elements.children(list)) {
             if (checked) {
-                li.classList.add("completed");
+                li.classList.add(COMPLETED);
             } else {
-                li.classList.remove("completed");
+                li.classList.remove(COMPLETED);
             }
             HTMLInputElement checkbox = (HTMLInputElement) li.firstElementChild.firstElementChild;
             checkbox.checked = checked;
@@ -40,7 +43,7 @@ public final class Application {
         Set<String> ids = new HashSet<>();
         for (Iterator<HTMLElement> iterator = Elements.iterator(list); iterator.hasNext(); ) {
             HTMLElement li = iterator.next();
-            if (li.classList.contains("completed")) {
+            if (li.classList.contains(COMPLETED)) {
                 String id = String.valueOf(li.dataset.get("item"));
                 if (id != null) {
                     ids.add(id);
@@ -55,19 +58,21 @@ public final class Application {
             HTMLElement filterCompleted) {
         switch (filter) {
             case ALL:
-                filterAll.classList.add("selected");
-                filterActive.classList.remove("selected");
-                filterCompleted.classList.remove("selected");
+                filterAll.classList.add(SELECTED);
+                filterActive.classList.remove(SELECTED);
+                filterCompleted.classList.remove(SELECTED);
                 break;
             case ACTIVE:
-                filterAll.classList.remove("selected");
-                filterActive.classList.add("selected");
-                filterCompleted.classList.remove("selected");
+                filterAll.classList.remove(SELECTED);
+                filterActive.classList.add(SELECTED);
+                filterCompleted.classList.remove(SELECTED);
                 break;
             case COMPLETED:
-                filterAll.classList.remove("selected");
-                filterActive.classList.remove("selected");
-                filterCompleted.classList.add("selected");
+                filterAll.classList.remove(SELECTED);
+                filterActive.classList.remove(SELECTED);
+                filterCompleted.classList.add(SELECTED);
+                break;
+            default:
                 break;
         }
     }
@@ -82,7 +87,7 @@ public final class Application {
         Elements.setVisible(main, size > 0);
         Elements.setVisible(footer, size > 0);
         for (HTMLElement li : Elements.children(list)) {
-            if (li.classList.contains("completed")) {
+            if (li.classList.contains(COMPLETED)) {
                 completedCount++;
                 Elements.setVisible(li, filter != Filter.ACTIVE);
             } else {
@@ -95,5 +100,6 @@ public final class Application {
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 
-    private Application() {}
+    private Application() {
+    }
 }

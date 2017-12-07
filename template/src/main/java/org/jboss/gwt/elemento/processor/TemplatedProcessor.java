@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
@@ -41,6 +42,7 @@ import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.ElementFilter;
 import javax.tools.FileObject;
+import javax.tools.JavaFileManager;
 import javax.tools.StandardLocation;
 
 import com.google.auto.common.MoreElements;
@@ -128,6 +130,8 @@ import static java.util.stream.Collectors.joining;
 @SupportedAnnotationTypes("org.jboss.gwt.elemento.template.Templated")
 public class TemplatedProcessor extends AbstractProcessor {
 
+    private static final String GET = "get";
+    private static final String QUOTE = "\"";
     private static final String FREEMARKER_TEMPLATE = "Templated.ftl";
     private static final Escaper JAVA_STRING_ESCAPER = Escapers.builder()
             .addEscape('"', "\\\"")
@@ -136,8 +140,8 @@ public class TemplatedProcessor extends AbstractProcessor {
             .build();
 
     private static final String[] DEPENDENCY_INJECTION_FRAMEWORKS = {
-        "dagger.Component",
-        "com.google.gwt.inject.client.GinModule",
+            "dagger.Component",
+            "com.google.gwt.inject.client.GinModule",
     };
 
     // List of elements from https://developer.mozilla.org/en-US/docs/Web/HTML/Element
@@ -205,7 +209,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         this(TemplatedProcessor.class, "templates");
     }
 
-    public TemplatedProcessor(final Class resourceLoaderClass, final String templates) {
+    public TemplatedProcessor(Class resourceLoaderClass, String templates) {
         super(resourceLoaderClass, templates);
         this.deferredTypeNames = new ArrayList<>();
     }
@@ -214,7 +218,7 @@ public class TemplatedProcessor extends AbstractProcessor {
     // ------------------------------------------------------ @Templated types
 
     @Override
-    protected boolean onProcess(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv) {
+    protected boolean onProcess(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         List<TypeElement> deferredTypes = deferredTypeNames.stream()
                 .map(deferred -> processingEnv.getElementUtils().getTypeElement(deferred)).collect(Collectors.toList());
 
@@ -263,7 +267,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         return false;  // never claim annotation, because who knows what other processors want?
     }
 
-    private void validateType(final TypeElement type, final Templated templated) {
+    private void validateType(TypeElement type, Templated templated) {
         if (templated == null) {
             // This shouldn't happen unless the compilation environment is buggy,
             // but it has happened in the past and can crash the compiler.
@@ -285,7 +289,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         }
     }
 
-    private void processType(TypeElement type, final Templated templated, String inject) {
+    private void processType(TypeElement type, Templated templated, String inject) {
         String isElementTypeParameter = getIsElementTypeParameter(type.getInterfaces());
         String subclass = TypeSimplifier.simpleNameOf(generatedClassName(type, "Templated_", ""));
         TemplateContext context = new TemplateContext(TypeSimplifier.packageNameOf(type),
@@ -334,8 +338,10 @@ public class TemplatedProcessor extends AbstractProcessor {
                 .filter(attribute -> !attribute.getKey().equals("data-element"))
                 .collect(Collectors.toList());
 
+        ExpressionParser expressionParser = new ExpressionParser();
         String html = root.children().isEmpty() ? null : JAVA_STRING_ESCAPER.escape(root.html());
-        Map<String, String> expressions = new ExpressionParser().parse(html);
+        Map<String, String> expressions = expressionParser.parse(html);
+        expressions.putAll(expressionParser.parse(root.outerHtml()));
 
         return new RootElementInfo(root.tagName(), subclass.toLowerCase() + "_root_element",
                 attributes, html, expressions);
@@ -362,9 +368,15 @@ public class TemplatedProcessor extends AbstractProcessor {
     private org.jsoup.nodes.Element parseTemplate(TypeElement type, TemplateSelector templateSelector) {
         org.jsoup.nodes.Element root = null;
         String fqTemplate = TypeSimplifier.packageNameOf(type).replace('.', '/') + "/" + templateSelector.template;
+
+        FileObject templateResource = null;
         try {
-            FileObject templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_PATH, "",
+            templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_OUTPUT, "",
                     fqTemplate);
+        } catch (IOException e) {
+            abortWithError(type, "Cannot find template \"%s\". Please make sure the template exists.", fqTemplate);
+        }
+        try {
             Document document = Jsoup.parse(templateResource.getCharContent(true).toString());
             if (templateSelector.hasSelector()) {
                 String query = "[data-element=" + templateSelector.selector + "]";
@@ -383,11 +395,30 @@ public class TemplatedProcessor extends AbstractProcessor {
                 }
             }
         } catch (IOException e) {
-            abortWithError(type,
-                    "Cannot find template \"%s\". Please make sure the template exists and resides in the source path.",
-                    fqTemplate);
+            abortWithError(type, "Unable to read template \"%s\": %s", fqTemplate, e.getMessage());
         }
         return root;
+    }
+
+    private FileObject findTemplate(String name) {
+        FileObject resource = null;
+        JavaFileManager.Location[] locations = new JavaFileManager.Location[]{
+                StandardLocation.SOURCE_PATH,
+                StandardLocation.CLASS_PATH,
+                StandardLocation.SOURCE_OUTPUT,
+                StandardLocation.CLASS_OUTPUT,
+        };
+        for (JavaFileManager.Location location : locations) {
+            try {
+                resource = processingEnv.getFiler().getResource(location, "", name);
+                if (resource != null) {
+                    return resource;
+                }
+            } catch (IOException ignored) {
+                debug("Unable to find %s in %s: %s", name, location.getName(), ignored.getMessage());
+            }
+        }
+        return null;
     }
 
 
@@ -526,8 +557,8 @@ public class TemplatedProcessor extends AbstractProcessor {
                 if (!tags.contains(tagName)) {
                     String fieldOrMethod = element instanceof VariableElement ? "field" : "method";
                     String expected = tags.size() == 1
-                            ? "\"" + tags.iterator().next() + "\""
-                            : "one of " + tags.stream().map(t -> "\"" + t + "\"").collect(joining(", "));
+                            ? QUOTE + tags.iterator().next() + QUOTE
+                            : "one of " + tags.stream().map(t -> QUOTE + t + QUOTE).collect(joining(", "));
                     abortWithError(element,
                             "The %s maps to the wrong HTML element: Expected %s, but found \"%s\" in %s using \"[data-element=%s]\" as selector.",
                             fieldOrMethod, expected, tagName, templateSelector, selector);
@@ -574,7 +605,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     // ------------------------------------------------------ abstract properties
 
-    private List<AbstractPropertyInfo> processAbstractProperties(final TypeElement type) {
+    private List<AbstractPropertyInfo> processAbstractProperties(TypeElement type) {
         List<AbstractPropertyInfo> abstractProperties = new ArrayList<>();
 
         ElementFilter.methodsIn(type.getEnclosedElements()).stream()
@@ -603,7 +634,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     private boolean isGetter(ExecutableElement method) {
         String name = method.getSimpleName().toString();
-        boolean get = name.startsWith("get") && !name.equals("get");
+        boolean get = name.startsWith(GET) && !name.equals(GET);
         boolean is = name.startsWith("is") && !name.equals("is")
                 && method.getReturnType().getKind() == TypeKind.BOOLEAN;
         return get || is;
@@ -611,7 +642,7 @@ public class TemplatedProcessor extends AbstractProcessor {
 
     private String nameWithoutPrefix(String name) {
         String withoutPrefix;
-        if (name.startsWith("get") && !name.equals("get")) {
+        if (name.startsWith(GET) && !name.equals(GET)) {
             withoutPrefix = name.substring(3);
         } else {
             assert name.startsWith("is");
@@ -620,7 +651,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         return Introspector.decapitalize(withoutPrefix);
     }
 
-    private String getModifier(final ExecutableElement method) {
+    private String getModifier(ExecutableElement method) {
         String modifier = null;
         Set<Modifier> modifiers = method.getModifiers();
         if (modifiers.contains(Modifier.PUBLIC)) {
@@ -694,7 +725,9 @@ public class TemplatedProcessor extends AbstractProcessor {
                 if (getClass().getClassLoader().loadClass(clazz) != null) {
                     return true;
                 }
-            } catch (ClassNotFoundException ignore) {}
+            } catch (ClassNotFoundException ignore) {
+                // noop
+            }
         }
         return false;
     }

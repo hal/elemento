@@ -163,7 +163,11 @@ public class EventType<T extends Event, V extends EventTarget> {
 
     private final String name;
 
-    private EventType(String name) { this.name = name; }
+    private EventType(String name) {
+        this.name = name;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 }

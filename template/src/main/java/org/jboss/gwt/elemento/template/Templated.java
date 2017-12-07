@@ -46,7 +46,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Templated {
 
-    enum Injectable {TRUE, FALSE, IF_DI_DETECTED}
+    enum Injectable {
+        TRUE, FALSE, IF_DI_DETECTED
+    }
 
     String value() default "";
 

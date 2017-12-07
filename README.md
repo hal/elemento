@@ -1,4 +1,4 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent) [![TC Build](https://ci.wildfly.org/app/rest/builds/buildType:(id:hal_Elemento)/statusIcon.svg)](https://ci.wildfly.org/viewType.html?buildTypeId=hal_Elemento&guest=1) [![Known Vulnerabilities](https://snyk.io/test/github/hal/elemento/badge.svg)](https://snyk.io/test/github/hal/elemento) [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
 
 # Elemento
 
@@ -26,9 +26,10 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [Integrations](#integrations)
   * [Errai](#errai)
   * [RxGWT](#rxgwt)
-  * [GIN and Dagger](#gin-and-dagger)
+  * [Dagger and GIN](#dagger-and-gin)
 * [Helper Methods](#helper-methods)
 * [Samples](#samples)
+* [Contributing](#contributing)
 * [Get Help](#get-help)
 
 # Get Started
@@ -39,7 +40,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>0.6.1</version>
+    <version>0.6.2</version>
 </dependency>
 ```
  
@@ -224,7 +225,7 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
-    <version>0.6.1</version>
+    <version>0.6.2</version>
 </dependency>
 ```
 
@@ -405,7 +406,7 @@ Elemento supports expressions like `${foo}` in HTML templates:
 </section>
 ```
 
-The expressions between `${` and `}` need to be valid Java expressions. They're executed in the constructor of the generated class. `${<expression>}` is replaced with the result of `String.valueOf(<expression>)`. The example above makes use of the template's `i18n()` method (see example above) and inserts the language specific header. But you could also use any other valid expressions like `${com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().format(new java.util.Date())}`.
+The expressions between `${` and `}` need to be valid Java expressions. They're executed in the scope of the generated class. `${<expression>}` is replaced with the safe HTML result of `String.valueOf(<expression>)`. The example above makes use of the template's `i18n()` method (see example above) and inserts the language specific header. But you could also use any other valid expressions like `${com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().format(new java.util.Date())}`.
 
 Expressions are supported in text nodes and attribute values. 
 
@@ -449,11 +450,11 @@ Observable.merge(touch$, mouse$)
         .forEach(n -> info.textContent = n);
 ```
 
-## Dagger adn GIN
+## Dagger and GIN
 
-Elemento provides support for dependency injection in HTML templates using [Dagger](https://google.github.io/dagger/) or [GIN](https://code.google.com/p/google-gin/). If one of these DI libraries is on the classpath, the annotation processor, which generates the HTML template class, will place a `@javax.inject.Inject` annotation on the generated constructor. 
+Elemento provides support for dependency injection in HTML templates using [Dagger](https://google.github.io/dagger/) or [GIN](https://code.google.com/p/google-gin/). If one of these libraries is on the classpath, the annotation processor will place a `@javax.inject.Inject` annotation on the generated constructor. 
 
-There are [samples](#samples) which show the usage of both Dagger and GIN (see below).
+See the [samples](#samples) how this works and how you can inject the templates classes into other classes.
 
 # Helper Methods
 
@@ -477,6 +478,10 @@ Elemento comes with five different [implementations](https://hal.github.io/eleme
 - GIN DI and HTML templates: [Source](samples/gin) | [Demo](http://hal.github.io/elemento/gin/index.html)
 
 All samples use the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+
+# Contributing
+
+If you want to contribute to Elemento, please follow the steps in [contribution](CONTRIBUTING.md).
 
 # Get Help
 
