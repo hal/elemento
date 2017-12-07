@@ -18,8 +18,8 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 
 import com.google.gwt.core.client.Scheduler;
-import elemental2.core.Array;
 import elemental2.core.Global;
+import elemental2.core.JsArray;
 import elemental2.webstorage.Storage;
 import elemental2.webstorage.StorageEvent;
 import elemental2.webstorage.WebStorageWindow;
@@ -117,7 +117,7 @@ public class TodoItemRepository {
             String json = storage.getItem(key);
             if (json != null) {
                 try {
-                    Array<TodoItem> jsonArray = Js.cast(Global.JSON.parse(json));
+                    JsArray<TodoItem> jsonArray = Js.cast(Global.JSON.parse(json));
                     if (jsonArray != null) {
                         for (int i = 0; i < jsonArray.length; i++) {
                             TodoItem todoItem = jsonArray.getAt(i);
