@@ -87,7 +87,7 @@
                         <devmodeArg>-startupUrl</devmodeArg>
                         <devmodeArg>${module.shortName}/index.html</devmodeArg>
                     </devmodeArgs>
-                    <logLevel>INFO</logLevel>
+                    <logLevel>DEBUG</logLevel>
                     <moduleName>${module.name}</moduleName>
                     <moduleShortName>${module.shortName}</moduleShortName>
                 </configuration>

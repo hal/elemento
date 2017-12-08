@@ -111,7 +111,8 @@
 
     <modules>
         <module>core</module>
-        <module>template</module>
+        <module>template-api</module>
+        <module>template-processor</module>
     </modules>
 
     <dependencyManagement>
@@ -124,7 +125,12 @@
             </dependency>
             <dependency>
                 <groupId>org.jboss.gwt.elemento</groupId>
-                <artifactId>elemento-template</artifactId>
+                <artifactId>elemento-template-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.gwt.elemento</groupId>
+                <artifactId>elemento-template-processor</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

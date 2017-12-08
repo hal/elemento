@@ -23,16 +23,19 @@
         <version>HEAD-SNAPSHOT</version>
     </parent>
 
-    <artifactId>elemento-template</artifactId>
-    <name>Elemento :: Template</name>
+    <artifactId>elemento-template-processor</artifactId>
+    <name>Elemento :: Template Processor</name>
     <description>Annotation processor to bind elements to HTML templates</description>
-    <packaging>gwt-lib</packaging>
 
     <dependencies>
         <!-- Dependencies -->
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-template-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
