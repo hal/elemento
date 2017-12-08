@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.6.2</version>
+        <version>HEAD-SNAPSHOT</version>
     </parent>
 
     <artifactId>elemento-template-api</artifactId>
@@ -33,6 +33,7 @@
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+            <type>gwt-lib</type>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
@@ -58,7 +59,6 @@
                     <moduleName>org.jboss.gwt.elemento.Template</moduleName>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
