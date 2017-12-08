@@ -33,64 +33,15 @@
         <module.shortName>builder</module.shortName>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>sample-common</artifactId>
-        </dependency>
-    </dependencies>
-
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>**/node/**</exclude>
-                </excludes>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <version>${plugin.frontend.version}</version>
-                <executions>
-                    <execution>
-                        <id>install node and npm</id>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                        <configuration>
-                            <workingDirectory>${gwt.public.directory}</workingDirectory>
-                            <nodeVersion>${node.version}</nodeVersion>
-                            <npmVersion>${npm.version}</npmVersion>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>npm install</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <workingDirectory>${gwt.public.directory}</workingDirectory>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
-                <configuration>
-                    <devmodeArgs>
-                        <devmodeArg>-startupUrl</devmodeArg>
-                        <devmodeArg>${module.shortName}/index.html</devmodeArg>
-                    </devmodeArgs>
-                    <logLevel>INFO</logLevel>
-                    <moduleName>${module.name}</moduleName>
-                    <moduleShortName>${module.shortName}</moduleShortName>
-                </configuration>
             </plugin>
         </plugins>
     </build>

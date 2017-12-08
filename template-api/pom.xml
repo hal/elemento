@@ -19,58 +19,53 @@
 
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
-        <artifactId>elemento-samples</artifactId>
+        <artifactId>elemento-parent</artifactId>
         <version>HEAD-SNAPSHOT</version>
     </parent>
 
-    <artifactId>dagger-sample</artifactId>
-    <name>Elemento :: Samples :: Dagger</name>
-    <packaging>gwt-app</packaging>
-
-    <properties>
-        <gwt.public.directory>src/main/resources/org/jboss/gwt/elemento/sample/dagger/public</gwt.public.directory>
-        <module.name>org.jboss.gwt.elemento.sample.dagger.DaggerSample</module.name>
-        <module.shortName>dagger</module.shortName>
-    </properties>
+    <artifactId>elemento-template-api</artifactId>
+    <name>Elemento :: Template API</name>
+    <description>Annotations to mark and bind HTML templates</description>
+    <packaging>gwt-lib</packaging>
 
     <dependencies>
+        <!-- Dependencies -->
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>elemento-template-api</artifactId>
+            <artifactId>elemento-core</artifactId>
             <type>gwt-lib</type>
         </dependency>
         <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>elemento-template-processor</artifactId>
-            <scope>provided</scope>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.dagger</groupId>
-            <artifactId>dagger-gwt</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.dagger</groupId>
-            <artifactId>dagger-compiler</artifactId>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <moduleName>org.jboss.gwt.elemento.Template</moduleName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                    <message/>
+                </configuration>
             </plugin>
         </plugins>
     </build>

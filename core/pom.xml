@@ -62,7 +62,6 @@
                     <moduleName>org.jboss.gwt.elemento.Core</moduleName>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>

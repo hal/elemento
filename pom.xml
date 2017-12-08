@@ -91,7 +91,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <plugin.version.github.site>0.12</plugin.version.github.site>
         <plugin.version.gwt.maven>1.0-rc-9</plugin.version.gwt.maven>
-        <plugin.version.processor.plugin>3.1.0</plugin.version.processor.plugin>
         <plugin.version.project.info.report>2.8</plugin.version.project.info.report>
         <plugin.version.sonatype>1.6.3</plugin.version.sonatype>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -111,7 +110,8 @@
 
     <modules>
         <module>core</module>
-        <module>template</module>
+        <module>template-api</module>
+        <module>template-processor</module>
     </modules>
 
     <dependencyManagement>
@@ -124,7 +124,24 @@
             </dependency>
             <dependency>
                 <groupId>org.jboss.gwt.elemento</groupId>
-                <artifactId>elemento-template</artifactId>
+                <artifactId>elemento-core</artifactId>
+                <version>${project.version}</version>
+                <type>gwt-lib</type>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.gwt.elemento</groupId>
+                <artifactId>elemento-template-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.gwt.elemento</groupId>
+                <artifactId>elemento-template-api</artifactId>
+                <version>${project.version}</version>
+                <type>gwt-lib</type>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.gwt.elemento</groupId>
+                <artifactId>elemento-template-processor</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -203,24 +220,19 @@
                     <extensions>true</extensions>
                 </plugin>
                 <plugin>
-                    <groupId>org.bsc.maven</groupId>
-                    <artifactId>maven-processor-plugin</artifactId>
-                    <version>${plugin.version.processor.plugin}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>${plugin.version.project.info.report}</version>
                 </plugin>
                 <plugin>
-                    <groupId>com.github.github</groupId>
-                    <artifactId>site-maven-plugin</artifactId>
-                    <version>${plugin.version.github.site}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
                     <version>${plugin.version.sonatype}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.github</groupId>
+                    <artifactId>site-maven-plugin</artifactId>
+                    <version>${plugin.version.github.site}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -244,7 +256,7 @@
                             <goal>check</goal>
                         </goals>
                         <configuration>
-                            <configLocation>checkstyle.xml</configLocation>
+                            <configLocation>build/checkstyle.xml</configLocation>
                             <encoding>UTF-8</encoding>
                             <consoleOutput>true</consoleOutput>
                         </configuration>
@@ -272,6 +284,7 @@
             <id>samples</id>
             <modules>
                 <module>samples</module>
+                <module>samples/common</module>
             </modules>
         </profile>
 

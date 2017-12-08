@@ -28,7 +28,6 @@
     <packaging>gwt-app</packaging>
 
     <properties>
-        <errai.version>4.1.0-SNAPSHOT</errai.version>
         <gwt.public.directory>src/main/resources/org/jboss/gwt/elemento/sample/errai/public</gwt.public.directory>
         <module.name>org.jboss.gwt.elemento.sample.errai.ErraiSample</module.name>
         <module.shortName>errai</module.shortName>
@@ -36,66 +35,24 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>sample-common</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.errai</groupId>
             <artifactId>errai-cdi-client</artifactId>
         </dependency>
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>**/node/**</exclude>
-                </excludes>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <version>${plugin.frontend.version}</version>
-                <executions>
-                    <execution>
-                        <id>install node and npm</id>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                        <configuration>
-                            <workingDirectory>${gwt.public.directory}</workingDirectory>
-                            <nodeVersion>${node.version}</nodeVersion>
-                            <npmVersion>${npm.version}</npmVersion>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>npm install</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <workingDirectory>${gwt.public.directory}</workingDirectory>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
-                <configuration>
-                    <devmodeArgs>
-                        <devmodeArg>-startupUrl</devmodeArg>
-                        <devmodeArg>${module.shortName}/index.html</devmodeArg>
-                    </devmodeArgs>
-                    <logLevel>INFO</logLevel>
-                    <moduleName>${module.name}</moduleName>
-                    <moduleShortName>${module.shortName}</moduleShortName>
-                </configuration>
             </plugin>
         </plugins>
     </build>
