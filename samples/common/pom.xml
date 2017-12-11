@@ -19,18 +19,25 @@
 
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
-        <artifactId>elemento-samples</artifactId>
-        <version>0.6.2</version>
+        <artifactId>elemento-parent</artifactId>
+        <version>0.7.0</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>sample-common</artifactId>
     <name>Elemento :: Samples :: Common</name>
+    <description>Common code used in all samples</description>
     <packaging>gwt-lib</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+            <classifier>sources</classifier>
         </dependency>
     </dependencies>
 

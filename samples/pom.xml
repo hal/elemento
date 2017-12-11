@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.6.2</version>
+        <version>0.7.0</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
@@ -30,7 +30,7 @@
 
     <properties>
         <dagger.version>2.11</dagger.version>
-        <errai.version>4.1.1.Final</errai.version>
+        <errai.version>4.1.2.Final</errai.version>
         <gin.version>2.1.2</gin.version>
         <javax.inject.version>1</javax.inject.version>
         <node.version>v8.5.0</node.version>
@@ -43,7 +43,6 @@
     </properties>
 
     <modules>
-        <module>common</module>
         <module>builder</module>
         <module>dagger</module>
         <module>errai</module>
@@ -59,11 +58,10 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.errai.bom</groupId>
-                <artifactId>errai-bom</artifactId>
-                <version>${errai.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.jboss.gwt.elemento</groupId>
+                <artifactId>sample-common</artifactId>
+                <version>${project.version}</version>
+                <classifier>sources</classifier>
             </dependency>
             <dependency>
                 <groupId>javax.inject</groupId>
@@ -85,10 +83,31 @@
                 <artifactId>gin</artifactId>
                 <version>${gin.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.jboss.errai.bom</groupId>
+                <artifactId>errai-bom</artifactId>
+                <version>${errai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>sample-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>sample-common</artifactId>
+            <classifier>sources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>sample-common</artifactId>
+            <classifier>sources</classifier>
+        </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-core</artifactId>
@@ -103,11 +122,86 @@
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-dev</artifactId>
+            <artifactId>gwt-user</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
+            <artifactId>gwt-dev</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/node/**</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>${plugin.frontend.version}</version>
+                    <executions>
+                        <execution>
+                            <id>install node and npm</id>
+                            <goals>
+                                <goal>install-node-and-npm</goal>
+                            </goals>
+                            <configuration>
+                                <workingDirectory>${gwt.public.directory}</workingDirectory>
+                                <nodeVersion>${node.version}</nodeVersion>
+                                <npmVersion>${npm.version}</npmVersion>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>npm install</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+                            <configuration>
+                                <workingDirectory>${gwt.public.directory}</workingDirectory>
+                                <arguments>install</arguments>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>add-source</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>add-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>${project.build.directory}/generated-sources/annotations</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>net.ltgt.gwt.maven</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <configuration>
+                        <devmodeArgs>
+                            <devmodeArg>-startupUrl</devmodeArg>
+                            <devmodeArg>${module.shortName}/index.html</devmodeArg>
+                        </devmodeArgs>
+                        <logLevel>INFO</logLevel>
+                        <moduleName>${module.name}</moduleName>
+                        <moduleShortName>${module.shortName}</moduleShortName>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

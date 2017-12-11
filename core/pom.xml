@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.6.2</version>
+        <version>0.7.0</version>
     </parent>
 
     <artifactId>elemento-core</artifactId>
@@ -62,7 +62,6 @@
                     <moduleName>org.jboss.gwt.elemento.Core</moduleName>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
