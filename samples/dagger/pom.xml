@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>HEAD-SNAPSHOT</version>
+        <version>0.7.0</version>
     </parent>
 
     <artifactId>dagger-sample</artifactId>
@@ -37,7 +37,11 @@
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-template-api</artifactId>
-            <type>gwt-lib</type>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-template-api</artifactId>
+            <classifier>sources</classifier>
         </dependency>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>

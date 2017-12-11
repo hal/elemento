@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>HEAD-SNAPSHOT</version>
+        <version>0.7.0</version>
     </parent>
 
     <artifactId>elemento-template-api</artifactId>
@@ -33,7 +33,11 @@
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>elemento-core</artifactId>
-            <type>gwt-lib</type>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+            <classifier>sources</classifier>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
