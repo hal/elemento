@@ -451,7 +451,7 @@ public class TemplatedProcessor extends AbstractProcessor {
                     verifySelector(selector, field, templateSelector, root);
 
                     // verify the HTMLElement type
-                    String typeName = MoreTypes.asTypeElement(typeUtils, field.asType()).getQualifiedName().toString();
+                    String typeName = MoreTypes.asTypeElement(field.asType()).getQualifiedName().toString();
                     if (kind == Kind.HTMLElement) {
                         verifyHTMLElement(typeName, selector, field, templateSelector, root);
                     }
@@ -488,7 +488,7 @@ public class TemplatedProcessor extends AbstractProcessor {
                     verifySelector(selector, method, templateSelector, root);
 
                     // verify the HTMLElement type
-                    String typeName = MoreTypes.asTypeElement(typeUtils, method.getReturnType())
+                    String typeName = MoreTypes.asTypeElement(method.getReturnType())
                             .getQualifiedName().toString();
                     if (kind == Kind.HTMLElement) {
                         verifyHTMLElement(typeName, selector, method, templateSelector, root);

@@ -98,9 +98,10 @@
 
         <!-- dependency versions -->
         <apt-tools.version>0.0.3</apt-tools.version>
-        <auto-service.version>1.0-rc3</auto-service.version>
-        <auto-value.version>1.2-SNAPSHOT</auto-value.version>
+        <auto-service.version>1.0-rc4</auto-service.version>
+        <auto-value.version>1.5.3</auto-value.version>
         <elemental.version>1.0.0-beta-3</elemental.version>
+        <jsr250.version>1.0</jsr250.version>
         <gwt.version>2.8.2</gwt.version>
         <gwtmockito.version>1.1.6</gwtmockito.version>
         <javax.inject.version>1</javax.inject.version>
@@ -170,6 +171,11 @@
             </dependency>
 
             <!-- Misc -->
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>jsr250-api</artifactId>
+                <version>${jsr250.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>

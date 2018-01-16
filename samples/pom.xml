@@ -33,8 +33,8 @@
         <errai.version>4.1.2.Final</errai.version>
         <gin.version>2.1.2</gin.version>
         <javax.inject.version>1</javax.inject.version>
-        <node.version>v8.5.0</node.version>
-        <npm.version>5.4.2</npm.version>
+        <node.version>v9.3.0</node.version>
+        <npm.version>5.6.0</npm.version>
         <plugin.frontend.version>1.4</plugin.frontend.version>
 
         <gwt.public.directory/>
@@ -97,11 +97,6 @@
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
             <artifactId>sample-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
-            <artifactId>sample-common</artifactId>
-            <classifier>sources</classifier>
         </dependency>
         <dependency>
             <groupId>org.jboss.gwt.elemento</groupId>
@@ -199,6 +194,7 @@
                         <logLevel>INFO</logLevel>
                         <moduleName>${module.name}</moduleName>
                         <moduleShortName>${module.shortName}</moduleShortName>
+                        <sourceLevel>1.8</sourceLevel>
                     </configuration>
                 </plugin>
             </plugins>
