@@ -110,6 +110,15 @@ public final class TemplateUtil {
     }
 
     private static void replaceNestedExpressionInText(HTMLElement context, String expression, String value) {
+        // We would normally pass a NodeFilter object (containing an acceptNode
+        // method) as the third argument to createTreeWalker. However,
+        // Internet Explorer expects a function to be passed as the third
+        // argument, not an object, and will in fact throw a JavaScriptError
+        // on the first call to nextNode() if an object is provided instead of
+        // a function.
+        // 
+        // Therefore, we pass null as the third parameter here and handle the
+        // filtering manually using an if statement in the while loop below.
         TreeWalker treeWalker = DomGlobal.document.createTreeWalker(context, NodeFilter.SHOW_TEXT, null, false);
 
         while (treeWalker.nextNode() != null) {
