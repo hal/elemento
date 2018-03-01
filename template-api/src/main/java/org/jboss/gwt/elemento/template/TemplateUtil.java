@@ -110,15 +110,12 @@ public final class TemplateUtil {
     }
 
     private static void replaceNestedExpressionInText(HTMLElement context, String expression, String value) {
-        TreeWalker treeWalker = DomGlobal.document.createTreeWalker(context, NodeFilter.SHOW_TEXT, node -> {
-            if (node.nodeValue != null && node.nodeValue.contains(expression)) {
-                return NodeFilter.FILTER_ACCEPT;
-            }
-            return NodeFilter.FILTER_SKIP;
-        }, false);
+        TreeWalker treeWalker = DomGlobal.document.createTreeWalker(context, NodeFilter.SHOW_TEXT, null, false);
 
         while (treeWalker.nextNode() != null) {
-            treeWalker.getCurrentNode().nodeValue = treeWalker.getCurrentNode().nodeValue.replace(expression, value);
+            if (treeWalker.getCurrentNode().nodeValue != null && treeWalker.getCurrentNode().nodeValue.contains(expression)) {
+                treeWalker.getCurrentNode().nodeValue = treeWalker.getCurrentNode().nodeValue.replace(expression, value);
+            }
         }
     }
 
