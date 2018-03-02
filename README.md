@@ -40,7 +40,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>0.7.1</version>
 </dependency>
 ```
  
@@ -225,7 +225,7 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>0.7.1</version>
 </dependency>
 ```
 
