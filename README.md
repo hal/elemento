@@ -6,7 +6,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 
 - Type safe [builders](#builder-api) and [event handlers](#event-handlers)
 - [HTML templates](#html-templates) with support for expressions
-- Easy integration with other libraries such as [Errai](#errai), [RxGWT](#rxgwt) or [GIN](#gin)
+- Easy integration with other libraries such as [Errai](#errai), [RxGWT](#rxgwt) or [Dagger and GIN](#dagger-and-gin)
 - [Helper methods](#helper-methods) to mix and match GWT Elemental and GWT Widgets
 
 **TOC**  
@@ -40,7 +40,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>0.7.0</version>
+    <version>0.7.1</version>
 </dependency>
 ```
  
@@ -225,7 +225,7 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
-    <version>0.7.0</version>
+    <version>0.7.1</version>
 </dependency>
 ```
 

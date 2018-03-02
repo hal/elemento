@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.7.0</version>
+        <version>0.7.1</version>
     </parent>
 
     <artifactId>elemento-template-api</artifactId>
@@ -50,6 +50,10 @@
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
         </dependency>
     </dependencies>
 
