@@ -116,7 +116,7 @@ public final class TemplateUtil {
         // argument, not an object, and will in fact throw a JavaScriptError
         // on the first call to nextNode() if an object is provided instead of
         // a function.
-        // 
+        //
         // Therefore, we pass null as the third parameter here and handle the
         // filtering manually using an if statement in the while loop below.
         TreeWalker treeWalker = DomGlobal.document.createTreeWalker(context, NodeFilter.SHOW_TEXT, null, false);
