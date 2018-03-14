@@ -12,7 +12,7 @@ If you don't have one already, head to https://github.com/
 
 ### Git Flow
 
-We use [Git Flow](https://github.com/nvie/gitflow) to manage branches. Although it's no requirement, it helps if you've read and understood the [basic ideas](http://nvie.com/posts/a-successful-git-branching-model/) behind Git Flow.
+We use [Git Flow](https://github.com/nvie/gitflow) to manage branches. Although it's no requirement, it helps if you've read and understood the [basic ideas](http://nvie.com/posts/a-successful-git-branching-model/) behind Git Flow. The most important fact is that development happens in the `develop` branch and that the latest stable version is always available in branch `master`.
 
 ### Fork Elemento
 
@@ -40,7 +40,7 @@ This is the typical process you would follow to submit any changes to Elemento.
 ### Pulling updates from upstream
 
 ```bash
-git pull --rebase upstream master
+git pull --rebase upstream develop
 ```
 
 > Note that --rebase will automatically move your local commits, if you have
