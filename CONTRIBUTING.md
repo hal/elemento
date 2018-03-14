@@ -1,31 +1,29 @@
-# Contributing to Elemento
-
-We welcome contributions of any kind to Elemento from everyone.
+First off, thank you for considering contributing to Elemento. It's people like you that make Elemento such a great tool. Elemento is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into Elemento itself.
 
 We expect all contributors and users to follow our [Code of Conduct](CODE_OF_CONDUCT.md) when communicating through project channels. These include, but are not limited to: chat, issues, code.
 
-## One time setup
+# One time setup
 
-### Create a GitHub account
+## Create a GitHub account
 
 If you don't have one already, head to https://github.com/
 
-### Git Flow
+## Git Flow
 
 We use [Git Flow](https://github.com/nvie/gitflow) to manage branches. Although it's no requirement, it helps if you've read and understood the [basic ideas](http://nvie.com/posts/a-successful-git-branching-model/) behind Git Flow. The most important fact is that development happens in the `develop` branch and that the latest stable version is always available in branch `master`.
 
-### Fork Elemento
+## Fork Elemento
 
 Fork https://github.com/hal/elemento into your GitHub account.
 
-### Clone your newly forked repository onto your local machine
+## Clone your newly forked repository onto your local machine
 
 ```bash
 git clone git@github.com:[your username]/elemento.git
 cd elemento
 ```
 
-### Add a remote reference to upstream
+## Add a remote reference to upstream
 
 This makes it easy to pull down changes in the project over time
 
@@ -33,11 +31,11 @@ This makes it easy to pull down changes in the project over time
 git remote add upstream git://github.com/hal/elemento.git
 ```
 
-## Development Process
+# Development Process
 
 This is the typical process you would follow to submit any changes to Elemento.
 
-### Pulling updates from upstream
+## Pulling updates from upstream
 
 ```bash
 git pull --rebase upstream develop
@@ -49,18 +47,18 @@ git pull --rebase upstream develop
 > doesn't hurt to use it each time just in case you have a commit you've
 > forgotten about!
 
-### Discuss your planned changes (if you want feedback)
+## Discuss your planned changes (if you want feedback)
 
  * GitHub Issues - https://github.com/hal/elemento/issues
  * Gitter - https://gitter.im/hal/elemento
 
-### Create a simple topic branch to isolate your work (recommended)
+## Create a simple topic branch to isolate your work (recommended)
 
 ```bash
 git checkout -b my_cool_feature
 ```
 
-### Make the changes
+## Make the changes
 
 Make whatever code changes, including new tests to verify your change, are necessary and ensure that the build and tests pass. Make sure your code changes apply to the checkstyle rules defined at [build/checkstyle.xml](build/checkstyle.xml):
 
@@ -70,7 +68,7 @@ mvn clean install
 
 > If you're making non code changes, the above step is not required.
 
-### Commit changes
+## Commit changes
 
 Add whichever files were changed into 'staging' before performing a commit:
 
@@ -78,7 +76,7 @@ Add whichever files were changed into 'staging' before performing a commit:
 git commit
 ```
 
-### Rebase changes against develop
+## Rebase changes against develop
 
 Once all your commits for the issue have been made against your local topic branch, we need to rebase it against develop in upstream to ensure that your commits are added on top of the current state of develop. This will make it easier to incorporate your changes into the develop branch, especially if there has been any significant time passed since you rebased at the beginning.
 
@@ -86,7 +84,7 @@ Once all your commits for the issue have been made against your local topic bran
 git pull --rebase upstream develop
 ```
 
-### Push to your repo
+## Push to your repo
 
 Now that you've sync'd your topic branch with upstream, it's time to push it to your GitHub repo.
 
@@ -94,7 +92,7 @@ Now that you've sync'd your topic branch with upstream, it's time to push it to 
 git push origin my_cool_feature
 ```
 
-### Getting your changes merged into upstream, a pull request
+## Getting your changes merged into upstream, a pull request
 
 Now your updates are in your GitHub repo, you will need to notify the project that you have code/docs for inclusion.
 
@@ -113,7 +111,7 @@ git pull upstream develop
 git push origin
 ```
 
-### Some tips
+## Some tips
 
 Here are some tips on increasing the chance that your pull request is accepted:
 
