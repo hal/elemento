@@ -62,7 +62,7 @@ git checkout -b my_cool_feature
 
 ### Make the changes
 
-Make whatever code changes, including new tests to verify your change, are necessary and ensure that the build and tests pass. Make sure your code changes apply to the checkstyle rules defined at https://github.com/hal/checkstyle:
+Make whatever code changes, including new tests to verify your change, are necessary and ensure that the build and tests pass. Make sure your code changes apply to the checkstyle rules defined at [build/checkstyle.xml](build/checkstyle.xml):
 
 ```bash
 mvn clean install
