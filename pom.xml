@@ -112,6 +112,7 @@
         <module>core</module>
         <module>template-api</module>
         <module>template-processor</module>
+        <module>widget-wrapper</module>
     </modules>
 
     <dependencyManagement>

@@ -15,8 +15,6 @@ package org.jboss.gwt.elemento.template;
 
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.Attr;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
@@ -26,7 +24,6 @@ import elemental2.dom.Node;
 import elemental2.dom.NodeFilter;
 import elemental2.dom.TreeWalker;
 import jsinterop.base.Js;
-import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.IsElement;
 
 /**
@@ -70,15 +67,6 @@ public final class TemplateUtil {
     public static void replaceIsElement(HTMLElement context, String identifier, IsElement newElement) {
         replaceElement(context, identifier, newElement.asElement());
     }
-
-    public static void replaceWidget(HTMLElement context, String identifier, Widget newWidget) {
-        replaceElement(context, identifier, Elements.asElement(newWidget));
-    }
-
-    public static void replaceIsWidget(HTMLElement context, String identifier, IsWidget newWidget) {
-        replaceElement(context, identifier, Elements.asElement(newWidget));
-    }
-
 
     // ------------------------------------------------------ custom elements
 
