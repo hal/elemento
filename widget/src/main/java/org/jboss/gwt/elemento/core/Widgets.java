@@ -11,21 +11,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.gwt.elemento.wrapper;
+package org.jboss.gwt.elemento.core;
 
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.HTMLElement;
 import jsinterop.base.Js;
-import org.jboss.gwt.elemento.core.IsElement;
 
 /**
- * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
+ * Helper methods for working with {@link com.google.gwt.user.client.ui.Widget}s.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
  */
 @SuppressWarnings({"unused", "WeakerAccess"})
-public final class Elements {
+public final class Widgets {
 
     /** Converts from {@link IsElement} &rarr; {@link Widget}. */
     public static Widget asWidget(IsElement element) {
@@ -54,8 +53,7 @@ public final class Elements {
 
 
     // this is a static helper class which must never be instantiated!
-    private Elements() {
-
+    private Widgets() {
     }
 
     private static class ElementWidget extends Widget {
@@ -64,5 +62,4 @@ public final class Elements {
             setElement(com.google.gwt.dom.client.Element.as(Js.cast(element)));
         }
     }
-
 }

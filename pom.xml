@@ -112,7 +112,6 @@
         <module>core</module>
         <module>template-api</module>
         <module>template-processor</module>
-        <module>widget-wrapper</module>
     </modules>
 
     <dependencyManagement>
@@ -280,13 +279,6 @@
 
     <profiles>
         <profile>
-            <id>samples</id>
-            <modules>
-                <module>samples</module>
-                <module>samples/common</module>
-            </modules>
-        </profile>
-        <profile>
             <id>release</id>
             <build>
                 <plugins>
@@ -339,6 +331,13 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>samples</id>
+            <modules>
+                <module>samples</module>
+                <module>samples/common</module>
+            </modules>
         </profile>
         <profile>
             <id>site</id>
@@ -398,6 +397,12 @@
                     </plugin>
                 </plugins>
             </reporting>
+        </profile>
+        <profile>
+            <id>widget</id>
+            <modules>
+                <module>widget</module>
+            </modules>
         </profile>
     </profiles>
 

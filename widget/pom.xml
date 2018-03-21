@@ -23,9 +23,9 @@
         <version>HEAD-SNAPSHOT</version>
     </parent>
 
-    <artifactId>elemento-widget-wrapper</artifactId>
-    <name>Elemento :: Widget wrapper</name>
-    <description>Widget wrapper classes</description>
+    <artifactId>elemento-widget</artifactId>
+    <name>Elemento :: Widget Support</name>
+    <description>Support for GWT widgets</description>
     <packaging>gwt-lib</packaging>
 
     <dependencies>
@@ -54,7 +54,7 @@
                 <artifactId>gwt-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <moduleName>org.jboss.gwt.elemento.Wrapper</moduleName>
+                    <moduleName>org.jboss.gwt.elemento.Widget</moduleName>
                 </configuration>
             </plugin>
             <plugin>
