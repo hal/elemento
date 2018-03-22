@@ -13,8 +13,6 @@
  */
 package org.jboss.gwt.elemento.template;
 
-import com.google.gwt.safehtml.shared.SafeHtml;
-import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import elemental2.dom.Attr;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Element;
@@ -24,6 +22,8 @@ import elemental2.dom.Node;
 import elemental2.dom.NodeFilter;
 import elemental2.dom.TreeWalker;
 import jsinterop.base.Js;
+import org.gwtproject.safehtml.shared.SafeHtml;
+import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.gwt.elemento.core.IsElement;
 
 /**

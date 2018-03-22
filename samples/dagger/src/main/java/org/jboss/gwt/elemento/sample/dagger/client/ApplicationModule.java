@@ -18,10 +18,9 @@ import javax.inject.Singleton;
 import com.google.gwt.core.client.GWT;
 import dagger.Module;
 import dagger.Provides;
-import org.jboss.gwt.elemento.sample.common.I18n;
-import org.jboss.gwt.elemento.sample.common.TodoConstants;
+import org.jboss.gwt.elemento.sample.common.Constants;
+import org.jboss.gwt.elemento.sample.common.Messages;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 @Module
 public class ApplicationModule {
@@ -47,22 +46,5 @@ public class ApplicationModule {
     @Singleton
     TodoItemRepository provideTodoItemRepository() {
         return new TodoItemRepository();
-    }
-
-    @Provides
-    @Singleton
-    TodoConstants provideTodoConstants() {
-        return GWT.create(TodoConstants.class);
-    }
-
-    @Provides
-    @Singleton
-    TodoMessages provideTodoMessages() {
-        return GWT.create(TodoMessages.class);
-    }
-
-    @Provides
-    I18n provideI18n(TodoConstants constants, TodoMessages messages) {
-        return new I18n(constants, messages);
     }
 }

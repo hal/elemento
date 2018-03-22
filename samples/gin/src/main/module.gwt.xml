@@ -13,13 +13,7 @@
   ~ limitations under the License.
   -->
 <module>
-    <inherits name="elemental2.dom.Dom"/>
-    <inherits name="elemental2.webstorage.WebStorage"/>
-    <inherits name="com.google.gwt.user.User"/>
     <inherits name="com.google.gwt.inject.Inject"/>
-    <inherits name="org.jboss.gwt.elemento.Core"/>
-    <inherits name="org.jboss.gwt.elemento.Template"/>
-    <inherits name="org.jboss.gwt.elemento.sample.Common"/>
 
     <entry-point class="org.jboss.gwt.elemento.sample.gin.client.Main"/>
     <collapse-all-properties/>

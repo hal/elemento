@@ -77,7 +77,7 @@ public final class Application {
         }
     }
 
-    public static void update(Filter filter, I18n i18n, HTMLElement list, HTMLElement main, HTMLElement footer,
+    public static void update(Filter filter, HTMLElement list, HTMLElement main, HTMLElement footer,
             HTMLInputElement toggleAll, HTMLElement count, HTMLElement clearCompleted) {
 
         int activeCount = 0;
@@ -96,7 +96,7 @@ public final class Application {
             }
         }
         toggleAll.checked = (size == completedCount);
-        Elements.innerHtml(count, i18n.messages().items(activeCount));
+        Elements.innerHtml(count, Messages.items(activeCount));
         Elements.setVisible(clearCompleted, completedCount != 0);
     }
 

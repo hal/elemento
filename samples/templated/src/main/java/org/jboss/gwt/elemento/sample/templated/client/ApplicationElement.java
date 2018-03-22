@@ -24,7 +24,6 @@ import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Key;
 import org.jboss.gwt.elemento.sample.common.Application;
 import org.jboss.gwt.elemento.sample.common.Filter;
-import org.jboss.gwt.elemento.sample.common.I18n;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 import org.jboss.gwt.elemento.template.DataElement;
@@ -40,12 +39,11 @@ import static org.jboss.gwt.elemento.core.EventType.keydown;
 abstract class ApplicationElement implements IsElement<HTMLElement> {
 
     // @formatter:off
-    static ApplicationElement create(TodoItemRepository repository, I18n i18n) {
-        return new Templated_ApplicationElement(repository, i18n);
+    static ApplicationElement create(TodoItemRepository repository) {
+        return new Templated_ApplicationElement(repository);
     }
 
     abstract TodoItemRepository repository();
-    abstract I18n i18n();
     // @formatter:on
 
 
@@ -109,6 +107,6 @@ abstract class ApplicationElement implements IsElement<HTMLElement> {
     }
 
     void update() {
-        Application.update(filter, i18n(), list, main, footer, toggleAll, count, clearCompleted);
+        Application.update(filter, list, main, footer, toggleAll, count, clearCompleted);
     }
 }

@@ -14,8 +14,6 @@
   -->
 <module>
     <inherits name="com.google.gwt.core.Core"/>
-    <inherits name="elemental2.core.Core"/>
-    <inherits name="elemental2.dom.Dom"/>
-    <inherits name="org.jboss.gwt.elemento.Core"/>
+
     <source path="core"/>
 </module>

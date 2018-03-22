@@ -13,10 +13,16 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
-import com.google.gwt.i18n.client.Messages;
-import com.google.gwt.safehtml.shared.SafeHtml;
+public interface Constants {
 
-public interface TodoMessages extends Messages {
-
-    SafeHtml items(@PluralCount int items);
+    String CLEAR_COMPLETED = "Clear completed";
+    String COMPLETE_ALL = "Mark all as complete";
+    String CREATED_BY = "Created by";
+    String DOUBLE_CLICK_TO_EDIT = "Double-click to edit a todo";
+    String FILTER_ACTIVE = "Active";
+    String FILTER_ALL = "All";
+    String FILTER_COMPLETED = "Completed";
+    String NEW_TODO = "What needs to be done?";
+    String PART_OF = "Part of";
+    String TODOS = "todos";
 }
