@@ -13,5 +13,7 @@
   ~ limitations under the License.
   -->
 <module>
-    <source path="common"/>
+    <inherits name="com.google.gwt.core.Core"/>
+
+    <source path="core"/>
 </module>

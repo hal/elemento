@@ -58,8 +58,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.SetMultimap;
 import com.google.common.escape.Escaper;
 import com.google.common.escape.Escapers;
-import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLAreaElement;
 import elemental2.dom.HTMLAudioElement;
@@ -506,10 +504,6 @@ public class TemplatedProcessor extends AbstractProcessor {
             return Kind.HTMLElement;
         } else if (isAssignable(dataElementType, IsElement.class)) {
             return Kind.IsElement;
-        } else if (isAssignable(dataElementType, Widget.class)) {
-            return Kind.Widget;
-        } else if (isAssignable(dataElementType, IsWidget.class)) {
-            return Kind.IsWidget;
         } else {
             return Kind.Custom;
         }

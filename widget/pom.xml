@@ -19,40 +19,51 @@
 
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
-        <artifactId>elemento-samples</artifactId>
+        <artifactId>elemento-parent</artifactId>
         <version>0.8.0</version>
     </parent>
 
-    <artifactId>errai-sample</artifactId>
-    <name>Elemento :: Samples :: Errai</name>
-    <packaging>gwt-app</packaging>
-
-    <properties>
-        <gwt.public.directory>src/main/resources/org/jboss/gwt/elemento/sample/errai/public</gwt.public.directory>
-        <module.name>org.jboss.gwt.elemento.sample.errai.ErraiSample</module.name>
-        <module.shortName>errai</module.shortName>
-    </properties>
+    <artifactId>elemento-widget</artifactId>
+    <name>Elemento :: Widget Support</name>
+    <description>Support for GWT widgets</description>
+    <packaging>gwt-lib</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.errai</groupId>
-            <artifactId>errai-cdi-client</artifactId>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.gwt.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <moduleName>org.jboss.gwt.elemento.Widget</moduleName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                    <message/>
+                </configuration>
             </plugin>
         </plugins>
     </build>

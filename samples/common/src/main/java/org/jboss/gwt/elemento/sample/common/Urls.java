@@ -14,6 +14,7 @@
 package org.jboss.gwt.elemento.sample.common;
 
 public interface Urls {
+
     String HPEHL_INFO = "http://hpehl.info";
     String TODO_MVC = "http://todomvc.com";
 }

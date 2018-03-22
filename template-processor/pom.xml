@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.7.1</version>
+        <version>0.8.0</version>
     </parent>
 
     <artifactId>elemento-template-processor</artifactId>
@@ -44,10 +44,6 @@
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-dom</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -84,7 +80,6 @@
                             <artifactSet>
                                 <excludes>
                                     <exclude>com.google.elemental2:*</exclude>
-                                    <exclude>com.google.gwt:gwt-user</exclude>
                                     <exclude>com.google.jsinterop:*</exclude>
                                     <exclude>javax.annotation:*</exclude>
                                     <exclude>javax.validation:validation-api</exclude>

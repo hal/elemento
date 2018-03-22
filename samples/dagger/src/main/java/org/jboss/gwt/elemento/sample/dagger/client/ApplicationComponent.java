@@ -16,10 +16,9 @@ package org.jboss.gwt.elemento.sample.dagger.client;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import org.jboss.gwt.elemento.sample.common.I18n;
 
-@SuppressWarnings("unused")
 @Singleton
+@SuppressWarnings("unused")
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
 
@@ -30,6 +29,4 @@ public interface ApplicationComponent {
     ApplicationElement application();
 
     FooterElement footer();
-
-    I18n i18n();
 }

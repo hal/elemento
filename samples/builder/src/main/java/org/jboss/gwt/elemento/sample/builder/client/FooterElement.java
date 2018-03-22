@@ -15,7 +15,7 @@ package org.jboss.gwt.elemento.sample.builder.client;
 
 import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.sample.common.I18n;
+import org.jboss.gwt.elemento.sample.common.Constants;
 import org.jboss.gwt.elemento.sample.common.Urls;
 
 import static org.jboss.gwt.elemento.core.Elements.a;
@@ -27,12 +27,12 @@ class FooterElement implements IsElement<HTMLElement> {
 
     private final HTMLElement root;
 
-    FooterElement(final I18n i18n) {
+    FooterElement() {
         root = footer().css("info")
-                .add(p().textContent(i18n.constants().double_click_to_edit()))
-                .add(p().add(span().textContent(i18n.constants().created_by() + " "))
+                .add(p().textContent(Constants.DOUBLE_CLICK_TO_EDIT))
+                .add(p().add(span().textContent(Constants.CREATED_BY + " "))
                         .add(a(Urls.HPEHL_INFO).textContent("Harald Pehl")))
-                .add(p().add(span().textContent(i18n.constants().part_of() + " "))
+                .add(p().add(span().textContent(Constants.PART_OF + " "))
                         .add(a(Urls.TODO_MVC).textContent("TodoMVC")))
                 .asElement();
     }

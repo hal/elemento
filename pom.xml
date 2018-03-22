@@ -25,7 +25,7 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.7.1</version>
+    <version>0.8.0</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -106,6 +106,7 @@
         <javax.inject.version>1</javax.inject.version>
         <jsoup.version>1.11.2</jsoup.version>
         <junit.version>4.12</junit.version>
+        <safehtml.version>1.0-SNAPSHOT</safehtml.version>
     </properties>
 
     <modules>
@@ -167,6 +168,11 @@
                 <groupId>com.google.elemental2</groupId>
                 <artifactId>elemental2-webstorage</artifactId>
                 <version>${elemental.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.gwtproject.safehtml</groupId>
+                <artifactId>safehtml</artifactId>
+                <version>${safehtml.version}</version>
             </dependency>
 
             <!-- Misc -->
@@ -279,14 +285,6 @@
 
     <profiles>
         <profile>
-            <id>samples</id>
-            <modules>
-                <module>samples</module>
-                <module>samples/common</module>
-            </modules>
-        </profile>
-
-        <profile>
             <id>release</id>
             <build>
                 <plugins>
@@ -337,6 +335,20 @@
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>samples</id>
+            <modules>
+                <module>samples</module>
+                <module>samples/common</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>site</id>
+            <build>
+                <plugins>
                     <plugin>
                         <groupId>com.github.github</groupId>
                         <artifactId>site-maven-plugin</artifactId>
@@ -355,7 +367,6 @@
                     </plugin>
                 </plugins>
             </build>
-
             <reporting>
                 <plugins>
                     <plugin>
@@ -393,6 +404,12 @@
                 </plugins>
             </reporting>
         </profile>
+        <profile>
+            <id>widget</id>
+            <modules>
+                <module>widget</module>
+            </modules>
+        </profile>
     </profiles>
 
     <repositories>
@@ -402,8 +419,13 @@
             <url>https://repository.jboss.org/nexus/content/groups/public/</url>
         </repository>
         <repository>
+            <id>vertispan-snapshots</id>
+            <name>Vertispan Snapshots</name>
+            <url>https://repo.vertispan.com/gwt-snapshot/</url>
+        </repository>
+        <repository>
             <id>oss-sonatype</id>
-            <name>oss-sonatype</name>
+            <name>OSS Sonatype</name>
             <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
             <releases>
                 <enabled>false</enabled>

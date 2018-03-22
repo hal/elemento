@@ -51,12 +51,6 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
             <#-- IsElement -->
             <#elseif dataElement.kind.name() == "IsElement">
         TemplateUtil.replaceIsElement(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
-            <#-- Widget -->
-            <#elseif dataElement.kind.name() == "Widget">
-        TemplateUtil.replaceWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
-            <#-- IsElement -->
-            <#elseif dataElement.kind.name() == "IsWidget">
-        TemplateUtil.replaceIsWidget(${context.root.member}, "${dataElement.selector}", ${dataElement.fieldOrMethod});
             <#-- Custom -->
             <#elseif dataElement.kind.name() == "Custom">
                 <#if dataElement.returnedByMethod>

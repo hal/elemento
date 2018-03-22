@@ -7,7 +7,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 - Type safe [builders](#builder-api) and [event handlers](#event-handlers)
 - [HTML templates](#html-templates) with support for expressions
 - Easy integration with other libraries such as [Errai](#errai), [RxGWT](#rxgwt) or [Dagger and GIN](#dagger-and-gin)
-- [Helper methods](#helper-methods) to mix and match GWT Elemental and GWT Widgets
+- [Helper methods](#helper-methods) to safely append, insert & remove elements
 
 **TOC**  
 * [Get Started](#get-started)
@@ -40,7 +40,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>0.7.1</version>
+    <version>0.8.0</version>
 </dependency>
 ```
  
@@ -225,7 +225,7 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
-    <version>0.7.1</version>
+    <version>0.8.0</version>
 </dependency>
 ```
 
@@ -339,8 +339,8 @@ The `@DataElement` can be applied to fields and methods. Those fields and method
 | Java Element | Direction |
 | --- | --- |
 | **1. Fields w/o an initializer**<br/>The element, its attributes and all children are mapped from the HTML template to the annotated field. The type of the field should be `elemental2.dom.HTMLElement` or a subclass of `elemental2.dom.HTMLElement`. | HTML&nbsp;&rarr;&nbsp;Java |
-| **2. Fields w/ an initializer**<br/>The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget`. | Java &rarr; HTML |
-| **3. Methods**<br/>The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement`, `IsElement`, `Widget`, or `IsWidget` and must not have any parameters. | Java &rarr; HTML |
+| **2. Fields w/ an initializer**<br/>The element in the HTML template is replaced with the initializer. The type of the field should be one of: `elemental2.dom.HTMLElement` or `IsElement`. | Java &rarr; HTML |
+| **3. Methods**<br/>The element in the HTML template is replaced with the return value of the method. The method should return one of: `elemental2.dom.HTMLElement` or `IsElement` and must not have any parameters. | Java &rarr; HTML |
 
 You're also free to use custom types when mapping fields and methods. In this case the generated code will use `Js.cast()`. It's up to you to make sure the cast works. Otherwise this can lead to strange errors which are hard to detect.
 
@@ -462,7 +462,6 @@ Besides the builder API and the HTML templates, Elemento comes with a bunch of s
 
 1. Element iterator / stream methods
 1. Element append, insert & remove methods
-1. Conversions between HTML elements and widgets
 1. Misc element helper methods (show, hide, toggle CSS classes)
 
 See the API documentation of [Elements](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.

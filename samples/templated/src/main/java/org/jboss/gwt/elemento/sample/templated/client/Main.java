@@ -14,28 +14,20 @@
 package org.jboss.gwt.elemento.sample.templated.client;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.History;
-import org.jboss.gwt.elemento.sample.common.I18n;
-import org.jboss.gwt.elemento.sample.common.TodoConstants;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 import static elemental2.dom.DomGlobal.document;
 
 public class Main implements EntryPoint {
 
-    private static final TodoConstants CONSTANTS = GWT.create(TodoConstants.class);
-    private static final TodoMessages MESSAGES = GWT.create(TodoMessages.class);
-
     @Override
     public void onModuleLoad() {
-        I18n i18n = new I18n(CONSTANTS, MESSAGES);
         TodoItemRepository repository = new TodoItemRepository();
-        ApplicationElement application = ApplicationElement.create(repository, i18n);
+        ApplicationElement application = ApplicationElement.create(repository);
 
         document.body.appendChild(application.asElement());
-        document.body.appendChild(FooterElement.create(i18n).asElement());
+        document.body.appendChild(FooterElement.create().asElement());
 
         History.addValueChangeHandler(event -> application.filter(event.getValue()));
         History.fireCurrentHistoryState();

@@ -14,11 +14,7 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import com.google.gwt.inject.client.AbstractGinModule;
-import com.google.inject.Provides;
 import com.google.inject.Singleton;
-import org.jboss.gwt.elemento.sample.common.I18n;
-import org.jboss.gwt.elemento.sample.common.TodoConstants;
-import org.jboss.gwt.elemento.sample.common.TodoMessages;
 
 public class ApplicationModule extends AbstractGinModule {
 
@@ -27,10 +23,5 @@ public class ApplicationModule extends AbstractGinModule {
         bind(ApplicationElement.class).to(Templated_ApplicationElement.class).in(Singleton.class);
         bind(FooterElement.class).to(Templated_FooterElement.class).in(Singleton.class);
         bind(TodoItemElement.class).to(Templated_TodoItemElement.class);
-    }
-
-    @Provides
-    I18n provideI18n(TodoConstants constants, TodoMessages messages) {
-        return new I18n(constants, messages);
     }
 }

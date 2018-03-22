@@ -13,21 +13,24 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
-public class I18n {
+import org.gwtproject.safehtml.shared.SafeHtml;
+import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 
-    private final TodoConstants constants;
-    private final TodoMessages messages;
+public interface Messages {
 
-    public I18n(final TodoConstants constants, final TodoMessages messages) {
-        this.constants = constants;
-        this.messages = messages;
-    }
-
-    public TodoConstants constants() {
-        return constants;
-    }
-
-    public TodoMessages messages() {
-        return messages;
+    static SafeHtml items(int items) {
+        String message;
+        switch (items) {
+            case 0:
+                message = "<strong>no</strong> items left";
+                break;
+            case 1:
+                message = "<strong>one</strong> item left";
+                break;
+            default:
+                message = "<strong>" + items + "</strong> items left";
+                break;
+        }
+        return SafeHtmlUtils.fromSafeConstant(message);
     }
 }

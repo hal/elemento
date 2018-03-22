@@ -29,8 +29,8 @@ import org.jboss.gwt.elemento.template.Templated;
 
 import static org.jboss.gwt.elemento.core.EventType.*;
 
-@SuppressWarnings({"Duplicates", "unused"})
 @Templated("Todo.html#item")
+@SuppressWarnings({"Duplicates", "unused"})
 abstract class TodoItemElement implements IsElement<HTMLLIElement> {
 
     // @formatter:off
