@@ -7,7 +7,7 @@ PROGNAME=`basename "$0"`
 if [ "$#" -ne 1 ]; then
     echo "Illegal number of arguments. Use '$PROGNAME <version>'"
 else
-    mvn versions:set -DnewVersion=$1 -Psamples
+    mvn versions:set -DnewVersion=$1 -P samples,widget
     sed -i.versionsBackup "s/<version>.*<\/version>/<version>$1<\/version>/" README.md
     find . -name "*.versionsBackup" -exec rm {} \;
 fi
