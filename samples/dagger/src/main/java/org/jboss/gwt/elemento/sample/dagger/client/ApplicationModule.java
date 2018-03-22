@@ -15,11 +15,8 @@ package org.jboss.gwt.elemento.sample.dagger.client;
 
 import javax.inject.Singleton;
 
-import com.google.gwt.core.client.GWT;
 import dagger.Module;
 import dagger.Provides;
-import org.jboss.gwt.elemento.sample.common.Constants;
-import org.jboss.gwt.elemento.sample.common.Messages;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
 @Module
