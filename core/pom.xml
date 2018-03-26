@@ -42,8 +42,8 @@
             <artifactId>elemental2-webstorage</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.gwtproject.safehtml</groupId>
-            <artifactId>safehtml</artifactId>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.gwt.gwtmockito</groupId>

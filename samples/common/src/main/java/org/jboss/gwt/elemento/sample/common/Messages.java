@@ -13,8 +13,8 @@
  */
 package org.jboss.gwt.elemento.sample.common;
 
-import org.gwtproject.safehtml.shared.SafeHtml;
-import org.gwtproject.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 
 public interface Messages {
 

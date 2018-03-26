@@ -106,7 +106,6 @@
         <javax.inject.version>1</javax.inject.version>
         <jsoup.version>1.11.2</jsoup.version>
         <junit.version>4.12</junit.version>
-        <safehtml.version>1.0-SNAPSHOT</safehtml.version>
     </properties>
 
     <modules>
@@ -168,11 +167,6 @@
                 <groupId>com.google.elemental2</groupId>
                 <artifactId>elemental2-webstorage</artifactId>
                 <version>${elemental.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.gwtproject.safehtml</groupId>
-                <artifactId>safehtml</artifactId>
-                <version>${safehtml.version}</version>
             </dependency>
 
             <!-- Misc -->
