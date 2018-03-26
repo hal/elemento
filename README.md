@@ -41,7 +41,11 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
+<<<<<<< HEAD
     <version>0.8.1-gwt2</version>
+=======
+    <version>0.8.1</version>
+>>>>>>> release/0.8.1
 </dependency>
 ```
  
@@ -226,7 +230,11 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
+<<<<<<< HEAD
     <version>0.8.1-gwt2</version>
+=======
+    <version>0.8.1</version>
+>>>>>>> release/0.8.1
 </dependency>
 ```
 

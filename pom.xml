@@ -25,7 +25,11 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
+<<<<<<< HEAD
     <version>0.8.1-gwt2</version>
+=======
+    <version>0.8.1</version>
+>>>>>>> release/0.8.1
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
