@@ -28,7 +28,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
   * [RxGWT](#rxgwt)
   * [Dagger and GIN](#dagger-and-gin)
 * [Helper Methods](#helper-methods)
-* [J2CL / GWT3](j2cl-gwt3)
+* [J2CL / GWT3](#j2cl--gwt3)
 * [Samples](#samples)
 * [Contributing](#contributing)
 * [Get Help](#get-help)
