@@ -469,11 +469,14 @@ See the API documentation of [Elements](http://rawgit.com/hal/elemento/site/apid
 
 # J2CL / GWT3
 
-Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to `gwt-user`. There are methods that use safe HTML classes. But these classes are taken from [`org.gwtproject.safehtml:safehtml`](https://github.com/Vertispan/gwt-safehtml/). In case you still need to use the safe HTML classes from `gwt-user`, you can switch to another Elemento version:
+Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to `gwt-user`. There are methods that use safe HTML classes. But these classes are taken from [`org.gwtproject.safehtml:safehtml`](https://github.com/Vertispan/gwt-safehtml/). In case you still need to use the safe HTML classes from `gwt-user`, you can switch to another Elemento versions `GWT2-SNAPSHOT` resp. `x.y.z-gwt2`.
+
+In general Elemento provides these branches which produce the following versions: 
 
 - The main branches `develop` and `master` have no `gwt-user` dependency. They use safe HTML classes from `org.gwtproject.safehtml:safehtml`. These branches produce versions `HEAD-SNAPSHOT` resp. `x.y.z`
 - The branch `gwt2` use safe HTML classes from `gwt-user`. This branch produces versions `GWT2-SNAPSHOT` resp. `x.y.z-gwt2`
-- Methods to convert from `com.google.gwt.user.client.ui.Widget` and `com.google.gwt.dom.client.Element` to `elemental2.dom.HTMLElement` and vice versa are part of class `org.jboss.gwt.elemento.core.Widgets` in module `elemento-widget`. This module is available in all versions and branches and has obvisiouly a dependeny to `gwt-user`.  
+
+Methods to convert from `com.google.gwt.user.client.ui.Widget` and `com.google.gwt.dom.client.Element` to `elemental2.dom.HTMLElement` and vice versa are part of class `org.jboss.gwt.elemento.core.Widgets` in module `elemento-widget`. This module is available in all versions and branches and has obvisiouly a dependeny to `gwt-user`.  
 
 # Samples
 
