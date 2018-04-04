@@ -641,6 +641,50 @@ public final class Elements {
     }
 
     /**
+     * Inserts the specified element into the parent of the after element.
+     */
+    public static void insertAfter(final Element newElement, final Element after) {
+        after.parentNode.insertBefore(newElement, after.nextSibling);
+    }
+
+    /**
+     * Inserts the specified element into the parent of the after element if not already present. If parent already
+     * contains child, this method does nothing.
+     */
+    public static void lazyInsertAfter(final Element newElement, final Element after) {
+        if (!after.parentNode.contains(newElement)) {
+            after.parentNode.insertBefore(newElement, after.nextSibling);
+        }
+    }
+
+    /**
+     * Inserts the specified element into the parent element if not already present. If parent already
+     * contains child, this method does nothing.
+     */
+    public static void lazyInsertAfter(final Element parent, final Element newElement, final Element after) {
+        if (!parent.contains(newElement)) {
+            parent.insertBefore(newElement, after.nextSibling);
+        }
+    }
+
+    /**
+     * Inserts the specified element into the parent of the before element.
+     */
+    public static void insertBefore(final Element newElement, final Element before) {
+        before.parentNode.insertBefore(newElement, before);
+    }
+
+    /**
+     * Inserts the specified element into the parent of the before element if not already present. If parent already
+     * contains child, this method does nothing.
+     */
+    public static void lazyInsertBefore(final Element newElement, final Element before) {
+        if (!before.parentNode.contains(newElement)) {
+            before.parentNode.insertBefore(newElement, before);
+        }
+    }
+
+    /**
      * Inserts the specified element into the parent element if not already present. If parent already contains child,
      * this method does nothing.
      */
