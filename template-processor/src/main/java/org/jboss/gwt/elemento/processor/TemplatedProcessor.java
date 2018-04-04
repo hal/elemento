@@ -367,50 +367,45 @@ public class TemplatedProcessor extends AbstractProcessor {
         org.jsoup.nodes.Element root = null;
         String fqTemplate = TypeSimplifier.packageNameOf(type).replace('.', '/') + "/" + templateSelector.template;
 
-        FileObject templateResource = null;
-        try {
-            templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_OUTPUT, "",
-                    fqTemplate);
-        } catch (IOException e) {
+        String templateContent = readTemplate(fqTemplate);
+
+        if (templateContent == null) {
             abortWithError(type, "Cannot find template \"%s\". Please make sure the template exists.", fqTemplate);
         }
-        try {
-            Document document = Jsoup.parse(templateResource.getCharContent(true).toString());
-            if (templateSelector.hasSelector()) {
-                String query = "[data-element=" + templateSelector.selector + "]";
-                Elements selector = document.select(query);
-                if (selector.isEmpty()) {
-                    abortWithError(type, "Unable to select HTML from \"%s\" using \"%s\"", templateSelector.template,
-                            query);
-                } else {
-                    root = selector.first();
-                }
+
+        Document document = Jsoup.parse(templateContent);
+        if (templateSelector.hasSelector()) {
+            String query = "[data-element=" + templateSelector.selector + "]";
+            Elements selector = document.select(query);
+            if (selector.isEmpty()) {
+                abortWithError(type, "Unable to select HTML from \"%s\" using \"%s\"", templateSelector.template,
+                        query);
             } else {
-                if (document.body() == null || document.body().children().isEmpty()) {
-                    abortWithError(type, "No content found in the <body> of \"%s\"", templateSelector.template);
-                } else {
-                    root = document.body().children().first();
-                }
+                root = selector.first();
             }
-        } catch (IOException e) {
-            abortWithError(type, "Unable to read template \"%s\": %s", fqTemplate, e.getMessage());
+        } else {
+            if (document.body() == null || document.body().children().isEmpty()) {
+                abortWithError(type, "No content found in the <body> of \"%s\"", templateSelector.template);
+            } else {
+                root = document.body().children().first();
+            }
         }
         return root;
     }
 
-    private FileObject findTemplate(String name) {
-        FileObject resource = null;
+    private String readTemplate(String name) {
+        FileObject resource;
         JavaFileManager.Location[] locations = new JavaFileManager.Location[]{
-                StandardLocation.SOURCE_PATH,
-                StandardLocation.CLASS_PATH,
-                StandardLocation.SOURCE_OUTPUT,
                 StandardLocation.CLASS_OUTPUT,
+                StandardLocation.SOURCE_OUTPUT,
+                StandardLocation.CLASS_PATH,
+                StandardLocation.SOURCE_PATH
         };
         for (JavaFileManager.Location location : locations) {
             try {
                 resource = processingEnv.getFiler().getResource(location, "", name);
                 if (resource != null) {
-                    return resource;
+                    return resource.getCharContent(true).toString();
                 }
             } catch (IOException ignored) {
                 debug("Unable to find %s in %s: %s", name, location.getName(), ignored.getMessage());
