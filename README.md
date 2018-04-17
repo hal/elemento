@@ -148,7 +148,7 @@ or register them later using `EventType.bind()`:
 EventType.bind(listItem, click, event -> DomGlobal.alert("Clicked"));
 ```
 
-The latter approach returns `com.google.web.bindery.event.shared.HandlerRegistration` which you can use to remove the handler again.
+The latter approach returns `org.gwtproject.event.shared.HandlerRegistration` which you can use to remove the handler again.
 
 In order to make it easier to work with keyboard events, Elemento provides an [enum](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Key.html) with the most common keyboard codes:
 
