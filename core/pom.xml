@@ -46,6 +46,10 @@
             <artifactId>safehtml</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.gwtproject.event</groupId>
+            <artifactId>gwt-event</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.google.gwt.gwtmockito</groupId>
             <artifactId>gwtmockito</artifactId>
             <scope>test</scope>

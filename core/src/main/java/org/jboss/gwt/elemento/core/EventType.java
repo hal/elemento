@@ -13,7 +13,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import com.google.web.bindery.event.shared.HandlerRegistration;
+import org.gwtproject.event.shared.HandlerRegistration;
 import elemental2.dom.ClipboardEvent;
 import elemental2.dom.Document;
 import elemental2.dom.DragEvent;

@@ -15,8 +15,8 @@ package org.jboss.gwt.elemento.sample.templated.client;
 
 import javax.annotation.PostConstruct;
 
-import com.google.web.bindery.event.shared.HandlerRegistration;
-import com.google.web.bindery.event.shared.HandlerRegistrations;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.event.shared.HandlerRegistrations;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
