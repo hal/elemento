@@ -41,11 +41,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-<<<<<<< HEAD
-    <version>0.8.1-gwt2</version>
-=======
-    <version>0.8.1</version>
->>>>>>> release/0.8.1
+    <version>0.8.2</version>
 </dependency>
 ```
  
@@ -152,7 +148,7 @@ or register them later using `EventType.bind()`:
 EventType.bind(listItem, click, event -> DomGlobal.alert("Clicked"));
 ```
 
-The latter approach returns `com.google.web.bindery.event.shared.HandlerRegistration` which you can use to remove the handler again.
+The latter approach returns `org.gwtproject.event.shared.HandlerRegistration` which you can use to remove the handler again.
 
 In order to make it easier to work with keyboard events, Elemento provides an [enum](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Key.html) with the most common keyboard codes:
 
@@ -231,10 +227,14 @@ To use HTML templates add the following maven dependency to your POM:
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <version>0.8.1-gwt2</version>
 =======
     <version>0.8.1</version>
 >>>>>>> release/0.8.1
+=======
+    <version>0.8.2</version>
+>>>>>>> release/0.8.2
 </dependency>
 ```
 

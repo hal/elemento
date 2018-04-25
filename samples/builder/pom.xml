@@ -20,11 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-<<<<<<< HEAD
-        <version>0.8.1-gwt2</version>
-=======
-        <version>0.8.1</version>
->>>>>>> release/0.8.1
+        <version>0.8.2</version>
     </parent>
 
     <artifactId>builder-sample</artifactId>
