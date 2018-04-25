@@ -14,12 +14,12 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import com.google.inject.Provider;
-import org.gwtproject.event.shared.HandlerRegistration;
-import org.gwtproject.event.shared.HandlerRegistrations;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLLIElement;
 import elemental2.dom.KeyboardEvent;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.event.shared.HandlerRegistrations;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Key;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
