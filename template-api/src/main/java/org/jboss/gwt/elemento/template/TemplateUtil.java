@@ -91,7 +91,8 @@ public final class TemplateUtil {
         } else {
             safeValue = SafeHtmlUtils.fromString(String.valueOf(value));
         }
-        replaceNestedExpressionInText(context, expression, safeValue.asString());
+        // Text nodes are automatically made safe by the browser, so we need to use value here instead of safeValue to avoid escaping the string twice.
+        replaceNestedExpressionInText(context, expression, String.valueOf(value));
         replaceNestedExpressionInAttributes(context, expression, safeValue.asString());
         // The call above does not catch the attributes in 'context', we need to replace them explicitly.
         replaceExpressionInAttributes(context, expression, safeValue.asString());
