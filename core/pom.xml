@@ -43,7 +43,7 @@
         </dependency>
         <dependency>
             <groupId>org.gwtproject.safehtml</groupId>
-            <artifactId>safehtml</artifactId>
+            <artifactId>gwt-safehtml</artifactId>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.event</groupId>
