@@ -172,7 +172,7 @@
             </dependency>
             <dependency>
                 <groupId>org.gwtproject.safehtml</groupId>
-                <artifactId>safehtml</artifactId>
+                <artifactId>gwt-safehtml</artifactId>
                 <version>${safehtml.version}</version>
             </dependency>
             <dependency>
