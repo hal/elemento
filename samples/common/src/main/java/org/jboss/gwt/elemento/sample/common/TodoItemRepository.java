@@ -17,9 +17,9 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
-import com.google.gwt.core.client.Scheduler;
 import elemental2.core.Global;
 import elemental2.core.JsArray;
+import elemental2.dom.DomGlobal;
 import elemental2.webstorage.Storage;
 import elemental2.webstorage.StorageEvent;
 import elemental2.webstorage.WebStorageWindow;
@@ -100,12 +100,17 @@ public class TodoItemRepository {
         save(items.values());
     }
 
-    public void onExternalModification(Scheduler.ScheduledCommand command) {
+    public void onExternalModification(ModificationCallback callback) {
         if (storage != null) {
             WebStorageWindow.of(window).addEventListener("storage", event -> {
                 StorageEvent storageEvent = (StorageEvent) event;
                 if (key.equals(storageEvent.key)) {
-                    Scheduler.get().scheduleDeferred(command);
+                    DomGlobal.setTimeout(new DomGlobal.SetTimeoutCallbackFn() {
+                        @Override
+                        public void onInvoke(Object... args) {
+                            callback.execute();
+                        }
+                    }, 333, null);
                 }
             }, false);
         }
@@ -138,5 +143,12 @@ public class TodoItemRepository {
             TodoItem[] todoItems = items.toArray(new TodoItem[0]);
             storage.setItem(key, Global.JSON.stringify(todoItems));
         }
+    }
+
+
+    @FunctionalInterface
+    public interface ModificationCallback {
+
+        void execute();
     }
 }

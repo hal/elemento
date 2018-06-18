@@ -1,4 +1,4 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jboss.gwt.elemento/elemento-parent) [![TC Build](https://ci.wildfly.org/app/rest/builds/buildType:(id:hal_Elemento)/statusIcon.svg)](https://ci.wildfly.org/viewType.html?buildTypeId=hal_Elemento&guest=1) [![Known Vulnerabilities](https://snyk.io/test/github/hal/elemento/badge.svg)](https://snyk.io/test/github/hal/elemento) [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
+[![TC Build](https://ci.wildfly.org/app/rest/builds/buildType:(id:hal_Elemento)/statusIcon.svg)](https://ci.wildfly.org/viewType.html?buildTypeId=hal_Elemento&guest=1) [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
 
 # Elemento
 
@@ -41,7 +41,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>0.8.2</version>
+    <version>0.8.3</version>
 </dependency>
 ```
  
@@ -226,15 +226,7 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <version>0.8.1-gwt2</version>
-=======
-    <version>0.8.1</version>
->>>>>>> release/0.8.1
-=======
-    <version>0.8.2</version>
->>>>>>> release/0.8.2
+    <version>0.8.3</version>
 </dependency>
 ```
 
