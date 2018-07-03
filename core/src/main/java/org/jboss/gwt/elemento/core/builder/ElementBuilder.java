@@ -83,8 +83,8 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
                     }
                 }
             }
-            if (!failSafeClasses.isEmpty()) {
-                get().classList.add(failSafeClasses.toArray(new String[]{}));
+            for (String failSafeClass : failSafeClasses) {
+                get().classList.add(failSafeClass);
             }
         }
         return that();
