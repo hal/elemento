@@ -768,6 +768,32 @@ public final class Elements {
         }
     }
 
+    /**
+     * Helper method to register a callback when the element is appended to the document body
+     * note that the callback will be called only once, if the element is appended more than once a new callback should be registered.
+     *
+     * @param element
+     * @param callback {@link ObserverCallback}
+     */
+    public static void onAttach(HTMLElement element, ObserverCallback callback){
+        if (element != null) {
+            BodyObserver.addAttachObserver(element, callback);
+        }
+    }
+
+    /**
+     * Helper method to register a callback when the element is removed from the document body
+     * note that the callback will be called only once, if the element is removed and re-appended a new callback should be registered.
+     *
+     * @param element
+     * @param callback {@link ObserverCallback}
+     */
+    public static void onDetach(HTMLElement element, ObserverCallback callback){
+        if (element != null) {
+            BodyObserver.addDetachObserver(element, callback);
+        }
+    }
+
     /** Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs. */
     public static String createDocumentUniqueId() {
         return "elemento-uid-" + createDocumentUniqueId.getAsInt();
