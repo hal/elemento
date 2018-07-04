@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>25</version>
+        <version>27</version>
     </parent>
 
     <groupId>org.jboss.gwt.elemento</groupId>
@@ -298,6 +298,18 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <additionalOptions>
+                                <additionalOption>-html5</additionalOption>
+                            </additionalOptions>
+                            <detectLinks>true</detectLinks>
+                            <doclint>none</doclint>
+                            <failOnError>false</failOnError>
+                            <links>
+                                <link>http://www.gwtproject.org/javadoc/latest/</link>
+                            </links>
+                            <show>package</show>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -378,13 +390,16 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <configuration>
+                            <additionalOptions>
+                                <additionalOption>-html5</additionalOption>
+                            </additionalOptions>
                             <detectLinks>true</detectLinks>
+                            <doclint>none</doclint>
+                            <failOnError>false</failOnError>
                             <links>
                                 <link>http://www.gwtproject.org/javadoc/latest/</link>
                             </links>
-                            <excludePackageNames>
-                                org.jboss.gwt.elemento.processor:org.jboss.gwt.elemento.processor.context
-                            </excludePackageNames>
+                            <show>package</show>
                         </configuration>
                         <reportSets>
                             <reportSet>
