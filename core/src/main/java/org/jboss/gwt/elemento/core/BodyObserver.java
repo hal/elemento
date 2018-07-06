@@ -99,7 +99,9 @@ final class BodyObserver {
      * element is attached to the dom.
      */
     static void addAttachObserver(HTMLElement element, ObserverCallback callback) {
-        if (!ready) { startObserving(); }
+        if (!ready) {
+            startObserving();
+        }
         attachObservers.add(createObserver(element, callback, ATTACH_UID_KEY));
     }
 
@@ -108,7 +110,9 @@ final class BodyObserver {
      * element is removed from the dom.
      */
     static void addDetachObserver(HTMLElement element, ObserverCallback callback) {
-        if (!ready) { startObserving(); }
+        if (!ready) {
+            startObserving();
+        }
         detachObservers.add(createObserver(element, callback, DETACH_UID_KEY));
     }
 
