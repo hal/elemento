@@ -634,16 +634,14 @@ public final class Elements {
      * Appends the specified element to the parent element if not already present. If parent already contains child,
      * this method does nothing.
      */
-    public static void lazyAppend(final Element parent, final Element child) {
+    public static void lazyAppend(Element parent, Element child) {
         if (!parent.contains(child)) {
             parent.appendChild(child);
         }
     }
 
-    /**
-     * Inserts the specified element into the parent of the after element.
-     */
-    public static void insertAfter(final Element newElement, final Element after) {
+    /** Inserts the specified element into the parent of the after element. */
+    public static void insertAfter(Element newElement, Element after) {
         after.parentNode.insertBefore(newElement, after.nextSibling);
     }
 
@@ -651,7 +649,7 @@ public final class Elements {
      * Inserts the specified element into the parent of the after element if not already present. If parent already
      * contains child, this method does nothing.
      */
-    public static void lazyInsertAfter(final Element newElement, final Element after) {
+    public static void lazyInsertAfter(Element newElement, Element after) {
         if (!after.parentNode.contains(newElement)) {
             after.parentNode.insertBefore(newElement, after.nextSibling);
         }
@@ -661,16 +659,14 @@ public final class Elements {
      * Inserts the specified element into the parent element if not already present. If parent already
      * contains child, this method does nothing.
      */
-    public static void lazyInsertAfter(final Element parent, final Element newElement, final Element after) {
+    public static void lazyInsertAfter(Element parent, Element newElement, Element after) {
         if (!parent.contains(newElement)) {
             parent.insertBefore(newElement, after.nextSibling);
         }
     }
 
-    /**
-     * Inserts the specified element into the parent of the before element.
-     */
-    public static void insertBefore(final Element newElement, final Element before) {
+    /** Inserts the specified element into the parent of the before element. */
+    public static void insertBefore(Element newElement, Element before) {
         before.parentNode.insertBefore(newElement, before);
     }
 
@@ -678,7 +674,7 @@ public final class Elements {
      * Inserts the specified element into the parent of the before element if not already present. If parent already
      * contains child, this method does nothing.
      */
-    public static void lazyInsertBefore(final Element newElement, final Element before) {
+    public static void lazyInsertBefore(Element newElement, Element before) {
         if (!before.parentNode.contains(newElement)) {
             before.parentNode.insertBefore(newElement, before);
         }
@@ -688,14 +684,14 @@ public final class Elements {
      * Inserts the specified element into the parent element if not already present. If parent already contains child,
      * this method does nothing.
      */
-    public static void lazyInsertBefore(final Element parent, final Element child, final Element before) {
+    public static void lazyInsertBefore(Element parent, Element child, Element before) {
         if (!parent.contains(child)) {
             parent.insertBefore(child, before);
         }
     }
 
     /** Removes all child elements from {@code element} */
-    public static void removeChildrenFrom(final Element element) {
+    public static void removeChildrenFrom(Element element) {
         if (element != null) {
             while (element.firstChild != null) {
                 element.removeChild(element.firstChild);
@@ -708,7 +704,7 @@ public final class Elements {
      *
      * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
      */
-    public static boolean failSafeRemoveFromParent(final Element element) {
+    public static boolean failSafeRemoveFromParent(Element element) {
         return failSafeRemove(element != null ? element.parentNode : null, element);
     }
 
@@ -717,12 +713,38 @@ public final class Elements {
      *
      * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
      */
-    public static boolean failSafeRemove(final Node parent, final Element child) {
+    public static boolean failSafeRemove(Node parent, Element child) {
         //noinspection SimplifiableIfStatement
         if (parent != null && child != null && parent.contains(child)) {
             return parent.removeChild(child) != null;
         }
         return false;
+    }
+
+    /**
+     * Registers a callback when an element is appended to the document body. Note that the callback will be called
+     * only once, if the element is appended more than once a new callback should be registered.
+     *
+     * @param element  the HTML element which is going to be added to the body
+     * @param callback {@link ObserverCallback}
+     */
+    public static void onAttach(HTMLElement element, ObserverCallback callback) {
+        if (element != null) {
+            BodyObserver.addAttachObserver(element, callback);
+        }
+    }
+
+    /**
+     * Registers a callback when an element is removed from the document body. Note that the callback will be called
+     * only once, if the element is removed and re-appended a new callback should be registered.
+     *
+     * @param element  the HTML element which is going to be removed from the body
+     * @param callback {@link ObserverCallback}
+     */
+    public static void onDetach(HTMLElement element, ObserverCallback callback) {
+        if (element != null) {
+            BodyObserver.addDetachObserver(element, callback);
+        }
     }
 
 
@@ -789,6 +811,7 @@ public final class Elements {
             return ((HTMLElement) t);
         }
     }
+
 
     private static class FilterHTMLElements<T extends Node> implements Predicate<T> {
 
