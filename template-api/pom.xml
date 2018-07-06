@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>GWT2-SNAPSHOT</version>
+        <version>0.8.5-gwt2</version>
     </parent>
 
     <artifactId>elemento-template-api</artifactId>
