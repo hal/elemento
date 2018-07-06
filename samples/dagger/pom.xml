@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>0.8.5-gwt2</version>
+        <version>GWT2-SNAPSHOT</version>
     </parent>
 
     <artifactId>dagger-sample</artifactId>
