@@ -130,6 +130,9 @@ public class EventType<T extends Event, V extends EventTarget> {
     // Storage Events
     public static final EventType<StorageEvent, Window> storage = of("storage");
 
+    // Window Events
+    public static final EventType<Event, Window> load = of("load");
+
     public static <T extends Event, V extends EventTarget> EventType<T, V> of(String name) {
         return new EventType<>(name);
     }
