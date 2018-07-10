@@ -560,7 +560,6 @@ public final class Elements {
         return new AsHTMLElement<>();
     }
 
-
     /**
      * Returns an iterator over the given array-like. The iterator does <strong>not</strong> support the
      * {@link Iterator#remove()} operation.
@@ -808,7 +807,7 @@ public final class Elements {
 
         @Override
         public HTMLElement apply(T t) {
-            return ((HTMLElement) t);
+            return Js.uncheckedCast(t);
         }
     }
 
