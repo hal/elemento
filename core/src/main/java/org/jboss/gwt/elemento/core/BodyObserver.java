@@ -7,10 +7,12 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.MutationObserver;
 import elemental2.dom.MutationObserverInit;
 import elemental2.dom.MutationRecord;
-import elemental2.dom.Node;
-import jsinterop.base.Js;
 
 import static elemental2.dom.DomGlobal.document;
+import static java.util.stream.Collectors.toList;
+import static org.jboss.gwt.elemento.core.Elements.asHtmlElement;
+import static org.jboss.gwt.elemento.core.Elements.htmlElements;
+import static org.jboss.gwt.elemento.core.Elements.stream;
 
 final class BodyObserver {
 
@@ -40,12 +42,17 @@ final class BodyObserver {
 
     private static void onElementsAppended(MutationRecord record) {
         List<ElementObserver> observed = new ArrayList<>();
+        List<HTMLElement> addedElements = stream(record.addedNodes)
+                .filter(htmlElements())
+                .map(asHtmlElement())
+                .collect(toList());
+
         for (ElementObserver elementObserver : attachObservers) {
             if (elementObserver.observedElement() == null) {
                 observed.add(elementObserver);
             } else {
-                if (record.addedNodes.asList().contains(elementObserver.observedElement()) || isChildOfAddedNode(record,
-                        elementObserver.attachId())) {
+                if (addedElements.contains(elementObserver.observedElement()) ||
+                        isChildOfObservedElement(addedElements, ATTACH_UID_KEY, elementObserver.attachId())) {
                     elementObserver.callback().onObserved(record);
                     elementObserver.observedElement().removeAttribute(ATTACH_UID_KEY);
                     observed.add(elementObserver);
@@ -55,19 +62,19 @@ final class BodyObserver {
         attachObservers.removeAll(observed);
     }
 
-    private static boolean isChildOfAddedNode(MutationRecord record, String attachId) {
-        List<Node> nodes = record.addedNodes.asList();
-        return isChildOfObservedNode(attachId, nodes, ATTACH_UID_KEY);
-    }
-
     private static void onElementsRemoved(MutationRecord record) {
         List<ElementObserver> observed = new ArrayList<>();
+        List<HTMLElement> removedElements = stream(record.removedNodes)
+                .filter(htmlElements())
+                .map(asHtmlElement())
+                .collect(toList());
+
         for (ElementObserver elementObserver : detachObservers) {
             if (elementObserver.observedElement() == null) {
                 observed.add(elementObserver);
             } else {
-                if (record.removedNodes.asList().contains(elementObserver.observedElement()) || isChildOfRemovedNode(
-                        record, elementObserver.attachId())) {
+                if (removedElements.contains(elementObserver.observedElement()) ||
+                        isChildOfObservedElement(removedElements, DETACH_UID_KEY, elementObserver.attachId())) {
                     elementObserver.callback().onObserved(record);
                     elementObserver.observedElement().removeAttribute(DETACH_UID_KEY);
                     observed.add(elementObserver);
@@ -77,18 +84,10 @@ final class BodyObserver {
         detachObservers.removeAll(observed);
     }
 
-    private static boolean isChildOfRemovedNode(MutationRecord record, final String detachId) {
-        List<Node> nodes = record.removedNodes.asList();
-        return isChildOfObservedNode(detachId, nodes, DETACH_UID_KEY);
-    }
-
-    private static boolean isChildOfObservedNode(String attachId, List<Node> nodes, String attachUidKey) {
-        for (Node node : nodes) {
-            Node elementNode = Js.uncheckedCast(node);
-            if (Node.ELEMENT_NODE == elementNode.nodeType) {
-                if (elementNode.querySelector("[" + attachUidKey + "='" + attachId + "']") != null) {
-                    return true;
-                }
+    private static boolean isChildOfObservedElement(List<HTMLElement> elements, String attachUidKey, String attachId) {
+        for (HTMLElement element : elements) {
+            if (element.querySelector("[" + attachUidKey + "='" + attachId + "']") != null) {
+                return true;
             }
         }
         return false;
@@ -99,7 +98,9 @@ final class BodyObserver {
      * element is attached to the dom.
      */
     static void addAttachObserver(HTMLElement element, ObserverCallback callback) {
-        if (!ready) { startObserving(); }
+        if (!ready) {
+            startObserving();
+        }
         attachObservers.add(createObserver(element, callback, ATTACH_UID_KEY));
     }
 
@@ -108,7 +109,9 @@ final class BodyObserver {
      * element is removed from the dom.
      */
     static void addDetachObserver(HTMLElement element, ObserverCallback callback) {
-        if (!ready) { startObserving(); }
+        if (!ready) {
+            startObserving();
+        }
         detachObservers.add(createObserver(element, callback, DETACH_UID_KEY));
     }
 
