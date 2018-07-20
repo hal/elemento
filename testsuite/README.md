@@ -61,9 +61,50 @@ public void elementStream() {
 
 ### Annotation Processor
 
-The annotation processor picks up all classes which contain methods annotated with `org.junit.Test`. For each test class a wrapper is generated which calls the class under test and logs the progress and outcome on the test page. Finally all test are executed by another generated class: `org.jboss.gwt.elemento.testsuite.client.TestSuite`. 
+The annotation processor picks up all classes which contain methods annotated with `org.junit.Test`. For each test class a wrapper is generated which calls the class under test and logs the progress and outcome on the test page: 
 
-The `run()` method of this class is called in the GWT entrypoint of the GWT test application:
+```java
+/*
+ * WARNING! This class is generated. Do not modify.
+ */
+@Generated("org.jboss.gwt.elemento.testsuite.processor.TestProcessor")
+public class BuilderTestRunner {
+    private final BuilderTest cut;
+
+    public BuilderTestRunner() {
+        this.cut = new BuilderTest();
+        logTest("org.jboss.gwt.elemento.testsuite.client.BuilderTest");
+    }
+
+    public void run() {
+        cut.setUp();
+        logMethod("aTag");
+        cut.aTag();
+
+        cut.setUp();
+        logMethod("aHref");
+        cut.aHref();
+    }
+}
+```
+
+Finally all tests are executed by another generated class: `org.jboss.gwt.elemento.testsuite.client.TestSuite`: 
+
+```java
+/*
+ * WARNING! This class is generated. Do not modify.
+ */
+@Generated("org.jboss.gwt.elemento.testsuite.processor.TestProcessor")
+public class TestSuite {
+
+    public void run() {
+        new org.jboss.gwt.elemento.testsuite.client.BuilderTestRunner().run();
+        ...
+    }
+}
+```
+
+This class is used in the GWT entrypoint to run all tests:
 
 ```java
 public class Main implements EntryPoint {
