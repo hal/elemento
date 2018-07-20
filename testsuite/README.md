@@ -49,7 +49,7 @@ There is a minimal API in form of two final classes with static helper methods:
 - `org.jboss.gwt.elemento.testsuite.TestPage`: Contains methods to access the HTML elements on the test page and to log test progress. This class also registers an exception handler which catches assertion errors and marks failed tests as an error on the test page. 
 - `org.jboss.gwt.elemento.testsuite.Assert`: Contains simple helper methods to assert tag names and attribute values.
 
-To make assertions in your test classes use the `assert` statement:
+For all other assertions use the `assert` statement:
 
 ```java
 @Test
