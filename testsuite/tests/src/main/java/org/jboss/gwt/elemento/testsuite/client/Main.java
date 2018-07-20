@@ -17,7 +17,7 @@ package org.jboss.gwt.elemento.testsuite.client;
 
 import com.google.gwt.core.client.EntryPoint;
 
-public final class Main implements EntryPoint {
+public class Main implements EntryPoint {
 
     @Override
     public void onModuleLoad() {

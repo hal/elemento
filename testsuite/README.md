@@ -61,7 +61,19 @@ public void elementStream() {
 
 ### Annotation Processor
 
-The annotation processor picks up all classes which contain methods annotated with `org.junit.Test`. For each test class a wrapper is generated which calls the class under test and logs the progress and outcome on the test page.  
+The annotation processor picks up all classes which contain methods annotated with `org.junit.Test`. For each test class a wrapper is generated which calls the class under test and logs the progress and outcome on the test page. Finally all test are executed by another generated class: `org.jboss.gwt.elemento.testsuite.client.TestSuite`. 
+
+The `run()` method of this class is called in the GWT entrypoint of the GWT test application:
+
+```java
+public class Main implements EntryPoint {
+
+    @Override
+    public void onModuleLoad() {
+        new TestSuite().run();
+    }
+}
+``` 
 
 ## Execute Tests
 
