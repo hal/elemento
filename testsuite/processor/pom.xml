@@ -49,5 +49,9 @@
             <artifactId>auto-service</artifactId>
             <version>${auto-service.version}</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
     </dependencies>
 </project>

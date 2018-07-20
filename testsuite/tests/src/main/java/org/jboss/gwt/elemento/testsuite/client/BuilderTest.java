@@ -16,15 +16,15 @@
 
 package org.jboss.gwt.elemento.testsuite.client;
 
-import org.jboss.gwt.elemento.testsuite.Before;
-import org.jboss.gwt.elemento.testsuite.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.jboss.gwt.elemento.core.Elements.a;
 import static org.jboss.gwt.elemento.testsuite.Assert.assertAttribute;
 import static org.jboss.gwt.elemento.testsuite.Assert.assertTag;
-import static org.jboss.gwt.elemento.testsuite.TestSupport.builder;
-import static org.jboss.gwt.elemento.testsuite.TestSupport.clear;
-import static org.jboss.gwt.elemento.testsuite.TestSupport.firstElementChild;
+import static org.jboss.gwt.elemento.testsuite.TestPage.builder;
+import static org.jboss.gwt.elemento.testsuite.TestPage.clear;
+import static org.jboss.gwt.elemento.testsuite.TestPage.firstElementChild;
 
 public class BuilderTest {
 

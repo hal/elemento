@@ -33,15 +33,15 @@ import com.google.auto.common.MoreElements;
 import com.google.auto.service.AutoService;
 import com.google.common.collect.Iterables;
 import org.jboss.auto.AbstractProcessor;
-import org.jboss.gwt.elemento.testsuite.After;
-import org.jboss.gwt.elemento.testsuite.Before;
+import org.junit.After;
+import org.junit.Before;
 
 import static org.jboss.gwt.elemento.testsuite.processor.TemplateNames.CLASS_NAME;
 import static org.jboss.gwt.elemento.testsuite.processor.TemplateNames.GENERATED_WITH;
 import static org.jboss.gwt.elemento.testsuite.processor.TemplateNames.PACKAGE_NAME;
 
 @AutoService(Processor.class)
-@SupportedAnnotationTypes("org.jboss.gwt.elemento.testsuite.Test")
+@SupportedAnnotationTypes("org.junit.Test")
 public class TestProcessor extends AbstractProcessor {
 
     private static final String TEST_TEMPLATE = "Test.ftl";
@@ -62,6 +62,7 @@ public class TestProcessor extends AbstractProcessor {
                 String fqn = type.getQualifiedName().toString();
                 String packageName = TypeSimplifier.packageNameOf(type);
 
+                // TODO Verify @Test, @Before and @After methods: not static, return void, no parameters
                 TestClass test;
                 if (tests.containsKey(fqn)) {
                     test = tests.get(fqn);

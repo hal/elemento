@@ -240,6 +240,12 @@
                 <version>${junit.version}</version>
             </dependency>
             <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <classifier>sources</classifier>
+            </dependency>
+            <dependency>
                 <groupId>com.google.gwt.gwtmockito</groupId>
                 <artifactId>gwtmockito</artifactId>
                 <version>${gwtmockito.version}</version>

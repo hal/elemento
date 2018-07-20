@@ -17,22 +17,22 @@
 package org.jboss.gwt.elemento.testsuite;
 
 import com.google.gwt.core.client.GWT;
-import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 
+import static elemental2.dom.DomGlobal.document;
 import static org.jboss.gwt.elemento.testsuite.CSS.clazz;
 import static org.jboss.gwt.elemento.testsuite.CSS.error;
 import static org.jboss.gwt.elemento.testsuite.CSS.ok;
 import static org.jboss.gwt.elemento.testsuite.CSS.test;
 
-public final class TestSupport {
+public final class TestPage {
 
-    private static final HTMLElement content = (HTMLElement) DomGlobal.document.getElementById("content");
-    private static final HTMLElement console = (HTMLElement) DomGlobal.document.getElementById("console");
+    private static final HTMLElement content = (HTMLElement) document.getElementById("content");
+    private static final HTMLElement console = (HTMLElement) document.getElementById("console");
     private static HTMLElement methods = null;
     private static HTMLElement currentMethod = null;
     private static State state = State.NONE;
@@ -102,11 +102,10 @@ public final class TestSupport {
         Elements.removeChildrenFrom(content);
     }
 
-    private TestSupport() {
+    private TestPage() {
     }
 
     enum State {
         NONE, TEST, METHOD,
     }
-
 }

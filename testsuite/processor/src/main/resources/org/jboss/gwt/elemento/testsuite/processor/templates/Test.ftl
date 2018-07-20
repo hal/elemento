@@ -5,7 +5,7 @@
 package ${packageName};
 
 import javax.annotation.Generated;
-import static org.jboss.gwt.elemento.testsuite.TestSupport.*;
+import static org.jboss.gwt.elemento.testsuite.TestPage.*;
 
 /*
  * WARNING! This class is generated. Do not modify.

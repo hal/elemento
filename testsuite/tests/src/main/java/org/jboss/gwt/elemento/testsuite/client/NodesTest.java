@@ -22,14 +22,14 @@ import java.util.List;
 
 import elemental2.dom.Node;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
-import org.jboss.gwt.elemento.testsuite.Before;
-import org.jboss.gwt.elemento.testsuite.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import static java.util.stream.Collectors.toList;
 import static org.jboss.gwt.elemento.core.Elements.iterator;
 import static org.jboss.gwt.elemento.core.Elements.stream;
-import static org.jboss.gwt.elemento.testsuite.TestSupport.builder;
-import static org.jboss.gwt.elemento.testsuite.TestSupport.node;
+import static org.jboss.gwt.elemento.testsuite.TestPage.builder;
+import static org.jboss.gwt.elemento.testsuite.TestPage.node;
 import static org.jboss.gwt.elemento.testsuite.client.Assert.assertNodes;
 import static org.jboss.gwt.elemento.testsuite.client.Fixtures.HTML;
 
@@ -42,7 +42,7 @@ public class NodesTest {
 
     @Test
     public void nodeIterator() {
-        List<Node> nodes = new ArrayList();
+        List<Node> nodes = new ArrayList<>();
         Iterator<Node> iterator = iterator(node());
         while (iterator.hasNext()) {
             nodes.add(iterator.next());
