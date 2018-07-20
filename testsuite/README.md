@@ -1,6 +1,6 @@
 # Testsuite for Elemento
 
-This folder contains a testsuite for Elemento which is based on annotations and code generation. Tests are written using some of the JUnit annotations and are executed in the context of a GWT application. The GWT application logs the progress and the outcome of the tests. 
+This folder contains maven modules for the Elemento testsuite. Tests are written using regular JUnit annotations and are executed in the context of a GWT application. The GWT application logs the progress and the outcome of the tests. 
 
 ## Writing Tests
 
@@ -61,7 +61,7 @@ public void elementStream() {
 
 ### Annotation Processor
 
-The annotation processor picks up all classes which contain methods annotated with `org.junit.Test`. For each test class a wrapper is generated which calls the class under test and logs the progress and outcome on the test page: 
+There's an annotation processor which picks up all classes containing methods annotated with `org.junit.Test`. For each test class a wrapper is generated which calls the class under test and logs the progress and outcome on the test page: 
 
 ```java
 /*
