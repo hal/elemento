@@ -813,7 +813,7 @@ public final class Elements {
     }
 
 
-    private static class FilterHTMLElements<T extends Node> implements Predicate<T> {
+    private static class FilterHTMLElements<T> implements Predicate<T> {
 
         @Override
         public boolean test(T t) {
