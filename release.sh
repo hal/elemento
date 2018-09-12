@@ -1,18 +1,18 @@
 #!/bin/bash
+
 # Script to build, deploy and release Elemento.
 #
 # Prerequisites
 #   - Clean git status (no uncommitted changes in branch 'develop' and 'gwt2')
-#   - No tag with the specified version
+#   - No tag for the specified version
 #
 # Parameters
 #   1. New version number
 #
 # What it does
-#   1.
-#   2.
-#   3.
-#   4.
+#   1. Build & deploy branch 'develop' and 'gwt2'
+#   2. Bump versions to '<version>' and '<version>-gwt2'
+#   3. Switch back to 'HEAD-SNAPSHOT' 'GWT2-SNAPSHOT'
 
 
 
@@ -64,7 +64,7 @@ fi
 
 
 
-# Release branch 'gwt2'
+# Branch 'gwt2'
 BRANCH=gwt2
 box "Switch to branch '$BRANCH'"
 git checkout $BRANCH
@@ -90,14 +90,14 @@ git push origin $BRANCH
 
 
 
-# Release branch 'develop'
+# Branch 'develop'
 BRANCH=develop
 box "Switch to branch '$BRANCH'"
 git checkout $BRANCH
 git pull origin $BRANCH
 
 box "Build branch '$BRANCH'"
-mvn clean install -P samples,testsuite,widget || { echo "Maven build failed" ; exit 1; }
+mvn clean install -P samples,widget || { echo "Maven build failed" ; exit 1; }
 
 box "Update version to '$VERSION'"
 git flow release start $VERSION
@@ -121,4 +121,5 @@ git push origin $BRANCH
 
 
 
+# Done
 box "  <<--==  Elemento successfully released  ==-->>  "
