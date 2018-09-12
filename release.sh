@@ -85,7 +85,7 @@ git push origin --tags
 
 box "Back to 'GWT2-SNAPSHOT'"
 ./versionBump.sh GWT2-SNAPSHOT
-git commit -am "Bump to GWT2-SNAPSHOT"
+git commit -am "Back to GWT2-SNAPSHOT"
 git push origin $BRANCH
 
 
@@ -114,7 +114,7 @@ git push origin --tags
 box "Back to 'HEAD-SNAPSHOT'"
 git checkout $BRANCH
 ./versionBump.sh HEAD-SNAPSHOT
-git commit -am "Bump to HEAD-SNAPSHOT"
+git commit -am "Back to HEAD-SNAPSHOT"
 git push origin $BRANCH
 
 
