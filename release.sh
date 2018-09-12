@@ -119,4 +119,4 @@ git push origin $BRANCH
 
 
 
-box "<---=== Elemento successfully released ===--->"
+box "  <<--==  Elemento successfully released  ==-->>  "
