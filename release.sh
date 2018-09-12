@@ -22,15 +22,15 @@ function box()
 {
   local s="$*"
   tput setaf 3
+  echo
+  echo
+  echo
   echo " -${s//?/-}-
 | ${s//?/ } |
 | $(tput setaf 4)$s$(tput setaf 3) |
 | ${s//?/ } |
  -${s//?/-}-"
   tput sgr 0
-  echo
-  echo
-  echo
 }
 
 # Prerequisites
