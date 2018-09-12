@@ -106,7 +106,9 @@ git commit -am "Bump to $VERSION"
 
 box "Deploy '$VERSION'"
 mvn deploy -P release,samples,testsuite,widget || { echo "Maven deploy failed" ; exit 1; }
+export GIT_MERGE_AUTOEDIT=no
 git flow release finish -m "$VERSION" $VERSION
+unset GIT_MERGE_AUTOEDIT
 git push origin develop
 git push origin master
 git push origin --tags
