@@ -24,6 +24,7 @@ import elemental2.dom.FocusEvent;
 import elemental2.dom.HashChangeEvent;
 import elemental2.dom.InputEvent;
 import elemental2.dom.KeyboardEvent;
+import elemental2.dom.MessageEvent;
 import elemental2.dom.MouseEvent;
 import elemental2.dom.PageTransitionEvent;
 import elemental2.dom.PopStateEvent;
@@ -126,12 +127,16 @@ public class EventType<T extends Event, V extends EventTarget> {
     // Uncategorized Events
     public static final EventType<Event, Element> invalid = of("invalid");
     public static final EventType<Event, Element> show = of("show");
+    public static final EventType<MessageEvent<?>, EventTarget> message = EventType.of("message");
 
     // Storage Events
     public static final EventType<StorageEvent, Window> storage = of("storage");
 
     // Window Events
     public static final EventType<Event, Window> load = of("load");
+
+    // Page Visibility API Events
+    public static final EventType<Event, Document> visibilitychange = of("visibilitychange");
 
     public static <T extends Event, V extends EventTarget> EventType<T, V> of(String name) {
         return new EventType<>(name);

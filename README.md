@@ -1,4 +1,4 @@
-[![TC Build](https://ci.wildfly.org/app/rest/builds/buildType:(id:hal_Elemento)/statusIcon.svg)](https://ci.wildfly.org/viewType.html?buildTypeId=hal_Elemento&guest=1) [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
+[![TC Build](https://ci.wildfly.org/app/rest/builds/buildType:(id:hal_Elemento)/statusIcon.svg)](https://ci.wildfly.org/viewType.html?buildTypeId=hal_Elemento&guest=1) ![GWT3/J2CL compatible](https://img.shields.io/badge/GWT3/J2CL-compatible-brightgreen.svg) [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
 
 # Elemento
 
@@ -41,7 +41,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>0.8.6</version>
+    <version>0.8.7</version>
 </dependency>
 ```
  
@@ -226,7 +226,7 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
-    <version>0.8.6</version>
+    <version>0.8.7</version>
 </dependency>
 ```
 
