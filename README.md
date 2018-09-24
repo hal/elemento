@@ -46,6 +46,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
+    <classifier>sources</classifier>
     <version>HEAD-SNAPSHOT</version>
 </dependency>
 ```
@@ -225,7 +226,7 @@ HTML templates rely on annotation processing. The annotation processors are conf
 
 ## Get Started
 
-To use HTML templates add the following maven dependency to your POM:
+To use HTML templates add the following maven dependencies to your POM:
 
 ```xml
 <dependency>
