@@ -43,6 +43,11 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
     <artifactId>elemento-core</artifactId>
     <version>HEAD-SNAPSHOT</version>
 </dependency>
+<dependency>
+    <groupId>org.jboss.gwt.elemento</groupId>
+    <artifactId>elemento-core</artifactId>
+    <version>HEAD-SNAPSHOT</version>
+</dependency>
 ```
  
 In your GWT module inherit from `org.jboss.gwt.elemento.Core`:
@@ -225,7 +230,19 @@ To use HTML templates add the following maven dependency to your POM:
 ```xml
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
-    <artifactId>elemento-template</artifactId>
+    <artifactId>elemento-template-api</artifactId>
+    <version>HEAD-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.gwt.elemento</groupId>
+    <artifactId>elemento-template-api</artifactId>
+    <classifier>sources</classifier>
+    <version>HEAD-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.gwt.elemento</groupId>
+    <artifactId>elemento-template-processor</artifactId>
+    <scope>provided</scope>
     <version>HEAD-SNAPSHOT</version>
 </dependency>
 ```
