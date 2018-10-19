@@ -477,7 +477,7 @@ See the [samples](#samples) how this works and how you can inject the templates 
 
 # Helper Methods
 
-Besides the builder API and the HTML templates, Elemento comes with a bunch of static helper methods that roughly fall into four categories:
+Besides the builder API and the HTML templates, Elemento comes with a bunch of static helper methods that roughly fall into three categories:
 
 1. Element iterator / stream methods
 1. Element append, insert & remove methods
