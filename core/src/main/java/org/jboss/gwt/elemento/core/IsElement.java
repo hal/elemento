@@ -19,5 +19,10 @@ import elemental2.dom.HTMLElement;
 @FunctionalInterface
 public interface IsElement<E extends HTMLElement> {
 
-    E asElement();
+    E element();
+
+    @Deprecated
+    default E asElement() {
+        return element();
+    }
 }

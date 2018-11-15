@@ -45,10 +45,10 @@ public final class TestPage {
                     console.appendChild(
                             Elements.div().css(test, message)
                                     .add(Elements.p().textContent(message))
-                                    .asElement());
+                                    .element());
                     break;
                 case TEST:
-                    methods.appendChild(Elements.li().css(error).textContent(message).asElement());
+                    methods.appendChild(Elements.li().css(error).textContent(message).element());
                     break;
                 case METHOD:
                     currentMethod.classList.remove(ok);
@@ -65,8 +65,8 @@ public final class TestPage {
         console.appendChild(
                 Elements.div().id(name).css(test)
                         .add(Elements.p().css(clazz).textContent(name))
-                        .add(methods = Elements.ul().css(CSS.methods).asElement())
-                        .asElement());
+                        .add(methods = Elements.ul().css(CSS.methods).element())
+                        .element());
         state = State.TEST;
     }
 
@@ -74,7 +74,7 @@ public final class TestPage {
         if (state == State.NONE) {
             throw new IllegalStateException("Missing call to test(String)");
         }
-        methods.appendChild(currentMethod = Elements.li().css(ok).textContent(name).asElement());
+        methods.appendChild(currentMethod = Elements.li().css(ok).textContent(name).element());
         state = State.METHOD;
     }
 

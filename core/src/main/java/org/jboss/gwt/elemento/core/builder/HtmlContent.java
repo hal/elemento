@@ -31,9 +31,9 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
 
     // ------------------------------------------------------ child element(s)
 
-    /** Adds the given element by calling {@code element.asElement()}. */
+    /** Adds the given element by calling {@code element.element()}. */
     default B add(IsElement element) {
-        return add(element.asElement());
+        return add(element.element());
     }
 
     /** Adds the given text as a text node. */

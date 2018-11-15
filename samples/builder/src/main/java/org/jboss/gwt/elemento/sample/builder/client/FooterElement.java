@@ -34,11 +34,11 @@ class FooterElement implements IsElement<HTMLElement> {
                         .add(a(Urls.HPEHL_INFO).textContent("Harald Pehl")))
                 .add(p().add(span().textContent(Constants.PART_OF + " "))
                         .add(a(Urls.TODO_MVC).textContent("TodoMVC")))
-                .asElement();
+                .element();
     }
 
     @Override
-    public HTMLElement asElement() {
+    public HTMLElement element() {
         return root;
     }
 }
