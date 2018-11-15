@@ -15,12 +15,13 @@ package org.jboss.gwt.elemento.core;
 
 import elemental2.dom.HTMLElement;
 
-/** The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.IsWidget}. */
+/** Component interface for custom elements. */
 @FunctionalInterface
 public interface IsElement<E extends HTMLElement> {
 
     E element();
 
+    /** @deprecated Please use {@link #element()} instead */
     @Deprecated
     default E asElement() {
         return element();
