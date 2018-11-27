@@ -344,6 +344,10 @@ public final class Elements {
 
     // ------------------------------------------------------ embedded content
 
+    public static HtmlContentBuilder<HTMLCanvasElement> canvas() {
+        return htmlElement("canvas", HTMLCanvasElement.class);
+    }
+
     public static EmptyContentBuilder<HTMLEmbedElement> embed() {
         return emptyElement("embed", HTMLEmbedElement.class);
     }
@@ -362,10 +366,6 @@ public final class Elements {
 
 
     // ------------------------------------------------------ scripting
-
-    public static HtmlContentBuilder<HTMLCanvasElement> canvas() {
-        return htmlElement("canvas", HTMLCanvasElement.class);
-    }
 
     public static HtmlContentBuilder<HTMLElement> noscript() {
         return htmlElement("noscript", HTMLElement.class);
@@ -513,7 +513,7 @@ public final class Elements {
 
     // ------------------------------------------------------ builder factories
 
-    /** Returns a builder to collect elements in a flat list as {@link HasElements}. */
+    /** Returns a builder to collect elements as {@link HasElements}. */
     public static ElementsBuilder elements() {
         return new ElementsBuilder();
     }

@@ -14,19 +14,20 @@
 package org.jboss.gwt.elemento.core.builder;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
-/** A builder to collect elements in a flat list as {@link HasElements} */
-public class ElementsBuilder implements HasElements {
+/** Builder for {@link HasElements} */
+public class ElementsBuilder implements TypedBuilder<HasElements, ElementsBuilder> {
 
-    private final List<HTMLElement> elements;
+    private final HasElementsImpl elements;
 
     public ElementsBuilder() {
-        elements = new ArrayList<>();
+        elements = new HasElementsImpl();
     }
 
 
@@ -40,12 +41,15 @@ public class ElementsBuilder implements HasElements {
     /** Adds the given element. */
     public ElementsBuilder add(HTMLElement element) {
         elements.add(element);
-        return this;
+        return that();
     }
 
-    /** Adds all elements from {@code elements.asElements()}. */
+    /** Adds all elements from {@link HasElements#elements()}. */
     public ElementsBuilder addAll(HasElements elements) {
-        return addAll(elements.asElements());
+        for (HTMLElement element : elements) {
+            add(element);
+        }
+        return that();
     }
 
     /** Adds all elements. */
@@ -53,7 +57,7 @@ public class ElementsBuilder implements HasElements {
         for (HTMLElement element : elements) {
             add(element);
         }
-        return this;
+        return that();
     }
 
     /** Adds all elements. */
@@ -61,7 +65,7 @@ public class ElementsBuilder implements HasElements {
         for (HTMLElement element : elements) {
             add(element);
         }
-        return this;
+        return that();
     }
 
     /** Adds all elements. */
@@ -69,12 +73,36 @@ public class ElementsBuilder implements HasElements {
         for (IsElement element : elements) {
             add(element);
         }
+        return that();
+    }
+
+    @Override
+    public HasElements get() {
+        return elements;
+    }
+
+    @Override
+    public ElementsBuilder that() {
         return this;
     }
 
-    /** Returns the elements added so far. */
-    @Override
-    public Iterable<HTMLElement> asElements() {
-        return elements;
+
+    private static class HasElementsImpl implements HasElements {
+
+        private final List<HTMLElement> elements;
+
+
+        private HasElementsImpl() {
+            elements = new ArrayList<>();
+        }
+
+        @Override
+        public Iterator<HTMLElement> iterator() {
+            return elements.iterator();
+        }
+
+        private void add(HTMLElement htmlElement) {
+            elements.add(htmlElement);
+        }
     }
 }

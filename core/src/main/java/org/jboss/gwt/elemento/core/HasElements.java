@@ -15,8 +15,14 @@ package org.jboss.gwt.elemento.core;
 
 import elemental2.dom.HTMLElement;
 
-/** The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.HasWidgets}. */
-public interface HasElements {
+import static com.google.common.collect.Lists.newArrayList;
 
-    Iterable<HTMLElement> asElements();
+/** Interface for custom components returning multiple elements. */
+public interface HasElements extends Iterable<HTMLElement> {
+
+    /** @deprecated Please use methods from {@code Iterable} instead. */
+    @Deprecated
+    default Iterable<HTMLElement> asElements() {
+        return newArrayList(iterator());
+    }
 }

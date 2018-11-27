@@ -47,9 +47,12 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
         return that();
     }
 
-    /** Adds all elements from {@code elements.asElements()}. */
+    /** Adds all elements. */
     default B addAll(HasElements elements) {
-        return addAll(elements.asElements());
+        for (HTMLElement element : elements) {
+            add(element);
+        }
+        return that();
     }
 
     /** Adds all elements. */

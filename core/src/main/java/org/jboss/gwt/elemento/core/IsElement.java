@@ -15,7 +15,7 @@ package org.jboss.gwt.elemento.core;
 
 import elemental2.dom.HTMLElement;
 
-/** Component interface for custom elements. */
+/** Interface for custom components returning a single element. */
 @FunctionalInterface
 public interface IsElement<E extends HTMLElement> {
 

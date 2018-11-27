@@ -42,9 +42,7 @@ public abstract class LazyElement implements IsElement {
      */
     protected abstract HTMLElement createElement();
 
-    /**
-     * @return whether the element was already created
-     */
+    /** @return whether the element was already created */
     protected boolean initialized() {
         return element != null;
     }
