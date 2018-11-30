@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Script to build, deploy and release Elemento.
+# Script to build, deploy and release Elemento. Make sure the different branches
+# have the same feature set, before calling this script.
 #
 # Prerequisites
 #   - Clean git status (no uncommitted changes in branch 'develop' and 'gwt2')
@@ -37,7 +38,7 @@ function box()
 
 
 # Prerequisites
-if [ "$#" -ne 1 ]; then
+if [[ "$#" -ne 1 ]]; then
     echo "Illegal number of parameters. Please use $0 <version>"
     exit -1
 fi
