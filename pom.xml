@@ -345,16 +345,17 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <configuration>
-                            <additionalOptions>
-                                <additionalOption>-html5</additionalOption>
-                            </additionalOptions>
+                            <additionalOptions>-html5</additionalOptions>
                             <detectLinks>true</detectLinks>
                             <doclint>none</doclint>
+                            <excludePackageNames>
+                                org.jboss.gwt.elemento.processor:org.jboss.gwt.elemento.processor.context
+                            </excludePackageNames>
                             <failOnError>false</failOnError>
                             <links>
                                 <link>http://www.gwtproject.org/javadoc/latest/</link>
                             </links>
-                            <show>package</show>
+                            <show>public</show>
                         </configuration>
                         <executions>
                             <execution>

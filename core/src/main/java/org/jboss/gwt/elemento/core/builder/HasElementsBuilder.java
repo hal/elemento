@@ -44,7 +44,7 @@ public class HasElementsBuilder implements TypedBuilder<HasElements, HasElements
         return that();
     }
 
-    /** Adds all elements from {@link HasElements#elements()}. */
+    /** Adds all elements from {@link HasElements}. */
     public HasElementsBuilder addAll(HasElements elements) {
         for (HTMLElement element : elements) {
             add(element);

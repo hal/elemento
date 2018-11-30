@@ -35,11 +35,11 @@ import org.jboss.gwt.elemento.core.IsElement;
  * of the field is restricted to {@link elemental2.dom.HTMLElement} and its subclasses.</dd>
  * <dt>Fields w/ an initializer</dt>
  * <dd>The element in the HTML template is replaced with the initializer. The type of the field can be one of: {@link
- * elemental2.dom.HTMLElement}, {@link IsElement}, {@link com.google.gwt.user.client.ui.Widget}, or {@link
+ * elemental2.dom.HTMLElement}, {@link IsElement}, {@code com.google.gwt.user.client.ui.Widget}, or {@code
  * com.google.gwt.user.client.ui.IsWidget}.</dd>
  * <dt>Methods</dt>
  * <dd>The element in the HTML template is replaced with the return value of the method. The method must return one of:
- * {@link elemental2.dom.HTMLElement}, {@link IsElement}, {@link com.google.gwt.user.client.ui.Widget}, or {@link
+ * {@link elemental2.dom.HTMLElement}, {@link IsElement}, {@code com.google.gwt.user.client.ui.Widget}, or {@code
  * com.google.gwt.user.client.ui.IsWidget} and must not have any parameters.</dd>
  * </dl>
  */
@@ -48,8 +48,6 @@ import org.jboss.gwt.elemento.core.IsElement;
 @Target({ElementType.FIELD, ElementType.METHOD})
 public @interface DataElement {
 
-    /**
-     * The value of the {@code data-element} attribute which is the name of the annotated field / method by default.
-     */
+    /** The value of the {@code data-element} attribute which is the name of the annotated field / method by default. */
     String value() default "";
 }
