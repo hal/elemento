@@ -13,7 +13,6 @@
  */
 package org.jboss.gwt.elemento.core;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
@@ -77,13 +76,14 @@ import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
 import org.gwtproject.safehtml.shared.SafeHtml;
 import org.jboss.gwt.elemento.core.builder.ElementCreator;
-import org.jboss.gwt.elemento.core.builder.ElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
+import org.jboss.gwt.elemento.core.builder.HasElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 import org.jboss.gwt.elemento.core.builder.InputBuilder;
 import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
 
 import static elemental2.dom.DomGlobal.document;
+import static java.util.Collections.emptyIterator;
 import static java.util.Spliterators.spliteratorUnknownSize;
 
 /**
@@ -96,13 +96,6 @@ public final class Elements {
 
     private static final String ELEMENTO_UID = "elementoUid";
 
-    static ElementCreator createElement = new ElementCreator() {
-        @Override
-        public <E extends HTMLElement> E create(String tag, Class<E> type) {
-            return Js.cast(document.createElement(tag));
-        }
-    };
-
     private static IntSupplier createDocumentUniqueId = () -> {
         JsPropertyMap<Object> map = Js.uncheckedCast(document);
         if (!map.has(ELEMENTO_UID)) {
@@ -112,6 +105,16 @@ public final class Elements {
         map.set(ELEMENTO_UID, uid);
         return uid;
     };
+
+    static ElementCreator createElement = new ElementCreator() {
+        @Override
+        public <E extends HTMLElement> E create(String tag, Class<E> type) {
+            return Js.cast(document.createElement(tag));
+        }
+    };
+
+
+    // ------------------------------------------------------ body
 
     public static HtmlContentBuilder<HTMLBodyElement> body() {
         return new HtmlContentBuilder<>(document.body);
@@ -514,8 +517,17 @@ public final class Elements {
     // ------------------------------------------------------ builder factories
 
     /** Returns a builder to collect elements as {@link HasElements}. */
-    public static ElementsBuilder elements() {
-        return new ElementsBuilder();
+    public static HasElementsBuilder collect() {
+        return new HasElementsBuilder();
+    }
+
+    /**
+     * @deprecated Renamed to avoid confusion with {@link #elements(JsArrayLike)}.
+     * Please use {@link #collect()} instead.
+     */
+    @Deprecated
+    public static HasElementsBuilder elements() {
+        return collect();
     }
 
     /** Returns a builder for the specified empty tag. */
@@ -565,7 +577,7 @@ public final class Elements {
      * {@link Iterator#remove()} operation.
      */
     public static <E> Iterator<E> iterator(JsArrayLike<E> data) {
-        return data != null ? new JsArrayLikeIterator<>(data) : Collections.emptyIterator();
+        return data != null ? new JsArrayLikeIterator<>(data) : emptyIterator();
     }
 
     /**
@@ -573,7 +585,7 @@ public final class Elements {
      * Iterator#remove()} operation which removes the current node from its parent.
      */
     public static Iterator<Node> iterator(Node parent) {
-        return parent != null ? new JsArrayNodeIterator(parent) : Collections.emptyIterator();
+        return parent != null ? new JsArrayNodeIterator(parent) : emptyIterator();
     }
 
     /**
@@ -581,7 +593,7 @@ public final class Elements {
      * Iterator#remove()} operation which removes the current node from its parent.
      */
     public static Iterator<HTMLElement> iterator(HTMLElement parent) {
-        return parent != null ? new JsArrayElementIterator(parent) : Collections.emptyIterator();
+        return parent != null ? new JsArrayElementIterator(parent) : emptyIterator();
     }
 
     /** Returns a stream for the elements in the given array-like. */

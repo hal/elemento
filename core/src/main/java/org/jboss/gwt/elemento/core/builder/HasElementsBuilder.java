@@ -13,20 +13,20 @@
  */
 package org.jboss.gwt.elemento.core.builder;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
+import elemental2.core.JsArray;
 import elemental2.dom.HTMLElement;
+import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
 /** Builder for {@link HasElements} */
-public class ElementsBuilder implements TypedBuilder<HasElements, ElementsBuilder> {
+public class HasElementsBuilder implements TypedBuilder<HasElements, HasElementsBuilder> {
 
     private final HasElementsImpl elements;
 
-    public ElementsBuilder() {
+    public HasElementsBuilder() {
         elements = new HasElementsImpl();
     }
 
@@ -34,18 +34,18 @@ public class ElementsBuilder implements TypedBuilder<HasElements, ElementsBuilde
     // ------------------------------------------------------ mirror add() methods from HtmlContent
 
     /** Adds the given element by calling {@code element.element()}. */
-    public ElementsBuilder add(IsElement element) {
+    public HasElementsBuilder add(IsElement element) {
         return add(element.element());
     }
 
     /** Adds the given element. */
-    public ElementsBuilder add(HTMLElement element) {
-        elements.add(element);
+    public HasElementsBuilder add(HTMLElement element) {
+        elements.elements.push(element);
         return that();
     }
 
     /** Adds all elements from {@link HasElements#elements()}. */
-    public ElementsBuilder addAll(HasElements elements) {
+    public HasElementsBuilder addAll(HasElements elements) {
         for (HTMLElement element : elements) {
             add(element);
         }
@@ -53,7 +53,7 @@ public class ElementsBuilder implements TypedBuilder<HasElements, ElementsBuilde
     }
 
     /** Adds all elements. */
-    public ElementsBuilder addAll(HTMLElement... elements) {
+    public HasElementsBuilder addAll(HTMLElement... elements) {
         for (HTMLElement element : elements) {
             add(element);
         }
@@ -61,7 +61,7 @@ public class ElementsBuilder implements TypedBuilder<HasElements, ElementsBuilde
     }
 
     /** Adds all elements. */
-    public ElementsBuilder addAll(Iterable<HTMLElement> elements) {
+    public HasElementsBuilder addAll(Iterable<HTMLElement> elements) {
         for (HTMLElement element : elements) {
             add(element);
         }
@@ -69,7 +69,7 @@ public class ElementsBuilder implements TypedBuilder<HasElements, ElementsBuilde
     }
 
     /** Adds all elements. */
-    public ElementsBuilder addAll(IsElement... elements) {
+    public HasElementsBuilder addAll(IsElement... elements) {
         for (IsElement element : elements) {
             add(element);
         }
@@ -82,27 +82,23 @@ public class ElementsBuilder implements TypedBuilder<HasElements, ElementsBuilde
     }
 
     @Override
-    public ElementsBuilder that() {
+    public HasElementsBuilder that() {
         return this;
     }
 
 
     private static class HasElementsImpl implements HasElements {
 
-        private final List<HTMLElement> elements;
+        final JsArray<HTMLElement> elements;
 
 
         private HasElementsImpl() {
-            elements = new ArrayList<>();
+            elements = new JsArray<>();
         }
 
         @Override
         public Iterator<HTMLElement> iterator() {
-            return elements.iterator();
-        }
-
-        private void add(HTMLElement htmlElement) {
-            elements.add(htmlElement);
+            return Elements.iterator(elements);
         }
     }
 }
