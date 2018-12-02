@@ -76,8 +76,8 @@ import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
 import org.gwtproject.safehtml.shared.SafeHtml;
 import org.jboss.gwt.elemento.core.builder.ElementCreator;
+import org.jboss.gwt.elemento.core.builder.ElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
-import org.jboss.gwt.elemento.core.builder.HasElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 import org.jboss.gwt.elemento.core.builder.InputBuilder;
 import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
@@ -516,9 +516,9 @@ public final class Elements {
 
     // ------------------------------------------------------ builder factories
 
-    /** Returns a builder to collect elements as {@link HasElements}. */
-    public static HasElementsBuilder collect() {
-        return new HasElementsBuilder();
+    /** Returns a builder to collect {@link HTMLElement}s. */
+    public static ElementsBuilder collect() {
+        return new ElementsBuilder();
     }
 
     /**
@@ -526,7 +526,7 @@ public final class Elements {
      * Please use {@link #collect()} instead.
      */
     @Deprecated
-    public static HasElementsBuilder elements() {
+    public static ElementsBuilder elements() {
         return collect();
     }
 

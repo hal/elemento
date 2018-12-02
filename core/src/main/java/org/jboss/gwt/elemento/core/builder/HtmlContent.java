@@ -16,7 +16,6 @@ package org.jboss.gwt.elemento.core.builder;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 import org.gwtproject.safehtml.shared.SafeHtml;
-import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
 /** Builder for container-like elements with inner HTML. */
@@ -44,14 +43,6 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
     /** Adds the given element. */
     default B add(Node element) {
         get().appendChild(element);
-        return that();
-    }
-
-    /** Adds all elements. */
-    default B addAll(HasElements elements) {
-        for (HTMLElement element : elements) {
-            add(element);
-        }
         return that();
     }
 

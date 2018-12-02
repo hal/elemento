@@ -18,34 +18,33 @@ import java.util.Iterator;
 import elemental2.core.JsArray;
 import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.Elements;
-import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
-/** Builder for {@link HasElements} */
-public class HasElementsBuilder implements TypedBuilder<HasElements, HasElementsBuilder> {
+/** Builder to collect {@link HTMLElement}s */
+public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, ElementsBuilder> {
 
-    private final HasElementsImpl elements;
+    private final IterableElementsImpl elements;
 
-    public HasElementsBuilder() {
-        elements = new HasElementsImpl();
+    public ElementsBuilder() {
+        elements = new IterableElementsImpl();
     }
 
 
     // ------------------------------------------------------ mirror add() methods from HtmlContent
 
     /** Adds the given element by calling {@code element.element()}. */
-    public HasElementsBuilder add(IsElement element) {
+    public ElementsBuilder add(IsElement element) {
         return add(element.element());
     }
 
     /** Adds the given element. */
-    public HasElementsBuilder add(HTMLElement element) {
+    public ElementsBuilder add(HTMLElement element) {
         elements.elements.push(element);
         return that();
     }
 
-    /** Adds all elements from {@link HasElements}. */
-    public HasElementsBuilder addAll(HasElements elements) {
+    /** Adds all elements. */
+    public ElementsBuilder addAll(HTMLElement... elements) {
         for (HTMLElement element : elements) {
             add(element);
         }
@@ -53,7 +52,7 @@ public class HasElementsBuilder implements TypedBuilder<HasElements, HasElements
     }
 
     /** Adds all elements. */
-    public HasElementsBuilder addAll(HTMLElement... elements) {
+    public ElementsBuilder addAll(Iterable<HTMLElement> elements) {
         for (HTMLElement element : elements) {
             add(element);
         }
@@ -61,15 +60,7 @@ public class HasElementsBuilder implements TypedBuilder<HasElements, HasElements
     }
 
     /** Adds all elements. */
-    public HasElementsBuilder addAll(Iterable<HTMLElement> elements) {
-        for (HTMLElement element : elements) {
-            add(element);
-        }
-        return that();
-    }
-
-    /** Adds all elements. */
-    public HasElementsBuilder addAll(IsElement... elements) {
+    public ElementsBuilder addAll(IsElement... elements) {
         for (IsElement element : elements) {
             add(element);
         }
@@ -77,22 +68,22 @@ public class HasElementsBuilder implements TypedBuilder<HasElements, HasElements
     }
 
     @Override
-    public HasElements get() {
+    public Iterable<HTMLElement> get() {
         return elements;
     }
 
     @Override
-    public HasElementsBuilder that() {
+    public ElementsBuilder that() {
         return this;
     }
 
 
-    private static class HasElementsImpl implements HasElements {
+    private static class IterableElementsImpl implements Iterable<HTMLElement> {
 
         final JsArray<HTMLElement> elements;
 
 
-        private HasElementsImpl() {
+        private IterableElementsImpl() {
             elements = new JsArray<>();
         }
 
