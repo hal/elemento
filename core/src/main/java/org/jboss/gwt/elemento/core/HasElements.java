@@ -15,19 +15,15 @@ package org.jboss.gwt.elemento.core;
 
 import elemental2.dom.HTMLElement;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 /**
  * Interface for custom components returning multiple elements.
  *
  * @deprecated No longer necessary. Use {@code Iterable<HTMLElement>} instead.
  */
 @Deprecated
-public interface HasElements extends Iterable<HTMLElement> {
+public interface HasElements {
 
     /** @deprecated Please use methods from {@code Iterable} instead. */
     @Deprecated
-    default Iterable<HTMLElement> asElements() {
-        return newArrayList(iterator());
-    }
+    Iterable<HTMLElement> asElements();
 }
