@@ -16,6 +16,7 @@ package org.jboss.gwt.elemento.core.builder;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
+import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
 /** Builder for container-like elements with inner HTML. */
@@ -49,6 +50,19 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
     /** Adds all elements. */
     default B addAll(HTMLElement... elements) {
         for (HTMLElement element : elements) {
+            add(element);
+        }
+        return that();
+    }
+
+    /**
+     * Adds all elements.
+     *
+     * @deprecated Please use {@link #addAll(Iterable)} instead.
+     */
+    @Deprecated
+    default B addAll(HasElements elements) {
+        for (HTMLElement element : elements.asElements()) {
             add(element);
         }
         return that();
