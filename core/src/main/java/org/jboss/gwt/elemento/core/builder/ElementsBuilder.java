@@ -18,6 +18,7 @@ import java.util.Iterator;
 import elemental2.core.JsArray;
 import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.Elements;
+import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
 /** Builder to collect {@link HTMLElement}s */
@@ -58,6 +59,20 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
         }
         return that();
     }
+
+    /**
+     * Adds all elements.
+     *
+     * @deprecated Please use {@link #addAll(Iterable)} instead.
+     */
+    @Deprecated
+    public ElementsBuilder addAll(HasElements elements) {
+        for (HTMLElement element : elements.asElements()) {
+            add(element);
+        }
+        return that();
+    }
+
 
     /** Adds all elements. */
     public ElementsBuilder addAll(IsElement... elements) {
