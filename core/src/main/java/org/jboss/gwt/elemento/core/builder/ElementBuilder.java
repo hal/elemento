@@ -51,7 +51,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
      * builders won't implement {@code IsElement<E>} in the next major version. Please use {@link #get()} instead.
      * A builder is a builder and not an element.
      */
-    public E element() {
+    public E asElement() {
         return element;
     }
 
