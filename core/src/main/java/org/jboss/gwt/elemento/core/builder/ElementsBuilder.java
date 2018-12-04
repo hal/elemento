@@ -22,7 +22,7 @@ import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
 /** Builder to collect {@link HTMLElement}s */
-public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, ElementsBuilder> {
+public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, ElementsBuilder>, HasElements {
 
     private final IterableElementsImpl elements;
 
@@ -88,6 +88,7 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
     }
 
     /** Please use {@link #get()} instead. */
+    @Override
     @Deprecated
     public Iterable<HTMLElement> asElements() {
         return get();
