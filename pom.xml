@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>27</version>
+        <version>31</version>
     </parent>
 
     <groupId>org.jboss.gwt.elemento</groupId>
@@ -91,6 +91,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <plugin.version.github.site>0.12</plugin.version.github.site>
         <plugin.version.gwt.maven>1.0-rc-9</plugin.version.gwt.maven>
+        <plugin.version.javadoc>3.0.1</plugin.version.javadoc>
         <plugin.version.project.info.report>2.8</plugin.version.project.info.report>
         <plugin.version.sonatype>1.6.3</plugin.version.sonatype>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -104,7 +105,7 @@
         <gwt.version>2.8.2</gwt.version>
         <gwtmockito.version>1.1.8</gwtmockito.version>
         <javax.inject.version>1</javax.inject.version>
-        <jsoup.version>1.11.2</jsoup.version>
+        <jsoup.version>1.11.3</jsoup.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -230,6 +231,11 @@
                     <version>${plugin.version.project.info.report}</version>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${plugin.version.javadoc}</version>
+                </plugin>
+                <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
                     <version>${plugin.version.sonatype}</version>
@@ -352,68 +358,6 @@
             </modules>
         </profile>
         <profile>
-            <id>site</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.github</groupId>
-                        <artifactId>site-maven-plugin</artifactId>
-                        <configuration>
-                            <branch>refs/heads/site</branch>
-                            <message>Creating site for ${project.name} ${project.version}</message>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>site</goal>
-                                </goals>
-                                <phase>site</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-            <reporting>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-project-info-reports-plugin</artifactId>
-                        <reportSets>
-                            <reportSet>
-                                <reports>
-                                    <report>index</report>
-                                </reports>
-                            </reportSet>
-                        </reportSets>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <configuration>
-                            <additionalOptions>
-                                <additionalOption>-html5</additionalOption>
-                            </additionalOptions>
-                            <detectLinks>true</detectLinks>
-                            <doclint>none</doclint>
-                            <failOnError>false</failOnError>
-                            <links>
-                                <link>http://www.gwtproject.org/javadoc/latest/</link>
-                            </links>
-                            <show>package</show>
-                        </configuration>
-                        <reportSets>
-                            <reportSet>
-                                <id>aggregate</id>
-                                <reports>
-                                    <report>aggregate</report>
-                                </reports>
-                            </reportSet>
-                        </reportSets>
-                    </plugin>
-                </plugins>
-            </reporting>
-        </profile>
-        <profile>
             <id>widget</id>
             <modules>
                 <module>widget</module>
@@ -431,6 +375,12 @@
             <id>vertispan-snapshots</id>
             <name>Vertispan Snapshots</name>
             <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>oss-sonatype</id>

@@ -68,7 +68,7 @@ abstract class ApplicationElement implements IsElement<HTMLElement> {
     private void reset() {
         Elements.removeChildrenFrom(list); // remove the sample items from the template
         for (TodoItem item : repository().items()) {
-            list.appendChild(TodoItemElement.create(this, repository(), item).asElement());
+            list.appendChild(TodoItemElement.create(this, repository(), item).element());
         }
         update();
 
@@ -82,7 +82,7 @@ abstract class ApplicationElement implements IsElement<HTMLElement> {
             String text = newTodo.value.trim();
             if (text.length() != 0) {
                 TodoItem item = repository().add(text);
-                list.appendChild(TodoItemElement.create(this, repository(), item).asElement());
+                list.appendChild(TodoItemElement.create(this, repository(), item).element());
                 newTodo.value = "";
                 update();
             }

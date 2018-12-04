@@ -26,8 +26,8 @@ public class Main implements EntryPoint {
         TodoItemRepository repository = new TodoItemRepository();
         ApplicationElement application = ApplicationElement.create(repository);
 
-        document.body.appendChild(application.asElement());
-        document.body.appendChild(FooterElement.create().asElement());
+        document.body.appendChild(application.element());
+        document.body.appendChild(FooterElement.create().element());
 
         History.addValueChangeHandler(event -> application.filter(event.getValue()));
         History.fireCurrentHistoryState();

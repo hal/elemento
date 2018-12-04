@@ -13,10 +13,25 @@
  */
 package org.jboss.gwt.elemento.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import elemental2.dom.HTMLElement;
+/**
+ * Interface for custom components returning multiple elements.
+ *
+ * @deprecated No longer necessary. Use {@code Iterable<HTMLElement>} instead.
+ */
+@Deprecated
+public interface HasElements extends Iterable<HTMLElement> {
 
-/** The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.HasWidgets}. */
-public interface HasElements {
-
-    Iterable<HTMLElement> asElements();
+    /** @deprecated Please use methods from {@code Iterable} instead. */
+    @Deprecated
+    default Iterable<HTMLElement> asElements() {
+        List<HTMLElement> list = new ArrayList<>();
+        while (iterator().hasNext()) {
+            list.add(iterator().next());
+        }
+        return list;
+    }
 }

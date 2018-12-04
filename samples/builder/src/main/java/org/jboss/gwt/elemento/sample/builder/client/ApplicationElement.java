@@ -42,7 +42,7 @@ import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 class ApplicationElement implements IsElement<HTMLElement> {
 
     private static HTMLElement filter(Filter f, String text) {
-        return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).asElement();
+        return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).get();
     }
 
     private final TodoItemRepository repository;
@@ -70,14 +70,14 @@ class ApplicationElement implements IsElement<HTMLElement> {
                         .add(newTodo = input(text).css("new-todo").apply(input -> {
                             input.placeholder = Constants.NEW_TODO;
                             input.autofocus = true;
-                        }).asElement()))
+                        }).get()))
                 .add(main = section().css("main")
-                        .add(toggleAll = input(checkbox).css("toggle-all").id("toggle-all").asElement())
+                        .add(toggleAll = input(checkbox).css("toggle-all").id("toggle-all").get())
                         .add(label().attr("for", "toggle-all").textContent(Constants.COMPLETE_ALL))
-                        .add(list = ul().css("todo-list").asElement())
-                        .asElement())
+                        .add(list = ul().css("todo-list").get())
+                        .get())
                 .add(footer = footer().css("footer")
-                        .add(count = span().css("todo-count").innerHtml(Messages.items(0)).asElement())
+                        .add(count = span().css("todo-count").innerHtml(Messages.items(0)).get())
                         .add(ul().css("filters")
                                 .add(filterAll = filter(ALL, Constants.FILTER_ALL))
                                 .add(filterActive = filter(ACTIVE, Constants.FILTER_ACTIVE))
@@ -85,9 +85,9 @@ class ApplicationElement implements IsElement<HTMLElement> {
                         .add(clearCompleted = button()
                                 .css("clear-completed")
                                 .textContent(Constants.CLEAR_COMPLETED)
-                                .asElement())
-                        .asElement())
-                .asElement();
+                                .get())
+                        .get())
+                .get();
 
         bind(newTodo, keydown, this::newTodo);
         bind(toggleAll, change, event -> toggleAll());
@@ -100,13 +100,13 @@ class ApplicationElement implements IsElement<HTMLElement> {
     private void reset() {
         Elements.removeChildrenFrom(list);
         for (TodoItem item : repository.items()) {
-            list.appendChild(new TodoItemElement(this, repository, item).asElement());
+            list.appendChild(new TodoItemElement(this, repository, item).element());
         }
         update();
     }
 
     @Override
-    public HTMLElement asElement() {
+    public HTMLElement element() {
         return root;
     }
 
@@ -118,7 +118,7 @@ class ApplicationElement implements IsElement<HTMLElement> {
             String text = newTodo.value.trim();
             if (text.length() != 0) {
                 TodoItem item = repository.add(text);
-                list.appendChild(new TodoItemElement(this, repository, item).asElement());
+                list.appendChild(new TodoItemElement(this, repository, item).element());
                 newTodo.value = "";
                 update();
             }

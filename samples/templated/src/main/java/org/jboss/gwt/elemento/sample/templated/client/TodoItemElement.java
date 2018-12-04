@@ -53,9 +53,9 @@ abstract class TodoItemElement implements IsElement<HTMLElement> {
 
     @PostConstruct
     void init() {
-        asElement().dataset.set("item", item().id);
+        element().dataset.set("item", item().id);
         if (item().completed) {
-            asElement().classList.add("completed");
+            element().classList.add("completed");
         }
         label.textContent = item().text;
         toggle.checked = item().completed;
@@ -73,9 +73,9 @@ abstract class TodoItemElement implements IsElement<HTMLElement> {
 
     private void toggle() {
         if (toggle.checked) {
-            asElement().classList.add("completed");
+            element().classList.add("completed");
         } else {
-            asElement().classList.remove("completed");
+            element().classList.remove("completed");
         }
         repository().complete(item(), toggle.checked);
         application().update();
@@ -83,13 +83,13 @@ abstract class TodoItemElement implements IsElement<HTMLElement> {
 
     private void edit() {
         escape = false;
-        asElement().classList.add("editing");
+        element().classList.add("editing");
         input.value = label.textContent;
         input.focus();
     }
 
     private void destroy() {
-        asElement().parentNode.removeChild(asElement());
+        element().parentNode.removeChild(element());
         handlerRegistration.removeHandler();
         repository().remove(item());
         application().update();
@@ -99,7 +99,7 @@ abstract class TodoItemElement implements IsElement<HTMLElement> {
     private void keyDown(final KeyboardEvent event) {
         if (Key.Escape.match(event)) {
             escape = true;
-            asElement().classList.remove("editing");
+            element().classList.remove("editing");
 
         } else if (Key.Enter.match(event)) {
             blur();
@@ -111,7 +111,7 @@ abstract class TodoItemElement implements IsElement<HTMLElement> {
         if (value.length() == 0) {
             destroy();
         } else {
-            asElement().classList.remove("editing");
+            element().classList.remove("editing");
             if (!escape) {
                 label.textContent = value;
                 repository().rename(item(), value);

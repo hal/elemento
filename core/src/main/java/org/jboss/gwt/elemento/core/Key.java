@@ -148,12 +148,12 @@ public enum Key {
     }
 
     public boolean match(KeyboardEvent event) {
-        if (event.key.equals(key)) {
+        if (key.equals(event.key)) {
             return true;
         }
         if (alternatives != null) {
             for (String alternative : alternatives) {
-                if (event.key.equals(alternative)) {
+                if (alternative.equals(event.key)) {
                     return true;
                 }
             }

@@ -17,7 +17,7 @@ import elemental2.dom.HTMLElement;
 
 /**
  * Convenience class to support lazy element creation. The bulk of a LazyElement is not instantiated until {@link
- * #asElement()} is called.
+ * #element()} is called.
  */
 public abstract class LazyElement implements IsElement {
 
@@ -28,7 +28,7 @@ public abstract class LazyElement implements IsElement {
      * created element.
      */
     @Override
-    public HTMLElement asElement() {
+    public HTMLElement element() {
         if (element == null) {
             element = createElement();
         }
@@ -42,9 +42,7 @@ public abstract class LazyElement implements IsElement {
      */
     protected abstract HTMLElement createElement();
 
-    /**
-     * @return whether the element was already created
-     */
+    /** @return whether the element was already created */
     protected boolean initialized() {
         return element != null;
     }

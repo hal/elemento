@@ -25,8 +25,8 @@ public class Main implements EntryPoint {
         ApplicationElement application = ApplicationComponent.INSTANCE.application();
         FooterElement footer = ApplicationComponent.INSTANCE.footer();
 
-        document.body.appendChild(application.asElement());
-        document.body.appendChild(footer.asElement());
+        document.body.appendChild(application.element());
+        document.body.appendChild(footer.element());
 
         History.addValueChangeHandler(event -> application.filter(event.getValue()));
         History.fireCurrentHistoryState();

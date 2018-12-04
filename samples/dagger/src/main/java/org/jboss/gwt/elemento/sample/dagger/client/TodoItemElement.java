@@ -56,9 +56,9 @@ abstract class TodoItemElement implements IsElement<HTMLLIElement> {
     // @PostConstruct not possible here since the TodoItem is not injectable!
     void init(TodoItem item) {
         this.item = item;
-        asElement().dataset.set("item", item.id);
+        element().dataset.set("item", item.id);
         if (item.completed) {
-            asElement().classList.add("completed");
+            element().classList.add("completed");
         }
         label.textContent = item.text;
         toggle.checked = item.completed;
@@ -75,9 +75,9 @@ abstract class TodoItemElement implements IsElement<HTMLLIElement> {
 
     private void toggle() {
         if (toggle.checked) {
-            asElement().classList.add("completed");
+            element().classList.add("completed");
         } else {
-            asElement().classList.remove("completed");
+            element().classList.remove("completed");
         }
         repository().complete(item, toggle.checked);
         application().get().update();
@@ -85,13 +85,13 @@ abstract class TodoItemElement implements IsElement<HTMLLIElement> {
 
     private void edit() {
         escape = false;
-        asElement().classList.add("editing");
+        element().classList.add("editing");
         input.value = label.textContent;
         input.focus();
     }
 
     private void destroy() {
-        asElement().parentNode.removeChild(asElement());
+        element().parentNode.removeChild(element());
         handlerRegistration.removeHandler();
         repository().remove(item);
         application().get().update();
@@ -100,7 +100,7 @@ abstract class TodoItemElement implements IsElement<HTMLLIElement> {
     private void keyDown(final KeyboardEvent event) {
         if (Key.Escape.match(event)) {
             escape = true;
-            asElement().classList.remove("editing");
+            element().classList.remove("editing");
 
         } else if (Key.Enter.match(event)) {
             blur();
@@ -112,7 +112,7 @@ abstract class TodoItemElement implements IsElement<HTMLLIElement> {
         if (value.length() == 0) {
             destroy();
         } else {
-            asElement().classList.remove("editing");
+            element().classList.remove("editing");
             if (!escape) {
                 label.textContent = value;
                 repository().rename(item, value);

@@ -43,6 +43,12 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
     <artifactId>elemento-core</artifactId>
     <version>GWT2-SNAPSHOT</version>
 </dependency>
+<dependency>
+    <groupId>org.jboss.gwt.elemento</groupId>
+    <artifactId>elemento-core</artifactId>
+    <classifier>sources</classifier>
+    <version>GWT2-SNAPSHOT</version>
+</dependency>
 ```
  
 In your GWT module inherit from `org.jboss.gwt.elemento.Core`:
@@ -226,6 +232,19 @@ To use HTML templates add the following maven dependency to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template</artifactId>
+    <artifactId>elemento-template-api</artifactId>
+    <version>GWT2-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.gwt.elemento</groupId>
+    <artifactId>elemento-template-api</artifactId>
+    <classifier>sources</classifier>
+    <version>GWT2-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.gwt.elemento</groupId>
+    <artifactId>elemento-template-processor</artifactId>
+    <scope>provided</scope>
     <version>GWT2-SNAPSHOT</version>
 </dependency>
 ```
@@ -459,7 +478,7 @@ See the [samples](#samples) how this works and how you can inject the templates 
 
 # Helper Methods
 
-Besides the builder API and the HTML templates, Elemento comes with a bunch of static helper methods that roughly fall into four categories:
+Besides the builder API and the HTML templates, Elemento comes with a bunch of static helper methods that roughly fall into three categories:
 
 1. Element iterator / stream methods
 1. Element append, insert & remove methods
