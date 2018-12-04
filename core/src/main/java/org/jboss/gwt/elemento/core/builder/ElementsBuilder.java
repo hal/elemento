@@ -72,6 +72,12 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
         return elements;
     }
 
+    /** Please use {@link #get()} instead. */
+    @Deprecated
+    public Iterable<HTMLElement> asElements() {
+        return get();
+    }
+
     @Override
     public ElementsBuilder that() {
         return this;
