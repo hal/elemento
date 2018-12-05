@@ -351,13 +351,6 @@
             </build>
         </profile>
         <profile>
-            <id>samples</id>
-            <modules>
-                <module>samples</module>
-                <module>samples/common</module>
-            </modules>
-        </profile>
-        <profile>
             <id>widget</id>
             <modules>
                 <module>widget</module>
