@@ -19,7 +19,6 @@ import java.util.Set;
 
 import elemental2.core.Global;
 import elemental2.core.JsArray;
-import elemental2.dom.DomGlobal;
 import elemental2.webstorage.Storage;
 import elemental2.webstorage.StorageEvent;
 import elemental2.webstorage.WebStorageWindow;
