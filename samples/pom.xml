@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>0.8.7</version>
+        <version>0.9.0</version>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
@@ -29,12 +29,14 @@
     <packaging>pom</packaging>
 
     <properties>
-        <dagger.version>2.13</dagger.version>
-        <errai.version>4.2.2.Final</errai.version>
+        <dagger.version>2.19</dagger.version>
+        <errai.version>4.4.1.Final</errai.version>
         <gin.version>2.1.2</gin.version>
+        <guava.version>27.0-jre</guava.version>
         <javax.inject.version>1</javax.inject.version>
-        <node.version>v9.5.0</node.version>
-        <npm.version>5.6.0</npm.version>
+        <nalu.version>1.0.0-rc-12</nalu.version>
+        <node.version>v10.13.0</node.version>
+        <npm.version>6.4.1</npm.version>
         <plugin.frontend.version>1.6</plugin.frontend.version>
 
         <gwt.public.directory/>
@@ -47,6 +49,7 @@
         <module>dagger</module>
         <module>errai</module>
         <module>gin</module>
+        <!--<module>nalu</module>-->
         <module>templated</module>
     </modules>
 
@@ -84,11 +87,31 @@
                 <version>${gin.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.errai.bom</groupId>
                 <artifactId>errai-bom</artifactId>
                 <version>${errai.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.nalukit</groupId>
+                <artifactId>nalu</artifactId>
+                <version>${nalu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.nalukit</groupId>
+                <artifactId>nalu-plugin-elemental2</artifactId>
+                <version>${nalu.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.nalukit</groupId>
+                <artifactId>nalu-processor</artifactId>
+                <version>${nalu.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

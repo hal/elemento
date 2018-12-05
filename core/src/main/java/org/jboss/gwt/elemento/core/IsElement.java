@@ -15,9 +15,9 @@ package org.jboss.gwt.elemento.core;
 
 import elemental2.dom.HTMLElement;
 
-/** The GWT Elemental counterpart to {@link com.google.gwt.user.client.ui.IsWidget}. */
-@FunctionalInterface
+/** Interface for custom components returning a single element. */
 public interface IsElement<E extends HTMLElement> {
 
-    E asElement();
+    /** @retun the element of the custom component */
+    E element();
 }

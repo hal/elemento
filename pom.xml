@@ -20,12 +20,12 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>28</version>
+        <version>31</version>
     </parent>
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.8.7</version>
+    <version>0.9.0</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -91,6 +91,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <plugin.version.github.site>0.12</plugin.version.github.site>
         <plugin.version.gwt.maven>1.0-rc-9</plugin.version.gwt.maven>
+        <plugin.version.javadoc>3.0.1</plugin.version.javadoc>
         <plugin.version.project.info.report>2.8</plugin.version.project.info.report>
         <plugin.version.sonatype>1.6.3</plugin.version.sonatype>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -105,10 +106,10 @@
         <gwtmockito.version>1.1.8</gwtmockito.version>
         <javax.inject.version>1</javax.inject.version>
         <jsr250.version>1.0</jsr250.version>
-        <jsoup.version>1.11.2</jsoup.version>
+        <jsoup.version>1.11.3</jsoup.version>
         <junit.version>4.12</junit.version>
         <safehtml.version>1.0-SNAPSHOT</safehtml.version>
-        <undertow.version>2.0.7.Final</undertow.version>
+        <undertow.version>2.0.15.Final</undertow.version>
     </properties>
 
     <modules>
@@ -276,6 +277,11 @@
                     <version>${plugin.version.project.info.report}</version>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${plugin.version.javadoc}</version>
+                </plugin>
+                <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
                     <version>${plugin.version.sonatype}</version>
@@ -345,16 +351,17 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <configuration>
-                            <additionalOptions>
-                                <additionalOption>-html5</additionalOption>
-                            </additionalOptions>
+                            <additionalOptions>-html5</additionalOptions>
                             <detectLinks>true</detectLinks>
                             <doclint>none</doclint>
+                            <excludePackageNames>
+                                org.jboss.gwt.elemento.processor:org.jboss.gwt.elemento.processor.context
+                            </excludePackageNames>
                             <failOnError>false</failOnError>
                             <links>
                                 <link>http://www.gwtproject.org/javadoc/latest/</link>
                             </links>
-                            <show>package</show>
+                            <show>public</show>
                         </configuration>
                         <executions>
                             <execution>
@@ -483,6 +490,12 @@
             <id>vertispan-snapshots</id>
             <name>Vertispan Snapshots</name>
             <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>oss-sonatype</id>

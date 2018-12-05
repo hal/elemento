@@ -27,26 +27,56 @@ import jsinterop.base.Js;
 public final class Widgets {
 
     /** Converts from {@link IsElement} &rarr; {@link Widget}. */
+    public static Widget widget(IsElement element) {
+        return widget(element.element());
+    }
+
+    /** @deprecated Please use {@link #widget(IsElement)} instead. */
+    @Deprecated
     public static Widget asWidget(IsElement element) {
-        return asWidget(element.asElement());
+        return widget(element.element());
     }
 
     /** Converts from {@link HTMLElement} &rarr; {@link Widget}. */
+    public static Widget widget(HTMLElement element) {
+        return new ElementWidget(element);
+    }
+
+    /** @deprecated Please use {@link #widget(HTMLElement)} instead. */
+    @Deprecated
     public static Widget asWidget(HTMLElement element) {
         return new ElementWidget(element);
     }
 
     /** Converts from {@link IsWidget} &rarr; {@link HTMLElement}. */
+    public static HTMLElement element(IsWidget widget) {
+        return element(widget.asWidget());
+    }
+
+    /** @deprecated Please use {@link #element(IsWidget)} instead. */
+    @Deprecated
     public static HTMLElement asElement(IsWidget widget) {
-        return asElement(widget.asWidget());
+        return element(widget.asWidget());
     }
 
     /** Converts from {@link Widget} &rarr; {@link HTMLElement}. */
+    public static HTMLElement element(Widget widget) {
+        return element(widget.getElement());
+    }
+
+    /** @deprecated Please use {@link #element(Widget)} instead. */
+    @Deprecated
     public static HTMLElement asElement(Widget widget) {
-        return asElement(widget.getElement());
+        return element(widget.getElement());
     }
 
     /** Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link HTMLElement}. */
+    public static HTMLElement element(com.google.gwt.dom.client.Element element) {
+        return Js.cast(element);
+    }
+
+    /** @deprecated Please use {@link #element(com.google.gwt.dom.client.Element)} instead. */
+    @Deprecated
     public static HTMLElement asElement(com.google.gwt.dom.client.Element element) {
         return Js.cast(element);
     }

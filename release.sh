@@ -1,18 +1,19 @@
 #!/bin/bash
-# Script to build, deploy and release Elemento.
+
+# Script to build, deploy and release Elemento. Make sure the different branches
+# have the same feature set, before calling this script.
 #
 # Prerequisites
 #   - Clean git status (no uncommitted changes in branch 'develop' and 'gwt2')
-#   - No tag with the specified version
+#   - No tag for the specified version
 #
 # Parameters
 #   1. New version number
 #
 # What it does
-#   1.
-#   2.
-#   3.
-#   4.
+#   1. Build & deploy branch 'develop' and 'gwt2'
+#   2. Bump versions to '<version>' and '<version>-gwt2'
+#   3. Switch back to 'HEAD-SNAPSHOT' 'GWT2-SNAPSHOT'
 
 
 
@@ -37,7 +38,7 @@ function box()
 
 
 # Prerequisites
-if [ "$#" -ne 1 ]; then
+if [[ "$#" -ne 1 ]]; then
     echo "Illegal number of parameters. Please use $0 <version>"
     exit -1
 fi
@@ -64,21 +65,21 @@ fi
 
 
 
-# Release branch 'gwt2'
+# Branch 'gwt2'
 BRANCH=gwt2
 box "Switch to branch '$BRANCH'"
 git checkout $BRANCH
 git pull origin $BRANCH
 
 box "Build branch '$BRANCH'"
-mvn clean install -P samples,testsuite,widget || { echo "Maven build failed" ; exit 1; }
+mvn clean install -P widget || { echo "Maven build failed" ; exit 1; }
 
 box "Update version to '$VERSION-gwt2'"
 ./versionBump.sh $VERSION-gwt2
 git commit -am "Bump to $VERSION-gwt"
 
 box "Deploy '$VERSION-gwt2'"
-mvn deploy -P release,samples,testsuite,widget || { echo "Maven deploy failed" ; exit 1; }
+mvn deploy -P release,widget || { echo "Maven deploy failed" ; exit 1; }
 git tag $VERSION-gwt
 git push origin $BRANCH
 git push origin --tags
@@ -90,7 +91,7 @@ git push origin $BRANCH
 
 
 
-# Release branch 'develop'
+# Branch 'develop'
 BRANCH=develop
 box "Switch to branch '$BRANCH'"
 git checkout $BRANCH
@@ -106,7 +107,9 @@ git commit -am "Bump to $VERSION"
 
 box "Deploy '$VERSION'"
 mvn deploy -P release,samples,testsuite,widget || { echo "Maven deploy failed" ; exit 1; }
+export GIT_MERGE_AUTOEDIT=no
 git flow release finish -m "$VERSION" $VERSION
+unset GIT_MERGE_AUTOEDIT
 git push origin develop
 git push origin master
 git push origin --tags
@@ -119,4 +122,5 @@ git push origin $BRANCH
 
 
 
-box "<---=== Elemento successfully released ===--->"
+# Done
+box "  <<--==  Elemento successfully released  ==-->>  "

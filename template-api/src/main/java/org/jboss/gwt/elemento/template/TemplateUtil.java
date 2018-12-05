@@ -65,7 +65,7 @@ public final class TemplateUtil {
     // ------------------------------------------------------ IsElement / (Is)Widget methods
 
     public static void replaceIsElement(HTMLElement context, String identifier, IsElement newElement) {
-        replaceElement(context, identifier, newElement.asElement());
+        replaceElement(context, identifier, newElement.element());
     }
 
     // ------------------------------------------------------ custom elements

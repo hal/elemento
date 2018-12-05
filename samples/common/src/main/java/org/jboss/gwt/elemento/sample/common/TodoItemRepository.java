@@ -19,13 +19,13 @@ import java.util.Set;
 
 import elemental2.core.Global;
 import elemental2.core.JsArray;
-import elemental2.dom.DomGlobal;
 import elemental2.webstorage.Storage;
 import elemental2.webstorage.StorageEvent;
 import elemental2.webstorage.WebStorageWindow;
 import jsinterop.base.Js;
 
 import static elemental2.dom.DomGlobal.console;
+import static elemental2.dom.DomGlobal.setTimeout;
 import static elemental2.dom.DomGlobal.window;
 
 public class TodoItemRepository {
@@ -105,12 +105,7 @@ public class TodoItemRepository {
             WebStorageWindow.of(window).addEventListener("storage", event -> {
                 StorageEvent storageEvent = (StorageEvent) event;
                 if (key.equals(storageEvent.key)) {
-                    DomGlobal.setTimeout(new DomGlobal.SetTimeoutCallbackFn() {
-                        @Override
-                        public void onInvoke(Object... args) {
-                            callback.execute();
-                        }
-                    }, 333, null);
+                    setTimeout(args -> callback.execute(), 333, null);
                 }
             }, false);
         }

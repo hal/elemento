@@ -74,7 +74,7 @@ abstract class ApplicationElement implements IsElement<HTMLElement> {
         for (TodoItem item : repository().items()) {
             TodoItemElement itemElement = itemElement().get();
             itemElement.init(item);
-            list.appendChild(itemElement.asElement());
+            list.appendChild(itemElement.element());
         }
         update();
 
@@ -90,7 +90,7 @@ abstract class ApplicationElement implements IsElement<HTMLElement> {
                 TodoItem item = repository().add(text);
                 TodoItemElement itemElement = itemElement().get();
                 itemElement.init(item);
-                list.appendChild(itemElement.asElement());
+                list.appendChild(itemElement.element());
                 newTodo.value = "";
                 update();
             }

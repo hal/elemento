@@ -13,39 +13,35 @@
  */
 package org.jboss.gwt.elemento.core.builder;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 
+import elemental2.core.JsArray;
 import elemental2.dom.HTMLElement;
+import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.HasElements;
 import org.jboss.gwt.elemento.core.IsElement;
 
-/** A builder to collect elements in a flat list as {@link HasElements} */
-public class ElementsBuilder implements HasElements {
+/** Builder to collect {@link HTMLElement}s */
+public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, ElementsBuilder>, HasElements {
 
-    private final List<HTMLElement> elements;
+    private final IterableElementsImpl elements;
 
     public ElementsBuilder() {
-        elements = new ArrayList<>();
+        elements = new IterableElementsImpl();
     }
 
 
     // ------------------------------------------------------ mirror add() methods from HtmlContent
 
-    /** Adds the given element by calling {@code element.asElement()}. */
+    /** Adds the given element by calling {@code element.element()}. */
     public ElementsBuilder add(IsElement element) {
-        return add(element.asElement());
+        return add(element.element());
     }
 
     /** Adds the given element. */
     public ElementsBuilder add(HTMLElement element) {
-        elements.add(element);
-        return this;
-    }
-
-    /** Adds all elements from {@code elements.asElements()}. */
-    public ElementsBuilder addAll(HasElements elements) {
-        return addAll(elements.asElements());
+        elements.elements.push(element);
+        return that();
     }
 
     /** Adds all elements. */
@@ -53,7 +49,7 @@ public class ElementsBuilder implements HasElements {
         for (HTMLElement element : elements) {
             add(element);
         }
-        return this;
+        return that();
     }
 
     /** Adds all elements. */
@@ -61,20 +57,61 @@ public class ElementsBuilder implements HasElements {
         for (HTMLElement element : elements) {
             add(element);
         }
-        return this;
+        return that();
     }
+
+    /**
+     * Adds all elements.
+     *
+     * @deprecated Please use {@link #addAll(Iterable)} instead.
+     */
+    @Deprecated
+    public ElementsBuilder addAll(HasElements elements) {
+        for (HTMLElement element : elements.asElements()) {
+            add(element);
+        }
+        return that();
+    }
+
 
     /** Adds all elements. */
     public ElementsBuilder addAll(IsElement... elements) {
         for (IsElement element : elements) {
             add(element);
         }
+        return that();
+    }
+
+    @Override
+    public Iterable<HTMLElement> get() {
+        return elements;
+    }
+
+    /** Please use {@link #get()} instead. */
+    @Override
+    @Deprecated
+    public Iterable<HTMLElement> asElements() {
+        return get();
+    }
+
+    @Override
+    public ElementsBuilder that() {
         return this;
     }
 
-    /** Returns the elements added so far. */
-    @Override
-    public Iterable<HTMLElement> asElements() {
-        return elements;
+
+    private static class IterableElementsImpl implements Iterable<HTMLElement> {
+
+        final JsArray<HTMLElement> elements;
+
+
+        private IterableElementsImpl() {
+            elements = new JsArray<>();
+        }
+
+        @Override
+        public Iterator<HTMLElement> iterator() {
+            return Elements.iterator(elements);
+        }
     }
 }

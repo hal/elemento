@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>0.8.7</version>
+        <version>0.9.0</version>
     </parent>
 
     <artifactId>errai-sample</artifactId>

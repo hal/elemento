@@ -31,9 +31,9 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
 
     // ------------------------------------------------------ child element(s)
 
-    /** Adds the given element by calling {@code element.asElement()}. */
+    /** Adds the given element by calling {@code element.element()}. */
     default B add(IsElement element) {
-        return add(element.asElement());
+        return add(element.element());
     }
 
     /** Adds the given text as a text node. */
@@ -47,14 +47,22 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
         return that();
     }
 
-    /** Adds all elements from {@code elements.asElements()}. */
-    default B addAll(HasElements elements) {
-        return addAll(elements.asElements());
-    }
-
     /** Adds all elements. */
     default B addAll(HTMLElement... elements) {
         for (HTMLElement element : elements) {
+            add(element);
+        }
+        return that();
+    }
+
+    /**
+     * Adds all elements.
+     *
+     * @deprecated Please use {@link #addAll(Iterable)} instead.
+     */
+    @Deprecated
+    default B addAll(HasElements elements) {
+        for (HTMLElement element : elements.asElements()) {
             add(element);
         }
         return that();

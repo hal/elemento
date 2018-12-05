@@ -13,9 +13,7 @@
  */
 package org.jboss.gwt.elemento.core;
 
-/**
- * Known input types used in {@link Elements#input(InputType)}.
- */
+/** Known input types used in {@link Elements#input(InputType)}. */
 public enum InputType {
     button,
     checkbox,

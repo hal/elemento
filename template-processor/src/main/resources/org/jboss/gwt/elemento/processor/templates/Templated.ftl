@@ -77,7 +77,7 @@ ${context.inject} public ${context.subclass}(<#list context.abstractProperties a
     }
 
     @Override
-    public ${context.isElementTypeParameter} asElement() {
+    public ${context.isElementTypeParameter} element() {
         return ${context.root.member};
     }
     <#-- Abstract properties -->
