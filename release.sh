@@ -72,14 +72,14 @@ git checkout $BRANCH
 git pull origin $BRANCH
 
 box "Build branch '$BRANCH'"
-mvn clean install -P samples,widget || { echo "Maven build failed" ; exit 1; }
+mvn clean install -P widget || { echo "Maven build failed" ; exit 1; }
 
 box "Update version to '$VERSION-gwt2'"
 ./versionBump.sh $VERSION-gwt2
 git commit -am "Bump to $VERSION-gwt"
 
 box "Deploy '$VERSION-gwt2'"
-mvn deploy -P release,samples,widget || { echo "Maven deploy failed" ; exit 1; }
+mvn deploy -P release,widget || { echo "Maven deploy failed" ; exit 1; }
 git tag $VERSION-gwt
 git push origin $BRANCH
 git push origin --tags
