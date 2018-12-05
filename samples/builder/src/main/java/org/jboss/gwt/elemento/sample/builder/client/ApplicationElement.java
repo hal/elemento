@@ -42,7 +42,7 @@ import static org.jboss.gwt.elemento.sample.common.Filter.COMPLETED;
 class ApplicationElement implements IsElement<HTMLElement> {
 
     private static HTMLElement filter(Filter f, String text) {
-        return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).element();
+        return li().add(a().apply(a -> a.href = f.fragment()).textContent(text)).get();
     }
 
     private final TodoItemRepository repository;
@@ -70,14 +70,14 @@ class ApplicationElement implements IsElement<HTMLElement> {
                         .add(newTodo = input(text).css("new-todo").apply(input -> {
                             input.placeholder = Constants.NEW_TODO;
                             input.autofocus = true;
-                        }).element()))
+                        }).get()))
                 .add(main = section().css("main")
-                        .add(toggleAll = input(checkbox).css("toggle-all").id("toggle-all").element())
+                        .add(toggleAll = input(checkbox).css("toggle-all").id("toggle-all").get())
                         .add(label().attr("for", "toggle-all").textContent(Constants.COMPLETE_ALL))
-                        .add(list = ul().css("todo-list").element())
-                        .element())
+                        .add(list = ul().css("todo-list").get())
+                        .get())
                 .add(footer = footer().css("footer")
-                        .add(count = span().css("todo-count").innerHtml(Messages.items(0)).element())
+                        .add(count = span().css("todo-count").innerHtml(Messages.items(0)).get())
                         .add(ul().css("filters")
                                 .add(filterAll = filter(ALL, Constants.FILTER_ALL))
                                 .add(filterActive = filter(ACTIVE, Constants.FILTER_ACTIVE))
@@ -85,9 +85,9 @@ class ApplicationElement implements IsElement<HTMLElement> {
                         .add(clearCompleted = button()
                                 .css("clear-completed")
                                 .textContent(Constants.CLEAR_COMPLETED)
-                                .element())
-                        .element())
-                .element();
+                                .get())
+                        .get())
+                .get();
 
         bind(newTodo, keydown, this::newTodo);
         bind(toggleAll, change, event -> toggleAll());
