@@ -18,11 +18,6 @@ import elemental2.dom.HTMLElement;
 /** Component interface for custom elements. */
 public interface IsElement<E extends HTMLElement> {
 
-    default E element() {
-        return asElement();
-    }
-
-    /** @deprecated Please use {@link #element()} instead */
-    @Deprecated
-    E asElement();
+    /** @retun the element of the custom component */
+    E element();
 }
