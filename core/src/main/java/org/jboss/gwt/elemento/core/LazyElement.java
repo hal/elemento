@@ -35,6 +35,12 @@ public abstract class LazyElement implements IsElement {
         return element;
     }
 
+    /** @deprecated Please use {@link #element()} instead. */
+    @Deprecated
+    public HTMLElement asElement() {
+        return element();
+    }
+
     /**
      * Create the element contained within the {@link LazyElement}.
      *
