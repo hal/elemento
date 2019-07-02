@@ -23,7 +23,6 @@ import elemental2.dom.EventListener;
 import elemental2.dom.EventTarget;
 import elemental2.dom.FocusEvent;
 import elemental2.dom.HashChangeEvent;
-import elemental2.dom.InputEvent;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MessageEvent;
 import elemental2.dom.MouseEvent;
