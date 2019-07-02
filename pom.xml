@@ -20,12 +20,12 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>31</version>
+        <version>35</version>
     </parent>
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.9.0</version>
+    <version>0.9.1</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -109,7 +109,7 @@
         <jsoup.version>1.11.3</jsoup.version>
         <junit.version>4.12</junit.version>
         <safehtml.version>1.0-SNAPSHOT</safehtml.version>
-        <undertow.version>2.0.15.Final</undertow.version>
+        <undertow.version>2.0.22.Final</undertow.version>
     </properties>
 
     <modules>
