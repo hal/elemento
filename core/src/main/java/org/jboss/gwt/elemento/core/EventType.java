@@ -120,9 +120,9 @@ public class EventType<T extends Event, V extends EventTarget> {
 
     // Value Change Events
     public static final EventType<HashChangeEvent, Window> hashchange = of("hashchange");
-    public static final EventType<InputEvent, Element> input = of("input");
+    public static final EventType<Event, Element> input = of("input");
     public static final EventType<Event, Document> readystatechange = of("readystatechange");
-    public static final EventType<InputEvent, Element> change = of("change");
+    public static final EventType<Event, Element> change = of("change");
 
     // Uncategorized Events
     public static final EventType<Event, Element> invalid = of("invalid");
