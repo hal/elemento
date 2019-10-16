@@ -520,5 +520,10 @@
                 <enabled>false</enabled>
             </releases>
         </pluginRepository>
+        <pluginRepository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </pluginRepository>
     </pluginRepositories>
 </project>
