@@ -20,8 +20,8 @@ import java.util.List;
 
 import elemental2.dom.HTMLElement;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static java.util.stream.Collectors.toList;
 import static org.jboss.gwt.elemento.core.Elements.asHtmlElement;
@@ -32,13 +32,12 @@ import static org.jboss.gwt.elemento.testsuite.TestPage.childNodes;
 import static org.jboss.gwt.elemento.testsuite.TestPage.element;
 import static org.jboss.gwt.elemento.testsuite.TestPage.node;
 import static org.jboss.gwt.elemento.testsuite.client.Assert.assertElements;
-import static org.jboss.gwt.elemento.testsuite.client.Fixtures.HTML;
 
 public class FilterMapTest {
 
-    @Before
+    @BeforeEach
     public void setUp() {
-        builder().innerHtml(SafeHtmlUtils.fromTrustedString(HTML));
+        builder().innerHtml(SafeHtmlUtils.fromTrustedString(Fixtures.HTML));
     }
 
     @Test

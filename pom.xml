@@ -25,7 +25,7 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.9.1</version>
+    <version>0.9.2</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -107,9 +107,9 @@
         <javax.inject.version>1</javax.inject.version>
         <jsr250.version>1.0</jsr250.version>
         <jsoup.version>1.11.3</jsoup.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>5.5.2</junit.version>
         <safehtml.version>1.0-SNAPSHOT</safehtml.version>
-        <undertow.version>2.0.22.Final</undertow.version>
+        <undertow.version>2.0.27.Final</undertow.version>
     </properties>
 
     <modules>
@@ -236,15 +236,11 @@
 
             <!-- Test -->
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
                 <version>${junit.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <classifier>sources</classifier>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.google.gwt.gwtmockito</groupId>
@@ -256,8 +252,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

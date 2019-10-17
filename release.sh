@@ -40,27 +40,27 @@ function box()
 # Prerequisites
 if [[ "$#" -ne 1 ]]; then
     echo "Illegal number of parameters. Please use $0 <version>"
-    exit -1
+    exit 1
 fi
 
 if git rev-parse -q --verify "refs/tags/$VERSION" >/dev/null; then
     echo "A tag for '$VERSION' already exists."
-    exit -1
+    exit 1
 fi
 if git rev-parse -q --verify "refs/tags/$VERSION-gwt2" >/dev/null; then
     echo "A tag for '$VERSION-gwt2' already exists."
-    exit -1
+    exit 1
 fi
 
 git checkout develop
 if ! git diff --no-ext-diff --quiet --exit-code; then
     echo "Unable to release. You have uncommitted changes in the branch 'develop'."
-    exit -1
+    exit 1
 fi
 git checkout gwt2
 if ! git diff --no-ext-diff --quiet --exit-code; then
     echo "Unable to release. You have uncommitted changes in the branch 'gwt2'."
-    exit -1
+    exit 1
 fi
 
 

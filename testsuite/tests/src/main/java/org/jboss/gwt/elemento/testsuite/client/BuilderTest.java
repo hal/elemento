@@ -16,8 +16,8 @@
 
 package org.jboss.gwt.elemento.testsuite.client;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.jboss.gwt.elemento.core.Elements.a;
 import static org.jboss.gwt.elemento.testsuite.Assert.assertAttribute;
@@ -28,7 +28,7 @@ import static org.jboss.gwt.elemento.testsuite.TestPage.firstElementChild;
 
 public class BuilderTest {
 
-    @Before
+    @BeforeEach
     public void setUp() {
         clear();
     }

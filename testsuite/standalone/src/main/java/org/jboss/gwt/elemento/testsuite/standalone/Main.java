@@ -27,7 +27,6 @@ import static io.undertow.predicate.Predicates.suffixes;
 
 public class Main {
 
-    @SuppressWarnings("HardCodedStringLiteral")
     public static void main(String[] args) {
 
         ClassPathResourceManager resource = new ClassPathResourceManager(Main.class.getClassLoader(), "tapp");
