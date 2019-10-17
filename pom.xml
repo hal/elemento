@@ -106,7 +106,9 @@
         <gwtmockito.version>1.1.8</gwtmockito.version>
         <javax.inject.version>1</javax.inject.version>
         <jsoup.version>1.11.3</jsoup.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>5.5.2</junit.version>
+        <safehtml.version>1.0-SNAPSHOT</safehtml.version>
+        <undertow.version>2.0.22.Final</undertow.version>
     </properties>
 
     <modules>
@@ -196,9 +198,11 @@
 
             <!-- Test -->
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
                 <version>${junit.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.google.gwt.gwtmockito</groupId>
@@ -210,8 +214,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

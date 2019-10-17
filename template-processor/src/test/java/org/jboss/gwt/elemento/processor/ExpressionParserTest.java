@@ -15,43 +15,44 @@ package org.jboss.gwt.elemento.processor;
 
 import java.util.Map;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ExpressionParserTest {
+class ExpressionParserTest {
 
     private ExpressionParser parser;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         parser = new ExpressionParser();
     }
 
     @Test
-    public void nil() {
+    void nil() {
         assertTrue(parser.parse(null).isEmpty());
     }
 
     @Test
-    public void empty() {
+    void empty() {
         assertTrue(parser.parse("").isEmpty());
     }
 
     @Test
-    public void noMatches() {
+    void noMatches() {
         assertTrue(parser.parse("foo bar").isEmpty());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void malformed() {
-        parser.parse("${foo${bar}}");
+    @Test
+    void malformed() {
+        assertThrows(IllegalArgumentException.class, () -> parser.parse("${foo${bar}}"));
     }
 
     @Test
-    public void oneMatch() {
+    void oneMatch() {
         Map<String, String> expressions = parser.parse("${foo}");
         assertEquals(1, expressions.size());
         assertEquals("foo", expressions.get("${foo}"));
@@ -62,7 +63,7 @@ public class ExpressionParserTest {
     }
 
     @Test
-    public void moreMatches() {
+    void moreMatches() {
         Map<String, String> expressions = parser.parse("fo${o} ${b}${a}r ba${z}");
         assertEquals(4, expressions.size());
         assertEquals("o", expressions.get("${o}"));
