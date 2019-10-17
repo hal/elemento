@@ -122,6 +122,7 @@ public class EventType<T extends Event, V extends EventTarget> {
     public static final EventType<Event, Element> input = of("input");
     public static final EventType<Event, Document> readystatechange = of("readystatechange");
     public static final EventType<Event, Element> change = of("change");
+    public static final EventType<Event, Element> search = of("search");
 
     // Uncategorized Events
     public static final EventType<Event, Element> invalid = of("invalid");

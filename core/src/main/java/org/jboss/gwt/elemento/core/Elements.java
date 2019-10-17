@@ -13,10 +13,11 @@
  */
 package org.jboss.gwt.elemento.core;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
-import java.util.function.IntSupplier;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -75,6 +76,7 @@ import elemental2.dom.Node;
 import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
+import org.gwtproject.safehtml.shared.SafeHtml;
 import org.jboss.gwt.elemento.core.builder.ElementCreator;
 import org.jboss.gwt.elemento.core.builder.ElementsBuilder;
 import org.jboss.gwt.elemento.core.builder.EmptyContentBuilder;
@@ -85,6 +87,7 @@ import org.jboss.gwt.elemento.core.builder.TextContentBuilder;
 import static elemental2.dom.DomGlobal.document;
 import static java.util.Collections.emptyIterator;
 import static java.util.Spliterators.spliteratorUnknownSize;
+import static java.util.stream.Collectors.joining;
 
 /**
  * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
@@ -94,17 +97,8 @@ import static java.util.Spliterators.spliteratorUnknownSize;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public final class Elements {
 
-    private static final String ELEMENTO_UID = "elementoUid";
-
-    private static IntSupplier createDocumentUniqueId = () -> {
-        JsPropertyMap<Object> map = Js.uncheckedCast(document);
-        if (!map.has(ELEMENTO_UID)) {
-            map.set(ELEMENTO_UID, 0);
-        }
-        int uid = map.getAny(ELEMENTO_UID).asInt() + 1;
-        map.set(ELEMENTO_UID, uid);
-        return uid;
-    };
+    private static final String UNIQUE_ID = "id-";
+    private static int counter = 0;
 
     static ElementCreator createElement = new ElementCreator() {
         @Override
@@ -761,6 +755,76 @@ public final class Elements {
 
     // ------------------------------------------------------ misc element helper methods
 
+    /** @deprecated Replaced by {@link #uniqueId()} */
+    @Deprecated
+    public static String createDocumentUniqueId() {
+        return uniqueId();
+    }
+
+    /** Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs. */
+    public static String uniqueId() {
+        String id;
+        do {
+            id = UNIQUE_ID + counter; // no Ids.build(ELEMENTO_UID, counter) for performance reasons
+            counter++;
+        } while (document.getElementById(id) != null);
+        return id;
+    }
+
+    /** Creates an identifier guaranteed to be unique within this document. The unique part comes last. */
+    public static String uniqueId(String id, String... additionalIds) {
+        return buildId(id, additionalIds) + "-" + uniqueId();
+    }
+
+    public static String buildId(String id, String... additionalIds) {
+        return buildId(id, '-', additionalIds);
+    }
+
+    static String buildId(String id, char separator, String... additionalIds) {
+        if (id == null || id.trim().length() == 0) {
+            throw new IllegalArgumentException("Id must not be null or empty");
+        }
+        List<String> ids = new ArrayList<>();
+        ids.add(id);
+        if (additionalIds != null) {
+            for (String additionalId : additionalIds) {
+                if (additionalId != null && additionalId.trim().length() != 0) {
+                    ids.add(additionalId);
+                }
+            }
+        }
+        return ids.stream().map(Elements::asId).filter(s -> s != null).collect(joining(String.valueOf(separator)));
+    }
+
+    /**
+     * Turns a string which can contain whitespace and upper/lower case characters into an all lowercase id separated
+     * by "-".
+     */
+    static String asId(String text) {
+        String[] parts = text.split("[-\\s]");
+        List<String> sanatized = new ArrayList<>();
+        for (String part : parts) {
+            if (part != null) {
+                String s = part.replaceAll("\\s+", "");
+                s = s.replaceAll("[^a-zA-Z0-9]", "");
+                if (s.length() != 0) {
+                    sanatized.add(s);
+                }
+            }
+        }
+        if (sanatized.isEmpty()) {
+            return null;
+        } else {
+            return sanatized.stream()
+                    .filter(s -> s != null && s.trim().length() != 0)
+                    .map(String::toLowerCase)
+                    .collect(joining("-"));
+        }
+    }
+
+
+    // ------------------------------------------------------ misc element helper methods
+
     /** Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}. */
     public static Element dataElement(String name) {
         return document.querySelector("[data-element=" + name + "]");
@@ -801,10 +865,6 @@ public final class Elements {
         }
     }
 
-    /** Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs. */
-    public static String createDocumentUniqueId() {
-        return "elemento-uid-" + createDocumentUniqueId.getAsInt();
-    }
 
     // this is a static helper class which must never be instantiated!
     private Elements() {
