@@ -30,4 +30,24 @@ public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, 
         get().checked = checked;
         return that();
     }
+
+    public InputBuilder<E> readOnly(boolean readOnly) {
+        get().readOnly = readOnly;
+        return that();
+    }
+
+    public InputBuilder<E> disabled(boolean disabled) {
+        get().disabled = disabled;
+        return that();
+    }
+
+    public InputBuilder<E> required(boolean required) {
+        get().required = required;
+        return that();
+    }
+
+    public InputBuilder<E> placeholder(String placeholder) {
+        get().placeholder = placeholder;
+        return that();
+    }
 }
