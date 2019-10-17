@@ -35,7 +35,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     protected final E element;
 
     /** Creates a new element builder to mutate the passed element. */
-    ElementBuilder(E element) {
+    protected ElementBuilder(E element) {
         this.element = requireNonNull(element, "element required");
     }
 
@@ -44,23 +44,23 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
         return element;
     }
 
-    @Override
-    @Deprecated
     /**
      * @deprecated In order to cleanup the API and to avoid multiple methods which do (or return) the same thing,
      * builders won't implement {@code IsElement<E>} in the next major version. Please use {@link #get()} instead.
      * A builder is a builder and not an element.
      */
+    @Override
+    @Deprecated
     public E element() {
         return get();
     }
 
-    @Deprecated
     /**
      * @deprecated In order to cleanup the API and to avoid multiple methods which do (or return) the same thing,
      * builders won't implement {@code IsElement<E>} in the next major version. Please use {@link #get()} instead.
      * A builder is a builder and not an element.
      */
+    @Deprecated
     public E asElement() {
         return get();
     }
