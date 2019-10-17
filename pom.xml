@@ -109,7 +109,7 @@
         <jsoup.version>1.11.3</jsoup.version>
         <junit.version>5.5.2</junit.version>
         <safehtml.version>1.0-SNAPSHOT</safehtml.version>
-        <undertow.version>2.0.22.Final</undertow.version>
+        <undertow.version>2.0.27.Final</undertow.version>
     </properties>
 
     <modules>
