@@ -22,8 +22,8 @@ import java.util.List;
 
 import elemental2.dom.HTMLElement;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static java.util.stream.Collectors.toList;
 import static org.jboss.gwt.elemento.core.Elements.iterator;
@@ -35,7 +35,7 @@ import static org.jboss.gwt.elemento.testsuite.client.Fixtures.HTML;
 
 public class ElementsTest {
 
-    @Before
+    @BeforeEach
     public void setUp() {
         builder().innerHtml(SafeHtmlUtils.fromTrustedString(HTML));
     }
