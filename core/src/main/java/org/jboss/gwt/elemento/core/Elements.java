@@ -634,8 +634,8 @@ public final class Elements {
     // ------------------------------------------------------ element append, insert & remove methods
 
     /**
-     * Appends the specified element to the parent element if not already present. If parent already contains child,
-     * this method does nothing.
+     * Appends element {@code child} to element {@code parent} if not already present. If parent already contains
+     * child, this method does nothing.
      */
     public static void lazyAppend(Element parent, Element child) {
         if (!parent.contains(child)) {
@@ -643,14 +643,14 @@ public final class Elements {
         }
     }
 
-    /** Inserts the specified element into the parent of the after element. */
+    /** Inserts element {@code newElement} into the parent after element {@code after}. */
     public static void insertAfter(Element newElement, Element after) {
         after.parentNode.insertBefore(newElement, after.nextSibling);
     }
 
     /**
-     * Inserts the specified element into the parent of the after element if not already present. If parent already
-     * contains child, this method does nothing.
+     * Inserts element {@code newElement} into the parent after element {@code after} if not already present.
+     * If parent already contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertAfter(Element newElement, Element after) {
         if (!after.parentNode.contains(newElement)) {
@@ -659,8 +659,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts the specified element into the parent element if not already present. If parent already
-     * contains child, this method does nothing.
+     * Inserts element {@code newElement} into the parent after element {@code after} if not already present.
+     * If parent already contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertAfter(Element parent, Element newElement, Element after) {
         if (!parent.contains(newElement)) {
@@ -668,14 +668,14 @@ public final class Elements {
         }
     }
 
-    /** Inserts the specified element into the parent of the before element. */
+    /** Inserts element {@code newElement} into the parent before element {@code before}. */
     public static void insertBefore(Element newElement, Element before) {
         before.parentNode.insertBefore(newElement, before);
     }
 
     /**
-     * Inserts the specified element into the parent of the before element if not already present. If parent already
-     * contains child, this method does nothing.
+     * Inserts element {@code newElement} into the parent before element {@code before} if not already present.
+     * If parent already contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertBefore(Element newElement, Element before) {
         if (!before.parentNode.contains(newElement)) {
@@ -684,13 +684,18 @@ public final class Elements {
     }
 
     /**
-     * Inserts the specified element into the parent element if not already present. If parent already contains child,
-     * this method does nothing.
+     * Inserts element {@code newElement} into the parent before element {@code before} if not already present.
+     * If parent already contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertBefore(Element parent, Element child, Element before) {
         if (!parent.contains(child)) {
             parent.insertBefore(child, before);
         }
+    }
+
+    /** Inserts element {@code newElement} as first element into {@code parent}. */
+    public static void insertFirst(Element parent, Element newElement) {
+        parent.insertBefore(newElement, parent.firstChild);
     }
 
     /** Removes all child elements from {@code element} */

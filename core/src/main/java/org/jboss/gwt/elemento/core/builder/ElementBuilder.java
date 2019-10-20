@@ -76,7 +76,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Generates and sets an unique id on the element. */
     public B id() {
-        id(Elements.createDocumentUniqueId());
+        id(Elements.uniqueId());
         return that();
     }
 
@@ -106,7 +106,20 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
         return that();
     }
 
+    /** Toggle the class value; i.e., if the class exists then remove it, if not, then add it. */
+    public B toggle(String className) {
+        get().classList.toggle(className);
+        return that();
+    }
+
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
+    public B toggle(String className, boolean force) {
+        get().classList.toggle(className, force);
+        return that();
+    }
+
+    /** @deprecated Use {@link #toggle(String, boolean)} */
+    @Deprecated
     public B css(String className, boolean force) {
         get().classList.toggle(className, force);
         return that();
