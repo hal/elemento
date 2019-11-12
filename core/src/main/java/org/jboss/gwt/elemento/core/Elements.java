@@ -86,6 +86,7 @@ import static elemental2.dom.DomGlobal.document;
 import static java.util.Collections.emptyIterator;
 import static java.util.Spliterators.spliteratorUnknownSize;
 import static java.util.stream.Collectors.joining;
+import static jsinterop.base.Js.cast;
 
 /**
  * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
@@ -101,7 +102,7 @@ public final class Elements {
     static ElementCreator createElement = new ElementCreator() {
         @Override
         public <E extends HTMLElement> E create(String tag, Class<E> type) {
-            return Js.cast(document.createElement(tag));
+            return cast(document.createElement(tag));
         }
     };
 
@@ -168,6 +169,10 @@ public final class Elements {
 
     public static HtmlContentBuilder<HTMLDivElement> div() {
         return htmlElement("div", HTMLDivElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLDivElement> div(Element element) {
+        return wrapElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLDListElement> dl() {
@@ -539,6 +544,11 @@ public final class Elements {
     /** Returns a builder for the specified html tag. */
     public static <E extends HTMLElement> HtmlContentBuilder<E> htmlElement(String tag, Class<E> type) {
         return new HtmlContentBuilder<>(createElement(tag, type));
+    }
+
+    /** Returns a builder for the existing element. */
+    public static <E extends HTMLElement> HtmlContentBuilder<E> wrapElement(E element) {
+        return new HtmlContentBuilder<>(element);
     }
 
     public static <E extends HTMLElement> E createElement(String tag, Class<E> type) {
