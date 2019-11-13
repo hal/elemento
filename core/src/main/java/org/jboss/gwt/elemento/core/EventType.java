@@ -142,7 +142,6 @@ public class EventType<T extends Event, V extends EventTarget> {
         return new EventType<>(name);
     }
 
-
     // ------------------------------------------------------ binding methods
 
     public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
@@ -160,12 +159,31 @@ public class EventType<T extends Event, V extends EventTarget> {
         return bind(target, type.name, useCapture, e -> listener.onEvent(Js.cast(e)));
     }
 
-    public static HandlerRegistration bind(EventTarget source, String type, boolean useCapture,
+    public static HandlerRegistration bind(EventTarget target, String type, boolean useCapture,
             EventListener listener) {
-        source.addEventListener(type, listener, useCapture);
-        return () -> source.removeEventListener(type, listener, useCapture);
+        target.addEventListener(type, listener, useCapture);
+        return () -> target.removeEventListener(type, listener, useCapture);
     }
 
+    public static <T extends Event> HandlerRegistration bind(IsElement target,
+            EventType<T, ?> type, EventCallbackFn<T> listener) {
+        return bind(target.element(), type, listener);
+    }
+
+    public static HandlerRegistration bind(IsElement target,
+            String type, EventListener listener) {
+        return bind(target.element(), type, listener);
+    }
+
+    public static <T extends Event> HandlerRegistration bind(IsElement target,
+            EventType<T, ?> type, boolean useCapture, EventCallbackFn<T> listener) {
+        return bind(target.element(), type, useCapture, listener);
+    }
+
+    public static HandlerRegistration bind(IsElement target,
+            String type, boolean useCapture, EventListener listener) {
+        return bind(target.element(), type, useCapture, listener);
+    }
 
     // ------------------------------------------------------ instance
 

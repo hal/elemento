@@ -72,6 +72,7 @@ import elemental2.dom.HTMLTrackElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.HTMLVideoElement;
 import elemental2.dom.Node;
+import elemental2.dom.NodeList;
 import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
 import org.gwtproject.safehtml.shared.SafeHtml;
@@ -89,7 +90,7 @@ import static java.util.stream.Collectors.joining;
 import static jsinterop.base.Js.cast;
 
 /**
- * Helper methods for working with {@link elemental2.dom.HTMLElement}s.
+ * Helper methods for working with {@link elemental2.dom.HTMLElement}s and/or {@link IsElement}.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
  */
@@ -101,11 +102,10 @@ public final class Elements {
 
     static ElementCreator createElement = new ElementCreator() {
         @Override
-        public <E extends HTMLElement> E create(String tag, Class<E> type) {
-            return cast(document.createElement(tag));
+        public <E extends HTMLElement> E create(String element, Class<E> type) {
+            return cast(document.createElement(element));
         }
     };
-
 
     // ------------------------------------------------------ body
 
@@ -113,6 +113,9 @@ public final class Elements {
         return new HtmlContentBuilder<>(document.body);
     }
 
+    public static HtmlContentBuilder<HTMLBodyElement> body(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
 
     // ------------------------------------------------------ content sectioning
 
@@ -120,16 +123,32 @@ public final class Elements {
         return htmlElement("address", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> address(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> article() {
         return htmlElement("article", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> article(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> aside() {
         return htmlElement("aside", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> aside(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> footer() {
         return htmlElement("footer", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> footer(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLHeadingElement> h(int n) {
@@ -140,22 +159,41 @@ public final class Elements {
         return h(n).textContent(text);
     }
 
+    public static HtmlContentBuilder<HTMLHeadingElement> h(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> header() {
         return htmlElement("header", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> header(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> hgroup() {
         return htmlElement("hgroup", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> hgroup(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> nav() {
         return htmlElement("nav", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> nav(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> section() {
         return htmlElement("section", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> section(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
 
     // ------------------------------------------------------ text content
 
@@ -163,8 +201,16 @@ public final class Elements {
         return htmlElement("blockquote", HTMLQuoteElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLQuoteElement> blockquote(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> dd() {
         return htmlElement("dd", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> dd(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLDivElement> div() {
@@ -172,53 +218,96 @@ public final class Elements {
     }
 
     public static HtmlContentBuilder<HTMLDivElement> div(Element element) {
-        return wrapElement(cast(element));
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLDListElement> dl() {
         return htmlElement("dl", HTMLDListElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLDListElement> dl(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> dt() {
         return htmlElement("dt", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> dt(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> figcaption() {
         return htmlElement("figcaption", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> figcaption(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> figure() {
         return htmlElement("figure", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> figure(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static EmptyContentBuilder<HTMLHRElement> hr() {
         return emptyElement("hr", HTMLHRElement.class);
     }
 
+    public static EmptyContentBuilder<HTMLHRElement> hr(Element element) {
+        return wrapEmptyElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLLIElement> li() {
         return htmlElement("li", HTMLLIElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLLIElement> li(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> main() {
         return htmlElement("main", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> main(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLOListElement> ol() {
         return htmlElement("ol", HTMLOListElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLOListElement> ol(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLParagraphElement> p() {
         return htmlElement("p", HTMLParagraphElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLParagraphElement> p(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLPreElement> pre() {
         return htmlElement("pre", HTMLPreElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLPreElement> pre(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLUListElement> ul() {
         return htmlElement("ul", HTMLUListElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLUListElement> ul(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
 
     // ------------------------------------------------------ inline text semantics
 
@@ -230,86 +319,241 @@ public final class Elements {
         return a().attr("href", href);
     }
 
+    public static HtmlContentBuilder<HTMLAnchorElement> a(String href, String target) {
+        return a().attr("href", href).attr("target", target);
+    }
+
+    public static HtmlContentBuilder<HTMLAnchorElement> a(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> abbr() {
         return htmlElement("abbr", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> abbr(String text) {
+        return htmlElement("abbr", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> abbr(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> b() {
         return htmlElement("b", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> b(String text) {
+        return htmlElement("b", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> b(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static EmptyContentBuilder<HTMLBRElement> br() {
         return emptyElement("br", HTMLBRElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLBRElement> br(Element element) {
+        return wrapEmptyElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> cite() {
         return htmlElement("cite", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> cite(String text) {
+        return htmlElement("cite", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> cite(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> code() {
         return htmlElement("code", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> code(String text) {
+        return htmlElement("code", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> code(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> dfn() {
         return htmlElement("dfn", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> dfn(String text) {
+        return htmlElement("dfn", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> dfn(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> em() {
         return htmlElement("em", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> em(String text) {
+        return htmlElement("em", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> em(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> i() {
         return htmlElement("i", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> i(String text) {
+        return htmlElement("i", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> i(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> kbd() {
         return htmlElement("kbd", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> kbd(String text) {
+        return htmlElement("kbd", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> kbd(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> mark() {
         return htmlElement("mark", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> mark(String text) {
+        return htmlElement("mark", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> mark(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLQuoteElement> q() {
         return htmlElement("q", HTMLQuoteElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLQuoteElement> q(String text) {
+        return htmlElement("q", HTMLQuoteElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLQuoteElement> q(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> small() {
         return htmlElement("small", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> small(String text) {
+        return htmlElement("small", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> small(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> span() {
         return htmlElement("span", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> span(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> strong() {
         return htmlElement("strong", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> strong(String text) {
+        return htmlElement("strong", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> strong(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> sub() {
         return htmlElement("sub", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> sub(String text) {
+        return htmlElement("sub", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> sub(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> sup() {
         return htmlElement("sup", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> sup(String text) {
+        return htmlElement("sup", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> sup(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> time() {
         return htmlElement("time", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> time(String text) {
+        return htmlElement("time", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> time(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLElement> u() {
         return htmlElement("u", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> u(String text) {
+        return htmlElement("u", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> u(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLElement> var() {
         return htmlElement("var", HTMLElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> var(String text) {
+        return htmlElement("var", HTMLElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLElement> var(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static EmptyContentBuilder<HTMLElement> wbr() {
         return emptyElement("wbr", HTMLElement.class);
     }
 
+    public static EmptyContentBuilder<HTMLElement> wbr(Element element) {
+        return wrapEmptyElement(cast(element));
+    }
 
     // ------------------------------------------------------ image and multimedia
 
@@ -317,8 +561,16 @@ public final class Elements {
         return emptyElement("area", HTMLAreaElement.class);
     }
 
+    public static EmptyContentBuilder<HTMLAreaElement> area(Element element) {
+        return wrapEmptyElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLAudioElement> audio() {
         return htmlElement("audio", HTMLAudioElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLAudioElement> audio(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static EmptyContentBuilder<HTMLImageElement> img() {
@@ -329,18 +581,33 @@ public final class Elements {
         return emptyElement("img", HTMLImageElement.class).attr("src", src);
     }
 
+    public static EmptyContentBuilder<HTMLImageElement> img(Element element) {
+        return wrapEmptyElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLMapElement> map() {
         return htmlElement("map", HTMLMapElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLMapElement> map(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static EmptyContentBuilder<HTMLTrackElement> track() {
         return emptyElement("track", HTMLTrackElement.class);
     }
 
+    public static EmptyContentBuilder<HTMLTrackElement> track(Element element) {
+        return wrapEmptyElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLVideoElement> video() {
         return htmlElement("video", HTMLVideoElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLVideoElement> video(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
 
     // ------------------------------------------------------ embedded content
 
@@ -348,22 +615,41 @@ public final class Elements {
         return htmlElement("canvas", HTMLCanvasElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLCanvasElement> canvas(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static EmptyContentBuilder<HTMLEmbedElement> embed() {
         return emptyElement("embed", HTMLEmbedElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLEmbedElement> embed(Element element) {
+        return wrapEmptyElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLObjectElement> object() {
         return htmlElement("object", HTMLObjectElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLObjectElement> object(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static EmptyContentBuilder<HTMLParamElement> param() {
         return emptyElement("param", HTMLParamElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLParamElement> param(Element element) {
+        return wrapEmptyElement(cast(element));
     }
 
     public static EmptyContentBuilder<HTMLSourceElement> source() {
         return emptyElement("source", HTMLSourceElement.class);
     }
 
+    public static EmptyContentBuilder<HTMLSourceElement> source(Element element) {
+        return wrapEmptyElement(cast(element));
+    }
 
     // ------------------------------------------------------ scripting
 
@@ -371,10 +657,17 @@ public final class Elements {
         return htmlElement("noscript", HTMLElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLElement> noscript(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static TextContentBuilder<HTMLScriptElement> script() {
         return textElement("script", HTMLScriptElement.class);
     }
 
+    public static TextContentBuilder<HTMLScriptElement> script(Element element) {
+        return wrapTextElement(cast(element));
+    }
 
     // ------------------------------------------------------ demarcating edits
 
@@ -382,10 +675,25 @@ public final class Elements {
         return htmlElement("del", HTMLModElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLModElement> del(String text) {
+        return htmlElement("del", HTMLModElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLModElement> del(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLModElement> ins() {
         return htmlElement("ins", HTMLModElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLModElement> ins(String text) {
+        return htmlElement("ins", HTMLModElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLModElement> ins(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
 
     // ------------------------------------------------------ table content
 
@@ -393,42 +701,81 @@ public final class Elements {
         return htmlElement("caption", HTMLTableCaptionElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLTableCaptionElement> caption(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static EmptyContentBuilder<HTMLTableColElement> col() {
         return emptyElement("col", HTMLTableColElement.class);
+    }
+
+    public static EmptyContentBuilder<HTMLTableColElement> col(Element element) {
+        return wrapEmptyElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLTableColElement> colgroup() {
         return htmlElement("colgroup", HTMLTableColElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLTableColElement> colgroup(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLTableElement> table() {
         return htmlElement("table", HTMLTableElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLTableElement> table(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLTableSectionElement> tbody() {
         return htmlElement("tbody", HTMLTableSectionElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLTableSectionElement> tbody(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLTableCellElement> td() {
         return htmlElement("td", HTMLTableCellElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLTableCellElement> td(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLTableSectionElement> tfoot() {
         return htmlElement("tfoot", HTMLTableSectionElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLTableSectionElement> tfoot(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLTableCellElement> th() {
         return htmlElement("th", HTMLTableCellElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLTableCellElement> th(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLTableSectionElement> thead() {
         return htmlElement("thead", HTMLTableSectionElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLTableSectionElement> thead(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLTableRowElement> tr() {
         return htmlElement("tr", HTMLTableRowElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLTableRowElement> tr(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
 
     // ------------------------------------------------------ forms
 
@@ -440,16 +787,32 @@ public final class Elements {
         return button().textContent(text);
     }
 
+    public static HtmlContentBuilder<HTMLButtonElement> button(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLDataListElement> datalist() {
         return htmlElement("datalist", HTMLDataListElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLDataListElement> datalist(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLFieldSetElement> fieldset() {
         return htmlElement("fieldset", HTMLFieldSetElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLFieldSetElement> fieldset(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLFormElement> form() {
         return htmlElement("form", HTMLFormElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLFormElement> form(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static InputBuilder<HTMLInputElement> input(InputType type) {
@@ -466,6 +829,10 @@ public final class Elements {
         return new InputBuilder<>(el);
     }
 
+    public static InputBuilder<HTMLInputElement> input(Element element) {
+        return wrapInputElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLLabelElement> label() {
         return htmlElement("label", HTMLLabelElement.class);
     }
@@ -474,16 +841,36 @@ public final class Elements {
         return label().textContent(text);
     }
 
+    public static HtmlContentBuilder<HTMLLabelElement> label(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLLegendElement> legend() {
         return htmlElement("legend", HTMLLegendElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLLegendElement> legend(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLMeterElement> meter() {
         return htmlElement("meter", HTMLMeterElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLMeterElement> meter(String text) {
+        return htmlElement("meter", HTMLMeterElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLMeterElement> meter(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLOptGroupElement> optgroup() {
         return htmlElement("optgroup", HTMLOptGroupElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLOptGroupElement> optgroup(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static TextContentBuilder<HTMLOptionElement> option() {
@@ -494,22 +881,45 @@ public final class Elements {
         return option().textContent(text);
     }
 
+    public static TextContentBuilder<HTMLOptionElement> option(Element element) {
+        return wrapTextElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLOutputElement> output() {
         return htmlElement("output", HTMLOutputElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLOutputElement> output(String text) {
+        return htmlElement("output", HTMLOutputElement.class).textContent(text);
+    }
+
+    public static HtmlContentBuilder<HTMLOutputElement> output(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLProgressElement> progress() {
         return htmlElement("progress", HTMLProgressElement.class);
     }
 
+    public static HtmlContentBuilder<HTMLProgressElement> progress(Element element) {
+        return wrapHtmlElement(cast(element));
+    }
+
     public static HtmlContentBuilder<HTMLSelectElement> select() {
         return htmlElement("select", HTMLSelectElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLSelectElement> select(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static TextContentBuilder<HTMLTextAreaElement> textarea() {
         return textElement("textarea", HTMLTextAreaElement.class);
     }
 
+    public static TextContentBuilder<HTMLTextAreaElement> textarea(Element element) {
+        return wrapTextElement(cast(element));
+    }
 
     // ------------------------------------------------------ builder factories
 
@@ -519,7 +929,7 @@ public final class Elements {
     }
 
     /**
-     * @deprecated Renamed to avoid confusion with {@link #elements(JsArrayLike)}.
+     * @deprecated Renamed to avoid confusion with {@link #elements(NodeList)}.
      * Please use {@link #collect()} instead.
      */
     @Deprecated
@@ -527,34 +937,75 @@ public final class Elements {
         return collect();
     }
 
-    /** Returns a builder for the specified empty tag. */
-    public static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(String tag, Class<E> type) {
-        return emptyElement(() -> createElement(tag, type));
+    /** Returns a builder for the specified empty element. */
+    public static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(String element, Class<E> type) {
+        return emptyElement(() -> createElement(element, type));
     }
 
     private static <E extends HTMLElement> EmptyContentBuilder<E> emptyElement(Supplier<E> element) {
         return new EmptyContentBuilder<>(element.get());
     }
 
-    /** Returns a builder for the specified text tag. */
-    public static <E extends HTMLElement> TextContentBuilder<E> textElement(String tag, Class<E> type) {
-        return new TextContentBuilder<>(createElement(tag, type));
+    /** Returns a builder for the specified text element. */
+    public static <E extends HTMLElement> TextContentBuilder<E> textElement(String element, Class<E> type) {
+        return new TextContentBuilder<>(createElement(element, type));
     }
 
-    /** Returns a builder for the specified html tag. */
-    public static <E extends HTMLElement> HtmlContentBuilder<E> htmlElement(String tag, Class<E> type) {
-        return new HtmlContentBuilder<>(createElement(tag, type));
+    /** Returns a builder for the specified html element. */
+    public static <E extends HTMLElement> HtmlContentBuilder<E> htmlElement(String element, Class<E> type) {
+        return new HtmlContentBuilder<>(createElement(element, type));
     }
 
-    /** Returns a builder for the existing element. */
-    public static <E extends HTMLElement> HtmlContentBuilder<E> wrapElement(E element) {
+    /** Creates the specified html element. */
+    public static <E extends HTMLElement> E createElement(String element, Class<E> type) {
+        return createElement.create(element, type);
+    }
+
+    /** Returns a builder for the existing empty element. */
+    public static <E extends HTMLElement> EmptyContentBuilder<E> wrapEmptyElement(E element) {
+        return new EmptyContentBuilder<>(element);
+    }
+
+    /** Returns a builder for the existing text element. */
+    public static <E extends HTMLElement> TextContentBuilder<E> wrapTextElement(E element) {
+        return new TextContentBuilder<>(element);
+    }
+
+    /** Returns a builder for the existing input element. */
+    public static <E extends HTMLInputElement> InputBuilder<E> wrapInputElement(E element) {
+        return new InputBuilder<E>(element);
+    }
+
+    /** Returns a builder for the existing html element. */
+    public static <E extends HTMLElement> HtmlContentBuilder<E> wrapHtmlElement(E element) {
         return new HtmlContentBuilder<>(element);
     }
 
-    public static <E extends HTMLElement> E createElement(String tag, Class<E> type) {
-        return createElement.create(tag, type);
+    // ------------------------------------------------------ query and selector methods
+
+    public static NodeList<Element> findAll(Node node, By selector) {
+        return selector.findAll(node);
     }
 
+    public static NodeList<Element> findAll(IsElement element, By selector) {
+        return findAll(element.element(), selector);
+    }
+
+    public static <E extends HTMLElement> E find(Node node, By selector) {
+        return (E) selector.find(node);
+    }
+
+    public static <E extends HTMLElement> E find(IsElement element, By selector) {
+        return find(element.element(), selector);
+    }
+
+    public static <E extends HTMLElement> E closest(Element element, By selector) {
+        return (E) element.closest(selector.selector());
+    }
+
+    public static <E extends HTMLElement> E closest(IsElement element, By selector) {
+        return (E) element.element().closest(selector.selector());
+    }
 
     // ------------------------------------------------------ element iterator / stream methods
 
@@ -584,7 +1035,7 @@ public final class Elements {
 
     /**
      * Returns an iterator over the children of the given parent node. The iterator supports the {@link
-     * Iterator#remove()} operation which removes the current node from its parent.
+     * Iterator#remove()} operation, which removes the current node from its parent.
      */
     public static Iterator<Node> iterator(Node parent) {
         return parent != null ? new JsArrayNodeIterator(parent) : emptyIterator();
@@ -592,10 +1043,38 @@ public final class Elements {
 
     /**
      * Returns an iterator over the children of the given parent element. The iterator supports the {@link
-     * Iterator#remove()} operation which removes the current node from its parent.
+     * Iterator#remove()} operation, which removes the current node from its parent.
      */
     public static Iterator<HTMLElement> iterator(HTMLElement parent) {
         return parent != null ? new JsArrayElementIterator(parent) : emptyIterator();
+    }
+
+    /**
+     * Returns an iterator over the children of the given parent element. The iterator supports the {@link
+     * Iterator#remove()} operation, which removes the current node from its parent.
+     */
+    public static Iterator<HTMLElement> iterator(IsElement parent) {
+        return parent != null ? iterator(parent.element()) : emptyIterator();
+    }
+
+    /**
+     * Returns an iterator over the html elements, which match the selector for the given node.
+     * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
+     */
+    public static Iterator<HTMLElement> iterator(Node node, By selector) {
+        return node != null
+                ? stream(findAll(node, selector)).filter(htmlElements()).map(asHtmlElement()).iterator()
+                : emptyIterator();
+    }
+
+    /**
+     * Returns an iterator over the html elements, which match the selector for the given element.
+     * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
+     */
+    public static Iterator<HTMLElement> iterator(IsElement element, By selector) {
+        return element != null
+                ? stream(findAll(element, selector)).filter(htmlElements()).map(asHtmlElement()).iterator()
+                : emptyIterator();
     }
 
     /** Returns a stream for the elements in the given array-like. */
@@ -625,6 +1104,29 @@ public final class Elements {
         }
     }
 
+    /** Returns a stream for the child elements of the given parent element. */
+    public static Stream<HTMLElement> stream(IsElement parent) {
+        if (parent == null) {
+            return Stream.empty();
+        } else {
+            return StreamSupport.stream(spliteratorUnknownSize(iterator(parent), 0), false);
+        }
+    }
+
+    /** Returns a stream for the html elements, which match the selector for the given node. */
+    public static Stream<HTMLElement> stream(Node node, By selector) {
+        return node != null
+                ? stream(findAll(node, selector)).filter(htmlElements()).map(asHtmlElement())
+                : Stream.empty();
+    }
+
+    /** Returns a stream for the html elements, which match the selector for the given element. */
+    public static Stream<HTMLElement> stream(IsElement element, By selector) {
+        return element != null
+                ? stream(findAll(element, selector)).filter(htmlElements()).map(asHtmlElement())
+                : Stream.empty();
+    }
+
     /** Returns an iterable collection for the elements in the given array-like. */
     public static <E> Iterable<E> elements(JsArrayLike<E> nodes) {
         return () -> iterator(nodes);
@@ -640,6 +1142,10 @@ public final class Elements {
         return () -> iterator(parent);
     }
 
+    /** Returns an iterable collection for the child elements of the given parent element. */
+    public static Iterable<HTMLElement> children(IsElement parent) {
+        return () -> iterator(parent);
+    }
 
     // ------------------------------------------------------ element append, insert & remove methods
 
@@ -653,9 +1159,17 @@ public final class Elements {
         }
     }
 
+    public static <E extends HTMLElement> void lazyAppend(Element parent, IsElement<E> child) {
+        lazyAppend(parent, child.element());
+    }
+
     /** Inserts element {@code newElement} into the parent after element {@code after}. */
     public static void insertAfter(Element newElement, Element after) {
         after.parentNode.insertBefore(newElement, after.nextSibling);
+    }
+
+    public static void insertAfter(IsElement newElement, Element after) {
+        insertAfter(newElement.element(), after);
     }
 
     /**
@@ -668,6 +1182,10 @@ public final class Elements {
         }
     }
 
+    public static void lazyInsertAfter(IsElement newElement, Element after) {
+        lazyInsertAfter(newElement.element(), after);
+    }
+
     /**
      * Inserts element {@code newElement} into the parent after element {@code after} if not already present.
      * If parent already contains {@code newElement}, this method does nothing.
@@ -678,9 +1196,17 @@ public final class Elements {
         }
     }
 
+    public static <E extends HTMLElement> void lazyInsertAfter(Element parent, IsElement<E> newElement, Element after) {
+        lazyInsertAfter(parent, newElement.element(), after);
+    }
+
     /** Inserts element {@code newElement} into the parent before element {@code before}. */
     public static void insertBefore(Element newElement, Element before) {
         before.parentNode.insertBefore(newElement, before);
+    }
+
+    public static void insertBefore(IsElement newElement, Element before) {
+        insertBefore(newElement.element(), before);
     }
 
     /**
@@ -693,19 +1219,32 @@ public final class Elements {
         }
     }
 
+    public static <E extends HTMLElement> void lazyInsertBefore(IsElement newElement, Element before) {
+        lazyInsertBefore(newElement.element(), before);
+    }
+
     /**
      * Inserts element {@code newElement} into the parent before element {@code before} if not already present.
      * If parent already contains {@code newElement}, this method does nothing.
      */
-    public static void lazyInsertBefore(Element parent, Element child, Element before) {
-        if (!parent.contains(child)) {
-            parent.insertBefore(child, before);
+    public static void lazyInsertBefore(Element parent, Element newElement, Element before) {
+        if (!parent.contains(newElement)) {
+            parent.insertBefore(newElement, before);
         }
+    }
+
+    public static <E extends HTMLElement> void lazyInsertBefore(Element parent, IsElement<E> newElement,
+            Element before) {
+        lazyInsertBefore(parent, newElement.element(), before);
     }
 
     /** Inserts element {@code newElement} as first element into {@code parent}. */
     public static void insertFirst(Element parent, Element newElement) {
         parent.insertBefore(newElement, parent.firstChild);
+    }
+
+    public static <E extends HTMLElement> void insertFirst(Element parent, IsElement<E> newElement) {
+        insertFirst(parent, newElement.element());
     }
 
     /** Removes all child elements from {@code element} */
@@ -717,6 +1256,10 @@ public final class Elements {
         }
     }
 
+    public static void removeChildrenFrom(IsElement element) {
+        removeChildrenFrom(element.element());
+    }
+
     /**
      * Removes the element from its parent if the element is not null and has a parent.
      *
@@ -726,17 +1269,24 @@ public final class Elements {
         return failSafeRemove(element != null ? element.parentNode : null, element);
     }
 
+    public static boolean failSafeRemoveFromParent(IsElement element) {
+        return failSafeRemoveFromParent(element.element());
+    }
+
     /**
      * Removes the child from parent if both parent and child are not null and parent contains child.
      *
-     * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
+     * @return {@code true} if the element has been removed from its parent, {@code false} otherwise.
      */
     public static boolean failSafeRemove(Node parent, Element child) {
-        //noinspection SimplifiableIfStatement
         if (parent != null && child != null && parent.contains(child)) {
             return parent.removeChild(child) != null;
         }
         return false;
+    }
+
+    public static <E extends HTMLElement> boolean failSafeRemove(Node parent, IsElement<E> child) {
+        return failSafeRemove(parent, child.element());
     }
 
     /**
@@ -749,6 +1299,12 @@ public final class Elements {
     public static void onAttach(HTMLElement element, ObserverCallback callback) {
         if (element != null) {
             BodyObserver.addAttachObserver(element, callback);
+        }
+    }
+
+    public static void onAttach(IsElement element, ObserverCallback callback) {
+        if (element != null) {
+            onAttach(element.element(), callback);
         }
     }
 
@@ -765,6 +1321,11 @@ public final class Elements {
         }
     }
 
+    public static void onDetach(IsElement element, ObserverCallback callback) {
+        if (element != null) {
+            onDetach(element.element(), callback);
+        }
+    }
 
     // ------------------------------------------------------ misc element helper methods
 
@@ -839,11 +1400,13 @@ public final class Elements {
     // ------------------------------------------------------ misc element helper methods
 
     /** Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}. */
+    @Deprecated
     public static Element dataElement(String name) {
         return document.querySelector("[data-element=" + name + "]");
     }
 
     /** Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]} */
+    @Deprecated
     public static Element dataElement(Element context, String name) {
         return context != null ? context.querySelector("[data-element=" + name + "]") : null;
     }
@@ -853,10 +1416,20 @@ public final class Elements {
         return element != null && !"none".equals(element.style.display);
     }
 
+    public static boolean isVisible(IsElement element) {
+        return element != null && isVisible(element.element());
+    }
+
     /** Shows / hide the specified element by modifying the {@code display} property. */
     public static void setVisible(HTMLElement element, boolean visible) {
         if (element != null) {
             element.style.display = visible ? "" : "none";
+        }
+    }
+
+    public static void setVisible(IsElement element, boolean visible) {
+        if (element != null) {
+            setVisible(element.element(), visible);
         }
     }
 
@@ -871,6 +1444,12 @@ public final class Elements {
         }
     }
 
+    public static void toggle(IsElement element, String css, boolean condition) {
+        if (element != null) {
+            toggle(element.element(), css, condition);
+        }
+    }
+
     /** Convenience method to set the inner HTML of the given element. */
     public static void innerHtml(HTMLElement element, SafeHtml html) {
         if (element != null) {
@@ -878,15 +1457,17 @@ public final class Elements {
         }
     }
 
-
-    // this is a static helper class which must never be instantiated!
-    private Elements() {
-
+    public static void innerHtml(IsElement element, SafeHtml html) {
+        if (element != null) {
+            innerHtml(element.element(), html);
+        }
     }
 
+    // this is a static helper class, which must never be instantiated!
+    private Elements() {
+    }
 
     // ------------------------------------------------------ inner classes (a-z)
-
 
     private static class AsHTMLElement<T extends Node> implements Function<T, HTMLElement> {
 
@@ -896,7 +1477,6 @@ public final class Elements {
         }
     }
 
-
     private static class FilterHTMLElements<T> implements Predicate<T> {
 
         @Override
@@ -904,7 +1484,6 @@ public final class Elements {
             return t instanceof HTMLElement;
         }
     }
-
 
     private static class JsArrayLikeIterator<T> implements Iterator<T> {
 
@@ -928,7 +1507,6 @@ public final class Elements {
             return data.getAt(pos++);
         }
     }
-
 
     private static class JsArrayNodeIterator implements Iterator<Node> {
 
@@ -964,8 +1542,7 @@ public final class Elements {
         }
     }
 
-
-    // This should be Iterator<Element> but it was used frequently as HTMLElement, so to be more user friendly the
+    // This should be Iterator<Element>, but it was used frequently as HTMLElement, so to be more user-friendly the
     // cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
     private static class JsArrayElementIterator implements Iterator<HTMLElement> {
 

@@ -19,16 +19,16 @@ import elemental2.dom.HTMLElement;
  * Convenience class to support lazy element creation. The bulk of a LazyElement is not instantiated until {@link
  * #element()} is called.
  */
-public abstract class LazyElement implements IsElement {
+public abstract class LazyElement<E extends HTMLElement>  implements IsElement<E> {
 
-    private HTMLElement element;
+    private E element;
 
     /**
      * Creates and returns the element on demand by calling {@link #createElement()} or just returns the previously
      * created element.
      */
     @Override
-    public HTMLElement element() {
+    public E element() {
         if (element == null) {
             element = createElement();
         }
@@ -37,7 +37,7 @@ public abstract class LazyElement implements IsElement {
 
     /** @deprecated Please use {@link #element()} instead. */
     @Deprecated
-    public HTMLElement asElement() {
+    public E asElement() {
         return element();
     }
 
@@ -46,7 +46,7 @@ public abstract class LazyElement implements IsElement {
      *
      * @return the lazy element
      */
-    protected abstract HTMLElement createElement();
+    protected abstract E createElement();
 
     /** @return whether the element was already created */
     protected boolean initialized() {

@@ -30,18 +30,39 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
         elements = new IterableElementsImpl();
     }
 
+    @Override
+    public ElementsBuilder that() {
+        return this;
+    }
+
+    public Iterable<HTMLElement> elements() {
+        return elements;
+    }
+
+    /** @deprecated Please use {@link #elements()} instead. */
+    @Deprecated
+    public Iterable<HTMLElement> get() {
+        return elements;
+    }
+
+    /** @deprecated Please use {@link #elements()} instead. */
+    @Override
+    @Deprecated
+    public Iterable<HTMLElement> asElements() {
+        return elements;
+    }
 
     // ------------------------------------------------------ mirror add() methods from HtmlContent
-
-    /** Adds the given element by calling {@code element.element()}. */
-    public ElementsBuilder add(IsElement element) {
-        return add(element.element());
-    }
 
     /** Adds the given element. */
     public ElementsBuilder add(HTMLElement element) {
         elements.elements.push(element);
         return that();
+    }
+
+    /** Adds the given element by calling {@code element.element()}. */
+    public ElementsBuilder add(IsElement element) {
+        return add(element.element());
     }
 
     /** Adds all elements. */
@@ -52,19 +73,26 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
         return that();
     }
 
-    /** Adds all elements. */
-    public ElementsBuilder addAll(Iterable<HTMLElement> elements) {
-        for (HTMLElement element : elements) {
-            add(element);
+    public ElementsBuilder addAll(IsElement... elements) {
+        for (IsElement element : elements) {
+            add(element.element());
         }
         return that();
     }
 
-    /**
-     * Adds all elements.
-     *
-     * @deprecated Please use {@link #addAll(Iterable)} instead.
-     */
+    /** Adds all elements. */
+    public ElementsBuilder addAll(Iterable<?> elements) {
+        for (Object element : elements) {
+            if (element instanceof HTMLElement) {
+                add(((HTMLElement) element));
+            } else if (element instanceof IsElement) {
+                add(((IsElement) element).element());
+            }
+        }
+        return that();
+    }
+
+    /** @deprecated Please use {@link #addAll(Iterable)} instead. */
     @Deprecated
     public ElementsBuilder addAll(HasElements elements) {
         for (HTMLElement element : elements.asElements()) {
@@ -73,32 +101,7 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
         return that();
     }
 
-
-    /** Adds all elements. */
-    public ElementsBuilder addAll(IsElement... elements) {
-        for (IsElement element : elements) {
-            add(element);
-        }
-        return that();
-    }
-
-    @Override
-    public Iterable<HTMLElement> get() {
-        return elements;
-    }
-
-    /** Please use {@link #get()} instead. */
-    @Override
-    @Deprecated
-    public Iterable<HTMLElement> asElements() {
-        return get();
-    }
-
-    @Override
-    public ElementsBuilder that() {
-        return this;
-    }
-
+    // ------------------------------------------------------ inner classes
 
     private static class IterableElementsImpl implements Iterable<HTMLElement> {
 
