@@ -22,11 +22,16 @@ import elemental2.dom.MutationRecord;
 import static org.jboss.gwt.elemento.core.Elements.onAttach;
 import static org.jboss.gwt.elemento.core.Elements.onDetach;
 
-/** Provides hooks when an element is attached to and detached from the DOM. */
+/** Interface to get notified when an element has been attached to and detached from the DOM. */
 public interface Attachable {
 
-    /** Registeres the specified element for both attach and detach. */
-    static void register(Attachable attachable, HTMLElement element) {
+    /** Registers the specified element for both attach and detach. */
+    static void register(IsElement element, Attachable attachable) {
+        register(element.element(), attachable);
+    }
+
+    /** Registers the specified element for both attach and detach. */
+    static void register(HTMLElement element, Attachable attachable) {
         onAttach(element, attachable::attach);
         onDetach(element, attachable::detach);
     }

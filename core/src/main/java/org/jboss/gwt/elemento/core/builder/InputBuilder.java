@@ -27,27 +27,27 @@ public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, 
     }
 
     public InputBuilder<E> checked(boolean checked) {
-        get().checked = checked;
+        element().checked = checked;
         return that();
     }
 
     public InputBuilder<E> readOnly(boolean readOnly) {
-        get().readOnly = readOnly;
+        element().readOnly = readOnly;
         return that();
     }
 
     public InputBuilder<E> disabled(boolean disabled) {
-        get().disabled = disabled;
+        element().disabled = disabled;
         return that();
     }
 
     public InputBuilder<E> required(boolean required) {
-        get().required = required;
+        element().required = required;
         return that();
     }
 
     public InputBuilder<E> placeholder(String placeholder) {
-        get().placeholder = placeholder;
+        element().placeholder = placeholder;
         return that();
     }
 }

@@ -16,9 +16,6 @@ package org.jboss.gwt.elemento.core.builder;
 /** Base interface for all typed builders. */
 public interface TypedBuilder<T, B extends TypedBuilder<T, B>> {
 
-    /** Returns the builder {@link T} instance. */
-    T get();
-
     /** In order to make builders work with inheritance, sub-builders must return a reference to their instance. */
     B that();
 }
