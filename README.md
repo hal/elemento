@@ -111,7 +111,7 @@ The class `Elements` provides convenience methods to create the most common elem
 
 ## References
 
-When creating large hierarchies of elements you often need to assign an element somewhere in the tree. Use an inline assignment together with `get()` to create and assign the element in one go:
+When creating large hierarchies of elements you often need to assign an element somewhere in the tree. Use an inline assignment together with `element()` to create and assign the element in one go:
 
 ```java
 final HTMLElement count;
