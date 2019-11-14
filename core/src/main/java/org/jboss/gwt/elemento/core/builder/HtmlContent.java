@@ -91,6 +91,8 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
         return that();
     }
 
+    // ------------------------------------------------------ deprecated
+
     /** @deprecated Please use {@link #addAll(Iterable)} instead. */
     @Deprecated
     default B addAll(HasElements elements) {

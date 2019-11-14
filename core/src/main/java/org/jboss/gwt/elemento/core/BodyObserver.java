@@ -24,14 +24,13 @@ final class BodyObserver {
     private static boolean ready = false;
 
     private static void startObserving() {
-        MutationObserver mutationObserver = new MutationObserver(
-                (MutationRecord[] mutationRecords, MutationObserver observer) -> {
-                    for (MutationRecord mutationRecord : mutationRecords) {
-                        onElementsRemoved(mutationRecord);
-                        onElementsAppended(mutationRecord);
-                    }
-                    return null;
-                });
+        MutationObserver mutationObserver = new MutationObserver((mutationRecords, observer) -> {
+            for (MutationRecord mutationRecord : mutationRecords) {
+                onElementsRemoved(mutationRecord);
+                onElementsAppended(mutationRecord);
+            }
+            return null;
+        });
 
         MutationObserverInit mutationObserverInit = MutationObserverInit.create();
         mutationObserverInit.setChildList(true);

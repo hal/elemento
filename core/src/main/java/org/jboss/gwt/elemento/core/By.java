@@ -21,44 +21,75 @@ import java.util.List;
 import java.util.Objects;
 
 import elemental2.dom.Element;
-import elemental2.dom.Node;
-import elemental2.dom.NodeList;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.joining;
 
+/**
+ * Typesafe CSS selector API.
+ * <p>
+ * Use the static methods to create arbitrary complex CSS selectors:
+ * <p>
+ * <pre>
+ * // #main [data-list-item=foo] a[href^="http://"] > .fas.fa-check, .external[hidden]
+ * By.group(
+ *         By.id("main")
+ *                 .desc(By.data("listItem", "foo")
+ *                         .desc(By.element("a").and(By.attribute("href", STARTS_WITH, "http://"))
+ *                                 .child(By.classname(new String[]{"fas", "fa-check"})))),
+ *         By.classname("external").and(By.attribute("hidden")));
+ * </pre>
+ *
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors</a>
+ */
 public abstract class By {
-
-    // ------------------------------------------------------ query
-
-    public final NodeList<Element> findAll(Node node) {
-        return node.querySelectorAll(selector());
-    }
-
-    public final Element find(Node node) {
-        return node.querySelector(selector());
-    }
 
     // ------------------------------------------------------ combinators
 
+    /**
+     * Combines this selector with the given selector. Use this method to express selectors like
+     * {@code button.primary} or {@code input[type=checkbox]}:
+     * <p>
+     * <pre>
+     * By.element("button").and(By.classname("primary"))
+     * By.element("input").and(By.attribute("type", "checkbox"));
+     * </pre>
+     */
     public final By and(By selector) {
-        return combinator(Combinator.AND, selector);
+        return combinator(Combinator.GROUP, selector);
     }
 
-    public final By descendant(By selector) {
+    /**
+     * Combines this selector with the given selector using the (space) combinator.
+     * Selects nodes that are descendants of this element.
+     */
+    public final By desc(By selector) {
         return combinator(Combinator.DESCENDANT, selector);
     }
 
+    /**
+     * Combines this selector with the given selector using the {@code >} (child) combinator.
+     * Selects nodes that are direct children of this element.
+     */
     public final By child(By selector) {
         return combinator(Combinator.CHILD, selector);
     }
 
-    public final By adjacentSibling(By selector) {
-        return combinator(Combinator.ADJACENT_SIBLING, selector);
-    }
-
+    /**
+     * Combines this selector with the given selector using the {@code ~} (general sibling) combinator.
+     * This means that {@code selector} follows this element (though not necessarily immediately), and both share the
+     * same parent.
+     */
     public final By sibling(By selector) {
         return combinator(Combinator.SIBLING, selector);
+    }
+
+    /**
+     * Combines this selector with the given selector using the {@code +} (adjacent sibling combinator) combinator.
+     * This means that {@code selector} directly follows this element, and both share the same parent.
+     */
+    public final By adjacentSibling(By selector) {
+        return combinator(Combinator.ADJACENT_SIBLING, selector);
     }
 
     private By combinator(Combinator combinator, By selector) {
@@ -67,7 +98,7 @@ public abstract class By {
 
     // ------------------------------------------------------ instance methods
 
-    public abstract String selector();
+    abstract String selector();
 
     @Override
     public int hashCode() {
@@ -93,118 +124,149 @@ public abstract class By {
 
     // ------------------------------------------------------ factory methods
 
+    /** Returns a selector as-is. */
     public static By selector(String selector) {
         return new BySelector(selector);
     }
 
+    /** Selects an element based on the value of its id attribute. */
     public static By id(String id) {
         return new ById(null, id);
     }
 
+    /** Selects all elements that have the given node name. */
     public static By element(String element) {
         return new ByElement(element);
     }
 
+    /** Selects all elements that have the given node name. */
     public static By element(Element element) {
         return new ByElement(element.tagName.toLowerCase());
     }
 
+    /** Selects all elements that have the given node name. */
     public static By element(IsElement element) {
         return new ByElement(element.element().tagName.toLowerCase());
     }
 
+    /** Selects all elements that have the given class attribute. */
     public static By classname(String classname) {
         return new ByClassname(null, new String[]{classname});
     }
 
+    /** Selects all elements that have all class attributes. */
     public static By classname(String[] classnames) {
         return new ByClassname(null, classnames);
     }
 
+    /** Selects all elements that have an attribute name of {@code name}. */
     public static By attribute(String name) {
         return new ByAttribute(name, null, null);
     }
 
+    /** Selects all elements that have an attribute name of {@code name} whose value is exactly {@code value}. */
     public static By attribute(String name, String value) {
-        return new ByAttribute(name, value, null);
+        return new ByAttribute(name, null, value);
     }
 
-    public static By attributeStarts(String name, String value) {
-        return new ByAttribute(name, value, Position.STARTS);
+    /** Selects all elements that have an attribute name of {@code name} whose value applies to the given operator. */
+    public static By attribute(String name, AttributeOperator operator, String value) {
+        return new ByAttribute(name, operator, value);
     }
 
-    public static By attributeEnds(String name, String value) {
-        return new ByAttribute(name, value, Position.ENDS);
-    }
-
-    public static By attributeContains(String nmame, String value) {
-        return new ByAttribute(nmame, value, Position.CONTAINS);
-    }
-
+    /**
+     * Selects all elements that have an attribute name of data-{@code name}.
+     * <p>
+     * If {@code name} contains "-" it is used as if, otherwise it is expected to be in camelCase and is converted to
+     * kebab-case.
+     */
     public static By data(String name) {
         return new ByData(name, null, null);
     }
 
+    /**
+     * Selects all elements that have an attribute name of data-{@code name} whose value is exactly {@code value}.
+     * <p>
+     * If {@code name} contains "-" it is used as if, otherwise it is expected to be in camelCase and is converted to
+     * kebab-case.
+     */
     public static By data(String name, String value) {
-        return new ByData(name, value, null);
+        return new ByData(name, null, value);
     }
 
-    public static By dataStarts(String name, String value) {
-        return new ByData(name, value, Position.STARTS);
+    /**
+     * Selects all elements that have an attribute name of data-{@code name} whose value applies to the given operator.
+     * <p>
+     * If {@code name} contains "-" it is used as if, otherwise it is expected to be in camelCase and is converted to
+     * kebab-case.
+     */
+    public static By data(String name, AttributeOperator operator, String value) {
+        return new ByData(name, operator, value);
     }
 
-    public static By dataEnds(String name, String value) {
-        return new ByData(name, value, Position.ENDS);
-    }
-
-    public static By dataContains(String name, String value) {
-        return new ByData(name, value, Position.CONTAINS);
-    }
-
-    public static By all(By first, By second, By... remaining) {
-        List<By> all = new ArrayList<>();
-        all.add(first);
-        all.add(second);
+    /** Groups the specified selectors using {@code ,}. */
+    public static By group(By first, By second, By... remaining) {
+        List<By> group = new ArrayList<>();
+        group.add(first);
+        group.add(second);
         if (remaining != null) {
             for (By by : remaining) {
-                all.add(by);
+                group.add(by);
             }
         }
-        return new ByAll(all.toArray(new By[0]));
+        return new ByGroup(group.toArray(new By[0]));
     }
 
-    public static By all(By[] selectors) {
-        return new ByAll(selectors);
-    }
-
-    // ------------------------------------------------------ internals
-
-    private static String[] collectNames(String first, String... remaining) {
-        List<String> names = new ArrayList<>();
-        names.add(first);
-        if (remaining != null) {
-            for (String name : remaining) {
-                names.add(name);
-            }
-        }
-        return names.toArray(new String[0]);
+    /** Groups the specified selectors using {@code ,}. */
+    public static By group(By[] selectors) {
+        return new ByGroup(selectors);
     }
 
     // ------------------------------------------------------ inner classes
 
-    private static enum Position {
-        STARTS("^"), ENDS("$"), CONTAINS("*");
+    /** Operator used for attribute selectors. */
+    public static enum AttributeOperator {
+        /**
+         * {@code [attr^=value]}: Represents elements with an attribute name of attr whose value is prefixed (preceded)
+         * by value.
+         */
+        STARTS_WITH("^"),
+
+        /**
+         * {@code [attr$=value]}: Represents elements with an attribute name of attr whose value is suffixed (followed)
+         * by value.
+         */
+        ENDS_WITH("$"),
+
+        /**
+         * {@code [attr*=value]}: Represents elements with an attribute name of attr whose value contains at least one
+         * occurrence of value within the string.
+         */
+        CONTAINS("*"),
+
+        /**
+         * {@code [attr~=value]}: Represents elements with an attribute name of attr whose value is a
+         * whitespace-separated list of words, one of which is exactly value.
+         */
+        CONTAINS_WORD("~"),
+
+        /**
+         * {@code [attr|=value]}: Represents elements with an attribute name of attr whose value can be exactly value or
+         * can begin with value immediately followed by a hyphen, - (U+002D). It is often used for language subcode
+         * matches.
+         */
+        CONTAINS_TOKEN("|");
 
         private final String operator;
 
-        private Position(String operator) {
+        private AttributeOperator(String operator) {
             this.operator = operator;
         }
     }
 
     private enum Combinator {
 
-        AND(""),
+        GROUP(""),
         DESCENDANT(" "),
         CHILD(" > "),
         ADJACENT_SIBLING(" + "),
@@ -228,7 +290,7 @@ public abstract class By {
         }
 
         @Override
-        public String selector() {
+        String selector() {
             return selector;
         }
     }
@@ -242,7 +304,7 @@ public abstract class By {
         }
 
         @Override
-        public String selector() {
+        String selector() {
             return element;
         }
     }
@@ -258,7 +320,7 @@ public abstract class By {
         }
 
         @Override
-        public String selector() {
+        String selector() {
             return Objects.toString(element, "") + "#" + id;
         }
     }
@@ -274,7 +336,7 @@ public abstract class By {
         }
 
         @Override
-        public String selector() {
+        String selector() {
             return Objects.toString(element, "") + "." + String.join(".", classnames);
         }
     }
@@ -283,22 +345,22 @@ public abstract class By {
 
         private final String name;
         private final String value;
-        private final Position position;
+        private final AttributeOperator operator;
 
-        private ByAttribute(String name, String value, Position position) {
+        private ByAttribute(String name, AttributeOperator operator, String value) {
             this.name = name;
             this.value = value;
-            this.position = position;
+            this.operator = operator;
         }
 
         @Override
-        public String selector() {
+        String selector() {
             StringBuilder builder = new StringBuilder();
             builder.append("[").append(name);
             if (value != null && value.length() != 0) {
                 boolean needsQuotes = needsQuotes(value);
-                if (position != null) {
-                    builder.append(position.operator);
+                if (operator != null) {
+                    builder.append(operator.operator);
                 }
                 builder.append("=");
                 if (needsQuotes) {
@@ -342,8 +404,8 @@ public abstract class By {
             return str.replaceAll("([a-z0-9]|(?=[A-Z]))([A-Z])", "$1-$2").toLowerCase();
         }
 
-        private ByData(String name, String value, Position position) {
-            super("data-" + camelToKebabCase(name), value, position);
+        private ByData(String name, AttributeOperator attributeOperator, String value) {
+            super("data-" + (name.contains("-") ? name : camelToKebabCase(name)), attributeOperator, value);
         }
     }
 
@@ -360,21 +422,21 @@ public abstract class By {
         }
 
         @Override
-        public String selector() {
+        String selector() {
             return by1.selector() + combinator.operator + by2.selector();
         }
     }
 
-    private static class ByAll extends By {
+    private static class ByGroup extends By {
 
         private final By[] selectors;
 
-        private ByAll(By[] selectors) {
+        private ByGroup(By[] selectors) {
             this.selectors = selectors;
         }
 
         @Override
-        public String selector() {
+        String selector() {
             return stream(selectors).map(By::selector).collect(joining(", "));
         }
     }

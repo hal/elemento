@@ -17,21 +17,24 @@ import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
+import elemental2.dom.MutationRecord;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.event.shared.HandlerRegistrations;
+import org.jboss.gwt.elemento.core.Attachable;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.jboss.gwt.elemento.core.Key;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
-import static org.jboss.gwt.elemento.core.Elements.*;
+import static elemental2.dom.DomGlobal.console;
 import static org.jboss.gwt.elemento.core.Elements.input;
+import static org.jboss.gwt.elemento.core.Elements.*;
 import static org.jboss.gwt.elemento.core.EventType.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.jboss.gwt.elemento.core.InputType.text;
 
 @SuppressWarnings("Duplicates")
-class TodoItemElement implements IsElement<HTMLElement> {
+class TodoItemElement implements IsElement<HTMLElement>, Attachable {
 
     private final TodoItem item;
     private final ApplicationElement application;
@@ -53,11 +56,10 @@ class TodoItemElement implements IsElement<HTMLElement> {
         this.item = item;
         this.root = li().data("item", item.id)
                 .add(div().css("view")
-                        .add(toggle = input(checkbox).css("toggle").get())
-                        .add(label = label().textContent(item.text).get())
-                        .add(destroy = button().css("destroy").get()))
-                .add(summary = input(text).css("edit").get())
-                .get();
+                        .add(toggle = input(checkbox).css("toggle").element())
+                        .add(label = label().textContent(item.text).element())
+                        .add(destroy = button().css("destroy").element()))
+                .add(summary = input(text).css("edit").element()).element();
         this.root.classList.toggle("completed", item.completed);
         this.toggle.checked = item.completed;
 
@@ -74,6 +76,15 @@ class TodoItemElement implements IsElement<HTMLElement> {
         return root;
     }
 
+    @Override
+    public void attach(MutationRecord mutationRecord) {
+        console.log("Todo item has been attached");
+    }
+
+    @Override
+    public void detach(MutationRecord mutationRecord) {
+        console.log("Todo item has been detached");
+    }
 
     // ------------------------------------------------------ event handler
 

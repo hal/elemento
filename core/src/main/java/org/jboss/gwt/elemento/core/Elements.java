@@ -23,6 +23,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import elemental2.core.JsArray;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLAreaElement;
@@ -951,12 +952,12 @@ public final class Elements {
         return new TextContentBuilder<>(createElement(element, type));
     }
 
-    /** Returns a builder for the specified html element. */
+    /** Returns a builder for the specified HTML element. */
     public static <E extends HTMLElement> HtmlContentBuilder<E> htmlElement(String element, Class<E> type) {
         return new HtmlContentBuilder<>(createElement(element, type));
     }
 
-    /** Creates the specified html element. */
+    /** Creates the specified HTML element. */
     public static <E extends HTMLElement> E createElement(String element, Class<E> type) {
         return createElement.create(element, type);
     }
@@ -976,54 +977,52 @@ public final class Elements {
         return new InputBuilder<E>(element);
     }
 
-    /** Returns a builder for the existing html element. */
+    /** Returns a builder for the existing HTML element. */
     public static <E extends HTMLElement> HtmlContentBuilder<E> wrapHtmlElement(E element) {
         return new HtmlContentBuilder<>(element);
     }
 
-    // ------------------------------------------------------ query and selector methods
+    // ------------------------------------------------------ finder methods
 
-    public static NodeList<Element> findAll(Node node, By selector) {
-        return selector.findAll(node);
+    /** Finds all HTML elements for the given selector. */
+    public static Iterable<HTMLElement> findAll(Node node, By selector) {
+        NodeList<Element> nodes = node.querySelectorAll(selector.selector());
+        JsArray<HTMLElement> htmlElements = new JsArray<>();
+        for (int i = 0; i < nodes.length; i++) {
+            Element element = nodes.getAt(i);
+            if (element instanceof HTMLElement) {
+                htmlElements.push((HTMLElement) element);
+            }
+        }
+        return () -> iterator(htmlElements);
     }
 
-    public static NodeList<Element> findAll(IsElement element, By selector) {
+    /** Finds all HTML elements for the given selector. */
+    public static Iterable<HTMLElement> findAll(IsElement element, By selector) {
         return findAll(element.element(), selector);
     }
 
+    /** Finds a single HTML elements for the given selector. */
     public static <E extends HTMLElement> E find(Node node, By selector) {
-        return (E) selector.find(node);
+        return cast(node.querySelector(selector.selector()));
     }
 
+    /** Finds a single HTML elements for the given selector. */
     public static <E extends HTMLElement> E find(IsElement element, By selector) {
         return find(element.element(), selector);
     }
 
+    /** Finds the closest HTML elements for the given selector. */
     public static <E extends HTMLElement> E closest(Element element, By selector) {
-        return (E) element.closest(selector.selector());
+        return cast(element.closest(selector.selector()));
     }
 
+    /** Finds the closest HTML elements for the given selector. */
     public static <E extends HTMLElement> E closest(IsElement element, By selector) {
-        return (E) element.element().closest(selector.selector());
+        return cast(element.element().closest(selector.selector()));
     }
 
-    // ------------------------------------------------------ element iterator / stream methods
-
-    /**
-     * Returns a predicate for {@linkplain HTMLElement HTML elements}. Useful in streams of {@linkplain Node nodes} or
-     * {@linkplain Element elements}.
-     */
-    public static <T extends Node> Predicate<T> htmlElements() {
-        return new FilterHTMLElements<>();
-    }
-
-    /**
-     * Casts to {@link HTMLElement}. Make sure to {@linkplain #htmlElements() filter} for HTML elements before using
-     * this function.
-     */
-    public static <T extends Node> Function<T, HTMLElement> asHtmlElement() {
-        return new AsHTMLElement<>();
-    }
+    // ------------------------------------------------------ iterator methods
 
     /**
      * Returns an iterator over the given array-like. The iterator does <strong>not</strong> support the
@@ -1057,24 +1056,44 @@ public final class Elements {
         return parent != null ? iterator(parent.element()) : emptyIterator();
     }
 
+    // ------------------------------------------------------ iterable methods
+
+    /** Returns an iterable for the elements in the given array-like. */
+    public static <E> Iterable<E> elements(JsArrayLike<E> nodes) {
+        return () -> iterator(nodes);
+    }
+
+    /** Returns an iterable for the child nodes of the given parent node. */
+    public static Iterable<Node> children(Node parent) {
+        return () -> iterator(parent);
+    }
+
+    /** Returns an iterable for the child elements of the given parent element. */
+    public static Iterable<HTMLElement> children(HTMLElement parent) {
+        return () -> iterator(parent);
+    }
+
+    /** Returns an iterable for the child elements of the given parent element. */
+    public static Iterable<HTMLElement> children(IsElement parent) {
+        return () -> iterator(parent);
+    }
+
+    // ------------------------------------------------------ stream methods
+
     /**
-     * Returns an iterator over the html elements, which match the selector for the given node.
-     * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
+     * Returns a predicate for {@linkplain HTMLElement HTML elements}. Useful in streams of {@linkplain Node nodes} or
+     * {@linkplain Element elements}.
      */
-    public static Iterator<HTMLElement> iterator(Node node, By selector) {
-        return node != null
-                ? stream(findAll(node, selector)).filter(htmlElements()).map(asHtmlElement()).iterator()
-                : emptyIterator();
+    public static <T extends Node> Predicate<T> htmlElements() {
+        return new FilterHTMLElements<>();
     }
 
     /**
-     * Returns an iterator over the html elements, which match the selector for the given element.
-     * The iterator does <strong>not</strong> support the {@link Iterator#remove()} operation.
+     * Casts to {@link HTMLElement}. Make sure to {@linkplain #htmlElements() filter} for HTML elements before using
+     * this function.
      */
-    public static Iterator<HTMLElement> iterator(IsElement element, By selector) {
-        return element != null
-                ? stream(findAll(element, selector)).filter(htmlElements()).map(asHtmlElement()).iterator()
-                : emptyIterator();
+    public static <T extends Node> Function<T, HTMLElement> asHtmlElement() {
+        return new AsHTMLElement<>();
     }
 
     /** Returns a stream for the elements in the given array-like. */
@@ -1113,40 +1132,6 @@ public final class Elements {
         }
     }
 
-    /** Returns a stream for the html elements, which match the selector for the given node. */
-    public static Stream<HTMLElement> stream(Node node, By selector) {
-        return node != null
-                ? stream(findAll(node, selector)).filter(htmlElements()).map(asHtmlElement())
-                : Stream.empty();
-    }
-
-    /** Returns a stream for the html elements, which match the selector for the given element. */
-    public static Stream<HTMLElement> stream(IsElement element, By selector) {
-        return element != null
-                ? stream(findAll(element, selector)).filter(htmlElements()).map(asHtmlElement())
-                : Stream.empty();
-    }
-
-    /** Returns an iterable collection for the elements in the given array-like. */
-    public static <E> Iterable<E> elements(JsArrayLike<E> nodes) {
-        return () -> iterator(nodes);
-    }
-
-    /** Returns an iterable collection for the child nodes of the given parent node. */
-    public static Iterable<Node> children(Node parent) {
-        return () -> iterator(parent);
-    }
-
-    /** Returns an iterable collection for the child elements of the given parent element. */
-    public static Iterable<HTMLElement> children(HTMLElement parent) {
-        return () -> iterator(parent);
-    }
-
-    /** Returns an iterable collection for the child elements of the given parent element. */
-    public static Iterable<HTMLElement> children(IsElement parent) {
-        return () -> iterator(parent);
-    }
-
     // ------------------------------------------------------ element append, insert & remove methods
 
     /**
@@ -1159,8 +1144,10 @@ public final class Elements {
         }
     }
 
-    public static <E extends HTMLElement> void lazyAppend(Element parent, IsElement<E> child) {
-        lazyAppend(parent, child.element());
+    public static void lazyAppend(Element parent, IsElement child) {
+        if (child != null) {
+            lazyAppend(parent, child.element());
+        }
     }
 
     /** Inserts element {@code newElement} into the parent after element {@code after}. */
@@ -1183,7 +1170,9 @@ public final class Elements {
     }
 
     public static void lazyInsertAfter(IsElement newElement, Element after) {
-        lazyInsertAfter(newElement.element(), after);
+        if (newElement != null) {
+            lazyInsertAfter(newElement.element(), after);
+        }
     }
 
     /**
@@ -1196,8 +1185,10 @@ public final class Elements {
         }
     }
 
-    public static <E extends HTMLElement> void lazyInsertAfter(Element parent, IsElement<E> newElement, Element after) {
-        lazyInsertAfter(parent, newElement.element(), after);
+    public static void lazyInsertAfter(Element parent, IsElement newElement, Element after) {
+        if (newElement != null) {
+            lazyInsertAfter(parent, newElement.element(), after);
+        }
     }
 
     /** Inserts element {@code newElement} into the parent before element {@code before}. */
@@ -1206,7 +1197,9 @@ public final class Elements {
     }
 
     public static void insertBefore(IsElement newElement, Element before) {
-        insertBefore(newElement.element(), before);
+        if (newElement != null) {
+            insertBefore(newElement.element(), before);
+        }
     }
 
     /**
@@ -1219,8 +1212,10 @@ public final class Elements {
         }
     }
 
-    public static <E extends HTMLElement> void lazyInsertBefore(IsElement newElement, Element before) {
-        lazyInsertBefore(newElement.element(), before);
+    public static void lazyInsertBefore(IsElement newElement, Element before) {
+        if (newElement != null) {
+            lazyInsertBefore(newElement.element(), before);
+        }
     }
 
     /**
@@ -1233,9 +1228,10 @@ public final class Elements {
         }
     }
 
-    public static <E extends HTMLElement> void lazyInsertBefore(Element parent, IsElement<E> newElement,
-            Element before) {
-        lazyInsertBefore(parent, newElement.element(), before);
+    public static void lazyInsertBefore(Element parent, IsElement newElement, Element before) {
+        if (newElement != null) {
+            lazyInsertBefore(parent, newElement.element(), before);
+        }
     }
 
     /** Inserts element {@code newElement} as first element into {@code parent}. */
@@ -1243,8 +1239,10 @@ public final class Elements {
         parent.insertBefore(newElement, parent.firstChild);
     }
 
-    public static <E extends HTMLElement> void insertFirst(Element parent, IsElement<E> newElement) {
-        insertFirst(parent, newElement.element());
+    public static void insertFirst(Element parent, IsElement newElement) {
+        if (newElement != null) {
+            insertFirst(parent, newElement.element());
+        }
     }
 
     /** Removes all child elements from {@code element} */
@@ -1270,7 +1268,10 @@ public final class Elements {
     }
 
     public static boolean failSafeRemoveFromParent(IsElement element) {
-        return failSafeRemoveFromParent(element.element());
+        if (element != null) {
+            return failSafeRemoveFromParent(element.element());
+        }
+        return false;
     }
 
     /**
@@ -1285,8 +1286,11 @@ public final class Elements {
         return false;
     }
 
-    public static <E extends HTMLElement> boolean failSafeRemove(Node parent, IsElement<E> child) {
-        return failSafeRemove(parent, child.element());
+    public static boolean failSafeRemove(Node parent, IsElement child) {
+        if (child != null) {
+            return failSafeRemove(parent, child.element());
+        }
+        return false;
     }
 
     /**
@@ -1328,12 +1332,6 @@ public final class Elements {
     }
 
     // ------------------------------------------------------ misc element helper methods
-
-    /** @deprecated Replaced by {@link #uniqueId()} */
-    @Deprecated
-    public static String createDocumentUniqueId() {
-        return uniqueId();
-    }
 
     /** Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs. */
     public static String uniqueId() {
@@ -1399,18 +1397,6 @@ public final class Elements {
 
     // ------------------------------------------------------ misc element helper methods
 
-    /** Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}. */
-    @Deprecated
-    public static Element dataElement(String name) {
-        return document.querySelector("[data-element=" + name + "]");
-    }
-
-    /** Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]} */
-    @Deprecated
-    public static Element dataElement(Element context, String name) {
-        return context != null ? context.querySelector("[data-element=" + name + "]") : null;
-    }
-
     /** Checks whether the given element is visible (i.e. {@code display} is not {@code none}) */
     public static boolean isVisible(HTMLElement element) {
         return element != null && !"none".equals(element.style.display);
@@ -1436,11 +1422,14 @@ public final class Elements {
     /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
     public static void toggle(HTMLElement element, String css, boolean condition) {
         if (element != null) {
-            if (condition) {
-                element.classList.add(css);
-            } else {
-                element.classList.remove(css);
-            }
+            element.classList.toggle(css, condition);
+        }
+    }
+
+    /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
+    public static void toggle(HTMLElement element, String css, Supplier<Boolean> condition) {
+        if (element != null) {
+            element.classList.toggle(css, condition.get());
         }
     }
 
@@ -1461,6 +1450,26 @@ public final class Elements {
         if (element != null) {
             innerHtml(element.element(), html);
         }
+    }
+
+    // ------------------------------------------------------ deprecated
+
+    /** @deprecated Replaced by {@link #uniqueId()} */
+    @Deprecated
+    public static String createDocumentUniqueId() {
+        return uniqueId();
+    }
+
+    /** Looks for an element in the document using the CSS selector {@code [data-element=&lt;name&gt;]}. */
+    @Deprecated
+    public static Element dataElement(String name) {
+        return document.querySelector("[data-element=" + name + "]");
+    }
+
+    /** Looks for an element below {@code context} using the CSS selector {@code [data-element=&lt;name&gt;]} */
+    @Deprecated
+    public static Element dataElement(Element context, String name) {
+        return context != null ? context.querySelector("[data-element=" + name + "]") : null;
     }
 
     // this is a static helper class, which must never be instantiated!
