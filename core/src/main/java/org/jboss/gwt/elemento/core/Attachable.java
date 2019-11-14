@@ -22,7 +22,7 @@ import elemental2.dom.MutationRecord;
 import static org.jboss.gwt.elemento.core.Elements.onAttach;
 import static org.jboss.gwt.elemento.core.Elements.onDetach;
 
-/** Interface to get notified when an element has been attached to and detached from the DOM. */
+/** Interface to get notified when an element has been attached / detached from the DOM. */
 public interface Attachable {
 
     /** Registers the specified element for both attach and detach. */
@@ -36,9 +36,10 @@ public interface Attachable {
         onDetach(element, attachable::detach);
     }
 
+    /** Called if the element has been attached. */
     void attach(MutationRecord mutationRecord);
 
-    /** Default implementation does nothing. */
+    /** Called if the element has been detached. Default implementation does nothing. */
     default void detach(MutationRecord mutationRecord) {
         // noop
     }

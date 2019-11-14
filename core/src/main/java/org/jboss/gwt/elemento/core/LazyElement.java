@@ -35,12 +35,6 @@ public abstract class LazyElement<E extends HTMLElement>  implements IsElement<E
         return element;
     }
 
-    /** @deprecated Please use {@link #element()} instead. */
-    @Deprecated
-    public E asElement() {
-        return element();
-    }
-
     /**
      * Create the element contained within the {@link LazyElement}.
      *
@@ -51,5 +45,13 @@ public abstract class LazyElement<E extends HTMLElement>  implements IsElement<E
     /** @return whether the element was already created */
     protected boolean initialized() {
         return element != null;
+    }
+
+    // ------------------------------------------------------ deprecated
+
+    /** @deprecated Please use {@link #element()} instead. */
+    @Deprecated
+    public E asElement() {
+        return element();
     }
 }

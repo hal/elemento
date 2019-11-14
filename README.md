@@ -7,7 +7,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 - Type safe [builders](#builder-api) and [event handlers](#event-handlers)
 - [HTML templates](#html-templates) with support for expressions
 - Easy integration with other libraries such as [Errai](#errai), [RxGWT](#rxgwt) or [Dagger and GIN](#dagger-and-gin)
-- [Helper methods](#helper-methods) to safely append, insert & remove elements
+- [Helper methods](#helper-methods) to manipulate the DOM tree.
 
 **TOC**  
 * [Get Started](#get-started)
@@ -23,12 +23,16 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
   * [Dependencies](#dependencies)
   * [PostConstruct](#postconstruct)
   * [Expressions](#expressions)
+* [Helper Methods](#helper-methods)
+  * [DOM Manipulation](#dom-manipulation)
+  * [Attach / Detach](#attach--detach)
+  * [CSS Selector](#css-selector)
+  * [Iterators / Iterables / Streams](#iterators--iterables--streams)
+* [J2CL / GWT3](#j2cl--gwt3)
 * [Integrations](#integrations)
   * [Errai](#errai)
   * [RxGWT](#rxgwt)
   * [Dagger and GIN](#dagger-and-gin)
-* [Helper Methods](#helper-methods)
-* [J2CL / GWT3](#j2cl--gwt3)
 * [Samples](#samples)
 * [Contributing](#contributing)
 * [Get Help](#get-help)
@@ -101,7 +105,7 @@ HTMLElement section = section().css("main")
                                 .add(label().textContent("Taste Elemento"))
                                 .add(button().css("destroy")))
                         .add(input(text).css("edit"))))
-        .get();
+        .element();
 ```
 
 The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.
@@ -113,8 +117,8 @@ When creating large hierarchies of elements you often need to assign an element 
 ```java
 final HTMLElement count;
 final HTMLElement footer = footer()
-        .add(count = span().css("todo-count").get())
-        .get();
+        .add(count = span().css("todo-count").element())
+        .element();
 ```
 
 ## Event Handlers
@@ -145,7 +149,7 @@ HTMLLIElement listItem = li()
                 .css("edit")
                 .on(keydown, this::keyDown)
                 .on(blur, event -> blur()))
-        .get();
+        .element();
 ```
 
 or register them later using `EventType.bind()`: 
@@ -188,11 +192,11 @@ class TodoItemElement implements IsElement<HTMLElement> {
     TodoItemElement(TodoItem item) {
         this.root = li().data("item", item.id)
                 .add(div().css("view")
-                        .add(toggle = input(checkbox).css("toggle").get())
-                        .add(label = label().textContent(item.text).get())
-                        .add(destroy = button().css("destroy").get()))
-                .add(summary = input(text).css("edit").get())
-                .get();
+                        .add(toggle = input(checkbox).css("toggle").element())
+                        .add(label = label().textContent(item.text).element())
+                        .add(destroy = button().css("destroy").element()))
+                .add(summary = input(text).css("edit").element())
+                .element();
         this.root.classList.toggle("completed", item.completed);
         this.toggle.checked = item.completed;
     }
@@ -215,7 +219,7 @@ TodoItemRepository repository = ...;
 TodoItemElement[] itemElements = repository.items().stream()
         .map(TodoItemElement::new)
         .toArray();
-HTMLUListElement ul = ul().addAll(itemElements).get();
+HTMLUListElement ul = ul().addAll(itemElements).element();
 ``` 
 
 # HTML Templates
@@ -430,6 +434,107 @@ The expressions between `${` and `}` need to be valid Java expressions. They're 
 
 Expressions are supported in text nodes and attribute values. 
 
+# Helper Methods
+
+Besides the builder API and the HTML templates, Elemento comes with a bunch of static helper methods that roughly fall into these categories:
+
+1. Methods to manipulate the DOM tree (add, insert and remove elements).
+1. Get notified when an element is attached to and detached from the DOM tree. 
+1. Typesafe CSS selector API.
+1. Iterate over elements.
+1. Methods to manipulate an element.
+1. Methods to generate safe IDs.
+
+See the API documentation of [Elements](https://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.
+
+### Attach / Detach
+
+Implement `Attachable` to get notified when an element is attached to and detached from the DOM tree. The attachable interface provides a static method to easily register the callbacks to `attach(MutationRecord)` and `detach(MutationRecord)`:   
+
+```java
+import org.jboss.gwt.elemento.core.Attachable;
+import static elemental2.dom.DomGlobal.console;
+import static org.jboss.gwt.elemento.core.Elements.*;
+
+class TodoItemElement implements IsElement<HTMLElement>, Attachable {
+    
+    private final HTMLElement root;
+
+    TodoItemElement(TodoItem item) {
+        this.root = li().element();
+        Attachable.register(root, this);
+    }
+    
+    @Override
+    public HTMLElement element() {
+        return root;
+    }
+
+    @Override
+    public void attach(MutationRecord mutationRecord) {
+        console.log("Todo item has been attached");
+    }
+
+    @Override
+    public void detach(MutationRecord mutationRecord) {
+        console.log("Todo item has been detached");
+    }
+}
+```
+
+Elemento uses the [`MutationObserver`](https://developer.mozilla.org/docs/Web/API/MutationObserver) API to detect changes in the DOM tree and passes an [`MutationRecord`](https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord) instance to the `attach(MutationRecord)` and `detach(MutationRecord)` methods. This instance contains additional information about the DOM manipulation.
+
+### Typesafe CSS Selector
+
+Elemento provides a typesafe selector API. It can be used to express simple CSS selector like `.class` or `#id`. But it's also possible to create complex selectors like
+
+```css
+#main [data-list-item|=foo] a[href^="http://"] > .fas.fa-check, .external[hidden]
+```
+
+This selector wqould be created by
+
+```java
+import static org.jboss.gwt.elemento.core.By.AttributeOperator.CONTAINS_TOKEN;
+import static org.jboss.gwt.elemento.core.By.AttributeOperator.STARTS_WITH;
+
+By.group(
+        By.id("main")
+                .desc(By.data("listItem", CONTAINS_TOKEN, "foo")
+                        .desc(By.element("a").and(By.attribute("href", STARTS_WITH, "http://"))
+                                .child(By.classname(new String[]{"fas", "fa-check"})))),
+        By.classname("external").and(By.attribute("hidden"))
+);
+```
+
+The class `Elements` provides methods to find single or all HTML elements by an selector:
+
+```java
+import static org.jboss.gwt.elemento.core.By.AttributeOperator.STARTS_WITH;
+import static org.jboss.gwt.elemento.core.Elements.a;
+import static org.jboss.gwt.elemento.core.Elements.findAll;
+
+By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "http://"));
+for (HTMLElement element : findAll(DomGlobal.document, selector)) {
+    a(element).css("external");
+}
+```
+
+### Iterators / Iterables / Streams
+
+Elemento provides several methods to iterate over node lists, child elements or elements returned by a selector. There are methods which return `Iterator`, `Iterable` and `Stream`.   
+
+See the API documentation of [Elements](https://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.
+
+# J2CL / GWT3
+
+Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to `gwt-user`. There are methods that use safe HTML classes. But these classes are taken from [`org.gwtproject.safehtml:safehtml`](https://github.com/Vertispan/gwt-safehtml/). In case you still need to use the safe HTML classes from `gwt-user`, you can switch to versions `GWT2-SNAPSHOT` resp. `x.y.z-gwt2`. In general Elemento provides different branches which produce the following versions: 
+
+- The main branches `develop` and `master` have no `gwt-user` dependency. They use safe HTML classes from `org.gwtproject.safehtml:safehtml`. These branches produce versions `HEAD-SNAPSHOT` resp. `x.y.z`
+- The branch `gwt2` use safe HTML classes from `gwt-user`. This branch produces versions `GWT2-SNAPSHOT` resp. `x.y.z-gwt2`
+
+Methods to convert from `com.google.gwt.user.client.ui.Widget` and `com.google.gwt.dom.client.Element` to `elemental2.dom.HTMLElement` and vice versa are part of class `org.jboss.gwt.elemento.core.Widgets` in module `elemento-widget`. This module is available in all versions and branches and has obvisiouly a dependeny to `gwt-user`.  
+
 # Integrations
 
 ## Errai
@@ -458,7 +563,7 @@ Then use `<T extends Event> Observable<T> fromEvent(EventTarget src, EventType<T
 
 ```java
 HTMLElement info; 
-document.body.appendChild(info = span().get());
+document.body.appendChild(info = span().element());
 
 Observable<double[]> touch$ = RxElemento.fromEvent(document, touchmove)
         .map(ev -> ev.touches.item(0))
@@ -466,7 +571,7 @@ Observable<double[]> touch$ = RxElemento.fromEvent(document, touchmove)
 Observable<double[]> mouse$ = RxElemento.fromEvent(document, mousemove)
         .map(ev -> new double[] { ev.clientX, ev.clientY });
 Observable.merge(touch$, mouse$)
-        .map(p -> "position (" + p[0] + "," + p[1] + ")")
+        .map(p -> "attributeOperator (" + p[0] + "," + p[1] + ")")
         .forEach(n -> info.textContent = n);
 ```
 
@@ -475,25 +580,6 @@ Observable.merge(touch$, mouse$)
 Elemento provides support for dependency injection in HTML templates using [Dagger](https://google.github.io/dagger/) or [GIN](https://code.google.com/p/google-gin/). If one of these libraries is on the classpath, the annotation processor will place a `@javax.inject.Inject` annotation on the generated constructor. 
 
 See the [samples](#samples) how this works and how you can inject the templates classes into other classes.
-
-# Helper Methods
-
-Besides the builder API and the HTML templates, Elemento comes with a bunch of static helper methods that roughly fall into three categories:
-
-1. Element iterator / stream methods
-1. Element append, insert & remove methods
-1. Misc element helper methods (show, hide, toggle CSS classes)
-
-See the API documentation of [Elements](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Elements.html) for more details.
-
-# J2CL / GWT3
-
-Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to `gwt-user`. There are methods that use safe HTML classes. But these classes are taken from [`org.gwtproject.safehtml:safehtml`](https://github.com/Vertispan/gwt-safehtml/). In case you still need to use the safe HTML classes from `gwt-user`, you can switch to versions `GWT2-SNAPSHOT` resp. `x.y.z-gwt2`. In general Elemento provides different branches which produce the following versions: 
-
-- The main branches `develop` and `master` have no `gwt-user` dependency. They use safe HTML classes from `org.gwtproject.safehtml:safehtml`. These branches produce versions `HEAD-SNAPSHOT` resp. `x.y.z`
-- The branch `gwt2` use safe HTML classes from `gwt-user`. This branch produces versions `GWT2-SNAPSHOT` resp. `x.y.z-gwt2`
-
-Methods to convert from `com.google.gwt.user.client.ui.Widget` and `com.google.gwt.dom.client.Element` to `elemental2.dom.HTMLElement` and vice versa are part of class `org.jboss.gwt.elemento.core.Widgets` in module `elemento-widget`. This module is available in all versions and branches and has obvisiouly a dependeny to `gwt-user`.  
 
 # Samples
 

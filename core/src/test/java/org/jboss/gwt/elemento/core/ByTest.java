@@ -18,6 +18,7 @@ package org.jboss.gwt.elemento.core;
 
 import org.junit.jupiter.api.Test;
 
+import static org.jboss.gwt.elemento.core.By.AttributeOperator.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ByTest {
@@ -51,9 +52,11 @@ class ByTest {
 
     @Test
     void byAttributePosition() {
-        assertEquals("[attr^=value]", By.attributeStarts("attr", "value").selector());
-        assertEquals("[attr$=value]", By.attributeEnds("attr", "value").selector());
-        assertEquals("[attr*=value]", By.attributeContains("attr", "value").selector());
+        assertEquals("[attr^=value]", By.attribute("attr", STARTS_WITH, "value").selector());
+        assertEquals("[attr$=value]", By.attribute("attr", ENDS_WITH, "value").selector());
+        assertEquals("[attr*=value]", By.attribute("attr", CONTAINS, "value").selector());
+        assertEquals("[attr~=value]", By.attribute("attr", CONTAINS_WORD, "value").selector());
+        assertEquals("[attr|=value]", By.attribute("attr", CONTAINS_TOKEN, "value").selector());
     }
 
     @Test
@@ -74,13 +77,16 @@ class ByTest {
         assertEquals("[data-item]", By.data("item").selector());
         assertEquals("[data-item=value]", By.data("item", "value").selector());
         assertEquals("[data-pretty-long-data-item]", By.data("prettyLongDataItem").selector());
+        assertEquals("[data-pretty-long-data-item]", By.data("pretty-long-data-item").selector());
     }
 
     @Test
     void byDataPosition() {
-        assertEquals("[data-item^=value]", By.dataStarts("item", "value").selector());
-        assertEquals("[data-item$=value]", By.dataEnds("item", "value").selector());
-        assertEquals("[data-item*=value]", By.dataContains("item", "value").selector());
+        assertEquals("[data-item^=value]", By.data("item", STARTS_WITH, "value").selector());
+        assertEquals("[data-item$=value]", By.data("item", ENDS_WITH, "value").selector());
+        assertEquals("[data-item*=value]", By.data("item", CONTAINS, "value").selector());
+        assertEquals("[data-item~=value]", By.data("item", CONTAINS_WORD, "value").selector());
+        assertEquals("[data-item|=value]", By.data("item", CONTAINS_TOKEN, "value").selector());
     }
 
     @Test
@@ -90,9 +96,9 @@ class ByTest {
 
     @Test
     void descendant() {
-        assertEquals(".foo .bar", By.classname("foo").descendant(By.classname("bar")).selector());
+        assertEquals(".foo .bar", By.classname("foo").desc(By.classname("bar")).selector());
         assertEquals(".foo .bar #id",
-                By.classname("foo").descendant(By.classname("bar").descendant(By.id("id"))).selector());
+                By.classname("foo").desc(By.classname("bar").desc(By.id("id"))).selector());
     }
 
     @Test
@@ -117,19 +123,33 @@ class ByTest {
 
     @Test
     void all() {
-        assertEquals("#foo, .bar, button", By.all(By.id("foo"), By.classname("bar"), By.element("button")).selector());
+        assertEquals("#foo, .bar, button",
+                By.group(By.id("foo"), By.classname("bar"), By.element("button")).selector());
     }
 
     @Test
     void differentNesting() {
         By toplevel = By.id("id")
-                .descendant(By.element("ul"))
+                .desc(By.element("ul"))
                 .child(By.classname("foo"))
                 .sibling(By.data("item"));
         By nested = By.id("id")
-                .descendant(By.element("ul")
+                .desc(By.element("ul")
                         .child(By.classname("foo")
                                 .sibling(By.data("item"))));
         assertEquals(toplevel.selector(), nested.selector());
+    }
+
+    @Test
+    void complex() {
+        String selectorValue = "#main [data-list-item|=foo] a[href^=\"http://\"] > .fas.fa-check, .external[hidden]";
+        By selector = By.group(
+                By.id("main")
+                        .desc(By.data("listItem", CONTAINS_TOKEN, "foo")
+                                .desc(By.element("a").and(By.attribute("href", STARTS_WITH, "http://"))
+                                        .child(By.classname(new String[]{"fas", "fa-check"})))),
+                By.classname("external").and(By.attribute("hidden"))
+        );
+        assertEquals(selectorValue, selector.selector());
     }
 }

@@ -24,10 +24,10 @@ import org.jboss.gwt.elemento.core.IsElement;
 /** Builder to collect {@link HTMLElement}s */
 public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, ElementsBuilder>, HasElements {
 
-    private final IterableElementsImpl elements;
+    private final IterableImpl iterable;
 
     public ElementsBuilder() {
-        elements = new IterableElementsImpl();
+        iterable = new IterableImpl();
     }
 
     @Override
@@ -36,27 +36,14 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
     }
 
     public Iterable<HTMLElement> elements() {
-        return elements;
-    }
-
-    /** @deprecated Please use {@link #elements()} instead. */
-    @Deprecated
-    public Iterable<HTMLElement> get() {
-        return elements;
-    }
-
-    /** @deprecated Please use {@link #elements()} instead. */
-    @Override
-    @Deprecated
-    public Iterable<HTMLElement> asElements() {
-        return elements;
+        return iterable;
     }
 
     // ------------------------------------------------------ mirror add() methods from HtmlContent
 
     /** Adds the given element. */
     public ElementsBuilder add(HTMLElement element) {
-        elements.elements.push(element);
+        iterable.elements.push(element);
         return that();
     }
 
@@ -73,6 +60,7 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
         return that();
     }
 
+    /** Adds all elements. */
     public ElementsBuilder addAll(IsElement... elements) {
         for (IsElement element : elements) {
             add(element.element());
@@ -92,6 +80,21 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
         return that();
     }
 
+    // ------------------------------------------------------ deprecated
+
+    /** @deprecated Please use {@link #elements()} instead. */
+    @Deprecated
+    public Iterable<HTMLElement> get() {
+        return iterable;
+    }
+
+    /** @deprecated Please use {@link #elements()} instead. */
+    @Override
+    @Deprecated
+    public Iterable<HTMLElement> asElements() {
+        return iterable;
+    }
+
     /** @deprecated Please use {@link #addAll(Iterable)} instead. */
     @Deprecated
     public ElementsBuilder addAll(HasElements elements) {
@@ -103,12 +106,11 @@ public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, Elem
 
     // ------------------------------------------------------ inner classes
 
-    private static class IterableElementsImpl implements Iterable<HTMLElement> {
+    private static class IterableImpl implements Iterable<HTMLElement> {
 
         final JsArray<HTMLElement> elements;
 
-
-        private IterableElementsImpl() {
+        private IterableImpl() {
             elements = new JsArray<>();
         }
 
