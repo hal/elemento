@@ -24,14 +24,13 @@ final class BodyObserver {
     private static boolean ready = false;
 
     private static void startObserving() {
-        MutationObserver mutationObserver = new MutationObserver(
-                (MutationRecord[] records, MutationObserver observer) -> {
-                    for (MutationRecord record : records) {
-                        onElementsRemoved(record);
-                        onElementsAppended(record);
-                    }
-                    return null;
-                });
+        MutationObserver mutationObserver = new MutationObserver((mutationRecords, observer) -> {
+            for (MutationRecord mutationRecord : mutationRecords) {
+                onElementsRemoved(mutationRecord);
+                onElementsAppended(mutationRecord);
+            }
+            return null;
+        });
 
         MutationObserverInit mutationObserverInit = MutationObserverInit.create();
         mutationObserverInit.setChildList(true);
@@ -40,53 +39,46 @@ final class BodyObserver {
         ready = true;
     }
 
-    private static void onElementsAppended(MutationRecord record) {
-        List<ElementObserver> observed = new ArrayList<>();
-        List<HTMLElement> addedElements = stream(record.addedNodes)
+    private static void onElementsAppended(MutationRecord mutationRecord) {
+        List<HTMLElement> addedElements = stream(mutationRecord.addedNodes)
                 .filter(htmlElements())
                 .map(asHtmlElement())
                 .collect(toList());
-
-        for (ElementObserver elementObserver : attachObservers) {
-            if (elementObserver.observedElement() == null) {
-                observed.add(elementObserver);
-            } else {
-                if (addedElements.contains(elementObserver.observedElement()) ||
-                        isChildOfObservedElement(addedElements, ATTACH_UID_KEY, elementObserver.attachId())) {
-                    elementObserver.callback().onObserved(record);
-                    elementObserver.observedElement().removeAttribute(ATTACH_UID_KEY);
-                    observed.add(elementObserver);
-                }
-            }
-        }
+        List<ElementObserver> observed = handleObserver(attachObservers, addedElements, mutationRecord, ATTACH_UID_KEY);
         attachObservers.removeAll(observed);
     }
 
-    private static void onElementsRemoved(MutationRecord record) {
-        List<ElementObserver> observed = new ArrayList<>();
-        List<HTMLElement> removedElements = stream(record.removedNodes)
+    private static void onElementsRemoved(MutationRecord mutationRecord) {
+        List<HTMLElement> removedElements = stream(mutationRecord.removedNodes)
                 .filter(htmlElements())
                 .map(asHtmlElement())
                 .collect(toList());
-
-        for (ElementObserver elementObserver : detachObservers) {
-            if (elementObserver.observedElement() == null) {
-                observed.add(elementObserver);
-            } else {
-                if (removedElements.contains(elementObserver.observedElement()) ||
-                        isChildOfObservedElement(removedElements, DETACH_UID_KEY, elementObserver.attachId())) {
-                    elementObserver.callback().onObserved(record);
-                    elementObserver.observedElement().removeAttribute(DETACH_UID_KEY);
-                    observed.add(elementObserver);
-                }
-            }
-        }
+        List<ElementObserver> observed = handleObserver(detachObservers, removedElements, mutationRecord,
+                DETACH_UID_KEY);
         detachObservers.removeAll(observed);
     }
 
-    private static boolean isChildOfObservedElement(List<HTMLElement> elements, String attachUidKey, String attachId) {
+    private static List<ElementObserver> handleObserver(List<ElementObserver> elementObservers,
+            List<HTMLElement> elements, MutationRecord mutationRecord, String attribute) {
+        List<ElementObserver> result = new ArrayList<>();
+        for (ElementObserver elementObserver : elementObservers) {
+            if (elementObserver.observedElement() == null) {
+                result.add(elementObserver);
+            } else {
+                if (elements.contains(elementObserver.observedElement()) ||
+                        isChildOfObservedElement(elements, attribute, elementObserver.attachId())) {
+                    elementObserver.callback().onObserved(mutationRecord);
+                    elementObserver.observedElement().removeAttribute(attribute);
+                    elementObservers.add(elementObserver);
+                }
+            }
+        }
+        return result;
+    }
+
+    private static boolean isChildOfObservedElement(List<HTMLElement> elements, String attribute, String attachId) {
         for (HTMLElement element : elements) {
-            if (element.querySelector("[" + attachUidKey + "='" + attachId + "']") != null) {
+            if (element.querySelector("[" + attribute + "='" + attachId + "']") != null) {
                 return true;
             }
         }
@@ -94,8 +86,8 @@ final class BodyObserver {
     }
 
     /**
-     * Check if the observer is already started, if not it will start it, then register and callback for when the
-     * element is attached to the dom.
+     * Checks if the observer has already been started, if not it will start it.
+     * Then register and callback when the element is attached to the DOM.
      */
     static void addAttachObserver(HTMLElement element, ObserverCallback callback) {
         if (!ready) {
@@ -105,8 +97,8 @@ final class BodyObserver {
     }
 
     /**
-     * Check if the observer is already started, if not it will start it, then register and callback for when the
-     * element is removed from the dom.
+     * Checks if the observer has already been started, if not it will start it.
+     * Then register and callback when the element is removed from the DOM.
      */
     static void addDetachObserver(HTMLElement element, ObserverCallback callback) {
         if (!ready) {
@@ -116,15 +108,15 @@ final class BodyObserver {
     }
 
     private static ElementObserver createObserver(HTMLElement element, ObserverCallback callback,
-            String idAttributeName) {
-        String elementId = element.getAttribute(idAttributeName);
+            String attribute) {
+        String elementId = element.getAttribute(attribute);
         if (elementId == null) {
-            element.setAttribute(idAttributeName, Elements.createDocumentUniqueId());
+            element.setAttribute(attribute, Elements.uniqueId());
         }
         return new ElementObserver() {
             @Override
             public String attachId() {
-                return element.getAttribute(idAttributeName);
+                return element.getAttribute(attribute);
             }
 
             @Override

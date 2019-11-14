@@ -20,12 +20,12 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>35</version>
+        <version>36</version>
     </parent>
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.9.3</version>
+    <version>0.9.4</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -106,7 +106,7 @@
         <gwtmockito.version>1.1.8</gwtmockito.version>
         <javax.inject.version>1</javax.inject.version>
         <jsr250.version>1.0</jsr250.version>
-        <jsoup.version>1.11.3</jsoup.version>
+        <jsoup.version>1.12.1</jsoup.version>
         <junit.version>5.5.2</junit.version>
         <safehtml.version>1.0-SNAPSHOT</safehtml.version>
         <undertow.version>2.0.27.Final</undertow.version>
@@ -355,9 +355,11 @@
                             <additionalOptions>-html5</additionalOptions>
                             <detectLinks>true</detectLinks>
                             <doclint>none</doclint>
+<!--
                             <excludePackageNames>
                                 org.jboss.gwt.elemento.processor:org.jboss.gwt.elemento.processor.context
                             </excludePackageNames>
+-->
                             <failOnError>false</failOnError>
                             <links>
                                 <link>http://www.gwtproject.org/javadoc/latest/</link>

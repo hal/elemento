@@ -140,7 +140,6 @@ public class TodoItemRepository {
         }
     }
 
-
     @FunctionalInterface
     public interface ModificationCallback {
 

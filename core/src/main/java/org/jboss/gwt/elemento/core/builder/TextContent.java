@@ -14,13 +14,15 @@
 package org.jboss.gwt.elemento.core.builder;
 
 import elemental2.dom.HTMLElement;
+import org.jboss.gwt.elemento.core.IsElement;
 
 /** Builder for elements with inner text. */
-public interface TextContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B> {
+public interface TextContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>,
+        IsElement<E> {
 
     /** Sets the inner text on the element using {@link HTMLElement#textContent}. */
     default B textContent(String text) {
-        get().textContent = text;
+        element().textContent = text;
         return that();
     }
 }

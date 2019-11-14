@@ -16,6 +16,7 @@ package org.jboss.gwt.elemento.core.builder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
@@ -40,49 +41,27 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     }
 
     @Override
-    public E get() {
+    public E element() {
         return element;
     }
-
-    /**
-     * @deprecated In order to cleanup the API and to avoid multiple methods which do (or return) the same thing,
-     * builders won't implement {@code IsElement<E>} in the next major version. Please use {@link #get()} instead.
-     * A builder is a builder and not an element.
-     */
-    @Override
-    @Deprecated
-    public E element() {
-        return get();
-    }
-
-    /**
-     * @deprecated In order to cleanup the API and to avoid multiple methods which do (or return) the same thing,
-     * builders won't implement {@code IsElement<E>} in the next major version. Please use {@link #get()} instead.
-     * A builder is a builder and not an element.
-     */
-    @Deprecated
-    public E asElement() {
-        return get();
-    }
-
 
     // ------------------------------------------------------ modify current element
 
     /** Sets the id on the element. */
     public B id(String id) {
-        get().id = id;
+        element().id = id;
         return that();
     }
 
     /** Generates and sets an unique id on the element. */
     public B id() {
-        id(Elements.createDocumentUniqueId());
+        id(Elements.uniqueId());
         return that();
     }
 
     /** Sets the title on the element. */
     public B title(String title) {
-        get().title = title;
+        element().title = title;
         return that();
     }
 
@@ -100,27 +79,39 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
                 }
             }
             for (String failSafeClass : failSafeClasses) {
-                get().classList.add(failSafeClass);
+                element().classList.add(failSafeClass);
             }
         }
         return that();
     }
 
+    /** Toggle the class value; i.e., if the class exists then remove it, if not, then add it. */
+    public B toggle(String className) {
+        element().classList.toggle(className);
+        return that();
+    }
+
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
-    public B css(String className, boolean force) {
-        get().classList.toggle(className, force);
+    public B toggle(String className, boolean force) {
+        element().classList.toggle(className, force);
+        return that();
+    }
+
+    /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
+    public B toggle(String className, Supplier<Boolean> force) {
+        element().classList.toggle(className, force.get());
         return that();
     }
 
     /** Sets the CSS style of the element. */
     public B style(String style) {
-        get().style.cssText = style;
+        element().style.cssText = style;
         return that();
     }
 
     /** Sets the specified attribute of the element. */
     public B attr(String name, String value) {
-        get().setAttribute(name, value);
+        element().setAttribute(name, value);
         return that();
     }
 
@@ -131,7 +122,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
      *             already present.
      */
     public B data(String name, String value) {
-        get().dataset.set(name.replaceFirst("^data-", ""), value);
+        element().dataset.set(name.replaceFirst("^data-", ""), value);
         return that();
     }
 
@@ -152,11 +143,38 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
         return that();
     }
 
+    /** Modifies the {@code hidden} flag. */
+    public B hidden(boolean hidden) {
+        element().hidden = hidden;
+        return that();
+    }
+
     // ------------------------------------------------------ event handler
 
     /** Adds the given callback to the element. */
     public <V extends Event> B on(EventType<V, ?> type, EventCallbackFn<V> callback) {
         bind(get(), type, callback);
         return that();
+    }
+
+    // ------------------------------------------------------ deprecated
+
+    /** @deprecated Use {@link #toggle(String, boolean)} */
+    @Deprecated
+    public B css(String className, boolean force) {
+        element().classList.toggle(className, force);
+        return that();
+    }
+
+    /** @deprecated Please use {@link #element()} instead. */
+    @Deprecated
+    public E get() {
+        return element;
+    }
+
+    /** @deprecated Please use {@link #element()} instead. */
+    @Deprecated
+    public E asElement() {
+        return element;
     }
 }

@@ -19,5 +19,5 @@ import elemental2.dom.HTMLElement;
 @FunctionalInterface
 public interface ElementCreator {
 
-    <E extends HTMLElement> E create(String tag, Class<E> type);
+    <E extends HTMLElement> E create(String element, Class<E> type);
 }

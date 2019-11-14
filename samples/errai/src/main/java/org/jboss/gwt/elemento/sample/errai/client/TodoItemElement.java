@@ -53,11 +53,10 @@ public class TodoItemElement implements IsElement<HTMLElement> {
         this.item = item;
         this.root = li().data("item", item.id)
                 .add(div().css("view")
-                        .add(toggle = input(checkbox).css("toggle").get())
-                        .add(label = label().textContent(item.text).get())
-                        .add(destroy = button().css("destroy").get()))
-                .add(summary = input(text).css("edit").get())
-                .get();
+                        .add(toggle = input(checkbox).css("toggle").element())
+                        .add(label = label().textContent(item.text).element())
+                        .add(destroy = button().css("destroy").element()))
+                .add(summary = input(text).css("edit").element()).element();
         this.root.classList.toggle("completed", item.completed);
         this.toggle.checked = item.completed;
 
