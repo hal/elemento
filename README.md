@@ -451,9 +451,11 @@ See the API documentation of [Elements](https://rawgit.com/hal/elemento/site/api
 Implement `Attachable` to get notified when an element is attached to and detached from the DOM tree. The attachable interface provides a static method to easily register the callbacks to `attach(MutationRecord)` and `detach(MutationRecord)`:   
 
 ```java
+import elemental2.dom.MutationRecord;
 import org.jboss.gwt.elemento.core.Attachable;
+import org.jboss.gwt.elemento.core.IsElement;
 import static elemental2.dom.DomGlobal.console;
-import static org.jboss.gwt.elemento.core.Elements.*;
+import static org.jboss.gwt.elemento.core.Elements.li;
 
 class TodoItemElement implements IsElement<HTMLElement>, Attachable {
     
@@ -491,9 +493,10 @@ Elemento provides a typesafe selector API. It can be used to express simple CSS 
 #main [data-list-item|=foo] a[href^="http://"] > .fas.fa-check, .external[hidden]
 ```
 
-This selector wqould be created by
+This selector can be created with
 
 ```java
+import org.jboss.gwt.elemento.core.By;
 import static org.jboss.gwt.elemento.core.By.AttributeOperator.CONTAINS_TOKEN;
 import static org.jboss.gwt.elemento.core.By.AttributeOperator.STARTS_WITH;
 
@@ -509,6 +512,7 @@ By.group(
 The class `Elements` provides methods to find single or all HTML elements by an selector:
 
 ```java
+import org.jboss.gwt.elemento.core.By;
 import static org.jboss.gwt.elemento.core.By.AttributeOperator.STARTS_WITH;
 import static org.jboss.gwt.elemento.core.Elements.a;
 import static org.jboss.gwt.elemento.core.Elements.findAll;
