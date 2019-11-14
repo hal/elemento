@@ -25,7 +25,7 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>0.9.4</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -355,9 +355,11 @@
                             <additionalOptions>-html5</additionalOptions>
                             <detectLinks>true</detectLinks>
                             <doclint>none</doclint>
+<!--
                             <excludePackageNames>
                                 org.jboss.gwt.elemento.processor:org.jboss.gwt.elemento.processor.context
                             </excludePackageNames>
+-->
                             <failOnError>false</failOnError>
                             <links>
                                 <link>http://www.gwtproject.org/javadoc/latest/</link>

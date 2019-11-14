@@ -44,13 +44,13 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>0.9.4</version>
 </dependency>
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-core</artifactId>
     <classifier>sources</classifier>
-    <version>HEAD-SNAPSHOT</version>
+    <version>0.9.4</version>
 </dependency>
 ```
  
@@ -111,7 +111,7 @@ The class `Elements` provides convenience methods to create the most common elem
 
 ## References
 
-When creating large hierarchies of elements you often need to assign an element somewhere in the tree. Use an inline assignment together with `get()` to create and assign the element in one go:
+When creating large hierarchies of elements you often need to assign an element somewhere in the tree. Use an inline assignment together with `element()` to create and assign the element in one go:
 
 ```java
 final HTMLElement count;
@@ -235,19 +235,19 @@ To use HTML templates add the following maven dependencies to your POM:
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template-api</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>0.9.4</version>
 </dependency>
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template-api</artifactId>
     <classifier>sources</classifier>
-    <version>HEAD-SNAPSHOT</version>
+    <version>0.9.4</version>
 </dependency>
 <dependency>
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-template-processor</artifactId>
     <scope>provided</scope>
-    <version>HEAD-SNAPSHOT</version>
+    <version>0.9.4</version>
 </dependency>
 ```
 
