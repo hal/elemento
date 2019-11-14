@@ -512,12 +512,13 @@ The class `Elements` provides methods to find single or all HTML elements by an 
 
 ```java
 import org.jboss.gwt.elemento.core.By;
+import static elemental2.dom.DomGlobal.document;
 import static org.jboss.gwt.elemento.core.By.AttributeOperator.STARTS_WITH;
 import static org.jboss.gwt.elemento.core.Elements.a;
 import static org.jboss.gwt.elemento.core.Elements.findAll;
 
 By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "http://"));
-for (HTMLElement element : findAll(DomGlobal.document, selector)) {
+for (HTMLElement element : findAll(document, selector)) {
     a(element).css("external");
 }
 ```
