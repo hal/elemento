@@ -15,7 +15,5 @@
   ~ limitations under the License.
   -->
 <module>
-    <inherits name="org.jboss.gwt.elemento.Testsuite"/>
-    <entry-point class="org.jboss.gwt.elemento.testsuite.client.Main"/>
-    <collapse-all-properties/>
+    <entry-point class="org.jboss.gwt.elemento.testsuite.client.MainTestSuite"/>
 </module>

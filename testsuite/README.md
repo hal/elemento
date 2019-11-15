@@ -6,11 +6,11 @@ This folder contains maven modules for the Elemento testsuite. Tests are written
 
 Tests are normal Java classes. They don't have to implement a specific interface or extend a certain base class. Following JUnit there are three annotations you can use to write tests:
 
-- `org.junit.Before` use this annotation for methods which should be executed *before* each test  
-- `org.junit.After` use this annotation for methods which should be executed *after* each test
-- `org.junit.Test` use this annotation to mark your actual test methods
+- `org.junit.jupiter.api.BeforeEach` use this annotation for methods which should be executed *before* each test  
+- `org.junit.jupiter.api.AfterEach` use this annotation for methods which should be executed *after* each test
+- `org.junit.jupiter.api.Test` use this annotation to mark your actual test methods
 
-All methods annotated with `@Before`, `@After` and `@Test` must be none-static, public, return void and take no parameters. 
+All methods annotated with `@BeforeEach`, `@AfterEach` and `@Test` must be none-static, public, return void and take no parameters. 
 
 ```java
 import static org.jboss.gwt.elemento.core.Elements.a;
@@ -46,8 +46,8 @@ public class BuilderTest {
 
 There is a minimal API in form of two final classes with static helper methods: 
 
-- `org.jboss.gwt.elemento.testsuite.TestPage`: Contains methods to access the HTML elements on the test page and to log test progress. This class also registers an exception handler which catches assertion errors and marks failed tests as an error on the test page. 
-- `org.jboss.gwt.elemento.testsuite.Assert`: Contains simple helper methods to assert tag names and attribute values.
+- `org.jboss.gwt.elemento.testsuite.TestPage`: Contains methods to access the HTML elements on the test page.
+- `org.jboss.gwt.elemento.testsuite.Assert`: Contains static helper methods to assert tag names and attribute values.
 
 For all other assertions use the `assert` statement:
 
@@ -61,50 +61,9 @@ public void elementStream() {
 
 ### Annotation Processor
 
-There's an annotation processor which picks up all classes containing methods annotated with `org.junit.Test`. For each test class a wrapper is generated which calls the class under test and logs the progress and outcome on the test page: 
+An annotation processor picks up all classes containing methods annotated with `org.junit.jupiter.api.Test`. For each test class a runner is generated, which calls the class under test and logs the progress and outcome on the test page.
 
-```java
-/*
- * WARNING! This class is generated. Do not modify.
- */
-@Generated("org.jboss.gwt.elemento.testsuite.processor.TestProcessor")
-public class BuilderTestRunner {
-    private final BuilderTest cut;
-
-    public BuilderTestRunner() {
-        this.cut = new BuilderTest();
-        logTest("org.jboss.gwt.elemento.testsuite.client.BuilderTest");
-    }
-
-    public void run() {
-        cut.setUp();
-        logMethod("aTag");
-        cut.aTag();
-
-        cut.setUp();
-        logMethod("aHref");
-        cut.aHref();
-    }
-}
-```
-
-Finally all tests are executed by another generated class: `org.jboss.gwt.elemento.testsuite.client.TestSuite`: 
-
-```java
-/*
- * WARNING! This class is generated. Do not modify.
- */
-@Generated("org.jboss.gwt.elemento.testsuite.processor.TestProcessor")
-public class TestSuite {
-
-    public void run() {
-        new org.jboss.gwt.elemento.testsuite.client.BuilderTestRunner().run();
-        ...
-    }
-}
-```
-
-This class is used in the GWT entrypoint to run all tests:
+Finally all tests are executed by another generated class: `org.jboss.gwt.elemento.testsuite.client.TestSuite`. This class is used in the GWT entry point to run all tests:
 
 ```java
 public class Main implements EntryPoint {

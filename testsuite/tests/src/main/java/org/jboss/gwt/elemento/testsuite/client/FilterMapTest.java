@@ -27,8 +27,8 @@ import static java.util.stream.Collectors.toList;
 import static org.jboss.gwt.elemento.core.Elements.asHtmlElement;
 import static org.jboss.gwt.elemento.core.Elements.htmlElements;
 import static org.jboss.gwt.elemento.core.Elements.stream;
-import static org.jboss.gwt.elemento.testsuite.TestPage.builder;
 import static org.jboss.gwt.elemento.testsuite.TestPage.childNodes;
+import static org.jboss.gwt.elemento.testsuite.TestPage.content;
 import static org.jboss.gwt.elemento.testsuite.TestPage.element;
 import static org.jboss.gwt.elemento.testsuite.TestPage.node;
 import static org.jboss.gwt.elemento.testsuite.client.Assert.assertElements;
@@ -37,7 +37,7 @@ public class FilterMapTest {
 
     @BeforeEach
     public void setUp() {
-        builder().innerHtml(SafeHtmlUtils.fromTrustedString(Fixtures.HTML));
+        content().innerHtml(SafeHtmlUtils.fromTrustedString(Fixtures.SIMPLE_HTML));
     }
 
     @Test

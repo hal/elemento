@@ -18,9 +18,22 @@ package org.jboss.gwt.elemento.testsuite.client;
 
 interface Fixtures {
 
-    String HTML = "<!-- Comment -->" +
+    //language=HTML
+    String SIMPLE_HTML = "<!-- Comment -->" +
             "<div>text</div>" +
             "text" +
             "<p>line\nbreak</p>" +
             "line\nbreak";
+
+    //language=HTML
+    String SELECTOR_HTML = "<section id='main'>\n" +
+            "<div class='page'>\n" +
+            "    <ul>\n" +
+            "        <li data-list-item='item1'>Item 1</li>\n" +
+            "        <li data-list-item='item2'>Item 2</li>\n" +
+            "        <li class='selected' data-list-item='item3'>Item 3</li>\n" +
+            "        <li data-list-item='item4'>Item 4</li>\n" +
+            "    </ul>\n" +
+            "</div>\n" +
+            "</section>";
 }

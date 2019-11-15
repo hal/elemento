@@ -16,43 +16,30 @@
 
 package org.jboss.gwt.elemento.testsuite.client;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.stream.StreamSupport;
 
 import elemental2.dom.HTMLElement;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
+import org.jboss.gwt.elemento.core.By;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static java.util.stream.Collectors.toList;
-import static org.jboss.gwt.elemento.core.Elements.iterator;
-import static org.jboss.gwt.elemento.core.Elements.stream;
+import static org.jboss.gwt.elemento.core.Elements.findAll;
 import static org.jboss.gwt.elemento.testsuite.TestPage.content;
 import static org.jboss.gwt.elemento.testsuite.TestPage.element;
-import static org.jboss.gwt.elemento.testsuite.client.Assert.assertElements;
-import static org.jboss.gwt.elemento.testsuite.client.Fixtures.SIMPLE_HTML;
+import static org.jboss.gwt.elemento.testsuite.client.Fixtures.SELECTOR_HTML;
 
-public class ElementsTest {
+public class ByTest {
 
     @BeforeEach
     public void setUp() {
-        content().innerHtml(SafeHtmlUtils.fromTrustedString(SIMPLE_HTML));
+        content().innerHtml(SafeHtmlUtils.fromTrustedString(SELECTOR_HTML));
     }
 
     @Test
-    public void elementIterator() {
-        List<HTMLElement> elements = new ArrayList<>();
-        Iterator<HTMLElement> iterator = iterator(element());
-        while (iterator.hasNext()) {
-            elements.add(iterator.next());
-        }
-        assertElements(elements);
-    }
-
-    @Test
-    public void elementStream() {
-        List<HTMLElement> elements = stream(element()).collect(toList());
-        assertElements(elements);
+    public void findAllLi() {
+        Iterable<HTMLElement> li = findAll(element(), By.element("li"));
+        long count = StreamSupport.stream(li.spliterator(), false).count();
+        assert 4 == count;
     }
 }

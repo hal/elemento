@@ -22,8 +22,8 @@ import org.junit.jupiter.api.Test;
 import static org.jboss.gwt.elemento.core.Elements.a;
 import static org.jboss.gwt.elemento.testsuite.Assert.assertAttribute;
 import static org.jboss.gwt.elemento.testsuite.Assert.assertTag;
-import static org.jboss.gwt.elemento.testsuite.TestPage.builder;
 import static org.jboss.gwt.elemento.testsuite.TestPage.clear;
+import static org.jboss.gwt.elemento.testsuite.TestPage.content;
 import static org.jboss.gwt.elemento.testsuite.TestPage.firstElementChild;
 
 public class BuilderTest {
@@ -35,14 +35,14 @@ public class BuilderTest {
 
     @Test
     public void aTag() {
-        builder().add(a());
+        content().add(a());
         assertTag(firstElementChild(), "a");
     }
 
     @Test
     public void aHref() {
         String href = "https://github.com/hal/elemento";
-        builder().add(a(href));
+        content().add(a(href));
         assertAttribute(firstElementChild(), "href", href);
     }
 }

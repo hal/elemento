@@ -28,16 +28,16 @@ import org.junit.jupiter.api.Test;
 import static java.util.stream.Collectors.toList;
 import static org.jboss.gwt.elemento.core.Elements.iterator;
 import static org.jboss.gwt.elemento.core.Elements.stream;
-import static org.jboss.gwt.elemento.testsuite.TestPage.builder;
+import static org.jboss.gwt.elemento.testsuite.TestPage.content;
 import static org.jboss.gwt.elemento.testsuite.TestPage.node;
 import static org.jboss.gwt.elemento.testsuite.client.Assert.assertNodes;
-import static org.jboss.gwt.elemento.testsuite.client.Fixtures.HTML;
+import static org.jboss.gwt.elemento.testsuite.client.Fixtures.SIMPLE_HTML;
 
 public class NodesTest {
 
     @BeforeEach
     public void setUp() {
-        builder().innerHtml(SafeHtmlUtils.fromTrustedString(HTML));
+        content().innerHtml(SafeHtmlUtils.fromTrustedString(SIMPLE_HTML));
     }
 
     @Test

@@ -5,33 +5,44 @@
 package ${packageName};
 
 import javax.annotation.Generated;
-import static org.jboss.gwt.elemento.testsuite.TestPage.*;
+import org.jboss.gwt.elemento.testsuite.TestSuite;
+import org.jboss.gwt.elemento.testsuite.TestCase;
 
 /*
  * WARNING! This class is generated. Do not modify.
  */
 @Generated("${generatedWith}")
-public class ${className} {
+public class ${className} extends TestCase {
     private final ${test.className} cut;
 
-    public ${className}() {
+    public ${className}(TestSuite testSuite) {
+        super(testSuite);
         this.cut = new ${test.className}();
-        logTest("${test.getPackageName()}.${test.getClassName()}");
     }
 
+    @Override
     public void run() {
+        startTest("${test.packageName}", "${test.className}");
+
         <#list test.tests as method>
+        startMethod("${method}");
+        try {
             <#list test.before as before>
-        cut.${before}();
+            cut.${before}();
             </#list>
-        logMethod("${method}");
-        cut.${method}();
+            cut.${method}();
             <#list test.after as after>
-        cut.${after}(); // after
+            cut.${after}(); // after
             </#list>
+        } catch (Throwable t) {
+            addFailure("${method}", t);
+        }
+        endMethod();
             <#if method_has_next>
 
             </#if>
         </#list>
+
+        endTest();
     }
 }

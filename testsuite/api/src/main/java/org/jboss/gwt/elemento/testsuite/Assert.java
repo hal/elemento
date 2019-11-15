@@ -35,7 +35,7 @@ public final class Assert {
         }
     }
 
-    private static void fail(String error) {
+    public static void fail(String error) {
         throw new AssertionError(error);
     }
 
