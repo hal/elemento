@@ -102,10 +102,6 @@ html.ts {
     background-color: #2b2b2b;
 }
 
-.ts-content {
-    display: none !important;
-}
-
 .ts-console {
     color: #ebebeb;
     font-family: 'Overpass Mono', monospace;
@@ -158,6 +154,10 @@ ul.ts-tests > li + li {
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
+.hidden {
+    display: none !important;
+}
 
 /*
 * Clearfix: contain floats

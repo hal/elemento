@@ -13,47 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.jboss.gwt.elemento.testsuite;
 
-import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
-import elemental2.dom.NodeList;
 import org.jboss.gwt.elemento.core.By;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 
 import static elemental2.dom.DomGlobal.document;
-import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.find;
+import static org.jboss.gwt.elemento.core.Elements.removeChildrenFrom;
 
+/** Provides access to the elements on the test page. */
 public final class TestPage {
 
-    private static final HtmlContentBuilder<HTMLDivElement> content = div(find(document, By.classname("ts-content")));
+    private static final HtmlContentBuilder<HTMLElement> main = Elements.main(find(document, By.element("main")));
 
-    public static HtmlContentBuilder<HTMLDivElement> content() {
-        return content;
-    }
-
-    public static HTMLElement element() {
-        return content.element();
-    }
-
-    public static HTMLElement firstElementChild() {
-        return (HTMLElement) content.element().firstElementChild;
-    }
-
-    public static Node node() {
-        return content.element();
-    }
-
-    public static NodeList<Node> childNodes() {
-        return content.element().childNodes;
+    /** Returns the HTML content builder for the main element. */
+    public static HtmlContentBuilder<HTMLElement> main() {
+        return main;
     }
 
     public static void clear() {
-        Elements.removeChildrenFrom(content);
+        removeChildrenFrom(main);
     }
 
     private TestPage() {

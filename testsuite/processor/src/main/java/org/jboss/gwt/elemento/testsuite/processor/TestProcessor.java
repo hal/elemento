@@ -43,7 +43,7 @@ public class TestProcessor extends AbstractProcessor {
 
     private static final String TEST_TEMPLATE = "Test.ftl";
     private static final String SUITE_TEMPLATE = "Suite.ftl";
-    private static final String SUITE_CLASSNAME = "MainTestSuite";
+    private static final String SUITE_CLASSNAME = "TestSuite";
 
     public TestProcessor() {
         super(TestProcessor.class, "templates");

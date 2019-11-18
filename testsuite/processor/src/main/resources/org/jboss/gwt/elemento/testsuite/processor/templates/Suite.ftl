@@ -5,14 +5,13 @@
 package ${packageName};
 
 import javax.annotation.Generated;
-import org.jboss.gwt.elemento.testsuite.TestSuite;
-import org.jboss.gwt.elemento.testsuite.TestCase;
+import org.jboss.gwt.elemento.testsuite.internal.TestCase;
 
 /*
  * WARNING! This class is generated. Do not modify.
  */
 @Generated("${generatedWith}")
-public class ${className} extends TestSuite  {
+public class ${className} extends org.jboss.gwt.elemento.testsuite.internal.TestSuite  {
 
     public void run() {
         <#list tests as test>

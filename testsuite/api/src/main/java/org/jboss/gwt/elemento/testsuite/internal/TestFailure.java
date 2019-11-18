@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.jboss.gwt.elemento.testsuite;
+package org.jboss.gwt.elemento.testsuite.internal;
 
 class TestFailure {
 

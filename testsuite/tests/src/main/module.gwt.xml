@@ -15,5 +15,5 @@
   ~ limitations under the License.
   -->
 <module>
-    <entry-point class="org.jboss.gwt.elemento.testsuite.client.MainTestSuite"/>
+    <entry-point class="org.jboss.gwt.elemento.testsuite.client.TestSuite"/>
 </module>

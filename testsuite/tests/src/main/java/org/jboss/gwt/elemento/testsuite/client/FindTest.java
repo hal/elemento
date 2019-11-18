@@ -25,20 +25,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.jboss.gwt.elemento.core.Elements.findAll;
-import static org.jboss.gwt.elemento.testsuite.TestPage.content;
-import static org.jboss.gwt.elemento.testsuite.TestPage.element;
+import static org.jboss.gwt.elemento.testsuite.TestPage.clear;
+import static org.jboss.gwt.elemento.testsuite.TestPage.main;
 import static org.jboss.gwt.elemento.testsuite.client.Fixtures.SELECTOR_HTML;
 
-public class ByTest {
+public class FindTest {
 
     @BeforeEach
     public void setUp() {
-        content().innerHtml(SafeHtmlUtils.fromTrustedString(SELECTOR_HTML));
+        clear();
+        main().innerHtml(SafeHtmlUtils.fromTrustedString(SELECTOR_HTML));
     }
 
     @Test
     public void findAllLi() {
-        Iterable<HTMLElement> li = findAll(element(), By.element("li"));
+        Iterable<HTMLElement> li = findAll(main(), By.element("li"));
         long count = StreamSupport.stream(li.spliterator(), false).count();
         assert 4 == count;
     }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.jboss.gwt.elemento.testsuite;
+package org.jboss.gwt.elemento.testsuite.internal;
 
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.HTMLPreElement;
@@ -45,21 +45,15 @@ public abstract class TestSuite implements EntryPoint {
         headerElement = pre(find(document, By.classname("ts-header")));
         testsElement = ul(find(document, By.classname("ts-tests")));
         footerElement = pre(find(document, By.classname("ts-footer")));
-        header();
-        run();
-        footer();
-    }
-
-    public abstract void run();
-
-    protected void header() {
         headerElement.textContent(box("T E S S T"));
-    }
 
-    protected void footer() {
+        run();
+
         footerElement.css(failures > 0 ? "ts-failure" : "ts-success");
         footerElement.textContent(box("Tests run: " + tests + ", Failures: " + failures));
     }
+
+    public abstract void run();
 
     private String box(String text) {
         StringBuilder builder = new StringBuilder();

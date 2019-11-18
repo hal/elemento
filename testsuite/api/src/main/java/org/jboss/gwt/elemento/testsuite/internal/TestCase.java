@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.gwt.elemento.testsuite;
+package org.jboss.gwt.elemento.testsuite.internal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,7 @@ import elemental2.dom.HTMLLIElement;
 import elemental2.dom.HTMLUListElement;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 
+import static elemental2.dom.DomGlobal.console;
 import static org.jboss.gwt.elemento.core.Elements.li;
 import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.jboss.gwt.elemento.core.Elements.span;
@@ -81,5 +82,6 @@ public abstract class TestCase {
     protected void addFailure(String method, Throwable t) {
         String error = t != null && t.getMessage() != null ? t.getMessage() : "Unknown error";
         failures.add(new TestFailure(method, error));
+        console.error(error);
     }
 }
