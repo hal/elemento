@@ -16,8 +16,6 @@
 
 package org.jboss.gwt.elemento.core;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import elemental2.dom.Element;
@@ -28,7 +26,7 @@ import static java.util.stream.Collectors.joining;
 /**
  * Typesafe CSS selector API.
  * <p>
- * Use the static methods to create arbitrary complex CSS selectors:
+ * Use the static methods in this class to create arbitrary complex CSS selectors:
  * <p>
  * <pre>
  * // #main [data-list-item=foo] a[href^="http://"] > .fas.fa-check, .external[hidden]
@@ -36,7 +34,7 @@ import static java.util.stream.Collectors.joining;
  *         By.id("main")
  *                 .desc(By.data("listItem", "foo")
  *                         .desc(By.element("a").and(By.attribute("href", STARTS_WITH, "http://"))
- *                                 .child(By.classname(new String[]{"fas", "fa-check"})))),
+ *                                 .child(By.classnames("fas", "fa-check")))),
  *         By.classname("external").and(By.attribute("hidden")));
  * </pre>
  *
@@ -56,7 +54,7 @@ public abstract class By {
      * </pre>
      */
     public final By and(By selector) {
-        return combinator(Combinator.GROUP, selector);
+        return combinator(Combinator.AND, selector);
     }
 
     /**
@@ -155,7 +153,26 @@ public abstract class By {
     }
 
     /** Selects all elements that have all class attributes. */
-    public static By classname(String[] classnames) {
+    public static By classnames(String first, String second, String... remaining) {
+        int length = 2;
+        if (remaining != null) {
+            length += remaining.length;
+        }
+        String[] classnames = new String[length];
+        classnames[0] = first;
+        classnames[1] = second;
+        if (remaining != null) {
+            int index = 2;
+            for (String classname : remaining) {
+                classnames[index] = classname;
+                index++;
+            }
+        }
+        return new ByClassname(null, classnames);
+    }
+
+    /** Selects all elements that have all class attributes. */
+    public static By classnames(String[] classnames) {
         return new ByClassname(null, classnames);
     }
 
@@ -164,12 +181,24 @@ public abstract class By {
         return new ByAttribute(name, null, null);
     }
 
-    /** Selects all elements that have an attribute name of {@code name} whose value is exactly {@code value}. */
+    /**
+     * Selects all elements that have an attribute name of {@code name} whose value is exactly {@code value}.
+     * <p>
+     * You don't need to enclose the value in single or double quotes. If necessary, quotes are added automatically.
+     *
+     * @see <a href="https://mothereff.in/unquoted-attributes">https://mothereff.in/unquoted-attributes</a>
+     */
     public static By attribute(String name, String value) {
         return new ByAttribute(name, null, value);
     }
 
-    /** Selects all elements that have an attribute name of {@code name} whose value applies to the given operator. */
+    /**
+     * Selects all elements that have an attribute name of {@code name} whose value applies to the given operator.
+     * <p>
+     * You don't need to enclose the value in single or double quotes. If necessary, quotes are added automatically.
+     *
+     * @see <a href="https://mothereff.in/unquoted-attributes">https://mothereff.in/unquoted-attributes</a>
+     */
     public static By attribute(String name, AttributeOperator operator, String value) {
         return new ByAttribute(name, operator, value);
     }
@@ -189,6 +218,10 @@ public abstract class By {
      * <p>
      * If {@code name} contains "-" it is used as if, otherwise it is expected to be in camelCase and is converted to
      * kebab-case.
+     * <p>
+     * You don't need to enclose the value in single or double quotes. If necessary, quotes are added automatically.
+     *
+     * @see <a href="https://mothereff.in/unquoted-attributes">https://mothereff.in/unquoted-attributes</a>
      */
     public static By data(String name, String value) {
         return new ByData(name, null, value);
@@ -199,6 +232,10 @@ public abstract class By {
      * <p>
      * If {@code name} contains "-" it is used as if, otherwise it is expected to be in camelCase and is converted to
      * kebab-case.
+     * <p>
+     * You don't need to enclose the value in single or double quotes. If necessary, quotes are added automatically.
+     *
+     * @see <a href="https://mothereff.in/unquoted-attributes">https://mothereff.in/unquoted-attributes</a>
      */
     public static By data(String name, AttributeOperator operator, String value) {
         return new ByData(name, operator, value);
@@ -206,15 +243,21 @@ public abstract class By {
 
     /** Groups the specified selectors using {@code ,}. */
     public static By group(By first, By second, By... remaining) {
-        List<By> group = new ArrayList<>();
-        group.add(first);
-        group.add(second);
+        int length = 2;
         if (remaining != null) {
+            length += remaining.length;
+        }
+        By[] group = new By[length];
+        group[0] = first;
+        group[1] = second;
+        if (remaining != null) {
+            int index = 2;
             for (By by : remaining) {
-                group.add(by);
+                group[index] = by;
+                index++;
             }
         }
-        return new ByGroup(group.toArray(new By[0]));
+        return new ByGroup(group);
     }
 
     /** Groups the specified selectors using {@code ,}. */
@@ -266,7 +309,7 @@ public abstract class By {
 
     private enum Combinator {
 
-        GROUP(""),
+        AND(""),
         DESCENDANT(" "),
         CHILD(" > "),
         ADJACENT_SIBLING(" + "),
@@ -376,7 +419,7 @@ public abstract class By {
         }
 
         // Inspired by https://mothereff.in/unquoted-attributes
-        // but w/o using reg exp to be able to use unit tests
+        // but w/o using js reg exp in order to enable unit tests
         private boolean needsQuotes(String value) {
             if (value.equals("-")) {
                 return true;
