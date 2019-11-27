@@ -36,6 +36,7 @@ import org.jboss.auto.AbstractProcessor;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+@SuppressWarnings("UnstableApiUsage")
 @AutoService(Processor.class)
 @SupportedAnnotationTypes("org.junit.jupiter.api.Test")
 public class TestProcessor extends AbstractProcessor {
@@ -88,11 +89,11 @@ public class TestProcessor extends AbstractProcessor {
     }
 
     private void writeTest(TestClass test) {
-        code(TEST_TEMPLATE, test.getPackageName(), test.getRunnerClassName(), () -> {
+        code(TEST_TEMPLATE, test.getPackageName(), test.getTestCaseName(), () -> {
             Map<String, Object> context = new HashMap<>();
             context.put(TemplateNames.GENERATED_WITH, TestProcessor.class.getName());
             context.put(TemplateNames.PACKAGE_NAME, test.getPackageName());
-            context.put(TemplateNames.CLASS_NAME, test.getRunnerClassName());
+            context.put(TemplateNames.CLASS_NAME, test.getTestCaseName());
             context.put("test", test);
             return context;
         });

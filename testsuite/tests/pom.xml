@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-testsuite</artifactId>
-        <version>0.9.5</version>
+        <version>0.9.6</version>
     </parent>
 
     <artifactId>elemento-testsuite-tests</artifactId>
@@ -86,10 +86,18 @@
                         <configuration>
                             <sources>
                                 <source>${project.build.directory}/generated-sources/annotations</source>
+                                <source>../api/src/main/java</source>
                             </sources>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -103,7 +111,7 @@
                         </goals>
                         <configuration>
                             <classifier>resources</classifier>
-                            <classesDirectory>${project.build.directory}/${project.build.finalName}/tapp
+                            <classesDirectory>${project.build.directory}/${project.build.finalName}/ts
                             </classesDirectory>
                         </configuration>
                     </execution>
@@ -115,11 +123,11 @@
                 <configuration>
                     <devmodeArgs>
                         <devmodeArg>-startupUrl</devmodeArg>
-                        <devmodeArg>tapp/index.html</devmodeArg>
+                        <devmodeArg>ts/index.html</devmodeArg>
                     </devmodeArgs>
                     <logLevel>INFO</logLevel>
                     <moduleName>org.jboss.gwt.elemento.testsuite.Main</moduleName>
-                    <moduleShortName>tapp</moduleShortName>
+                    <moduleShortName>ts</moduleShortName>
                     <sourceLevel>1.8</sourceLevel>
                 </configuration>
             </plugin>

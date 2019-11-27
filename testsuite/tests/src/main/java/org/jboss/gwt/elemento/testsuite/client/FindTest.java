@@ -16,33 +16,31 @@
 
 package org.jboss.gwt.elemento.testsuite.client;
 
+import java.util.stream.StreamSupport;
+
+import elemental2.dom.HTMLElement;
+import org.gwtproject.safehtml.shared.SafeHtmlUtils;
+import org.jboss.gwt.elemento.core.By;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.jboss.gwt.elemento.core.Elements.a;
-import static org.jboss.gwt.elemento.testsuite.Assert.assertAttribute;
-import static org.jboss.gwt.elemento.testsuite.Assert.assertTag;
-import static org.jboss.gwt.elemento.testsuite.TestPage.builder;
+import static org.jboss.gwt.elemento.core.Elements.findAll;
 import static org.jboss.gwt.elemento.testsuite.TestPage.clear;
-import static org.jboss.gwt.elemento.testsuite.TestPage.firstElementChild;
+import static org.jboss.gwt.elemento.testsuite.TestPage.main;
+import static org.jboss.gwt.elemento.testsuite.client.Fixtures.SELECTOR_HTML;
 
-public class BuilderTest {
+public class FindTest {
 
     @BeforeEach
     public void setUp() {
         clear();
+        main().innerHtml(SafeHtmlUtils.fromTrustedString(SELECTOR_HTML));
     }
 
     @Test
-    public void aTag() {
-        builder().add(a());
-        assertTag(firstElementChild(), "a");
-    }
-
-    @Test
-    public void aHref() {
-        String href = "https://github.com/hal/elemento";
-        builder().add(a(href));
-        assertAttribute(firstElementChild(), "href", href);
+    public void findAllLi() {
+        Iterable<HTMLElement> li = findAll(main(), By.element("li"));
+        long count = StreamSupport.stream(li.spliterator(), false).count();
+        assert 4 == count;
     }
 }

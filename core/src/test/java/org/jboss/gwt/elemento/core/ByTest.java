@@ -41,7 +41,8 @@ class ByTest {
     @Test
     void byClassname() {
         assertEquals(".single-class", By.classname("single-class").selector());
-        assertEquals(".fas.fa-check", By.classname(new String[]{"fas", "fa-check"}).selector());
+        assertEquals(".fas.fa-check", By.classnames(new String[]{"fas", "fa-check"}).selector());
+        assertEquals(".first.second.third", By.classnames("first", "second", "third").selector());
     }
 
     @Test
@@ -92,6 +93,8 @@ class ByTest {
     @Test
     void and() {
         assertEquals("div.class", By.element("div").and(By.classname("class")).selector());
+        // the more complicated variant of By.classnames("fas", "fa-check")
+        assertEquals(".fas.fa-check", By.classname("fas").and(By.classname("fa-check")).selector());
     }
 
     @Test
@@ -137,6 +140,8 @@ class ByTest {
                 .desc(By.element("ul")
                         .child(By.classname("foo")
                                 .sibling(By.data("item"))));
+        assertEquals("#id ul > .foo ~ [data-item]", toplevel.selector());
+        assertEquals("#id ul > .foo ~ [data-item]", nested.selector());
         assertEquals(toplevel.selector(), nested.selector());
     }
 
@@ -147,9 +152,19 @@ class ByTest {
                 By.id("main")
                         .desc(By.data("listItem", CONTAINS_TOKEN, "foo")
                                 .desc(By.element("a").and(By.attribute("href", STARTS_WITH, "http://"))
-                                        .child(By.classname(new String[]{"fas", "fa-check"})))),
+                                        .child(By.classnames("fas", "fa-check")))),
                 By.classname("external").and(By.attribute("hidden"))
         );
         assertEquals(selectorValue, selector.selector());
+    }
+
+    @Test
+    void objectMethods() {
+        By one = By.classname("foo");
+        By two = By.classname("foo");
+        assertEquals(one, two);
+        assertEquals(one.selector(), two.selector());
+        assertEquals(one.toString(), two.toString());
+        assertEquals(one.hashCode(), two.hashCode());
     }
 }

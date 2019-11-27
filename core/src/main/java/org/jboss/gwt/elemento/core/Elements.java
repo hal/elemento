@@ -110,12 +110,9 @@ public final class Elements {
 
     // ------------------------------------------------------ body
 
+    /** Returns a HTML content builder for the document body. */
     public static HtmlContentBuilder<HTMLBodyElement> body() {
         return new HtmlContentBuilder<>(document.body);
-    }
-
-    public static HtmlContentBuilder<HTMLBodyElement> body(Element element) {
-        return wrapHtmlElement(cast(element));
     }
 
     // ------------------------------------------------------ content sectioning

@@ -13,99 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.jboss.gwt.elemento.testsuite;
 
-import com.google.gwt.core.client.GWT;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
-import elemental2.dom.NodeList;
+import org.jboss.gwt.elemento.core.By;
 import org.jboss.gwt.elemento.core.Elements;
 import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
 
 import static elemental2.dom.DomGlobal.document;
-import static org.jboss.gwt.elemento.testsuite.CSS.clazz;
-import static org.jboss.gwt.elemento.testsuite.CSS.error;
-import static org.jboss.gwt.elemento.testsuite.CSS.ok;
-import static org.jboss.gwt.elemento.testsuite.CSS.test;
+import static org.jboss.gwt.elemento.core.Elements.find;
+import static org.jboss.gwt.elemento.core.Elements.removeChildrenFrom;
 
+/** Provides access to the elements on the test page. */
 public final class TestPage {
 
-    private static final HTMLElement content = (HTMLElement) document.getElementById("content");
-    private static final HTMLElement console = (HTMLElement) document.getElementById("console");
-    private static HTMLElement methods = null;
-    private static HTMLElement currentMethod = null;
-    private static State state = State.NONE;
+    private static final HtmlContentBuilder<HTMLElement> main = Elements.main(find(document, By.element("main")));
 
-    static {
-        GWT.setUncaughtExceptionHandler(e -> {
-            String message = e != null && e.getMessage() != null ? e.getMessage() : "Unknwon error";
-            switch (state) {
-                case NONE:
-                    console.appendChild(
-                            Elements.div().css(test, message)
-                                    .add(Elements.p().textContent(message))
-                                    .element());
-                    break;
-                case TEST:
-                    methods.appendChild(Elements.li().css(error).textContent(message).element());
-                    break;
-                case METHOD:
-                    currentMethod.classList.remove(ok);
-                    currentMethod.classList.add(error);
-                    currentMethod.textContent += ": " + message;
-                    break;
-                default:
-                    break;
-            }
-        });
-    }
-
-    public static void logTest(String name) {
-        console.appendChild(
-                Elements.div().id(name).css(test)
-                        .add(Elements.p().css(clazz).textContent(name))
-                        .add(methods = Elements.ul().css(CSS.methods).element())
-                        .element());
-        state = State.TEST;
-    }
-
-    public static void logMethod(String name) {
-        if (state == State.NONE) {
-            throw new IllegalStateException("Missing call to test(String)");
-        }
-        methods.appendChild(currentMethod = Elements.li().css(ok).textContent(name).element());
-        state = State.METHOD;
-    }
-
-    public static HtmlContentBuilder<HTMLElement> builder() {
-        return new HtmlContentBuilder<>(content);
-    }
-
-    public static HTMLElement element() {
-        return content;
-    }
-
-    public static HTMLElement firstElementChild() {
-        return (HTMLElement) content.firstElementChild;
-    }
-
-    public static Node node() {
-        return content;
-    }
-
-    public static NodeList<Node> childNodes() {
-        return content.childNodes;
+    /** Returns the HTML content builder for the main element. */
+    public static HtmlContentBuilder<HTMLElement> main() {
+        return main;
     }
 
     public static void clear() {
-        Elements.removeChildrenFrom(content);
+        removeChildrenFrom(main);
     }
 
     private TestPage() {
-    }
-
-    enum State {
-        NONE, TEST, METHOD,
     }
 }

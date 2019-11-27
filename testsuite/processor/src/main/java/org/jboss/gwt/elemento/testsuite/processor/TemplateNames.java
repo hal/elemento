@@ -20,7 +20,5 @@ public interface TemplateNames {
 
     String CLASS_NAME = "className";
     String GENERATED_WITH = "generatedWith";
-    String GIN_PACKAGE = "org.jboss.hal.client.gin";
     String PACKAGE_NAME = "packageName";
-    String TEMPLATES = "templates";
 }

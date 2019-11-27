@@ -22,7 +22,7 @@ import java.util.List;
 public class TestClass {
 
     private final String packageName;
-    private final String runnerClassName;
+    private final String testCaseName;
     private final String className;
     private final List<String> before;
     private final List<String> after;
@@ -30,7 +30,7 @@ public class TestClass {
 
     public TestClass(String packageName, String className) {
         this.packageName = packageName;
-        this.runnerClassName = className + "Runner";
+        this.testCaseName = className + "Case";
         this.className = className;
         this.before = new ArrayList<>();
         this.after = new ArrayList<>();
@@ -53,8 +53,8 @@ public class TestClass {
         return packageName;
     }
 
-    public String getRunnerClassName() {
-        return runnerClassName;
+    public String getTestCaseName() {
+        return testCaseName;
     }
 
     public String getClassName() {

@@ -16,17 +16,17 @@
 
 package org.jboss.gwt.elemento.testsuite;
 
-import elemental2.dom.HTMLElement;
+import elemental2.dom.Element;
 
 public final class Assert {
 
-    public static void assertTag(HTMLElement element, String name) {
+    public static void assertTag(Element element, String name) {
         if (!element.tagName.equalsIgnoreCase(name)) {
             fail("assertTag: \"" + element.tagName + "\" != \"" + name + "\"");
         }
     }
 
-    public static void assertAttribute(HTMLElement element, String name, String value) {
+    public static void assertAttribute(Element element, String name, String value) {
         String actual = element.getAttribute(name);
         if (actual == null) {
             fail("assertAttribute: " + element.tagName + "[" + name + "] == null");
@@ -35,7 +35,7 @@ public final class Assert {
         }
     }
 
-    private static void fail(String error) {
+    public static void fail(String error) {
         throw new AssertionError(error);
     }
 

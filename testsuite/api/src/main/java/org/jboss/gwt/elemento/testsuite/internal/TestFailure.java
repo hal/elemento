@@ -13,14 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.gwt.elemento.testsuite.client;
 
-import com.google.gwt.core.client.EntryPoint;
+package org.jboss.gwt.elemento.testsuite.internal;
 
-public class Main implements EntryPoint {
+class TestFailure {
 
-    @Override
-    public void onModuleLoad() {
-        new TestSuite().run();
+    final String method;
+    final String description;
+
+    TestFailure(String method, String description) {
+        this.method = method;
+        this.description = description;
     }
 }
