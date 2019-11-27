@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.jboss.gwt.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
-        <version>HEAD-SNAPSHOT</version>
+        <version>0.9.6</version>
     </parent>
 
     <artifactId>elemento-testsuite</artifactId>
