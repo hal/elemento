@@ -25,7 +25,7 @@
 
     <groupId>org.jboss.gwt.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>0.9.6</version>
+    <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Parent</name>
     <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
