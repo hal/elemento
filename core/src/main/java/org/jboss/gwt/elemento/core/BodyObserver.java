@@ -39,41 +39,50 @@ final class BodyObserver {
         ready = true;
     }
 
-    private static void onElementsAppended(MutationRecord mutationRecord) {
-        List<HTMLElement> addedElements = stream(mutationRecord.addedNodes)
+    @SuppressWarnings("DuplicatedCode")
+    private static void onElementsAppended(MutationRecord record) {
+        List<ElementObserver> observed = new ArrayList<>();
+        List<HTMLElement> addedElements = stream(record.addedNodes)
                 .filter(htmlElements())
                 .map(asHtmlElement())
                 .collect(toList());
-        List<ElementObserver> observed = handleObserver(attachObservers, addedElements, mutationRecord, ATTACH_UID_KEY);
-        attachObservers.removeAll(observed);
-    }
 
-    private static void onElementsRemoved(MutationRecord mutationRecord) {
-        List<HTMLElement> removedElements = stream(mutationRecord.removedNodes)
-                .filter(htmlElements())
-                .map(asHtmlElement())
-                .collect(toList());
-        List<ElementObserver> observed = handleObserver(detachObservers, removedElements, mutationRecord,
-                DETACH_UID_KEY);
-        detachObservers.removeAll(observed);
-    }
-
-    private static List<ElementObserver> handleObserver(List<ElementObserver> elementObservers,
-            List<HTMLElement> elements, MutationRecord mutationRecord, String attribute) {
-        List<ElementObserver> result = new ArrayList<>();
-        for (ElementObserver elementObserver : elementObservers) {
+        for (ElementObserver elementObserver : attachObservers) {
             if (elementObserver.observedElement() == null) {
-                result.add(elementObserver);
+                observed.add(elementObserver);
             } else {
-                if (elements.contains(elementObserver.observedElement()) ||
-                        isChildOfObservedElement(elements, attribute, elementObserver.attachId())) {
-                    elementObserver.callback().onObserved(mutationRecord);
-                    elementObserver.observedElement().removeAttribute(attribute);
-                    elementObservers.add(elementObserver);
+                if (addedElements.contains(elementObserver.observedElement()) ||
+                        isChildOfObservedElement(addedElements, ATTACH_UID_KEY, elementObserver.attachId())) {
+                    elementObserver.callback().onObserved(record);
+                    elementObserver.observedElement().removeAttribute(ATTACH_UID_KEY);
+                    observed.add(elementObserver);
                 }
             }
         }
-        return result;
+        attachObservers.removeAll(observed);
+    }
+
+    @SuppressWarnings("DuplicatedCode")
+    private static void onElementsRemoved(MutationRecord record) {
+        List<ElementObserver> observed = new ArrayList<>();
+        List<HTMLElement> removedElements = stream(record.removedNodes)
+                .filter(htmlElements())
+                .map(asHtmlElement())
+                .collect(toList());
+
+        for (ElementObserver elementObserver : detachObservers) {
+            if (elementObserver.observedElement() == null) {
+                observed.add(elementObserver);
+            } else {
+                if (removedElements.contains(elementObserver.observedElement()) ||
+                        isChildOfObservedElement(removedElements, DETACH_UID_KEY, elementObserver.attachId())) {
+                    elementObserver.callback().onObserved(record);
+                    elementObserver.observedElement().removeAttribute(DETACH_UID_KEY);
+                    observed.add(elementObserver);
+                }
+            }
+        }
+        detachObservers.removeAll(observed);
     }
 
     private static boolean isChildOfObservedElement(List<HTMLElement> elements, String attribute, String attachId) {
