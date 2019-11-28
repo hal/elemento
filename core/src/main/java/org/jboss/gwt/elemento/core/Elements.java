@@ -41,6 +41,7 @@ import elemental2.dom.HTMLFieldSetElement;
 import elemental2.dom.HTMLFormElement;
 import elemental2.dom.HTMLHRElement;
 import elemental2.dom.HTMLHeadingElement;
+import elemental2.dom.HTMLIFrameElement;
 import elemental2.dom.HTMLImageElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLLIElement;
@@ -623,6 +624,18 @@ public final class Elements {
 
     public static EmptyContentBuilder<HTMLEmbedElement> embed(Element element) {
         return wrapEmptyElement(cast(element));
+    }
+
+    public static HtmlContentBuilder<HTMLIFrameElement> iframe() {
+        return htmlElement("iframe", HTMLIFrameElement.class);
+    }
+
+    public static HtmlContentBuilder<HTMLIFrameElement> iframe(String src) {
+        return iframe().attr("src", src);
+    }
+
+    public static HtmlContentBuilder<HTMLIFrameElement> iframe(Element element) {
+        return wrapHtmlElement(cast(element));
     }
 
     public static HtmlContentBuilder<HTMLObjectElement> object() {
