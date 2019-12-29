@@ -19,9 +19,9 @@ import java.util.Set;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
-import org.elemento.widget.By;
+import org.elemento.By;
 
-import static org.elemento.widget.Elements.*;
+import static org.elemento.Elements.*;
 
 public final class Application {
 

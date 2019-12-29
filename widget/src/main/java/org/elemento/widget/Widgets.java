@@ -19,23 +19,17 @@ import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import elemental2.dom.HTMLElement;
 import jsinterop.base.Js;
+import org.elemento.IsElement;
 
 /**
  * Helper methods for working with {@link com.google.gwt.user.client.ui.Widget}s.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
 public final class Widgets {
 
     /** Converts from {@link IsElement} &rarr; {@link Widget}. */
-    public static Widget widget(IsElement element) {
-        return widget(element.element());
-    }
-
-    /** @deprecated Please use {@link #widget(IsElement)} instead. */
-    @Deprecated
-    public static Widget asWidget(IsElement element) {
+    public static <E extends HTMLElement> Widget widget(IsElement<E> element) {
         return widget(element.element());
     }
 
@@ -44,20 +38,8 @@ public final class Widgets {
         return new ElementWidget(element);
     }
 
-    /** @deprecated Please use {@link #widget(HTMLElement)} instead. */
-    @Deprecated
-    public static Widget asWidget(HTMLElement element) {
-        return new ElementWidget(element);
-    }
-
     /** Converts from {@link IsWidget} &rarr; {@link HTMLElement}. */
     public static HTMLElement element(IsWidget widget) {
-        return element(widget.asWidget());
-    }
-
-    /** @deprecated Please use {@link #element(IsWidget)} instead. */
-    @Deprecated
-    public static HTMLElement asElement(IsWidget widget) {
         return element(widget.asWidget());
     }
 
@@ -66,23 +48,10 @@ public final class Widgets {
         return element(widget.getElement());
     }
 
-    /** @deprecated Please use {@link #element(Widget)} instead. */
-    @Deprecated
-    public static HTMLElement asElement(Widget widget) {
-        return element(widget.getElement());
-    }
-
     /** Converts from {@link com.google.gwt.dom.client.Element} &rarr; {@link HTMLElement}. */
     public static HTMLElement element(com.google.gwt.dom.client.Element element) {
         return Js.cast(element);
     }
-
-    /** @deprecated Please use {@link #element(com.google.gwt.dom.client.Element)} instead. */
-    @Deprecated
-    public static HTMLElement asElement(com.google.gwt.dom.client.Element element) {
-        return Js.cast(element);
-    }
-
 
     // this is a static helper class which must never be instantiated!
     private Widgets() {

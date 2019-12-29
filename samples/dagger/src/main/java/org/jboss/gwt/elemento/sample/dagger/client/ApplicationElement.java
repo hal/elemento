@@ -20,9 +20,9 @@ import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
-import org.elemento.widget.Elements;
-import org.elemento.widget.IsElement;
-import org.elemento.widget.Key;
+import org.elemento.Elements;
+import org.elemento.IsElement;
+import org.elemento.Key;
 import org.jboss.gwt.elemento.sample.common.Application;
 import org.jboss.gwt.elemento.sample.common.Filter;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
@@ -31,10 +31,10 @@ import org.elemento.template.DataElement;
 import org.elemento.template.Templated;
 
 import static elemental2.dom.DomGlobal.console;
-import static org.elemento.widget.EventType.bind;
-import static org.elemento.widget.EventType.change;
-import static org.elemento.widget.EventType.click;
-import static org.elemento.widget.EventType.keydown;
+import static org.elemento.EventType.bind;
+import static org.elemento.EventType.change;
+import static org.elemento.EventType.click;
+import static org.elemento.EventType.keydown;
 
 @Templated("Todo.html#todos")
 @SuppressWarnings({"WeakerAccess", "unused"})

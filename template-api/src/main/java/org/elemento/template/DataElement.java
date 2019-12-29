@@ -21,7 +21,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.elemento.widget.IsElement;
+import org.elemento.IsElement;
 
 /**
  * Declares a mapping between an element from an HTML template and the annotated field / method.

@@ -107,16 +107,16 @@ import elemental2.dom.HTMLTextAreaElement;
 import elemental2.dom.HTMLTrackElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.HTMLVideoElement;
+import org.elemento.IsElement;
 import org.elemento.processor.context.AbstractPropertyInfo;
 import org.elemento.processor.context.DataElementInfo;
 import org.elemento.processor.context.PostConstructInfo;
 import org.elemento.processor.context.RootElementInfo;
 import org.elemento.processor.context.TemplateContext;
-import org.jboss.auto.AbstractProcessor;
-import org.elemento.widget.IsElement;
 import org.elemento.template.DataElement;
 import org.elemento.template.Templated;
 import org.elemento.template.Templated.Injectable;
+import org.jboss.auto.AbstractProcessor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
@@ -126,7 +126,7 @@ import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.joining;
 
 @AutoService(Processor.class)
-@SupportedAnnotationTypes("org.jboss.gwt.elemento.template.Templated")
+@SupportedAnnotationTypes("org.elemento.template.Templated")
 public class TemplatedProcessor extends AbstractProcessor {
 
     private static final String GET = "get";
@@ -197,7 +197,6 @@ public class TemplatedProcessor extends AbstractProcessor {
         HTML_ELEMENTS.put(HTMLVideoElement.class.getName(), "video");
     }
 
-
     /**
      * Qualified names of {@code @Templated} classes that we attempted to process but had to abandon
      * because we needed other types that they referenced and those other types were missing.
@@ -212,7 +211,6 @@ public class TemplatedProcessor extends AbstractProcessor {
         super(resourceLoaderClass, templates);
         this.deferredTypeNames = new ArrayList<>();
     }
-
 
     // ------------------------------------------------------ @Templated types
 
@@ -317,7 +315,6 @@ public class TemplatedProcessor extends AbstractProcessor {
         info("Generated templated implementation [%s] for [%s]", context.getSubclass(), context.getBase());
     }
 
-    @SuppressWarnings("SameParameterValue")
     private String generatedClassName(TypeElement type, String prefix, String suffix) {
         StringBuilder name = new StringBuilder(type.getSimpleName().toString());
         while (type.getEnclosingElement() instanceof TypeElement) {
@@ -328,7 +325,6 @@ public class TemplatedProcessor extends AbstractProcessor {
         String dot = pkg.isEmpty() ? "" : ".";
         return pkg + dot + prefix + name + suffix;
     }
-
 
     // ------------------------------------------------------ root element / template
 
@@ -413,13 +409,12 @@ public class TemplatedProcessor extends AbstractProcessor {
                 if (resource != null) {
                     return resource;
                 }
-            } catch (IOException ignored) {
-                debug("Unable to find %s in %s: %s", name, location.getName(), ignored.getMessage());
+            } catch (IOException e) {
+                debug("Unable to find %s in %s: %s", name, location.getName(), e.getMessage());
             }
         }
         return null;
     }
-
 
     // ------------------------------------------------------ @DataElement fields and methods
 
@@ -513,7 +508,6 @@ public class TemplatedProcessor extends AbstractProcessor {
     private String getSelector(Element element) {
         String selector = null;
 
-        //noinspection Guava
         Optional<AnnotationMirror> annotationMirror = MoreElements
                 .getAnnotationMirror(element, DataElement.class);
         if (annotationMirror.isPresent()) {
@@ -562,7 +556,6 @@ public class TemplatedProcessor extends AbstractProcessor {
         }
     }
 
-
     // ------------------------------------------------------ @PostConstruct methods
 
     private List<PostConstructInfo> processPostConstruct(TypeElement type) {
@@ -596,7 +589,6 @@ public class TemplatedProcessor extends AbstractProcessor {
         }
         return postConstructs;
     }
-
 
     // ------------------------------------------------------ abstract properties
 

@@ -14,7 +14,7 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import elemental2.dom.HTMLElement;
-import org.elemento.widget.IsElement;
+import org.elemento.IsElement;
 import org.elemento.template.Templated;
 
 @SuppressWarnings("unused")

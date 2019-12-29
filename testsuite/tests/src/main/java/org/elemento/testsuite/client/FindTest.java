@@ -20,11 +20,11 @@ import java.util.stream.StreamSupport;
 
 import elemental2.dom.HTMLElement;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
-import org.elemento.widget.By;
+import org.elemento.By;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.elemento.widget.Elements.findAll;
+import static org.elemento.Elements.findAll;
 import static org.elemento.testsuite.TestPage.clear;
 import static org.elemento.testsuite.TestPage.main;
 import static org.elemento.testsuite.client.Fixtures.SELECTOR_HTML;

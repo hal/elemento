@@ -19,13 +19,13 @@ package org.elemento.testsuite.internal;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.HTMLPreElement;
 import elemental2.dom.HTMLUListElement;
-import org.elemento.widget.By;
-import org.elemento.widget.builder.HtmlContentBuilder;
+import org.elemento.By;
+import org.elemento.builder.HtmlContentBuilder;
 
 import static elemental2.dom.DomGlobal.document;
-import static org.elemento.widget.Elements.find;
-import static org.elemento.widget.Elements.pre;
-import static org.elemento.widget.Elements.ul;
+import static org.elemento.Elements.find;
+import static org.elemento.Elements.pre;
+import static org.elemento.Elements.ul;
 
 public abstract class TestSuite implements EntryPoint {
 

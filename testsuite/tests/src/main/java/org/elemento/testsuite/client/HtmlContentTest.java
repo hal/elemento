@@ -19,11 +19,11 @@ package org.elemento.testsuite.client;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
-import org.elemento.widget.builder.HtmlContentBuilder;
+import org.elemento.builder.HtmlContentBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.elemento.widget.Elements.div;
+import static org.elemento.Elements.div;
 import static org.elemento.testsuite.Assert.assertTag;
 import static org.elemento.testsuite.TestPage.clear;
 import static org.elemento.testsuite.TestPage.main;

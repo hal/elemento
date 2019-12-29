@@ -20,13 +20,13 @@ import java.util.List;
 
 import elemental2.dom.HTMLLIElement;
 import elemental2.dom.HTMLUListElement;
-import org.elemento.widget.builder.HtmlContentBuilder;
+import org.elemento.builder.HtmlContentBuilder;
 
 import static elemental2.dom.DomGlobal.console;
-import static org.elemento.widget.Elements.li;
-import static org.elemento.widget.Elements.p;
-import static org.elemento.widget.Elements.span;
-import static org.elemento.widget.Elements.ul;
+import static org.elemento.Elements.li;
+import static org.elemento.Elements.p;
+import static org.elemento.Elements.span;
+import static org.elemento.Elements.ul;
 
 public abstract class TestCase {
 

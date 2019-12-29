@@ -44,7 +44,7 @@
     </properties>
 
     <modules>
-        <module>builder</module>
+<!--        <module>builder</module>-->
         <module>dagger</module>
         <module>gin</module>
         <!--<module>nalu</module>-->

@@ -68,6 +68,5 @@ final class TypeSimplifier {
     }
 
     private TypeSimplifier() {
-
     }
 }

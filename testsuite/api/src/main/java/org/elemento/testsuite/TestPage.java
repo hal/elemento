@@ -16,13 +16,13 @@
 package org.elemento.testsuite;
 
 import elemental2.dom.HTMLElement;
-import org.elemento.widget.By;
-import org.elemento.widget.Elements;
-import org.elemento.widget.builder.HtmlContentBuilder;
+import org.elemento.By;
+import org.elemento.Elements;
+import org.elemento.builder.HtmlContentBuilder;
 
 import static elemental2.dom.DomGlobal.document;
-import static org.elemento.widget.Elements.find;
-import static org.elemento.widget.Elements.removeChildrenFrom;
+import static org.elemento.Elements.find;
+import static org.elemento.Elements.removeChildrenFrom;
 
 /** Provides access to the elements on the test page. */
 public final class TestPage {

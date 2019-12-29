@@ -25,7 +25,6 @@ public class DataElementInfo {
         HTMLElement, IsElement, Custom
     }
 
-
     private final String type;
     private final String name;
     private final String selector;

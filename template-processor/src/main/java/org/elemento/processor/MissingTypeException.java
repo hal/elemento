@@ -24,6 +24,5 @@ package org.elemento.processor;
  *
  * @author Éamonn McManus
  */
-@SuppressWarnings("serial")
 class MissingTypeException extends RuntimeException {
 }
