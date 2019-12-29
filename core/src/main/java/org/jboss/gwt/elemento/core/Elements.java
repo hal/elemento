@@ -1008,7 +1008,7 @@ public final class Elements {
     }
 
     /** Finds all HTML elements for the given selector. */
-    public static Iterable<HTMLElement> findAll(IsElement element, By selector) {
+    public static <E extends HTMLElement> Iterable<HTMLElement> findAll(IsElement<E> element, By selector) {
         return findAll(element.element(), selector);
     }
 
@@ -1018,7 +1018,7 @@ public final class Elements {
     }
 
     /** Finds a single HTML elements for the given selector. */
-    public static <E extends HTMLElement> E find(IsElement element, By selector) {
+    public static <E extends HTMLElement> E find(IsElement<E> element, By selector) {
         return find(element.element(), selector);
     }
 
@@ -1028,7 +1028,7 @@ public final class Elements {
     }
 
     /** Finds the closest HTML elements for the given selector. */
-    public static <E extends HTMLElement> E closest(IsElement element, By selector) {
+    public static <E extends HTMLElement> E closest(IsElement<E> element, By selector) {
         return cast(element.element().closest(selector.selector()));
     }
 
