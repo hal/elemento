@@ -19,17 +19,17 @@
 
     <parent>
         <groupId>org.elemento</groupId>
-        <artifactId>elemento-parent</artifactId>
+        <artifactId>elemento-build</artifactId>
         <version>HEAD-SNAPSHOT</version>
+        <relativePath>../build/pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-template-api</artifactId>
-    <name>Elemento :: Template API</name>
+    <name>Elemento :: Template :: API</name>
     <description>Annotations to mark and bind HTML templates</description>
     <packaging>gwt-lib</packaging>
 
     <dependencies>
-        <!-- Dependencies -->
         <dependency>
             <groupId>org.elemento</groupId>
             <artifactId>elemento-core</artifactId>

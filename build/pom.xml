@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2015-2016 Red Hat, Inc, and individual contributors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.elemento</groupId>
+        <artifactId>elemento-parent</artifactId>
+        <version>HEAD-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>elemento-build</artifactId>
+    <name>Elemento :: Build</name>
+    <description>Build parent to bring in required dependencies</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- project / plugin related properties -->
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <plugin.gwt.maven.version>1.0-rc-9</plugin.gwt.maven.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- dependency versions -->
+        <apt-tools.version>0.0.3</apt-tools.version>
+        <auto-service.version>1.0-rc4</auto-service.version>
+        <jsoup.version>1.12.1</jsoup.version>
+        <junit.version>5.5.2</junit.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Elemento -->
+            <dependency>
+                <groupId>org.elemento</groupId>
+                <artifactId>elemento-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- APT processing -->
+            <dependency>
+                <groupId>com.google.auto.service</groupId>
+                <artifactId>auto-service</artifactId>
+                <version>${auto-service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.auto</groupId>
+                <artifactId>apt-tools</artifactId>
+                <version>${apt-tools.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${jsoup.version}</version>
+            </dependency>
+
+            <!-- Test -->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>net.ltgt.gwt.maven</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <version>${plugin.gwt.maven.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

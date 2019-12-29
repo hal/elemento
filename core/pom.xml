@@ -19,8 +19,9 @@
 
     <parent>
         <groupId>org.elemento</groupId>
-        <artifactId>elemento-parent</artifactId>
+        <artifactId>elemento-build</artifactId>
         <version>HEAD-SNAPSHOT</version>
+        <relativePath>../build/pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-core</artifactId>

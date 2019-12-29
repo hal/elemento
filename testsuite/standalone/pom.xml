@@ -29,6 +29,10 @@
     <name>Elemento :: Testsuite :: Standalone</name>
     <description>Elemento Testsuite Standalone</description>
 
+    <properties>
+        <undertow.version>2.0.27.Final</undertow.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.elemento</groupId>
@@ -38,6 +42,7 @@
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-core</artifactId>
+            <version>${undertow.version}</version>
         </dependency>
     </dependencies>
 

@@ -19,16 +19,16 @@
 
     <parent>
         <groupId>org.elemento</groupId>
-        <artifactId>elemento-parent</artifactId>
+        <artifactId>elemento-build</artifactId>
         <version>HEAD-SNAPSHOT</version>
+        <relativePath>../build/pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-template-processor</artifactId>
-    <name>Elemento :: Template Processor</name>
+    <name>Elemento :: Template :: Processor</name>
     <description>Annotation processor to bind elements to HTML templates</description>
 
     <dependencies>
-        <!-- Dependencies -->
         <dependency>
             <groupId>org.elemento</groupId>
             <artifactId>elemento-core</artifactId>
@@ -79,13 +79,13 @@
                             <minimizeJar>true</minimizeJar>
                             <artifactSet>
                                 <excludes>
+                                    <exclude>org.elemento:elemento-core</exclude>
+                                    <exclude>org.elemento:elemento-template-api</exclude>
                                     <exclude>com.google.elemental2:*</exclude>
-                                    <exclude>com.google.jsinterop:*</exclude>
+                                    <exclude>org.gwtproject.core:gwt-core</exclude>
+                                    <exclude>org.gwtproject.event:gwt-event</exclude>
+                                    <exclude>org.gwtproject.safehtml:gwt-safehtml</exclude>
                                     <exclude>javax.annotation:*</exclude>
-                                    <exclude>javax.validation:validation-api</exclude>
-                                    <exclude>javax.servlet:javax.servlet-api</exclude>
-                                    <exclude>org.jboss.gwt.elemento:elemento-core</exclude>
-                                    <exclude>org.w3c.css:sac</exclude>
                                 </excludes>
                             </artifactSet>
                             <relocations>

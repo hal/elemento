@@ -24,12 +24,14 @@
     </parent>
 
     <groupId>org.elemento</groupId>
-    <artifactId>core-sample</artifactId>
+    <artifactId>sample-core</artifactId>
+    <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Samples :: Core</name>
     <packaging>gwt-app</packaging>
 
     <properties>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <plugin.gwt.maven.version>1.0.0</plugin.gwt.maven.version>
     </properties>
 
     <dependencyManagement>
@@ -46,6 +48,14 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.gwtproject.core</groupId>
+            <artifactId>gwt-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.event</groupId>
+            <artifactId>gwt-event</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.elemento</groupId>
             <artifactId>elemento-core</artifactId>
         </dependency>
@@ -54,12 +64,20 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
+                <version>${plugin.gwt.maven.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <devmodeArgs>
+                        <devmodeArg>-startupUrl</devmodeArg>
+                        <devmodeArg>sample-core/index.html</devmodeArg>
+                    </devmodeArgs>
+                    <logLevel>INFO</logLevel>
+                    <moduleName>org.elemento.samples.Core</moduleName>
+                    <moduleShortName>sample-core</moduleShortName>
+                    <sourceLevel>1.8</sourceLevel>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -23,7 +23,6 @@
         <groupId>org.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
         <version>HEAD-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-bom</artifactId>
@@ -32,41 +31,14 @@
 
     <properties>
         <elemental.version>1.0.0</elemental.version>
+        <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt-safehtml.version>1.0-SNAPSHOT</gwt-safehtml.version>
+        <jsr250.version>1.0</jsr250.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- GWT -->
-            <dependency>
-                <groupId>org.gwtproject.event</groupId>
-                <artifactId>gwt-event</artifactId>
-                <version>${gwt-event.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.gwtproject.safehtml</groupId>
-                <artifactId>gwt-safehtml</artifactId>
-                <version>${gwt-safehtml.version}</version>
-            </dependency>
-
-            <!-- Elemental -->
-            <dependency>
-                <groupId>com.google.elemental2</groupId>
-                <artifactId>elemental2-dom</artifactId>
-                <version>${elemental.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.elemental2</groupId>
-                <artifactId>elemental2-core</artifactId>
-                <version>${elemental.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.elemental2</groupId>
-                <artifactId>elemental2-webstorage</artifactId>
-                <version>${elemental.version}</version>
-            </dependency>
-
             <!-- Elemento -->
             <dependency>
                 <groupId>org.elemento</groupId>
@@ -94,6 +66,47 @@
                 <groupId>org.elemento</groupId>
                 <artifactId>elemento-template-processor</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <!-- Elemental -->
+            <dependency>
+                <groupId>com.google.elemental2</groupId>
+                <artifactId>elemental2-dom</artifactId>
+                <version>${elemental.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.elemental2</groupId>
+                <artifactId>elemental2-core</artifactId>
+                <version>${elemental.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.elemental2</groupId>
+                <artifactId>elemental2-webstorage</artifactId>
+                <version>${elemental.version}</version>
+            </dependency>
+
+            <!-- GWT -->
+            <dependency>
+                <groupId>org.gwtproject.core</groupId>
+                <artifactId>gwt-core</artifactId>
+                <version>${gwt-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.gwtproject.event</groupId>
+                <artifactId>gwt-event</artifactId>
+                <version>${gwt-event.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.gwtproject.safehtml</groupId>
+                <artifactId>gwt-safehtml</artifactId>
+                <version>${gwt-safehtml.version}</version>
+            </dependency>
+
+            <!-- DI -->
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>jsr250-api</artifactId>
+                <version>${jsr250.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
