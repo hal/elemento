@@ -18,7 +18,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.gwt.elemento</groupId>
+        <groupId>org.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
         <version>HEAD-SNAPSHOT</version>
     </parent>
@@ -31,11 +31,11 @@
     <dependencies>
         <!-- Dependencies -->
         <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
+            <groupId>org.elemento</groupId>
             <artifactId>elemento-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
+            <groupId>org.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <classifier>sources</classifier>
         </dependency>

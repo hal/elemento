@@ -21,14 +21,14 @@ import elemental2.dom.HTMLLIElement;
 import elemental2.dom.KeyboardEvent;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.event.shared.HandlerRegistrations;
-import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.core.Key;
+import org.elemento.widget.IsElement;
+import org.elemento.widget.Key;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.template.DataElement;
-import org.jboss.gwt.elemento.template.Templated;
+import org.elemento.template.DataElement;
+import org.elemento.template.Templated;
 
-import static org.jboss.gwt.elemento.core.EventType.*;
+import static org.elemento.widget.EventType.*;
 
 @SuppressWarnings({"Duplicates", "unused"})
 @Templated("Todo.html#item")

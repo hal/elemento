@@ -1,0 +1,53 @@
+<!--
+  ~ Copyright 2015-2016 Red Hat, Inc, and individual contributors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!doctype html>
+<html class="no-js ts" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Elemento Testsuite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:300,700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="ts.nocache.js"></script>
+</head>
+<body>
+<div class="ts-content"></div>
+<div class="ts-console">
+    <pre class="ts-header">-------------------------------------------------------
+T E S T S
+-------------------------------------------------------</pre>
+    <ul class="ts-tests">
+        <li class="ts-failure" data-class="ByTest">
+            <p>Running org.jboss.gwt.elemento.core.<span class="ts-class-name">ByTest</span></p>
+            <p><span class="ts-run">Tests run: 17</span>, <span class="ts-failed">Failures: 2</span></p>
+            <ul class="ts-test-failures">
+                <li>byId: What a mess!</li>
+                <li>bySelector: Even worse!</li>
+            </ul>
+        </li>
+        <li class="ts-success" data-class="ElementsTest">
+            <p>Running org.jboss.gwt.elemento.core.<span class="ts-class-name">ElementsTest</span></p>
+            <p><span class="ts-run">Tests run: 6</span>, <span class="ts-failures">Failures: 0</span></p>
+        </li>
+    </ul>
+    <pre class="ts-footer ts-failure">-------------------------------------------------------
+Tests run: 23, Failures: 1, Errors: 0, Skipped: 0
+-------------------------------------------------------</pre>
+</div>
+</body>
+</html>

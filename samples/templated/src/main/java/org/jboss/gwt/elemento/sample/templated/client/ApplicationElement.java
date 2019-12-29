@@ -19,20 +19,20 @@ import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
-import org.jboss.gwt.elemento.core.Elements;
-import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.core.Key;
+import org.elemento.widget.Elements;
+import org.elemento.widget.IsElement;
+import org.elemento.widget.Key;
 import org.jboss.gwt.elemento.sample.common.Application;
 import org.jboss.gwt.elemento.sample.common.Filter;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
-import org.jboss.gwt.elemento.template.DataElement;
-import org.jboss.gwt.elemento.template.Templated;
+import org.elemento.template.DataElement;
+import org.elemento.template.Templated;
 
-import static org.jboss.gwt.elemento.core.EventType.bind;
-import static org.jboss.gwt.elemento.core.EventType.change;
-import static org.jboss.gwt.elemento.core.EventType.click;
-import static org.jboss.gwt.elemento.core.EventType.keydown;
+import static org.elemento.widget.EventType.bind;
+import static org.elemento.widget.EventType.change;
+import static org.elemento.widget.EventType.click;
+import static org.elemento.widget.EventType.keydown;
 
 @SuppressWarnings("WeakerAccess")
 @Templated("Todo.html#todos")

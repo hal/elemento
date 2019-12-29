@@ -14,14 +14,14 @@
 package org.jboss.gwt.elemento.sample.builder.client;
 
 import elemental2.dom.HTMLElement;
-import org.jboss.gwt.elemento.core.IsElement;
+import org.elemento.widget.IsElement;
 import org.jboss.gwt.elemento.sample.common.Constants;
 import org.jboss.gwt.elemento.sample.common.Urls;
 
-import static org.jboss.gwt.elemento.core.Elements.a;
-import static org.jboss.gwt.elemento.core.Elements.footer;
-import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.jboss.gwt.elemento.core.Elements.span;
+import static org.elemento.widget.Elements.a;
+import static org.elemento.widget.Elements.footer;
+import static org.elemento.widget.Elements.p;
+import static org.elemento.widget.Elements.span;
 
 class FooterElement implements IsElement<HTMLElement> {
 

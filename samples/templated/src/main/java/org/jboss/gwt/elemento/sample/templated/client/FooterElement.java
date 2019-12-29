@@ -14,8 +14,8 @@
 package org.jboss.gwt.elemento.sample.templated.client;
 
 import elemental2.dom.HTMLElement;
-import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.template.Templated;
+import org.elemento.widget.IsElement;
+import org.elemento.template.Templated;
 
 @Templated("Todo.html#info")
 public abstract class FooterElement implements IsElement<HTMLElement> {

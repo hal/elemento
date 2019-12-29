@@ -18,7 +18,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.gwt.elemento</groupId>
+        <groupId>org.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
         <version>HEAD-SNAPSHOT</version>
     </parent>
@@ -30,7 +30,6 @@
 
     <properties>
         <dagger.version>2.25.2</dagger.version>
-        <errai.version>4.6.0.Final</errai.version>
         <gin.version>2.1.2</gin.version>
         <guava.version>28.1-jre</guava.version>
         <javax.inject.version>1</javax.inject.version>
@@ -47,7 +46,6 @@
     <modules>
         <module>builder</module>
         <module>dagger</module>
-        <module>errai</module>
         <module>gin</module>
         <!--<module>nalu</module>-->
         <module>templated</module>
@@ -56,12 +54,12 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.jboss.gwt.elemento</groupId>
+                <groupId>org.elemento</groupId>
                 <artifactId>sample-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.gwt.elemento</groupId>
+                <groupId>org.elemento</groupId>
                 <artifactId>sample-common</artifactId>
                 <version>${project.version}</version>
                 <classifier>sources</classifier>
@@ -92,13 +90,6 @@
                 <version>${guava.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.errai.bom</groupId>
-                <artifactId>errai-bom</artifactId>
-                <version>${errai.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
                 <groupId>com.github.nalukit</groupId>
                 <artifactId>nalu</artifactId>
                 <version>${nalu.version}</version>
@@ -118,11 +109,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
+            <groupId>org.elemento</groupId>
             <artifactId>sample-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.gwt.elemento</groupId>
+            <groupId>org.elemento</groupId>
             <artifactId>sample-common</artifactId>
             <classifier>sources</classifier>
         </dependency>

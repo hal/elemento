@@ -20,17 +20,17 @@ import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MutationRecord;
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.event.shared.HandlerRegistrations;
-import org.jboss.gwt.elemento.core.Attachable;
-import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.core.Key;
+import org.elemento.widget.Attachable;
+import org.elemento.widget.IsElement;
+import org.elemento.widget.Key;
 import org.jboss.gwt.elemento.sample.common.TodoItem;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
 import static elemental2.dom.DomGlobal.console;
-import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.jboss.gwt.elemento.core.EventType.*;
-import static org.jboss.gwt.elemento.core.InputType.checkbox;
-import static org.jboss.gwt.elemento.core.InputType.text;
+import static org.elemento.widget.Elements.*;
+import static org.elemento.widget.EventType.*;
+import static org.elemento.widget.InputType.checkbox;
+import static org.elemento.widget.InputType.text;
 
 @SuppressWarnings("Duplicates")
 class TodoItemElement implements IsElement<HTMLElement>, Attachable {

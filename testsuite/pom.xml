@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.gwt.elemento</groupId>
+        <groupId>org.elemento</groupId>
         <artifactId>elemento-parent</artifactId>
         <version>HEAD-SNAPSHOT</version>
     </parent>

@@ -15,7 +15,7 @@ package org.jboss.gwt.elemento.sample.builder.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.History;
-import org.jboss.gwt.elemento.core.Elements;
+import org.elemento.widget.Elements;
 import org.jboss.gwt.elemento.sample.common.TodoItemRepository;
 
 public class Main implements EntryPoint {

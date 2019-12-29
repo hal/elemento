@@ -15,10 +15,10 @@ All methods annotated with `@BeforeEach`, `@AfterEach` and `@Test` must be none-
 ```java
 import elemental2.dom.HTMLDivElement;
 import static elemental2.dom.DomGlobal.document;
-import static org.jboss.gwt.elemento.core.Elements.div;
-import static org.jboss.gwt.elemento.testsuite.Assert.assertTag;
-import static org.jboss.gwt.elemento.testsuite.TestPage.clear;
-import static org.jboss.gwt.elemento.testsuite.TestPage.main;
+import static Elements.div;
+import static Assert.assertTag;
+import static TestPage.clear;
+import static TestPage.main;
 
 public class BuilderTest {
 
@@ -43,14 +43,14 @@ public class BuilderTest {
 
 There is a minimal API in form of two final classes with static helper methods: 
 
-- `org.jboss.gwt.elemento.testsuite.Assert`: Contains static helper methods to assert tag names and attribute values.
-- `org.jboss.gwt.elemento.testsuite.TestPage`: Contains methods to access the HTML elements on the test page.
+- `Assert`: Contains static helper methods to assert tag names and attribute values.
+- `TestPage`: Contains methods to access the HTML elements on the test page.
 
 ### Annotation Processor
 
 An annotation processor picks up all classes containing methods annotated with `org.junit.jupiter.api.Test`. For each test class a runner is generated, which calls the class under test and logs the progress and outcome on the test page.
 
-Finally all tests are executed by another generated class: `org.jboss.gwt.elemento.testsuite.client.TestSuite`. This class is used in the GWT entry point to run all tests. 
+Finally all tests are executed by another generated class: `TestSuite`. This class is used in the GWT entry point to run all tests. 
 
 ## Execute Tests
 

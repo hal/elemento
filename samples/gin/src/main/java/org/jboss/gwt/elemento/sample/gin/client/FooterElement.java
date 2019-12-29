@@ -14,8 +14,8 @@
 package org.jboss.gwt.elemento.sample.gin.client;
 
 import elemental2.dom.HTMLElement;
-import org.jboss.gwt.elemento.core.IsElement;
-import org.jboss.gwt.elemento.template.Templated;
+import org.elemento.widget.IsElement;
+import org.elemento.template.Templated;
 
 @SuppressWarnings("unused")
 @Templated("Todo.html#info")

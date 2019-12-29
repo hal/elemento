@@ -86,9 +86,9 @@ When working with GWT Elemental it is often awkward and cumbersome to create an 
 lead to a vast amount of `Document.createElement()` and chained `Node.appendChild()` calls. With Elemento creating the above structure is as easy as
 
 ```java
-import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.jboss.gwt.elemento.core.InputType.checkbox;
-import static org.jboss.gwt.elemento.core.InputType.text;
+import static Elements.*;
+import static InputType.checkbox;
+import static InputType.text;
 
 HTMLElement section = section().css("main")
         .add(input(checkbox).id("toggle-all").css("toggle-all"))
@@ -127,10 +127,10 @@ Elemento provides methods to easily register event handlers. There are [constant
 You can either add event handlers when building the element hierarchy:
 
 ```java
-import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.jboss.gwt.elemento.core.EventType.*;
-import static org.jboss.gwt.elemento.core.InputType.checkbox;
-import static org.jboss.gwt.elemento.core.InputType.text;
+import static Elements.*;
+import static EventType.*;
+import static InputType.checkbox;
+import static InputType.text;
 
 HTMLLIElement listItem = li()
         .add(div().css("view")
@@ -162,8 +162,8 @@ The latter approach returns `org.gwtproject.event.shared.HandlerRegistration` wh
 In order to make it easier to work with keyboard events, Elemento provides an [enum](http://rawgit.com/hal/elemento/site/apidocs/org/jboss/gwt/elemento/core/Key.html) with the most common keyboard codes:
 
 ```java
-import static org.jboss.gwt.elemento.core.Key.Escape;
-import static org.jboss.gwt.elemento.core.Key.Enter;
+import static Key.Escape;
+import static Key.Enter;
 
 void keyDown(KeyboardEvent event) {
     if (Escape.match(event)) {
@@ -179,7 +179,7 @@ void keyDown(KeyboardEvent event) {
 Elemento makes it easy to create custom elements. As for Elemento custom elements are a composite of HTML elements and/or other custom elements. They're ordinary classes which can hold state or register event handlers. The only requirement is to implement `IsElement<E extends HTMLElement>` and return a root element:
 
 ```java
-import static org.jboss.gwt.elemento.core.Elements.*;
+import static Elements.*;
 
 class TodoItemElement implements IsElement<HTMLElement> {
     
@@ -212,7 +212,7 @@ class TodoItemElement implements IsElement<HTMLElement> {
 The builder API has support for `IsElement<E extends HTMLElement>` which makes it easy to use custom elements when building the element hierarchy:
 
 ```java
-import static org.jboss.gwt.elemento.core.Elements.ul;
+import static Elements.ul;
 
 TodoItemRepository repository = ...;
 TodoItemElement[] itemElements = repository.items().stream()
@@ -451,10 +451,10 @@ Implement `Attachable` to get notified when an element is attached to and detach
 
 ```java
 import elemental2.dom.MutationRecord;
-import org.jboss.gwt.elemento.core.Attachable;
-import org.jboss.gwt.elemento.core.IsElement;
+import Attachable;
+import IsElement;
 import static elemental2.dom.DomGlobal.console;
-import static org.jboss.gwt.elemento.core.Elements.li;
+import static Elements.li;
 
 class TodoItemElement implements IsElement<HTMLElement>, Attachable {
     
@@ -495,9 +495,9 @@ Elemento provides a typesafe selector API. It can be used to express simple CSS 
 This selector can be created with
 
 ```java
-import org.jboss.gwt.elemento.core.By;
-import static org.jboss.gwt.elemento.core.By.AttributeOperator.CONTAINS_TOKEN;
-import static org.jboss.gwt.elemento.core.By.AttributeOperator.STARTS_WITH;
+import By;
+import static By.AttributeOperator.CONTAINS_TOKEN;
+import static By.AttributeOperator.STARTS_WITH;
 
 By.group(
         By.id("main")
@@ -511,11 +511,11 @@ By.group(
 The class `Elements` provides methods to find single or all HTML elements by an selector:
 
 ```java
-import org.jboss.gwt.elemento.core.By;
+import By;
 import static elemental2.dom.DomGlobal.document;
-import static org.jboss.gwt.elemento.core.By.AttributeOperator.STARTS_WITH;
-import static org.jboss.gwt.elemento.core.Elements.a;
-import static org.jboss.gwt.elemento.core.Elements.findAll;
+import static By.AttributeOperator.STARTS_WITH;
+import static Elements.a;
+import static Elements.findAll;
 
 By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "http://"));
 for (HTMLElement element : findAll(document, selector)) {
@@ -536,7 +536,7 @@ Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to `gwt
 - The main branches `develop` and `master` have no `gwt-user` dependency. They use safe HTML classes from `org.gwtproject.safehtml:safehtml`. These branches produce versions `HEAD-SNAPSHOT` resp. `x.y.z`
 - The branch `gwt2` use safe HTML classes from `gwt-user`. This branch produces versions `GWT2-SNAPSHOT` resp. `x.y.z-gwt2`
 
-Methods to convert from `com.google.gwt.user.client.ui.Widget` and `com.google.gwt.dom.client.Element` to `elemental2.dom.HTMLElement` and vice versa are part of class `org.jboss.gwt.elemento.core.Widgets` in module `elemento-widget`. This module is available in all versions and branches and has obvisiouly a dependeny to `gwt-user`.  
+Methods to convert from `com.google.gwt.user.client.ui.Widget` and `com.google.gwt.dom.client.Element` to `elemental2.dom.HTMLElement` and vice versa are part of class `Widgets` in module `elemento-widget`. This module is available in all versions and branches and has obvisiouly a dependeny to `gwt-user`.  
 
 # Integrations
 

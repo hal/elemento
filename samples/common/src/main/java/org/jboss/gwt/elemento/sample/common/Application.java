@@ -19,9 +19,9 @@ import java.util.Set;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
-import org.jboss.gwt.elemento.core.By;
+import org.elemento.widget.By;
 
-import static org.jboss.gwt.elemento.core.Elements.*;
+import static org.elemento.widget.Elements.*;
 
 public final class Application {
 
