@@ -13,5 +13,5 @@
   ~ limitations under the License.
   -->
 <module>
-    <source path="core"/>
+    <source path=""/>
 </module>

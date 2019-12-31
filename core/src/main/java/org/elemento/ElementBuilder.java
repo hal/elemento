@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elemento.builder;
+package org.elemento;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,6 @@ import java.util.function.Supplier;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
-import org.elemento.Elements;
-import org.elemento.EventCallbackFn;
-import org.elemento.EventType;
-import org.elemento.IsElement;
 
 import static java.util.Arrays.asList;
 import static java.util.Objects.requireNonNull;

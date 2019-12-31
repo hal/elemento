@@ -50,6 +50,17 @@
             <groupId>org.gwtproject.event</groupId>
             <artifactId>gwt-event</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -59,15 +70,7 @@
                 <artifactId>gwt-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <moduleName>org.jboss.gwt.elemento.Core</moduleName>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                    <message/>
+                    <moduleName>org.elemento.Core</moduleName>
                 </configuration>
             </plugin>
         </plugins>

@@ -31,6 +31,7 @@
 
     <properties>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <gwt.version>2.8.2</gwt.version>
         <plugin.gwt.maven.version>1.0.0</plugin.gwt.maven.version>
     </properties>
 
@@ -43,21 +44,41 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt</artifactId>
+                <version>${gwt.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>org.gwtproject.core</groupId>
-            <artifactId>gwt-core</artifactId>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.gwtproject.event</groupId>
-            <artifactId>gwt-event</artifactId>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.gwtproject.core</groupId>-->
+<!--            <artifactId>gwt-core</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.gwtproject.event</groupId>-->
+<!--            <artifactId>gwt-event</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+            <classifier>sources</classifier>
         </dependency>
     </dependencies>
 
@@ -71,11 +92,11 @@
                 <configuration>
                     <devmodeArgs>
                         <devmodeArg>-startupUrl</devmodeArg>
-                        <devmodeArg>sample-core/index.html</devmodeArg>
+                        <devmodeArg>samplecore/index.html</devmodeArg>
                     </devmodeArgs>
                     <logLevel>INFO</logLevel>
-                    <moduleName>org.elemento.samples.Core</moduleName>
-                    <moduleShortName>sample-core</moduleShortName>
+                    <moduleName>org.elemento.sample.core.Core</moduleName>
+                    <moduleShortName>samplecore</moduleShortName>
                     <sourceLevel>1.8</sourceLevel>
                 </configuration>
             </plugin>

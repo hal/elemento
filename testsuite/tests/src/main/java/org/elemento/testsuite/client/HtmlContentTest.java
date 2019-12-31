@@ -19,7 +19,7 @@ package org.elemento.testsuite.client;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
-import org.elemento.builder.HtmlContentBuilder;
+import org.elemento.core.builder.HtmlContentBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

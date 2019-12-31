@@ -13,13 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elemento.builder;
+package org.elemento;
 
-import elemental2.dom.HTMLElement;
+/** Base interface for all typed builders. */
+public interface TypedBuilder<T, B extends TypedBuilder<T, B>> {
 
-/** Factory to create elements. */
-@FunctionalInterface
-public interface ElementCreator {
-
-    <E extends HTMLElement> E create(String element, Class<E> type);
+    /** In order to make builders work with inheritance, sub-builders must return a reference to their instance. */
+    B that();
 }

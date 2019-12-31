@@ -1,4 +1,6 @@
 /*
+ * Copyright 2015-2016 Red Hat, Inc, and individual contributors.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -78,12 +80,6 @@ import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
-import org.elemento.builder.ElementCreator;
-import org.elemento.builder.ElementsBuilder;
-import org.elemento.builder.EmptyContentBuilder;
-import org.elemento.builder.HtmlContentBuilder;
-import org.elemento.builder.InputBuilder;
-import org.elemento.builder.TextContentBuilder;
 import org.gwtproject.safehtml.shared.SafeHtml;
 
 import static elemental2.dom.DomGlobal.document;

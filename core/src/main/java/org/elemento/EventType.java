@@ -1,4 +1,6 @@
 /*
+ * Copyright 2015-2016 Red Hat, Inc, and individual contributors.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -34,7 +36,6 @@ import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
 import elemental2.webstorage.StorageEvent;
 import jsinterop.base.Js;
-import org.elemento.builder.ElementBuilder;
 import org.gwtproject.event.shared.HandlerRegistration;
 
 /**

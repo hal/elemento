@@ -27,7 +27,7 @@ import elemental2.dom.HTMLUListElement;
 import org.elemento.By;
 import org.elemento.IsElement;
 import org.elemento.Key;
-import org.elemento.builder.HtmlContentBuilder;
+import org.elemento.HtmlContentBuilder;
 
 import static org.elemento.Elements.*;
 import static org.elemento.EventType.bind;

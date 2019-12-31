@@ -18,7 +18,7 @@ package org.elemento.testsuite;
 import elemental2.dom.HTMLElement;
 import org.elemento.By;
 import org.elemento.Elements;
-import org.elemento.builder.HtmlContentBuilder;
+import org.elemento.core.builder.HtmlContentBuilder;
 
 import static elemental2.dom.DomGlobal.document;
 import static org.elemento.Elements.find;

@@ -13,14 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elemento.builder;
+package org.elemento;
 
 import java.util.Iterator;
 
 import elemental2.core.JsArray;
 import elemental2.dom.HTMLElement;
-import org.elemento.Elements;
-import org.elemento.IsElement;
 
 /** Builder to collect {@link HTMLElement}s */
 public class ElementsBuilder implements TypedBuilder<Iterable<HTMLElement>, ElementsBuilder> {

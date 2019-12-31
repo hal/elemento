@@ -13,11 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elemento.builder;
+package org.elemento;
 
-/** Base interface for all typed builders. */
-public interface TypedBuilder<T, B extends TypedBuilder<T, B>> {
+import elemental2.dom.HTMLElement;
 
-    /** In order to make builders work with inheritance, sub-builders must return a reference to their instance. */
-    B that();
+/** Builder for container-like elements with inner HTML. */
+public class HtmlContentBuilder<E extends HTMLElement> extends ElementBuilder<E, HtmlContentBuilder<E>>
+        implements HtmlContent<E, HtmlContentBuilder<E>> {
+
+    public HtmlContentBuilder(E element) {
+        super(element);
+    }
+
+    @Override
+    public HtmlContentBuilder<E> that() {
+        return this;
+    }
 }

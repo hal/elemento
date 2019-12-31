@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elemento.builder;
+package org.elemento;
 
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
-import org.elemento.IsElement;
 import org.gwtproject.safehtml.shared.SafeHtml;
 
 /** Builder for container-like elements with inner HTML. */

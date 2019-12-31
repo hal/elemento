@@ -13,18 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elemento.builder;
+package org.elemento;
 
 import elemental2.dom.HTMLElement;
-import org.elemento.IsElement;
 
-/** Builder for elements with inner text. */
-public interface TextContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>,
-        IsElement<E> {
+/** Factory to create elements. */
+@FunctionalInterface
+public interface ElementCreator {
 
-    /** Sets the inner text on the element using {@link HTMLElement#textContent}. */
-    default B textContent(String text) {
-        element().textContent = text;
-        return that();
-    }
+    <E extends HTMLElement> E create(String element, Class<E> type);
 }

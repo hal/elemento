@@ -13,19 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.elemento.builder;
+package org.elemento;
 
 import elemental2.dom.HTMLElement;
 
-/** Builder for empty elements like <code>&lt;br/&gt;</code>, <code>&lt;hr/&gt;</code> or <code>&lt;img/&gt;</code>. */
-public class EmptyContentBuilder<E extends HTMLElement> extends ElementBuilder<E, EmptyContentBuilder<E>> {
+/** Builder for elements with inner text. */
+public interface TextContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>,
+        IsElement<E> {
 
-    public EmptyContentBuilder(E element) {
-        super(element);
-    }
-
-    @Override
-    public EmptyContentBuilder<E> that() {
-        return this;
+    /** Sets the inner text on the element using {@link HTMLElement#textContent}. */
+    default B textContent(String text) {
+        element().textContent = text;
+        return that();
     }
 }

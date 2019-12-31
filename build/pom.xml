@@ -34,13 +34,13 @@
         <!-- project / plugin related properties -->
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <plugin.gwt.maven.version>1.0-rc-9</plugin.gwt.maven.version>
+        <plugin.gwt.maven.version>1.0.0</plugin.gwt.maven.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- dependency versions -->
         <apt-tools.version>0.0.3</apt-tools.version>
-        <auto-service.version>1.0-rc4</auto-service.version>
+        <auto-service.version>1.0-rc6</auto-service.version>
         <jsoup.version>1.12.1</jsoup.version>
         <junit.version>5.5.2</junit.version>
     </properties>

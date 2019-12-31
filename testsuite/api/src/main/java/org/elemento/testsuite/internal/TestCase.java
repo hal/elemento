@@ -20,7 +20,7 @@ import java.util.List;
 
 import elemental2.dom.HTMLLIElement;
 import elemental2.dom.HTMLUListElement;
-import org.elemento.builder.HtmlContentBuilder;
+import org.elemento.core.builder.HtmlContentBuilder;
 
 import static elemental2.dom.DomGlobal.console;
 import static org.elemento.Elements.li;

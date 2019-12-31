@@ -15,7 +15,7 @@
  */
 package org.elemento.sample.core.client;
 
-import org.gwtproject.core.client.EntryPoint;
+import com.google.gwt.core.client.EntryPoint;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
