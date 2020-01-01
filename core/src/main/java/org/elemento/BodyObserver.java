@@ -22,7 +22,9 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.MutationObserver;
 import elemental2.dom.MutationObserverInit;
 import elemental2.dom.MutationRecord;
+import jsinterop.base.Js;
 
+import static elemental2.dom.DomGlobal.console;
 import static elemental2.dom.DomGlobal.document;
 import static java.util.stream.Collectors.toList;
 import static org.elemento.Elements.asHtmlElement;
@@ -40,9 +42,10 @@ final class BodyObserver {
 
     private static void startObserving() {
         MutationObserver mutationObserver = new MutationObserver((mutationRecords, observer) -> {
-            for (int i = 0; i < mutationRecords.length; i++) {
-                onElementsRemoved(mutationRecords.getAt(i));
-                onElementsAppended(mutationRecords.getAt(i));
+            MutationRecord[] records = Js.uncheckedCast(mutationRecords);
+            for (int i = 0; i < records.length; i++) {
+                onElementsRemoved(records[i]);
+                onElementsAppended(records[i]);
             }
             return null;
         });
