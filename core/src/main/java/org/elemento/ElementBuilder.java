@@ -153,4 +153,21 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
         bind(element(), type, callback);
         return that();
     }
+
+    // ------------------------------------------------------ finder methods
+
+    /** Finds all HTML elements for the given selector. */
+    public Iterable<HTMLElement> findAll(By selector) {
+        return Elements.findAll(element(), selector);
+    }
+
+    /** Finds a single HTML element for the given selector. */
+    public <F extends HTMLElement> F find(By selector) {
+        return Elements.find(element(), selector);
+    }
+
+    /** Finds the closest HTML element for the given selector. */
+    public <F extends HTMLElement> F closest(By selector) {
+        return Elements.closest(element(), selector);
+    }
 }

@@ -95,132 +95,24 @@ import static jsinterop.base.Js.cast;
  */
 public final class Elements {
 
-    private static class AsHTMLElement<T extends Node> implements Function<T, HTMLElement> {
-
-        @Override
-        public HTMLElement apply(T t) {
-            return Js.uncheckedCast(t);
-        }
-    }
-
-    private static class FilterHTMLElements<T> implements Predicate<T> {
-
-        @Override
-        public boolean test(T t) {
-            return t instanceof HTMLElement;
-        }
-    }
-
-    private static class JsArrayLikeIterator<T> implements Iterator<T> {
-
-        private final JsArrayLike<? extends T> data;
-        private int pos = 0;
-
-        JsArrayLikeIterator(JsArrayLike<? extends T> nodes) {
-            this.data = nodes;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return pos < data.getLength();
-        }
-
-        @Override
-        public T next() {
-            if (!hasNext()) {
-                throw new NoSuchElementException();
-            }
-            return data.getAt(pos++);
-        }
-    }
-
-    // ------------------------------------------------------ body
-
-    private static class JsArrayNodeIterator implements Iterator<Node> {
-
-        private Node parent, last, next;
-
-        public JsArrayNodeIterator(Node parent) {
-            this.parent = parent;
-            next = parent.firstChild;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return next != null;
-        }
-
-        @Override
-        public Node next() {
-            if (!hasNext()) {
-                throw new NoSuchElementException();
-            }
-            last = next;
-            next = last.nextSibling;
-            return last;
-        }
-
-        @Override
-        public void remove() {
-            if (last == null) {
-                throw new IllegalStateException();
-            }
-            parent.removeChild(last);
-            last = null;
-        }
-    }
-
-    // ------------------------------------------------------ content sectioning
-
-    // This should be Iterator<Element>, but it was used frequently as HTMLElement, so to be more user-friendly the
-    // cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
-    private static class JsArrayElementIterator implements Iterator<HTMLElement> {
-
-        private HTMLElement parent, last, next;
-
-        public JsArrayElementIterator(HTMLElement parent) {
-            this.parent = parent;
-            next = (HTMLElement) parent.firstElementChild;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return next != null;
-        }
-
-        @Override
-        public HTMLElement next() {
-            if (!hasNext()) {
-                throw new NoSuchElementException();
-            }
-            last = next;
-            next = (HTMLElement) last.nextElementSibling;
-            return last;
-        }
-
-        @Override
-        public void remove() {
-            if (last == null) {
-                throw new IllegalStateException();
-            }
-            parent.removeChild(last);
-            last = null;
-        }
-    }
-
     private static final String UNIQUE_ID = "id-";
+    private static int counter = 0;
+
     static ElementCreator createElement = new ElementCreator() {
         @Override
         public <E extends HTMLElement> E create(String element, Class<E> type) {
             return cast(document.createElement(element));
         }
     };
-    private static int counter = 0;
+
+    // ------------------------------------------------------ body
 
     /** Returns an HTML content builder for the document body. */
     public static HtmlContentBuilder<HTMLBodyElement> body() {
         return new HtmlContentBuilder<>(document.body);
     }
+
+    // ------------------------------------------------------ content sectioning
 
     public static HtmlContentBuilder<HTMLElement> address() {
         return htmlElement("address", HTMLElement.class);
@@ -278,8 +170,6 @@ public final class Elements {
         return htmlElement("hgroup", HTMLElement.class);
     }
 
-    // ------------------------------------------------------ text content
-
     public static HtmlContentBuilder<HTMLElement> hgroup(Element element) {
         return wrapHtmlElement(cast(element));
     }
@@ -299,6 +189,8 @@ public final class Elements {
     public static HtmlContentBuilder<HTMLElement> section(Element element) {
         return wrapHtmlElement(cast(element));
     }
+
+    // ------------------------------------------------------ text content
 
     public static HtmlContentBuilder<HTMLQuoteElement> blockquote() {
         return htmlElement("blockquote", HTMLQuoteElement.class);
@@ -392,8 +284,6 @@ public final class Elements {
         return htmlElement("p", HTMLParagraphElement.class);
     }
 
-    // ------------------------------------------------------ inline text semantics
-
     public static HtmlContentBuilder<HTMLParagraphElement> p(Element element) {
         return wrapHtmlElement(cast(element));
     }
@@ -413,6 +303,8 @@ public final class Elements {
     public static HtmlContentBuilder<HTMLUListElement> ul(Element element) {
         return wrapHtmlElement(cast(element));
     }
+
+    // ------------------------------------------------------ inline text semantics
 
     public static HtmlContentBuilder<HTMLAnchorElement> a() {
         return htmlElement("a", HTMLAnchorElement.class);
@@ -638,8 +530,6 @@ public final class Elements {
         return wrapHtmlElement(cast(element));
     }
 
-    // ------------------------------------------------------ image and multimedia
-
     public static HtmlContentBuilder<HTMLElement> var() {
         return htmlElement("var", HTMLElement.class);
     }
@@ -659,6 +549,8 @@ public final class Elements {
     public static EmptyContentBuilder<HTMLElement> wbr(Element element) {
         return wrapEmptyElement(cast(element));
     }
+
+    // ------------------------------------------------------ image and multimedia
 
     public static EmptyContentBuilder<HTMLAreaElement> area() {
         return emptyElement("area", HTMLAreaElement.class);
@@ -692,8 +584,6 @@ public final class Elements {
         return htmlElement("map", HTMLMapElement.class);
     }
 
-    // ------------------------------------------------------ embedded content
-
     public static HtmlContentBuilder<HTMLMapElement> map(Element element) {
         return wrapHtmlElement(cast(element));
     }
@@ -713,6 +603,8 @@ public final class Elements {
     public static HtmlContentBuilder<HTMLVideoElement> video(Element element) {
         return wrapHtmlElement(cast(element));
     }
+
+    // ------------------------------------------------------ embedded content
 
     public static HtmlContentBuilder<HTMLCanvasElement> canvas() {
         return htmlElement("canvas", HTMLCanvasElement.class);
@@ -746,8 +638,6 @@ public final class Elements {
         return htmlElement("object", HTMLObjectElement.class);
     }
 
-    // ------------------------------------------------------ scripting
-
     public static HtmlContentBuilder<HTMLObjectElement> object(Element element) {
         return wrapHtmlElement(cast(element));
     }
@@ -764,11 +654,11 @@ public final class Elements {
         return emptyElement("source", HTMLSourceElement.class);
     }
 
-    // ------------------------------------------------------ demarcating edits
-
     public static EmptyContentBuilder<HTMLSourceElement> source(Element element) {
         return wrapEmptyElement(cast(element));
     }
+
+    // ------------------------------------------------------ scripting
 
     public static HtmlContentBuilder<HTMLElement> noscript() {
         return htmlElement("noscript", HTMLElement.class);
@@ -786,11 +676,11 @@ public final class Elements {
         return wrapTextElement(cast(element));
     }
 
+    // ------------------------------------------------------ demarcating edits
+
     public static HtmlContentBuilder<HTMLModElement> del() {
         return htmlElement("del", HTMLModElement.class);
     }
-
-    // ------------------------------------------------------ table content
 
     public static HtmlContentBuilder<HTMLModElement> del(String text) {
         return htmlElement("del", HTMLModElement.class).textContent(text);
@@ -811,6 +701,8 @@ public final class Elements {
     public static HtmlContentBuilder<HTMLModElement> ins(Element element) {
         return wrapHtmlElement(cast(element));
     }
+
+    // ------------------------------------------------------ table content
 
     public static HtmlContentBuilder<HTMLTableCaptionElement> caption() {
         return htmlElement("caption", HTMLTableCaptionElement.class);
@@ -872,8 +764,6 @@ public final class Elements {
         return htmlElement("th", HTMLTableCellElement.class);
     }
 
-    // ------------------------------------------------------ forms
-
     public static HtmlContentBuilder<HTMLTableCellElement> th(Element element) {
         return wrapHtmlElement(cast(element));
     }
@@ -893,6 +783,8 @@ public final class Elements {
     public static HtmlContentBuilder<HTMLTableRowElement> tr(Element element) {
         return wrapHtmlElement(cast(element));
     }
+
+    // ------------------------------------------------------ forms
 
     public static HtmlContentBuilder<HTMLButtonElement> button() {
         return htmlElement("button", HTMLButtonElement.class);
@@ -1039,8 +931,8 @@ public final class Elements {
     // ------------------------------------------------------ builder factories
 
     /** Returns a builder to collect {@link HTMLElement}s. */
-    public static ElementsBuilder collect() {
-        return new ElementsBuilder();
+    public static ElementsBag bag() {
+        return new ElementsBag();
     }
 
     /** Returns a builder for the specified empty element. */
@@ -1161,30 +1053,22 @@ public final class Elements {
 
     // ------------------------------------------------------ iterable methods
 
-    /**
-     * Returns an iterable for the elements in the given array-like.
-     */
+    /** Returns an iterable for the elements in the given array-like. */
     public static <E> Iterable<E> elements(JsArrayLike<E> nodes) {
         return () -> iterator(nodes);
     }
 
-    /**
-     * Returns an iterable for the child nodes of the given parent node.
-     */
+    /** Returns an iterable for the child nodes of the given parent node. */
     public static Iterable<Node> children(Node parent) {
         return () -> iterator(parent);
     }
 
-    /**
-     * Returns an iterable for the child elements of the given parent element.
-     */
+    /** Returns an iterable for the child elements of the given parent element. */
     public static Iterable<HTMLElement> children(HTMLElement parent) {
         return () -> iterator(parent);
     }
 
-    /**
-     * Returns an iterable for the child elements of the given parent element.
-     */
+    /** Returns an iterable for the child elements of the given parent element. */
     public static <E extends HTMLElement> Iterable<HTMLElement> children(IsElement<E> parent) {
         return () -> iterator(parent);
     }
@@ -1350,9 +1234,7 @@ public final class Elements {
         }
     }
 
-    /**
-     * Inserts element {@code newElement} as first element into {@code parent}.
-     */
+    /** Inserts element {@code newElement} as first element into {@code parent}. */
     public static void insertFirst(Element parent, Element newElement) {
         parent.insertBefore(newElement, parent.firstChild);
     }
@@ -1455,9 +1337,7 @@ public final class Elements {
 
     // ------------------------------------------------------ IDs
 
-    /**
-     * Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs.
-     */
+    /** Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs. */
     public static String uniqueId() {
         String id;
         do {
@@ -1571,7 +1451,7 @@ public final class Elements {
         }
     }
 
-    // ------------------------------------------------------ misc helper methods
+    // ------------------------------------------------------ inner HTML
 
     /** Convenience method to set the inner HTML of the given element. */
     public static void innerHtml(HTMLElement element, SafeHtml html) {
@@ -1590,5 +1470,116 @@ public final class Elements {
 
     // this is a static helper class, which must never be instantiated!
     private Elements() {
+    }
+
+    // ------------------------------------------------------ inner classes
+
+    private static class AsHTMLElement<T extends Node> implements Function<T, HTMLElement> {
+
+        @Override
+        public HTMLElement apply(T t) {
+            return Js.uncheckedCast(t);
+        }
+    }
+
+    private static class FilterHTMLElements<T> implements Predicate<T> {
+
+        @Override
+        public boolean test(T t) {
+            return t instanceof HTMLElement;
+        }
+    }
+
+    private static class JsArrayLikeIterator<T> implements Iterator<T> {
+
+        private final JsArrayLike<? extends T> data;
+        private int pos = 0;
+
+        JsArrayLikeIterator(JsArrayLike<? extends T> nodes) {
+            this.data = nodes;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return pos < data.getLength();
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return data.getAt(pos++);
+        }
+    }
+
+    private static class JsArrayNodeIterator implements Iterator<Node> {
+
+        private Node parent, last, next;
+
+        public JsArrayNodeIterator(Node parent) {
+            this.parent = parent;
+            next = parent.firstChild;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public Node next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            last = next;
+            next = last.nextSibling;
+            return last;
+        }
+
+        @Override
+        public void remove() {
+            if (last == null) {
+                throw new IllegalStateException();
+            }
+            parent.removeChild(last);
+            last = null;
+        }
+    }
+
+    // This should be Iterator<Element>, but it was used frequently as HTMLElement, so to be more user-friendly the
+    // cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
+    private static class JsArrayElementIterator implements Iterator<HTMLElement> {
+
+        private HTMLElement parent, last, next;
+
+        public JsArrayElementIterator(HTMLElement parent) {
+            this.parent = parent;
+            next = (HTMLElement) parent.firstElementChild;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public HTMLElement next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            last = next;
+            next = (HTMLElement) last.nextElementSibling;
+            return last;
+        }
+
+        @Override
+        public void remove() {
+            if (last == null) {
+                throw new IllegalStateException();
+            }
+            parent.removeChild(last);
+            last = null;
+        }
     }
 }
