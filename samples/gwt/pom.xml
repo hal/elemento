@@ -23,10 +23,11 @@
         <version>36</version>
     </parent>
 
-    <groupId>org.elemento</groupId>
-    <artifactId>sample-core</artifactId>
+    <groupId>org.elemento.samples</groupId>
+    <artifactId>sample-gwt</artifactId>
     <version>HEAD-SNAPSHOT</version>
-    <name>Elemento :: Samples :: Core</name>
+    <name>Elemento :: Samples :: GWT</name>
+    <description>Sample using latest GWT version (HEAD-SNAPSHOT)</description>
     <packaging>gwt-app</packaging>
 
     <properties>

@@ -34,7 +34,7 @@
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt-safehtml.version>1.0-SNAPSHOT</gwt-safehtml.version>
-        <jsr250.version>1.0</jsr250.version>
+        <js-interop.version>1.0-SNAPSHOT</js-interop.version>
     </properties>
 
     <dependencyManagement>
@@ -50,22 +50,6 @@
                 <artifactId>elemento-core</artifactId>
                 <version>${project.version}</version>
                 <classifier>sources</classifier>
-            </dependency>
-            <dependency>
-                <groupId>org.elemento</groupId>
-                <artifactId>elemento-template-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.elemento</groupId>
-                <artifactId>elemento-template-api</artifactId>
-                <version>${project.version}</version>
-                <classifier>sources</classifier>
-            </dependency>
-            <dependency>
-                <groupId>org.elemento</groupId>
-                <artifactId>elemento-template-processor</artifactId>
-                <version>${project.version}</version>
             </dependency>
 
             <!-- Elemental -->
@@ -85,12 +69,14 @@
                 <version>${elemental.version}</version>
             </dependency>
 
-            <!-- GWT -->
+            <!-- JS Interop -->
             <dependency>
-                <groupId>org.gwtproject.core</groupId>
-                <artifactId>gwt-core</artifactId>
-                <version>${gwt-core.version}</version>
+                <groupId>com.google.jsinterop</groupId>
+                <artifactId>base</artifactId>
+                <version>${js-interop.version}</version>
             </dependency>
+
+            <!-- GWT -->
             <dependency>
                 <groupId>org.gwtproject.event</groupId>
                 <artifactId>gwt-event</artifactId>
@@ -100,13 +86,6 @@
                 <groupId>org.gwtproject.safehtml</groupId>
                 <artifactId>gwt-safehtml</artifactId>
                 <version>${gwt-safehtml.version}</version>
-            </dependency>
-
-            <!-- DI -->
-            <dependency>
-                <groupId>javax.annotation</groupId>
-                <artifactId>jsr250-api</artifactId>
-                <version>${jsr250.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
