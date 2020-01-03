@@ -34,7 +34,7 @@
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt-safehtml.version>1.0-SNAPSHOT</gwt-safehtml.version>
-        <js-interop.version>1.0-SNAPSHOT</js-interop.version>
+        <jsinterop.version>1.0.0</jsinterop.version>
     </properties>
 
     <dependencyManagement>
@@ -73,7 +73,7 @@
             <dependency>
                 <groupId>com.google.jsinterop</groupId>
                 <artifactId>base</artifactId>
-                <version>${js-interop.version}</version>
+                <version>${jsinterop.version}</version>
             </dependency>
 
             <!-- GWT -->
