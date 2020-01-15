@@ -13,7 +13,6 @@
   ~ limitations under the License.
   -->
 <module>
-    <inherits name="elemental2.webstorage.WebStorage"/>
-    <entry-point class="org.elemento.sample.core.client.Main"/>
     <collapse-all-properties/>
+    <entry-point class="org.elemento.sample.core.client.Main"/>
 </module>

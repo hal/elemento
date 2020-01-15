@@ -14,6 +14,7 @@
   -->
 <module>
     <inherits name="elemental2.dom.Dom"/>
+    <inherits name="elemental2.webstorage.WebStorage"/>
     <inherits name="org.gwtproject.event.Event"/>
     <inherits name="org.gwtproject.safehtml.SafeHtml"/>
     <source path=""/>

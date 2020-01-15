@@ -1003,7 +1003,7 @@ public final class Elements {
     }
 
     /** Finds a single HTML elements for the given selector. */
-    public static <E extends HTMLElement> E find(IsElement<E> element, By selector) {
+    public static <E extends HTMLElement, F extends HTMLElement> F find(IsElement<E> element, By selector) {
         return find(element.element(), selector);
     }
 
@@ -1013,7 +1013,7 @@ public final class Elements {
     }
 
     /** Finds the closest HTML elements for the given selector. */
-    public static <E extends HTMLElement> E closest(IsElement<E> element, By selector) {
+    public static <E extends HTMLElement, F extends HTMLElement> F closest(IsElement<E> element, By selector) {
         return cast(element.element().closest(selector.selector()));
     }
 
