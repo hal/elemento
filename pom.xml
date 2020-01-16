@@ -16,6 +16,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
@@ -26,96 +27,19 @@
     <artifactId>elemento-parent</artifactId>
     <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Parent</name>
-    <description>Elemento brings HTML templates and other goodies to GWT Elemental</description>
-    <url>http://github.com/hal/elemento</url>
     <packaging>pom</packaging>
 
-    <licenses>
-        <license>
-            <name>Apache License 2.0</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>Harald Pehl</name>
-            <id>hpehl</id>
-            <email>hpehl@redhat.com</email>
-            <organization>Red Hat</organization>
-            <timezone>+1</timezone>
-        </developer>
-        <developer>
-            <name>Claudio Miranda</name>
-            <id>claudio4j</id>
-            <email>claudio@redhat.com</email>
-            <organization>Red Hat</organization>
-            <timezone>-3</timezone>
-        </developer>
-        <developer>
-            <name>Ignacio Baca Moreno-Torres</name>
-            <id>ibaca</id>
-            <email>ignacio@bacamt.com</email>
-            <timezone>+1</timezone>
-        </developer>
-    </developers>
-
-    <scm>
-        <connection>scm:git@github.com:hal/elemento.git</connection>
-        <developerConnection>scm:git:git@github.com:hal/elemento.git</developerConnection>
-        <url>https://github.com/hal/elemento</url>
-    </scm>
-
-    <issueManagement>
-        <system>GitHub</system>
-        <url>https://github.com/hal/elemento/issues</url>
-    </issueManagement>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
     <modules>
-        <module>bom</module>
-        <module>build</module>
         <module>core</module>
     </modules>
 
-    <repositories>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>vertispan-snapshots</id>
-            <name>Vertispan Snapshots</name>
-            <url>https://repo.vertispan.com/gwt-snapshot/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>oss-sonatype</id>
-            <name>OSS Sonatype</name>
-            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+    <profiles>
+        <profile>
+            <id>samples</id>
+            <modules>
+                <module>samples/gwt</module>
+                <module>samples/j2cl</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>

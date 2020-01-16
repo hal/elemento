@@ -13,6 +13,7 @@
   ~ limitations under the License.
   -->
 <module>
+    <inherits name="org.elemento.Core"/>
     <collapse-all-properties/>
-    <entry-point class="Main"/>
+    <entry-point class="org.elemento.sample.gwt.client.Main"/>
 </module>

@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.elemento;
 
-import org.elemento.By;
 import org.junit.jupiter.api.Test;
 
+import static org.elemento.By.AttributeOperator.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ByTest {
@@ -53,11 +52,11 @@ class ByTest {
 
     @Test
     void byAttributePosition() {
-        assertEquals("[attr^=value]", By.attribute("attr", By.AttributeOperator.STARTS_WITH, "value").selector());
-        assertEquals("[attr$=value]", By.attribute("attr", By.AttributeOperator.ENDS_WITH, "value").selector());
-        assertEquals("[attr*=value]", By.attribute("attr", By.AttributeOperator.CONTAINS, "value").selector());
-        assertEquals("[attr~=value]", By.attribute("attr", By.AttributeOperator.CONTAINS_WORD, "value").selector());
-        assertEquals("[attr|=value]", By.attribute("attr", By.AttributeOperator.CONTAINS_TOKEN, "value").selector());
+        assertEquals("[attr^=value]", By.attribute("attr", STARTS_WITH, "value").selector());
+        assertEquals("[attr$=value]", By.attribute("attr", ENDS_WITH, "value").selector());
+        assertEquals("[attr*=value]", By.attribute("attr", CONTAINS, "value").selector());
+        assertEquals("[attr~=value]", By.attribute("attr", CONTAINS_WORD, "value").selector());
+        assertEquals("[attr|=value]", By.attribute("attr", CONTAINS_TOKEN, "value").selector());
     }
 
     @Test
@@ -83,11 +82,11 @@ class ByTest {
 
     @Test
     void byDataPosition() {
-        assertEquals("[data-item^=value]", By.data("item", By.AttributeOperator.STARTS_WITH, "value").selector());
-        assertEquals("[data-item$=value]", By.data("item", By.AttributeOperator.ENDS_WITH, "value").selector());
-        assertEquals("[data-item*=value]", By.data("item", By.AttributeOperator.CONTAINS, "value").selector());
-        assertEquals("[data-item~=value]", By.data("item", By.AttributeOperator.CONTAINS_WORD, "value").selector());
-        assertEquals("[data-item|=value]", By.data("item", By.AttributeOperator.CONTAINS_TOKEN, "value").selector());
+        assertEquals("[data-item^=value]", By.data("item", STARTS_WITH, "value").selector());
+        assertEquals("[data-item$=value]", By.data("item", ENDS_WITH, "value").selector());
+        assertEquals("[data-item*=value]", By.data("item", CONTAINS, "value").selector());
+        assertEquals("[data-item~=value]", By.data("item", CONTAINS_WORD, "value").selector());
+        assertEquals("[data-item|=value]", By.data("item", CONTAINS_TOKEN, "value").selector());
     }
 
     @Test
@@ -132,6 +131,7 @@ class ByTest {
 
     @Test
     void differentNesting() {
+        String selector = "#id ul > .foo ~ [data-item]";
         By toplevel = By.id("id")
                 .desc(By.element("ul"))
                 .child(By.classname("foo"))
@@ -140,23 +140,23 @@ class ByTest {
                 .desc(By.element("ul")
                         .child(By.classname("foo")
                                 .sibling(By.data("item"))));
-        assertEquals("#id ul > .foo ~ [data-item]", toplevel.selector());
-        assertEquals("#id ul > .foo ~ [data-item]", nested.selector());
+        assertEquals(selector, toplevel.selector());
+        assertEquals(selector, nested.selector());
         assertEquals(toplevel.selector(), nested.selector());
     }
 
     @Test
     void complex() {
-        String selectorValue = "#main [data-list-item|=foo] a[href^=\"http://\"] > .fas.fa-check, .external[hidden]";
-        By selector = By.group(
+        String selector = "#main [data-list-item|=foo] a[href^=\"http://\"] > .fas.fa-check, .external[hidden]";
+        By complex = By.group(
                 By.id("main")
-                        .desc(By.data("listItem", By.AttributeOperator.CONTAINS_TOKEN, "foo")
+                        .desc(By.data("listItem", CONTAINS_TOKEN, "foo")
                                 .desc(By.element("a")
-                                        .and(By.attribute("href", By.AttributeOperator.STARTS_WITH, "http://"))
+                                        .and(By.attribute("href", STARTS_WITH, "http://"))
                                         .child(By.classnames("fas", "fa-check")))),
                 By.classname("external").and(By.attribute("hidden"))
         );
-        assertEquals(selectorValue, selector.selector());
+        assertEquals(selector, complex.selector());
     }
 
     @Test
