@@ -14,5 +14,5 @@
   -->
 <module>
     <collapse-all-properties/>
-    <entry-point class="org.elemento.sample.core.client.Main"/>
+    <entry-point class="Main"/>
 </module>

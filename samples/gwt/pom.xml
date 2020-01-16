@@ -27,13 +27,12 @@
     <artifactId>sample-gwt</artifactId>
     <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Samples :: GWT</name>
-    <description>Sample using latest GWT version (HEAD-SNAPSHOT)</description>
     <packaging>gwt-app</packaging>
 
     <properties>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
         <gwt.version>HEAD-SNAPSHOT</gwt.version>
-        <plugin.gwt.maven.version>1.0.0</plugin.gwt.maven.version>
+        <gwt-maven-plugin.version>1.0.0</gwt-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -42,13 +41,6 @@
                 <groupId>org.elemento</groupId>
                 <artifactId>elemento-bom</artifactId>
                 <version>${elemento.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.google.gwt</groupId>
-                <artifactId>gwt</artifactId>
-                <version>${gwt.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -67,10 +59,12 @@
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-dev</artifactId>
+            <version>${gwt.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
+            <version>${gwt.version}</version>
         </dependency>
     </dependencies>
 
@@ -79,16 +73,16 @@
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
-                <version>${plugin.gwt.maven.version}</version>
+                <version>${gwt-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <devmodeArgs>
                         <devmodeArg>-startupUrl</devmodeArg>
-                        <devmodeArg>samplecore/index.html</devmodeArg>
+                        <devmodeArg>todo/index.html</devmodeArg>
                     </devmodeArgs>
                     <logLevel>INFO</logLevel>
-                    <moduleName>org.elemento.sample.core.Core</moduleName>
-                    <moduleShortName>samplecore</moduleShortName>
+                    <moduleName>org.elemento.sample.gwt.Todo</moduleName>
+                    <moduleShortName>todo</moduleShortName>
                     <sourceLevel>1.8</sourceLevel>
                 </configuration>
             </plugin>

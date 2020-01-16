@@ -27,13 +27,12 @@
     <artifactId>sample-j2cl</artifactId>
     <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Samples :: J2CL</name>
-    <description>Sample using J2CL</description>
 
     <properties>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
-        <j2cl.compilation.level>BUNDLE</j2cl.compilation.level>
-        <j2cl.plugin.version>0.11-SNAPSHOT</j2cl.plugin.version>
+        <j2cl-plugin.version>0.11-SNAPSHOT</j2cl-plugin.version>
+        <j2cl-compilation.level>BUNDLE</j2cl-compilation.level>
     </properties>
 
     <dependencyManagement>
@@ -50,17 +49,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.gwtproject.core</groupId>
-            <artifactId>gwt-core</artifactId>
-            <version>${gwt-core.version}</version>
+            <groupId>org.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.event</groupId>
             <artifactId>gwt-event</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.elemento</groupId>
-            <artifactId>elemento-core</artifactId>
+            <groupId>org.gwtproject.core</groupId>
+            <artifactId>gwt-core</artifactId>
+            <version>${gwt-core.version}</version>
         </dependency>
     </dependencies>
 
@@ -88,7 +87,7 @@
             <plugin>
                 <groupId>com.vertispan.j2cl</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>
-                <version>${j2cl.plugin.version}</version>
+                <version>${j2cl-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>build-js</id>
@@ -99,40 +98,20 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <compilationLevel>${j2cl.compilation.level}</compilationLevel>
-                    <entrypoint>org.elemento.demo.Main</entrypoint>
-                    <initialScriptFilename>demo.js</initialScriptFilename>
+                    <compilationLevel>${j2cl-compilation.level}</compilationLevel>
+                    <entrypoint>org.elemento.sample.j2cl.Main</entrypoint>
+                    <initialScriptFilename>todo.js</initialScriptFilename>
                     <webappDirectory>${project.build.directory}/classes/META-INF/resources</webappDirectory>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <j2cl.compilation.level>ADVANCED</j2cl.compilation.level>
-            </properties>
-        </profile>
-    </profiles>
-
     <repositories>
         <repository>
-            <id>vertispan-releases</id>
-            <name>Vertispan hosted artifacts-releases</name>
-            <url>https://repo.vertispan.com/j2cl</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>vertispan-snapshots</id>
-            <name>Vertispan Snapshots</name>
-            <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <id>oss-sonatype</id>
+            <name>OSS Sonatype</name>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -141,18 +120,4 @@
             </snapshots>
         </repository>
     </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>vertispan-releases</id>
-            <name>Vertispan hosted artifacts-releases</name>
-            <url>https://repo.vertispan.com/j2cl</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 </project>
