@@ -30,9 +30,13 @@
     <packaging>gwt-app</packaging>
 
     <properties>
+        <gwt-maven-plugin.version>1.0.0</gwt-maven-plugin.version>
+        <gwt.draftCompile>true</gwt.draftCompile>
+        <gwt.logLevel>INFO</gwt.logLevel>
+        <gwt.style>DETAILED</gwt.style>
+
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
         <gwt.version>HEAD-SNAPSHOT</gwt.version>
-        <gwt-maven-plugin.version>1.0.0</gwt-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -80,26 +84,33 @@
                         <devmodeArg>-startupUrl</devmodeArg>
                         <devmodeArg>todo/index.html</devmodeArg>
                     </devmodeArgs>
-                    <logLevel>INFO</logLevel>
+                    <draftCompile>${gwt.draftCompile}</draftCompile>
+                    <logLevel>${gwt.logLevel}</logLevel>
                     <moduleName>org.elemento.sample.gwt.Todo</moduleName>
                     <moduleShortName>todo</moduleShortName>
                     <sourceLevel>1.8</sourceLevel>
+                    <style>${gwt.style}</style>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <gwt.draftCompile>false</gwt.draftCompile>
+                <gwt.logLevel>ERROR</gwt.logLevel>
+                <gwt.style>OBFUSCATED</gwt.style>
+            </properties>
+        </profile>
+    </profiles>
+
     <repositories>
         <repository>
-            <id>oss-sonatype</id>
+            <id>google-snapshots</id>
             <name>OSS Sonatype</name>
             <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
     </repositories>
 </project>

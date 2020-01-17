@@ -18,7 +18,6 @@ ROOT=$PWD
 BRANCH=$(git symbolic-ref -q HEAD)
 BRANCH=${BRANCH##refs/heads/}
 BRANCH=${BRANCH:-HEAD}
-SAMPLES=( builder dagger errai gin templates )
 
 function box()
 {
@@ -40,33 +39,46 @@ function box()
 # Prerequisites
 if ! git diff --no-ext-diff --quiet --exit-code; then
     echo "Cannot deploy to gh-pages. You have uncommitted changes in the current branch."
-    exit -1
+    exit 1
 fi
 
 
 
-# Building elemento w/ samples
-box "Build samples"
-mvn install -P samples
+# Makes sure everything compiles
+box "Build Elemento"
+mvn clean install -P samples
+
+
+
+# GWT sample
+box "Build GWT sample"
+cd samples/gwt
+mvn install -P prod
+cd $ROOT
+
+
+
+# J2CL sample
+box "Build J2CL sample"
+cd samples/j2cl
+mvn install -P prod
+cd $ROOT
 
 
 
 # Publishing to gh-pages
+box "Publish samples"
 rm -rf /tmp/elemento
 cd /tmp/
 git clone -b gh-pages --single-branch git@github.com:hal/elemento.git
 cd elemento
-for SAMPLE in "${SAMPLES[@]}"
-do
-    box "Push ${SAMPLE} to gh-pages"
-    rm -rf ${SAMPLE}
-    cp -R ${ROOT}/samples/${SAMPLE}/target/${SAMPLE}-sample-*/${SAMPLE} .
-done
+cp -R $ROOT/samples/gwt/target/sample-gwt-*/todo gwt
+cp -R $ROOT/samples/j2cl/target/classes/META-INF/resources j2cl
 date > .build
 git add --all
 git commit -am "Update samples"
 git push -f origin gh-pages
-cd ${ROOT}
+cd $ROOT
 
 
 

@@ -107,17 +107,38 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <j2cl-compilation.level>ADVANCED</j2cl-compilation.level>
+            </properties>
+        </profile>
+    </profiles>
+
     <repositories>
         <repository>
-            <id>oss-sonatype</id>
+            <id>google-snapshots</id>
             <name>OSS Sonatype</name>
             <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+        </repository>
+        <repository>
+            <id>vertispan-releases</id>
+            <name>Vertispan hosted artifacts-releases</name>
+            <url>https://repo.vertispan.com/j2cl/</url>
+        </repository>
+        <repository>
+            <id>vertispan-snapshots</id>
+            <name>Vertispan hosted artifacts-snapshots</name>
+            <url>https://repo.vertispan.com/j2cl/</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>vertispan-releases</id>
+            <name>Vertispan hosted plugin-releases</name>
+            <url>https://repo.vertispan.com/j2cl/</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

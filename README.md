@@ -301,7 +301,7 @@ Elemento uses the [`MutationObserver`](https://developer.mozilla.org/docs/Web/AP
 
 ## Iterators / Iterables / Streams
 
-Elemento provides several methods to iterate over node lists, child elements or elements returned by a selector. There are methods which return `Iterator`, `Iterable` and `Stream`.   
+Elemento provides several methods to iterate over node lists, child elements or elements returned by a selector. There are methods which return `Iterator`, `Iterable` and `Stream`.
 
 See the API documentation of [Elements](https://rawgit.com/hal/elemento/site/apidocs/org/elemento/Elements.html) for more details.
 
