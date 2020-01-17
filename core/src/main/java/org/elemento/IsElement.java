@@ -20,6 +20,6 @@ import elemental2.dom.HTMLElement;
 /** Interface for custom components returning a single element. */
 public interface IsElement<E extends HTMLElement> {
 
-    /** @retun the element of the custom component */
+    /** @return the element of the custom component */
     E element();
 }
