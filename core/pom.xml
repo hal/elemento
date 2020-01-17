@@ -98,6 +98,7 @@
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt-safehtml.version>1.0-SNAPSHOT</gwt-safehtml.version>
         <junit.version>5.5.2</junit.version>
+        <nexus-staging.version>1.6.3</nexus-staging.version>
     </properties>
 
     <dependencies>
