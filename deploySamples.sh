@@ -46,14 +46,14 @@ fi
 
 # Makes sure everything compiles
 box "Build Elemento"
-mvn clean install -P samples
+mvn clean install -P samples || { echo "Maven build failed" ; exit 1; }
 
 
 
 # GWT sample
 box "Build GWT sample"
 cd samples/gwt
-mvn install -P prod
+mvn install -P prod || { echo "Maven build failed" ; exit 1; }
 cd $ROOT
 
 
@@ -61,7 +61,7 @@ cd $ROOT
 # J2CL sample
 box "Build J2CL sample"
 cd samples/j2cl
-mvn install -P prod
+mvn install -P prod || { echo "Maven build failed" ; exit 1; }
 cd $ROOT
 
 
