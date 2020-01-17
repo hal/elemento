@@ -79,6 +79,7 @@ cd $ROOT
 box "Deploy '$VERSION'"
 cd core
 mvn deploy -P release || { echo "Maven deploy failed" ; exit 1; }
+cd $ROOT
 export GIT_MERGE_AUTOEDIT=no
 git flow release finish -m "$VERSION" $VERSION
 unset GIT_MERGE_AUTOEDIT
@@ -91,7 +92,6 @@ git checkout $BRANCH
 ./versionBump.sh HEAD-SNAPSHOT
 git commit -am "Back to HEAD-SNAPSHOT"
 git push origin $BRANCH
-cd $ROOT
 
 
 
