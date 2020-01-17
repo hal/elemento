@@ -258,7 +258,7 @@ Besides the builder API, Elemento comes with a bunch of static helper methods th
 1. Methods to manipulate an element.
 1. Methods to generate safe IDs.
 
-See the API documentation of [Elements](https://rawgit.com/hal/elemento/site/apidocs/org/elemento/Elements.html) for more details.
+See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
 
 ## Attach / Detach
 
@@ -303,7 +303,7 @@ Elemento uses the [`MutationObserver`](https://developer.mozilla.org/docs/Web/AP
 
 Elemento provides several methods to iterate over node lists, child elements or elements returned by a selector. There are methods which return `Iterator`, `Iterable` and `Stream`.
 
-See the API documentation of [Elements](https://rawgit.com/hal/elemento/site/apidocs/org/elemento/Elements.html) for more details.
+See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
 
 # J2CL / GWT 3
 
