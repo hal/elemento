@@ -73,7 +73,7 @@ git commit -am "Bump to $VERSION"
 
 box "Publish API documentation $VERSION"
 cd core
-mvn site || { echo "Maven site failed" ; exit 1; }
+mvn site -P site || { echo "Maven site failed" ; exit 1; }
 cd $ROOT
 
 box "Deploy '$VERSION'"
