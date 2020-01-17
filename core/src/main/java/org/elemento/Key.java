@@ -22,7 +22,7 @@ import elemental2.dom.Event;
 import elemental2.dom.KeyboardEvent;
 
 /**
- * Selected Key values according to <a href="https://www.w3.org/TR/DOM-Level-3-Events-key/">https://www.w3.org/TR/DOM-Level-3-Events-key/</a>.
+ * Selected key values according to <a href="https://www.w3.org/TR/DOM-Level-3-Events-key/">https://www.w3.org/TR/DOM-Level-3-Events-key/</a>.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values</a>
  */
@@ -114,27 +114,42 @@ public enum Key {
     ZoomIn("ZoomIn"),
     ZoomOut("ZoomOut");
 
-
     private static Map<String, Key> keys = new HashMap<>();
 
+    static {
+        for (Key key : Key.values()) {
+            keys.put(key.key, key);
+            if (key.alternatives != null) {
+                for (String alternative : key.alternatives) {
+                    keys.put(alternative, key);
+                }
+            }
+        }
+    }
+
+    /** Returns the key for the specified event or {@link #Unidentified} if no matching event could be found. */
     public static Key fromEvent(KeyboardEvent event) {
         return keys.getOrDefault(event.key, Unidentified);
     }
+
     private final String key;
     private final String[] alternatives;
-    Key(final String key) {
+
+    Key(String key) {
         this(key, null);
     }
 
-    Key(final String key, final String[] alternatives) {
+    Key(String key, String[] alternatives) {
         this.key = key;
         this.alternatives = alternatives;
     }
 
+    /** Whether the event is a keyboard event and matches to the key of the event. */
     public boolean match(Event event) {
         return event instanceof KeyboardEvent && match(((KeyboardEvent) event));
     }
 
+    /** Whether the event matches to the key of the event. */
     public boolean match(KeyboardEvent event) {
         if (key.equals(event.key)) {
             return true;
@@ -147,16 +162,5 @@ public enum Key {
             }
         }
         return false;
-    }
-
-    static {
-        for (Key key : Key.values()) {
-            keys.put(key.key, key);
-            if (key.alternatives != null) {
-                for (String alternative : key.alternatives) {
-                    keys.put(alternative, key);
-                }
-            }
-        }
     }
 }

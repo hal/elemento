@@ -23,7 +23,7 @@ import org.gwtproject.safehtml.shared.SafeHtml;
 /** Builder for container-like elements with inner HTML. */
 public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TextContent<E, B> {
 
-    /** Sets the inner HTML on the element using {@link HTMLElement#innerHTML}. */
+    /** Modifies the inner HTML on the element using {@link HTMLElement#innerHTML}. */
     default B innerHtml(SafeHtml html) {
         element().innerHTML = html.asString();
         return that();

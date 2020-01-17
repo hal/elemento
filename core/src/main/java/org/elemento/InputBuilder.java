@@ -71,41 +71,41 @@ public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, 
         return that();
     }
 
-    /** Sets the {@code name} attribute. */
+    /** Modifies the {@code name} attribute. */
     public InputBuilder<E> name(String name) {
         element().name = name;
         return that();
     }
 
-    /** Sets the {@code min} attribute. */
+    /** Modifies the {@code min} attribute. */
     public InputBuilder<E> min(int min) {
         return min(String.valueOf(min));
     }
 
-    /** Sets the {@code min} attribute. */
+    /** Modifies the {@code min} attribute. */
     public InputBuilder<E> min(String min) {
         element().min = min;
         return that();
     }
 
-    /** Sets the {@code max} attribute. */
+    /** Modifies the {@code max} attribute. */
     public InputBuilder<E> max(int max) {
         return max(String.valueOf(max));
     }
 
-    /** Sets the {@code max} attribute. */
+    /** Modifies the {@code max} attribute. */
     public InputBuilder<E> max(String max) {
         element().max = max;
         return that();
     }
 
-    /** Sets the {@code placeholder} text. */
+    /** Modifies the {@code placeholder} text. */
     public InputBuilder<E> placeholder(String placeholder) {
         element().placeholder = placeholder;
         return that();
     }
 
-    /** Sets the {@code tabIndex} number. */
+    /** Modifies the {@code tabIndex} number. */
     public InputBuilder<E> tabIndex(int tabIndex) {
         element().tabIndex = tabIndex;
         return that();

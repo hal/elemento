@@ -145,42 +145,50 @@ public class EventType<T extends Event, V extends EventTarget> {
 
     // ------------------------------------------------------ binding methods
 
+    /** Registers an event handler. */
     public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
             EventCallbackFn<T> listener) {
         return bind(target, type.name, e -> listener.onEvent(Js.cast(e)));
     }
 
+    /** Registers an event handler. */
     public static HandlerRegistration bind(EventTarget target, String type, EventListener listener) {
         target.addEventListener(type, listener);
         return () -> target.removeEventListener(type, listener);
     }
 
+    /** Registers an event handler. */
     public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
             boolean useCapture, EventCallbackFn<T> listener) {
         return bind(target, type.name, useCapture, e -> listener.onEvent(Js.cast(e)));
     }
 
+    /** Registers an event handler. */
     public static HandlerRegistration bind(EventTarget target, String type, boolean useCapture,
             EventListener listener) {
         target.addEventListener(type, listener, useCapture);
         return () -> target.removeEventListener(type, listener, useCapture);
     }
 
+    /** Registers an event handler. */
     public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
             EventType<T, ?> type, EventCallbackFn<T> listener) {
         return bind(target.element(), type, listener);
     }
 
+    /** Registers an event handler. */
     public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
             String type, EventListener listener) {
         return bind(target.element(), type, listener);
     }
 
+    /** Registers an event handler. */
     public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
             EventType<T, ?> type, boolean useCapture, EventCallbackFn<T> listener) {
         return bind(target.element(), type, useCapture, listener);
     }
 
+    /** Registers an event handler. */
     public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
             String type, boolean useCapture, EventListener listener) {
         return bind(target.element(), type, useCapture, listener);
@@ -194,6 +202,7 @@ public class EventType<T extends Event, V extends EventTarget> {
         this.name = name;
     }
 
+    /** @return the name of the event type. */
     public String getName() {
         return name;
     }

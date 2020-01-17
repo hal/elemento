@@ -36,6 +36,7 @@ public class ElementsBag implements TypedBuilder<Iterable<HTMLElement>, Elements
 
     // ------------------------------------------------------ mirror add() methods from HtmlContent
 
+    /** @return the elements in this bag. */
     public Iterable<HTMLElement> elements() {
         return iterable;
     }
