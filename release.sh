@@ -71,11 +71,6 @@ git flow release start $VERSION
 ./versionBump.sh $VERSION
 git commit -am "Bump to $VERSION"
 
-box "Publish API documentation $VERSION"
-cd core
-mvn site -P site || { echo "Maven site failed" ; exit 1; }
-cd $ROOT
-
 box "Deploy '$VERSION'"
 cd core
 mvn deploy -P release || { echo "Maven deploy failed" ; exit 1; }
@@ -86,6 +81,17 @@ unset GIT_MERGE_AUTOEDIT
 git push origin develop
 git push origin master
 git push origin --tags
+
+box "Publish API documentation"
+rm -rf /tmp/elemento
+cd /tmp/
+git clone -b apidoc --single-branch git@github.com:hal/elemento.git
+cd elemento
+unzip $ROOT/core/target/elemento-core-$VERSION-javadoc.jar -d .
+git add --all
+git commit -am "Update API documentation for $VERSION"
+git push -f origin apidoc
+cd $ROOT
 
 box "Back to 'HEAD-SNAPSHOT'"
 git checkout $BRANCH

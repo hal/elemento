@@ -89,7 +89,7 @@ HTMLElement section = section().css("main")
         .element();
 ```
 
-The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](http://rawgit.com/hal/elemento/site/apidocs/org/elemento/Elements.html) for more details.
+The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
 
 ## References
 
@@ -106,7 +106,7 @@ final HTMLElement footer = footer()
 
 # Event Handlers
 
-Elemento provides methods to easily register event handlers. There are [constants](http://rawgit.com/hal/elemento/site/apidocs/org/elemento/EventType.html) for most of the known event types. 
+Elemento provides methods to easily register event handlers. There are [constants](https://rawgit.com/hal/elemento/apidoc/org/elemento/EventType.html) for most of the known event types. 
 
 You can either add event handlers when building the element hierarchy:
 
@@ -147,7 +147,7 @@ HandlerRegistration handler = bind(listItem, click, event -> alert("Clicked"));
 
 The latter approach returns `org.gwtproject.event.shared.HandlerRegistration` which you can use to remove the handler again.
 
-In order to make it easier to work with keyboard events, Elemento provides an [enum](http://rawgit.com/hal/elemento/site/apidocs/org/elemento/Key.html) with the most common keyboard codes:
+In order to make it easier to work with keyboard events, Elemento provides an [enum](https://rawgit.com/hal/elemento/apidoc/org/elemento/Key.html) with the most common keyboard codes:
 
 ```java
 import elemental2.dom.KeyboardEvent;
@@ -333,5 +333,5 @@ If you want to contribute to Elemento, please follow the steps in [contribution]
 If you need help feel free to contact us at Gitter, browse the API documentation or file an issue.
 
 - [Gitter Channel](https://gitter.im/hal/elemento)
-- [API documentation](http://rawgit.com/hal/elemento/site/apidocs/index.html)
+- [API documentation](https://rawgit.com/hal/elemento/apidoc/index.html)
 - [Issues](https://github.com/hal/elemento/issues)
