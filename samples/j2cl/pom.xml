@@ -31,30 +31,21 @@
     <properties>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
+        <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <j2cl-plugin.version>0.11-SNAPSHOT</j2cl-plugin.version>
         <j2cl-compilation.level>BUNDLE</j2cl-compilation.level>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.elemento</groupId>
-                <artifactId>elemento-bom</artifactId>
-                <version>${elemento.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>org.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+            <version>${elemento.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.event</groupId>
             <artifactId>gwt-event</artifactId>
+            <version>${gwt-event.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.core</groupId>

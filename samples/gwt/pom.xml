@@ -36,29 +36,20 @@
         <gwt.style>DETAILED</gwt.style>
 
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt.version>HEAD-SNAPSHOT</gwt.version>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.elemento</groupId>
-                <artifactId>elemento-bom</artifactId>
-                <version>${elemento.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>org.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+            <version>${elemento.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.event</groupId>
             <artifactId>gwt-event</artifactId>
+            <version>${gwt-event.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
