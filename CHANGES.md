@@ -14,7 +14,6 @@ Please use the following maven coordinates:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -30,7 +29,7 @@ Inherit this GWT module:
 
 ### Packages 
 
-The packages have been flatted and renamed. All Elemento classes are now in the package `org.jboss.elemento`.
+The packages have been flattened and renamed. All Elemento classes are now in the package `org.jboss.elemento`.
 
 ## J2CL / GWT3
 
