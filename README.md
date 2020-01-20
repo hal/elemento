@@ -4,10 +4,10 @@
 
 Elemento simplifies working with GWT [Elemental2](https://github.com/google/elemental2). In a nutshell Elemento brings the following features to the table:
 
-- Ready to be used with J2CL and GWT 3
-- Depends only on Elemental2, `org.gwtprojec.:event.gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
 - [Helper methods](#helper-methods) to manipulate the DOM tree
+- Ready to be used with J2CL and next gen GWT
+- Minimal dependencies (Elemental2, `org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`)
 
 **TOC**  
 * [Get Started](#get-started)
