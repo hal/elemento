@@ -89,7 +89,7 @@ HTMLElement section = section().css("main")
         .element();
 ```
 
-The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
+The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/Elements.html) for more details.
 
 ## References
 
@@ -106,7 +106,7 @@ final HTMLElement footer = footer()
 
 # Event Handlers
 
-Elemento provides methods to easily register event handlers. There are [constants](https://rawgit.com/hal/elemento/apidoc/org/elemento/EventType.html) for most of the known event types. 
+Elemento provides methods to easily register event handlers. There are [constants](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/EventType.html) for most of the known event types. 
 
 You can either add event handlers when building the element hierarchy:
 
@@ -147,7 +147,7 @@ HandlerRegistration handler = bind(listItem, click, event -> alert("Clicked"));
 
 The latter approach returns `org.gwtproject.event.shared.HandlerRegistration` which you can use to remove the handler again.
 
-In order to make it easier to work with keyboard events, Elemento provides an [enum](https://rawgit.com/hal/elemento/apidoc/org/elemento/Key.html) with the most common keyboard codes:
+In order to make it easier to work with keyboard events, Elemento provides an [enum](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/Key.html) with the most common keyboard codes:
 
 ```java
 import elemental2.dom.KeyboardEvent;
@@ -258,7 +258,7 @@ Besides the builder API, Elemento comes with a bunch of static helper methods th
 1. Methods to manipulate an element.
 1. Methods to generate safe IDs.
 
-See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
+See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/Elements.html) for more details.
 
 ## Attach / Detach
 
@@ -303,7 +303,7 @@ Elemento uses the [`MutationObserver`](https://developer.mozilla.org/docs/Web/AP
 
 Elemento provides several methods to iterate over node lists, child elements or elements returned by a selector. There are methods which return `Iterator`, `Iterable` and `Stream`.
 
-See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
+See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/Elements.html) for more details.
 
 # J2CL / GWT 3
 
