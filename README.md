@@ -317,11 +317,11 @@ Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to clas
 
 # Samples
 
-Elemento comes with different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) application. Each sample uses Elemento and is based either on GWT or J2CL: 
+Elemento comes with different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) application. 
                      
-- [GWT](https://hal.github.io/elemento/gwt/index.html): Pure Elemento based on GWT
-- [J2CL](https://hal.github.io/elemento/j2cl/index.html) Pure Elemento based on J2CL
-- [Crysknife](https://hal.github.io/elemento/crysknife/index.html): Elemento, Crysknife CDI, Crysknife templates based on J2CL
+- [GWT](https://hal.github.io/elemento/gwt/index.html): Based GWT and Elemento
+- [J2CL](https://hal.github.io/elemento/j2cl/index.html): Based J2CL and Elemento
+- [Crysknife](https://hal.github.io/elemento/crysknife/index.html): Based on J2CL, Elemento, Crysknife CDI and Crysknife templates
 
 All samples use the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
 

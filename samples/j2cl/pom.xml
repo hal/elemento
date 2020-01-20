@@ -43,14 +43,20 @@
             <version>${elemento.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.gwtproject.event</groupId>
-            <artifactId>gwt-event</artifactId>
-            <version>${gwt-event.version}</version>
+            <groupId>org.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+            <version>${elemento.version}</version>
+            <classifier>sources</classifier>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.core</groupId>
             <artifactId>gwt-core</artifactId>
             <version>${gwt-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.event</groupId>
+            <artifactId>gwt-event</artifactId>
+            <version>${gwt-event.version}</version>
         </dependency>
     </dependencies>
 
@@ -90,7 +96,7 @@
                 </executions>
                 <configuration>
                     <compilationLevel>${j2cl-compilation.level}</compilationLevel>
-                    <entrypoint>org.elemento.sample.Main</entrypoint>
+                    <entrypoint>org.elemento.sample.j2cl.Main</entrypoint>
                     <initialScriptFilename>todo.js</initialScriptFilename>
                     <webappDirectory>${project.build.directory}/classes/META-INF/resources</webappDirectory>
                 </configuration>
@@ -109,27 +115,45 @@
 
     <repositories>
         <repository>
-            <id>google-snapshots</id>
-            <name>OSS Sonatype</name>
-            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
         </repository>
         <repository>
             <id>vertispan-releases</id>
             <name>Vertispan hosted artifacts-releases</name>
-            <url>https://repo.vertispan.com/j2cl/</url>
+            <url>https://repo.vertispan.com/j2cl</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>vertispan-snapshots</id>
-            <name>Vertispan hosted artifacts-snapshots</name>
-            <url>https://repo.vertispan.com/j2cl/</url>
+            <name>Vertispan Snapshots</name>
+            <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
             <id>vertispan-releases</id>
-            <name>Vertispan hosted plugin-releases</name>
-            <url>https://repo.vertispan.com/j2cl/</url>
+            <name>Vertispan hosted artifacts-releases</name>
+            <url>https://repo.vertispan.com/j2cl</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 </project>

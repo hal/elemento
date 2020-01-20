@@ -12,5 +12,7 @@ else
     sed -i.versionsBackup "s/<version>.*<\/version>/<version>$1<\/version>/" README.md
     sed -i.versionsBackup "s/<elemento\.version>.*<\/elemento\.version>/<elemento\.version>$1<\/elemento\.version>/" samples/gwt/pom.xml
     sed -i.versionsBackup "s/<elemento\.version>.*<\/elemento\.version>/<elemento\.version>$1<\/elemento\.version>/" samples/j2cl/pom.xml
+    sed -i.versionsBackup "s/<elemento\.version>.*<\/elemento\.version>/<elemento\.version>$1<\/elemento\.version>/" samples/crysknife/pom.xml
+    sed -i.versionsBackup "s/sample-gwt-.*\.war/sample-gwt-$1\.war/" samples/gwt/README.md
     find . -name "*.versionsBackup" -exec rm {} \;
 fi
