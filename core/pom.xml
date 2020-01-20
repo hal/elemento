@@ -18,57 +18,240 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.gwt.elemento</groupId>
-        <artifactId>elemento-parent</artifactId>
-        <version>0.9.6</version>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>36</version>
+        <relativePath/>
     </parent>
 
+    <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
+    <version>1.0.0-rc1</version>
     <name>Elemento :: Core</name>
-    <description>Core classes</description>
-    <packaging>gwt-lib</packaging>
+    <description>Builder API and other goodies for GWT Elemental</description>
+    <url>http://github.com/hal/elemento</url>
+    <packaging>jar</packaging>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Harald Pehl</name>
+            <id>hpehl</id>
+            <email>hpehl@redhat.com</email>
+            <organization>Red Hat</organization>
+            <timezone>+1</timezone>
+        </developer>
+        <developer>
+            <name>Claudio Miranda</name>
+            <id>claudio4j</id>
+            <email>claudio@redhat.com</email>
+            <organization>Red Hat</organization>
+            <timezone>-3</timezone>
+        </developer>
+        <developer>
+            <name>Ignacio Baca Moreno-Torres</name>
+            <id>ibaca</id>
+            <email>ignacio@bacamt.com</email>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git@github.com:hal/elemento.git</connection>
+        <developerConnection>scm:git:git@github.com:hal/elemento.git</developerConnection>
+        <url>https://github.com/hal/elemento</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/hal/elemento/issues</url>
+    </issueManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <!-- project / plugin related properties -->
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- versions -->
+        <elemental.version>1.0.0</elemental.version>
+        <github-site.version>0.12</github-site.version>
+        <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
+        <gwt-safehtml.version>1.0-SNAPSHOT</gwt-safehtml.version>
+        <junit.version>5.5.2</junit.version>
+        <nexus-staging.version>1.6.3</nexus-staging.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-core</artifactId>
+            <version>${elemental.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-dom</artifactId>
+            <version>${elemental.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-webstorage</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.gwtproject.safehtml</groupId>
-            <artifactId>gwt-safehtml</artifactId>
+            <version>${elemental.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.event</groupId>
             <artifactId>gwt-event</artifactId>
+            <version>${gwt-event.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.safehtml</groupId>
+            <artifactId>gwt-safehtml</artifactId>
+            <version>${gwt-safehtml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+            <version>${junit.version}</version>
         </dependency>
     </dependencies>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>net.ltgt.gwt.maven</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <moduleName>org.jboss.gwt.elemento.Core</moduleName>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                    <message/>
-                </configuration>
-            </plugin>
-        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>org/jboss/elemento/*.java</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>org/jboss/elemento/Core.gwt.xml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <additionalOptions>
+                                <additionalOption>-html5</additionalOption>
+                            </additionalOptions>
+                            <detectLinks>true</detectLinks>
+                            <doclint>none</doclint>
+                            <failOnError>false</failOnError>
+                            <show>public</show>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>${nexus-staging.version}</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>vertispan-snapshots</id>
+            <name>Vertispan Snapshots</name>
+            <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>oss-sonatype</id>
+            <name>OSS Sonatype</name>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>

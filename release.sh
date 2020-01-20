@@ -1,19 +1,20 @@
 #!/bin/bash
 
-# Script to build, deploy and release Elemento. Make sure the different branches
-# have the same feature set, before calling this script.
+# Script to build, deploy and release Elemento.
 #
 # Prerequisites
-#   - Clean git status (no uncommitted changes in branch 'develop' and 'gwt2')
+#   - Clean git status (no uncommitted changes in branch 'develop')
 #   - No tag for the specified version
 #
 # Parameters
 #   1. New version number
 #
 # What it does
-#   1. Build & deploy branch 'develop' and 'gwt2'
-#   2. Bump versions to '<version>' and '<version>-gwt2'
-#   3. Switch back to 'HEAD-SNAPSHOT' 'GWT2-SNAPSHOT'
+#   1. Build branch 'develop'
+#   2. Bump versions to '<version>'
+#   3. Publish API doc
+#   4. Deploy and release w/ git-flow
+#   5. Switch back to 'HEAD-SNAPSHOT'
 
 
 
@@ -47,47 +48,12 @@ if git rev-parse -q --verify "refs/tags/$VERSION" >/dev/null; then
     echo "A tag for '$VERSION' already exists."
     exit 1
 fi
-if git rev-parse -q --verify "refs/tags/$VERSION-gwt2" >/dev/null; then
-    echo "A tag for '$VERSION-gwt2' already exists."
-    exit 1
-fi
 
 git checkout develop
 if ! git diff --no-ext-diff --quiet --exit-code; then
     echo "Unable to release. You have uncommitted changes in the branch 'develop'."
     exit 1
 fi
-git checkout gwt2
-if ! git diff --no-ext-diff --quiet --exit-code; then
-    echo "Unable to release. You have uncommitted changes in the branch 'gwt2'."
-    exit 1
-fi
-
-
-
-# Branch 'gwt2'
-BRANCH=gwt2
-box "Switch to branch '$BRANCH'"
-git checkout $BRANCH
-git pull origin $BRANCH
-
-box "Build branch '$BRANCH'"
-mvn clean install -P widget || { echo "Maven build failed" ; exit 1; }
-
-box "Update version to '$VERSION-gwt2'"
-./versionBump.sh $VERSION-gwt2
-git commit -am "Bump to $VERSION-gwt"
-
-box "Deploy '$VERSION-gwt2'"
-mvn deploy -P release,widget || { echo "Maven deploy failed" ; exit 1; }
-git tag $VERSION-gwt
-git push origin $BRANCH
-git push origin --tags
-
-box "Back to 'GWT2-SNAPSHOT'"
-./versionBump.sh GWT2-SNAPSHOT
-git commit -am "Back to GWT2-SNAPSHOT"
-git push origin $BRANCH
 
 
 
@@ -98,7 +64,7 @@ git checkout $BRANCH
 git pull origin $BRANCH
 
 box "Build branch '$BRANCH'"
-mvn clean install -P samples,testsuite,widget || { echo "Maven build failed" ; exit 1; }
+mvn clean install -P samples || { echo "Maven build failed" ; exit 1; }
 
 box "Update version to '$VERSION'"
 git flow release start $VERSION
@@ -106,13 +72,26 @@ git flow release start $VERSION
 git commit -am "Bump to $VERSION"
 
 box "Deploy '$VERSION'"
-mvn deploy -P release,samples,testsuite,widget || { echo "Maven deploy failed" ; exit 1; }
+cd core
+mvn deploy -P release || { echo "Maven deploy failed" ; exit 1; }
+cd $ROOT
 export GIT_MERGE_AUTOEDIT=no
 git flow release finish -m "$VERSION" $VERSION
 unset GIT_MERGE_AUTOEDIT
 git push origin develop
 git push origin master
 git push origin --tags
+
+box "Publish API documentation"
+rm -rf /tmp/elemento
+cd /tmp/
+git clone -b apidoc --single-branch git@github.com:hal/elemento.git
+cd elemento
+unzip $ROOT/core/target/elemento-core-$VERSION-javadoc.jar -d .
+git add --all
+git commit -am "Update API documentation for $VERSION"
+git push -f origin apidoc
+cd $ROOT
 
 box "Back to 'HEAD-SNAPSHOT'"
 git checkout $BRANCH
