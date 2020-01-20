@@ -12,7 +12,7 @@ Please use the following maven coordinates:
 
 ```xml
 <dependency>
-    <groupId>org.elemento</groupId>
+    <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -24,13 +24,13 @@ Inherit this GWT module:
 
 ```xml
 <module>
-    <inherits name="org.elemento.Core"/>
+    <inherits name="org.jboss.elemento.Core"/>
 </module>
 ```
 
 ### Packages 
 
-The packages have been flatted and renamed. All Elemento classes are now in the package `org.elemento`.
+The packages have been flatted and renamed. All Elemento classes are now in the package `org.jboss.elemento`.
 
 ## J2CL / GWT3
 

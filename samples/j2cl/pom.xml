@@ -23,7 +23,7 @@
         <version>36</version>
     </parent>
 
-    <groupId>org.elemento.samples</groupId>
+    <groupId>org.jboss.elemento.samples</groupId>
     <artifactId>sample-j2cl</artifactId>
     <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Samples :: J2CL</name>
@@ -38,12 +38,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.elemento</groupId>
+            <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.elemento</groupId>
+            <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
             <classifier>sources</classifier>
@@ -96,7 +96,7 @@
                 </executions>
                 <configuration>
                     <compilationLevel>${j2cl-compilation.level}</compilationLevel>
-                    <entrypoint>org.elemento.sample.j2cl.Main</entrypoint>
+                    <entrypoint>org.jboss.elemento.sample.j2cl.Main</entrypoint>
                     <initialScriptFilename>todo.js</initialScriptFilename>
                     <webappDirectory>${project.build.directory}/classes/META-INF/resources</webappDirectory>
                 </configuration>

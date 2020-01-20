@@ -23,7 +23,7 @@
         <version>36</version>
     </parent>
 
-    <groupId>org.elemento.samples</groupId>
+    <groupId>org.jboss.elemento.samples</groupId>
     <artifactId>sample-gwt</artifactId>
     <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Samples :: GWT</name>
@@ -42,7 +42,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.elemento</groupId>
+            <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
         </dependency>
@@ -77,7 +77,7 @@
                     </devmodeArgs>
                     <draftCompile>${gwt.draftCompile}</draftCompile>
                     <logLevel>${gwt.logLevel}</logLevel>
-                    <moduleName>org.elemento.sample.gwt.Todo</moduleName>
+                    <moduleName>org.jboss.elemento.sample.gwt.Todo</moduleName>
                     <moduleShortName>todo</moduleShortName>
                     <sourceLevel>1.8</sourceLevel>
                     <style>${gwt.style}</style>

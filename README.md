@@ -26,21 +26,21 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 
 # Get Started
 
-Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/maven-central/org.elemento/elemento-core). To use it add the following dependency to your POM:
+Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.elemento/elemento-core). To use it add the following dependency to your POM:
 
 ```xml
 <dependency>
-    <groupId>org.elemento</groupId>
+    <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
     <version>HEAD-SNAPSHOT</version>
 </dependency>
 ```
  
-In your GWT module inherit from `org.elemento.Core`:
+In your GWT module inherit from `org.jboss.elemento.Core`:
 
 ```xml
 <module>
-    <inherits name="org.elemento.Core"/>
+    <inherits name="org.jboss.elemento.Core"/>
 </module>
 ```
 
@@ -68,9 +68,9 @@ When working with GWT Elemental it is often awkward and cumbersome to create an 
 lead to a vast amount of `Document.createElement()` and chained `Node.appendChild()` calls. With Elemento creating the above structure is as easy as
 
 ```java
-import static org.elemento.Elements.*;
-import static org.elemento.InputType.checkbox;
-import static org.elemento.InputType.text;
+import static org.jboss.elemento.Elements.*;
+import static org.jboss.elemento.InputType.checkbox;
+import static org.jboss.elemento.InputType.text;
 
 HTMLElement section = section().css("main")
         .add(input(checkbox).id("toggle-all").css("toggle-all"))
@@ -96,7 +96,7 @@ The class `Elements` provides convenience methods to create the most common elem
 When creating large hierarchies of elements you often need to assign an element somewhere in the tree. Use an inline assignment together with `element()` to create and assign the element in one go:
 
 ```java
-import static org.elemento.Elements.*;
+import static org.jboss.elemento.Elements.*;
 
 final HTMLElement count;
 final HTMLElement footer = footer()
@@ -111,10 +111,10 @@ Elemento provides methods to easily register event handlers. There are [constant
 You can either add event handlers when building the element hierarchy:
 
 ```java
-import static org.elemento.Elements.*;
-import static org.elemento.EventType.*;
-import static org.elemento.InputType.checkbox;
-import static org.elemento.InputType.text;
+import static org.jboss.elemento.Elements.*;
+import static org.jboss.elemento.EventType.*;
+import static org.jboss.elemento.InputType.checkbox;
+import static org.jboss.elemento.InputType.text;
 
 HTMLLIElement listItem = li()
         .add(div().css("view")
@@ -139,8 +139,8 @@ or register them later using `EventType.bind()`:
 ```java
 import org.gwtproject.event.shared.HandlerRegistration;
 import static elemental2.dom.DomGlobal.alert;
-import static org.elemento.EventType.bind;
-import static org.elemento.EventType.click;
+import static org.jboss.elemento.EventType.bind;
+import static org.jboss.elemento.EventType.click;
 
 HandlerRegistration handler = bind(listItem, click, event -> alert("Clicked"));
 ```
@@ -151,8 +151,8 @@ In order to make it easier to work with keyboard events, Elemento provides an [e
 
 ```java
 import elemental2.dom.KeyboardEvent;
-import static org.elemento.Key.Escape;
-import static org.elemento.Key.Enter;
+import static org.jboss.elemento.Key.Escape;
+import static org.jboss.elemento.Key.Enter;
 
 void keyDown(KeyboardEvent event) {
     if (Escape.match(event)) {
@@ -174,9 +174,9 @@ Elemento provides a typesafe selector API. It can be used to express simple CSS 
 This selector can be created with
 
 ```java
-import org.elemento.By;
-import static org.elemento.By.AttributeOperator.CONTAINS_TOKEN;
-import static org.elemento.By.AttributeOperator.STARTS_WITH;
+import org.jboss.elemento.By;
+import static org.jboss.elemento.By.AttributeOperator.CONTAINS_TOKEN;
+import static org.jboss.elemento.By.AttributeOperator.STARTS_WITH;
 
 By selector = By.group(
         By.id("main")
@@ -189,10 +189,10 @@ By selector = By.group(
 The selector can be used to find single or all HTML elements:
 
 ```java
-import org.elemento.By;
-import static org.elemento.By.AttributeOperator.STARTS_WITH;
-import static org.elemento.Elements.a;
-import static org.elemento.Elements.body;
+import org.jboss.elemento.By;
+import static org.jboss.elemento.By.AttributeOperator.STARTS_WITH;
+import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.body;
 
 By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "http://"));
 for (HTMLElement element : body().findAll()) {
@@ -205,7 +205,7 @@ for (HTMLElement element : body().findAll()) {
 Elemento makes it easy to create custom elements. As for Elemento custom elements are a composite of HTML elements and / or other custom elements. They're ordinary classes which can hold state or register event handlers. The only requirement is to implement `IsElement<E extends HTMLElement>` and return a root element:
 
 ```java
-import static org.elemento.Elements.*;
+import static org.jboss.elemento.Elements.*;
 
 class TodoItemElement implements IsElement<HTMLElement> {
     
@@ -239,7 +239,7 @@ class TodoItemElement implements IsElement<HTMLElement> {
 The builder API has support for `IsElement<E extends HTMLElement>` which makes it easy to use custom elements when building the element hierarchy:
 
 ```java
-import static org.elemento.Elements.ul;
+import static org.jboss.elemento.Elements.ul;
 
 TodoItemRepository repository = ...;
 TodoItemElement[] itemElements = repository.items().stream()
@@ -266,10 +266,10 @@ Implement `Attachable` to get notified when an element is attached to and detach
 
 ```java
 import elemental2.dom.MutationRecord;
-import org.elemento.Attachable;
-import org.elemento.IsElement;
+import org.jboss.elemento.Attachable;
+import org.jboss.elemento.IsElement;
 import static elemental2.dom.DomGlobal.console;
-import static org.elemento.Elements.li;
+import static org.jboss.elemento.Elements.li;
 
 class TodoItemElement implements IsElement<HTMLElement>, Attachable {
     
@@ -309,11 +309,13 @@ See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/o
 
 Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to classes from `com.google.gwt`. It only depends on
 
-- `com.google.elemental2:elemental2-core`
-- `com.google.elemental2:elemental2-dom`
-- `com.google.elemental2:elemental2-webstorage`
-- `org.gwtprojec.:event.gwt-event` and 
-- `org.gwtproject.safehtml:gwt-safehtml`
+- `com.google.elemental2:elemental2-core` version 1.0.0
+- `com.google.elemental2:elemental2-dom` version 1.0.0
+- `com.google.elemental2:elemental2-webstorage` version 1.0.0
+- `org.gwtproject.event:gwt-event` version HEAD-SNAPSHOT and 
+- `org.gwtproject.safehtml:gwt-safehtml` version 1.0-SNAPSHOT
+
+If you want to build with GWT you have to use the latest version (HEAD-SNAPSHOT).
 
 # Samples
 

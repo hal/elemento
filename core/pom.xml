@@ -24,7 +24,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>org.elemento</groupId>
+    <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
     <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Core</name>
@@ -146,13 +146,13 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>org/elemento/*.java</include>
+                    <include>org/jboss/elemento/*.java</include>
                 </includes>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>org/elemento/Core.gwt.xml</include>
+                    <include>org/jboss/elemento/Core.gwt.xml</include>
                 </includes>
             </resource>
         </resources>

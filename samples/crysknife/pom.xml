@@ -23,7 +23,7 @@
         <version>36</version>
     </parent>
 
-    <groupId>org.elemento.samples</groupId>
+    <groupId>org.jboss.elemento.samples</groupId>
     <artifactId>sample-crysknife</artifactId>
     <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Samples :: Crysknife</name>
@@ -39,7 +39,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.elemento</groupId>
+            <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
         </dependency>
@@ -118,7 +118,7 @@
                 </executions>
                 <configuration>
                     <compilationLevel>${j2cl-compilation.level}</compilationLevel>
-                    <entrypoint>org.elemento.sample.org.elemento.sample.crysknife.Main</entrypoint>
+                    <entrypoint>org.jboss.elemento.sample.org.jboss.elemento.sample.crysknife.Main</entrypoint>
                     <initialScriptFilename>todo.js</initialScriptFilename>
                     <webappDirectory>${project.build.directory}/classes/META-INF/resources</webappDirectory>
                 </configuration>

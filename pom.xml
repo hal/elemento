@@ -23,7 +23,7 @@
         <version>36</version>
     </parent>
 
-    <groupId>org.elemento</groupId>
+    <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
     <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Parent</name>
