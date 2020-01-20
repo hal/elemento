@@ -37,7 +37,7 @@
         <profile>
             <id>samples</id>
             <modules>
-                <module>samples/crysknife</module>
+<!--                <module>samples/crysknife</module>-->
                 <module>samples/gwt</module>
                 <module>samples/j2cl</module>
             </modules>
