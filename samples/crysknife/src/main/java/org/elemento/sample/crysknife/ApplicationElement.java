@@ -19,6 +19,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
@@ -36,10 +39,11 @@ import static org.elemento.EventType.click;
 import static org.elemento.EventType.keydown;
 import static org.elemento.InputType.checkbox;
 import static org.elemento.InputType.text;
-import static org.elemento.sample.j2cl.Filter.ACTIVE;
-import static org.elemento.sample.j2cl.Filter.COMPLETED;
+import static org.elemento.sample.crysknife.Filter.ACTIVE;
+import static org.elemento.sample.crysknife.Filter.COMPLETED;
 
-class ApplicationElement implements IsElement<HTMLElement> {
+@Singleton
+public class ApplicationElement implements IsElement<HTMLElement> {
 
     private final TodoRepository repository;
     private Filter filter;
@@ -56,7 +60,8 @@ class ApplicationElement implements IsElement<HTMLElement> {
     private final HTMLElement filterCompleted;
     private final HTMLButtonElement clearCompleted;
 
-    ApplicationElement(TodoRepository repository) {
+    @Inject
+    public ApplicationElement(TodoRepository repository) {
         this.repository = repository;
         this.root = section().css("todoapp")
                 .add(header().css("header")

@@ -19,6 +19,8 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+import javax.inject.Singleton;
+
 import elemental2.core.Global;
 import elemental2.core.JsArray;
 import elemental2.webstorage.Storage;
@@ -30,6 +32,7 @@ import static elemental2.dom.DomGlobal.console;
 import static elemental2.dom.DomGlobal.setTimeout;
 import static elemental2.dom.DomGlobal.window;
 
+@Singleton
 public class TodoRepository {
 
     private static final String DEFAULT_KEY = "todos-elemento";

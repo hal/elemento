@@ -15,7 +15,12 @@
  */
 package org.elemento.sample.crysknife;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
 import org.gwtproject.core.client.EntryPoint;
+import org.treblereel.gwt.crysknife.client.Application;
+import org.treblereel.gwt.crysknife.client.ComponentScan;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
@@ -23,14 +28,21 @@ import static org.elemento.Elements.body;
 import static org.elemento.EventType.bind;
 import static org.elemento.EventType.hashchange;
 
+@Application
+@ComponentScan("org.elemento.sample.crysknife")
 public class Main implements EntryPoint {
+
+    @Inject TodoRepository repository;
+    @Inject ApplicationElement application;
+    @Inject FooterElement footer;
 
     @Override
     public void onModuleLoad() {
-        TodoRepository repository = new TodoRepository();
-        ApplicationElement application = new ApplicationElement(repository);
-        FooterElement footer = new FooterElement();
+        new MainBootstrap(this).initialize();
+    }
 
+    @PostConstruct
+    void init() {
         body().add(application).add(footer);
         bind(window, hashchange, event -> application.filter(location.hash));
         application.filter(location.hash);

@@ -3,27 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Template • TodoMVC</title>
-    <link rel="stylesheet" href="../public/node_modules/todomvc-common/base.css">
-    <link rel="stylesheet" href="../public/node_modules/todomvc-app-css/index.css">
+    <title>Elemento • TodoMVC • Crysknife</title>
+    <link rel="stylesheet" href="../../../../META-INF/resources/todomvc.css">
 </head>
 <body>
-<section data-element="todos" class="todoapp">
+<section data-field="todos" class="todoapp">
     <header class="header">
         <h1>todos</h1>
-        <input data-element="newTodo" class="new-todo" placeholder="What needs to be done?" autofocus>
+        <input data-field="newTodo" class="new-todo" placeholder="What needs to be done?" autofocus>
     </header>
-    <section data-element="main" class="main">
-        <input data-element="toggleAll" class="toggle-all" id="toggle-all" type="checkbox">
+    <section data-field="main" class="main">
+        <input data-field="toggleAll" class="toggle-all" id="toggle-all" type="checkbox">
         <label for="toggle-all">Mark all as complete</label>
-        <ul data-element="list" class="todo-list">
-            <li data-element="item">
+        <ul data-field="list" class="todo-list">
+            <li data-field="item">
                 <div class="view">
-                    <input data-element="toggle" class="toggle" type="checkbox" checked>
-                    <label data-element="label">Taste Elemento</label>
-                    <button data-element="destroy" class="destroy"></button>
+                    <input data-field="toggle" class="toggle" type="checkbox" checked>
+                    <label data-field="label">Taste Elemento</label>
+                    <button data-field="destroy" class="destroy"></button>
                 </div>
-                <input data-element="input" class="edit" value="Taste Elemento">
+                <input data-field="input" class="edit" value="Taste Elemento">
             </li>
             <li class="completed">
                 <div class="view">
@@ -35,23 +34,23 @@
             </li>
         </ul>
     </section>
-    <footer data-element="footer" class="footer">
-        <span data-element="count" class="todo-count"><strong>0</strong> item left</span>
+    <footer data-field="footer" class="footer">
+        <span data-field="count" class="todo-count"><strong>0</strong> item left</span>
         <ul class="filters">
             <li>
-                <a data-element="all" href="#/">All</a>
+                <a data-field="all" href="#/">All</a>
             </li>
             <li>
-                <a data-element="active" href="#/active">Active</a>
+                <a data-field="active" href="#/active">Active</a>
             </li>
             <li>
-                <a data-element="completed" href="#/completed">Completed</a>
+                <a data-field="completed" href="#/completed">Completed</a>
             </li>
         </ul>
-        <button data-element="clearCompleted" class="clear-completed">Clear completed</button>
+        <button data-field="clearCompleted" class="clear-completed">Clear completed</button>
     </footer>
 </section>
-<footer data-element="info" class="info">
+<footer data-field="info" class="info">
     <p>Double-click to edit a todo</p>
     <p><span>Created by</span>&nbsp;<a href="http://hpehl.info">Harald Pehl</a></p>
     <p><span>Part of</span>&nbsp;<a href="http://todomvc.com">TodoMVC</a></p>

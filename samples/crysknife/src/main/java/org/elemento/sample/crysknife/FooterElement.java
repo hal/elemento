@@ -15,6 +15,8 @@
  */
 package org.elemento.sample.crysknife;
 
+import javax.inject.Singleton;
+
 import elemental2.dom.HTMLElement;
 import org.elemento.IsElement;
 
@@ -23,11 +25,12 @@ import static org.elemento.Elements.footer;
 import static org.elemento.Elements.p;
 import static org.elemento.Elements.span;
 
-class FooterElement implements IsElement<HTMLElement> {
+@Singleton
+public class FooterElement implements IsElement<HTMLElement> {
 
     private final HTMLElement root;
 
-    FooterElement() {
+    public FooterElement() {
         root = footer().css("info")
                 .add(p().textContent("Double-click to edit a todo"))
                 .add(p().add(span().textContent("Created by" + " "))
