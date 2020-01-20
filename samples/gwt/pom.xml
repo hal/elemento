@@ -35,7 +35,7 @@
         <gwt.logLevel>INFO</gwt.logLevel>
         <gwt.style>DETAILED</gwt.style>
 
-        <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <elemento.version>1.0.0-rc1</elemento.version>
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt.version>HEAD-SNAPSHOT</gwt.version>
     </properties>

@@ -30,7 +30,7 @@
 
     <properties>
         <crysknife.version>0.1-SNAPSHOT</crysknife.version>
-        <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <elemento.version>1.0.0-rc1</elemento.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <j2cl-plugin.version>0.11-SNAPSHOT</j2cl-plugin.version>
