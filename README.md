@@ -307,7 +307,7 @@ See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/o
 
 # J2CL / GWT 3
 
-Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to classes from `com.google.gwt`. It only depends on
+Elemento is ready to be used with J2CL and GWT. It has no dependencies to classes from `com.google.gwt`. It only depends on
 
 - `com.google.elemental2:elemental2-core` version 1.0.0
 - `com.google.elemental2:elemental2-dom` version 1.0.0
