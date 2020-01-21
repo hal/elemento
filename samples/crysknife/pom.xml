@@ -26,11 +26,14 @@
     <groupId>org.jboss.elemento.samples</groupId>
     <artifactId>sample-crysknife</artifactId>
     <version>HEAD-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>Elemento :: Samples :: Crysknife</name>
 
     <properties>
         <crysknife.version>0.1-SNAPSHOT</crysknife.version>
+        <google.guava.version>28.1-jre</google.guava.version>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <elemental2.version>1.0.0</elemental2.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <j2cl-plugin.version>0.11-SNAPSHOT</j2cl-plugin.version>
@@ -55,18 +58,7 @@
         </dependency>
         <dependency>
             <groupId>org.treblereel.gwt.crysknife</groupId>
-            <artifactId>templates-api</artifactId>
-            <version>${crysknife.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>crysknife-processor</artifactId>
-            <version>${crysknife.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.gwt.crysknife</groupId>
-            <artifactId>templates-generator</artifactId>
             <version>${crysknife.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -80,9 +72,24 @@
             <artifactId>gwt-core</artifactId>
             <version>${gwt-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
+            <version>${elemental2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${google.guava.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -104,28 +111,80 @@
                 </executions>
             </plugin>
             <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <packagingExcludes>WEB-INF/classes/**</packagingExcludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>custom-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <targetPath>${basedir}/target/webapp</targetPath>
+                                    <directory>src/main/webapp</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                                <resource>
+                                    <targetPath>${basedir}/target/webapp/classes</targetPath>
+                                    <directory>src/main/resources</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                            <encoding>UTF-8</encoding>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.vertispan.j2cl</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>
                 <version>${j2cl-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>build-js</id>
-                        <phase>package</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>build</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
+                    <defaultWebappDirectory>${project.build.directory}/gwt/launcherDir</defaultWebappDirectory>
                     <compilationLevel>${j2cl-compilation.level}</compilationLevel>
-                    <entrypoint>org.jboss.elemento.sample.org.jboss.elemento.sample.crysknife.Main</entrypoint>
+                    <entrypoint>org.jboss.elemento.sample.crysknife.Main</entrypoint>
                     <initialScriptFilename>todo.js</initialScriptFilename>
-                    <webappDirectory>${project.build.directory}/classes/META-INF/resources</webappDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <contextFile>${basedir}/src/main/tomcatconf/context.xml</contextFile>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>prod</id>
@@ -152,9 +211,19 @@
             <url>https://repo.vertispan.com/j2cl/</url>
         </repository>
         <repository>
-            <id>vertispan-snapshots</id>
+            <id>vertispan-j2cl-snapshots</id>
             <name>Vertispan hosted artifacts-snapshots</name>
             <url>https://repo.vertispan.com/j2cl/</url>
+        </repository>
+        <repository>
+            <id>vertispan-gwt3-snapshots</id>
+            <name>Vertispan Snapshots</name>
+            <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
         </repository>
     </repositories>
 
