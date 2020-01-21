@@ -92,30 +92,31 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- versions -->
-        <elemental.version>1.0.0</elemental.version>
-        <github-site.version>0.12</github-site.version>
+        <!-- plugin versions -->
+        <nexus-staging.version>1.6.3</nexus-staging.version>
+
+        <!-- dependency versions -->
+        <elemental2.version>1.0.0</elemental2.version>
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt-safehtml.version>1.0-SNAPSHOT</gwt-safehtml.version>
         <junit.version>5.5.2</junit.version>
-        <nexus-staging.version>1.6.3</nexus-staging.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-core</artifactId>
-            <version>${elemental.version}</version>
+            <version>${elemental2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-dom</artifactId>
-            <version>${elemental.version}</version>
+            <version>${elemental2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.elemental2</groupId>
             <artifactId>elemental2-webstorage</artifactId>
-            <version>${elemental.version}</version>
+            <version>${elemental2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.event</groupId>

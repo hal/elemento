@@ -12,6 +12,6 @@
 ### Production mode
 
 - `mvn package -P prod`
-- Find the compiled web app in `target/sample-gwt-<version>/todo`
+- Find the compiled web app in `target/sample-gwt/todo`
 
 All samples are also available online at https://hal.github.io/elemento/

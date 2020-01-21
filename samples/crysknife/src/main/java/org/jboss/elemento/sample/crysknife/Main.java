@@ -32,9 +32,9 @@ import static org.jboss.elemento.EventType.hashchange;
 @ComponentScan("org.jboss.elemento.sample.crysknife")
 public class Main implements EntryPoint {
 
-    @Inject private TodoRepository repository;
-    @Inject private ApplicationElement application;
-    @Inject private FooterElement footer;
+    @Inject TodoRepository repository;
+    @Inject ApplicationElement application;
+    @Inject FooterElement footer;
 
     @Override
     public void onModuleLoad() {

@@ -30,13 +30,17 @@
     <packaging>gwt-app</packaging>
 
     <properties>
-        <gwt-maven-plugin.version>1.0.0</gwt-maven-plugin.version>
+        <!-- project / plugin related properties -->
         <gwt.draftCompile>true</gwt.draftCompile>
-        <gwt.logLevel>INFO</gwt.logLevel>
         <gwt.style>DETAILED</gwt.style>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
 
+        <!-- plugin versions -->
+        <gwt-maven-plugin.version>1.0.0</gwt-maven-plugin.version>
+
+        <!-- dependency versions -->
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
-        <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt.version>HEAD-SNAPSHOT</gwt.version>
     </properties>
 
@@ -45,11 +49,6 @@
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.gwtproject.event</groupId>
-            <artifactId>gwt-event</artifactId>
-            <version>${gwt-event.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.gwt</groupId>
@@ -64,6 +63,8 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
@@ -76,7 +77,6 @@
                         <devmodeArg>todo/index.html</devmodeArg>
                     </devmodeArgs>
                     <draftCompile>${gwt.draftCompile}</draftCompile>
-                    <logLevel>${gwt.logLevel}</logLevel>
                     <moduleName>org.jboss.elemento.sample.gwt.Todo</moduleName>
                     <moduleShortName>todo</moduleShortName>
                     <sourceLevel>1.8</sourceLevel>
@@ -91,7 +91,6 @@
             <id>prod</id>
             <properties>
                 <gwt.draftCompile>false</gwt.draftCompile>
-                <gwt.logLevel>ERROR</gwt.logLevel>
                 <gwt.style>OBFUSCATED</gwt.style>
             </properties>
         </profile>

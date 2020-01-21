@@ -53,7 +53,7 @@ mvn clean install -P samples || { echo "Maven build failed" ; exit 1; }
 # GWT sample
 box "Build GWT sample"
 cd samples/gwt
-mvn install -P prod || { echo "Maven build failed" ; exit 1; }
+mvn package -P prod || { echo "Maven build failed" ; exit 1; }
 cd $ROOT
 
 
@@ -61,7 +61,15 @@ cd $ROOT
 # J2CL sample
 box "Build J2CL sample"
 cd samples/j2cl
-mvn install -P prod || { echo "Maven build failed" ; exit 1; }
+mvn package -P prod || { echo "Maven build failed" ; exit 1; }
+cd $ROOT
+
+
+
+# Crysknife sample
+box "Build Crysknife sample"
+cd samples/crysknife
+mvn package -P prod || { echo "Maven build failed" ; exit 1; }
 cd $ROOT
 
 
@@ -72,8 +80,9 @@ rm -rf /tmp/elemento
 cd /tmp/
 git clone -b gh-pages --single-branch git@github.com:hal/elemento.git
 cd elemento
-cp -R $ROOT/samples/gwt/target/sample-gwt-*/todo gwt
-cp -R $ROOT/samples/j2cl/target/classes/META-INF/resources j2cl
+cp -R $ROOT/samples/gwt/target/sample-gwt/todo gwt
+cp -R $ROOT/samples/j2cl/target/sample-j2cl j2cl
+cp -R $ROOT/samples/crysknife/target/sample-crysknife crysknife
 date > .build
 git add --all
 git commit -am "Update samples"
