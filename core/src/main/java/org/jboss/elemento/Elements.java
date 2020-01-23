@@ -84,6 +84,7 @@ import org.gwtproject.safehtml.shared.SafeHtml;
 
 import static elemental2.dom.DomGlobal.document;
 import static java.util.Collections.emptyIterator;
+import static java.util.Collections.emptyList;
 import static java.util.Spliterators.spliteratorUnknownSize;
 import static java.util.stream.Collectors.joining;
 import static jsinterop.base.Js.cast;
@@ -981,15 +982,18 @@ public final class Elements {
 
     /** Finds all HTML elements for the given selector. */
     public static Iterable<HTMLElement> findAll(Node node, By selector) {
-        NodeList<Element> nodes = node.querySelectorAll(selector.selector());
-        JsArray<HTMLElement> htmlElements = new JsArray<>();
-        for (int i = 0; i < nodes.length; i++) {
-            Element element = nodes.getAt(i);
-            if (element instanceof HTMLElement) {
-                htmlElements.push((HTMLElement) element);
+        if (node != null) {
+            NodeList<Element> nodes = node.querySelectorAll(selector.selector());
+            JsArray<HTMLElement> htmlElements = new JsArray<>();
+            for (int i = 0; i < nodes.length; i++) {
+                Element element = nodes.getAt(i);
+                if (element instanceof HTMLElement) {
+                    htmlElements.push((HTMLElement) element);
+                }
             }
+            return () -> iterator(htmlElements);
         }
-        return () -> iterator(htmlElements);
+        return emptyList();
     }
 
     /** Finds all HTML elements for the given selector. */
