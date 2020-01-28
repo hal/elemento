@@ -29,10 +29,7 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.KeyboardEvent;
-import elemental2.dom.MouseEvent;
-import org.gwtproject.event.dom.client.KeyDownEvent;
 import org.jboss.elemento.By;
-import org.jboss.elemento.HtmlContentBuilder;
 import org.jboss.elemento.Key;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.treblereel.gwt.crysknife.annotation.DataField;
@@ -41,17 +38,11 @@ import org.treblereel.gwt.crysknife.annotation.ForEvent;
 import org.treblereel.gwt.crysknife.annotation.Templated;
 
 import static org.jboss.elemento.Elements.*;
-import static org.jboss.elemento.EventType.bind;
-import static org.jboss.elemento.EventType.change;
-import static org.jboss.elemento.EventType.click;
-import static org.jboss.elemento.EventType.keydown;
-import static org.jboss.elemento.InputType.checkbox;
-import static org.jboss.elemento.InputType.text;
 import static org.jboss.elemento.sample.crysknife.Filter.ACTIVE;
 import static org.jboss.elemento.sample.crysknife.Filter.COMPLETED;
 
 @Singleton
-@Templated("Todo.html")
+@Templated("Todo.html#todos")
 public class ApplicationElement implements IsElement<HTMLElement> {
 
     private final TodoRepository repository;
@@ -63,9 +54,9 @@ public class ApplicationElement implements IsElement<HTMLElement> {
     @DataField HTMLUListElement list;
     @DataField HTMLElement footer;
     @DataField HTMLElement count;
-    @DataField("all") HTMLElement filterAll;
-    @DataField("active") HTMLElement filterActive;
-    @DataField("completed") HTMLElement filterCompleted;
+    @DataField HTMLElement filterAll;
+    @DataField HTMLElement filterActive;
+    @DataField HTMLElement filterCompleted;
     @DataField HTMLButtonElement clearCompleted;
 
     @Inject
@@ -107,7 +98,7 @@ public class ApplicationElement implements IsElement<HTMLElement> {
         update();
     }
 
-    @EventHandler("newTodo")
+    @EventHandler("clearCompleted")
     void clearCompleted(@ForEvent("click") Event event) {
         Set<String> ids = new HashSet<>();
         for (Iterator<HTMLElement> iterator = iterator(list); iterator.hasNext(); ) {
@@ -122,6 +113,29 @@ public class ApplicationElement implements IsElement<HTMLElement> {
         }
         repository.removeAll(ids);
         update();
+    }
+
+    // ------------------------------------------------------ state
+
+    void update() {
+        int activeCount = 0;
+        int completedCount = 0;
+        int size = (int) list.childElementCount;
+
+        setVisible(main, size > 0);
+        setVisible(footer, size > 0);
+        for (HTMLElement li : children(list)) {
+            if (li.classList.contains("completed")) {
+                completedCount++;
+                setVisible(li, filter != ACTIVE);
+            } else {
+                activeCount++;
+                setVisible(li, filter != COMPLETED);
+            }
+        }
+        toggleAll.checked = (size == completedCount);
+        innerHtml(count, Messages.items(activeCount));
+        setVisible(clearCompleted, completedCount != 0);
     }
 
     void filter(String token) {
@@ -148,33 +162,10 @@ public class ApplicationElement implements IsElement<HTMLElement> {
         update();
     }
 
-    // ------------------------------------------------------ state update
-
     private void reset() {
         removeChildrenFrom(list);
         for (Todo item : repository.items()) {
             list.appendChild(new TodoElement(this, repository, item).element());
         }
-    }
-
-    void update() {
-        int activeCount = 0;
-        int completedCount = 0;
-        int size = (int)list.childElementCount;
-
-        setVisible(main, size > 0);
-        setVisible(footer, size > 0);
-        for (HTMLElement li : children(list)) {
-            if (li.classList.contains("completed")) {
-                completedCount++;
-                setVisible(li, filter != ACTIVE);
-            } else {
-                activeCount++;
-                setVisible(li, filter != COMPLETED);
-            }
-        }
-        toggleAll.checked = (size == completedCount);
-        innerHtml(count, Messages.items(activeCount));
-        setVisible(clearCompleted, completedCount != 0);
     }
 }

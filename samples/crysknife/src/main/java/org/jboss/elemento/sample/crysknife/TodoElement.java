@@ -20,11 +20,11 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MutationRecord;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.event.shared.HandlerRegistrations;
 import org.jboss.elemento.Attachable;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
-import org.gwtproject.event.shared.HandlerRegistration;
-import org.gwtproject.event.shared.HandlerRegistrations;
 
 import static org.jboss.elemento.Elements.input;
 import static org.jboss.elemento.Elements.*;

@@ -18,29 +18,10 @@ package org.jboss.elemento.sample.crysknife;
 import javax.inject.Singleton;
 
 import elemental2.dom.HTMLElement;
-import org.jboss.elemento.IsElement;
-
-import static org.jboss.elemento.Elements.a;
-import static org.jboss.elemento.Elements.footer;
-import static org.jboss.elemento.Elements.p;
-import static org.jboss.elemento.Elements.span;
+import org.jboss.gwt.elemento.core.IsElement;
+import org.treblereel.gwt.crysknife.annotation.Templated;
 
 @Singleton
+@Templated("Todo.html#info")
 public class FooterElement implements IsElement<HTMLElement> {
-
-    private final HTMLElement root;
-
-    public FooterElement() {
-        root = footer().css("info")
-                .add(p().textContent("Double-click to edit a todo"))
-                .add(p().add(span().textContent("Created by" + " "))
-                        .add(a("http://hpehl.info").textContent("Harald Pehl")))
-                .add(p().add(span().textContent("Part of" + " "))
-                        .add(a("http://todomvc.com").textContent("TodoMVC"))).element();
-    }
-
-    @Override
-    public HTMLElement element() {
-        return root;
-    }
 }
