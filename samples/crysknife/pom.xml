@@ -42,16 +42,18 @@
         <!-- dependency versions -->
         <crysknife.version>0.1-SNAPSHOT</crysknife.version>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
-        <google.guava.version>28.1-jre</google.guava.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
     </properties>
 
     <dependencies>
+        <!-- Elemento -->
         <dependency>
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
         </dependency>
+
+        <!-- Crysknife -->
         <dependency>
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>crysknife-annotations</artifactId>
@@ -69,24 +71,32 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.treblereel.gwt.crysknife</groupId>
+            <artifactId>templates-api</artifactId>
+            <version>${crysknife.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.treblereel.gwt.crysknife</groupId>
+            <artifactId>templates-generator</artifactId>
+            <version>${crysknife.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- GWT Project -->
+        <dependency>
             <groupId>org.gwtproject.core</groupId>
             <artifactId>gwt-core</artifactId>
             <version>${gwt-core.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${google.guava.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
-        <finalName>${project.artifactId}</finalName>
 
         <plugins>
             <plugin>

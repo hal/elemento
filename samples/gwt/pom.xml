@@ -45,11 +45,14 @@
     </properties>
 
     <dependencies>
+        <!-- Elemento -->
         <dependency>
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
         </dependency>
+
+        <!-- GWT -->
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-dev</artifactId>

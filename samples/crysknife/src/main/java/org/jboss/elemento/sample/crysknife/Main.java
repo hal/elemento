@@ -22,7 +22,6 @@ import org.gwtproject.core.client.EntryPoint;
 import org.treblereel.gwt.crysknife.client.Application;
 import org.treblereel.gwt.crysknife.client.ComponentScan;
 
-import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.EventType.bind;
@@ -43,8 +42,8 @@ public class Main implements EntryPoint {
 
     @PostConstruct
     void init() {
-        body().add(application).add(footer);
-        bind(window, hashchange, event -> application.filter(location.hash));
-        application.filter(location.hash);
+        body().add(application.getElement()).add(footer);
+        bind(window, hashchange, event -> application.filter(window.location.hash));
+        application.filter(window.location.hash);
     }
 }
