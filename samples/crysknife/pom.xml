@@ -54,6 +54,7 @@
         </dependency>
 
         <!-- Crysknife -->
+        <!-- TODO: Remove exclusions as soon as Crysknife depends on Elemental2 1.0.0 -->
         <dependency>
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>crysknife-annotations</artifactId>
