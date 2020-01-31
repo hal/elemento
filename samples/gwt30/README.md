@@ -1,6 +1,6 @@
-# Elemento GWT Sample
+# Elemento GWT 3.0 Sample
 
-[TodoMVC](http://todomvc.com/) implementation based on GWT and Elemento.
+[TodoMVC](http://todomvc.com/) implementation based on GWT HEAD-SNAPSHOT and Elemento.
 
 ## Get Started
 
@@ -12,6 +12,6 @@
 ### Production mode
 
 - `mvn package -P prod`
-- Find the compiled web app in `target/sample-gwt/todo`
+- Find the compiled web app in `target/sample-gwt30/todo`
 
 All samples are also available online at https://hal.github.io/elemento/

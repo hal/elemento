@@ -38,7 +38,8 @@
             <id>samples</id>
             <modules>
                 <module>samples/crysknife</module>
-                <module>samples/gwt</module>
+                <module>samples/gwt28</module>
+                <module>samples/gwt30</module>
                 <module>samples/j2cl</module>
             </modules>
         </profile>

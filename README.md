@@ -7,7 +7,13 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
 - [Helper methods](#helper-methods) to manipulate the DOM tree
 - Ready to be used with J2CL and next gen GWT
-- Minimal dependencies (Elemental2, `org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`)
+- Minimal dependencies
+  - Elemental2 1.0.0:
+    - `com.google.elemental2:elemental2-core:1.0.0`
+    - `com.google.elemental2:elemental2-dom:1.0.0`
+    - `com.google.elemental2:elemental2-webstorage:1.0.0`
+  - `org.gwtproject.event:gwt-event:HEAD-SNAPSHOT`
+  - `org.gwtproject.safehtml:gwt-safehtml:1.0-SNAPSHOT`
 
 **TOC**  
 * [Get Started](#get-started)
@@ -307,25 +313,18 @@ See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/o
 
 # J2CL / GWT 3
 
-Elemento is ready to be used with J2CL and GWT. It has no dependencies to classes from `com.google.gwt`. It only depends on
-
-- `com.google.elemental2:elemental2-core` version 1.0.0
-- `com.google.elemental2:elemental2-dom` version 1.0.0
-- `com.google.elemental2:elemental2-webstorage` version 1.0.0
-- `org.gwtproject.event:gwt-event` version HEAD-SNAPSHOT and 
-- `org.gwtproject.safehtml:gwt-safehtml` version 1.0-SNAPSHOT
-
-If you want to build with GWT you have to use the latest version (HEAD-SNAPSHOT).
+Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends on GWT HEAD-SNAPSHOT and Elemental2 1.0.0, but can also be used with GWT 2.8.2 and Elemental2 1.0.0-RC1. In this case you have to override the Elemental2 dependencies. See the [GWT 2.8](samples/gwt28) sample for more infos.
 
 # Samples
 
-Elemento comes with different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) application. 
+Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application. 
                      
-- [GWT](https://hal.github.io/elemento/gwt/index.html): Based on GWT and Elemento
-- [J2CL](https://hal.github.io/elemento/j2cl/index.html): Based on J2CL and Elemento
-- [Crysknife](https://hal.github.io/elemento/crysknife/index.html): Based on J2CL, Elemento, Crysknife CDI and Crysknife templates
+- [GWT 2.8](samples/gwt28): Based on GWT 2.8, Elemental2 1.0.0-RC1 and Elemento
+- [GWT 3.0](samples/gwt30): Based on GWT HEAD-SNAPSHOT and Elemento
+- [J2CL](samples/j2cl): Based on J2CL and Elemento
+- [Crysknife](samples/crysknife): Based on J2CL, Elemento, Crysknife CDI and Crysknife templates
 
-All samples use the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+All samples are available online at https://hal.github.io/elemento/index.html.
 
 # Contributing
 

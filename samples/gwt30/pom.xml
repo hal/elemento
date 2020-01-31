@@ -24,9 +24,9 @@
     </parent>
 
     <groupId>org.jboss.elemento.samples</groupId>
-    <artifactId>sample-gwt</artifactId>
+    <artifactId>sample-gwt30</artifactId>
     <version>HEAD-SNAPSHOT</version>
-    <name>Elemento :: Samples :: GWT</name>
+    <name>Elemento :: Samples :: GWT 3.0</name>
     <packaging>gwt-app</packaging>
 
     <properties>
