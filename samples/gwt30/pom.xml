@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>36</version>
+    </parent>
+
+    <groupId>org.jboss.elemento.samples</groupId>
+    <artifactId>sample-gwt30</artifactId>
+    <version>HEAD-SNAPSHOT</version>
+    <name>Elemento :: Samples :: GWT 3.0</name>
+    <packaging>gwt-app</packaging>
+
+    <properties>
+        <!-- project / plugin related properties -->
+        <gwt.draftCompile>true</gwt.draftCompile>
+        <gwt.style>DETAILED</gwt.style>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
+        <!-- plugin versions -->
+        <gwt-maven-plugin.version>1.0.0</gwt-maven-plugin.version>
+
+        <!-- dependency versions -->
+        <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <gwt.version>HEAD-SNAPSHOT</gwt.version>
+    </properties>
+
+    <dependencies>
+        <!-- Elemento -->
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+            <version>${elemento.version}</version>
+        </dependency>
+
+        <!-- GWT -->
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+            <version>${gwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${gwt.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>${gwt-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <devmodeArgs>
+                        <devmodeArg>-startupUrl</devmodeArg>
+                        <devmodeArg>todo/index.html</devmodeArg>
+                    </devmodeArgs>
+                    <draftCompile>${gwt.draftCompile}</draftCompile>
+                    <moduleName>org.jboss.elemento.sample.gwt.Todo</moduleName>
+                    <moduleShortName>todo</moduleShortName>
+                    <sourceLevel>1.8</sourceLevel>
+                    <style>${gwt.style}</style>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <gwt.draftCompile>false</gwt.draftCompile>
+                <gwt.style>OBFUSCATED</gwt.style>
+            </properties>
+        </profile>
+    </profiles>
+
+    <repositories>
+        <repository>
+            <id>google-snapshots</id>
+            <name>OSS Sonatype</name>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+        </repository>
+    </repositories>
+</project>

@@ -4,10 +4,16 @@
 
 Elemento simplifies working with GWT [Elemental2](https://github.com/google/elemental2). In a nutshell Elemento brings the following features to the table:
 
-- Ready to be used with J2CL and GWT 3
-- Depends only on Elemental2, `org.gwtprojec.:event.gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
 - [Helper methods](#helper-methods) to manipulate the DOM tree
+- Ready to be used with J2CL and next gen GWT
+- Minimal dependencies
+  - Elemental2 1.0.0:
+    - `com.google.elemental2:elemental2-core:1.0.0`
+    - `com.google.elemental2:elemental2-dom:1.0.0`
+    - `com.google.elemental2:elemental2-webstorage:1.0.0`
+  - `org.gwtproject.event:gwt-event:HEAD-SNAPSHOT`
+  - `org.gwtproject.safehtml:gwt-safehtml:1.0-SNAPSHOT`
 
 **TOC**  
 * [Get Started](#get-started)
@@ -32,7 +38,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.0.0-rc1</version>
+    <version>1.0.0-rc2</version>
 </dependency>
 ```
  
@@ -89,7 +95,7 @@ HTMLElement section = section().css("main")
         .element();
 ```
 
-The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
+The class `Elements` provides convenience methods to create the most common elements. It uses a fluent API to create and append elements on the fly. Take a look at the [API documentation](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/Elements.html) for more details.
 
 ## References
 
@@ -106,7 +112,7 @@ final HTMLElement footer = footer()
 
 # Event Handlers
 
-Elemento provides methods to easily register event handlers. There are [constants](https://rawgit.com/hal/elemento/apidoc/org/elemento/EventType.html) for most of the known event types. 
+Elemento provides methods to easily register event handlers. There are [constants](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/EventType.html) for most of the known event types. 
 
 You can either add event handlers when building the element hierarchy:
 
@@ -147,7 +153,7 @@ HandlerRegistration handler = bind(listItem, click, event -> alert("Clicked"));
 
 The latter approach returns `org.gwtproject.event.shared.HandlerRegistration` which you can use to remove the handler again.
 
-In order to make it easier to work with keyboard events, Elemento provides an [enum](https://rawgit.com/hal/elemento/apidoc/org/elemento/Key.html) with the most common keyboard codes:
+In order to make it easier to work with keyboard events, Elemento provides an [enum](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/Key.html) with the most common keyboard codes:
 
 ```java
 import elemental2.dom.KeyboardEvent;
@@ -258,7 +264,7 @@ Besides the builder API, Elemento comes with a bunch of static helper methods th
 1. Methods to manipulate an element.
 1. Methods to generate safe IDs.
 
-See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
+See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/Elements.html) for more details.
 
 ## Attach / Detach
 
@@ -303,29 +309,22 @@ Elemento uses the [`MutationObserver`](https://developer.mozilla.org/docs/Web/AP
 
 Elemento provides several methods to iterate over node lists, child elements or elements returned by a selector. There are methods which return `Iterator`, `Iterable` and `Stream`.
 
-See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/elemento/Elements.html) for more details.
+See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/org/jboss/elemento/Elements.html) for more details.
 
 # J2CL / GWT 3
 
-Elemento is ready to be used with J2CL and GWT 3. It has no dependencies to classes from `com.google.gwt`. It only depends on
-
-- `com.google.elemental2:elemental2-core` version 1.0.0
-- `com.google.elemental2:elemental2-dom` version 1.0.0
-- `com.google.elemental2:elemental2-webstorage` version 1.0.0
-- `org.gwtproject.event:gwt-event` version HEAD-SNAPSHOT and 
-- `org.gwtproject.safehtml:gwt-safehtml` version 1.0-SNAPSHOT
-
-If you want to build with GWT you have to use the latest version (HEAD-SNAPSHOT).
+Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends on GWT HEAD-SNAPSHOT and Elemental2 1.0.0, but can also be used with GWT 2.8.2 and Elemental2 1.0.0-RC1. In this case you have to override the Elemental2 dependencies. See the [GWT 2.8](samples/gwt28) sample for more infos.
 
 # Samples
 
-Elemento comes with different [implementations](https://hal.github.io/elemento/index.html) of the [TodoMVC](http://todomvc.com/) application. 
+Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application. 
                      
-- [GWT](https://hal.github.io/elemento/gwt/index.html): Based GWT and Elemento
-- [J2CL](https://hal.github.io/elemento/j2cl/index.html): Based J2CL and Elemento
-<!-- - [Crysknife](https://hal.github.io/elemento/crysknife/index.html): Based on J2CL, Elemento, Crysknife CDI and Crysknife templates -->
+- [GWT 2.8](samples/gwt28): Based on GWT 2.8, Elemental2 1.0.0-RC1 and Elemento
+- [GWT 3.0](samples/gwt30): Based on GWT HEAD-SNAPSHOT and Elemento
+- [J2CL](samples/j2cl): Based on J2CL and Elemento
+- [Crysknife](samples/crysknife): Based on J2CL, Elemento, Crysknife CDI and Crysknife templates
 
-All samples use the same key to persist the todo items in the local storage. So you can switch between the samples and continue working on your tasks seamlessly ;-)
+All samples are available online at https://hal.github.io/elemento/index.html.
 
 # Contributing
 

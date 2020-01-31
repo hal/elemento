@@ -26,41 +26,43 @@
     <groupId>org.jboss.elemento.samples</groupId>
     <artifactId>sample-j2cl</artifactId>
     <version>HEAD-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>Elemento :: Samples :: J2CL</name>
 
     <properties>
-        <elemento.version>1.0.0-rc1</elemento.version>
-        <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
-        <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
-        <j2cl-plugin.version>0.11-SNAPSHOT</j2cl-plugin.version>
+        <!-- project / plugin related properties -->
         <j2cl-compilation.level>BUNDLE</j2cl-compilation.level>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
+        <!-- plugin versions -->
+        <j2cl-plugin.version>0.12-SNAPSHOT</j2cl-plugin.version>
+        <tomcat7-plugin.version>2.2</tomcat7-plugin.version>
+
+        <!-- dependency versions -->
+        <elemento.version>1.0.0-rc2</elemento.version>
+        <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
     </properties>
 
     <dependencies>
+        <!-- Elemento -->
         <dependency>
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.jboss.elemento</groupId>
-            <artifactId>elemento-core</artifactId>
-            <version>${elemento.version}</version>
-            <classifier>sources</classifier>
-        </dependency>
+
+        <!-- GWT Project -->
         <dependency>
             <groupId>org.gwtproject.core</groupId>
             <artifactId>gwt-core</artifactId>
             <version>${gwt-core.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.gwtproject.event</groupId>
-            <artifactId>gwt-event</artifactId>
-            <version>${gwt-event.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -82,23 +84,67 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>custom-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <targetPath>${basedir}/target/webapp</targetPath>
+                                    <directory>src/main/webapp</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                                <resource>
+                                    <targetPath>${basedir}/target/webapp/classes</targetPath>
+                                    <directory>src/main/resources</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                            <encoding>UTF-8</encoding>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.vertispan.j2cl</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>
                 <version>${j2cl-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>build-js</id>
-                        <phase>package</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>build</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
+                    <defaultWebappDirectory>${project.build.directory}/gwt/launcherDir</defaultWebappDirectory>
                     <compilationLevel>${j2cl-compilation.level}</compilationLevel>
                     <entrypoint>org.jboss.elemento.sample.j2cl.Main</entrypoint>
                     <initialScriptFilename>todo.js</initialScriptFilename>
-                    <webappDirectory>${project.build.directory}/classes/META-INF/resources</webappDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <packagingExcludes>WEB-INF/classes/**</packagingExcludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>${tomcat7-plugin.version}</version>
+                <configuration>
+                    <contextFile>${basedir}/src/main/tomcat/context.xml</contextFile>
                 </configuration>
             </plugin>
         </plugins>
@@ -130,9 +176,19 @@
             <url>https://repo.vertispan.com/j2cl/</url>
         </repository>
         <repository>
-            <id>vertispan-snapshots</id>
+            <id>vertispan-j2cl-snapshots</id>
             <name>Vertispan hosted artifacts-snapshots</name>
             <url>https://repo.vertispan.com/j2cl/</url>
+        </repository>
+        <repository>
+            <id>vertispan-gwt3-snapshots</id>
+            <name>Vertispan Snapshots</name>
+            <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
         </repository>
     </repositories>
 

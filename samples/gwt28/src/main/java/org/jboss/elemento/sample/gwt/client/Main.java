@@ -13,37 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.elemento.sample.crysknife;
+package org.jboss.elemento.sample.gwt.client;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+import com.google.gwt.core.client.EntryPoint;
 
-import org.gwtproject.core.client.EntryPoint;
-import org.treblereel.gwt.crysknife.client.Application;
-import org.treblereel.gwt.crysknife.client.ComponentScan;
-
+import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.hashchange;
 
-@Application
-@ComponentScan("org.jboss.elemento.sample.crysknife")
 public class Main implements EntryPoint {
-
-    @Inject TodoRepository repository;
-    @Inject ApplicationElement application;
-    @Inject FooterElement footer;
 
     @Override
     public void onModuleLoad() {
-        new MainBootstrap(this).initialize();
-    }
+        ApplicationElement application = new ApplicationElement(new TodoRepository());
 
-    @PostConstruct
-    void init() {
-        body().add(application.getElement()).add(footer.getElement());
-        bind(window, hashchange, event -> application.filter(window.location.hash));
-        application.filter(window.location.hash);
+        body().add(application).add(new FooterElement());
+        bind(window, hashchange, event -> application.filter(location.getHash()));
+        application.filter(location.getHash());
     }
 }

@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.elemento.sample.crysknife;
+package org.jboss.elemento.sample.gwt.client;
 
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.KeyboardEvent;
 import elemental2.dom.MutationRecord;
-import org.gwtproject.event.shared.HandlerRegistration;
-import org.gwtproject.event.shared.HandlerRegistrations;
 import org.jboss.elemento.Attachable;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
+import org.gwtproject.event.shared.HandlerRegistration;
+import org.gwtproject.event.shared.HandlerRegistrations;
 
 import static org.jboss.elemento.Elements.input;
 import static org.jboss.elemento.Elements.*;
@@ -37,14 +37,15 @@ class TodoElement implements IsElement<HTMLElement>, Attachable {
     private final Todo item;
     private final ApplicationElement application;
     private final TodoRepository repository;
-    private HandlerRegistration handlerRegistration;
-    private boolean escape;
 
     private final HTMLElement root;
     private final HTMLInputElement toggle;
     private final HTMLElement label;
     private final HTMLButtonElement destroy;
-    private final HTMLInputElement input;
+    private final HTMLInputElement summary;
+    private HandlerRegistration handlerRegistration;
+
+    private boolean escape;
 
     TodoElement(ApplicationElement application, TodoRepository repository, Todo item) {
         this.application = application;
@@ -55,8 +56,7 @@ class TodoElement implements IsElement<HTMLElement>, Attachable {
                         .add(toggle = input(checkbox).css("toggle").element())
                         .add(label = label().textContent(item.text).element())
                         .add(destroy = button().css("destroy").element()))
-                .add(input = input(text).css("edit").element())
-                .element();
+                .add(summary = input(text).css("edit").element()).element();
         this.root.classList.toggle("completed", item.completed);
         this.toggle.checked = item.completed;
         Attachable.register(this, this);
@@ -73,8 +73,8 @@ class TodoElement implements IsElement<HTMLElement>, Attachable {
                 bind(toggle, change, ev -> toggle()),
                 bind(label, dblclick, ev -> edit()),
                 bind(destroy, click, ev -> destroy()),
-                bind(input, keydown, this::keyDown),
-                bind(input, blur, ev -> blur()));
+                bind(summary, keydown, this::keyDown),
+                bind(summary, blur, ev -> blur()));
     }
 
     @Override
@@ -95,8 +95,8 @@ class TodoElement implements IsElement<HTMLElement>, Attachable {
     private void edit() {
         escape = false;
         root.classList.add("editing");
-        input.value = label.textContent;
-        input.focus();
+        summary.value = label.textContent;
+        summary.focus();
     }
 
     private void destroy() {
@@ -116,7 +116,7 @@ class TodoElement implements IsElement<HTMLElement>, Attachable {
     }
 
     private void blur() {
-        String value = input.value.trim();
+        String value = summary.value.trim();
         if (value.length() == 0) {
             destroy();
         } else {

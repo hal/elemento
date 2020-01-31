@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -27,102 +28,65 @@ import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLUListElement;
+import elemental2.dom.KeyboardEvent;
 import org.jboss.elemento.By;
-import org.jboss.elemento.HtmlContentBuilder;
-import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
+import org.jboss.gwt.elemento.core.IsElement;
+import org.treblereel.gwt.crysknife.annotation.DataField;
+import org.treblereel.gwt.crysknife.annotation.EventHandler;
+import org.treblereel.gwt.crysknife.annotation.ForEvent;
+import org.treblereel.gwt.crysknife.annotation.Templated;
 
 import static org.jboss.elemento.Elements.*;
-import static org.jboss.elemento.EventType.bind;
-import static org.jboss.elemento.EventType.change;
-import static org.jboss.elemento.EventType.click;
-import static org.jboss.elemento.EventType.keydown;
-import static org.jboss.elemento.InputType.checkbox;
-import static org.jboss.elemento.InputType.text;
 import static org.jboss.elemento.sample.crysknife.Filter.ACTIVE;
 import static org.jboss.elemento.sample.crysknife.Filter.COMPLETED;
 
 @Singleton
+@Templated("Todo.html#todos")
 public class ApplicationElement implements IsElement<HTMLElement> {
 
     private final TodoRepository repository;
     private Filter filter;
 
-    private final HTMLElement root;
-    private final HTMLInputElement newTodo;
-    private final HTMLElement main;
-    private final HTMLInputElement toggleAll;
-    private final HtmlContentBuilder<HTMLUListElement> list;
-    private final HTMLElement footer;
-    private final HTMLElement count;
-    private final HTMLElement filterAll;
-    private final HTMLElement filterActive;
-    private final HTMLElement filterCompleted;
-    private final HTMLButtonElement clearCompleted;
+    @DataField HTMLInputElement newTodo;
+    @DataField HTMLElement main;
+    @DataField HTMLInputElement toggleAll;
+    @DataField HTMLUListElement list;
+    @DataField HTMLElement footer;
+    @DataField HTMLElement count;
+    @DataField HTMLElement filterAll;
+    @DataField HTMLElement filterActive;
+    @DataField HTMLElement filterCompleted;
+    @DataField HTMLButtonElement clearCompleted;
 
     @Inject
     public ApplicationElement(TodoRepository repository) {
         this.repository = repository;
-        this.root = section().css("todoapp")
-                .add(header().css("header")
-                        .add(h(1).textContent("todos"))
-                        .add(newTodo = input(text).css("new-todo")
-                                .autofocus(true)
-                                .placeholder("What needs to be done?")
-                                .element()))
-                .add(main = section().css("main")
-                        .add(toggleAll = input(checkbox).css("toggle-all").id("toggle-all").element())
-                        .add(label().apply(l -> l.htmlFor = "toggle-all").textContent("Mark all as complete"))
-                        .add(list = ul().css("todo-list"))
-                        .element())
-                .add(footer = footer().css("footer")
-                        .add(count = span().css("todo-count").innerHtml(Messages.items(0)).element())
-                        .add(ul().css("filters")
-                                .add(li().add(filterAll = a(Filter.ALL.fragment()).textContent("All").element()))
-                                .add(li().add(filterActive = a(ACTIVE.fragment()).textContent("Active").element()))
-                                .add(li().add(
-                                        filterCompleted = a(COMPLETED.fragment()).textContent("Completed").element())))
-                        .add(clearCompleted = button()
-                                .css("clear-completed")
-                                .textContent("Clear completed")
-                                .element())
-                        .element())
-                .element();
+    }
 
-        bind(newTodo, keydown, this::newTodo);
-        bind(toggleAll, change, event -> toggleAll());
-        bind(clearCompleted, click, event -> clearCompleted());
+    @PostConstruct
+    void init() {
         reset();
         update();
     }
 
-    private void reset() {
-        removeChildrenFrom(list);
-        for (Todo item : repository.items()) {
-            list.add(new TodoElement(this, repository, item).element());
-        }
-    }
-
-    @Override
-    public HTMLElement element() {
-        return root;
-    }
-
     // ------------------------------------------------------ event / token handler
 
-    private void newTodo(Event event) {
+    @EventHandler("newTodo")
+    void newTodo(@ForEvent("keydown") KeyboardEvent event) {
         if (Key.Enter.match(event)) {
             String text = newTodo.value.trim();
             if (text.length() != 0) {
                 Todo item = repository.add(text);
-                list.add(new TodoElement(this, repository, item));
+                list.appendChild(new TodoElement(this, repository, item).element());
                 newTodo.value = "";
                 update();
             }
         }
     }
 
-    private void toggleAll() {
+    @EventHandler("newTodo")
+    void toggleAll(@ForEvent("change") Event event) {
         for (HTMLElement li : children(list)) {
             toggle(li, "completed", toggleAll.checked);
             HTMLInputElement cb = find(li, By.classname("toggle"));
@@ -134,7 +98,8 @@ public class ApplicationElement implements IsElement<HTMLElement> {
         update();
     }
 
-    private void clearCompleted() {
+    @EventHandler("clearCompleted")
+    void clearCompleted(@ForEvent("click") Event event) {
         Set<String> ids = new HashSet<>();
         for (Iterator<HTMLElement> iterator = iterator(list); iterator.hasNext(); ) {
             HTMLElement li = iterator.next();
@@ -148,6 +113,29 @@ public class ApplicationElement implements IsElement<HTMLElement> {
         }
         repository.removeAll(ids);
         update();
+    }
+
+    // ------------------------------------------------------ state
+
+    void update() {
+        int activeCount = 0;
+        int completedCount = 0;
+        int size = (int) list.childElementCount;
+
+        setVisible(main, size > 0);
+        setVisible(footer, size > 0);
+        for (HTMLElement li : children(list)) {
+            if (li.classList.contains("completed")) {
+                completedCount++;
+                setVisible(li, filter != ACTIVE);
+            } else {
+                activeCount++;
+                setVisible(li, filter != COMPLETED);
+            }
+        }
+        toggleAll.checked = (size == completedCount);
+        innerHtml(count, Messages.items(activeCount));
+        setVisible(clearCompleted, completedCount != 0);
     }
 
     void filter(String token) {
@@ -174,26 +162,10 @@ public class ApplicationElement implements IsElement<HTMLElement> {
         update();
     }
 
-    // ------------------------------------------------------ state update
-
-    void update() {
-        int activeCount = 0;
-        int completedCount = 0;
-        int size = list.element().childElementCount;
-
-        setVisible(main, size > 0);
-        setVisible(footer, size > 0);
-        for (HTMLElement li : children(list)) {
-            if (li.classList.contains("completed")) {
-                completedCount++;
-                setVisible(li, filter != ACTIVE);
-            } else {
-                activeCount++;
-                setVisible(li, filter != COMPLETED);
-            }
+    private void reset() {
+        removeChildrenFrom(list);
+        for (Todo item : repository.items()) {
+            list.appendChild(new TodoElement(this, repository, item).element());
         }
-        toggleAll.checked = (size == completedCount);
-        innerHtml(count, Messages.items(activeCount));
-        setVisible(clearCompleted, completedCount != 0);
     }
 }
