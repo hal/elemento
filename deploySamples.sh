@@ -89,7 +89,7 @@ cd /tmp/
 git clone -b gh-pages --single-branch git@github.com:hal/elemento.git
 cd elemento
 cp -R $ROOT/samples/gwt28/target/sample-gwt28/todo gwt28
-cp -R $ROOT/samples/gwt30/target/sample-gwt/todo gwt30
+cp -R $ROOT/samples/gwt30/target/sample-gwt30/todo gwt30
 cp -R $ROOT/samples/j2cl/target/sample-j2cl j2cl
 cp -R $ROOT/samples/crysknife/target/sample-crysknife crysknife
 date > .build
