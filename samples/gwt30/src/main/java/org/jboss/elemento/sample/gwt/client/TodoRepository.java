@@ -122,17 +122,6 @@ public class TodoRepository {
         save(items.values());
     }
 
-    public void onExternalModification(ModificationCallback callback) {
-        if (storage != null) {
-            WebStorageWindow.of(window).addEventListener("storage", event -> {
-                StorageEvent storageEvent = (StorageEvent) event;
-                if (key.equals(storageEvent.key)) {
-                    setTimeout(args -> callback.execute(), 333);
-                }
-            }, false);
-        }
-    }
-
     private LinkedHashMap<String, Todo> load() {
         LinkedHashMap<String, Todo> items = new LinkedHashMap<>();
         if (storage != null) {
@@ -160,11 +149,5 @@ public class TodoRepository {
             Todo[] todos = items.toArray(new Todo[0]);
             storage.setItem(key, Global.JSON.stringify(todos));
         }
-    }
-
-    @FunctionalInterface
-    public interface ModificationCallback {
-
-        void execute();
     }
 }
