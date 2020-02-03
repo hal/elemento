@@ -42,7 +42,7 @@ public class Main implements EntryPoint {
 
     @PostConstruct
     void init() {
-        body().add(application.getElement()).add(footer.getElement());
+        body().add(application).add(footer);
         bind(window, hashchange, event -> application.filter(window.location.hash));
         application.filter(window.location.hash);
     }

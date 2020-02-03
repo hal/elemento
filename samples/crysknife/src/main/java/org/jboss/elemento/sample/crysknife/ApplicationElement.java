@@ -30,8 +30,8 @@ import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.KeyboardEvent;
 import org.jboss.elemento.By;
+import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
-import org.jboss.gwt.elemento.core.IsElement;
 import org.treblereel.gwt.crysknife.annotation.DataField;
 import org.treblereel.gwt.crysknife.annotation.EventHandler;
 import org.treblereel.gwt.crysknife.annotation.ForEvent;
@@ -48,6 +48,7 @@ public class ApplicationElement implements IsElement<HTMLElement> {
     private final TodoRepository repository;
     private Filter filter;
 
+    @DataField HTMLElement todos;
     @DataField HTMLInputElement newTodo;
     @DataField HTMLElement main;
     @DataField HTMLInputElement toggleAll;
@@ -68,6 +69,11 @@ public class ApplicationElement implements IsElement<HTMLElement> {
     void init() {
         reset();
         update();
+    }
+
+    @Override
+    public HTMLElement element() {
+        return todos;
     }
 
     // ------------------------------------------------------ event / token handler
