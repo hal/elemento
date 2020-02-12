@@ -32,7 +32,7 @@ public class Main implements EntryPoint {
         FooterElement footer = new FooterElement();
 
         body().add(application).add(footer);
-        bind(window, hashchange, event -> application.filter(location.hash));
-        application.filter(location.hash);
+        bind(window, hashchange, event -> application.filter(location.getHash()));
+        application.filter(location.getHash());
     }
 }

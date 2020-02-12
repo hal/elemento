@@ -54,7 +54,6 @@
         </dependency>
 
         <!-- Crysknife -->
-        <!-- TODO: Remove exclusions as soon as Crysknife depends on Elemental2 1.0.0 -->
         <dependency>
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>crysknife-annotations</artifactId>
@@ -75,24 +74,12 @@
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>templates-api</artifactId>
             <version>${crysknife.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.elemental2</groupId>
-                    <artifactId>elemental2-dom</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>templates-generator</artifactId>
             <version>${crysknife.version}</version>
             <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.elemental2</groupId>
-                    <artifactId>elemental2-dom</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!-- GWT Project -->
