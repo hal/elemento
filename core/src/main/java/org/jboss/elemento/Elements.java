@@ -1387,7 +1387,8 @@ public final class Elements {
         for (String part : parts) {
             if (part != null) {
                 String s = part.replaceAll("\\s+", "");
-                s = s.replaceAll("[^a-zA-Z0-9]", "");
+                s = s.replaceAll("[^a-zA-Z0-9-_]", "");
+                s = s.replace('_', '-');
                 if (s.length() != 0) {
                     sanitized.add(s);
                 }

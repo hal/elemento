@@ -18,6 +18,7 @@ package org.jboss.elemento;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class IdTest {
@@ -47,7 +48,7 @@ class IdTest {
         assertEquals("lorem-ipsum", Elements.asId("lorem-ipsum"));
         assertEquals("lorem-ipsum", Elements.asId("Lorem Ipsum"));
         assertEquals("l0rem-ip5um", Elements.asId("l0rem-ip5um"));
-        assertEquals("lorem-ipsum", Elements.asId("lorem §±!@#$%^&*()=_+[]{};'\\:\"|,./<>?`~ ipsum"));
+        assertEquals("lorem---ipsum", Elements.asId("lorem §±!@#$%^&*()=_+[]{};'\\:\"|,./<>?`~ ipsum"));
     }
 
     @Test
@@ -59,7 +60,26 @@ class IdTest {
         assertEquals("l0rem-ip5um", Elements.buildId("l0rem ip5um"));
         assertEquals("l0rem-ip5um", Elements.buildId("l0rem", "ip5um"));
         assertEquals("l0rem-ip5um", Elements.buildId(" l0rem ", " ip5um "));
-        assertEquals("lorem-ipsum", Elements.buildId("lorem §±!@#$%^&*()=_+[]{};'\\:\"|,./<>?`~ ipsum"));
-        assertEquals("lorem-ipsum", Elements.buildId("lorem", "§±!@#$%^&*()=_+[]{};'\\:\"|,./<>?`~", "ipsum"));
+        assertEquals("lorem---ipsum", Elements.buildId("lorem §±!@#$%^&*()=_+[]{};'\\:\"|,./<>?`~ ipsum"));
+        assertEquals("lorem---ipsum", Elements.buildId("lorem", "§±!@#$%^&*()=_+[]{};'\\:\"|,./<>?`~", "ipsum"));
+    }
+
+    @Test
+    void similar() {
+        // must result in the same ID
+        String id1 = Elements.buildId("foo_bar");
+        String id2 = Elements.buildId("foo-bar");
+        String id3 = Elements.buildId("foo bar");
+        assertEquals(id1, id2);
+        assertEquals(id1, id3);
+        assertEquals(id2, id3);
+
+        // must result in the same ID
+        String id4 = Elements.buildId("foobar");
+        String id5 = Elements.buildId("fooBar");
+        assertEquals(id4, id5);
+
+        // must not be the same
+        assertNotEquals(id1, id4);
     }
 }
