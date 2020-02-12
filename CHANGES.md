@@ -35,13 +35,13 @@ The packages have been flattened and renamed. All Elemento classes are now in th
 
 Elemento works with both J2CL and GWT. No classes from `com.google` are used. It only depends on
                                                                                 
-- `com.google.elemental2:elemental2-core` version 1.0.0
-- `com.google.elemental2:elemental2-dom` version 1.0.0
-- `com.google.elemental2:elemental2-webstorage` version 1.0.0
+- `com.google.elemental2:elemental2-core` version 1.0.0-RC1
+- `com.google.elemental2:elemental2-dom` version 1.0.0-RC1
+- `com.google.elemental2:elemental2-webstorage` version 1.0.0-RC1
 - `org.gwtproject.event:gwt-event` version HEAD-SNAPSHOT and 
 - `org.gwtproject.safehtml:gwt-safehtml` version 1.0-SNAPSHOT
 
-If you want to build with GWT you have to use the latest version (HEAD-SNAPSHOT). There are [samples](samples) which show how to use Elemento in different environments. 
+You can use Elemento with GWT 2.8, HEAD-SNAPSHOT or J2CL. See the [samples](samples) for more details about how to setup your dependencies.
 
 ## Templating
 
