@@ -40,7 +40,7 @@
         <tomcat7-plugin.version>2.2</tomcat7-plugin.version>
 
         <!-- dependency versions -->
-        <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <elemento.version>1.0.0-rc3</elemento.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
     </properties>
 
