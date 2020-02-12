@@ -25,9 +25,9 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLUListElement;
 import org.jboss.elemento.By;
+import org.jboss.elemento.HtmlContentBuilder;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
-import org.jboss.elemento.HtmlContentBuilder;
 
 import static org.jboss.elemento.Elements.*;
 import static org.jboss.elemento.EventType.bind;
@@ -174,7 +174,7 @@ class ApplicationElement implements IsElement<HTMLElement> {
     void update() {
         int activeCount = 0;
         int completedCount = 0;
-        int size = list.element().childElementCount;
+        int size = (int) list.element().childElementCount;
 
         setVisible(main, size > 0);
         setVisible(footer, size > 0);

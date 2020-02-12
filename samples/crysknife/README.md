@@ -1,6 +1,6 @@
 # Elemento Crysknife Sample
 
-[TodoMVC](http://todomvc.com/) implementation based on J2CL, Elemento, Crysknife CDI and Crysknife templates.
+[TodoMVC](http://todomvc.com/) implementation based on J2CL, Crysknife CDI and Crysknife templates.
 
 ## Get Started
 

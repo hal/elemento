@@ -1,6 +1,6 @@
 # Elemento J2CL Sample
 
-[TodoMVC](http://todomvc.com/) implementation based on J2CL and Elemento.
+[TodoMVC](http://todomvc.com/) implementation based on J2CL.
 
 ## Get Started
 

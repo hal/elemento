@@ -26,7 +26,7 @@
 
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.0.0-rc2</version>
+    <version>1.0.0-rc3</version>
     <name>Elemento :: Core</name>
     <description>Builder API and other goodies for GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
@@ -96,7 +96,7 @@
         <nexus-staging.version>1.6.3</nexus-staging.version>
 
         <!-- dependency versions -->
-        <elemental2.version>1.0.0</elemental2.version>
+        <elemental2.version>1.0.0-RC1</elemental2.version>
         <gwt-event.version>HEAD-SNAPSHOT</gwt-event.version>
         <gwt-safehtml.version>1.0-SNAPSHOT</gwt-safehtml.version>
         <junit.version>5.5.2</junit.version>

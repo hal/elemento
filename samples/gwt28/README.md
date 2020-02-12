@@ -1,6 +1,6 @@
 # Elemento GWT 2.8 Sample
 
-[TodoMVC](http://todomvc.com/) implementation based on GWT 2.8, Elemental2 1.0.0-RC1 and Elemento.
+[TodoMVC](http://todomvc.com/) implementation based on GWT 2.8.
 
 ## Get Started
 
