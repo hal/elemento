@@ -143,6 +143,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <packagingExcludes>WEB-INF/classes/**</packagingExcludes>
+                    <packagingExcludes>WEB-INF/lib/**</packagingExcludes>
                 </configuration>
             </plugin>
             <plugin>
