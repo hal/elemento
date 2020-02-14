@@ -84,35 +84,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>custom-resources</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <targetPath>${basedir}/target/webapp</targetPath>
-                                    <directory>src/main/webapp</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                                <resource>
-                                    <targetPath>${basedir}/target/webapp/classes</targetPath>
-                                    <directory>src/main/resources</directory>
-                                    <filtering>false</filtering>
-                                </resource>
-                            </resources>
-                            <encoding>UTF-8</encoding>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>com.vertispan.j2cl</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>
                 <version>${j2cl-plugin.version}</version>
