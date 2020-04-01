@@ -138,7 +138,7 @@ final class BodyObserver {
             String attribute) {
         String elementId = element.getAttribute(attribute);
         if (elementId == null) {
-            element.setAttribute(attribute, Elements.uniqueId());
+            element.setAttribute(attribute, Id.unique());
         }
         return new ElementObserver() {
             @Override

@@ -15,11 +15,8 @@
  */
 package org.jboss.elemento;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -86,7 +83,6 @@ import static elemental2.dom.DomGlobal.document;
 import static java.util.Collections.emptyIterator;
 import static java.util.Collections.emptyList;
 import static java.util.Spliterators.spliteratorUnknownSize;
-import static java.util.stream.Collectors.joining;
 import static jsinterop.base.Js.cast;
 
 /**
@@ -95,9 +91,6 @@ import static jsinterop.base.Js.cast;
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
  */
 public final class Elements {
-
-    private static final String UNIQUE_ID = "id-";
-    private static int counter = 0;
 
     static ElementCreator createElement = new ElementCreator() {
         @Override
@@ -1339,71 +1332,6 @@ public final class Elements {
         }
     }
 
-    // ------------------------------------------------------ IDs
-
-    /** Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs. */
-    public static String uniqueId() {
-        String id;
-        do {
-            id = UNIQUE_ID + counter; // no Ids.build(ELEMENTO_UID, counter) for performance reasons
-            counter++;
-        } while (document.getElementById(id) != null);
-        return id;
-    }
-
-    /** Creates an identifier guaranteed to be unique within this document. The unique part comes last. */
-    public static String uniqueId(String id, String... additionalIds) {
-        return buildId(id, additionalIds) + "-" + uniqueId();
-    }
-
-    public static String buildId(String id, String... additionalIds) {
-        return buildId(id, '-', additionalIds);
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    static String buildId(String id, char separator, String... additionalIds) {
-        if (id == null || id.trim().length() == 0) {
-            throw new IllegalArgumentException("ID must not be null or empty.");
-        }
-        List<String> ids = new ArrayList<>();
-        ids.add(id);
-        if (additionalIds != null) {
-            for (String additionalId : additionalIds) {
-                if (additionalId != null && additionalId.trim().length() != 0) {
-                    ids.add(additionalId);
-                }
-            }
-        }
-        return ids.stream().map(Elements::asId).filter(Objects::nonNull).collect(joining(String.valueOf(separator)));
-    }
-
-    /**
-     * Turns a string which can contain whitespace and upper/lower case characters into an all lowercase id separated by
-     * "-".
-     */
-    static String asId(String text) {
-        String[] parts = text.split("[-\\s]");
-        List<String> sanitized = new ArrayList<>();
-        for (String part : parts) {
-            if (part != null) {
-                String s = part.replaceAll("\\s+", "");
-                s = s.replaceAll("[^a-zA-Z0-9-_]", "");
-                s = s.replace('_', '-');
-                if (s.length() != 0) {
-                    sanitized.add(s);
-                }
-            }
-        }
-        if (sanitized.isEmpty()) {
-            return null;
-        } else {
-            return sanitized.stream()
-                    .filter(s -> s != null && s.trim().length() != 0)
-                    .map(String::toLowerCase)
-                    .collect(joining("-"));
-        }
-    }
-
     // ------------------------------------------------------ visibility
 
     /** Checks whether the given element is visible (i.e. {@code display} is not {@code none}) */
@@ -1469,6 +1397,26 @@ public final class Elements {
         if (element != null) {
             innerHtml(element.element(), html);
         }
+    }
+
+    // ------------------------------------------------------ deprecated
+
+    /** @deprecated Replaced bv {@link Id#unique()} */
+    @Deprecated
+    public static String uniqueId() {
+        return Id.unique();
+    }
+
+    /** @deprecated Replaced bv {@link Id#unique(String, String...)} */
+    @Deprecated
+    public static String uniqueId(String id, String... additionalIds) {
+        return Id.unique(id, additionalIds);
+    }
+
+    /** @deprecated Replaced bv {@link Id#build(String, String...)} */
+    @Deprecated
+    public static String buildId(String id, String... additionalIds) {
+        return Id.build(id, additionalIds);
     }
 
     // ------------------------------------------------------ instance
