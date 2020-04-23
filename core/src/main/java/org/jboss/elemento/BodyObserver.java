@@ -24,7 +24,6 @@ import elemental2.dom.MutationObserverInit;
 import elemental2.dom.MutationRecord;
 import jsinterop.base.Js;
 
-import static elemental2.dom.DomGlobal.console;
 import static elemental2.dom.DomGlobal.document;
 import static java.util.stream.Collectors.toList;
 import static org.jboss.elemento.Elements.asHtmlElement;
@@ -33,11 +32,11 @@ import static org.jboss.elemento.Elements.stream;
 
 final class BodyObserver {
 
-    private static String ATTACH_UID_KEY = "on-attach-uid";
-    private static String DETACH_UID_KEY = "on-detach-uid";
+    private static final String ATTACH_UID_KEY = "on-attach-uid";
+    private static final String DETACH_UID_KEY = "on-detach-uid";
 
-    private static List<ElementObserver> detachObservers = new ArrayList<>();
-    private static List<ElementObserver> attachObservers = new ArrayList<>();
+    private static final List<ElementObserver> detachObservers = new ArrayList<>();
+    private static final List<ElementObserver> attachObservers = new ArrayList<>();
     private static boolean ready = false;
 
     private static void startObserving() {

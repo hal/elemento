@@ -42,221 +42,6 @@ import static java.util.stream.Collectors.joining;
  */
 public abstract class By {
 
-    // ------------------------------------------------------ combinators
-
-    /** Operator used for attribute selectors. */
-    public enum AttributeOperator {
-        /**
-         * {@code [attr^=value]}: Represents elements with an attribute name of attr whose value is prefixed (preceded)
-         * by value.
-         */
-        STARTS_WITH("^"),
-
-        /**
-         * {@code [attr$=value]}: Represents elements with an attribute name of attr whose value is suffixed (followed)
-         * by value.
-         */
-        ENDS_WITH("$"),
-
-        /**
-         * {@code [attr*=value]}: Represents elements with an attribute name of attr whose value contains at least one
-         * occurrence of value within the string.
-         */
-        CONTAINS("*"),
-
-        /**
-         * {@code [attr~=value]}: Represents elements with an attribute name of attr whose value is a
-         * whitespace-separated list of words, one of which is exactly value.
-         */
-        CONTAINS_WORD("~"),
-
-        /**
-         * {@code [attr|=value]}: Represents elements with an attribute name of attr whose value can be exactly value or
-         * can begin with value immediately followed by a hyphen, - (U+002D). It is often used for language subcode
-         * matches.
-         */
-        CONTAINS_TOKEN("|");
-
-        private final String operator;
-
-        AttributeOperator(String operator) {
-            this.operator = operator;
-        }
-    }
-
-    private enum Combinator {
-
-        AND(""),
-        DESCENDANT(" "),
-        CHILD(" > "),
-        ADJACENT_SIBLING(" + "),
-        SIBLING(" ~ ");
-
-        private final String operator;
-
-        Combinator(String operator) {
-            this.operator = operator;
-        }
-    }
-
-    private static class BySelector extends By {
-
-        private final String selector;
-
-        private BySelector(String selector) {
-            this.selector = selector;
-        }
-
-        @Override
-        String selector() {
-            return selector;
-        }
-    }
-
-    private static class ByElement extends By {
-
-        private final String element;
-
-        private ByElement(String element) {
-            this.element = element;
-        }
-
-        @Override
-        String selector() {
-            return element;
-        }
-    }
-
-    private static class ById extends By {
-
-        private final String id;
-
-        private ById(String id) {
-            this.id = id;
-        }
-
-        @Override
-        String selector() {
-            return "#" + id;
-        }
-    }
-
-    private static class ByClassname extends By {
-
-        private final String[] classnames;
-
-        private ByClassname(String[] classnames) {
-            this.classnames = classnames;
-        }
-
-        @Override
-        String selector() {
-            return "." + String.join(".", classnames);
-        }
-    }
-
-    // ------------------------------------------------------ instance methods
-
-    private static class ByAttribute extends By {
-
-        private final String name;
-        private final String value;
-        private final AttributeOperator operator;
-
-        private ByAttribute(String name, AttributeOperator operator, String value) {
-            this.name = name;
-            this.value = value;
-            this.operator = operator;
-        }
-
-        @Override
-        String selector() {
-            StringBuilder builder = new StringBuilder();
-            builder.append("[").append(name);
-            if (value != null && value.length() != 0) {
-                boolean needsQuotes = needsQuotes(value);
-                if (operator != null) {
-                    builder.append(operator.operator);
-                }
-                builder.append("=");
-                if (needsQuotes) {
-                    builder.append("\"");
-                }
-                builder.append(value);
-                if (needsQuotes) {
-                    builder.append("\"");
-                }
-            }
-            builder.append("]");
-            return builder.toString();
-        }
-
-        // Inspired by https://mothereff.in/unquoted-attributes
-        // but w/o using js reg exp in order to enable unit tests
-        private boolean needsQuotes(String value) {
-            if (value.equals("-")) {
-                return true;
-            }
-            if (value.startsWith("-") && value.length() > 1 && Character.isDigit(value.charAt(1))) {
-                return true;
-            }
-            if (Character.isDigit(value.charAt(0))) {
-                return true;
-            }
-            for (int i = 0; i < value.length(); i++) {
-                char c = value.charAt(i);
-                if (!Character.isLetterOrDigit(c) && c != '-' && c != '_') {
-                    return true;
-                }
-            }
-            return false;
-        }
-    }
-
-    private static class ByData extends ByAttribute {
-
-        private static String camelToKebabCase(String str) {
-            // from https://codepen.io/wpatter6/pen/wvweWZa
-            return str.replaceAll("([a-z0-9]|(?=[A-Z]))([A-Z])", "$1-$2").toLowerCase();
-        }
-
-        private ByData(String name, AttributeOperator attributeOperator, String value) {
-            super("data-" + (name.contains("-") ? name : camelToKebabCase(name)), attributeOperator, value);
-        }
-    }
-
-    private static class ByCombination extends By {
-
-        private final By by1;
-        private final Combinator combinator;
-        private final By by2;
-
-        private ByCombination(By by1, Combinator combinator, By by2) {
-            this.by1 = by1;
-            this.combinator = combinator;
-            this.by2 = by2;
-        }
-
-        @Override
-        String selector() {
-            return by1.selector() + combinator.operator + by2.selector();
-        }
-    }
-
-    private static class ByGroup extends By {
-
-        private final By[] selectors;
-
-        private ByGroup(By[] selectors) {
-            this.selectors = selectors;
-        }
-
-        @Override
-        String selector() {
-            return stream(selectors).map(By::selector).collect(joining(", "));
-        }
-    }
-
     // ------------------------------------------------------ factory methods
 
     /** Returns a selector as-is. */
@@ -402,7 +187,7 @@ public abstract class By {
         return new ByGroup(selectors);
     }
 
-    // ------------------------------------------------------ inner classes
+    // ------------------------------------------------------ combinators
 
     /**
      * Combines this selector with the given selector. Use this method to express selectors like {@code button.primary}
@@ -418,21 +203,19 @@ public abstract class By {
     }
 
     /**
-     * Combines this selector with the given selector using the (space) combinator. Selects nodes that are descendants
-     * of this element.
-     */
-    public final By desc(By selector) {
-        return combinator(Combinator.DESCENDANT, selector);
-    }
-
-    // ------------------------------------------------------ By implementations
-
-    /**
      * Combines this selector with the given selector using the {@code >} (child) combinator. Selects nodes that are
      * direct children of this element.
      */
     public final By child(By selector) {
         return combinator(Combinator.CHILD, selector);
+    }
+
+    /**
+     * Combines this selector with the given selector using the (space) combinator. Selects nodes that are descendants
+     * of this element.
+     */
+    public final By desc(By selector) {
+        return combinator(Combinator.DESCENDANT, selector);
     }
 
     /**
@@ -454,6 +237,8 @@ public abstract class By {
     private By combinator(Combinator combinator, By selector) {
         return new ByCombination(this, combinator, selector);
     }
+
+    // ------------------------------------------------------ instance methods
 
     abstract String selector();
 
@@ -477,6 +262,221 @@ public abstract class By {
     @Override
     public String toString() {
         return selector();
+    }
+
+    // ------------------------------------------------------ By implementations
+
+    private static class ByAttribute extends By {
+
+        private final String name;
+        private final String value;
+        private final AttributeOperator operator;
+
+        private ByAttribute(String name, AttributeOperator operator, String value) {
+            this.name = name;
+            this.value = value;
+            this.operator = operator;
+        }
+
+        @Override
+        String selector() {
+            StringBuilder builder = new StringBuilder();
+            builder.append("[").append(name);
+            if (value != null && value.length() != 0) {
+                boolean needsQuotes = needsQuotes(value);
+                if (operator != null) {
+                    builder.append(operator.operator);
+                }
+                builder.append("=");
+                if (needsQuotes) {
+                    builder.append("\"");
+                }
+                builder.append(value);
+                if (needsQuotes) {
+                    builder.append("\"");
+                }
+            }
+            builder.append("]");
+            return builder.toString();
+        }
+
+        // Inspired by https://mothereff.in/unquoted-attributes
+        // but w/o using js reg exp in order to enable unit tests
+        private boolean needsQuotes(String value) {
+            if (value.equals("-")) {
+                return true;
+            }
+            if (value.startsWith("-") && value.length() > 1 && Character.isDigit(value.charAt(1))) {
+                return true;
+            }
+            if (Character.isDigit(value.charAt(0))) {
+                return true;
+            }
+            for (int i = 0; i < value.length(); i++) {
+                char c = value.charAt(i);
+                if (!Character.isLetterOrDigit(c) && c != '-' && c != '_') {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    private static class ByClassname extends By {
+
+        private final String[] classnames;
+
+        private ByClassname(String[] classnames) {
+            this.classnames = classnames;
+        }
+
+        @Override
+        String selector() {
+            return "." + String.join(".", classnames);
+        }
+    }
+
+    private static class ByCombination extends By {
+
+        private final By by1;
+        private final Combinator combinator;
+        private final By by2;
+
+        private ByCombination(By by1, Combinator combinator, By by2) {
+            this.by1 = by1;
+            this.combinator = combinator;
+            this.by2 = by2;
+        }
+
+        @Override
+        String selector() {
+            return by1.selector() + combinator.operator + by2.selector();
+        }
+    }
+
+    private static class ByData extends ByAttribute {
+
+        private static String camelToKebabCase(String str) {
+            // from https://codepen.io/wpatter6/pen/wvweWZa
+            return str.replaceAll("([a-z0-9]|(?=[A-Z]))([A-Z])", "$1-$2").toLowerCase();
+        }
+
+        private ByData(String name, AttributeOperator attributeOperator, String value) {
+            super("data-" + (name.contains("-") ? name : camelToKebabCase(name)), attributeOperator, value);
+        }
+    }
+
+    private static class ByElement extends By {
+
+        private final String element;
+
+        private ByElement(String element) {
+            this.element = element;
+        }
+
+        @Override
+        String selector() {
+            return element;
+        }
+    }
+
+    private static class ByGroup extends By {
+
+        private final By[] selectors;
+
+        private ByGroup(By[] selectors) {
+            this.selectors = selectors;
+        }
+
+        @Override
+        String selector() {
+            return stream(selectors).map(By::selector).collect(joining(", "));
+        }
+    }
+
+    private static class ById extends By {
+
+        private final String id;
+
+        private ById(String id) {
+            this.id = id;
+        }
+
+        @Override
+        String selector() {
+            return "#" + id;
+        }
+    }
+
+    private static class BySelector extends By {
+
+        private final String selector;
+
+        private BySelector(String selector) {
+            this.selector = selector;
+        }
+
+        @Override
+        String selector() {
+            return selector;
+        }
+    }
+
+    // ------------------------------------------------------ inner classes
+
+    /** Operator used for attribute selectors. */
+    public enum AttributeOperator {
+        /**
+         * {@code [attr^=value]}: Represents elements with an attribute name of attr whose value is prefixed (preceded)
+         * by value.
+         */
+        STARTS_WITH("^"),
+
+        /**
+         * {@code [attr$=value]}: Represents elements with an attribute name of attr whose value is suffixed (followed)
+         * by value.
+         */
+        ENDS_WITH("$"),
+
+        /**
+         * {@code [attr*=value]}: Represents elements with an attribute name of attr whose value contains at least one
+         * occurrence of value within the string.
+         */
+        CONTAINS("*"),
+
+        /**
+         * {@code [attr~=value]}: Represents elements with an attribute name of attr whose value is a
+         * whitespace-separated list of words, one of which is exactly value.
+         */
+        CONTAINS_WORD("~"),
+
+        /**
+         * {@code [attr|=value]}: Represents elements with an attribute name of attr whose value can be exactly value or
+         * can begin with value immediately followed by a hyphen, - (U+002D). It is often used for language subcode
+         * matches.
+         */
+        CONTAINS_TOKEN("|");
+
+        private final String operator;
+
+        AttributeOperator(String operator) {
+            this.operator = operator;
+        }
+    }
+
+    private enum Combinator {
+
+        AND(""),
+        DESCENDANT(" "),
+        CHILD(" > "),
+        ADJACENT_SIBLING(" + "),
+        SIBLING(" ~ ");
+
+        private final String operator;
+
+        Combinator(String operator) {
+            this.operator = operator;
+        }
     }
 }
 
