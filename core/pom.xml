@@ -26,7 +26,7 @@
 
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.0.0</version>
+    <version>HEAD-SNAPSHOT</version>
     <name>Elemento :: Core</name>
     <description>Builder API and other goodies for GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
