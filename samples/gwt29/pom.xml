@@ -26,9 +26,9 @@
     </parent>
 
     <groupId>org.jboss.elemento.samples</groupId>
-    <artifactId>sample-gwt28</artifactId>
+    <artifactId>sample-gwt29</artifactId>
     <version>HEAD-SNAPSHOT</version>
-    <name>Elemento :: Samples :: GWT 2.8</name>
+    <name>Elemento :: Samples :: GWT 2.9</name>
     <packaging>gwt-app</packaging>
 
     <properties>
@@ -42,29 +42,11 @@
         <gwt-maven-plugin.version>1.0.0</gwt-maven-plugin.version>
 
         <!-- dependency versions -->
-        <elemental2.version>1.0.0-RC1</elemental2.version>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
-        <gwt.version>2.8.2</gwt.version>
+        <gwt.version>2.9.0</gwt.version>
     </properties>
 
     <dependencies>
-        <!-- Override with older Elemental2 version -->
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-core</artifactId>
-            <version>${elemental2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-dom</artifactId>
-            <version>${elemental2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-webstorage</artifactId>
-            <version>${elemental2.version}</version>
-        </dependency>
-
         <!-- Elemento -->
         <dependency>
             <groupId>org.jboss.elemento</groupId>
@@ -102,7 +84,7 @@
                     <draftCompile>${gwt.draftCompile}</draftCompile>
                     <moduleName>org.jboss.elemento.sample.gwt.Todo</moduleName>
                     <moduleShortName>todo</moduleShortName>
-                    <sourceLevel>1.8</sourceLevel>
+                    <sourceLevel>11</sourceLevel>
                     <style>${gwt.style}</style>
                 </configuration>
             </plugin>

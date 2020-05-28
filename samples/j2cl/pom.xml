@@ -36,11 +36,11 @@
         <maven.compiler.source>1.8</maven.compiler.source>
 
         <!-- plugin versions -->
-        <j2cl-plugin.version>0.12-SNAPSHOT</j2cl-plugin.version>
+        <j2cl-plugin.version>0.13-SNAPSHOT</j2cl-plugin.version>
         <tomcat7-plugin.version>2.2</tomcat7-plugin.version>
 
         <!-- dependency versions -->
-        <elemento.version>1.0.0-rc3</elemento.version>
+        <elemento.version>1.0.0</elemento.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
     </properties>
 
@@ -64,54 +64,6 @@
         <finalName>${project.artifactId}</finalName>
 
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>enforce-java</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireJavaVersion>
-                                    <version>[1.8,1.9)</version>
-                                </requireJavaVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>custom-resources</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <targetPath>${basedir}/target/webapp</targetPath>
-                                    <directory>src/main/webapp</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                                <resource>
-                                    <targetPath>${basedir}/target/webapp/classes</targetPath>
-                                    <directory>src/main/resources</directory>
-                                    <filtering>false</filtering>
-                                </resource>
-                            </resources>
-                            <encoding>UTF-8</encoding>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>com.vertispan.j2cl</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>
@@ -137,6 +89,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <packagingExcludes>WEB-INF/classes/**</packagingExcludes>
+                    <packagingExcludes>WEB-INF/lib/**</packagingExcludes>
                 </configuration>
             </plugin>
             <plugin>

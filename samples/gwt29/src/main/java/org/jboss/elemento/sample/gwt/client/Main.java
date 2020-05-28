@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.elemento.sample.j2cl;
+package org.jboss.elemento.sample.gwt.client;
 
-import org.gwtproject.core.client.EntryPoint;
+import com.google.gwt.core.client.EntryPoint;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
@@ -27,11 +27,9 @@ public class Main implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        TodoRepository repository = new TodoRepository();
-        ApplicationElement application = new ApplicationElement(repository);
-        FooterElement footer = new FooterElement();
+        ApplicationElement application = new ApplicationElement(new TodoRepository());
 
-        body().add(application).add(footer);
+        body().add(application).add(new FooterElement());
         bind(window, hashchange, event -> application.filter(location.hash));
         application.filter(location.hash);
     }

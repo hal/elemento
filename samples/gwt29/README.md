@@ -1,6 +1,6 @@
-# Elemento GWT 2.8 Sample
+# Elemento GWT 2.9 Sample
 
-[TodoMVC](http://todomvc.com/) implementation based on GWT 2.8 and Elemental2 1.0.0-RC1.
+[TodoMVC](http://todomvc.com/) implementation based on GWT 2.9.
 
 ## Get Started
 
@@ -12,6 +12,6 @@
 ### Production mode
 
 - `mvn package -P prod`
-- Find the compiled web app in `target/sample-gwt28/todo`
+- Find the compiled web app in `target/sample-gwt29/todo`
 
 All samples are also available online at https://hal.github.io/elemento/

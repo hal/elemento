@@ -15,9 +15,7 @@
   ~ limitations under the License.
   -->
 <module>
-    <inherits name="org.gwtproject.event.Event"/>
-    <inherits name="org.gwtproject.safehtml.SafeHtml"/>
-    <inherits name="elemental2.dom.Dom"/>
-    <inherits name="elemental2.webstorage.WebStorage"/>
-    <source path=""/>
+    <inherits name="org.jboss.elemento.Core"/>
+    <collapse-all-properties/>
+    <entry-point class="org.jboss.elemento.sample.gwt.client.Main"/>
 </module>
