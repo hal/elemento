@@ -6,12 +6,12 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
 - [Helper methods](#helper-methods) to manipulate the DOM tree
-- Ready to be used with J2CL and next gen GWT
+- Ready to be used with GWT 2.8, GWT 2.9, J2CL and next gen GWT (GWT3)
 - Minimal dependencies
-  - Elemental2 1.0.0-RC1:
-    - `com.google.elemental2:elemental2-core:1.0.0-RC1`
-    - `com.google.elemental2:elemental2-dom:1.0.0-RC1`
-    - `com.google.elemental2:elemental2-webstorage:1.0.0-RC1`
+  - Elemental2 1.0.0:
+    - `com.google.elemental2:elemental2-core:1.0.0`
+    - `com.google.elemental2:elemental2-dom:1.0.0`
+    - `com.google.elemental2:elemental2-webstorage:1.0.0`
   - `org.gwtproject.event:gwt-event:HEAD-SNAPSHOT`
   - `org.gwtproject.safehtml:gwt-safehtml:1.0-SNAPSHOT`
 
@@ -313,13 +313,14 @@ See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/o
 
 # J2CL / GWT 3
 
-Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends on GWT 2.8 and Elemental2 1.0.0-RC1, but can also be used with GWT HEAD-SNAPSHOT and Elemental2 1.0.0. In this case you have to override the Elemental2 dependencies. See the [GWT 3.0](samples/gwt30) sample for more infos.
+Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends only on `org.gwtproject.event:gwt-event`, `org.gwtproject.safehtml:gwt-safehtml` and Elemental2 1.0.0, but can also be used with Elemental2 1.0.0-RC1. In this case you have to override the Elemental2 dependencies. See the [GWT 2.8](samples/gwt28) sample for more infos.
 
 # Samples
 
 Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application. 
                      
 - [GWT 2.8](samples/gwt28): Uses GWT 2.8
+- [GWT 2.9](samples/gwt28): Uses GWT 2.9
 - [GWT 3.0](samples/gwt30): Uses GWT HEAD-SNAPSHOT and Elemental2 1.0.0
 - [J2CL](samples/j2cl): Uses J2CL
 - [Crysknife](samples/crysknife): Uses J2CL, Crysknife CDI and Crysknife templates

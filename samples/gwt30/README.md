@@ -1,6 +1,6 @@
 # Elemento GWT 3.0 Sample
 
-[TodoMVC](http://todomvc.com/) implementation based on GWT HEAD-SNAPSHOT and Elemental2 1.0.0.
+[TodoMVC](http://todomvc.com/) implementation based on GWT HEAD-SNAPSHOT.
 
 ## Get Started
 

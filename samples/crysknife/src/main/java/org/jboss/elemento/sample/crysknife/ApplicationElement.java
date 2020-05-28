@@ -32,10 +32,10 @@ import elemental2.dom.KeyboardEvent;
 import org.jboss.elemento.By;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
-import org.treblereel.gwt.crysknife.annotation.DataField;
-import org.treblereel.gwt.crysknife.annotation.EventHandler;
-import org.treblereel.gwt.crysknife.annotation.ForEvent;
-import org.treblereel.gwt.crysknife.annotation.Templated;
+import org.treblereel.gwt.crysknife.templates.client.annotation.DataField;
+import org.treblereel.gwt.crysknife.templates.client.annotation.EventHandler;
+import org.treblereel.gwt.crysknife.templates.client.annotation.ForEvent;
+import org.treblereel.gwt.crysknife.templates.client.annotation.Templated;
 
 import static org.jboss.elemento.Elements.*;
 import static org.jboss.elemento.sample.crysknife.Filter.ACTIVE;

@@ -13,24 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.elemento.sample.crysknife;
+package org.jboss.elemento.sample.gwt.client;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
-import javax.inject.Singleton;
-
 import elemental2.core.Global;
 import elemental2.core.JsArray;
 import elemental2.webstorage.Storage;
+import elemental2.webstorage.StorageEvent;
 import elemental2.webstorage.WebStorageWindow;
 import jsinterop.base.Js;
 
 import static elemental2.dom.DomGlobal.console;
+import static elemental2.dom.DomGlobal.setTimeout;
 import static elemental2.dom.DomGlobal.window;
 
-@Singleton
 public class TodoRepository {
 
     private static final String DEFAULT_KEY = "todos-elemento";

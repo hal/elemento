@@ -32,8 +32,8 @@
     <properties>
         <!-- project / plugin related properties -->
         <j2cl-compilation.level>BUNDLE</j2cl-compilation.level>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
 
         <!-- plugin versions -->
         <j2cl-plugin.version>0.13-SNAPSHOT</j2cl-plugin.version>
@@ -51,6 +51,12 @@
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
             <version>${elemento.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.elemental2</groupId>
+                    <artifactId>elemental2-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- Crysknife -->
@@ -63,23 +69,51 @@
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>crysknife-core</artifactId>
             <version>${crysknife.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.elemental2</groupId>
+                    <artifactId>elemental2-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>crysknife-processor</artifactId>
             <version>${crysknife.version}</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.elemental2</groupId>
+                    <artifactId>elemental2-dom</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>templates-api</artifactId>
             <version>${crysknife.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.elemental2</groupId>
+                    <artifactId>elemental2-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.google.elemental2</groupId>
+                    <artifactId>elemental2-dom</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.treblereel.gwt.crysknife</groupId>
             <artifactId>templates-generator</artifactId>
             <version>${crysknife.version}</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.elemental2</groupId>
+                    <artifactId>elemental2-dom</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- GWT Project -->
@@ -99,25 +133,6 @@
         </resources>
 
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>enforce-java</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireJavaVersion>
-                                    <version>[1.8,1.9)</version>
-                                </requireJavaVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>com.vertispan.j2cl</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>

@@ -13,23 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.elemento.sample.crysknife;
+package org.jboss.elemento.sample.gwt.client;
 
-import javax.inject.Singleton;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsType;
 
-import elemental2.dom.HTMLElement;
-import org.jboss.elemento.IsElement;
-import org.treblereel.gwt.crysknife.templates.client.annotation.DataField;
-import org.treblereel.gwt.crysknife.templates.client.annotation.Templated;
+@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
+public class Todo {
 
-@Singleton
-@Templated("Todo.html#info")
-public class FooterElement implements IsElement<HTMLElement> {
+    public String id;
 
-    @DataField HTMLElement info;
+    public String text;
 
-    @Override
-    public HTMLElement element() {
-        return info;
-    }
+    public boolean completed;
 }
