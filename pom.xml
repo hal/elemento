@@ -25,7 +25,7 @@
 
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>Elemento :: Parent</name>
     <packaging>pom</packaging>
 
