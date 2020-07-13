@@ -38,7 +38,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>1.0.1</version>
 </dependency>
 ```
  
