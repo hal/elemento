@@ -98,7 +98,7 @@
         <!-- dependency versions -->
         <elemental2.version>1.1.0</elemental2.version>
         <gwt-event.version>1.0.0-RC1</gwt-event.version>
-        <gwt-safehtml.version>1.0-SNAPSHOT</gwt-safehtml.version>
+        <gwt-safehtml.version>1.0.0-RC1</gwt-safehtml.version>
         <junit.version>5.6.2</junit.version>
     </properties>
 
@@ -231,28 +231,6 @@
             <id>jboss-public-repository-group</id>
             <name>JBoss Public Maven Repository Group</name>
             <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>vertispan-snapshots</id>
-            <name>Vertispan Snapshots</name>
-            <url>https://repo.vertispan.com/gwt-snapshot/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>oss-sonatype</id>
-            <name>OSS Sonatype</name>
-            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
     </repositories>
 </project>
