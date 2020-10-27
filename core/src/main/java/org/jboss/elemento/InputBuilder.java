@@ -110,4 +110,16 @@ public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, 
         element().tabIndex = tabIndex;
         return that();
     }
+
+    /** Modifies the {@code multiple} attribute. */
+    public InputBuilder<E> multiple(boolean multiple) {
+        element().multiple = multiple;
+        return that();
+    }
+
+    /** Modifies the {@code accept} attribute. */
+    public InputBuilder<E> accept(String accept) {
+        element().accept = accept;
+        return that();
+    }
 }
