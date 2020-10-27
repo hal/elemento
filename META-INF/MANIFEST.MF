@@ -6,7 +6,7 @@ Specification-Title: Elemento :: Core
 Specification-Version: 1.0
 Specification-Vendor: JBoss by Red Hat
 Implementation-Title: Elemento :: Core
-Implementation-Version: 1.0.1
+Implementation-Version: 1.0.2
 Implementation-Vendor-Id: org.jboss.elemento
 Implementation-Vendor: JBoss by Red Hat
 Implementation-URL: http://github.com/hal/elemento
@@ -14,7 +14,7 @@ Java-Vendor: Oracle Corporation
 Java-Version: 11
 Os-Arch: x86_64
 Os-Name: Mac OS X
-Os-Version: 10.15.5
+Os-Version: 10.15.7
 Scm-Connection: scm:git@github.com:hal/elemento.git
 Scm-Revision: UNKNOWN
 Scm-Url: https://github.com/hal/elemento
