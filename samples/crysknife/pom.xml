@@ -41,7 +41,7 @@
 
         <!-- dependency versions -->
         <crysknife.version>0.1-SNAPSHOT</crysknife.version>
-        <elemento.version>HEAD-SNAPSHOT</elemento.version>
+        <elemento.version>1.0.2</elemento.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
     </properties>
 
