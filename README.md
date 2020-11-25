@@ -5,15 +5,11 @@
 Elemento simplifies working with GWT [Elemental2](https://github.com/google/elemental2). In a nutshell Elemento brings the following features to the table:
 
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
-- [Helper methods](#helper-methods) to manipulate the DOM tree
+- [Helper methods](#goodies) to manipulate the DOM tree
 - Ready to be used with GWT 2.8, GWT 2.9, J2CL and next gen GWT (GWT3)
 - Minimal dependencies
-  - Elemental2 1.0.0:
-    - `com.google.elemental2:elemental2-core:1.0.0`
-    - `com.google.elemental2:elemental2-dom:1.0.0`
-    - `com.google.elemental2:elemental2-webstorage:1.0.0`
-  - `org.gwtproject.event:gwt-event:HEAD-SNAPSHOT`
-  - `org.gwtproject.safehtml:gwt-safehtml:1.0-SNAPSHOT`
+  - Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
+  - GWT (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`)  
 
 **TOC**  
 * [Get Started](#get-started)
@@ -38,7 +34,7 @@ Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/mave
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 ```
  
@@ -201,7 +197,7 @@ import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.body;
 
 By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "http://"));
-for (HTMLElement element : body().findAll()) {
+for (HTMLElement element : body().findAll(selector)) {
     a(element).css("external");
 }
 ```

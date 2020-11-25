@@ -32,8 +32,8 @@
     <properties>
         <!-- project / plugin related properties -->
         <j2cl-compilation.level>BUNDLE</j2cl-compilation.level>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
 
         <!-- plugin versions -->
         <j2cl-plugin.version>0.13-SNAPSHOT</j2cl-plugin.version>
@@ -41,7 +41,7 @@
 
         <!-- dependency versions -->
         <crysknife.version>0.1-SNAPSHOT</crysknife.version>
-        <elemento.version>1.0.2</elemento.version>
+        <elemento.version>1.0.3</elemento.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
     </properties>
 
