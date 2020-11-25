@@ -1,40 +1,23 @@
 JarIndex-Version: 1.0
 
-elemento-core-1.0.2-javadoc.jar
+elemento-core-1.0.3-javadoc.jar
 META-INF
 META-INF/maven
 META-INF/maven/org.jboss.elemento
 META-INF/maven/org.jboss.elemento/elemento-core
-jquery
-jquery/external
-jquery/external/jquery
-jquery/images
-jquery/jszip-utils
-jquery/jszip-utils/dist
-jquery/jszip
-jquery/jszip/dist
 org
 org/jboss
 org/jboss/elemento
 org/jboss/elemento/class-use
-resources
-allclasses-index.html
-allclasses.html
-allpackages-index.html
+allclasses-frame.html
+allclasses-noframe.html
 constant-values.html
 deprecated-list.html
-element-list
 help-doc.html
 index-all.html
 index.html
-member-search-index.js
-member-search-index.zip
 overview-tree.html
-package-search-index.js
-package-search-index.zip
+package-list
 script.js
-search.js
 stylesheet.css
-type-search-index.js
-type-search-index.zip
 
