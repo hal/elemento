@@ -31,96 +31,46 @@
 
     <properties>
         <!-- project / plugin related properties -->
-        <j2cl-compilation.level>BUNDLE</j2cl-compilation.level>
+        <j2cl-compilation.level>BUNDLE_JAR</j2cl-compilation.level>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
 
         <!-- plugin versions -->
-        <j2cl-plugin.version>0.13-SNAPSHOT</j2cl-plugin.version>
+        <j2cl-plugin.version>0.16-SNAPSHOT</j2cl-plugin.version>
         <tomcat7-plugin.version>2.2</tomcat7-plugin.version>
 
         <!-- dependency versions -->
-        <crysknife.version>0.1-SNAPSHOT</crysknife.version>
-        <elemento.version>HEAD-SNAPSHOT</elemento.version>
-        <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
+        <crysknife.version>0.2</crysknife.version>
     </properties>
 
     <dependencies>
-        <!-- Elemento -->
-        <dependency>
-            <groupId>org.jboss.elemento</groupId>
-            <artifactId>elemento-core</artifactId>
-            <version>${elemento.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.elemental2</groupId>
-                    <artifactId>elemental2-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
         <!-- Crysknife -->
         <dependency>
-            <groupId>org.treblereel.gwt.crysknife</groupId>
+            <groupId>io.crysknife</groupId>
             <artifactId>crysknife-annotations</artifactId>
             <version>${crysknife.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.treblereel.gwt.crysknife</groupId>
+            <groupId>io.crysknife</groupId>
             <artifactId>crysknife-core</artifactId>
             <version>${crysknife.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.elemental2</groupId>
-                    <artifactId>elemental2-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.treblereel.gwt.crysknife</groupId>
+            <groupId>io.crysknife</groupId>
             <artifactId>crysknife-processor</artifactId>
             <version>${crysknife.version}</version>
             <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.elemental2</groupId>
-                    <artifactId>elemental2-dom</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.treblereel.gwt.crysknife</groupId>
+            <groupId>io.crysknife</groupId>
             <artifactId>templates-api</artifactId>
             <version>${crysknife.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.elemental2</groupId>
-                    <artifactId>elemental2-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.google.elemental2</groupId>
-                    <artifactId>elemental2-dom</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.treblereel.gwt.crysknife</groupId>
+            <groupId>io.crysknife</groupId>
             <artifactId>templates-generator</artifactId>
             <version>${crysknife.version}</version>
             <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.elemental2</groupId>
-                    <artifactId>elemental2-dom</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <!-- GWT Project -->
-        <dependency>
-            <groupId>org.gwtproject.core</groupId>
-            <artifactId>gwt-core</artifactId>
-            <version>${gwt-core.version}</version>
         </dependency>
     </dependencies>
 
@@ -149,7 +99,6 @@
                 <configuration>
                     <defaultWebappDirectory>${project.build.directory}/gwt/launcherDir</defaultWebappDirectory>
                     <compilationLevel>${j2cl-compilation.level}</compilationLevel>
-                    <entrypoint>org.jboss.elemento.sample.crysknife.Main</entrypoint>
                     <initialScriptFilename>todo.js</initialScriptFilename>
                 </configuration>
             </plugin>
