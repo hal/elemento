@@ -57,3 +57,4 @@ public class MessagePort implements Transferable, EventTarget {
 
   public native void start();
 }
+

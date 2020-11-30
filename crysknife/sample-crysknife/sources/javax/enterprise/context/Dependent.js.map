@@ -2,7 +2,8 @@
 "version":3,
 "file":"Dependent.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAiBkB,S;;QAAA,M;EAAAA,oB;EAAAA,8B;;;QAAA,O;EAAAC,4B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAoGkB,S;;QAAA,M;EAAAA,oB;EAAAA,8B;;;QAAA,O;EAAAC,4B;EAAAA;",
 "sources":["Dependent.java"],
 "names":["javax.enterprise.context.Dependent.<synthetic: adapt_lambda>","javax.enterprise.context.Dependent.<clinit>"]
 }
+

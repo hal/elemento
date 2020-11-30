@@ -32,3 +32,4 @@ public interface ReadableStreamBYOBRequest {
   @JsProperty
   void setView(ArrayBufferView view);
 }
+

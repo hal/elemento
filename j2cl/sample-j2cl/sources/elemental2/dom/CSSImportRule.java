@@ -24,3 +24,4 @@ public class CSSImportRule extends CSSRule {
   public MediaList media;
   public CSSStyleSheet styleSheet;
 }
+

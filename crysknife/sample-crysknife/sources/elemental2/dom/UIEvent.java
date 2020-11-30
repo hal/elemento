@@ -35,3 +35,4 @@ public class UIEvent extends Event {
   public native void initUIEvent(
       String typeArg, boolean canBubbleArg, boolean cancelableArg, Window viewArg, int detailArg);
 }
+

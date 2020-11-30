@@ -2,7 +2,8 @@
 "version":3,
 "file":"StyleInjector$1.impl.java.js",
 "lineCount":38,
-"mappings":"A;;;;;;;;;;;MAoCmE,E;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,a;EAAAA,yB;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EAAAC,iC;;;CACnD,W;EACVC;GACEA,yEADFA;G;;;QAF6D,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAoC6B,E;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,a;EAAAA,yB;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EAAAC,iC;;;CACT,W;EACVC;GACEA,yEADFA;G;;;QAFmB,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["StyleInjector.java"],
 "names":["org.gwtproject.dom.client.StyleInjector$1.<synthetic: ctor_js>","org.gwtproject.dom.client.StyleInjector$1.<synthetic: ctor_create>","org.gwtproject.dom.client.StyleInjector$1.<init>","org.gwtproject.dom.client.StyleInjector$1.execute","org.gwtproject.dom.client.StyleInjector$1.<clinit>"]
 }
+

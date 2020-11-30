@@ -2,7 +2,8 @@
 "version":3,
 "file":"Context2d$Repetition.impl.java.js",
 "lineCount":115,
-"mappings":"A;;;;;;;;;;;;;MAqKc,U;;CAAA,W;EAAAA,Q;EAAAA;OAGW,+DAHXA,C;;;QAKF,gD,8DAAkBC,K;EAAlBC,iC;EAAAA,wI;EAAAA,iB;;;CAAA,qG,8DAAkBD,K;EAAlBE,qC;EAAAA,2C;EAAAA,mE;EACNA,6E;;;CAGY,Y;EACZC,4E;;;QAVQ,2B;EAAAC,qB;EAAAA;GAAAA,4IAAAA;G;EAAAA,kI;;;QAAA,U;EAAAC,qB;EAAAA,gY;;;;CAAA,6B;EAAAC,+E;;;QACV,sE;EAAAC,8G;;;QAAwB,mE;EAAAA,2G;;;QAAkB,qE;EAAAA,6G;;;QAAsB,qE;EAAAA,6G;;;QADtD,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EACVA,oR;EAAwBA,wQ;EAAkBA,gR;EAAsBA,gR;EADtDA,6F;;;;;;;;;;;;;;;;;AAAA;+E;AAAA;4E;AAAA;8E;AAAA;8E;AAAA;sF;AACV;2F;AAAwB;wF;AAAkB;0F;AAAsB;;",
+"mappings":"A;;;;;;;;;;;;;MAgKc,U;;CAAA,W;EAAAA,Q;EAAAA;OAMW,+DANXA,C;;;QAQF,gD,8DAAkBC,K;EAAlBC,iC;EAAAA,wI;EAAAA,iB;;;CAAA,qG,8DAAkBD,K;EAAlBE,qC;EAAAA,2C;EAAAA,mE;EACNA,6E;;;CAGY,Y;EACZC,4E;;;QAbQ,2B;EAAAC,qB;EAAAA;GAAAA,4IAAAA;G;EAAAA,kI;;;QAAA,U;EAAAC,qB;EAAAA,gY;;;;CAAA,6B;EAAAC,+E;;;QACV,sE;EAAAC,8G;;;QACA,mE;EAAAA,2G;;;QACA,qE;EAAAA,6G;;;QACA,qE;EAAAA,6G;;;QAJU,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EACVA,oR;EACAA,wQ;EACAA,gR;EACAA,gR;EAJUA,6F;;;;;;;;;;;;;;;;;AAAA;+E;AAAA;4E;AAAA;8E;AAAA;8E;AAAA;sF;AACV;2F;AACA;wF;AACA;0F;AACA;;",
 "sources":["Context2d.java"],
 "names":["org.gwtproject.canvas.dom.client.Context2d$Repetition.<synthetic: ctor_js>","value","org.gwtproject.canvas.dom.client.Context2d$Repetition.<synthetic: ctor_create>","org.gwtproject.canvas.dom.client.Context2d$Repetition.<init>","org.gwtproject.canvas.dom.client.Context2d$Repetition.getValue","org.gwtproject.canvas.dom.client.Context2d$Repetition.valueOf","org.gwtproject.canvas.dom.client.Context2d$Repetition.values","org.gwtproject.canvas.dom.client.Context2d$Repetition.compareTo","org.gwtproject.canvas.dom.client.Context2d$Repetition.<synthetic: getter>","org.gwtproject.canvas.dom.client.Context2d$Repetition.<clinit>"]
 }
+

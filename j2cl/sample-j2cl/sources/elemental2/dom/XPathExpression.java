@@ -26,3 +26,4 @@ public class XPathExpression {
 
   public native Object evaluate(Node contextNode);
 }
+

@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"RTCStatsReport$JsIterableTypeParameterArrayUnionType$$Overlay.impl.java.js",
+"lineCount":33,
+"mappings":"A;;;;;;;;MAwFmB,8C;;QAE6C,sB,UAAUA,C;EAAVC,yD;EAC1DA,uD;;;QAIe,0F;EAAAC,yD;EACfA,qE;;;QAIa,wF;EAAAC,yD;EACbA,iD;;;QAIc,wF;EAAAC,yD;EACdA,yD;;;QAlBa,O;EAAAC,iE;EAAAA;",
+"sources":["RTCStatsReport.java"],
+"names":["o","elemental2.dom.RTCStatsReport$JsIterableTypeParameterArrayUnionType$$Overlay.of","elemental2.dom.RTCStatsReport$JsIterableTypeParameterArrayUnionType$$Overlay.asRTCStats__$devirt","elemental2.dom.RTCStatsReport$JsIterableTypeParameterArrayUnionType$$Overlay.asString__$devirt","elemental2.dom.RTCStatsReport$JsIterableTypeParameterArrayUnionType$$Overlay.isString__$devirt","elemental2.dom.RTCStatsReport$JsIterableTypeParameterArrayUnionType$$Overlay.<clinit>"]
+}
+

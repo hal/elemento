@@ -6,3 +6,4 @@
 "sources":["HtmlContentBuilder.java"],
 "names":["org.jboss.elemento.HtmlContentBuilder.<synthetic: ctor_js>","element","org.jboss.elemento.HtmlContentBuilder.<synthetic: ctor_create>","org.jboss.elemento.HtmlContentBuilder.<init>","org.jboss.elemento.HtmlContentBuilder.that","org.jboss.elemento.HtmlContentBuilder.add","org.jboss.elemento.HtmlContentBuilder.addAll","org.jboss.elemento.HtmlContentBuilder.innerHtml","org.jboss.elemento.HtmlContentBuilder.textContent","org.jboss.elemento.HtmlContentBuilder.<clinit>"]
 }
+

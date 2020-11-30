@@ -24,3 +24,4 @@ public class DeviceAcceleration {
   public double y;
   public double z;
 }
+

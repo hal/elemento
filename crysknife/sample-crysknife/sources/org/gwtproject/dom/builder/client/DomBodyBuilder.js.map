@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomBodyBuilder.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;MAuBa,c;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA8BC,Q;EAA9BC,yB;EAAAA,qC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,uBAA8BD,Q;EAC5BE,gI;;;QAJS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAqBa,c;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA8BC,Q;EAA9BC,yB;EAAAA,qC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,uBAA8BD,Q;EAC5BE,gI;;;QAJS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["DomBodyBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomBodyBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomBodyBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomBodyBuilder.<init>","org.gwtproject.dom.builder.client.DomBodyBuilder.<clinit>"]
 }
+

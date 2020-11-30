@@ -29,13 +29,13 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 import elemental2.dom.HTMLUListElement;
 import elemental2.dom.KeyboardEvent;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.EventHandler;
+import io.crysknife.ui.templates.client.annotation.ForEvent;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.jboss.elemento.By;
+import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
-import org.jboss.gwt.elemento.core.IsElement;
-import org.treblereel.gwt.crysknife.annotation.DataField;
-import org.treblereel.gwt.crysknife.annotation.EventHandler;
-import org.treblereel.gwt.crysknife.annotation.ForEvent;
-import org.treblereel.gwt.crysknife.annotation.Templated;
 
 import static org.jboss.elemento.Elements.*;
 import static org.jboss.elemento.sample.crysknife.Filter.ACTIVE;
@@ -48,6 +48,8 @@ public class ApplicationElement implements IsElement<HTMLElement> {
     private final TodoRepository repository;
     private Filter filter;
 
+    @DataField
+    HTMLElement todos;
     @DataField HTMLInputElement newTodo;
     @DataField HTMLElement main;
     @DataField HTMLInputElement toggleAll;
@@ -68,6 +70,11 @@ public class ApplicationElement implements IsElement<HTMLElement> {
     void init() {
         reset();
         update();
+    }
+
+    @Override
+    public HTMLElement element() {
+        return todos;
     }
 
     // ------------------------------------------------------ event / token handler
@@ -169,3 +176,4 @@ public class ApplicationElement implements IsElement<HTMLElement> {
         }
     }
 }
+

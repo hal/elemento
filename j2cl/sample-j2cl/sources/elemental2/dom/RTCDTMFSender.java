@@ -40,5 +40,12 @@ public interface RTCDTMFSender {
   Object insertDTMF(String tones);
 
   @JsProperty
+  boolean isCanInsertDTMF();
+
+  @JsProperty
+  void setCanInsertDTMF(boolean canInsertDTMF);
+
+  @JsProperty
   void setOntonechange(RTCDTMFSender.OntonechangeFn ontonechange);
 }
+

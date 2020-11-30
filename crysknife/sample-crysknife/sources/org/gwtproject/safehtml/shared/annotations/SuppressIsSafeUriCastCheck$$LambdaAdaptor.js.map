@@ -2,7 +2,8 @@
 "version":3,
 "file":"SuppressIsSafeUriCastCheck$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MA4BkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;oG;EAAAA,wL;;;CAAA,8K;EAAAC,iC;EAAAA,uG;;;CAAA,kB;EAAAC,0C;EAAAA,oI;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MA2BkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;oG;EAAAA,wL;;;CAAA,8K;EAAAC,iC;EAAAA,uG;;;CAAA,kB;EAAAC,0C;EAAAA,oI;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["SuppressIsSafeUriCastCheck.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.SuppressIsSafeUriCastCheck$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.safehtml.shared.annotations.SuppressIsSafeUriCastCheck$$LambdaAdaptor.<init>","org.gwtproject.safehtml.shared.annotations.SuppressIsSafeUriCastCheck$$LambdaAdaptor.annotationType","org.gwtproject.safehtml.shared.annotations.SuppressIsSafeUriCastCheck$$LambdaAdaptor.<clinit>"]
 }
+

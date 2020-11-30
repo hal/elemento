@@ -6,3 +6,4 @@
 "sources":["Cache.java"],
 "names":["o","elemental2.dom.Cache$DeleteRequestUnionType$$Overlay.of","elemental2.dom.Cache$DeleteRequestUnionType$$Overlay.asRequest__$devirt","elemental2.dom.Cache$DeleteRequestUnionType$$Overlay.asString__$devirt","elemental2.dom.Cache$DeleteRequestUnionType$$Overlay.isRequest__$devirt","elemental2.dom.Cache$DeleteRequestUnionType$$Overlay.isString__$devirt","elemental2.dom.Cache$DeleteRequestUnionType$$Overlay.<clinit>"]
 }
+

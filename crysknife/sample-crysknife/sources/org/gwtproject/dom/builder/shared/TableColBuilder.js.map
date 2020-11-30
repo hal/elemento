@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableColBuilder.impl.java.js",
 "lineCount":26,
-"mappings":"A;;;;;;;;;MAoBiB,e;;CASC,yB,gBAAaA,K;;CASb,sB,gBAAUC,E;;CASV,yB,gBAAaC,K;;CASb,W,eAASC,I;;CAST,0B,gBAAcC,M;;CASd,yB,gBAAaC,K;;QAtDd,O;EAAAC,kC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,e;;CASC,yB,gBAAaA,K;;CAQb,sB,gBAAUC,E;;CASV,yB,gBAAaC,K;;CASb,W,eAASC,I;;CAST,0B,gBAAcC,M;;CASd,yB,gBAAaC,K;;QArDd,O;EAAAC,kC;EAAAA;",
 "sources":["TableColBuilder.java"],
 "names":["align","ch","chOff","span","vAlign","width","org.gwtproject.dom.builder.shared.TableColBuilder.<clinit>"]
 }
+

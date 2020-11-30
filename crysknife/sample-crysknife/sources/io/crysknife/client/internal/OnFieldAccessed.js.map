@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"OnFieldAccessed.impl.java.js",
+"lineCount":59,
+"mappings":"A;;;;;;;;;;;;;;;;;MAuBmB,e;;CAAA,W;EAAAA,Q;EAAAA;OAEM,yDAFNA,C;;;QAIV,oC,iBAAyBC,Q;EAAzBC,0B;EAAAA,sC;EAAAA,qG;EAAAA,iB;;;CAAA,gF,iBAAyBD,Q;EAAzBE,iC;EACLA,0E;;;CAIY,2C,UAAaC,C,iBAAUC,W;EACnCC;GACEA,0NADFA;G;EAGAA,qI;;;;CAbe,sC;EAAAC,uJ;;;;CAAA,2C;EAAAD,mH;;;QAAA,O;EAAAE,kC;EAAAA,+B;EAAAA,qB;EAAAA;",
+"sources":["OnFieldAccessed.java"],
+"names":["io.crysknife.client.internal.OnFieldAccessed.<synthetic: ctor_js>","supplier","io.crysknife.client.internal.OnFieldAccessed.<synthetic: ctor_create>","io.crysknife.client.internal.OnFieldAccessed.<init>","o","propertyKey","io.crysknife.client.internal.OnFieldAccessed.apply","io.crysknife.client.internal.OnFieldAccessed.andThen","io.crysknife.client.internal.OnFieldAccessed.<clinit>"]
+}
+

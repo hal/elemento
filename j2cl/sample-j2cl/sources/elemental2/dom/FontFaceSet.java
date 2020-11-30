@@ -102,3 +102,4 @@ public interface FontFaceSet extends EventTarget {
   @JsProperty
   void setStatus(String status);
 }
+

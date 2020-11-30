@@ -6,3 +6,4 @@
 "sources":["JsArrayLike.java"],
 "names":["jsinterop.base.JsArrayLike$$Overlay.getLength__$devirt","length","jsinterop.base.JsArrayLike$$Overlay.setLength__$devirt","index","jsinterop.base.JsArrayLike$$Overlay.getAt__$devirt","jsinterop.base.JsArrayLike$$Overlay.getAnyAt__$devirt","jsinterop.base.JsArrayLike$$Overlay.getAtAsAny__$devirt","value","jsinterop.base.JsArrayLike$$Overlay.setAt__$devirt","jsinterop.base.JsArrayLike$$Overlay.delete__$devirt","jsinterop.base.JsArrayLike$$Overlay.asList__$devirt","asArray","jsinterop.base.JsArrayLike$$Overlay.<clinit>"]
 }
+

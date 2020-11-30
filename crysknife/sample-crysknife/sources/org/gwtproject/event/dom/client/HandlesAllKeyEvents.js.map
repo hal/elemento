@@ -6,3 +6,4 @@
 "sources":["HandlesAllKeyEvents.java"],
 "names":["org.gwtproject.event.dom.client.HandlesAllKeyEvents.<synthetic: ctor_js>","org.gwtproject.event.dom.client.HandlesAllKeyEvents.<init>","source","org.gwtproject.event.dom.client.HandlesAllKeyEvents.addKeyHandlersTo","eventSource","reciever","org.gwtproject.event.dom.client.HandlesAllKeyEvents.addHandlers","org.gwtproject.event.dom.client.HandlesAllKeyEvents.<clinit>"]
 }
+

@@ -1,20 +1,21 @@
 /*
- * Copyright 2011 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ * Copyright © 2019 The GWT Project Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.builder.client;
 
+import java.util.Locale;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import org.gwtproject.dom.builder.shared.StylesBuilder;
@@ -25,36 +26,30 @@ import org.gwtproject.regexp.shared.RegExp;
 import org.gwtproject.safehtml.shared.SafeUri;
 import org.gwtproject.safehtml.shared.annotations.IsSafeUri;
 
-import java.util.Locale;
-
-/**
- * Builds the style object.
- */
+/** Builds the style object. */
 class DomStylesBuilder implements StylesBuilder {
 
   /**
    * A map of hyphenated style properties to their camelCase equivalents.
-   * 
-   * The set of style property names is limited, and common ones are reused
-   * frequently, so caching saves us from converting every style property name
-   * from hyphenated to camelCase form.
-   * 
-   * Use a {@link JsPropertyMap} to avoid the dynamic casts associated with
-   * the emulated version of {@link java.util.Map}.
+   *
+   * <p>The set of style property names is limited, and common ones are reused frequently, so
+   * caching saves us from converting every style property name from hyphenated to camelCase form.
+   *
+   * <p>Use a {@link JsPropertyMap} to avoid the dynamic casts associated with the emulated version
+   * of {@link java.util.Map}.
    */
   private static JsPropertyMap<String> hyphenatedMap;
 
   /**
-   * Regex to match a word in a hyphenated phrase. A word starts with an a
-   * hyphen or a letter, followed by zero or more characters letters. For
-   * example, in the phrase background-url, the pattern matches "background" and
-   * "-url".
+   * Regex to match a word in a hyphenated phrase. A word starts with an a hyphen or a letter,
+   * followed by zero or more characters letters. For example, in the phrase background-url, the
+   * pattern matches "background" and "-url".
    */
   private static RegExp maybeHyphenatedWord;
 
   /**
    * Convert a hyphenated or camelCase string to a camelCase string.
-   * 
+   *
    * @param name the hyphenated or camelCase string to convert
    * @return the hyphenated string
    */
@@ -108,7 +103,7 @@ class DomStylesBuilder implements StylesBuilder {
 
   /**
    * Get the camelCase form of a style name to a map.
-   * 
+   *
    * @param name the user specified style name
    * @return the camelCase name, or null if not set
    */
@@ -118,7 +113,7 @@ class DomStylesBuilder implements StylesBuilder {
 
   /**
    * Save the camelCase form of a style name to a map.
-   * 
+   *
    * @param name the user specified style name
    * @param camelCase the camelCase name
    */
@@ -130,7 +125,7 @@ class DomStylesBuilder implements StylesBuilder {
 
   /**
    * Construct a new {@link DomStylesBuilder}.
-   * 
+   *
    * @param delegate the delegate that builds the style
    */
   DomStylesBuilder(DomBuilderImpl delegate) {
@@ -456,3 +451,4 @@ class DomStylesBuilder implements StylesBuilder {
     return this;
   }
 }
+

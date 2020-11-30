@@ -162,6 +162,11 @@ public class XMLHttpRequest implements EventTarget {
     }
   }
 
+  @JsFunction
+  public interface SetTrustTokenFn {
+    void onInvoke(TrustTokenAttributeType p0);
+  }
+
   @JsOverlay public static final int DONE = XMLHttpRequest__Constants.DONE;
   @JsOverlay public static final int HEADERS_RECEIVED = XMLHttpRequest__Constants.HEADERS_RECEIVED;
   @JsOverlay public static final int LOADING = XMLHttpRequest__Constants.LOADING;
@@ -182,6 +187,7 @@ public class XMLHttpRequest implements EventTarget {
   public String responseType;
   public String responseURL;
   public Document responseXML;
+  public XMLHttpRequest.SetTrustTokenFn setTrustToken;
   public int status;
   public String statusText;
   public int timeout;
@@ -252,3 +258,4 @@ public class XMLHttpRequest implements EventTarget {
 
   public native void setRequestHeader(String header, String value);
 }
+

@@ -6,3 +6,4 @@
 "sources":["HasKeyPressHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasKeyPressHandlers.<clinit>"]
 }
+

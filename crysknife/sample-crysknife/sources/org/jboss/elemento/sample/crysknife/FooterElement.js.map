@@ -2,7 +2,8 @@
 "version":3,
 "file":"FooterElement.impl.java.js",
 "lineCount":38,
-"mappings":"A;;;;;;;;;;;MAyBa,a;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,wB;EAAAA,oC;EAAAA,uE;EAAAA,iB;;;CAAA,0D;EAAAC,iC;;;;CAAA,c;EAAAC,qF;;;QAAA,O;EAAAC,gC;EAAAA,6B;EAAAA,qB;EAAAA;",
+"mappings":"A;;;;;;;;;;;MA0Ba,a;;CAAA,W;EAAAA,Q;EAAAA;OAGG,yDAHHA,C;;;QAAA,S;EAAAC,wB;EAAAA,oC;EAAAA,uE;EAAAA,iB;;;CAAA,0D;EAAAC,iC;;;CAMU,W;EACfC,sE;;;QAPK,O;EAAAC,gC;EAAAA,6B;EAAAA;",
 "sources":["FooterElement.java"],
-"names":["org.jboss.elemento.sample.crysknife.FooterElement.<synthetic: ctor_js>","org.jboss.elemento.sample.crysknife.FooterElement.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.FooterElement.<init>","org.jboss.elemento.sample.crysknife.FooterElement.getElement","org.jboss.elemento.sample.crysknife.FooterElement.<clinit>"]
+"names":["org.jboss.elemento.sample.crysknife.FooterElement.<synthetic: ctor_js>","org.jboss.elemento.sample.crysknife.FooterElement.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.FooterElement.<init>","org.jboss.elemento.sample.crysknife.FooterElement.element","org.jboss.elemento.sample.crysknife.FooterElement.<clinit>"]
 }
+

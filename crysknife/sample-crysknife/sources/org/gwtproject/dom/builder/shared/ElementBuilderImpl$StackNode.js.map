@@ -2,7 +2,8 @@
 "version":3,
 "file":"ElementBuilderImpl$StackNode.impl.java.js",
 "lineCount":36,
-"mappings":"A;;;;;;;MAyCuB,S;;CAAA,W;EAAAA,Q;EAAAA;OACiB,0EADjBA,C;EAAAA;OAED,uEAFCA,C;EAAAA;OAGE,0EAHFA,C;;;QAKZ,+E,gBAAiBC,O,+BAA+BC,O;EAAhDC,oB;EAAAA,gC;EAAAA,0K;EAAAA,iB;;;CAAA,6I,gBAAiBF,O,+BAA+BC,O;EAAhDE,iC;EACLA,0F;EACAA,0F;;;QAPiB,O;EAAAC,4B;EAAAA,yB;EAAAA;",
+"mappings":"A;;;;;;;MAiCuB,S;;CAAA,W;EAAAA,Q;EAAAA;OACiB,0EADjBA,C;EAAAA;OAED,uEAFCA,C;EAAAA;OAGE,0EAHFA,C;;;QAKZ,+E,gBAAiBC,O,+BAA+BC,O;EAAhDC,oB;EAAAA,gC;EAAAA,0K;EAAAA,iB;;;CAAA,6I,gBAAiBF,O,+BAA+BC,O;EAAhDE,iC;EACLA,0F;EACAA,0F;;;QAPiB,O;EAAAC,4B;EAAAA,yB;EAAAA;",
 "sources":["ElementBuilderImpl.java"],
 "names":["org.gwtproject.dom.builder.shared.ElementBuilderImpl$StackNode.<synthetic: ctor_js>","tagName","builder","org.gwtproject.dom.builder.shared.ElementBuilderImpl$StackNode.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.ElementBuilderImpl$StackNode.<init>","org.gwtproject.dom.builder.shared.ElementBuilderImpl$StackNode.<clinit>"]
 }
+

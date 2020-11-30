@@ -6,3 +6,4 @@
 "sources":["GwtEvent.java"],
 "names":["org.gwtproject.event.legacy.shared.GwtEvent.<synthetic: ctor_js>","org.gwtproject.event.legacy.shared.GwtEvent.<init>","org.gwtproject.event.legacy.shared.GwtEvent.assertLive","org.gwtproject.event.legacy.shared.GwtEvent.isLive","org.gwtproject.event.legacy.shared.GwtEvent.kill","org.gwtproject.event.legacy.shared.GwtEvent.revive","source","org.gwtproject.event.legacy.shared.GwtEvent.overrideSource","msg","org.gwtproject.event.legacy.shared.GwtEvent.logDeprecation","org.gwtproject.event.legacy.shared.GwtEvent.<clinit>"]
 }
+

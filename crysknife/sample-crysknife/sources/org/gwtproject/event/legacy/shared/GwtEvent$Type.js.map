@@ -6,3 +6,4 @@
 "sources":["GwtEvent.java"],
 "names":["org.gwtproject.event.legacy.shared.GwtEvent$Type.<synthetic: ctor_js>","org.gwtproject.event.legacy.shared.GwtEvent$Type.<synthetic: ctor_create>","org.gwtproject.event.legacy.shared.GwtEvent$Type.<init>","org.gwtproject.event.legacy.shared.GwtEvent$Type.<clinit>"]
 }
+

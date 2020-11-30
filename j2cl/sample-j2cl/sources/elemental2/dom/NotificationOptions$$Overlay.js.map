@@ -6,3 +6,4 @@
 "sources":["NotificationOptions.java"],
 "names":["elemental2.dom.NotificationOptions$$Overlay.create","actions","elemental2.dom.NotificationOptions$$Overlay.setActions__$devirt","vibrate","elemental2.dom.NotificationOptions$$Overlay.setVibrate__$devirt","elemental2.dom.NotificationOptions$$Overlay.<clinit>"]
 }
+

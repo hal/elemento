@@ -2,7 +2,8 @@
 "version":3,
 "file":"Path2D$$Overlay.impl.java.js",
 "lineCount":9,
-"mappings":"A;;;;MAqBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;MAuBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["Path2D.java"],
 "names":["elemental2.dom.Path2D$$Overlay.<clinit>"]
 }
+

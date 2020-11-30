@@ -59,3 +59,4 @@ public interface CacheQueryOptions {
   @JsProperty
   void setPrefixMatch(boolean prefixMatch);
 }
+

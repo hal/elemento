@@ -2,7 +2,8 @@
 "version":3,
 "file":"GwtIncompatible$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MAoBkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;yF;EAAAA,kK;;;CAAA,wJ;EAAAC,iC;EAAAA,4F;;;CAAA,kB;EAAAC,0C;EAAAA,yH;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAkBkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;yF;EAAAA,kK;;;CAAA,wJ;EAAAC,iC;EAAAA,4F;;;CAAA,kB;EAAAC,0C;EAAAA,yH;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["GwtIncompatible.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.GwtIncompatible$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.safehtml.shared.annotations.GwtIncompatible$$LambdaAdaptor.<init>","org.gwtproject.safehtml.shared.annotations.GwtIncompatible$$LambdaAdaptor.annotationType","org.gwtproject.safehtml.shared.annotations.GwtIncompatible$$LambdaAdaptor.<clinit>"]
 }
+

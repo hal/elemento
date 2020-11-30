@@ -6,3 +6,4 @@
 "sources":["GeolocationPositionError.java"],
 "names":["elemental2.dom.GeolocationPositionError$$Overlay.create","elemental2.dom.GeolocationPositionError$$Overlay.<clinit>"]
 }
+

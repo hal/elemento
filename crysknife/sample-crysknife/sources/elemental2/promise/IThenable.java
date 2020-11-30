@@ -57,3 +57,4 @@ public interface IThenable<T> {
       ThenOnFulfilledCallbackFn<? super T, ? extends V> onFulfilled,
       ThenOnRejectedCallbackFn<? extends V> onRejected);
 }
+

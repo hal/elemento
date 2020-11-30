@@ -27,3 +27,4 @@ public class StorageManager {
 
   public native Promise<Boolean> persisted();
 }
+

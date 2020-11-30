@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$TextJustify.impl.java.js",
 "lineCount":100,
-"mappings":"A;;;;;;;;;;MAySsB,iB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,4B;EAAAA,wC;EAAAA,iE;EAAAA,iB;;;CAAA,oD;EAAAC,iC;;;QAClB,uD;EAAAC,6G;;;QACA,6D;EAAAA,mH;;;QACA,kE;EAAAA,wH;;;QACA,gE;EAAAA,sH;;;QACA,kE;EAAAA,wH;;;QACA,6D;EAAAA,mH;;;QACA,0D;EAAAA,gH;;;QACA,uD;EAAAA,6G;;;QARkB,O;EAAAC,oC;EAAAA,iC;EAAAA,qB;EAClBA,yI;EACAA,qJ;EACAA,+J;EACAA,2J;EACAA,+J;EACAA,qJ;EACAA,+I;EACAA,yI;;;;;;;;;;;;;;AARkB;uE;AAAA;6E;AAAA;kF;AAAA;gF;AAAA;kF;AAAA;6E;AAAA;0E;AAAA;;",
+"mappings":"A;;;;;;;;;;MA0YsB,iB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,4B;EAAAA,wC;EAAAA,iE;EAAAA,iB;;;CAAA,oD;EAAAC,iC;;;QAClB,uD;EAAAC,6G;;;QAEA,6D;EAAAA,mH;;;QAEA,kE;EAAAA,wH;;;QAEA,gE;EAAAA,sH;;;QAEA,kE;EAAAA,wH;;;QAEA,6D;EAAAA,mH;;;QAEA,0D;EAAAA,gH;;;QAEA,uD;EAAAA,6G;;;QAfkB,O;EAAAC,oC;EAAAA,iC;EAAAA,qB;EAClBA,yI;EAEAA,qJ;EAEAA,+J;EAEAA,2J;EAEAA,+J;EAEAA,qJ;EAEAA,+I;EAEAA,yI;;;;;;;;;;;;;;AAfkB;uE;AAAA;6E;AAAA;kF;AAAA;gF;AAAA;kF;AAAA;6E;AAAA;0E;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$TextJustify.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$TextJustify.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$TextJustify.<init>","org.gwtproject.dom.client.Style$TextJustify.<synthetic: getter>","org.gwtproject.dom.client.Style$TextJustify.<clinit>"]
 }
+

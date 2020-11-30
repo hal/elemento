@@ -24,12 +24,10 @@ import javax.inject.Singleton;
 import elemental2.core.Global;
 import elemental2.core.JsArray;
 import elemental2.webstorage.Storage;
-import elemental2.webstorage.StorageEvent;
 import elemental2.webstorage.WebStorageWindow;
 import jsinterop.base.Js;
 
 import static elemental2.dom.DomGlobal.console;
-import static elemental2.dom.DomGlobal.setTimeout;
 import static elemental2.dom.DomGlobal.window;
 
 @Singleton
@@ -125,17 +123,6 @@ public class TodoRepository {
         save(items.values());
     }
 
-    public void onExternalModification(ModificationCallback callback) {
-        if (storage != null) {
-            WebStorageWindow.of(window).addEventListener("storage", event -> {
-                StorageEvent storageEvent = (StorageEvent) event;
-                if (key.equals(storageEvent.key)) {
-                    setTimeout(args -> callback.execute(), 333);
-                }
-            }, false);
-        }
-    }
-
     private LinkedHashMap<String, Todo> load() {
         LinkedHashMap<String, Todo> items = new LinkedHashMap<>();
         if (storage != null) {
@@ -164,10 +151,5 @@ public class TodoRepository {
             storage.setItem(key, Global.JSON.stringify(todos));
         }
     }
-
-    @FunctionalInterface
-    public interface ModificationCallback {
-
-        void execute();
-    }
 }
+

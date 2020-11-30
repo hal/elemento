@@ -2,7 +2,8 @@
 "version":3,
 "file":"BodyObserver$1.impl.java.js",
 "lineCount":54,
-"mappings":"A;;;;;;;;;;;;MA8IqC,E;;CAAA,W;EAAAA,Q;EAAAA;OANyBC,UAMzBD,C;EAAAA;OALlBE,YAKkBF,C;EAAAA;OANmDG,WAMnDH,C;;;QAAA,0F;EAAAI,a;EAAAA,yB;EAAAA,6K;EAAAA,iB;;;CAAA,2H;EAAAC,6B;EAAAA,iC;EAAAA,+B;EAAAA,iC;;;CAEX,Y;EACVC,uD;;;CAIe,mB;EACfC,uB;;;CAIoB,Y;EACpBC,wB;;;QAbqB,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA6IqC,E;;CAAA,W;EAAAA,Q;EAAAA;OANyBC,UAMzBD,C;EAAAA;OALlBE,YAKkBF,C;EAAAA;OANmDG,WAMnDH,C;;;QAAA,0F;EAAAI,a;EAAAA,yB;EAAAA,6K;EAAAA,iB;;;CAAA,2H;EAAAC,6B;EAAAA,iC;EAAAA,+B;EAAAA,iC;;;CAEX,Y;EACVC,uD;;;CAIe,mB;EACfC,uB;;;CAIoB,Y;EACpBC,wB;;;QAbqB,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["BodyObserver.java"],
 "names":["org.jboss.elemento.BodyObserver$1.<synthetic: ctor_js>","element","attribute","callback","org.jboss.elemento.BodyObserver$1.<synthetic: ctor_create>","org.jboss.elemento.BodyObserver$1.<init>","org.jboss.elemento.BodyObserver$1.attachId","org.jboss.elemento.BodyObserver$1.observedElement","org.jboss.elemento.BodyObserver$1.callback","org.jboss.elemento.BodyObserver$1.<clinit>"]
 }
+

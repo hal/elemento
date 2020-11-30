@@ -27,7 +27,7 @@ class $2 extends FontStyle {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** FontStyle */ arg0) {
   return super.compareTo(/**@type {FontStyle}*/ ($Casts.$to(arg0, FontStyle)));
  }
  

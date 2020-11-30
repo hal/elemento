@@ -25,10 +25,24 @@ class SimpleHtmlSanitizer extends j_l_Object {
  constructor() {
   super();
  }
+ /** @return {!SimpleHtmlSanitizer} */
+ static $create__() {
+  let $instance = new SimpleHtmlSanitizer();
+  $instance.$ctor__org_gwtproject_safehtml_shared_SimpleHtmlSanitizer__();
+  return $instance;
+ }
+ 
+ $ctor__org_gwtproject_safehtml_shared_SimpleHtmlSanitizer__() {
+  this.$ctor__java_lang_Object__();
+ }
  /** @return {SimpleHtmlSanitizer} */
  static m_getInstance__() {
   SimpleHtmlSanitizer.$clinit();
   return SimpleHtmlSanitizer.f_INSTANCE__org_gwtproject_safehtml_shared_SimpleHtmlSanitizer_;
+ }
+ /** @override @return {SafeHtml} */
+ m_sanitize__java_lang_String(/** ?string */ html) {
+  return SimpleHtmlSanitizer.m_sanitizeHtml__java_lang_String(html);
  }
  /** @return {SafeHtml} */
  static m_sanitizeHtml__java_lang_String(/** ?string */ html) {
@@ -75,20 +89,6 @@ class SimpleHtmlSanitizer extends j_l_Object {
    }
   }
   return sanitized.toString();
- }
- /** @return {!SimpleHtmlSanitizer} */
- static $create__() {
-  let $instance = new SimpleHtmlSanitizer();
-  $instance.$ctor__org_gwtproject_safehtml_shared_SimpleHtmlSanitizer__();
-  return $instance;
- }
- 
- $ctor__org_gwtproject_safehtml_shared_SimpleHtmlSanitizer__() {
-  this.$ctor__java_lang_Object__();
- }
- /** @override @return {SafeHtml} */
- m_sanitize__java_lang_String(/** ?string */ html) {
-  return SimpleHtmlSanitizer.m_sanitizeHtml__java_lang_String(html);
  }
  
  static $clinit() {

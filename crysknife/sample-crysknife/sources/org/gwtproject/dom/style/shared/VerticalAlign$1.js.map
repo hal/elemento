@@ -2,7 +2,8 @@
 "version":3,
 "file":"VerticalAlign$1.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAqBW,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,yG;EAAAA,iB;;;CAAA,6E;EAAAC,kG;;;CAEO,c;EACZC,kB;;;;CAHK,6B;EAAAC,qF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAmBW,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,yG;EAAAA,iB;;;CAAA,6E;EAAAC,kG;;;CAEO,c;EACZC,kB;;;;CAHK,6B;EAAAC,qF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["VerticalAlign.java"],
 "names":["org.gwtproject.dom.style.shared.VerticalAlign$1.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.VerticalAlign$1.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.VerticalAlign$1.<init>","org.gwtproject.dom.style.shared.VerticalAlign$1.getCssName","org.gwtproject.dom.style.shared.VerticalAlign$1.compareTo","org.gwtproject.dom.style.shared.VerticalAlign$1.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomGlobal$PostMessageTargetOriginOrTransferUnionType$$Overlay.impl.java.js",
 "lineCount":40,
-"mappings":"A;;;;;;;;;;MAsNmB,mD;;QAE6C,sB,UAAUA,C;EAAVC,8D;EAC1DA,uD;;;QAI4B,yF;EAAAC,8D;EAC5BA,sG;;;QAIa,wF;EAAAC,8D;EACbA,iD;;;QAIc,yF;EAAAC,8D;EACdA,uD;;;QAIc,wF;EAAAC,8D;EACdA,yD;;;QAvBa,O;EAAAC,sE;EAAAA;",
+"mappings":"A;;;;;;;;;;MA6OmB,mD;;QAE6C,sB,UAAUA,C;EAAVC,8D;EAC1DA,uD;;;QAI4B,yF;EAAAC,8D;EAC5BA,sG;;;QAIa,wF;EAAAC,8D;EACbA,iD;;;QAIc,yF;EAAAC,8D;EACdA,uD;;;QAIc,wF;EAAAC,8D;EACdA,yD;;;QAvBa,O;EAAAC,sE;EAAAA;",
 "sources":["DomGlobal.java"],
 "names":["o","elemental2.dom.DomGlobal$PostMessageTargetOriginOrTransferUnionType$$Overlay.of","elemental2.dom.DomGlobal$PostMessageTargetOriginOrTransferUnionType$$Overlay.asJsArray__$devirt","elemental2.dom.DomGlobal$PostMessageTargetOriginOrTransferUnionType$$Overlay.asString__$devirt","elemental2.dom.DomGlobal$PostMessageTargetOriginOrTransferUnionType$$Overlay.isJsArray__$devirt","elemental2.dom.DomGlobal$PostMessageTargetOriginOrTransferUnionType$$Overlay.isString__$devirt","elemental2.dom.DomGlobal$PostMessageTargetOriginOrTransferUnionType$$Overlay.<clinit>"]
 }
+

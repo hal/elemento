@@ -2,7 +2,8 @@
 "version":3,
 "file":"ScriptBuilder.impl.java.js",
 "lineCount":41,
-"mappings":"A;;;;;;;;;MAsBiB,a;;CAWD,yB,gBAAaA,K;;CASb,uB,gBAAiCC,G;;CASjC,wB,gBAAYC,I;;QA7BX,O;EAAAC,gC;EAAAA,6B;;;;;;;;;;;;;;;;;;;;AAEf;cAAO,mEAAP;",
+"mappings":"A;;;;;;;;;MAoBiB,a;;CAWD,yB,gBAAaA,K;;CASb,uB,gBAAiCC,G;;CASjC,wB,gBAAYC,I;;QA7BX,O;EAAAC,gC;EAAAA,6B;;;;;;;;;;;;;;;;;;;;AAEf;cAAO,mEAAP;",
 "sources":["ScriptBuilder.java"],
 "names":["defer","src","type","org.gwtproject.dom.builder.shared.ScriptBuilder.<clinit>"]
 }
+

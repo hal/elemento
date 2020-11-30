@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableRowElement$$Overlay.impl.java.js",
 "lineCount":61,
-"mappings":"A;;;;;;;;;;;MA8Ba,wB;;QAUmB,uC,eAAWA,I;EAAXC,mC;EAC5BA,yF;EACAA,wE;;;QASoB,iD,eAAoBC,C;EAApBC,mC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,mC;EACpBA;GACEA,0HADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,mC;EACpBA,qN;;;QAhDS,O;EAAAE,2C;EAAAA,wC;;;;;;;;;;;;;;;;;AAEX;yBAC2B,yDAD3B;",
+"mappings":"A;;;;;;;;;;;MA+Ba,wB;;QAYmB,uC,eAAWA,I;EAAXC,mC;EAC5BA,yF;EACAA,wE;;;QAWoB,iD,eAAoBC,C;EAApBC,mC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,mC;EACpBA;GACEA,0HADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,mC;EACpBA,qN;;;QAxDS,O;EAAAE,2C;EAAAA,wC;;;;;;;;;;;;;;;;;AAEX;yBAAsC,yDAAtC;",
 "sources":["TableRowElement.java"],
 "names":["elem","org.gwtproject.dom.client.TableRowElement$$Overlay.as","o","org.gwtproject.dom.client.TableRowElement$$Overlay.is","node","org.gwtproject.dom.client.TableRowElement$$Overlay.<clinit>"]
 }
+

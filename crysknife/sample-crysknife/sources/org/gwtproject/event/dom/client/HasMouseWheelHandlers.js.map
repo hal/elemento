@@ -6,3 +6,4 @@
 "sources":["HasMouseWheelHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasMouseWheelHandlers.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"MapElement$$Overlay.impl.java.js",
 "lineCount":61,
-"mappings":"A;;;;;;;;;;;MA8Ba,mB;;QAUc,uC,eAAWA,I;EAAXC,8B;EACvBA,oF;EACAA,mE;;;QASoB,iD,eAAoBC,C;EAApBC,8B;EACpBA;GACEA,kHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,8B;EACpBA;GACEA,qHADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,8B;EACpBA,2M;;;QAhDS,O;EAAAE,sC;EAAAA,mC;;;;;;;;;;;;;;;;;AAEX;oBAC2B,oDAD3B;",
+"mappings":"A;;;;;;;;;;;MA+Ba,mB;;QAYc,uC,eAAWA,I;EAAXC,8B;EACvBA,oF;EACAA,mE;;;QAWoB,iD,eAAoBC,C;EAApBC,8B;EACpBA;GACEA,kHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,8B;EACpBA;GACEA,qHADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,8B;EACpBA,2M;;;QAxDS,O;EAAAE,sC;EAAAA,mC;;;;;;;;;;;;;;;;;AAEX;oBAAsC,oDAAtC;",
 "sources":["MapElement.java"],
 "names":["elem","org.gwtproject.dom.client.MapElement$$Overlay.as","o","org.gwtproject.dom.client.MapElement$$Overlay.is","node","org.gwtproject.dom.client.MapElement$$Overlay.<clinit>"]
 }
+

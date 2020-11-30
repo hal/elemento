@@ -39,3 +39,4 @@ public class DataTransfer {
 
   public native void setDragImage(HTMLElement img, double x, int y);
 }
+

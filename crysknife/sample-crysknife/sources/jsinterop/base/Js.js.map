@@ -6,3 +6,4 @@
 "sources":["Js.java","Js.native_js"],
 "names":["jsinterop.base.Js.<synthetic: ctor_js>","clazz","jsinterop.base.Js.asConstructorFn","fn","obj","jsinterop.base.Js.asAny","jsinterop.base.Js.asPropertyMap","jsinterop.base.Js.asArrayLike","jsinterop.base.Js.asArray","jsinterop.base.Js.asString","jsinterop.base.Js.asBoolean","jsinterop.base.Js.asDouble","jsinterop.base.Js.asFloat","jsinterop.base.Js.asLong","jsinterop.base.Js.asInt","jsinterop.base.Js.asShort","num","jsinterop.base.Js.asChar","jsinterop.base.Js.asByte","jsinterop.base.Js.cast","jsinterop.base.Js.uncheckedCast","jsinterop.base.Js.isTruthy","o1","o2","d","jsinterop.base.Js.coerceToInt","jsinterop.base.Js.<synthetic: ctor_create>","jsinterop.base.Js.<init>","jsinterop.base.Js.<clinit>","jsinterop.base.Js.<native>"]
 }
+

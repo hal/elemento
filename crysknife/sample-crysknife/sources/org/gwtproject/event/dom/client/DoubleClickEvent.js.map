@@ -6,3 +6,4 @@
 "sources":["DoubleClickEvent.java"],
 "names":["org.gwtproject.event.dom.client.DoubleClickEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.DoubleClickEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.DoubleClickEvent.<init>","org.gwtproject.event.dom.client.DoubleClickEvent.getType","org.gwtproject.event.dom.client.DoubleClickEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.DoubleClickEvent.dispatch","org.gwtproject.event.dom.client.DoubleClickEvent.<clinit>"]
 }
+

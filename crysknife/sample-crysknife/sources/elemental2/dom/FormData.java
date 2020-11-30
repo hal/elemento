@@ -225,3 +225,4 @@ public class FormData
     set(name, Js.<FormData.SetValueUnionType>uncheckedCast(value));
   }
 }
+

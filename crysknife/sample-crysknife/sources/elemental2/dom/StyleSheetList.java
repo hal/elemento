@@ -25,3 +25,4 @@ public class StyleSheetList implements JsArrayLike<StyleSheet> {
 
   public native StyleSheet item(int index);
 }
+

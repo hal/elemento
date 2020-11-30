@@ -71,3 +71,4 @@ public interface RTCDataChannelInitDictionary_ {
   @JsProperty
   void setProtocol(String protocol);
 }
+

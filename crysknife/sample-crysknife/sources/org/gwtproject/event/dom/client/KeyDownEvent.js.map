@@ -6,3 +6,4 @@
 "sources":["KeyDownEvent.java"],
 "names":["org.gwtproject.event.dom.client.KeyDownEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.KeyDownEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.KeyDownEvent.<init>","org.gwtproject.event.dom.client.KeyDownEvent.getType","org.gwtproject.event.dom.client.KeyDownEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.KeyDownEvent.dispatch","org.gwtproject.event.dom.client.KeyDownEvent.<clinit>"]
 }
+

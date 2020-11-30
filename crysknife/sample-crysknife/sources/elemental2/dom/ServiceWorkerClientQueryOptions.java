@@ -35,3 +35,4 @@ public interface ServiceWorkerClientQueryOptions {
   @JsProperty
   void setIncludeUncontrolled(boolean includeUncontrolled);
 }
+

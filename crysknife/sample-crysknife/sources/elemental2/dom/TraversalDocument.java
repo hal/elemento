@@ -52,3 +52,4 @@ public interface TraversalDocument {
   @JsProperty
   void setCreateTreeWalker(TraversalDocument.CreateTreeWalkerFn createTreeWalker);
 }
+

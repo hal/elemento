@@ -23,21 +23,22 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface ITransformStream {
+public interface ITransformStream<IN_VALUE, OUT_VALUE> {
   @JsOverlay
   static ITransformStream create() {
     return Js.uncheckedCast(JsPropertyMap.of());
   }
 
   @JsProperty
-  ReadableStream getReadable();
+  ReadableStream<OUT_VALUE> getReadable();
 
   @JsProperty
-  WritableStream getWritable();
+  WritableStream<IN_VALUE> getWritable();
 
   @JsProperty
-  void setReadable(ReadableStream readable);
+  void setReadable(ReadableStream<OUT_VALUE> readable);
 
   @JsProperty
-  void setWritable(WritableStream writable);
+  void setWritable(WritableStream<IN_VALUE> writable);
 }
+

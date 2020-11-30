@@ -2,7 +2,8 @@
 "version":3,
 "file":"DListBuilder.impl.java.js",
 "lineCount":14,
-"mappings":"A;;;;;;;;;MAoBiB,Y;;QAAA,O;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,Y;;QAAA,O;EAAAA,+B;EAAAA;",
 "sources":["DListBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.DListBuilder.<clinit>"]
 }
+

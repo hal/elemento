@@ -38,3 +38,4 @@ public class HTMLFormElement extends HTMLElement {
 
   public native void submit();
 }
+

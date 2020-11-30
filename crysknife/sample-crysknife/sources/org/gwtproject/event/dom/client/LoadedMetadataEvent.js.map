@@ -6,3 +6,4 @@
 "sources":["LoadedMetadataEvent.java"],
 "names":["org.gwtproject.event.dom.client.LoadedMetadataEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.LoadedMetadataEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.LoadedMetadataEvent.<init>","org.gwtproject.event.dom.client.LoadedMetadataEvent.getType","org.gwtproject.event.dom.client.LoadedMetadataEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.LoadedMetadataEvent.dispatch","org.gwtproject.event.dom.client.LoadedMetadataEvent.<clinit>"]
 }
+

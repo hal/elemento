@@ -22,3 +22,4 @@ package org.gwtproject.event.legacy.shared;
  */
 @Deprecated
 public interface EventHandler {}
+

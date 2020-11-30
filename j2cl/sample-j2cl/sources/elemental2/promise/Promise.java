@@ -164,3 +164,4 @@ public class Promise<T> implements IThenable<T> {
   @JsMethod(name = "finally")
   public native Promise<T> finally_(FinallyOnFinallyCallbackFn onFinally);
 }
+

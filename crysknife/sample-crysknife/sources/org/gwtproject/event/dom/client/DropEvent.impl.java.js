@@ -42,7 +42,7 @@ class DropEvent extends DragDropEventBase {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** DropHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_DropHandler(/**@type {DropHandler}*/ ($Casts.$to(arg0, DropHandler)));
  }
  

@@ -70,3 +70,4 @@ public class Range {
 
   public native void surroundContents(Node newParent);
 }
+

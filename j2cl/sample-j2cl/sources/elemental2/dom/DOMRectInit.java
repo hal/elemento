@@ -25,3 +25,4 @@ public class DOMRectInit {
   public double x;
   public double y;
 }
+

@@ -23,3 +23,4 @@ public class SQLError {
   public int code;
   public String message;
 }
+

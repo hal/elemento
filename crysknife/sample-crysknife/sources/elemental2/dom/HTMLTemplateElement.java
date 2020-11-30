@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLTemplateElement extends HTMLElement {
   public DocumentFragment content;
 }
+

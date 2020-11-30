@@ -2,7 +2,8 @@
 "version":3,
 "file":"GwtIncompatible.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAoBkB,e;;QAAA,M;EAAAA,0B;EAAAA,8B;;;QAAA,O;EAAAC,kC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAkBkB,e;;QAAA,M;EAAAA,0B;EAAAA,8B;;;QAAA,O;EAAAC,kC;EAAAA;",
 "sources":["GwtIncompatible.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.GwtIncompatible.<synthetic: adapt_lambda>","org.gwtproject.safehtml.shared.annotations.GwtIncompatible.<clinit>"]
 }
+

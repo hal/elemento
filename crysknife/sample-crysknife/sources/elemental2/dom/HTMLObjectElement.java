@@ -140,3 +140,4 @@ public class HTMLObjectElement extends HTMLElement {
 
   public native void setCustomValidity(String p0);
 }
+

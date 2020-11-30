@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,9 +15,7 @@
  */
 package org.gwtproject.dom.style.shared;
 
-/**
- * Enum for the table-layout property.
- */
+/** Enum for the table-layout property. */
 public enum TableLayout implements HasCssName {
   AUTO {
     @Override
@@ -35,3 +33,4 @@ public enum TableLayout implements HasCssName {
   @Override
   public abstract String getCssName();
 }
+

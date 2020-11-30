@@ -47,3 +47,4 @@ public class HTMLAnchorElement extends HTMLElement {
 
   public native void focus();
 }
+

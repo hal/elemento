@@ -34,3 +34,4 @@ public class CloseEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

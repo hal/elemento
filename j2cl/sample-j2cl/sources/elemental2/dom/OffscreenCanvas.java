@@ -79,3 +79,4 @@ public class OffscreenCanvas implements Transferable, EventTarget {
 
   public native ImageBitmap transferToImageBitmap();
 }
+

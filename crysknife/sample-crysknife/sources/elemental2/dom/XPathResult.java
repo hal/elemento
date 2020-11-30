@@ -63,3 +63,4 @@ public class XPathResult {
 
   public native Node snapshotItem(int index);
 }
+

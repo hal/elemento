@@ -36,3 +36,4 @@ public class XPathEvaluator {
 
   public native XPathResult evaluate(String expr, Node contextNode);
 }
+

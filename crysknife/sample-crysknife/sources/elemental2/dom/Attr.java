@@ -26,3 +26,4 @@ public class Attr extends Node {
   public boolean specified;
   public String value;
 }
+

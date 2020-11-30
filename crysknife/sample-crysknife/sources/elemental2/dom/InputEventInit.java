@@ -53,3 +53,4 @@ public interface InputEventInit extends UIEventInit {
   @JsProperty
   void setIsComposing(boolean isComposing);
 }
+

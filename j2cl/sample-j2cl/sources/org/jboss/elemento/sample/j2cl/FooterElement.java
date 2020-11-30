@@ -41,3 +41,4 @@ class FooterElement implements IsElement<HTMLElement> {
         return root;
     }
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"Inject$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MAwLkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;kD;EAAAA,oF;;;CAAA,0E;EAAAC,iC;EAAAA,qD;;;CAAA,kB;EAAAC,0C;EAAAA,kF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MA2LkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;kD;EAAAA,oF;;;CAAA,0E;EAAAC,iC;EAAAA,qD;;;CAAA,kB;EAAAC,0C;EAAAA,kF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["Inject.java"],
 "names":["javax.inject.Inject$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","javax.inject.Inject$$LambdaAdaptor.<init>","javax.inject.Inject$$LambdaAdaptor.annotationType","javax.inject.Inject$$LambdaAdaptor.<clinit>"]
 }
+

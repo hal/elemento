@@ -23,3 +23,4 @@ public class HTMLBaseElement extends HTMLElement {
   public String href;
   public String target;
 }
+

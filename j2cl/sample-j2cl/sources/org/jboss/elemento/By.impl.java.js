@@ -149,12 +149,12 @@ class By extends j_l_Object {
   return this.m_combinator__org_jboss_elemento_By_Combinator__org_jboss_elemento_By_$p_org_jboss_elemento_By(Combinator.f_AND__org_jboss_elemento_By_Combinator, selector);
  }
  /** @return {By} */
- m_desc__org_jboss_elemento_By(/** By */ selector) {
-  return this.m_combinator__org_jboss_elemento_By_Combinator__org_jboss_elemento_By_$p_org_jboss_elemento_By(Combinator.f_DESCENDANT__org_jboss_elemento_By_Combinator, selector);
- }
- /** @return {By} */
  m_child__org_jboss_elemento_By(/** By */ selector) {
   return this.m_combinator__org_jboss_elemento_By_Combinator__org_jboss_elemento_By_$p_org_jboss_elemento_By(Combinator.f_CHILD__org_jboss_elemento_By_Combinator, selector);
+ }
+ /** @return {By} */
+ m_desc__org_jboss_elemento_By(/** By */ selector) {
+  return this.m_combinator__org_jboss_elemento_By_Combinator__org_jboss_elemento_By_$p_org_jboss_elemento_By(Combinator.f_DESCENDANT__org_jboss_elemento_By_Combinator, selector);
  }
  /** @return {By} */
  m_sibling__org_jboss_elemento_By(/** By */ selector) {

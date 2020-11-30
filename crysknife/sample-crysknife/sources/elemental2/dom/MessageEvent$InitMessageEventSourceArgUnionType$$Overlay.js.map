@@ -6,3 +6,4 @@
 "sources":["MessageEvent.java"],
 "names":["o","elemental2.dom.MessageEvent$InitMessageEventSourceArgUnionType$$Overlay.of","elemental2.dom.MessageEvent$InitMessageEventSourceArgUnionType$$Overlay.asMessagePort__$devirt","elemental2.dom.MessageEvent$InitMessageEventSourceArgUnionType$$Overlay.asServiceWorker__$devirt","elemental2.dom.MessageEvent$InitMessageEventSourceArgUnionType$$Overlay.asWindow__$devirt","elemental2.dom.MessageEvent$InitMessageEventSourceArgUnionType$$Overlay.isMessagePort__$devirt","elemental2.dom.MessageEvent$InitMessageEventSourceArgUnionType$$Overlay.isServiceWorker__$devirt","elemental2.dom.MessageEvent$InitMessageEventSourceArgUnionType$$Overlay.isWindow__$devirt","elemental2.dom.MessageEvent$InitMessageEventSourceArgUnionType$$Overlay.<clinit>"]
 }
+

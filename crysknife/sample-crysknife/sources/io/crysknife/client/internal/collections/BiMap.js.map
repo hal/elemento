@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"BiMap.impl.java.js",
+"lineCount":108,
+"mappings":"A;;;;;;;;;;;;;;;;;;MAwBa,K;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,gB;EAAAA,4B;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,kC;;;CAEM,W;EACfC,sH;;;CAGuB,0E,sBAAkBC,G;EACzCD;GAAwDE,0DAAxDF;GAAwDE,6BAAxDF;;GAAyEE,4DAAzEF;GAAyEE,2BAAzEF;e;;;;CAPS,0D;EAAAG,iH;;;;CAAA,gE;EAAAC,uH;;;;CAAA,mE;EAAAC,0H;;;;CAAA,wC;EAAAC,kF;;;;CAAA,Y;EAAAC,yG;;;;CAAA,0E;EAAAC,uI;;;;CAAA,W;EAAAC,wG;;;;CAAA,4C;EAAAC,mG;;;;CAAA,O;EAAAC,oG;;;;CAAA,+D;EAAAA,4H;;;;CAAA,2C;EAAAC,qF;;;QAAA,O;EAAAC,wB;EAAAA,qB;EAAAA;",
+"sources":["BiMap.java"],
+"names":["io.crysknife.client.internal.collections.BiMap.<synthetic: ctor_js>","io.crysknife.client.internal.collections.BiMap.<synthetic: ctor_create>","io.crysknife.client.internal.collections.BiMap.<init>","io.crysknife.client.internal.collections.BiMap.inverse","map","io.crysknife.client.internal.collections.BiMap.<lambda in inverse>","io.crysknife.client.internal.collections.BiMap.compute","io.crysknife.client.internal.collections.BiMap.computeIfAbsent","io.crysknife.client.internal.collections.BiMap.computeIfPresent","io.crysknife.client.internal.collections.BiMap.forEach","io.crysknife.client.internal.collections.BiMap.getOrDefault","io.crysknife.client.internal.collections.BiMap.merge","io.crysknife.client.internal.collections.BiMap.putIfAbsent","io.crysknife.client.internal.collections.BiMap.remove","io.crysknife.client.internal.collections.BiMap.replace","io.crysknife.client.internal.collections.BiMap.replaceAll","io.crysknife.client.internal.collections.BiMap.<clinit>"]
+}
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"FrameElement$$Overlay.impl.java.js",
 "lineCount":80,
-"mappings":"A;;;;;;;;;;;;;;MAqCa,qB;;QAUgB,uC,eAAWA,I;EAAXC,gC;EACzBA,sF;EACAA,qE;;;QASoB,iD,eAAoBC,C;EAApBC,gC;EACpBA;GACEA,oHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,gC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,gC;EACpBA,+M;;;QA4EmB,6D;EAAAE,gC;EACnBA,gI;;;QAiBgB,sG,yCAAoBC,Q;EAApBC,gC;EAChBA,4C;;;QA0DgB,iG,yCAAqCC,G;EAArCC,gC;EAChBA,kC;;;QA1MS,O;EAAAC,wC;EAAAA,qC;;;;;;;;;;;;;;;;;;AAEX;sBAC2B,sDAD3B;",
+"mappings":"A;;;;;;;;;;;;;;MAqCa,qB;;QAYgB,uC,eAAWA,I;EAAXC,gC;EACzBA,sF;EACAA,qE;;;QAWoB,iD,eAAoBC,C;EAApBC,gC;EACpBA;GACEA,oHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,gC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,gC;EACpBA,+M;;;QAwFmB,6D;EAAAE,gC;EACnBA,gI;;;QAqBgB,sG,yCAAoBC,Q;EAApBC,gC;EAChBA,4C;;;QAwEgB,iG,yCAAqCC,G;EAArCC,gC;EAChBA,kC;;;QAhPS,O;EAAAC,wC;EAAAA,qC;;;;;;;;;;;;;;;;;;AAEX;sBAAsC,sDAAtC;",
 "sources":["FrameElement.java"],
 "names":["elem","org.gwtproject.dom.client.FrameElement$$Overlay.as","o","org.gwtproject.dom.client.FrameElement$$Overlay.is","node","org.gwtproject.dom.client.FrameElement$$Overlay.isNoResize__$devirt","longDesc","org.gwtproject.dom.client.FrameElement$$Overlay.setLongDesc__$devirt","src","org.gwtproject.dom.client.FrameElement$$Overlay.setSrc__$devirt","org.gwtproject.dom.client.FrameElement$$Overlay.<clinit>"]
 }
+

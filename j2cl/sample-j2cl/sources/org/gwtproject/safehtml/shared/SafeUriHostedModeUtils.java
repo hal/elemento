@@ -1,92 +1,56 @@
 /*
- * Copyright 2011 Google Inc.
+ * Copyright © 2019 The GWT Project Authors
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.safehtml.shared;
 
-                                                                  
-
                     
                                    
+                                                                  
 
 /**
  * SafeUri utilities whose implementation differs between Development and Production Mode.
  *
- * <p>
- * This class has a super-source peer that provides the Production Mode implementation.
+ * <p>This class has a super-source peer that provides the Production Mode implementation.
  *
- * <p>
- * Do not use this class - it is used for implementation only, and its methods may change in the
+ * <p>Do not use this class - it is used for implementation only, and its methods may change in the
  * future.
  */
 public class SafeUriHostedModeUtils {
-  private static class JsImpl {
-    public boolean isValidUri(String uri) {
-      return true;
-    }
-
-    public boolean getForceCheckValieUriFromProperty() {
-      return false;
-    }
-  }
-  private static class JreImpl extends JsImpl {
-                    
-             
-                                           
-                                    
-                     
-       
-
-                                                                            
-                                             
-           
-                     
-                    
-                                      
-                     
-       
-     
-
-                    
-             
-                                                        
-                                                               
-     
-  }
-
-  /**
-   * All valid Web Addresses discrete characters, i.e. the reserved, iunreserved, href-ucschar, and
-   * href-pct-form productions from RFC 3986 and RFC 3987bis, with the exception of character
-   * ranges.
-   *
-   * @see <a href="http://tools.ietf.org/html/rfc3986#section-2">RFC 3986</a>
-   * @see <a href="http://tools.ietf.org/html/draft-ietf-iri-3987bis-05#section-7.2">RFC 3987bis Web Addresses</a>
-   */
-  static final String HREF_DISCRETE_UCSCHAR = ":/?#[]@!$&'()*+,;=" // reserved
-      + "-._~" // iunreserved
-      + " <>\"{}|\\^`" // href-ucschar
-      + "%"; // href-pct-form
 
   /**
    * Name of system property that if set, enables checks in server-side code (even if assertions are
    * disabled).
    */
   public static final String FORCE_CHECK_VALID_URI = "com.google.gwt.safehtml.ForceCheckValidUri";
-
-  private static boolean forceCheckValidUri;
+  /**
+   * All valid Web Addresses discrete characters, i.e. the reserved, iunreserved, href-ucschar, and
+   * href-pct-form productions from RFC 3986 and RFC 3987bis, with the exception of character
+   * ranges.
+   *
+   * @see <a href="http://tools.ietf.org/html/rfc3986#section-2">RFC 3986</a>
+   * @see <a href="http://tools.ietf.org/html/draft-ietf-iri-3987bis-05#section-7.2">RFC 3987bis Web
+   *     Addresses</a>
+   */
+  static final String HREF_DISCRETE_UCSCHAR =
+      ":/?#[]@!$&'()*+,;=" // reserved
+          + "-._~" // iunreserved
+          + " <>\"{}|\\^`" // href-ucschar
+          + "%"; // href-pct-form
 
   private static final JreImpl impl = new JreImpl();
+  private static boolean forceCheckValidUri;
 
   static {
     setForceCheckValidUriFromProperty();
@@ -94,6 +58,10 @@ public class SafeUriHostedModeUtils {
 
   /**
    * Tests whether all characters in the given URI are valid Web Addresses characters.
+   *
+   * @param uri the string to test
+   * @return true if all characters are part of the charset that can be in a web address, false if
+   *     any doesn't match
    */
   // @VisibleForTesting
   public static boolean isValidUriCharset(String uri) {
@@ -109,12 +77,14 @@ public class SafeUriHostedModeUtils {
         continue;
       }
       // iunreserved ranges
-      if (('a' <= codePoint && codePoint <= 'z') || ('A' <= codePoint && codePoint <= 'Z')
+      if (('a' <= codePoint && codePoint <= 'z')
+          || ('A' <= codePoint && codePoint <= 'Z')
           || ('0' <= codePoint && codePoint <= '9')) {
         continue;
       }
       // href-ucschar ranges
-      if ((0 <= codePoint && codePoint <= 0x1F) || (0x7F <= codePoint && codePoint <= 0xD7FF)
+      if ((0 <= codePoint && codePoint <= 0x1F)
+          || (0x7F <= codePoint && codePoint <= 0xD7FF)
           || (0xE000 <= codePoint && codePoint <= 0xFFFD)) {
         continue;
       }
@@ -166,4 +136,42 @@ public class SafeUriHostedModeUtils {
   public static void setForceCheckValidUriFromProperty() {
     forceCheckValidUri = impl.getForceCheckValieUriFromProperty();
   }
+
+  private static class JsImpl {
+
+    public boolean isValidUri(String uri) {
+      return true;
+    }
+
+    public boolean getForceCheckValieUriFromProperty() {
+      return false;
+    }
+  }
+
+  private static class JreImpl extends JsImpl {
+
+                    
+             
+                                           
+                                    
+                     
+       
+
+                                                                            
+                                             
+           
+                     
+                    
+                                      
+                     
+       
+     
+
+                    
+             
+                                                        
+                                                               
+     
+  }
 }
+

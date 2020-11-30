@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Templated.impl.java.js",
+"lineCount":18,
+"mappings":"A;;;;;;;;;MA0BkB,S;;CAEhB,S;;CAEA,c;;QAJgB,O;EAAAA,4B;EAAAA;",
+"sources":["Templated.java"],
+"names":["io.crysknife.ui.templates.client.annotation.Templated.<clinit>"]
+}
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableLayout$2.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MA2BQ,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,uG;EAAAA,iB;;;CAAA,2E;EAAAC,gG;;;CAEU,c;EACZC,e;;;;CAHE,6B;EAAAC,iF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAyBQ,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,uG;EAAAA,iB;;;CAAA,2E;EAAAC,gG;;;CAEU,c;EACZC,e;;;;CAHE,6B;EAAAC,iF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["TableLayout.java"],
 "names":["org.gwtproject.dom.style.shared.TableLayout$2.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TableLayout$2.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.TableLayout$2.<init>","org.gwtproject.dom.style.shared.TableLayout$2.getCssName","org.gwtproject.dom.style.shared.TableLayout$2.compareTo","org.gwtproject.dom.style.shared.TableLayout$2.<clinit>"]
 }
+

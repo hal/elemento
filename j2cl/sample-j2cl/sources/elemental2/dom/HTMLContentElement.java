@@ -24,3 +24,4 @@ public class HTMLContentElement extends HTMLElement {
 
   public native NodeList<Node> getDistributedNodes();
 }
+

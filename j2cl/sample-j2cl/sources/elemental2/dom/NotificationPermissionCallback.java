@@ -21,3 +21,4 @@ import jsinterop.annotations.JsFunction;
 public interface NotificationPermissionCallback {
   Object onInvoke(String p0);
 }
+

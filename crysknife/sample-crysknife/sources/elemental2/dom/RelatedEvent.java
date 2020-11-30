@@ -50,3 +50,4 @@ public class RelatedEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

@@ -17,20 +17,21 @@ package elemental2.dom;
 
 import elemental2.promise.Promise;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface RTCRtpSender {
-  @JsProperty
-  RTCDTMFSender getDtmf();
+public class RTCRtpSender {
+  public static native RTCRtpCapabilities getCapabilities(String kind);
 
-  RTCRtpSendParameters getParameters();
+  public RTCDTMFSender dtmf;
+  public MediaStreamTrack track;
 
-  @JsProperty
-  MediaStreamTrack getTrack();
+  public native RTCRtpSendParameters getParameters();
 
-  Promise<Void> replaceTrack(MediaStreamTrack track);
+  public native Promise<RTCStatsReport> getStats();
 
-  Promise<Void> setParameters(RTCRtpSendParameters params);
+  public native Promise<Void> replaceTrack(MediaStreamTrack track);
+
+  public native Promise<Void> setParameters(RTCRtpSendParameters params);
 }
+

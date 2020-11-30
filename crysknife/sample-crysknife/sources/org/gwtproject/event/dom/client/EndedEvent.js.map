@@ -6,3 +6,4 @@
 "sources":["EndedEvent.java"],
 "names":["org.gwtproject.event.dom.client.EndedEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.EndedEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.EndedEvent.<init>","org.gwtproject.event.dom.client.EndedEvent.getType","org.gwtproject.event.dom.client.EndedEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.EndedEvent.dispatch","org.gwtproject.event.dom.client.EndedEvent.<clinit>"]
 }
+

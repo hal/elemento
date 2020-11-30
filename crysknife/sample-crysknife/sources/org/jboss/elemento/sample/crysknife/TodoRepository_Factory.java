@@ -1,10 +1,10 @@
 package org.jboss.elemento.sample.crysknife;
 
-import org.treblereel.gwt.crysknife.client.internal.Factory;
+import io.crysknife.client.internal.Factory;
 import javax.inject.Provider;
-import org.treblereel.gwt.crysknife.client.internal.OnFieldAccessed;
-import org.treblereel.gwt.crysknife.client.Reflect;
-import org.treblereel.gwt.crysknife.client.Interceptor;
+import io.crysknife.client.internal.OnFieldAccessed;
+import io.crysknife.client.Reflect;
+import io.crysknife.client.Interceptor;
 
 public class TodoRepository_Factory implements Factory<TodoRepository> {
 
@@ -28,3 +28,4 @@ public class TodoRepository_Factory implements Factory<TodoRepository> {
         return new TodoRepository_Factory();
     }
 }
+

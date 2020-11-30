@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomStyleBuilder.impl.java.js",
 "lineCount":71,
-"mappings":"A;;;;;;;;;;;;;;;;;MAwBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,gI;;;CAIkB,2B,gBAAeC,O;EACjCC,+F;EAKAA,sF;EACAA,Y;;;CAIkB,Y;EAClBC,6F;EACAA,Y;;;CAIkB,+C,iBAAcC,I;EAChCC,iK;;;CAIa,2B;EACbC,a;;;CAIkB,yB,gBAAaC,K;EAC/BC,2F;EACAA,Y;;;CAIkB,wB,gBAAYC,I;EAC9BC,iK;;;CAIkB,wB,gBAAYC,I;EAC9BC,yF;EACAA,Y;;;QAhDS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;MAsBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,gI;;;CAIkB,2B,gBAAeC,O;EACjCC,+F;EAKAA,sF;EACAA,Y;;;CAIkB,Y;EAClBC,6F;EACAA,Y;;;CAIkB,+C,iBAAcC,I;EAChCC,iK;;;CAIa,2B;EACbC,a;;;CAIkB,yB,gBAAaC,K;EAC/BC,2F;EACAA,Y;;;CAIkB,wB,gBAAYC,I;EAC9BC,iK;;;CAIkB,wB,gBAAYC,I;EAC9BC,yF;EACAA,Y;;;QAhDS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["DomStyleBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomStyleBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomStyleBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomStyleBuilder.<init>","cssText","org.gwtproject.dom.builder.client.DomStyleBuilder.cssText","org.gwtproject.dom.builder.client.DomStyleBuilder.disabled","html","org.gwtproject.dom.builder.client.DomStyleBuilder.html","org.gwtproject.dom.builder.client.DomStyleBuilder.isChildElementSupported","media","org.gwtproject.dom.builder.client.DomStyleBuilder.media","text","org.gwtproject.dom.builder.client.DomStyleBuilder.text","type","org.gwtproject.dom.builder.client.DomStyleBuilder.type","org.gwtproject.dom.builder.client.DomStyleBuilder.<clinit>"]
 }
+

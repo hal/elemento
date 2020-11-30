@@ -24,3 +24,4 @@ public class Counter {
   public String listStyle;
   public String separator;
 }
+

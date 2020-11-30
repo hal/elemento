@@ -27,7 +27,7 @@ class $5 extends ListStyleType {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** ListStyleType */ arg0) {
   return super.compareTo(/**@type {ListStyleType}*/ ($Casts.$to(arg0, ListStyleType)));
  }
  

@@ -35,3 +35,4 @@ public interface GetRootNodeOptions {
   @JsProperty
   void setComposed(boolean composed);
 }
+

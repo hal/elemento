@@ -6,3 +6,4 @@
 "sources":["Qualifier.java"],
 "names":["javax.inject.Qualifier.<synthetic: adapt_lambda>","javax.inject.Qualifier.<clinit>"]
 }
+

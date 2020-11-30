@@ -2,7 +2,8 @@
 "version":3,
 "file":"RegExpFactory.impl.java.js",
 "lineCount":42,
-"mappings":"A;;;;;;;;;MAqBM,a;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,wB;EAAAA,oC;EAAAA,gE;EAAAA,iB;;;CAAA,mD;EAAAC,iC;;;CACG,4D,gBAAeC,O;EACpBC,kE;;;CAGK,8E,gBAAeD,O,iBAAgBE,K;EACpCD,kE;;;CAGK,0D,gBAAaE,K;EAClBC,kE;;;QAVE,O;EAAAC,gC;EAAAA,6B;EAAAA;",
+"mappings":"A;;;;;;;;;MAqBM,a;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,wB;EAAAA,oC;EAAAA,gE;EAAAA,iB;;;CAAA,mD;EAAAC,iC;;;CAEG,4D,gBAAeC,O;EACpBC,kE;;;CAGK,8E,gBAAeD,O,iBAAgBE,K;EACpCD,kE;;;CAGK,0D,gBAAaE,K;EAClBC,kE;;;QAXE,O;EAAAC,gC;EAAAA,6B;EAAAA;",
 "sources":["RegExpFactory.java"],
 "names":["org.gwtproject.regexp.shared.RegExpFactory.<synthetic: ctor_js>","org.gwtproject.regexp.shared.RegExpFactory.<synthetic: ctor_create>","org.gwtproject.regexp.shared.RegExpFactory.<init>","pattern","org.gwtproject.regexp.shared.RegExpFactory.compile","flags","input","org.gwtproject.regexp.shared.RegExpFactory.quote","org.gwtproject.regexp.shared.RegExpFactory.<clinit>"]
 }
+

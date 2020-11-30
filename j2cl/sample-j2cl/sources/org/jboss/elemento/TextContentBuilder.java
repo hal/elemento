@@ -30,3 +30,4 @@ public class TextContentBuilder<E extends HTMLElement> extends ElementBuilder<E,
         return this;
     }
 }
+

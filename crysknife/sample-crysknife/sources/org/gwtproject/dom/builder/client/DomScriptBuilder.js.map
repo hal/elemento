@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomScriptBuilder.impl.java.js",
 "lineCount":67,
-"mappings":"A;;;;;;;;;;;;;;;;;MAyBa,gB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAgCC,Q;EAAhCC,2B;EAAAA,uC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,uBAAgCD,Q;EAC9BE,gI;;;CAImB,yB,gBAAaC,K;EAChCC,2F;EACAA,Y;;;CAImB,+C,iBAAcC,I;EACjCC,mK;;;CAIa,2B;EACbC,a;;;CAImB,uB,gBAAiCC,G;EACpDC,uF;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EAKAA,sF;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EACAA,Y;;;QA3CS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;MAuBa,gB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAgCC,Q;EAAhCC,2B;EAAAA,uC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,uBAAgCD,Q;EAC9BE,gI;;;CAImB,yB,gBAAaC,K;EAChCC,2F;EACAA,Y;;;CAImB,+C,iBAAcC,I;EACjCC,mK;;;CAIa,2B;EACbC,a;;;CAImB,uB,gBAAiCC,G;EACpDC,uF;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EAKAA,sF;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EACAA,Y;;;QA3CS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["DomScriptBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomScriptBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomScriptBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomScriptBuilder.<init>","defer","org.gwtproject.dom.builder.client.DomScriptBuilder.defer","html","org.gwtproject.dom.builder.client.DomScriptBuilder.html","org.gwtproject.dom.builder.client.DomScriptBuilder.isChildElementSupported","src","org.gwtproject.dom.builder.client.DomScriptBuilder.src","text","org.gwtproject.dom.builder.client.DomScriptBuilder.text","type","org.gwtproject.dom.builder.client.DomScriptBuilder.type","org.gwtproject.dom.builder.client.DomScriptBuilder.<clinit>"]
 }
+

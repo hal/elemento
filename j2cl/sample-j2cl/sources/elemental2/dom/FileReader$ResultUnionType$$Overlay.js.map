@@ -6,3 +6,4 @@
 "sources":["FileReader.java"],
 "names":["o","elemental2.dom.FileReader$ResultUnionType$$Overlay.of","elemental2.dom.FileReader$ResultUnionType$$Overlay.asArrayBuffer__$devirt","elemental2.dom.FileReader$ResultUnionType$$Overlay.asBlob__$devirt","elemental2.dom.FileReader$ResultUnionType$$Overlay.asString__$devirt","elemental2.dom.FileReader$ResultUnionType$$Overlay.isArrayBuffer__$devirt","elemental2.dom.FileReader$ResultUnionType$$Overlay.isBlob__$devirt","elemental2.dom.FileReader$ResultUnionType$$Overlay.isString__$devirt","elemental2.dom.FileReader$ResultUnionType$$Overlay.<clinit>"]
 }
+

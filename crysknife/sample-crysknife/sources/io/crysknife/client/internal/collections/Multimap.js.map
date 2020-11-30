@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Multimap.impl.java.js",
+"lineCount":117,
+"mappings":"A;;;;;;;;;;;;;;;;;;MA2Ba,Q;;CAAA,W;EAAAA,Q;EAAAA;OAEe,2DAFfA,C;;;;QAID,sB,wBAAyBC,M;EAAzBC,mB;EAAAA,+B;EAAAA,0F;EAAAA,iB;;;;CAAA,uE,wBAAyBD,M;EAAzBE,iC;EACRA,0E;;;;QAGK,S;EAAAD,mB;EAAAA,+B;EAAAA,uE;EAAAA,iB;;;;CAAA,0D;EACLC,sI;;;CAGU,yC,UAAMC,G,WAAOC,K;EACvBC;GACEA,8HADFA;G;EAGAA,8H;;;CAGmB,U;EACnBC,IAAOC,MAAPD,kD;EACAA;GAAAA,IAAaE,MAAbF,iEAAAA;GACEA;IAAAA,IAAOF,KAAPE,0BAAAA;IACEA,kBADFA;IADFA;G;EAKAA,c;;;CAGa,uB,UAAMH,G;EACnBM;GACEA,uDADFA;G;EAGAA,0H;;;CAGa,W;EACbC,kF;;;CAGU,4C,UAASP,G,WAAOC,K;EAC1BO;GACEA,iIADFA;G;;;CAKa,+B,UAAcR,G;EAC3BS,yF;;;CAGmB,Q;EACnBC,iF;;;CAGY,U;EACZC,iF;;;CAGa,mD,UAAgBX,G,WAAOC,K;EACpCW,0I;;;CAGU,S;EACVC,yE;;;CAGU,6B,UAAYb,G;EACtBc,2H;;;QAnES,O;EAAAC,2B;EAAAA,wB;EAAAA;",
+"sources":["Multimap.java"],
+"names":["io.crysknife.client.internal.collections.Multimap.<synthetic: ctor_js>","holder","io.crysknife.client.internal.collections.Multimap.<synthetic: ctor_create>","io.crysknife.client.internal.collections.Multimap.<init>","key","value","io.crysknife.client.internal.collections.Multimap.put","io.crysknife.client.internal.collections.Multimap.values","result","values","io.crysknife.client.internal.collections.Multimap.get","io.crysknife.client.internal.collections.Multimap.isEmpty","io.crysknife.client.internal.collections.Multimap.remove","io.crysknife.client.internal.collections.Multimap.containsKey","io.crysknife.client.internal.collections.Multimap.keys","io.crysknife.client.internal.collections.Multimap.keySet","io.crysknife.client.internal.collections.Multimap.containsEntry","io.crysknife.client.internal.collections.Multimap.clear","io.crysknife.client.internal.collections.Multimap.removeAll","io.crysknife.client.internal.collections.Multimap.<clinit>"]
+}
+

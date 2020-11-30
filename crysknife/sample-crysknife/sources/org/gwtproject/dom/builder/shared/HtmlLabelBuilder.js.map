@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlLabelBuilder.impl.java.js",
 "lineCount":42,
-"mappings":"A;;;;;;;;;;;;;MAoBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,kI;;;CAIkB,6B,gBAAiBC,S;EACnCC,uL;;;CAIkB,2B,gBAAeC,O;EACjCC,+K;;;QAbS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,kI;;;CAIkB,6B,gBAAiBC,S;EACnCC,uL;;;CAIkB,2B,gBAAeC,O;EACjCC,+K;;;QAbS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["HtmlLabelBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlLabelBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlLabelBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlLabelBuilder.<init>","accessKey","org.gwtproject.dom.builder.shared.HtmlLabelBuilder.accessKey","htmlFor","org.gwtproject.dom.builder.shared.HtmlLabelBuilder.htmlFor","org.gwtproject.dom.builder.shared.HtmlLabelBuilder.<clinit>"]
 }
+

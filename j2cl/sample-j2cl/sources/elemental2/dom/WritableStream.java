@@ -22,7 +22,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public class WritableStream {
+public class WritableStream<VALUE> {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface ConstructorQueuingStrategyUnionType {
     @JsOverlay
@@ -62,21 +62,25 @@ public class WritableStream {
   public WritableStream() {}
 
   public WritableStream(
-      WritableStreamSink underlyingSink, ByteLengthQueuingStrategy queuingStrategy) {}
+      WritableStreamSink<VALUE> underlyingSink, ByteLengthQueuingStrategy queuingStrategy) {}
 
   public WritableStream(
-      WritableStreamSink underlyingSink,
+      WritableStreamSink<VALUE> underlyingSink,
       WritableStream.ConstructorQueuingStrategyUnionType queuingStrategy) {}
 
-  public WritableStream(WritableStreamSink underlyingSink, CountQueuingStrategy queuingStrategy) {}
+  public WritableStream(
+      WritableStreamSink<VALUE> underlyingSink, CountQueuingStrategy queuingStrategy) {}
 
   public WritableStream(
-      WritableStreamSink underlyingSink,
+      WritableStreamSink<VALUE> underlyingSink,
       TransformStream.TransformStreamWritableStrategyType queuingStrategy) {}
 
-  public WritableStream(WritableStreamSink underlyingSink) {}
+  public WritableStream(WritableStreamSink<VALUE> underlyingSink) {}
 
   public native Promise<Void> abort(Object reason);
 
-  public native WritableStreamDefaultWriter getWriter();
+  public native Promise<Void> close();
+
+  public native WritableStreamDefaultWriter<VALUE> getWriter();
 }
+

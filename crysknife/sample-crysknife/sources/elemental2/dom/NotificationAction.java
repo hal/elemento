@@ -47,3 +47,4 @@ public interface NotificationAction {
   @JsProperty
   void setTitle(String title);
 }
+

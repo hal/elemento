@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextJustify.impl.java.js",
 "lineCount":154,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MAoBY,W;;CAAA,W;EAAAA,Q;;;CAAA,yE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAsDa,c;;QAtDb,2B;EAAAC,sB;EAAAA;GAAAA,oIAAAA;G;EAAAA,yH;;;QAAA,U;EAAAC,sB;EAAAA,qoB;;;QACV,uD;EAAAC,iG;;;QAMA,6D;EAAAA,uG;;;QASA,kE;EAAAA,4G;;;QAMA,gE;EAAAA,0G;;;QAMA,kE;EAAAA,4G;;;QAMA,6D;EAAAA,uG;;;QAMA,0D;EAAAA,oG;;;QAMA,uD;EAAAA,iG;;;QA9CU,O;EAAAC,8B;EAAAA,2B;EAAAA,e;EACVA,4M;EAMAA,8N;EASAA,6O;EAMAA,uO;EAMAA,6O;EAMAA,8N;EAMAA,qN;EAMAA,4M;EA9CUA,oF;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;iE;AAAA;uE;AAAA;4E;AAAA;0E;AAAA;4E;AAAA;uE;AAAA;oE;AAAA;iE;AAAA;6E;AACV;6E;AAMA;mF;AASA;wF;AAMA;sF;AAMA;wF;AAMA;mF;AAMA;gF;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MAkBY,W;;CAAA,W;EAAAA,Q;;;CAAA,yE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAoDa,c;;QApDb,2B;EAAAC,sB;EAAAA;GAAAA,oIAAAA;G;EAAAA,yH;;;QAAA,U;EAAAC,sB;EAAAA,qoB;;;QACV,uD;EAAAC,iG;;;QAMA,6D;EAAAA,uG;;;QAOA,kE;EAAAA,4G;;;QAMA,gE;EAAAA,0G;;;QAMA,kE;EAAAA,4G;;;QAMA,6D;EAAAA,uG;;;QAMA,0D;EAAAA,oG;;;QAMA,uD;EAAAA,iG;;;QA5CU,O;EAAAC,8B;EAAAA,2B;EAAAA,e;EACVA,4M;EAMAA,8N;EAOAA,6O;EAMAA,uO;EAMAA,6O;EAMAA,8N;EAMAA,qN;EAMAA,4M;EA5CUA,oF;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;iE;AAAA;uE;AAAA;4E;AAAA;0E;AAAA;4E;AAAA;uE;AAAA;oE;AAAA;iE;AAAA;6E;AACV;6E;AAMA;mF;AAOA;wF;AAMA;sF;AAMA;wF;AAMA;mF;AAMA;gF;AAMA;;",
 "sources":["TextJustify.java"],
 "names":["org.gwtproject.dom.style.shared.TextJustify.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TextJustify.<init>","org.gwtproject.dom.style.shared.TextJustify.valueOf","org.gwtproject.dom.style.shared.TextJustify.values","org.gwtproject.dom.style.shared.TextJustify.<synthetic: getter>","org.gwtproject.dom.style.shared.TextJustify.<clinit>"]
 }
+

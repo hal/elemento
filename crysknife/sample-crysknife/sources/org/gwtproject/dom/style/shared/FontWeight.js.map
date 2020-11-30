@@ -2,7 +2,8 @@
 "version":3,
 "file":"FontWeight.impl.java.js",
 "lineCount":110,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAoBY,U;;CAAA,W;EAAAA,Q;;;CAAA,wE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CA2Ba,c;;QA3Bb,2B;EAAAC,qB;EAAAA;GAAAA,iIAAAA;G;EAAAA,uH;;;QAAA,U;EAAAC,qB;EAAAA,4U;;;QACV,wD;EAAAC,gG;;;QAMA,sD;EAAAA,8F;;;QAMA,wD;EAAAA,gG;;;QAMA,yD;EAAAA,iG;;;QAnBU,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EACVA,8M;EAMAA,wM;EAMAA,8M;EAMAA,iN;EAnBUA,kF;;;;;;;;;;;;;;;;;;;;;;AAAA;iE;AAAA;+D;AAAA;iE;AAAA;kE;AAAA;2E;AACV;6E;AAMA;2E;AAMA;6E;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;MAkBY,U;;CAAA,W;EAAAA,Q;;;CAAA,wE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CA2Ba,c;;QA3Bb,2B;EAAAC,qB;EAAAA;GAAAA,iIAAAA;G;EAAAA,uH;;;QAAA,U;EAAAC,qB;EAAAA,4U;;;QACV,wD;EAAAC,gG;;;QAMA,sD;EAAAA,8F;;;QAMA,wD;EAAAA,gG;;;QAMA,yD;EAAAA,iG;;;QAnBU,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EACVA,8M;EAMAA,wM;EAMAA,8M;EAMAA,iN;EAnBUA,kF;;;;;;;;;;;;;;;;;;;;;;AAAA;iE;AAAA;+D;AAAA;iE;AAAA;kE;AAAA;2E;AACV;6E;AAMA;2E;AAMA;6E;AAMA;;",
 "sources":["FontWeight.java"],
 "names":["org.gwtproject.dom.style.shared.FontWeight.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.FontWeight.<init>","org.gwtproject.dom.style.shared.FontWeight.valueOf","org.gwtproject.dom.style.shared.FontWeight.values","org.gwtproject.dom.style.shared.FontWeight.<synthetic: getter>","org.gwtproject.dom.style.shared.FontWeight.<clinit>"]
 }
+

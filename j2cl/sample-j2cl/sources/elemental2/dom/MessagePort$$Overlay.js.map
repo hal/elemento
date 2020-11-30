@@ -6,3 +6,4 @@
 "sources":["MessagePort.java"],
 "names":["message","transfer","elemental2.dom.MessagePort$$Overlay.postMessage__$devirt","elemental2.dom.MessagePort$$Overlay.<clinit>"]
 }
+

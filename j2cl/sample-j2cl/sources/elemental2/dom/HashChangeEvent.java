@@ -65,3 +65,4 @@ public class HashChangeEvent extends Event {
       String oldURLArg,
       String newURLArg);
 }
+

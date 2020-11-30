@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomTableCaptionBuilder.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;MAuBa,sB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAsCC,Q;EAAtCC,iC;EAAAA,6C;EAAAA,sI;EAAAA,iB;;;CAAA,iH,uBAAsCD,Q;EACpCE,gI;;;QAJS,O;EAAAC,yC;EAAAA,sC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAqBa,sB;;CAAA,W;EAAAA,Q;;;QAIX,yD,uBAAsCC,Q;EAAtCC,iC;EAAAA,6C;EAAAA,sI;EAAAA,iB;;;CAAA,iH,uBAAsCD,Q;EACpCE,gI;;;QALS,O;EAAAC,yC;EAAAA,sC;EAAAA;",
 "sources":["DomTableCaptionBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomTableCaptionBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomTableCaptionBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomTableCaptionBuilder.<init>","org.gwtproject.dom.builder.client.DomTableCaptionBuilder.<clinit>"]
 }
+

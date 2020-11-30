@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomSelectBuilder.impl.java.js",
 "lineCount":70,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,gB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAgCC,Q;EAAhCC,2B;EAAAA,uC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,uBAAgCD,Q;EAC9BE,gI;;;CAImB,Y;EACnBC,6F;EACAA,Y;;;CAImB,Y;EACnBC,6F;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EACAA,Y;;;CAImB,oB,eAAkBC,K;EACrCC,mG;EACAA,Y;;;CAImB,W,eAASC,I;EAC5BC,yF;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EACAA,Y;;;CAImB,yB,gBAAaC,K;EAChCC,2F;EACAA,Y;;;QA9CS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,gB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAgCC,Q;EAAhCC,2B;EAAAA,uC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,uBAAgCD,Q;EAC9BE,gI;;;CAImB,Y;EACnBC,6F;EACAA,Y;;;CAImB,Y;EACnBC,6F;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EACAA,Y;;;CAImB,oB,eAAkBC,K;EACrCC,mG;EACAA,Y;;;CAImB,W,eAASC,I;EAC5BC,yF;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EACAA,Y;;;CAImB,yB,gBAAaC,K;EAChCC,2F;EACAA,Y;;;QA9CS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["DomSelectBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomSelectBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomSelectBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomSelectBuilder.<init>","org.gwtproject.dom.builder.client.DomSelectBuilder.disabled","org.gwtproject.dom.builder.client.DomSelectBuilder.multiple","name","org.gwtproject.dom.builder.client.DomSelectBuilder.name","index","org.gwtproject.dom.builder.client.DomSelectBuilder.selectedIndex","size","org.gwtproject.dom.builder.client.DomSelectBuilder.size","type","org.gwtproject.dom.builder.client.DomSelectBuilder.type","value","org.gwtproject.dom.builder.client.DomSelectBuilder.value","org.gwtproject.dom.builder.client.DomSelectBuilder.<clinit>"]
 }
+

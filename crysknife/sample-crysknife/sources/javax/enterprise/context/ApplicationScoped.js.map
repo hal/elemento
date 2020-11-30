@@ -2,7 +2,8 @@
 "version":3,
 "file":"ApplicationScoped.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAckB,iB;;QAAA,M;EAAAA,4B;EAAAA,8B;;;QAAA,O;EAAAC,oC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAqFkB,iB;;QAAA,M;EAAAA,4B;EAAAA,8B;;;QAAA,O;EAAAC,oC;EAAAA;",
 "sources":["ApplicationScoped.java"],
 "names":["javax.enterprise.context.ApplicationScoped.<synthetic: adapt_lambda>","javax.enterprise.context.ApplicationScoped.<clinit>"]
 }
+

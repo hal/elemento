@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLTableCaptionElement extends HTMLElement {
   public String align;
 }
+

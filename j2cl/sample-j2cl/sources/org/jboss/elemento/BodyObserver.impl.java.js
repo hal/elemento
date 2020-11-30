@@ -24,6 +24,7 @@ let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let $1 = goog.forwardDeclare('org.jboss.elemento.BodyObserver.$1$impl');
 let ElementObserver = goog.forwardDeclare('org.jboss.elemento.BodyObserver.ElementObserver$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
+let Id = goog.forwardDeclare('org.jboss.elemento.Id$impl');
 let ObserverCallback = goog.forwardDeclare('org.jboss.elemento.ObserverCallback$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -114,7 +115,7 @@ class BodyObserver extends j_l_Object {
  static m_createObserver__elemental2_dom_HTMLElement__org_jboss_elemento_ObserverCallback__java_lang_String(/** HTMLElement */ element, /** ObserverCallback */ callback, /** ?string */ attribute) {
   let elementId = element.getAttribute(attribute);
   if ($Equality.$same(elementId, null)) {
-   Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__java_lang_String(element, attribute, Elements.m_uniqueId__());
+   Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__java_lang_String(element, attribute, Id.m_unique__());
   }
   return $1.$create__elemental2_dom_HTMLElement__java_lang_String__org_jboss_elemento_ObserverCallback(element, attribute, callback);
  }
@@ -133,8 +134,6 @@ class BodyObserver extends j_l_Object {
   BodyObserver.$clinit = () =>{};
   BodyObserver.$loadModules();
   j_l_Object.$clinit();
-  BodyObserver.f_ATTACH_UID_KEY__org_jboss_elemento_BodyObserver_ = "on-attach-uid";
-  BodyObserver.f_DETACH_UID_KEY__org_jboss_elemento_BodyObserver_ = "on-detach-uid";
   BodyObserver.f_detachObservers__org_jboss_elemento_BodyObserver_ = /**@type {!ArrayList<ElementObserver>}*/ (ArrayList.$create__());
   BodyObserver.f_attachObservers__org_jboss_elemento_BodyObserver_ = /**@type {!ArrayList<ElementObserver>}*/ (ArrayList.$create__());
   BodyObserver.f_ready__org_jboss_elemento_BodyObserver_ = false;
@@ -158,16 +157,17 @@ class BodyObserver extends j_l_Object {
   $1 = goog.module.get('org.jboss.elemento.BodyObserver.$1$impl');
   ElementObserver = goog.module.get('org.jboss.elemento.BodyObserver.ElementObserver$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
+  Id = goog.module.get('org.jboss.elemento.Id$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
  
 }
 $Util.$setClassMetadata(BodyObserver, 'org.jboss.elemento.BodyObserver');
 
-/**@type {?string}*/
-BodyObserver.f_ATTACH_UID_KEY__org_jboss_elemento_BodyObserver_;
-/**@type {?string}*/
-BodyObserver.f_DETACH_UID_KEY__org_jboss_elemento_BodyObserver_;
+/**@const {?string}*/
+BodyObserver.f_ATTACH_UID_KEY__org_jboss_elemento_BodyObserver_ = "on-attach-uid";
+/**@const {?string}*/
+BodyObserver.f_DETACH_UID_KEY__org_jboss_elemento_BodyObserver_ = "on-detach-uid";
 /**@type {List<ElementObserver>}*/
 BodyObserver.f_detachObservers__org_jboss_elemento_BodyObserver_;
 /**@type {List<ElementObserver>}*/

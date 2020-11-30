@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$TableLayout.impl.java.js",
 "lineCount":58,
-"mappings":"A;;;;;;;;;;MAmQsB,iB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,4B;EAAAA,wC;EAAAA,iE;EAAAA,iB;;;CAAA,oD;EAAAC,iC;;;QAClB,uD;EAAAC,6G;;;QACA,wD;EAAAA,8G;;;QAFkB,O;EAAAC,oC;EAAAA,iC;EAAAA,qB;EAClBA,yI;EACAA,2I;;;;;;;;;;;;;;AAFkB;uE;AAAA;;",
+"mappings":"A;;;;;;;;;;MAyVsB,iB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,4B;EAAAA,wC;EAAAA,iE;EAAAA,iB;;;CAAA,oD;EAAAC,iC;;;QAClB,uD;EAAAC,6G;;;QAEA,wD;EAAAA,8G;;;QAHkB,O;EAAAC,oC;EAAAA,iC;EAAAA,qB;EAClBA,yI;EAEAA,2I;;;;;;;;;;;;;;AAHkB;uE;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$TableLayout.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$TableLayout.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$TableLayout.<init>","org.gwtproject.dom.client.Style$TableLayout.<synthetic: getter>","org.gwtproject.dom.client.Style$TableLayout.<clinit>"]
 }
+

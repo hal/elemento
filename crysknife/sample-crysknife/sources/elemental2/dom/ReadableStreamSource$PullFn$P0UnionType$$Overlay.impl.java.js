@@ -12,15 +12,15 @@ class P0UnionType_$Overlay {
   P0UnionType_$Overlay.$clinit();
   return /**@type {?}*/ (Js.m_cast__java_lang_Object(o));
  }
- /** @return {ReadableByteStreamController} */
+ /** @template VALUE @return {ReadableByteStreamController} */
  static m_asReadableByteStreamController__$devirt__elemental2_dom_ReadableStreamSource_PullFn_P0UnionType(/** ? */ $thisArg) {
   P0UnionType_$Overlay.$clinit();
   return /**@type {ReadableByteStreamController}*/ (Js.m_cast__java_lang_Object($thisArg));
  }
- /** @return {ReadableStreamDefaultController} */
+ /** @template VALUE @return {ReadableStreamDefaultController<VALUE>} */
  static m_asReadableStreamDefaultController__$devirt__elemental2_dom_ReadableStreamSource_PullFn_P0UnionType(/** ? */ $thisArg) {
   P0UnionType_$Overlay.$clinit();
-  return /**@type {ReadableStreamDefaultController}*/ (Js.m_cast__java_lang_Object($thisArg));
+  return /**@type {ReadableStreamDefaultController<VALUE>}*/ (Js.m_cast__java_lang_Object($thisArg));
  }
  
  static $clinit() {

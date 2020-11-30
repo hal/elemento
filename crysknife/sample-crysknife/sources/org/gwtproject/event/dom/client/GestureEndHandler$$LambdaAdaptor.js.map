@@ -6,3 +6,4 @@
 "sources":["GestureEndHandler.java"],
 "names":["org.gwtproject.event.dom.client.GestureEndHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.GestureEndHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.GestureEndHandler$$LambdaAdaptor.onGestureEnd","org.gwtproject.event.dom.client.GestureEndHandler$$LambdaAdaptor.<clinit>"]
 }
+

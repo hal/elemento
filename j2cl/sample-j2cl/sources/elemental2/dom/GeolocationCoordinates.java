@@ -71,3 +71,4 @@ public interface GeolocationCoordinates {
   @JsProperty
   void setSpeed(double speed);
 }
+

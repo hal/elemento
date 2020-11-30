@@ -6,3 +6,4 @@
 "sources":["MouseOverEvent.java"],
 "names":["org.gwtproject.event.dom.client.MouseOverEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.MouseOverEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.MouseOverEvent.<init>","org.gwtproject.event.dom.client.MouseOverEvent.getType","org.gwtproject.event.dom.client.MouseOverEvent.getAssociatedType","org.gwtproject.event.dom.client.MouseOverEvent.getRelatedTarget","handler","org.gwtproject.event.dom.client.MouseOverEvent.dispatch","org.gwtproject.event.dom.client.MouseOverEvent.<clinit>"]
 }
+

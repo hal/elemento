@@ -21,3 +21,4 @@ import jsinterop.annotations.JsFunction;
 public interface SQLStatementCallback {
   void onInvoke(SQLTransaction p0, SQLResultSet p1);
 }
+

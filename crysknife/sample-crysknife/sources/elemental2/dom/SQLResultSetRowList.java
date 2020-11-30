@@ -26,3 +26,4 @@ public class SQLResultSetRowList implements JsArrayLike<JsObject> {
 
   public native JsObject item(int index);
 }
+

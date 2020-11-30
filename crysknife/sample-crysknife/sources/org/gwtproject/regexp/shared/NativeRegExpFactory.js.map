@@ -2,7 +2,8 @@
 "version":3,
 "file":"NativeRegExpFactory.impl.java.js",
 "lineCount":41,
-"mappings":"A;;;;;;;;MAoBM,mB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,8B;EAAAA,0C;EAAAA,sE;EAAAA,iB;;;CAAA,yD;EAAAC,2D;;;CAGG,8E,gBAAeC,O,iBAAgBC,K;EACpCC,kF;;;CAIK,4D,gBAAeF,O;EACpBE,yD;;;CAIK,0D,gBAAaC,K;EAClBC,qD;;;QAdE,O;EAAAC,sC;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;MAoBM,mB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,8B;EAAAA,0C;EAAAA,sE;EAAAA,iB;;;CAAA,yD;EAAAC,2D;;;CAGG,4D,gBAAeC,O;EACpBC,yD;;;CAIK,8E,gBAAeD,O,iBAAgBE,K;EACpCD,kF;;;CAIK,0D,gBAAaE,K;EAClBC,qD;;;QAdE,O;EAAAC,sC;EAAAA,mC;EAAAA;",
 "sources":["NativeRegExpFactory.java"],
-"names":["org.gwtproject.regexp.shared.NativeRegExpFactory.<synthetic: ctor_js>","org.gwtproject.regexp.shared.NativeRegExpFactory.<synthetic: ctor_create>","org.gwtproject.regexp.shared.NativeRegExpFactory.<init>","pattern","flags","org.gwtproject.regexp.shared.NativeRegExpFactory.compile","input","org.gwtproject.regexp.shared.NativeRegExpFactory.quote","org.gwtproject.regexp.shared.NativeRegExpFactory.<clinit>"]
+"names":["org.gwtproject.regexp.shared.NativeRegExpFactory.<synthetic: ctor_js>","org.gwtproject.regexp.shared.NativeRegExpFactory.<synthetic: ctor_create>","org.gwtproject.regexp.shared.NativeRegExpFactory.<init>","pattern","org.gwtproject.regexp.shared.NativeRegExpFactory.compile","flags","input","org.gwtproject.regexp.shared.NativeRegExpFactory.quote","org.gwtproject.regexp.shared.NativeRegExpFactory.<clinit>"]
 }
+

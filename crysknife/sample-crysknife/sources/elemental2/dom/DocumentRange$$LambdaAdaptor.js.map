@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"DocumentRange$$LambdaAdaptor.impl.java.js",
+"lineCount":35,
+"mappings":"A;;;;;;;;;;;MAsBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;2D;EAAAA,sG;;;CAAA,4F;EAAAC,iC;EAAAA,8D;;;CAAA,W;EAAAC,uC;EAAAA,2F;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["DocumentRange.java"],
+"names":["elemental2.dom.DocumentRange$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","elemental2.dom.DocumentRange$$LambdaAdaptor.<init>","elemental2.dom.DocumentRange$$LambdaAdaptor.createRange","elemental2.dom.DocumentRange$$LambdaAdaptor.<clinit>"]
+}
+

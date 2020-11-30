@@ -6,3 +6,4 @@
 "sources":["Window.java"],
 "names":["o","elemental2.dom.Window$OpenDatabaseCallbackUnionType$$Overlay.of","elemental2.dom.Window$OpenDatabaseCallbackUnionType$$Overlay.asDatabaseCallback__$devirt","elemental2.dom.Window$OpenDatabaseCallbackUnionType$$Overlay.asOpenDatabaseCallbackFn__$devirt","elemental2.dom.Window$OpenDatabaseCallbackUnionType$$Overlay.isOpenDatabaseCallbackFn__$devirt","elemental2.dom.Window$OpenDatabaseCallbackUnionType$$Overlay.<clinit>"]
 }
+

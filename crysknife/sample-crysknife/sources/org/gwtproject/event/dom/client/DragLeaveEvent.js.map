@@ -6,3 +6,4 @@
 "sources":["DragLeaveEvent.java"],
 "names":["org.gwtproject.event.dom.client.DragLeaveEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.DragLeaveEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.DragLeaveEvent.<init>","org.gwtproject.event.dom.client.DragLeaveEvent.getType","org.gwtproject.event.dom.client.DragLeaveEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.DragLeaveEvent.dispatch","org.gwtproject.event.dom.client.DragLeaveEvent.<clinit>"]
 }
+

@@ -87,3 +87,4 @@ public class URLSearchParams implements JsIterable<JsArray<String>> {
 
   public native void sort();
 }
+

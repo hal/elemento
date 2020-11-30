@@ -6,3 +6,4 @@
 "sources":["FocusHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.FocusHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.FocusHandler.<clinit>"]
 }
+

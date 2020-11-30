@@ -24,7 +24,12 @@ import jsinterop.annotations.JsType;
 public interface MediaDevices extends EventTarget {
   Promise<JsArray<MediaDeviceInfo>> enumerateDevices();
 
+  Promise<MediaStream> getDisplayMedia();
+
+  Promise<MediaStream> getDisplayMedia(MediaStreamConstraints constraints);
+
   MediaTrackSupportedConstraints getSupportedConstraints();
 
   Promise<MediaStream> getUserMedia(MediaStreamConstraints constraints);
 }
+

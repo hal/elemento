@@ -6,3 +6,4 @@
 "sources":["UmbrellaException.java"],
 "names":["org.gwtproject.event.shared.UmbrellaException.<synthetic: ctor_js>","causes","org.gwtproject.event.shared.UmbrellaException.makeCause","org.gwtproject.event.shared.UmbrellaException.makeMessage","count","b","first","t","org.gwtproject.event.shared.UmbrellaException.<synthetic: ctor_create>","org.gwtproject.event.shared.UmbrellaException.<init>","i","cause","org.gwtproject.event.shared.UmbrellaException.getCauses","org.gwtproject.event.shared.UmbrellaException.<clinit>"]
 }
+

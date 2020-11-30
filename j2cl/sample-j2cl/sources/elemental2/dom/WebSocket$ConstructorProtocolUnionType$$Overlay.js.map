@@ -6,3 +6,4 @@
 "sources":["WebSocket.java"],
 "names":["o","elemental2.dom.WebSocket$ConstructorProtocolUnionType$$Overlay.of","elemental2.dom.WebSocket$ConstructorProtocolUnionType$$Overlay.asJsArray__$devirt","elemental2.dom.WebSocket$ConstructorProtocolUnionType$$Overlay.asString__$devirt","elemental2.dom.WebSocket$ConstructorProtocolUnionType$$Overlay.isJsArray__$devirt","elemental2.dom.WebSocket$ConstructorProtocolUnionType$$Overlay.isString__$devirt","elemental2.dom.WebSocket$ConstructorProtocolUnionType$$Overlay.<clinit>"]
 }
+

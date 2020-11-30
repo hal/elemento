@@ -6,3 +6,4 @@
 "sources":["HtmlContent.java"],
 "names":["html","text","element","nodes","elements","org.jboss.elemento.HtmlContent.innerHtml__$default","org.jboss.elemento.HtmlContent.add__$default","org.jboss.elemento.HtmlContent.addAll__$default","node","org.jboss.elemento.HtmlContent.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["Window.java"],
 "names":["o","elemental2.dom.Window$FrameElementUnionType$$Overlay.of","elemental2.dom.Window$FrameElementUnionType$$Overlay.asHTMLIFrameElement__$devirt","elemental2.dom.Window$FrameElementUnionType$$Overlay.asHTMLObjectElement__$devirt","elemental2.dom.Window$FrameElementUnionType$$Overlay.isHTMLIFrameElement__$devirt","elemental2.dom.Window$FrameElementUnionType$$Overlay.isHTMLObjectElement__$devirt","elemental2.dom.Window$FrameElementUnionType$$Overlay.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["HasDropHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasDropHandlers.<clinit>"]
 }
+

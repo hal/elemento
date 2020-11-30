@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,24 @@ import org.gwtproject.safecss.shared.annotations.VisibleForTesting;
 public class SafeStylesHostedModeUtils {
 
   private static boolean forceCheck;
+
+  /**
+   * Checks if the provided string is a valid style property name.
+   *
+   * @param name the style name
+   * @see <a href="http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier">CSS 2.1
+   *     identifiers</a>
+   */
+  public static void maybeCheckValidStyleName(String name) {
+    if ("on".equals(System.getProperty("superdevmode")) || forceCheck) {
+      String errorText = isValidStyleName(name);
+      if (errorText != null) {
+        throw new IllegalArgumentException(errorText);
+      }
+    } else {
+      assert isValidStyleName(name) == null : isValidStyleName(name);
+    }
+  }
 
   /**
    * Check if the specified style property name is valid.
@@ -79,7 +97,26 @@ public class SafeStylesHostedModeUtils {
   }
 
   /**
-   * Check if the specified style property value is valid.
+   * Checks if the provided string is a valid style property value.
+   *
+   * @param value the style value
+   * @see <a href="http://www.w3.org/TR/CSS21/syndata.html#declaration">CSS 2.1 declarations and
+   *     properties</a>
+   */
+  public static void maybeCheckValidStyleValue(String value) {
+    if ("on".equals(System.getProperty("superdevmode")) || forceCheck) {
+      String errorText = isValidStyleValue(value);
+      if (errorText != null) {
+        throw new IllegalArgumentException(errorText);
+      }
+    } else {
+      assert isValidStyleValue(value) == null : isValidStyleValue(value);
+    }
+  }
+
+  /**
+   * Check if the specified style property value is valid. Check if the specified style property
+   * value is valid.
    *
    * <p>NOTE: Running this method in prod mode will always retun null!
    *
@@ -227,50 +264,6 @@ public class SafeStylesHostedModeUtils {
   }
 
   /**
-   * Checks if the provided string is a valid style property name.
-   *
-   * @param name the style name
-   * @see <a href="http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier">CSS 2.1
-   *     identifiers</a>
-   */
-  public static void maybeCheckValidStyleName(String name) {
-    if ("on".equals(System.getProperty("superdevmode")) || forceCheck) {
-      String errorText = isValidStyleName(name);
-      if (errorText != null) {
-        throw new IllegalArgumentException(errorText);
-      }
-    } else {
-      assert isValidStyleName(name) == null : isValidStyleName(name);
-    }
-  }
-
-  /**
-   * Checks if the provided string is a valid style property value.
-   *
-   * @param value the style value
-   * @see <a href="http://www.w3.org/TR/CSS21/syndata.html#declaration">CSS 2.1 declarations and
-   *     properties</a>
-   */
-  public static void maybeCheckValidStyleValue(String value) {
-    System.out.println(
-        "method: maybeCheckValidStyleValue - value >>"
-            + value
-            + "<< - forceCheck >>"
-            + forceCheck
-            + "<< - System.getProperty(\"superdevmode\" >>"
-            + System.getProperty("superdevmode")
-            + "<<");
-    if ("on".equals(System.getProperty("superdevmode")) || forceCheck) {
-      String errorText = isValidStyleValue(value);
-      if (errorText != null) {
-        throw new IllegalArgumentException(errorText);
-      }
-    } else {
-      assert isValidStyleValue(value) == null : isValidStyleValue(value);
-    }
-  }
-
-  /**
    * Sets a global flag that controls whether or not {@link #maybeCheckValidStyleName(String)} and
    * {@link #maybeCheckValidStyleValue(String)} should perform their checks in a server-side
    * environment.
@@ -278,7 +271,6 @@ public class SafeStylesHostedModeUtils {
    * @param check if true, perform server-side checks.
    */
   public static void setForceCheckValidStyle(boolean check) {
-    System.out.println("setForceCheckValidStyle - check >>" + check + "<<");
     forceCheck = check;
   }
 
@@ -287,13 +279,10 @@ public class SafeStylesHostedModeUtils {
    * {@link #maybeCheckValidStyleValue(String)} should perform their checks in a server-side
    * environment from the value of the {org.gwtproject.safecss.ForceCheckValidStyles} property.
    *
-   * For J2CL compatibility we need to use a String isntead of a variable!
+   * <p>For J2CL compatibility we need to use a String isntead of a variable!
    */
   static void setForceCheckValidStyleFromProperty() {
-    System.out.println(
-        "setForceCheckValidStyleFromProperty - System.getProperty(org.gwtproject.safecss.ForceCheckValidStyles) >>"
-            + System.getProperty("org.gwtproject.safecss.ForceCheckValidStyles")
-            + "<<");
     forceCheck = System.getProperty("org.gwtproject.safecss.ForceCheckValidStyles") != null;
   }
 }
+

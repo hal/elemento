@@ -2,7 +2,8 @@
 "version":3,
 "file":"ParagraphBuilder.impl.java.js",
 "lineCount":14,
-"mappings":"A;;;;;;;;;MAoBiB,gB;;QAAA,O;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,gB;;QAAA,O;EAAAA,mC;EAAAA;",
 "sources":["ParagraphBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.ParagraphBuilder.<clinit>"]
 }
+

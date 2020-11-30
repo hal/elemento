@@ -43,7 +43,7 @@ class InputType extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** InputType */ arg0) {
   return super.compareTo(/**@type {InputType}*/ ($Casts.$to(arg0, InputType)));
  }
  /** @return {!InputType} */

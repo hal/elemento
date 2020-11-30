@@ -25,7 +25,7 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface WritableStreamSink {
+public interface WritableStreamSink<VALUE> {
   @JsFunction
   public interface AbortFn {
     IThenable<Object> onInvoke(Object p0);
@@ -42,8 +42,8 @@ public interface WritableStreamSink {
   }
 
   @JsFunction
-  public interface WriteFn {
-    IThenable<Object> onInvoke(Object p0, WritableStreamDefaultController p1);
+  public interface WriteFn<VALUE> {
+    IThenable<Object> onInvoke(VALUE p0, WritableStreamDefaultController p1);
   }
 
   @JsOverlay
@@ -61,7 +61,7 @@ public interface WritableStreamSink {
   WritableStreamSink.StartFn getStart();
 
   @JsProperty
-  WritableStreamSink.WriteFn getWrite();
+  WritableStreamSink.WriteFn<VALUE> getWrite();
 
   @JsProperty
   void setAbort(WritableStreamSink.AbortFn abort);
@@ -73,5 +73,6 @@ public interface WritableStreamSink {
   void setStart(WritableStreamSink.StartFn start);
 
   @JsProperty
-  void setWrite(WritableStreamSink.WriteFn write);
+  void setWrite(WritableStreamSink.WriteFn<? super VALUE> write);
 }
+

@@ -16,26 +16,17 @@
 package elemental2.dom;
 
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface CSSKeyframesRule {
-  Object appendRule(String rule);
+public class CSSKeyframesRule extends CSSRule {
+  public CSSRuleList cssRules;
+  public String name;
 
-  Object deleteRule(String key);
+  public native Object appendRule(String rule);
 
-  CSSKeyframeRule findRule(String key);
+  public native Object deleteRule(String key);
 
-  @JsProperty
-  CSSRuleList getCssRules();
-
-  @JsProperty
-  String getName();
-
-  @JsProperty
-  void setCssRules(CSSRuleList cssRules);
-
-  @JsProperty
-  void setName(String name);
+  public native CSSKeyframeRule findRule(String key);
 }
+

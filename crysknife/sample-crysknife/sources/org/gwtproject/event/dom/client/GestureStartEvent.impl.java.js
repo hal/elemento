@@ -51,7 +51,7 @@ class GestureStartEvent extends DomEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** GestureStartHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_GestureStartHandler(/**@type {GestureStartHandler}*/ ($Casts.$to(arg0, GestureStartHandler)));
  }
  

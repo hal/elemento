@@ -2,7 +2,8 @@
 "version":3,
 "file":"ReadableStreamSource$PullFn$P0UnionType$$Overlay.impl.java.js",
 "lineCount":28,
-"mappings":"A;;;;;;;;MAqCqB,oB;;QAEgC,sB,UAAUA,C;EAAVC,+B;EAC7CA,uD;;;QAImC,iG;EAAAC,+B;EACnCA,yF;;;QAIsC,oG;EAAAC,+B;EACtCA,4F;;;QAba,O;EAAAC,uC;EAAAA;",
+"mappings":"A;;;;;;;;MAqCqB,oB;;QAEgC,sB,UAAUA,C;EAAVC,+B;EAC7CA,uD;;;QAImC,iG;EAAAC,+B;EACnCA,yF;;;QAI6C,oG;EAAAC,+B;EAC7CA,mG;;;QAba,O;EAAAC,uC;EAAAA;",
 "sources":["ReadableStreamSource.java"],
 "names":["o","elemental2.dom.ReadableStreamSource$PullFn$P0UnionType$$Overlay.of","elemental2.dom.ReadableStreamSource$PullFn$P0UnionType$$Overlay.asReadableByteStreamController__$devirt","elemental2.dom.ReadableStreamSource$PullFn$P0UnionType$$Overlay.asReadableStreamDefaultController__$devirt","elemental2.dom.ReadableStreamSource$PullFn$P0UnionType$$Overlay.<clinit>"]
 }
+

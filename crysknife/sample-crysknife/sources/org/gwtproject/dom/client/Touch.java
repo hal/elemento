@@ -1,36 +1,37 @@
 /*
- * Copyright 2010 Google Inc.
+ * Copyright © 2019 The GWT Project Authors
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.client;
 
-import org.gwtproject.core.client.JavaScriptObject;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
+import org.gwtproject.core.client.JavaScriptObject;
 
 /**
  * Class representing touches.
  *
- * See {@link <a href="http://developer.apple.com/library/safari/#documentation/UserExperience/Reference/TouchClassReference/Touch/Touch.html">Safari Touch Documentation</a>}
+ * <p>See <a
+ * href="http://developer.apple.com/library/safari/#documentation/UserExperience/Reference/TouchClassReference/Touch/Touch.html">Safari
+ * Touch Documentation</a>
  */
 @JsType(isNative = true, name = "Object", namespace = JsPackage.GLOBAL)
 public class Touch extends JavaScriptObject {
 
-  protected Touch() {
-  }
+  protected Touch() {}
 
   /**
    * Gets the touch x-position within the browser window's client area.
@@ -90,7 +91,9 @@ public class Touch extends JavaScriptObject {
    */
   @JsOverlay
   public final int getRelativeX(Element target) {
-    return getClientX() - target.getAbsoluteLeft() + target.getScrollLeft()
+    return getClientX()
+        - target.getAbsoluteLeft()
+        + target.getScrollLeft()
         + target.getOwnerDocument().getScrollLeft();
   }
 
@@ -102,7 +105,9 @@ public class Touch extends JavaScriptObject {
    */
   @JsOverlay
   public final int getRelativeY(Element target) {
-    return getClientY() - target.getAbsoluteTop() + target.getScrollTop()
+    return getClientY()
+        - target.getAbsoluteTop()
+        + target.getScrollTop()
         + target.getOwnerDocument().getScrollTop();
   }
 
@@ -136,3 +141,4 @@ public class Touch extends JavaScriptObject {
     return Js.uncheckedCast(Js.<elemental2.dom.Touch>uncheckedCast(this).target);
   }
 }
+

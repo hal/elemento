@@ -47,3 +47,4 @@ public interface WorkerOptions {
   @JsProperty
   void setType(String type);
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"DivBuilder.impl.java.js",
 "lineCount":14,
-"mappings":"A;;;;;;;;;MAoBiB,U;;QAAA,O;EAAAA,6B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,U;;QAAA,O;EAAAA,6B;EAAAA;",
 "sources":["DivBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.DivBuilder.<clinit>"]
 }
+

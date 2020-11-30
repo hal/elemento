@@ -2,7 +2,8 @@
 "version":3,
 "file":"Inject.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAwLkB,M;;QAAA,M;EAAAA,iB;EAAAA,8B;;;QAAA,O;EAAAC,yB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA2LkB,M;;QAAA,M;EAAAA,iB;EAAAA,8B;;;QAAA,O;EAAAC,yB;EAAAA;",
 "sources":["Inject.java"],
 "names":["javax.inject.Inject.<synthetic: adapt_lambda>","javax.inject.Inject.<clinit>"]
 }
+

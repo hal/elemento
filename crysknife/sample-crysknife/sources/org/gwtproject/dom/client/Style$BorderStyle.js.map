@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$BorderStyle.impl.java.js",
 "lineCount":79,
-"mappings":"A;;;;;;;;;;MA8EsB,iB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,4B;EAAAA,wC;EAAAA,iE;EAAAA,iB;;;CAAA,oD;EAAAC,iC;;;QAClB,uD;EAAAC,6G;;;QACA,yD;EAAAA,+G;;;QACA,yD;EAAAA,+G;;;QACA,yD;EAAAA,+G;;;QACA,wD;EAAAA,8G;;;QALkB,O;EAAAC,oC;EAAAA,iC;EAAAA,qB;EAClBA,yI;EACAA,6I;EACAA,6I;EACAA,6I;EACAA,2I;;;;;;;;;;;;;;AALkB;uE;AAAA;yE;AAAA;yE;AAAA;yE;AAAA;;",
+"mappings":"A;;;;;;;;;;MAkFsB,iB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,4B;EAAAA,wC;EAAAA,iE;EAAAA,iB;;;CAAA,oD;EAAAC,iC;;;QAClB,uD;EAAAC,6G;;;QAEA,yD;EAAAA,+G;;;QAEA,yD;EAAAA,+G;;;QAEA,yD;EAAAA,+G;;;QAEA,wD;EAAAA,8G;;;QATkB,O;EAAAC,oC;EAAAA,iC;EAAAA,qB;EAClBA,yI;EAEAA,6I;EAEAA,6I;EAEAA,6I;EAEAA,2I;;;;;;;;;;;;;;AATkB;uE;AAAA;yE;AAAA;yE;AAAA;yE;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$BorderStyle.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$BorderStyle.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$BorderStyle.<init>","org.gwtproject.dom.client.Style$BorderStyle.<synthetic: getter>","org.gwtproject.dom.client.Style$BorderStyle.<clinit>"]
 }
+

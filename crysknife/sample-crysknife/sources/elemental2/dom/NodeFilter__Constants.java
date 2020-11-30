@@ -37,3 +37,4 @@ class NodeFilter__Constants {
   static double SHOW_PROCESSING_INSTRUCTION;
   static double SHOW_TEXT;
 }
+

@@ -42,7 +42,7 @@ class TouchCancelEvent extends TouchEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** TouchCancelHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_TouchCancelHandler(/**@type {TouchCancelHandler}*/ ($Casts.$to(arg0, TouchCancelHandler)));
  }
  

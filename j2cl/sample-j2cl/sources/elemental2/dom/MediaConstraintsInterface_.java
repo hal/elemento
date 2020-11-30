@@ -47,3 +47,4 @@ public interface MediaConstraintsInterface_ {
     setOptional(Js.<JsArray<JsObject>>uncheckedCast(optional));
   }
 }
+

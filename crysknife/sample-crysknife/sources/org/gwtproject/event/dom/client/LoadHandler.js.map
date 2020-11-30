@@ -6,3 +6,4 @@
 "sources":["LoadHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.LoadHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.LoadHandler.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["DoubleClickHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.DoubleClickHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.DoubleClickHandler.<clinit>"]
 }
+

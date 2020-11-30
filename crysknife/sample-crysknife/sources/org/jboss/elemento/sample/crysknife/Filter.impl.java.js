@@ -73,7 +73,7 @@ class Filter extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Filter */ arg0) {
   return super.compareTo(/**@type {Filter}*/ ($Casts.$to(arg0, Filter)));
  }
  /** @return {!Filter} */

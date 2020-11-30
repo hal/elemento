@@ -6,3 +6,4 @@
 "sources":["Headers.java"],
 "names":["o","elemental2.dom.Headers$ConstructorHeadersInitUnionType$$Overlay.of","elemental2.dom.Headers$ConstructorHeadersInitUnionType$$Overlay.asHeaders__$devirt","elemental2.dom.Headers$ConstructorHeadersInitUnionType$$Overlay.asJsArray__$devirt","elemental2.dom.Headers$ConstructorHeadersInitUnionType$$Overlay.asJsPropertyMap__$devirt","elemental2.dom.Headers$ConstructorHeadersInitUnionType$$Overlay.isHeaders__$devirt","elemental2.dom.Headers$ConstructorHeadersInitUnionType$$Overlay.isJsArray__$devirt","elemental2.dom.Headers$ConstructorHeadersInitUnionType$$Overlay.<clinit>"]
 }
+

@@ -25,3 +25,4 @@ public class Rect {
   public CSSPrimitiveValue right;
   public CSSPrimitiveValue top;
 }
+

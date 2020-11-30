@@ -27,3 +27,4 @@ public interface WindowLocalStorage {
   @JsProperty
   void setLocalStorage(Storage localStorage);
 }
+

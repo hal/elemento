@@ -8,10 +8,15 @@ class $Overlay {
   $Overlay.$clinit = () =>{};
   $Overlay.$loadModules();
  }
+ /** @return {boolean} */
+ static $isInstance(/** ? */ instance) {
+  return instance instanceof CSSKeyframesRule;
+ }
  
  static $loadModules() {}
  
 }
+$Util.$setClassMetadata($Overlay, 'CSSKeyframesRule');
 
 exports = $Overlay; 
 //# sourceMappingURL=CSSKeyframesRule$$Overlay.js.map

@@ -35,7 +35,7 @@ class ApplicationElement__Factory_ApplicationElement extends ApplicationElement 
   this.f_root__org_jboss_elemento_sample_crysknife_ApplicationElement_Factory_ApplicationElement_.innerHTML = "<header class=\"header\">  <h1>todos</h1>  <input data-field=\"newTodo\" class=\"new-todo\" placeholder=\"What needs to be done?\" autofocus> </header> <section data-field=\"main\" class=\"main\">  <input data-field=\"toggleAll\" class=\"toggle-all\" id=\"toggle-all\" type=\"checkbox\">  <label for=\"toggle-all\">Mark all as complete</label>  <ul data-field=\"list\" class=\"todo-list\">   <li>    <div class=\"view\">     <input class=\"toggle\" type=\"checkbox\" checked>     <label>Taste Elemento</label>     <button class=\"destroy\"></button>    </div> <input class=\"edit\" value=\"Taste Elemento\"> </li>   <li class=\"completed\">    <div class=\"view\">     <input class=\"toggle\" type=\"checkbox\">     <label>Rule the web</label>     <button class=\"destroy\"></button>    </div> <input class=\"edit\" value=\"Rule the web\"> </li>  </ul> </section> <footer data-field=\"footer\" class=\"footer\">  <span data-field=\"count\" class=\"todo-count\"><strong>0</strong> item left</span>  <ul class=\"filters\">   <li> <a data-field=\"filterAll\" href=\"#/\">All</a> </li>   <li> <a data-field=\"filterActive\" href=\"#/active\">Active</a> </li>   <li> <a data-field=\"filterCompleted\" href=\"#/completed\">Completed</a> </li>  </ul>  <button data-field=\"clearCompleted\" class=\"clear-completed\">Clear completed</button> </footer>";
  }
  /** @override @return {HTMLElement} */
- m_getElement__() {
+ m_element__() {
   return /**@type {HTMLElement}*/ (this.f_root__org_jboss_elemento_sample_crysknife_ApplicationElement_Factory_ApplicationElement_);
  }
  /** @private */

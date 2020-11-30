@@ -2,7 +2,8 @@
 "version":3,
 "file":"PerformanceObserver$$Overlay.impl.java.js",
 "lineCount":9,
-"mappings":"A;;;;MAqBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;MAsBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["PerformanceObserver.java"],
 "names":["elemental2.dom.PerformanceObserver$$Overlay.<clinit>"]
 }
+

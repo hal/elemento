@@ -2,7 +2,8 @@
 "version":3,
 "file":"RTCRtpReceiver$$Overlay.impl.java.js",
 "lineCount":9,
-"mappings":"A;;;;MAuBiB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;MAuBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["RTCRtpReceiver.java"],
 "names":["elemental2.dom.RTCRtpReceiver$$Overlay.<clinit>"]
 }
+

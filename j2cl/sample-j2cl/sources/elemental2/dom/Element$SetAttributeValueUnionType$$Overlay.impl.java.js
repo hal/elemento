@@ -4,7 +4,6 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.TrustedHTML.$Overlay$impl');
 let TrustedScriptURL_$Overlay = goog.forwardDeclare('elemental2.dom.TrustedScriptURL.$Overlay$impl');
-let TrustedURL_$Overlay = goog.forwardDeclare('elemental2.dom.TrustedURL.$Overlay$impl');
 let Boolean = goog.forwardDeclare('java.lang.Boolean$impl');
 let Double = goog.forwardDeclare('java.lang.Double$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
@@ -42,11 +41,6 @@ class SetAttributeValueUnionType_$Overlay {
   SetAttributeValueUnionType_$Overlay.$clinit();
   return /**@type {TrustedScriptURL}*/ ($Casts.$to(Js.m_cast__java_lang_Object($thisArg), TrustedScriptURL_$Overlay));
  }
- /** @return {TrustedURL} */
- static m_asTrustedURL__$devirt__elemental2_dom_Element_SetAttributeValueUnionType(/** ? */ $thisArg) {
-  SetAttributeValueUnionType_$Overlay.$clinit();
-  return /**@type {TrustedURL}*/ ($Casts.$to(Js.m_cast__java_lang_Object($thisArg), TrustedURL_$Overlay));
- }
  /** @return {boolean} */
  static m_isBoolean__$devirt__elemental2_dom_Element_SetAttributeValueUnionType(/** ? */ $thisArg) {
   SetAttributeValueUnionType_$Overlay.$clinit();
@@ -72,11 +66,6 @@ class SetAttributeValueUnionType_$Overlay {
   SetAttributeValueUnionType_$Overlay.$clinit();
   return TrustedScriptURL_$Overlay.$isInstance(/**@type {*}*/ ($thisArg));
  }
- /** @return {boolean} */
- static m_isTrustedURL__$devirt__elemental2_dom_Element_SetAttributeValueUnionType(/** ? */ $thisArg) {
-  SetAttributeValueUnionType_$Overlay.$clinit();
-  return TrustedURL_$Overlay.$isInstance(/**@type {*}*/ ($thisArg));
- }
  
  static $clinit() {
   SetAttributeValueUnionType_$Overlay.$clinit = () =>{};
@@ -86,7 +75,6 @@ class SetAttributeValueUnionType_$Overlay {
  static $loadModules() {
   $Overlay = goog.module.get('elemental2.dom.TrustedHTML.$Overlay$impl');
   TrustedScriptURL_$Overlay = goog.module.get('elemental2.dom.TrustedScriptURL.$Overlay$impl');
-  TrustedURL_$Overlay = goog.module.get('elemental2.dom.TrustedURL.$Overlay$impl');
   Boolean = goog.module.get('java.lang.Boolean$impl');
   Double = goog.module.get('java.lang.Double$impl');
   j_l_String = goog.module.get('java.lang.String$impl');

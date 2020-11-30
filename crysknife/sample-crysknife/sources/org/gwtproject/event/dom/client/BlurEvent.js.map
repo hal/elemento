@@ -6,3 +6,4 @@
 "sources":["BlurEvent.java"],
 "names":["org.gwtproject.event.dom.client.BlurEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.BlurEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.BlurEvent.<init>","org.gwtproject.event.dom.client.BlurEvent.getType","org.gwtproject.event.dom.client.BlurEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.BlurEvent.dispatch","org.gwtproject.event.dom.client.BlurEvent.<clinit>"]
 }
+

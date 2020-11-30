@@ -6,3 +6,4 @@
 "sources":["HasGestureStartHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasGestureStartHandlers.<clinit>"]
 }
+

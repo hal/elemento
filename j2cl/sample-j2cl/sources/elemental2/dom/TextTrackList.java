@@ -25,3 +25,4 @@ public class TextTrackList implements JsArrayLike<TextTrack> {
 
   public native TextTrack getTrackById(String id);
 }
+

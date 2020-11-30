@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"StorageEventInit$$Overlay.impl.java.js",
+"lineCount":17,
+"mappings":"A;;;;;;;MA0BiB,yB;;QAES,U;EAAAA,oC;EACtBA,+F;;;QAHa,O;EAAAC,4C;EAAAA;",
+"sources":["StorageEventInit.java"],
+"names":["elemental2.webstorage.StorageEventInit$$Overlay.create","elemental2.webstorage.StorageEventInit$$Overlay.<clinit>"]
+}
+

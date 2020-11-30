@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextAlign$1.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAqBS,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,qG;EAAAA,iB;;;CAAA,yE;EAAAC,8F;;;CAES,c;EACZC,gB;;;;CAHG,6B;EAAAC,6E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAmBS,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,qG;EAAAA,iB;;;CAAA,yE;EAAAC,8F;;;CAES,c;EACZC,gB;;;;CAHG,6B;EAAAC,6E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["TextAlign.java"],
 "names":["org.gwtproject.dom.style.shared.TextAlign$1.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TextAlign$1.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.TextAlign$1.<init>","org.gwtproject.dom.style.shared.TextAlign$1.getCssName","org.gwtproject.dom.style.shared.TextAlign$1.compareTo","org.gwtproject.dom.style.shared.TextAlign$1.<clinit>"]
 }
+

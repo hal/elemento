@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableSectionElement$$Overlay.impl.java.js",
 "lineCount":76,
-"mappings":"A;;;;;;;;;;;;;MA6Ba,4B;;QAkBuB,uC,eAAWA,I;EAAXC,uC;EAChCA,6F;EACAA,4E;;;QASoB,iD,eAAoBC,C;EAApBC,uC;EACpBA;GACEA,2HADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,uC;EACpBA;GACEA,8HADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,uC;EACpBA,svB;;;QAtDF,kE;EAAAE,8I;;;QAFW,O;EAAAC,+C;EAAAA,4C;EAEXA,gc;;;;;;;;;;;;;;;;;;;AAFW;6F;AAMX;6BAC2B,mEAD3B,W;AAEA;6BAC2B,mEAD3B,W;AAEA;6BAC2B,mEAD3B;",
+"mappings":"A;;;;;;;;;;;;;MA8Ba,4B;;QAmBuB,uC,eAAWA,I;EAAXC,uC;EAChCA,6F;EACAA,4E;;;QAWoB,iD,eAAoBC,C;EAApBC,uC;EACpBA;GACEA,2HADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,uC;EACpBA;GACEA,8HADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,uC;EACpBA,svB;;;QA7DF,kE;EAAAE,8I;;;QAFW,O;EAAAC,+C;EAAAA,4C;EAEXA,gc;;;;;;;;;;;;;;;;;;;AAFW;6F;AAOX;6BAAsC,mEAAtC,W;AACA;6BAAsC,mEAAtC,W;AACA;6BAAsC,mEAAtC;",
 "sources":["TableSectionElement.java"],
 "names":["elem","org.gwtproject.dom.client.TableSectionElement$$Overlay.as","o","org.gwtproject.dom.client.TableSectionElement$$Overlay.is","node","org.gwtproject.dom.client.TableSectionElement$$Overlay.<synthetic: getter>","org.gwtproject.dom.client.TableSectionElement$$Overlay.<clinit>"]
 }
+

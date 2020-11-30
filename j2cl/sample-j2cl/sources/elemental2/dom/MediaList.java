@@ -26,3 +26,4 @@ public class MediaList implements JsArrayLike<MediaList> {
 
   public native String item(int index);
 }
+

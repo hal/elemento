@@ -46,7 +46,7 @@ class AttributeOperator extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** AttributeOperator */ arg0) {
   return super.compareTo(/**@type {AttributeOperator}*/ ($Casts.$to(arg0, AttributeOperator)));
  }
  /** @return {!AttributeOperator} */

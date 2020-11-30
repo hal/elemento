@@ -6,3 +6,4 @@
 "sources":["BlurHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.BlurHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.BlurHandler.<clinit>"]
 }
+

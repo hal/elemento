@@ -6,3 +6,4 @@
 "sources":["HasTouchMoveHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasTouchMoveHandlers.<clinit>"]
 }
+

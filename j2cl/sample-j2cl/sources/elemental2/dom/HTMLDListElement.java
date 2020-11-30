@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLDListElement extends HTMLElement {
   public boolean compact;
 }
+

@@ -6,3 +6,4 @@
 "sources":["CSSProperties.java"],
 "names":["o","elemental2.dom.CSSProperties$AnimationIterationCountUnionType$$Overlay.of","elemental2.dom.CSSProperties$AnimationIterationCountUnionType$$Overlay.asDouble__$devirt","elemental2.dom.CSSProperties$AnimationIterationCountUnionType$$Overlay.asString__$devirt","elemental2.dom.CSSProperties$AnimationIterationCountUnionType$$Overlay.isDouble__$devirt","elemental2.dom.CSSProperties$AnimationIterationCountUnionType$$Overlay.isString__$devirt","elemental2.dom.CSSProperties$AnimationIterationCountUnionType$$Overlay.<clinit>"]
 }
+

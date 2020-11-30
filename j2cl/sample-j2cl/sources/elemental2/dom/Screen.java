@@ -27,3 +27,4 @@ public class Screen {
   public int pixelDepth;
   public int width;
 }
+

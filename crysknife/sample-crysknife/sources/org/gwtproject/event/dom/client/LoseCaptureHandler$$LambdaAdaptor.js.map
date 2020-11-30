@@ -6,3 +6,4 @@
 "sources":["LoseCaptureHandler.java"],
 "names":["org.gwtproject.event.dom.client.LoseCaptureHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.LoseCaptureHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.LoseCaptureHandler$$LambdaAdaptor.onLoseCapture","org.gwtproject.event.dom.client.LoseCaptureHandler$$LambdaAdaptor.<clinit>"]
 }
+

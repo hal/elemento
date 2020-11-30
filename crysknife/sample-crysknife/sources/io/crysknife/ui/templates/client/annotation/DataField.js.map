@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"DataField.impl.java.js",
+"lineCount":16,
+"mappings":"A;;;;;;;;;MA0BkB,S;;CAEhB,S;;QAFgB,O;EAAAA,4B;EAAAA;",
+"sources":["DataField.java"],
+"names":["io.crysknife.ui.templates.client.annotation.DataField.<clinit>"]
+}
+

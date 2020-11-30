@@ -26,16 +26,16 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface ReadableStreamSource {
+public interface ReadableStreamSource<VALUE> {
   @JsFunction
   public interface CancelFn {
     Promise<Object> onInvoke(Object p0);
   }
 
   @JsFunction
-  public interface PullFn {
+  public interface PullFn<VALUE> {
     @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
-    public interface P0UnionType {
+    public interface P0UnionType<VALUE> {
       @JsOverlay
       static ReadableStreamSource.PullFn.P0UnionType of(Object o) {
         return Js.cast(o);
@@ -47,28 +47,28 @@ public interface ReadableStreamSource {
       }
 
       @JsOverlay
-      default ReadableStreamDefaultController asReadableStreamDefaultController() {
+      default ReadableStreamDefaultController<VALUE> asReadableStreamDefaultController() {
         return Js.cast(this);
       }
     }
 
-    IThenable<Object> onInvoke(ReadableStreamSource.PullFn.P0UnionType p0);
+    IThenable<Object> onInvoke(ReadableStreamSource.PullFn.P0UnionType<VALUE> p0);
 
     @JsOverlay
     default IThenable<Object> onInvoke(ReadableByteStreamController p0) {
-      return onInvoke(Js.<ReadableStreamSource.PullFn.P0UnionType>uncheckedCast(p0));
+      return onInvoke(Js.<ReadableStreamSource.PullFn.P0UnionType<VALUE>>uncheckedCast(p0));
     }
 
     @JsOverlay
-    default IThenable<Object> onInvoke(ReadableStreamDefaultController p0) {
-      return onInvoke(Js.<ReadableStreamSource.PullFn.P0UnionType>uncheckedCast(p0));
+    default IThenable<Object> onInvoke(ReadableStreamDefaultController<VALUE> p0) {
+      return onInvoke(Js.<ReadableStreamSource.PullFn.P0UnionType<VALUE>>uncheckedCast(p0));
     }
   }
 
   @JsFunction
-  public interface StartFn {
+  public interface StartFn<VALUE> {
     @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
-    public interface P0UnionType {
+    public interface P0UnionType<VALUE> {
       @JsOverlay
       static ReadableStreamSource.StartFn.P0UnionType of(Object o) {
         return Js.cast(o);
@@ -80,21 +80,21 @@ public interface ReadableStreamSource {
       }
 
       @JsOverlay
-      default ReadableStreamDefaultController asReadableStreamDefaultController() {
+      default ReadableStreamDefaultController<VALUE> asReadableStreamDefaultController() {
         return Js.cast(this);
       }
     }
 
-    IThenable<Object> onInvoke(ReadableStreamSource.StartFn.P0UnionType p0);
+    IThenable<Object> onInvoke(ReadableStreamSource.StartFn.P0UnionType<VALUE> p0);
 
     @JsOverlay
     default IThenable<Object> onInvoke(ReadableByteStreamController p0) {
-      return onInvoke(Js.<ReadableStreamSource.StartFn.P0UnionType>uncheckedCast(p0));
+      return onInvoke(Js.<ReadableStreamSource.StartFn.P0UnionType<VALUE>>uncheckedCast(p0));
     }
 
     @JsOverlay
-    default IThenable<Object> onInvoke(ReadableStreamDefaultController p0) {
-      return onInvoke(Js.<ReadableStreamSource.StartFn.P0UnionType>uncheckedCast(p0));
+    default IThenable<Object> onInvoke(ReadableStreamDefaultController<VALUE> p0) {
+      return onInvoke(Js.<ReadableStreamSource.StartFn.P0UnionType<VALUE>>uncheckedCast(p0));
     }
   }
 
@@ -110,10 +110,10 @@ public interface ReadableStreamSource {
   ReadableStreamSource.CancelFn getCancel();
 
   @JsProperty
-  ReadableStreamSource.PullFn getPull();
+  ReadableStreamSource.PullFn<VALUE> getPull();
 
   @JsProperty
-  ReadableStreamSource.StartFn getStart();
+  ReadableStreamSource.StartFn<VALUE> getStart();
 
   @JsProperty
   String getType();
@@ -125,11 +125,12 @@ public interface ReadableStreamSource {
   void setCancel(ReadableStreamSource.CancelFn cancel);
 
   @JsProperty
-  void setPull(ReadableStreamSource.PullFn pull);
+  void setPull(ReadableStreamSource.PullFn<? super VALUE> pull);
 
   @JsProperty
-  void setStart(ReadableStreamSource.StartFn start);
+  void setStart(ReadableStreamSource.StartFn<? super VALUE> start);
 
   @JsProperty
   void setType(String type);
 }
+

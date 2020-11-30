@@ -27,3 +27,4 @@ public class CSSMediaRule extends CSSRule {
 
   public native double insertRule(String rule, int index);
 }
+

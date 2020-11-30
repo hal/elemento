@@ -6,3 +6,4 @@
 "sources":["DropHandler.java"],
 "names":["org.gwtproject.event.dom.client.DropHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.DropHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.DropHandler$$LambdaAdaptor.onDrop","org.gwtproject.event.dom.client.DropHandler$$LambdaAdaptor.<clinit>"]
 }
+

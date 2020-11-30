@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomGlobal$FetchInputUnionType$$Overlay.impl.java.js",
 "lineCount":39,
-"mappings":"A;;;;;;;;;MAsGmB,4B;;QAEsB,sB,UAAUA,C;EAAVC,uC;EACnCA,uD;;;QAIc,kE;EAAAC,uC;EACdA,0F;;;QAIa,iE;EAAAC,uC;EACbA,iD;;;QAIc,kE;EAAAC,uC;EACdA,uD;;;QAIc,iE;EAAAC,uC;EACdA,yD;;;QAvBa,O;EAAAC,+C;EAAAA;",
+"mappings":"A;;;;;;;;;MA6HmB,4B;;QAEsB,sB,UAAUA,C;EAAVC,uC;EACnCA,uD;;;QAIc,kE;EAAAC,uC;EACdA,0F;;;QAIa,iE;EAAAC,uC;EACbA,iD;;;QAIc,kE;EAAAC,uC;EACdA,uD;;;QAIc,iE;EAAAC,uC;EACdA,yD;;;QAvBa,O;EAAAC,+C;EAAAA;",
 "sources":["DomGlobal.java"],
 "names":["o","elemental2.dom.DomGlobal$FetchInputUnionType$$Overlay.of","elemental2.dom.DomGlobal$FetchInputUnionType$$Overlay.asRequest__$devirt","elemental2.dom.DomGlobal$FetchInputUnionType$$Overlay.asString__$devirt","elemental2.dom.DomGlobal$FetchInputUnionType$$Overlay.isRequest__$devirt","elemental2.dom.DomGlobal$FetchInputUnionType$$Overlay.isString__$devirt","elemental2.dom.DomGlobal$FetchInputUnionType$$Overlay.<clinit>"]
 }
+

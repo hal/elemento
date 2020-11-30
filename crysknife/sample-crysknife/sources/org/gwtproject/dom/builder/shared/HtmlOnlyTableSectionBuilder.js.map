@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlOnlyTableSectionBuilder.impl.java.js",
 "lineCount":59,
-"mappings":"A;;;;;;;;;;MA6BmB,2B;;CAAA,W;EAAAA,Q;EAAAA;OA6BO,0EA7BPA,C;;;QAKyB,sB;EAAAC,sC;EACxCA,IAAgBC,eAAhBD,+B;EACAA,iC;EACAA,+G;;;QAMwC,sB;EAAAE,sC;EACxCA,IAAgBD,eAAhBC,+B;EACAA,iC;EACAA,+G;;;QAMwC,sB;EAAAC,sC;EACxCA,IAAgBF,eAAhBE,+B;EACAA,iC;EACAA,+G;;;QAUM,0D,wBAA4CC,Q;EAA5CC,kD;EAAAA,4I;EAAAA,iB;;;CAAA,uH,wBAA4CD,Q;EAClDE,mI;EACAA,2F;;;CASyB,+C,iBAAcC,I;EACvCC,sI;EACAA,uG;;;QAjDe,O;EAAAC,8C;EAAAA,2C;EAAAA;",
+"mappings":"A;;;;;;;;;;MA2BmB,2B;;CAAA,W;EAAAA,Q;EAAAA;OAuBO,0EAvBPA,C;;;QAGyB,sB;EAAAC,sC;EACxCA,IAAgBC,eAAhBD,+B;EACAA,iC;EACAA,+G;;;QAIwC,sB;EAAAE,sC;EACxCA,IAAgBD,eAAhBC,+B;EACAA,iC;EACAA,+G;;;QAIwC,sB;EAAAC,sC;EACxCA,IAAgBF,eAAhBE,+B;EACAA,iC;EACAA,+G;;;QAUM,0D,wBAA4CC,Q;EAA5CC,kD;EAAAA,4I;EAAAA,iB;;;CAAA,uH,wBAA4CD,Q;EAClDE,mI;EACAA,2F;;;CASyB,+C,iBAAcC,I;EACvCC,sI;EACAA,uG;;;QA3Ce,O;EAAAC,8C;EAAAA,2C;EAAAA;",
 "sources":["HtmlOnlyTableSectionBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlOnlyTableSectionBuilder.<synthetic: ctor_js>","org.gwtproject.dom.builder.shared.HtmlOnlyTableSectionBuilder.createTBodyBuilder","htmlBuilderImpl","org.gwtproject.dom.builder.shared.HtmlOnlyTableSectionBuilder.createTFootBuilder","org.gwtproject.dom.builder.shared.HtmlOnlyTableSectionBuilder.createTHeadBuilder","delegate","org.gwtproject.dom.builder.shared.HtmlOnlyTableSectionBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlOnlyTableSectionBuilder.<init>","html","org.gwtproject.dom.builder.shared.HtmlOnlyTableSectionBuilder.html","org.gwtproject.dom.builder.shared.HtmlOnlyTableSectionBuilder.<clinit>"]
 }
+

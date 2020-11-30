@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlVideoBuilder.impl.java.js",
 "lineCount":46,
-"mappings":"A;;;;;;;;;;;;;MAoBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,gI;;;CAIkB,a,eAAWC,M;EAC7BC,oK;;;CAIkB,0B,gBAAcC,G;EAChCC,2K;;;CAIkB,Y,eAAUC,K;EAC5BC,kK;;;QAlBS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,gI;;;CAIkB,a,eAAWC,M;EAC7BC,oK;;;CAIkB,0B,gBAAcC,G;EAChCC,2K;;;CAIkB,Y,eAAUC,K;EAC5BC,kK;;;QAlBS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["HtmlVideoBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlVideoBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlVideoBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlVideoBuilder.<init>","height","org.gwtproject.dom.builder.shared.HtmlVideoBuilder.height","url","org.gwtproject.dom.builder.shared.HtmlVideoBuilder.poster","width","org.gwtproject.dom.builder.shared.HtmlVideoBuilder.width","org.gwtproject.dom.builder.shared.HtmlVideoBuilder.<clinit>"]
 }
+

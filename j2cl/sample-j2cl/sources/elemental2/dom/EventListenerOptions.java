@@ -35,3 +35,4 @@ public interface EventListenerOptions {
   @JsProperty
   void setCapture(boolean capture);
 }
+

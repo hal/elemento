@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"TemplateUtil$SelectorFunction$$LambdaAdaptor.impl.java.js",
+"lineCount":36,
+"mappings":"A;;;;;;;;;;;;MAmKoB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;6F;EAAAA,0K;;;CAAA,gK;EAAAC,iC;EAAAA,gG;;;CAAA,sD;EAAAC,6D;EAAAA,uI;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["TemplateUtil.java"],
+"names":["io.crysknife.ui.templates.client.TemplateUtil$SelectorFunction$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","io.crysknife.ui.templates.client.TemplateUtil$SelectorFunction$$LambdaAdaptor.<init>","io.crysknife.ui.templates.client.TemplateUtil$SelectorFunction$$LambdaAdaptor.select","io.crysknife.ui.templates.client.TemplateUtil$SelectorFunction$$LambdaAdaptor.<clinit>"]
+}
+

@@ -48,7 +48,7 @@ class MouseOverEvent extends MouseEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** MouseOverHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_MouseOverHandler(/**@type {MouseOverHandler}*/ ($Casts.$to(arg0, MouseOverHandler)));
  }
  

@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableCaptionElement$$Overlay.impl.java.js",
 "lineCount":61,
-"mappings":"A;;;;;;;;;;;MA6Ba,4B;;QAUuB,uC,eAAWA,I;EAAXC,uC;EAChCA,6F;EACAA,4E;;;QASoB,iD,eAAoBC,C;EAApBC,uC;EACpBA;GACEA,2HADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,uC;EACpBA;GACEA,8HADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,uC;EACpBA,6N;;;QAhDS,O;EAAAE,+C;EAAAA,4C;;;;;;;;;;;;;;;;;AAEX;6BAC2B,6DAD3B;",
+"mappings":"A;;;;;;;;;;;MA8Ba,4B;;QAYuB,uC,eAAWA,I;EAAXC,uC;EAChCA,6F;EACAA,4E;;;QAWoB,iD,eAAoBC,C;EAApBC,uC;EACpBA;GACEA,2HADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,uC;EACpBA;GACEA,8HADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,uC;EACpBA,6N;;;QAxDS,O;EAAAE,+C;EAAAA,4C;;;;;;;;;;;;;;;;;AAEX;6BAAsC,6DAAtC;",
 "sources":["TableCaptionElement.java"],
 "names":["elem","org.gwtproject.dom.client.TableCaptionElement$$Overlay.as","o","org.gwtproject.dom.client.TableCaptionElement$$Overlay.is","node","org.gwtproject.dom.client.TableCaptionElement$$Overlay.<clinit>"]
 }
+

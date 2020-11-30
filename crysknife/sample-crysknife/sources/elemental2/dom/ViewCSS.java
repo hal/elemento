@@ -24,3 +24,4 @@ public interface ViewCSS {
 
   CSSStyleDeclaration getComputedStyle(Element elt);
 }
+

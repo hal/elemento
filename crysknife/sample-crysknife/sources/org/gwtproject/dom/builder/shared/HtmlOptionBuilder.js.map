@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlOptionBuilder.impl.java.js",
 "lineCount":54,
-"mappings":"A;;;;;;;;;;;;;MAoBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,mB;EACnBC,uM;;;CAImB,Y;EACnBC,yL;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;CAImB,Y;EACnBC,yL;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;QA7BS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,mB;EACnBC,uM;;;CAImB,Y;EACnBC,yL;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;CAImB,Y;EACnBC,yL;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;QA7BS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
 "sources":["HtmlOptionBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlOptionBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlOptionBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlOptionBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlOptionBuilder.defaultSelected","org.gwtproject.dom.builder.shared.HtmlOptionBuilder.disabled","label","org.gwtproject.dom.builder.shared.HtmlOptionBuilder.label","org.gwtproject.dom.builder.shared.HtmlOptionBuilder.selected","value","org.gwtproject.dom.builder.shared.HtmlOptionBuilder.value","org.gwtproject.dom.builder.shared.HtmlOptionBuilder.<clinit>"]
 }
+

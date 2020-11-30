@@ -24,8 +24,6 @@ goog.require('elemental2.dom.Window.$Overlay');
 goog.require('elemental2.webstorage.StorageEvent.$Overlay');
 goog.require('jsinterop.base.Js');
 goog.require('org.gwtproject.event.shared.HandlerRegistration');
-goog.require('org.jboss.elemento.EventType.$LambdaAdaptor$1');
-goog.require('org.jboss.elemento.EventType.$LambdaAdaptor$2');
 goog.require('org.jboss.elemento.IsElement');
 goog.require('vmbootstrap.Casts');
 

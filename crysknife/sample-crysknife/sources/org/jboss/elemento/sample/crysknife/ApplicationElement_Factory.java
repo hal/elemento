@@ -1,14 +1,15 @@
 package org.jboss.elemento.sample.crysknife;
 
-import org.treblereel.gwt.crysknife.client.internal.Factory;
+import io.crysknife.client.internal.Factory;
 import javax.inject.Provider;
-import org.treblereel.gwt.crysknife.client.internal.OnFieldAccessed;
-import org.treblereel.gwt.crysknife.client.Reflect;
-import org.treblereel.gwt.crysknife.client.Interceptor;
-import org.treblereel.gwt.crysknife.client.BeanManagerImpl;
-import org.treblereel.gwt.crysknife.client.Instance;
+import io.crysknife.client.internal.OnFieldAccessed;
+import io.crysknife.client.Reflect;
+import io.crysknife.client.Interceptor;
+import io.crysknife.client.BeanManagerImpl;
+import io.crysknife.client.Instance;
+import java.util.function.Supplier;
 import elemental2.dom.DomGlobal;
-import org.jboss.gwt.elemento.template.TemplateUtil;
+import io.crysknife.ui.templates.client.TemplateUtil;
 import jsinterop.base.Js;
 
 public class ApplicationElement_Factory implements Factory<ApplicationElement> {
@@ -19,48 +20,52 @@ public class ApplicationElement_Factory implements Factory<ApplicationElement> {
     public ApplicationElement get() {
         if (this.instance != null)
             return this.instance;
-        this.interceptor = new Interceptor(new ApplicationElement(org_jboss_elemento_sample_crysknife_todorepository.get()));
+        this.interceptor = new Interceptor(new ApplicationElement(org_jboss_elemento_sample_crysknife_todorepository.get().get()));
         this.instance = this.interceptor.getProxy();
+        if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_todos__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_todos__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.element(), "todos"));
+        else
+            TemplateUtil.replaceElement(this.instance.element(), "todos", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_todos__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_newTodo__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_newTodo__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.<elemental2.dom.HTMLInputElement>resolveElementAs(this.instance.getElement(), "newTodo"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_newTodo__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.<elemental2.dom.HTMLInputElement>resolveElementAs(this.instance.element(), "newTodo"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "newTodo", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_newTodo__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "newTodo", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_newTodo__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_main__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_main__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.getElement(), "main"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_main__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.element(), "main"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "main", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_main__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "main", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_main__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_toggleAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_toggleAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.<elemental2.dom.HTMLInputElement>resolveElementAs(this.instance.getElement(), "toggleAll"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_toggleAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.<elemental2.dom.HTMLInputElement>resolveElementAs(this.instance.element(), "toggleAll"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "toggleAll", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_toggleAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "toggleAll", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_toggleAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_list__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_list__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.<elemental2.dom.HTMLUListElement>resolveElementAs(this.instance.getElement(), "list"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_list__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.<elemental2.dom.HTMLUListElement>resolveElementAs(this.instance.element(), "list"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "list", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_list__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "list", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_list__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_footer__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_footer__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.getElement(), "footer"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_footer__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.element(), "footer"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "footer", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_footer__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "footer", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_footer__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_count__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_count__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.getElement(), "count"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_count__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.element(), "count"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "count", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_count__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "count", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_count__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_filterAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.getElement(), "filterAll"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_filterAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.element(), "filterAll"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "filterAll", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "filterAll", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterAll__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterActive__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_filterActive__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.getElement(), "filterActive"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_filterActive__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.element(), "filterActive"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "filterActive", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterActive__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "filterActive", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterActive__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_filterCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.getElement(), "filterCompleted"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_filterCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.resolveElement(this.instance.element(), "filterCompleted"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "filterCompleted", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "filterCompleted", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_filterCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         if (Js.asPropertyMap(instance).get(Reflect.objectProperty("f_clearCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance)) == null)
-            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_clearCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.<elemental2.dom.HTMLButtonElement>resolveElementAs(this.instance.getElement(), "clearCompleted"));
+            Js.asPropertyMap(instance).set(Reflect.objectProperty("f_clearCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance), TemplateUtil.<elemental2.dom.HTMLButtonElement>resolveElementAs(this.instance.element(), "clearCompleted"));
         else
-            TemplateUtil.replaceElement(this.instance.getElement(), "clearCompleted", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_clearCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
+            TemplateUtil.replaceElement(this.instance.element(), "clearCompleted", ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_clearCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))));
         ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_newTodo__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))).addEventListener("keydown", e -> this.instance.newTodo(jsinterop.base.Js.uncheckedCast(e)));
         ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_newTodo__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))).addEventListener("change", e -> this.instance.toggleAll(jsinterop.base.Js.uncheckedCast(e)));
         ((elemental2.dom.HTMLElement) Js.asPropertyMap(instance).get(Reflect.objectProperty("f_clearCompleted__org_jboss_elemento_sample_crysknife_ApplicationElement", instance))).addEventListener("click", e -> this.instance.clearCompleted(jsinterop.base.Js.uncheckedCast(e)));
@@ -69,10 +74,10 @@ public class ApplicationElement_Factory implements Factory<ApplicationElement> {
     }
 
     private ApplicationElement_Factory() {
-        this.org_jboss_elemento_sample_crysknife_todorepository = BeanManagerImpl.get().lookupBean(org.jboss.elemento.sample.crysknife.TodoRepository.class);
+        this.org_jboss_elemento_sample_crysknife_todorepository = () -> BeanManagerImpl.get().lookupBean(org.jboss.elemento.sample.crysknife.TodoRepository.class);
     }
 
-    final private org.treblereel.gwt.crysknife.client.Instance<org.jboss.elemento.sample.crysknife.TodoRepository> org_jboss_elemento_sample_crysknife_todorepository;
+    private Supplier<Instance<org.jboss.elemento.sample.crysknife.TodoRepository>> org_jboss_elemento_sample_crysknife_todorepository;
 
     private ApplicationElement instance;
 
@@ -87,7 +92,7 @@ public class ApplicationElement_Factory implements Factory<ApplicationElement> {
         }
 
         @Override()
-        public elemental2.dom.HTMLElement getElement() {
+        public elemental2.dom.HTMLElement element() {
             return (elemental2.dom.HTMLElement) this.root;
         }
     }
@@ -96,3 +101,4 @@ public class ApplicationElement_Factory implements Factory<ApplicationElement> {
         return new ApplicationElement_Factory();
     }
 }
+

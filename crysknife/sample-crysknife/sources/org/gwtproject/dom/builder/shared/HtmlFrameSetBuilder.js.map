@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlFrameSetBuilder.impl.java.js",
 "lineCount":53,
-"mappings":"A;;;;;;;;;;;;;;;;MAsBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAoCC,Q;EAApCC,8B;EAAAA,0C;EAAAA,oI;EAAAA,iB;;;CAAA,+G,wBAAoCD,Q;EAClCE,kI;;;CAIqB,wB,gBAAYC,I;EACjCC,mL;;;CAIqB,+C,iBAAcC,I;EACnCC,kE;;;CAIqB,wB,gBAAYC,I;EACjCC,mL;;;CAIqB,wB,gBAAYC,I;EACjCC,kE;;;QAxBS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;MAoBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAoCC,Q;EAApCC,8B;EAAAA,0C;EAAAA,oI;EAAAA,iB;;;CAAA,+G,wBAAoCD,Q;EAClCE,kI;;;CAIqB,wB,gBAAYC,I;EACjCC,mL;;;CAIqB,+C,iBAAcC,I;EACnCC,kE;;;CAIqB,wB,gBAAYC,I;EACjCC,mL;;;CAIqB,wB,gBAAYC,I;EACjCC,kE;;;QAxBS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
 "sources":["HtmlFrameSetBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlFrameSetBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlFrameSetBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlFrameSetBuilder.<init>","cols","org.gwtproject.dom.builder.shared.HtmlFrameSetBuilder.cols","html","org.gwtproject.dom.builder.shared.HtmlFrameSetBuilder.html","rows","org.gwtproject.dom.builder.shared.HtmlFrameSetBuilder.rows","text","org.gwtproject.dom.builder.shared.HtmlFrameSetBuilder.text","org.gwtproject.dom.builder.shared.HtmlFrameSetBuilder.<clinit>"]
 }
+

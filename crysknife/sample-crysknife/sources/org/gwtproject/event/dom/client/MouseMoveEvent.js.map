@@ -6,3 +6,4 @@
 "sources":["MouseMoveEvent.java"],
 "names":["org.gwtproject.event.dom.client.MouseMoveEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.MouseMoveEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.MouseMoveEvent.<init>","org.gwtproject.event.dom.client.MouseMoveEvent.getType","org.gwtproject.event.dom.client.MouseMoveEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.MouseMoveEvent.dispatch","org.gwtproject.event.dom.client.MouseMoveEvent.<clinit>"]
 }
+

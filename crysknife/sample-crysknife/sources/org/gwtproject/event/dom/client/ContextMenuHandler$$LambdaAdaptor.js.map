@@ -6,3 +6,4 @@
 "sources":["ContextMenuHandler.java"],
 "names":["org.gwtproject.event.dom.client.ContextMenuHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.ContextMenuHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.ContextMenuHandler$$LambdaAdaptor.onContextMenu","org.gwtproject.event.dom.client.ContextMenuHandler$$LambdaAdaptor.<clinit>"]
 }
+

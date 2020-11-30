@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"Document$$Overlay.impl.java.js",
-"lineCount":77,
-"mappings":"A;;;;;;;;;;;;;;;;;MA4Ba,iB;;QAsNO,uE,+CAAeA,K;EAAfC,4B;EAChBA,8E;;;QAIgB,oE,kDAAiBD,K;EAAjBC,4B;EAChBA,8E;;;QA0CgB,oE,2CAAsBC,I;EAAtBC,4B;EAChBA,4F;;;QAIgB,0D,0CAAsBD,I;EAAtBC,4B;EAChBA,4F;;;QAeqB,iF,gDAAwBC,O;EAAxBC,4B;EACrBA,2G;;;QAyCgB,wE,+CAAgBL,K;EAAhBM,4B;EAChBA,+E;;;QAMgB,qE,kDAAkBN,K;EAAlBM,4B;EAChBA,+E;;;QAsBgB,2D,2CAAaC,I;EAAbC,4B;EAChBA,4E;;;QAIgB,qE,+CAAkBD,I;EAAlBC,4B;EAChBA,4E;;;QAMgB,6D,2CAAeD,I;EAAfE,4B;EAChBA,8E;;;QAIgB,uE,+CAAoBF,I;EAApBE,4B;EAChBA,8E;;;QArXS,O;EAAAC,oC;EAAAA;",
+"lineCount":91,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;MA4Ba,iB;;QA0PO,uE,+CAAeA,K;EAAfC,4B;EAChBA,gJ;;;QAIgB,oE,kDAAiBD,K;EAAjBC,4B;EAChBA,gJ;;;QAkBmB,2H,2CACVC,O,WAAiDC,a;EADvCC,4B;EAEnBA,6G;;;QAQmB,qF,2CAAqBF,O,iBAAgBC,a;EAArCC,4B;EACnBA,6G;;;QAyBgB,oE,2CAAsBC,I;EAAtBC,4B;EAChBA,4F;;;QAIgB,0D,0CAAsBD,I;EAAtBC,4B;EAChBA,4F;;;QAeqB,iF,gDAAwBC,O;EAAxBC,4B;EACrBA,2G;;;QAyCgB,wE,+CAAgBR,K;EAAhBS,4B;EAChBA,iJ;;;QAMgB,qE,kDAAkBT,K;EAAlBS,4B;EAChBA,iJ;;;QAoBgB,2D,2CAAaC,I;EAAbC,4B;EAChBA,4E;;;QAIgB,qE,+CAAkBD,I;EAAlBC,4B;EAChBA,4E;;;QAMgB,6D,2CAAeD,I;EAAfE,4B;EAChBA,8E;;;QAIgB,uE,+CAAoBF,I;EAApBE,4B;EAChBA,8E;;;QAnaS,O;EAAAC,oC;EAAAA;",
 "sources":["Document.java"],
-"names":["nodes","elemental2.dom.Document$$Overlay.append__$devirt","data","elemental2.dom.Document$$Overlay.createTextNode__$devirt","touches","elemental2.dom.Document$$Overlay.createTouchList__$devirt","elemental2.dom.Document$$Overlay.prepend__$devirt","text","elemental2.dom.Document$$Overlay.write__$devirt","elemental2.dom.Document$$Overlay.writeln__$devirt","elemental2.dom.Document$$Overlay.<clinit>"]
+"names":["nodes","elemental2.dom.Document$$Overlay.append__$devirt","tagName","typeExtension","elemental2.dom.Document$$Overlay.createElement__$devirt","data","elemental2.dom.Document$$Overlay.createTextNode__$devirt","touches","elemental2.dom.Document$$Overlay.createTouchList__$devirt","elemental2.dom.Document$$Overlay.prepend__$devirt","text","elemental2.dom.Document$$Overlay.write__$devirt","elemental2.dom.Document$$Overlay.writeln__$devirt","elemental2.dom.Document$$Overlay.<clinit>"]
 }
+

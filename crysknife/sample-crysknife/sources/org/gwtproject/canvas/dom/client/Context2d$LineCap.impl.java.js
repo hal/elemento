@@ -50,7 +50,7 @@ class LineCap extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** LineCap */ arg0) {
   return super.compareTo(/**@type {LineCap}*/ ($Casts.$to(arg0, LineCap)));
  }
  /** @return {!LineCap} */

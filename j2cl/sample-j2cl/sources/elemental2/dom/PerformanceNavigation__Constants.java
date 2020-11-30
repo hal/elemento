@@ -25,3 +25,4 @@ class PerformanceNavigation__Constants {
   static double TYPE_RELOAD;
   static double TYPE_RESERVED;
 }
+

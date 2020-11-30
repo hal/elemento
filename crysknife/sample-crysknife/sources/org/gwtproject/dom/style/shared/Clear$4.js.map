@@ -2,7 +2,8 @@
 "version":3,
 "file":"Clear$4.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAuCQ,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,iG;EAAAA,iB;;;CAAA,qE;EAAAC,0F;;;CAEU,c;EACZC,e;;;;CAHE,6B;EAAAC,qE;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAqCQ,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,iG;EAAAA,iB;;;CAAA,qE;EAAAC,0F;;;CAEU,c;EACZC,e;;;;CAHE,6B;EAAAC,qE;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["Clear.java"],
 "names":["org.gwtproject.dom.style.shared.Clear$4.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Clear$4.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.Clear$4.<init>","org.gwtproject.dom.style.shared.Clear$4.getCssName","org.gwtproject.dom.style.shared.Clear$4.compareTo","org.gwtproject.dom.style.shared.Clear$4.<clinit>"]
 }
+

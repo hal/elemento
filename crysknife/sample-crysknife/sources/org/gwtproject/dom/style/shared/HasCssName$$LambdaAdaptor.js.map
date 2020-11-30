@@ -2,7 +2,8 @@
 "version":3,
 "file":"HasCssName$$LambdaAdaptor.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;;MAoBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;yE;EAAAA,kI;;;CAAA,wH;EAAAC,iC;EAAAA,4E;;;CAAA,c;EAAAC,yC;EAAAA,yG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;yE;EAAAA,kI;;;CAAA,wH;EAAAC,iC;EAAAA,4E;;;CAAA,c;EAAAC,yC;EAAAA,yG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["HasCssName.java"],
 "names":["org.gwtproject.dom.style.shared.HasCssName$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.dom.style.shared.HasCssName$$LambdaAdaptor.<init>","org.gwtproject.dom.style.shared.HasCssName$$LambdaAdaptor.getCssName","org.gwtproject.dom.style.shared.HasCssName$$LambdaAdaptor.<clinit>"]
 }
+

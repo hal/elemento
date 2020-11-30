@@ -6,3 +6,4 @@
 "sources":["HTMLOptionsCollection.java"],
 "names":["o","elemental2.dom.HTMLOptionsCollection$AddElementUnionType$$Overlay.of","elemental2.dom.HTMLOptionsCollection$AddElementUnionType$$Overlay.asHTMLOptGroupElement__$devirt","elemental2.dom.HTMLOptionsCollection$AddElementUnionType$$Overlay.asHTMLOptionElement__$devirt","elemental2.dom.HTMLOptionsCollection$AddElementUnionType$$Overlay.isHTMLOptGroupElement__$devirt","elemental2.dom.HTMLOptionsCollection$AddElementUnionType$$Overlay.isHTMLOptionElement__$devirt","elemental2.dom.HTMLOptionsCollection$AddElementUnionType$$Overlay.<clinit>"]
 }
+

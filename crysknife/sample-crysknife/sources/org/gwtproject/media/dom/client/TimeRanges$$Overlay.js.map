@@ -2,7 +2,8 @@
 "version":3,
 "file":"TimeRanges$$Overlay.impl.java.js",
 "lineCount":9,
-"mappings":"A;;;;MAqCmB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;MAiCmB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["TimeRanges.java"],
 "names":["org.gwtproject.media.dom.client.TimeRanges$$Overlay.<clinit>"]
 }
+

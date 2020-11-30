@@ -35,3 +35,4 @@ public interface FullscreenOptions {
   @JsProperty
   void setNavigationUI(String navigationUI);
 }
+

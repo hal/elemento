@@ -27,7 +27,7 @@ class $3 extends Overflow {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Overflow */ arg0) {
   return super.compareTo(/**@type {Overflow}*/ ($Casts.$to(arg0, Overflow)));
  }
  

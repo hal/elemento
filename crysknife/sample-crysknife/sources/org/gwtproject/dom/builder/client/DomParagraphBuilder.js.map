@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomParagraphBuilder.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;MAuBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAmCC,Q;EAAnCC,8B;EAAAA,0C;EAAAA,mI;EAAAA,iB;;;CAAA,8G,uBAAmCD,Q;EACjCE,gI;;;QAJS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAqBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAmCC,Q;EAAnCC,8B;EAAAA,0C;EAAAA,mI;EAAAA,iB;;;CAAA,8G,uBAAmCD,Q;EACjCE,gI;;;QAJS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
 "sources":["DomParagraphBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomParagraphBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomParagraphBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomParagraphBuilder.<init>","org.gwtproject.dom.builder.client.DomParagraphBuilder.<clinit>"]
 }
+

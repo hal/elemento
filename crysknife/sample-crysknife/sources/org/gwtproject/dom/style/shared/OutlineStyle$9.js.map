@@ -2,7 +2,8 @@
 "version":3,
 "file":"OutlineStyle$9.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAqEQ,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,wG;EAAAA,iB;;;CAAA,4E;EAAAC,iG;;;CAEU,c;EACZC,e;;;;CAHE,6B;EAAAC,mF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAmEQ,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,wG;EAAAA,iB;;;CAAA,4E;EAAAC,iG;;;CAEU,c;EACZC,e;;;;CAHE,6B;EAAAC,mF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["OutlineStyle.java"],
 "names":["org.gwtproject.dom.style.shared.OutlineStyle$9.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.OutlineStyle$9.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.OutlineStyle$9.<init>","org.gwtproject.dom.style.shared.OutlineStyle$9.getCssName","org.gwtproject.dom.style.shared.OutlineStyle$9.compareTo","org.gwtproject.dom.style.shared.OutlineStyle$9.<clinit>"]
 }
+

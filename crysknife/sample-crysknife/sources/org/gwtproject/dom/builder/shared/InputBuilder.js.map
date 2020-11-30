@@ -2,7 +2,8 @@
 "version":3,
 "file":"InputBuilder.impl.java.js",
 "lineCount":40,
-"mappings":"A;;;;;;;;;MAoBiB,Y;;CAUF,0B,gBAAcA,M;;CASd,6B,gBAAiBC,S;;CAUjB,uB,gBAAWC,G;;CAMX,W;;CAUA,kB;;CAYA,gC,gBAAoBC,Y;;CASpB,Y;;CAUA,gB,eAAcC,S;;CASd,wB,gBAAYC,I;;CAUZ,Y;;CASA,W,eAASC,I;;CAUT,uB,gBAAWC,G;;CAeX,yB,gBAAaC,K;;QAjIX,O;EAAAC,+B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,Y;;CAUF,0B,gBAAcA,M;;CASd,6B,gBAAiBC,S;;CAQjB,uB,gBAAWC,G;;CAMX,W;;CAUA,kB;;CAWA,gC,gBAAoBC,Y;;CASpB,Y;;CASA,gB,eAAcC,S;;CASd,wB,gBAAYC,I;;CASZ,Y;;CASA,W,eAASC,I;;CAST,uB,gBAAWC,G;;CAcX,yB,gBAAaC,K;;QA1HX,O;EAAAC,+B;EAAAA;",
 "sources":["InputBuilder.java"],
 "names":["accept","accessKey","alt","defaultValue","maxLength","name","size","src","value","org.gwtproject.dom.builder.shared.InputBuilder.<clinit>"]
 }
+

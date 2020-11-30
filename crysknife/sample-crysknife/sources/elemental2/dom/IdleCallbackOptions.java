@@ -35,3 +35,4 @@ public interface IdleCallbackOptions {
   @JsProperty
   void setTimeout(int timeout);
 }
+

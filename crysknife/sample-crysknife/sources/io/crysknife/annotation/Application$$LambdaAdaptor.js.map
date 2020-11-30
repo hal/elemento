@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Application$$LambdaAdaptor.impl.java.js",
+"lineCount":35,
+"mappings":"A;;;;;;;;;;;MAuBkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;kE;EAAAA,oH;;;CAAA,0G;EAAAC,iC;EAAAA,qE;;;CAAA,kB;EAAAC,0C;EAAAA,kG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["Application.java"],
+"names":["io.crysknife.annotation.Application$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","io.crysknife.annotation.Application$$LambdaAdaptor.<init>","io.crysknife.annotation.Application$$LambdaAdaptor.annotationType","io.crysknife.annotation.Application$$LambdaAdaptor.<clinit>"]
+}
+

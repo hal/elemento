@@ -27,7 +27,7 @@ class $2 extends FontWeight {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** FontWeight */ arg0) {
   return super.compareTo(/**@type {FontWeight}*/ ($Casts.$to(arg0, FontWeight)));
  }
  

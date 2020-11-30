@@ -6,3 +6,4 @@
 "sources":["ReadableStream.java"],
 "names":["elemental2.dom.ReadableStream$GetReaderOptionsType$$Overlay.create","elemental2.dom.ReadableStream$GetReaderOptionsType$$Overlay.<clinit>"]
 }
+

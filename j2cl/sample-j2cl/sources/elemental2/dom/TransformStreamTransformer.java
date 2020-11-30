@@ -25,20 +25,20 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface TransformStreamTransformer {
+public interface TransformStreamTransformer<IN_VALUE, OUT_VALUE> {
   @JsFunction
-  public interface FlushFn {
-    IThenable<Object> onInvoke(TransformStreamDefaultController p0);
+  public interface FlushFn<OUT_VALUE> {
+    IThenable<Object> onInvoke(TransformStreamDefaultController<OUT_VALUE> p0);
   }
 
   @JsFunction
-  public interface StartFn {
-    IThenable<Object> onInvoke(TransformStreamDefaultController p0);
+  public interface StartFn<OUT_VALUE> {
+    IThenable<Object> onInvoke(TransformStreamDefaultController<OUT_VALUE> p0);
   }
 
   @JsFunction
-  public interface TransformFn {
-    IThenable<Object> onInvoke(Object p0, TransformStreamDefaultController p1);
+  public interface TransformFn<IN_VALUE, OUT_VALUE> {
+    IThenable<Object> onInvoke(IN_VALUE p0, TransformStreamDefaultController<OUT_VALUE> p1);
   }
 
   @JsOverlay
@@ -47,20 +47,21 @@ public interface TransformStreamTransformer {
   }
 
   @JsProperty
-  TransformStreamTransformer.FlushFn getFlush();
+  TransformStreamTransformer.FlushFn<OUT_VALUE> getFlush();
 
   @JsProperty
-  TransformStreamTransformer.StartFn getStart();
+  TransformStreamTransformer.StartFn<OUT_VALUE> getStart();
 
   @JsProperty
-  TransformStreamTransformer.TransformFn getTransform();
+  TransformStreamTransformer.TransformFn<IN_VALUE, OUT_VALUE> getTransform();
 
   @JsProperty
-  void setFlush(TransformStreamTransformer.FlushFn flush);
+  void setFlush(TransformStreamTransformer.FlushFn<OUT_VALUE> flush);
 
   @JsProperty
-  void setStart(TransformStreamTransformer.StartFn start);
+  void setStart(TransformStreamTransformer.StartFn<OUT_VALUE> start);
 
   @JsProperty
-  void setTransform(TransformStreamTransformer.TransformFn transform);
+  void setTransform(TransformStreamTransformer.TransformFn<? super IN_VALUE, OUT_VALUE> transform);
 }
+

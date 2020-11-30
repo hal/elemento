@@ -15,29 +15,12 @@
  */
 package elemental2.dom;
 
-import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
-import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface CSSKeyframeRule {
-  @JsOverlay
-  static CSSKeyframeRule create() {
-    return Js.uncheckedCast(JsPropertyMap.of());
-  }
-
-  @JsProperty
-  String getKeyText();
-
-  @JsProperty
-  CSSStyleDeclaration getStyle();
-
-  @JsProperty
-  void setKeyText(String keyText);
-
-  @JsProperty
-  void setStyle(CSSStyleDeclaration style);
+public class CSSKeyframeRule extends CSSRule {
+  public String keyText;
+  public CSSStyleDeclaration style;
 }
+

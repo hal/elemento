@@ -2,7 +2,8 @@
 "version":3,
 "file":"FontStyle.impl.java.js",
 "lineCount":99,
-"mappings":"A;;;;;;;;;;;;;;;;;;MAoBY,S;;CAAA,W;EAAAA,Q;;;CAAA,uE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAqBa,c;;QArBb,2B;EAAAC,oB;EAAAA;GAAAA,8HAAAA;G;EAAAA,qH;;;QAAA,U;EAAAC,oB;EAAAA,oQ;;;QACV,uD;EAAAC,6F;;;QAMA,uD;EAAAA,6F;;;QAMA,wD;EAAAA,8F;;;QAbU,O;EAAAC,4B;EAAAA,yB;EAAAA,e;EACVA,0M;EAMAA,0M;EAMAA,6M;EAbUA,gF;;;;;;;;;;;;;;;;;;;;;AAAA;+D;AAAA;+D;AAAA;gE;AAAA;yE;AACV;2E;AAMA;2E;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;MAkBY,S;;CAAA,W;EAAAA,Q;;;CAAA,uE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAqBa,c;;QArBb,2B;EAAAC,oB;EAAAA;GAAAA,8HAAAA;G;EAAAA,qH;;;QAAA,U;EAAAC,oB;EAAAA,oQ;;;QACV,uD;EAAAC,6F;;;QAMA,uD;EAAAA,6F;;;QAMA,wD;EAAAA,8F;;;QAbU,O;EAAAC,4B;EAAAA,yB;EAAAA,e;EACVA,0M;EAMAA,0M;EAMAA,6M;EAbUA,gF;;;;;;;;;;;;;;;;;;;;;AAAA;+D;AAAA;+D;AAAA;gE;AAAA;yE;AACV;2E;AAMA;2E;AAMA;;",
 "sources":["FontStyle.java"],
 "names":["org.gwtproject.dom.style.shared.FontStyle.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.FontStyle.<init>","org.gwtproject.dom.style.shared.FontStyle.valueOf","org.gwtproject.dom.style.shared.FontStyle.values","org.gwtproject.dom.style.shared.FontStyle.<synthetic: getter>","org.gwtproject.dom.style.shared.FontStyle.<clinit>"]
 }
+

@@ -25,3 +25,4 @@ public class MimeType {
   public String suffixes;
   public String type;
 }
+

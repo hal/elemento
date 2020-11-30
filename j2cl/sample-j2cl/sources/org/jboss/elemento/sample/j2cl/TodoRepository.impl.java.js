@@ -4,11 +4,7 @@ const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 
 let JsArray_$Overlay = goog.forwardDeclare('elemental2.core.JsArray.$Overlay$impl');
-let DomGlobal_$Overlay = goog.forwardDeclare('elemental2.dom.DomGlobal.$Overlay$impl');
-let Event_$Overlay = goog.forwardDeclare('elemental2.dom.Event.$Overlay$impl');
-let EventTarget_$Overlay = goog.forwardDeclare('elemental2.dom.EventTarget.$Overlay$impl');
 let Storage_$Overlay = goog.forwardDeclare('elemental2.webstorage.Storage.$Overlay$impl');
-let StorageEvent_$Overlay = goog.forwardDeclare('elemental2.webstorage.StorageEvent.$Overlay$impl');
 let $Overlay = goog.forwardDeclare('elemental2.webstorage.WebStorageWindow.$Overlay$impl');
 let Exception = goog.forwardDeclare('java.lang.Exception$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
@@ -19,8 +15,6 @@ let Js = goog.forwardDeclare('jsinterop.base.Js$impl');
 let JsArrayLike_$Overlay = goog.forwardDeclare('jsinterop.base.JsArrayLike.$Overlay$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Todo_$Overlay = goog.forwardDeclare('org.jboss.elemento.sample.j2cl.Todo.$Overlay$impl');
-let $LambdaAdaptor$1 = goog.forwardDeclare('org.jboss.elemento.sample.j2cl.TodoRepository.$LambdaAdaptor$1$impl');
-let ModificationCallback = goog.forwardDeclare('org.jboss.elemento.sample.j2cl.TodoRepository.ModificationCallback$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 let $Exceptions = goog.forwardDeclare('vmbootstrap.Exceptions$impl');
@@ -76,7 +70,7 @@ class TodoRepository extends j_l_Object {
  $ctor__org_jboss_elemento_sample_j2cl_TodoRepository__java_lang_String(/** ?string */ key) {
   this.$ctor__java_lang_Object__();
   this.f_key__org_jboss_elemento_sample_j2cl_TodoRepository_ = key;
-  this.f_storage__org_jboss_elemento_sample_j2cl_TodoRepository_ = $Overlay.m_of__elemental2_dom_Window(window.window).localStorage;
+  this.f_storage__org_jboss_elemento_sample_j2cl_TodoRepository_ = $Overlay.m_of__elemental2_dom_Window(goog.global.window).localStorage;
  }
  /** @return {Object} */
  m_add__java_lang_String(/** ?string */ text) {
@@ -134,19 +128,6 @@ class TodoRepository extends j_l_Object {
   }
   this.m_save__java_util_Collection_$p_org_jboss_elemento_sample_j2cl_TodoRepository(items.values());
  }
- 
- m_onExternalModification__org_jboss_elemento_sample_j2cl_TodoRepository_ModificationCallback(/** ModificationCallback */ callback) {
-  if (!$Equality.$same(this.f_storage__org_jboss_elemento_sample_j2cl_TodoRepository_, null)) {
-   EventTarget_$Overlay.m_addEventListener__$devirt__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_EventListener__boolean($Overlay.m_of__elemental2_dom_Window(window.window), "storage", new $LambdaAdaptor$1((/** Event */ event) =>{
-    let storageEvent = /**@type {StorageEvent}*/ ($Casts.$to(event, StorageEvent_$Overlay));
-    if (j_l_String.m_equals__java_lang_String__java_lang_Object(this.f_key__org_jboss_elemento_sample_j2cl_TodoRepository_, storageEvent.key)) {
-     DomGlobal_$Overlay.m_setTimeout__elemental2_dom_DomGlobal_SetTimeoutCallbackFn__double__arrayOf_java_lang_Object((.../** ...* */ args) =>{
-      callback.m_execute__();
-     }, 333, []);
-    }
-   }), false);
-  }
- }
  /** @return {LinkedHashMap<?string, Object>} */
  m_load___$p_org_jboss_elemento_sample_j2cl_TodoRepository() {
   let items = /**@type {!LinkedHashMap<?string, Object>}*/ (LinkedHashMap.$create__());
@@ -154,7 +135,7 @@ class TodoRepository extends j_l_Object {
    let json = this.f_storage__org_jboss_elemento_sample_j2cl_TodoRepository_.getItem(this.f_key__org_jboss_elemento_sample_j2cl_TodoRepository_);
    if (!$Equality.$same(json, null)) {
     try {
-     let jsonArray = /**@type {Array<Object>}*/ ($Casts.$to(Js.m_cast__java_lang_Object(window.JSON.parse(json)), JsArray_$Overlay));
+     let jsonArray = /**@type {Array<Object>}*/ ($Casts.$to(Js.m_cast__java_lang_Object(goog.global.JSON.parse(json)), JsArray_$Overlay));
      if (!$Equality.$same(jsonArray, null)) {
       for (let i = 0; i < jsonArray.length; i++) {
        let todo = /**@type {Object}*/ ($Casts.$to(JsArrayLike_$Overlay.m_getAt__$devirt__jsinterop_base_JsArrayLike__int(jsonArray, i), Todo_$Overlay));
@@ -165,8 +146,8 @@ class TodoRepository extends j_l_Object {
      __$exc = $Exceptions.toJava(__$exc);
      if (Exception.$isInstance(__$exc)) {
       let parseError = /**@type {Exception}*/ (__$exc);
-      window.console.error("error parsing stored data", parseError);
-      window.console.log("discarding stored data", json);
+      goog.global.console.error("error parsing stored data", parseError);
+      goog.global.console.log("discarding stored data", json);
      } else {
       throw $Exceptions.toJs(__$exc);
      }
@@ -179,7 +160,7 @@ class TodoRepository extends j_l_Object {
  m_save__java_util_Collection_$p_org_jboss_elemento_sample_j2cl_TodoRepository(/** Collection<Object> */ items) {
   if (!$Equality.$same(this.f_storage__org_jboss_elemento_sample_j2cl_TodoRepository_, null)) {
    let todos = /**@type {Array<Object>}*/ ($Arrays.$castToNative(items.m_toArray__arrayOf_java_lang_Object(new Array(0))));
-   this.f_storage__org_jboss_elemento_sample_j2cl_TodoRepository_.setItem(this.f_key__org_jboss_elemento_sample_j2cl_TodoRepository_, window.JSON.stringify(todos));
+   this.f_storage__org_jboss_elemento_sample_j2cl_TodoRepository_.setItem(this.f_key__org_jboss_elemento_sample_j2cl_TodoRepository_, goog.global.JSON.stringify(todos));
   }
  }
  
@@ -196,9 +177,6 @@ class TodoRepository extends j_l_Object {
  
  static $loadModules() {
   JsArray_$Overlay = goog.module.get('elemental2.core.JsArray.$Overlay$impl');
-  DomGlobal_$Overlay = goog.module.get('elemental2.dom.DomGlobal.$Overlay$impl');
-  EventTarget_$Overlay = goog.module.get('elemental2.dom.EventTarget.$Overlay$impl');
-  StorageEvent_$Overlay = goog.module.get('elemental2.webstorage.StorageEvent.$Overlay$impl');
   $Overlay = goog.module.get('elemental2.webstorage.WebStorageWindow.$Overlay$impl');
   Exception = goog.module.get('java.lang.Exception$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
@@ -207,7 +185,6 @@ class TodoRepository extends j_l_Object {
   JsArrayLike_$Overlay = goog.module.get('jsinterop.base.JsArrayLike.$Overlay$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Todo_$Overlay = goog.module.get('org.jboss.elemento.sample.j2cl.Todo.$Overlay$impl');
-  $LambdaAdaptor$1 = goog.module.get('org.jboss.elemento.sample.j2cl.TodoRepository.$LambdaAdaptor$1$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
   $Exceptions = goog.module.get('vmbootstrap.Exceptions$impl');

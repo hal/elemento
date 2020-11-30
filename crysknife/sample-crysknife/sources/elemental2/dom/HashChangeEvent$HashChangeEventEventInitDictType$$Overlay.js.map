@@ -6,3 +6,4 @@
 "sources":["HashChangeEvent.java"],
 "names":["elemental2.dom.HashChangeEvent$HashChangeEventEventInitDictType$$Overlay.create","elemental2.dom.HashChangeEvent$HashChangeEventEventInitDictType$$Overlay.<clinit>"]
 }
+

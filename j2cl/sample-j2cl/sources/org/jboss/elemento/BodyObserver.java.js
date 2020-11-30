@@ -23,6 +23,7 @@ goog.require('nativebootstrap.Equality');
 goog.require('org.jboss.elemento.BodyObserver.$1');
 goog.require('org.jboss.elemento.BodyObserver.ElementObserver');
 goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.Id');
 goog.require('org.jboss.elemento.ObserverCallback');
 goog.require('vmbootstrap.Casts');
 

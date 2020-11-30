@@ -77,3 +77,4 @@ public class ExtendableMessageEvent<T> extends ExtendableEvent {
     super((String) null, (ExtendableEventInit) null);
   }
 }
+

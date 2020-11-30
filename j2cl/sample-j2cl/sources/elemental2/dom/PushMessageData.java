@@ -29,3 +29,4 @@ public class PushMessageData {
 
   public native String text();
 }
+

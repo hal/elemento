@@ -33,3 +33,4 @@ public interface MediaDeviceInfo {
   @JsProperty
   String getLabel();
 }
+

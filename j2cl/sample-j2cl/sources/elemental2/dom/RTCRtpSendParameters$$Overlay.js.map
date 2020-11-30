@@ -6,3 +6,4 @@
 "sources":["RTCRtpSendParameters.java"],
 "names":["elemental2.dom.RTCRtpSendParameters$$Overlay.create","encodings","elemental2.dom.RTCRtpSendParameters$$Overlay.setEncodings__$devirt","elemental2.dom.RTCRtpSendParameters$$Overlay.<clinit>"]
 }
+

@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"DocumentEvent$$LambdaAdaptor.impl.java.js",
+"lineCount":35,
+"mappings":"A;;;;;;;;;;;MAsBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;2D;EAAAA,sG;;;CAAA,4F;EAAAC,iC;EAAAA,8D;;;CAAA,W;EAAAC,8C;EAAAA,+F;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["DocumentEvent.java"],
+"names":["elemental2.dom.DocumentEvent$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","elemental2.dom.DocumentEvent$$LambdaAdaptor.<init>","elemental2.dom.DocumentEvent$$LambdaAdaptor.createEvent","elemental2.dom.DocumentEvent$$LambdaAdaptor.<clinit>"]
+}
+

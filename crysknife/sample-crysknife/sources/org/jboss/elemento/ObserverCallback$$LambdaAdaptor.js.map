@@ -6,3 +6,4 @@
 "sources":["ObserverCallback.java"],
 "names":["org.jboss.elemento.ObserverCallback$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.jboss.elemento.ObserverCallback$$LambdaAdaptor.<init>","org.jboss.elemento.ObserverCallback$$LambdaAdaptor.onObserved","org.jboss.elemento.ObserverCallback$$LambdaAdaptor.<clinit>"]
 }
+

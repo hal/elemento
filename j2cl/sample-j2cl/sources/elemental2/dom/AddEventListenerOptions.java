@@ -41,3 +41,4 @@ public interface AddEventListenerOptions extends EventListenerOptions {
   @JsProperty
   void setPassive(boolean passive);
 }
+

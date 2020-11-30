@@ -46,3 +46,4 @@ public class ServiceWorkerClient {
 
   public native void postMessage(Object message);
 }
+

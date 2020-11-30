@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlMetaBuilder.impl.java.js",
 "lineCount":46,
-"mappings":"A;;;;;;;;;;;;;MAoBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,iJ;;;CAIiB,2B,gBAAeC,O;EAChCC,iL;;;CAIiB,6B,gBAAiBC,S;EAClCC,qL;;;CAIiB,wB,gBAAYC,I;EAC7BC,2K;;;QAlBS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,iJ;;;CAIiB,2B,gBAAeC,O;EAChCC,iL;;;CAIiB,6B,gBAAiBC,S;EAClCC,qL;;;CAIiB,wB,gBAAYC,I;EAC7BC,2K;;;QAlBS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["HtmlMetaBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlMetaBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlMetaBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlMetaBuilder.<init>","content","org.gwtproject.dom.builder.shared.HtmlMetaBuilder.content","httpEquiv","org.gwtproject.dom.builder.shared.HtmlMetaBuilder.httpEquiv","name","org.gwtproject.dom.builder.shared.HtmlMetaBuilder.name","org.gwtproject.dom.builder.shared.HtmlMetaBuilder.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["HasHandlers.java"],
 "names":["org.gwtproject.event.shared.HasHandlers$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.shared.HasHandlers$$LambdaAdaptor.<init>","org.gwtproject.event.shared.HasHandlers$$LambdaAdaptor.fireEvent","org.gwtproject.event.shared.HasHandlers$$LambdaAdaptor.<clinit>"]
 }
+

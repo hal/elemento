@@ -97,3 +97,4 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
         return that();
     }
 }
+

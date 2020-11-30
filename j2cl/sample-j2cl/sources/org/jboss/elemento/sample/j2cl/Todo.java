@@ -27,3 +27,4 @@ public class Todo {
 
     public boolean completed;
 }
+

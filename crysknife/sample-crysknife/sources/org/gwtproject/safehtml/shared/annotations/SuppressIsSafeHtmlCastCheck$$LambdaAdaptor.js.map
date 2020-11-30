@@ -2,7 +2,8 @@
 "version":3,
 "file":"SuppressIsSafeHtmlCastCheck$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MA6BkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;qG;EAAAA,0L;;;CAAA,gL;EAAAC,iC;EAAAA,wG;;;CAAA,kB;EAAAC,0C;EAAAA,qI;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MA2BkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;qG;EAAAA,0L;;;CAAA,gL;EAAAC,iC;EAAAA,wG;;;CAAA,kB;EAAAC,0C;EAAAA,qI;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["SuppressIsSafeHtmlCastCheck.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.SuppressIsSafeHtmlCastCheck$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.safehtml.shared.annotations.SuppressIsSafeHtmlCastCheck$$LambdaAdaptor.<init>","org.gwtproject.safehtml.shared.annotations.SuppressIsSafeHtmlCastCheck$$LambdaAdaptor.annotationType","org.gwtproject.safehtml.shared.annotations.SuppressIsSafeHtmlCastCheck$$LambdaAdaptor.<clinit>"]
 }
+

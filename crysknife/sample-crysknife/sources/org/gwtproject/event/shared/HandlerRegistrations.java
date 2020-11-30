@@ -62,3 +62,4 @@ public class HandlerRegistrations {
   /** For know this is a utility class, make it not instantiable. */
   private HandlerRegistrations() {}
 }
+

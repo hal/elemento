@@ -18,6 +18,7 @@ let ScrollByScrollToOptionsOrXUnionType_$Overlay = goog.forwardDeclare('elementa
 let ScrollScrollToOptionsOrXUnionType_$Overlay = goog.forwardDeclare('elemental2.dom.Window.ScrollScrollToOptionsOrXUnionType.$Overlay$impl');
 let ScrollToScrollToOptionsOrXUnionType_$Overlay = goog.forwardDeclare('elemental2.dom.Window.ScrollToScrollToOptionsOrXUnionType.$Overlay$impl');
 let Promise_$Overlay = goog.forwardDeclare('elemental2.promise.Promise.$Overlay$impl');
+let InternalPreconditions = goog.forwardDeclare('javaemul.internal.InternalPreconditions$impl');
 let Js = goog.forwardDeclare('jsinterop.base.Js$impl');
 
 class Window_$Overlay {
@@ -44,12 +45,12 @@ class Window_$Overlay {
  
  static m_importScripts__$devirt__elemental2_dom_Window__arrayOf_java_lang_String(/** !Window */ $thisArg, /** Array<?string> */ var_args) {
   Window_$Overlay.$clinit();
-  $thisArg.importScripts(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(var_args)));
+  $thisArg.importScripts(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(var_args))));
  }
  
  static m_importScripts__$devirt__elemental2_dom_Window__arrayOf_elemental2_dom_TrustedScriptURL(/** !Window */ $thisArg, /** Array<TrustedScriptURL> */ var_args) {
   Window_$Overlay.$clinit();
-  $thisArg.importScripts(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(var_args)));
+  $thisArg.importScripts(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(var_args))));
  }
  /** @return {Database} */
  static m_openDatabase__$devirt__elemental2_dom_Window__java_lang_String__java_lang_String__java_lang_String__int__elemental2_dom_DatabaseCallback(/** !Window */ $thisArg, /** ?string */ name, /** ?string */ version, /** ?string */ description, /** number */ size, /** DatabaseCallback */ callback) {
@@ -137,6 +138,7 @@ class Window_$Overlay {
  }
  
  static $loadModules() {
+  InternalPreconditions = goog.module.get('javaemul.internal.InternalPreconditions$impl');
   Js = goog.module.get('jsinterop.base.Js$impl');
  }
  

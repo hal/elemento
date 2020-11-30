@@ -6,3 +6,4 @@
 "sources":["HasContextMenuHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasContextMenuHandlers.<clinit>"]
 }
+

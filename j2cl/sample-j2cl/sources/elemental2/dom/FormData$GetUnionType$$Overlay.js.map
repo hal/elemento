@@ -6,3 +6,4 @@
 "sources":["FormData.java"],
 "names":["o","elemental2.dom.FormData$GetUnionType$$Overlay.of","elemental2.dom.FormData$GetUnionType$$Overlay.asFile__$devirt","elemental2.dom.FormData$GetUnionType$$Overlay.asString__$devirt","elemental2.dom.FormData$GetUnionType$$Overlay.isFile__$devirt","elemental2.dom.FormData$GetUnionType$$Overlay.isString__$devirt","elemental2.dom.FormData$GetUnionType$$Overlay.<clinit>"]
 }
+

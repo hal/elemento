@@ -24,3 +24,4 @@ public class RGBColor {
   public CSSPrimitiveValue green;
   public CSSPrimitiveValue red;
 }
+

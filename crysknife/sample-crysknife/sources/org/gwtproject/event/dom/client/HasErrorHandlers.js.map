@@ -6,3 +6,4 @@
 "sources":["HasErrorHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasErrorHandlers.<clinit>"]
 }
+

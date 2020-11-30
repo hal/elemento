@@ -25,3 +25,4 @@ public class HTMLProgressElement extends HTMLElement {
   public double position;
   public double value;
 }
+

@@ -47,3 +47,4 @@ public interface InstallEventInit {
   @JsProperty
   void setCancelable(boolean cancelable);
 }
+

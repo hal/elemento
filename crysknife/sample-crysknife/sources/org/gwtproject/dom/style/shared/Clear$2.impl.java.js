@@ -27,7 +27,7 @@ class $2 extends Clear {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Clear */ arg0) {
   return super.compareTo(/**@type {Clear}*/ ($Casts.$to(arg0, Clear)));
  }
  

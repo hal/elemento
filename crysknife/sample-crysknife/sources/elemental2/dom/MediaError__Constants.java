@@ -25,3 +25,4 @@ class MediaError__Constants {
   static int MEDIA_ERR_NETWORK;
   static int MEDIA_ERR_SRC_NOT_SUPPORTED;
 }
+

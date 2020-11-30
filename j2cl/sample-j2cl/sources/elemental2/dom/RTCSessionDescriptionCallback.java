@@ -21,3 +21,4 @@ import jsinterop.annotations.JsFunction;
 public interface RTCSessionDescriptionCallback {
   Object onInvoke(RTCSessionDescription p0);
 }
+

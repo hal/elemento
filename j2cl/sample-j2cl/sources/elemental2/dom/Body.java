@@ -39,3 +39,4 @@ public interface Body {
 
   Promise<String> text();
 }
+

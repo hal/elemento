@@ -29,3 +29,4 @@ public class PerformanceObserverEntryList {
 
   public native JsArray<PerformanceEntry> getEntriesByType(String name);
 }
+

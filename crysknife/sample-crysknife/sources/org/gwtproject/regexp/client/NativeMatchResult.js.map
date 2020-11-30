@@ -6,3 +6,4 @@
 "sources":["NativeMatchResult.java"],
 "names":["org.gwtproject.regexp.client.NativeMatchResult.<synthetic: ctor_js>","results","org.gwtproject.regexp.client.NativeMatchResult.<synthetic: ctor_create>","org.gwtproject.regexp.client.NativeMatchResult.<init>","index","org.gwtproject.regexp.client.NativeMatchResult.getGroup","org.gwtproject.regexp.client.NativeMatchResult.getGroupCount","org.gwtproject.regexp.client.NativeMatchResult.getIndex","org.gwtproject.regexp.client.NativeMatchResult.getInput","org.gwtproject.regexp.client.NativeMatchResult.<clinit>"]
 }
+

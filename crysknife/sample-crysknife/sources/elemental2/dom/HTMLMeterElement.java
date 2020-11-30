@@ -28,3 +28,4 @@ public class HTMLMeterElement extends HTMLElement {
   public double optimum;
   public double value;
 }
+

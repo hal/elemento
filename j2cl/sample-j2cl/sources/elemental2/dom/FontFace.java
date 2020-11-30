@@ -93,3 +93,4 @@ public class FontFace {
 
   public native Promise<FontFace> load();
 }
+

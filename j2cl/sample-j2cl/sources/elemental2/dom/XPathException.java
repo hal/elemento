@@ -27,3 +27,4 @@ public class XPathException {
   @JsOverlay public static final int TYPE_ERR = XPathException__Constants.TYPE_ERR;
   public int code;
 }
+

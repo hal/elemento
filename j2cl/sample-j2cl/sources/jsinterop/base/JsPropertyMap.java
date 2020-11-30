@@ -119,3 +119,4 @@ public interface JsPropertyMap<T> {
     InternalJsUtil.forEach(this, cb);
   }
 }
+

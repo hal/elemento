@@ -6,3 +6,4 @@
 "sources":["HumanInputEvent.java"],
 "names":["org.gwtproject.event.dom.client.HumanInputEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.HumanInputEvent.<init>","org.gwtproject.event.dom.client.HumanInputEvent.isAltKeyDown","org.gwtproject.event.dom.client.HumanInputEvent.isControlKeyDown","org.gwtproject.event.dom.client.HumanInputEvent.isMetaKeyDown","org.gwtproject.event.dom.client.HumanInputEvent.isShiftKeyDown","org.gwtproject.event.dom.client.HumanInputEvent.<clinit>"]
 }
+

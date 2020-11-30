@@ -6,3 +6,4 @@
 "sources":["CSSProperties.java"],
 "names":["o","elemental2.dom.CSSProperties$TransformOriginUnionType$$Overlay.of","elemental2.dom.CSSProperties$TransformOriginUnionType$$Overlay.asDouble__$devirt","elemental2.dom.CSSProperties$TransformOriginUnionType$$Overlay.asString__$devirt","elemental2.dom.CSSProperties$TransformOriginUnionType$$Overlay.isDouble__$devirt","elemental2.dom.CSSProperties$TransformOriginUnionType$$Overlay.isString__$devirt","elemental2.dom.CSSProperties$TransformOriginUnionType$$Overlay.<clinit>"]
 }
+

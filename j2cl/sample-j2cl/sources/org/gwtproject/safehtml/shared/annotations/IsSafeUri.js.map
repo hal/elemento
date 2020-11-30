@@ -6,3 +6,4 @@
 "sources":["IsSafeUri.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.IsSafeUri.<synthetic: adapt_lambda>","org.gwtproject.safehtml.shared.annotations.IsSafeUri.<clinit>"]
 }
+

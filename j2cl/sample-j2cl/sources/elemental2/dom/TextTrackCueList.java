@@ -25,3 +25,4 @@ public class TextTrackCueList implements JsArrayLike<TextTrackCue> {
 
   public native TextTrackCue getCueById(String id);
 }
+

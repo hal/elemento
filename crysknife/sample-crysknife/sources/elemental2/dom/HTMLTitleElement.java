@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLTitleElement extends HTMLElement {
   public String text;
 }
+

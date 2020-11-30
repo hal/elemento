@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLHtmlElement extends HTMLElement {
   public String version;
 }
+

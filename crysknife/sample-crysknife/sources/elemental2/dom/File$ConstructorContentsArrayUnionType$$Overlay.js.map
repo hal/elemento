@@ -6,3 +6,4 @@
 "sources":["File.java"],
 "names":["o","elemental2.dom.File$ConstructorContentsArrayUnionType$$Overlay.of","elemental2.dom.File$ConstructorContentsArrayUnionType$$Overlay.asArrayBuffer__$devirt","elemental2.dom.File$ConstructorContentsArrayUnionType$$Overlay.asBlob__$devirt","elemental2.dom.File$ConstructorContentsArrayUnionType$$Overlay.asString__$devirt","elemental2.dom.File$ConstructorContentsArrayUnionType$$Overlay.isArrayBuffer__$devirt","elemental2.dom.File$ConstructorContentsArrayUnionType$$Overlay.isBlob__$devirt","elemental2.dom.File$ConstructorContentsArrayUnionType$$Overlay.isString__$devirt","elemental2.dom.File$ConstructorContentsArrayUnionType$$Overlay.<clinit>"]
 }
+

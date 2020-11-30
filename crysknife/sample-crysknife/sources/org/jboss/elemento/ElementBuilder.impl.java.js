@@ -23,6 +23,7 @@ let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
+let Id = goog.forwardDeclare('org.jboss.elemento.Id$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
@@ -49,7 +50,7 @@ class ElementBuilder extends j_l_Object {
  }
  /** @return {B} */
  m_id__() {
-  return this.m_id__java_lang_String(Elements.m_uniqueId__());
+  return this.m_id__java_lang_String(Id.m_unique__());
  }
  /** @return {B} */
  m_id__java_lang_String(/** ?string */ id) {
@@ -167,6 +168,7 @@ class ElementBuilder extends j_l_Object {
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
+  Id = goog.module.get('org.jboss.elemento.Id$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
  

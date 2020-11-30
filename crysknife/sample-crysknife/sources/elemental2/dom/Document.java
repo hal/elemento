@@ -56,6 +56,43 @@ public class Document extends Node {
   }
 
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface CreateElementTypeExtensionType {
+    @JsOverlay
+    static Document.CreateElementTypeExtensionType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
+    }
+
+    @JsProperty
+    String getIs();
+
+    @JsProperty
+    void setIs(String is);
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface CreateElementTypeExtensionUnionType {
+    @JsOverlay
+    static Document.CreateElementTypeExtensionUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default Document.CreateElementTypeExtensionType asCreateElementTypeExtensionType() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface CreateTextNodeDataUnionType {
     @JsOverlay
     static Document.CreateTextNodeDataUnionType of(Object o) {
@@ -222,7 +259,6 @@ public class Document extends Node {
   public Object open;
   public String readyState;
   public Element scrollingElement;
-  public boolean strictErrorChecking;
   public String visibilityState;
   public Element webkitCurrentFullScreenElement;
   public boolean webkitFullScreenKeyboardInputAllowed;
@@ -241,12 +277,12 @@ public class Document extends Node {
 
   @JsOverlay
   public final void append(Node... nodes) {
-    append(Js.<Document.AppendNodesUnionType>uncheckedCast(nodes));
+    append(Js.<Document.AppendNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void append(String... nodes) {
-    append(Js.<Document.AppendNodesUnionType>uncheckedCast(nodes));
+    append(Js.<Document.AppendNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native CaretPosition caretPositionFromPoint(int x, int y);
@@ -263,7 +299,21 @@ public class Document extends Node {
 
   public native DocumentFragment createDocumentFragment();
 
-  public native Element createElement(String tagName, String typeExtension);
+  @JsOverlay
+  public final Element createElement(
+      String tagName, Document.CreateElementTypeExtensionType typeExtension) {
+    return createElement(
+        tagName, Js.<Document.CreateElementTypeExtensionUnionType>uncheckedCast(typeExtension));
+  }
+
+  public native Element createElement(
+      String tagName, Document.CreateElementTypeExtensionUnionType typeExtension);
+
+  @JsOverlay
+  public final Element createElement(String tagName, String typeExtension) {
+    return createElement(
+        tagName, Js.<Document.CreateElementTypeExtensionUnionType>uncheckedCast(typeExtension));
+  }
 
   public native Element createElement(String tagName);
 
@@ -271,8 +321,6 @@ public class Document extends Node {
       String namespaceURI, String qualifiedName, String typeExtension);
 
   public native Element createElementNS(String namespaceURI, String qualifiedName);
-
-  public native EntityReference createEntityReference(String name);
 
   public native NodeIterator createNodeIterator(
       Node root, double whatToShow, NodeFilter filter, boolean entityReferenceExpansion);
@@ -342,24 +390,24 @@ public class Document extends Node {
 
   public native Node importNode(Node externalNode, boolean deep);
 
+  public native Node importNode(Node externalNode);
+
   public native Object mozCancelFullScreen();
 
   public native void msExitFullscreen();
-
-  public native void normalizeDocument();
 
   public native Object postMessage(String message);
 
   @JsOverlay
   public final void prepend(Node... nodes) {
-    prepend(Js.<Document.PrependNodesUnionType>uncheckedCast(nodes));
+    prepend(Js.<Document.PrependNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void prepend(Document.PrependNodesUnionType... nodes);
 
   @JsOverlay
   public final void prepend(String... nodes) {
-    prepend(Js.<Document.PrependNodesUnionType>uncheckedCast(nodes));
+    prepend(Js.<Document.PrependNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native Element querySelector(String selectors);
@@ -375,8 +423,6 @@ public class Document extends Node {
 
   @Deprecated
   public native JsConstructorFn<? extends Element> registerElement(String type);
-
-  public native Node renameNode(Node n, String namespaceURI, String qualifiedName);
 
   public native Object webkitCancelFullScreen();
 
@@ -404,3 +450,4 @@ public class Document extends Node {
 
   public native void writeln(Document.WritelnTextUnionType text);
 }
+

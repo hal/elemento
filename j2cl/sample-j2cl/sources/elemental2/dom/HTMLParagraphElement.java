@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLParagraphElement extends HTMLElement {
   public String align;
 }
+

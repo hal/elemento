@@ -6,3 +6,4 @@
 "sources":["DragHandler.java"],
 "names":["org.gwtproject.event.dom.client.DragHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.DragHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.DragHandler$$LambdaAdaptor.onDrag","org.gwtproject.event.dom.client.DragHandler$$LambdaAdaptor.<clinit>"]
 }
+

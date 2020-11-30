@@ -24,3 +24,4 @@ public class HTMLOListElement extends HTMLElement {
   public int start;
   public String type;
 }
+

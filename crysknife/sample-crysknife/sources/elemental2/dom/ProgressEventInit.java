@@ -47,3 +47,4 @@ public interface ProgressEventInit extends EventInit {
   @JsProperty
   void setTotal(double total);
 }
+

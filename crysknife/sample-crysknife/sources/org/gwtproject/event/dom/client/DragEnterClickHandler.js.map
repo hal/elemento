@@ -6,3 +6,4 @@
 "sources":["DragEnterClickHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.DragEnterClickHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.DragEnterClickHandler.<clinit>"]
 }
+

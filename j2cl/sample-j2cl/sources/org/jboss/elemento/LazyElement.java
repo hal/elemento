@@ -49,3 +49,4 @@ public abstract class LazyElement<E extends HTMLElement> implements IsElement<E>
         return element != null;
     }
 }
+

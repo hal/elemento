@@ -6,3 +6,4 @@
 "sources":["MutationObserverInit.java"],
 "names":["elemental2.dom.MutationObserverInit$$Overlay.create","attributeFilter","elemental2.dom.MutationObserverInit$$Overlay.setAttributeFilter__$devirt","elemental2.dom.MutationObserverInit$$Overlay.<clinit>"]
 }
+

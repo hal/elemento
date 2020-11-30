@@ -24,3 +24,4 @@ public interface EventCallbackFn<E extends Event> {
 
     void onEvent(E event);
 }
+

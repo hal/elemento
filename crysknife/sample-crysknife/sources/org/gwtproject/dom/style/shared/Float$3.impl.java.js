@@ -27,7 +27,7 @@ class $3 extends Float {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Float */ arg0) {
   return super.compareTo(/**@type {Float}*/ ($Casts.$to(arg0, Float)));
  }
  

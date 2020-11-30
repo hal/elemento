@@ -2,7 +2,8 @@
 "version":3,
 "file":"ReadableStreamSource$StartFn$$Overlay.impl.java.js",
 "lineCount":25,
-"mappings":"A;;;;;;;;;;MAoEmB,gB;;QAsBW,6G,+EAAsCA,E;EAAtCC,2B;EACxBA,2E;;;QAIwB,gH,kFAAyCD,E;EAAzCC,2B;EACxBA,2E;;;QA5Ba,O;EAAAC,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;MAoEmB,gB;;QAsBW,6G,+EAAsCA,E;EAAtCC,2B;EACxBA,2E;;;QAIwB,gH,yFAAgDD,E;EAAhDC,2B;EACxBA,2E;;;QA5Ba,O;EAAAC,mC;EAAAA;",
 "sources":["ReadableStreamSource.java"],
 "names":["p0","elemental2.dom.ReadableStreamSource$StartFn$$Overlay.onInvoke__$devirt","elemental2.dom.ReadableStreamSource$StartFn$$Overlay.<clinit>"]
 }
+

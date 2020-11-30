@@ -42,7 +42,7 @@ class CanPlayThroughEvent extends DomEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** CanPlayThroughHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_CanPlayThroughHandler(/**@type {CanPlayThroughHandler}*/ ($Casts.$to(arg0, CanPlayThroughHandler)));
  }
  

@@ -1,100 +1,126 @@
 /*
- * Copyright 2010 Google Inc.
+ * Copyright © 2019 The GWT Project Authors
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.safehtml.shared;
 
+import elemental2.core.Global;
+                                            
+import java.util.Locale;
                                                                   
 import org.gwtproject.safehtml.shared.annotations.IsSafeUri;
 import org.gwtproject.safehtml.shared.annotations.SuppressIsSafeUriCastCheck;
 
-                                            
-import java.util.Locale;
-
-import elemental2.core.Global;
-
-/**
- * Utility class containing static methods for validating and sanitizing URIs.
- */
+/** Utility class containing static methods for validating and sanitizing URIs. */
 public final class UriUtils {
-  private static class JsImpl {
-    String encode(String uri) {
-      uri = Global.encodeURI(uri);
-      // Follow the same approach as SafeHtmlUtils.htmlEscape
-      if (uri.indexOf("%5B") != -1) {
-        uri = uri.replaceAll("%5B", "[");
-      }
-      if (uri.indexOf("%5D") != -1) {
-        uri = uri.replaceAll("%5D", "]");
-      }
-      return uri;
+
+  /**
+   * Characters that don't need %-escaping (minus letters and digits), according to ECMAScript 5th
+   * edition for the {@code encodeURI} function.
+   */
+  static final String DONT_NEED_ENCODING =
+      ";/?:@&=+$," // uriReserved
+          + "-_.!~*'()" // uriMark
+          + "#"
+          + "[]"; // could be used in IPv6 addresses
+
+  private static final JvmImpl impl = new JvmImpl();
+
+  // prevent instantiation
+  private UriUtils() {}
+
+  /**
+   * Returns a {@link SafeUri} constructed from a value that is fully under the control of the
+   * program, e.g., a constant.
+   *
+   * <p>The string is not sanitized and no checks are performed. The assumption that the resulting
+   * value adheres to the {@link SafeUri} type contract is entirely based on the argument being
+   * fully under program control and not being derived from a program input.
+   *
+   * <p><strong>Convention of use:</strong> This method must only be invoked on values that are
+   * fully under the program's control, such as string literals.
+   *
+   * @param s the input String
+   * @return a SafeUri instance
+   */
+  @SuppressIsSafeUriCastCheck
+  public static SafeUri fromSafeConstant(String s) {
+    SafeUriHostedModeUtils.maybeCheckValidUri(s);
+    return new SafeUriString(s);
+  }
+
+  /**
+   * Returns a {@link SafeUri} obtained by sanitizing the provided string.
+   *
+   * <p>The input string is sanitized using {@link #sanitizeUri(String)}.
+   *
+   * @param s the input String
+   * @return a SafeUri instance
+   */
+  public static SafeUri fromString(String s) {
+    return new SafeUriString(sanitizeUri(s));
+  }
+
+  /**
+   * Sanitizes a URI.
+   *
+   * <p>This method returns the URI provided if it is safe to use as the value of a URI-valued HTML
+   * attribute according to {@link #isSafeUri}, or the URI "{@code #}" otherwise.
+   *
+   * @param uri the URI to sanitize
+   * @return a sanitized String
+   */
+  @IsSafeUri
+  @SuppressIsSafeUriCastCheck
+  public static String sanitizeUri(String uri) {
+    if (isSafeUri(uri)) {
+      return encodeAllowEscapes(uri);
+    } else {
+      return "#";
     }
   }
 
-  private static class JvmImpl extends JsImpl {
-                    
-             
-                               
-                                             
-                       
-           
-                                          
-                                                
-                                                                           
-                    
-       
-                                
-                         
-                                                                         
-                                           
-                                                                                      
-                                                         
-                              
-                
-                                                                           
-                                      
-                                    
-           
-                                         
-         
-       
-                           
-     
-  }
-
   /**
-   * Characters that don't need %-escaping (minus letters and digits), according
-   * to ECMAScript 5th edition for the {@code encodeURI} function.
-   */
-  static final String DONT_NEED_ENCODING = ";/?:@&=+$," // uriReserved
-      + "-_.!~*'()" // uriMark
-      + "#"
-      + "[]"; // could be used in IPv6 addresses
-  
-  private static final JvmImpl impl = new JvmImpl();
-
-  /**
-   * Encodes the URL.
-   * <p>
-   * In client code, this method delegates to {@link URL#encode(String)} and
-   * then unescapes brackets, as they might be used for IPv6 addresses.
+   * Determines if a {@link String} is safe to use as the value of a URI-valued HTML attribute such
+   * as {@code src} or {@code href}.
    *
-   * @param uri the URL to encode
-   * @return the %-escaped URL
+   * <p>In this context, a URI is safe if it can be established that using it as the value of a
+   * URI-valued HTML attribute such as {@code src} or {@code href} cannot result in script
+   * execution. Specifically, this method deems a URI safe if it either does not have a scheme, or
+   * its scheme is one of {@code http, https, ftp, mailto}.
+   *
+   * @param uri the URI to validate
+   * @return {@code true} if {@code uri} is safe in the above sense; {@code false} otherwise
    */
-  public static String encode(String uri) {
-    return impl.encode(uri);
+  public static boolean isSafeUri(String uri) {
+    String scheme = extractScheme(uri);
+    if (scheme == null) {
+      return true;
+    }
+    /*
+     * Special care is be taken with case-insensitive 'i' in the Turkish locale.
+     * i -> to upper in Turkish locale -> İ
+     * I -> to lower in Turkish locale -> ı
+     * For this reason there are two checks for mailto: "mailto" and "MAILTO"
+     * For details, see: http://www.i18nguy.com/unicode/turkish-i18n.html
+     */
+    String schemeLc = scheme.toLowerCase(Locale.ROOT);
+    return ("http".equals(schemeLc)
+        || "https".equals(schemeLc)
+        || "ftp".equals(schemeLc)
+        || "mailto".equals(schemeLc)
+        || "MAILTO".equals(scheme.toUpperCase(Locale.ROOT)));
   }
 
   /**
@@ -161,45 +187,22 @@ public final class UriUtils {
   }
 
   /**
-   * Returns a {@link SafeUri} constructed from a value that is fully under
-   * the control of the program, e.g., a constant.
+   * Encodes the URL.
    *
-   * <p>
-   * The string is not sanitized and no checks are performed.  The assumption
-   * that the resulting value adheres to the {@link SafeUri} type contract
-   * is entirely based on the argument being fully under program control and
-   * not being derived from a program input.
+   * <p>In client code, this method delegates to the browser's {@code encodeURI} function and then
+   * unescapes brackets, as they might be used for IPv6 addresses.
    *
-   * <p>
-   * <strong>Convention of use:</strong> This method must only be invoked on
-   * values that are fully under the program's control, such as string literals.
-   *
-   * @param s the input String
-   * @return a SafeUri instance
+   * @param uri the URL to encode
+   * @return the %-escaped URL
    */
-  @SuppressIsSafeUriCastCheck
-  public static SafeUri fromSafeConstant(String s) {
-    SafeUriHostedModeUtils.maybeCheckValidUri(s);
-    return new SafeUriString(s);
+  public static String encode(String uri) {
+    return impl.encode(uri);
   }
 
   /**
-   * Returns a {@link SafeUri} obtained by sanitizing the provided string.
-   *
-   * <p>
-   * The input string is sanitized using {@link #sanitizeUri(String)}.
-   *
-   * @param s the input String
-   * @return a SafeUri instance
-   */
-  public static SafeUri fromString(String s) {
-    return new SafeUriString(sanitizeUri(s));
-  }
-
-  /**
-   * Returns a {@link SafeUri} constructed from a trusted string, i.e., without
-   * sanitizing the string. No checks are performed. The calling code should be
-   * carefully reviewed to ensure the argument meets the SafeUri contract.
+   * Returns a {@link SafeUri} constructed from a trusted string, i.e., without sanitizing the
+   * string. No checks are performed. The calling code should be carefully reviewed to ensure the
+   * argument meets the SafeUri contract.
    *
    * @param s the input String
    * @return a SafeUri instance
@@ -211,75 +214,16 @@ public final class UriUtils {
   }
 
   /**
-   * Determines if a {@link String} is safe to use as the value of a URI-valued
-   * HTML attribute such as {@code src} or {@code href}.
+   * Returns a {@link SafeUri} constructed from an untrusted string but without sanitizing it.
    *
-   * <p>
-   * In this context, a URI is safe if it can be established that using it as
-   * the value of a URI-valued HTML attribute such as {@code src} or {@code
-   * href} cannot result in script execution. Specifically, this method deems a
-   * URI safe if it either does not have a scheme, or its scheme is one of
-   * {@code http, https, ftp, mailto}.
-   *
-   * @param uri the URI to validate
-   * @return {@code true} if {@code uri} is safe in the above sense; {@code
-   *         false} otherwise
-   */
-  public static boolean isSafeUri(String uri) {
-    String scheme = extractScheme(uri);
-    if (scheme == null) {
-      return true;
-    }
-    /*
-     * Special care is be taken with case-insensitive 'i' in the Turkish locale.
-     * i -> to upper in Turkish locale -> İ
-     * I -> to lower in Turkish locale -> ı
-     * For this reason there are two checks for mailto: "mailto" and "MAILTO"
-     * For details, see: http://www.i18nguy.com/unicode/turkish-i18n.html
-     */
-    String schemeLc = scheme.toLowerCase(Locale.ROOT);
-    return ("http".equals(schemeLc)
-        || "https".equals(schemeLc)
-        || "ftp".equals(schemeLc)
-        || "mailto".equals(schemeLc)
-        || "MAILTO".equals(scheme.toUpperCase(Locale.ROOT)));
-  }
-
-  /**
-   * Sanitizes a URI.
-   *
-   * <p>
-   * This method returns the URI provided if it is safe to use as the value
-   * of a URI-valued HTML attribute according to {@link #isSafeUri}, or the URI
-   * "{@code #}" otherwise.
-   *
-   * @param uri the URI to sanitize
-   * @return a sanitized String
-   */
-  @IsSafeUri
-  @SuppressIsSafeUriCastCheck
-  public static String sanitizeUri(String uri) {
-    if (isSafeUri(uri)) {
-      return encodeAllowEscapes(uri);
-    } else {
-      return "#";
-    }
-  }
-
-  /**
-   * Returns a {@link SafeUri} constructed from an untrusted string but without
-   * sanitizing it.
-   *
-   * <strong>Despite this method creating a SafeUri instance, no checks are
-   * performed, so the returned SafeUri is absolutely NOT guaranteed to be
-   * safe!</strong>
+   * <p><strong>Despite this method creating a SafeUri instance, no checks are performed, so the
+   * returned SafeUri is absolutely NOT guaranteed to be safe!</strong>
    *
    * @param s the input String
    * @return a SafeUri instance
-   * @deprecated This method is intended only for use in APIs that use
-   *             {@link SafeUri} to represent URIs, but for backwards
-   *             compatibility have methods that accept URI parameters as plain
-   *             strings.
+   * @deprecated This method is intended only for use in APIs that use {@link SafeUri} to represent
+   *     URIs, but for backwards compatibility have methods that accept URI parameters as plain
+   *     strings.
    */
   @Deprecated
   @SuppressIsSafeUriCastCheck
@@ -287,7 +231,53 @@ public final class UriUtils {
     return new SafeUriString(s);
   }
 
-  // prevent instantiation
-  private UriUtils() {
+  private static class JsImpl {
+
+    String encode(String uri) {
+      uri = Global.encodeURI(uri);
+      // Follow the same approach as SafeHtmlUtils.htmlEscape
+      if (uri.indexOf("%5B") != -1) {
+        uri = uri.replaceAll("%5B", "[");
+      }
+      if (uri.indexOf("%5D") != -1) {
+        uri = uri.replaceAll("%5D", "]");
+      }
+      return uri;
+    }
+  }
+
+  private static class JvmImpl extends JsImpl {
+
+                    
+             
+                               
+                                             
+                       
+           
+                                          
+                                                
+                                                                           
+                    
+       
+                                
+                         
+                                                                         
+                                           
+                                  
+                                     
+                                     
+                                                     
+                              
+                
+                                                                           
+                                      
+                                    
+           
+                                         
+         
+       
+                           
+     
   }
 }
+

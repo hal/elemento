@@ -2,7 +2,8 @@
 "version":3,
 "file":"PreDestroy.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAWkB,U;;QAAA,M;EAAAA,qB;EAAAA,8B;;;QAAA,O;EAAAC,6B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA6EkB,U;;QAAA,M;EAAAA,qB;EAAAA,8B;;;QAAA,O;EAAAC,6B;EAAAA;",
 "sources":["PreDestroy.java"],
 "names":["javax.annotation.PreDestroy.<synthetic: adapt_lambda>","javax.annotation.PreDestroy.<clinit>"]
 }
+

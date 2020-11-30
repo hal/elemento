@@ -79,3 +79,4 @@ public interface ServiceWorkerContainer extends EventTarget {
   @JsProperty
   void setReady(Promise<ServiceWorkerRegistration> ready);
 }
+

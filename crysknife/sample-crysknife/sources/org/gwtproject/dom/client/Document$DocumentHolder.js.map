@@ -2,7 +2,8 @@
 "version":3,
 "file":"Document$DocumentHolder.impl.java.js",
 "lineCount":48,
-"mappings":"A;;;;;;;MAsCuB,c;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,qC;EAAAA,uE;EAAAA,iB;;;CAAA,0D;EAAAC,iC;;;QACnB,6D;EAAAC,6G;;;QAAA,6D;EAAAC,8G;;;QADmB,O;EAAAC,iC;EAAAA,8B;EAAAA,qB;;;;;;;;;;;;AAAA;;",
+"mappings":"A;;;;;;;MAqCuB,c;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,qC;EAAAA,uE;EAAAA,iB;;;CAAA,0D;EAAAC,iC;;;QACnB,6D;EAAAC,6G;;;QAAA,6D;EAAAC,8G;;;QADmB,O;EAAAC,iC;EAAAA,8B;EAAAA,qB;;;;;;;;;;;;AAAA;;",
 "sources":["Document.java"],
 "names":["org.gwtproject.dom.client.Document$DocumentHolder.<synthetic: ctor_js>","org.gwtproject.dom.client.Document$DocumentHolder.<synthetic: ctor_create>","org.gwtproject.dom.client.Document$DocumentHolder.<init>","org.gwtproject.dom.client.Document$DocumentHolder.<synthetic: getter>","org.gwtproject.dom.client.Document$DocumentHolder.<synthetic: setter>","org.gwtproject.dom.client.Document$DocumentHolder.<clinit>"]
 }
+

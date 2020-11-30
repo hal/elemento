@@ -6,3 +6,4 @@
 "sources":["SourceBuffer.java"],
 "names":["o","elemental2.dom.SourceBuffer$AppendBufferDataUnionType$$Overlay.of","elemental2.dom.SourceBuffer$AppendBufferDataUnionType$$Overlay.asArrayBuffer__$devirt","elemental2.dom.SourceBuffer$AppendBufferDataUnionType$$Overlay.asArrayBufferView__$devirt","elemental2.dom.SourceBuffer$AppendBufferDataUnionType$$Overlay.isArrayBuffer__$devirt","elemental2.dom.SourceBuffer$AppendBufferDataUnionType$$Overlay.isArrayBufferView__$devirt","elemental2.dom.SourceBuffer$AppendBufferDataUnionType$$Overlay.<clinit>"]
 }
+

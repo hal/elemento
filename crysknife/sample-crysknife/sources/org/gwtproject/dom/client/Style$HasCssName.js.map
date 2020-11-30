@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$HasCssName.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAmDmB,gB;;QAAA,M;EAAAA,2B;EAAAA,8B;;;QAAA,O;EAAAC,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA+CmB,gB;;QAAA,M;EAAAA,2B;EAAAA,8B;;;QAAA,O;EAAAC,mC;EAAAA;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$HasCssName.<synthetic: adapt_lambda>","org.gwtproject.dom.client.Style$HasCssName.<clinit>"]
 }
+

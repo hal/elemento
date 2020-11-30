@@ -6,3 +6,4 @@
 "sources":["ErrorHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.ErrorHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.ErrorHandler.<clinit>"]
 }
+

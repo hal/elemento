@@ -27,3 +27,4 @@ public class MediaStreamEvent {
 
   public MediaStreamEvent(String type, Object eventInitDict) {}
 }
+

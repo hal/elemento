@@ -47,3 +47,4 @@ class CSSPrimitiveValue__Constants {
   static int CSS_UNKNOWN;
   static int CSS_URI;
 }
+

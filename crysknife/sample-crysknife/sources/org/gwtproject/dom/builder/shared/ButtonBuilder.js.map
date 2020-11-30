@@ -2,7 +2,8 @@
 "version":3,
 "file":"ButtonBuilder.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;MAoBiB,a;;CASD,6B,gBAAiBA,S;;CASjB,Y;;CASA,wB,gBAAYC,I;;CASZ,yB,gBAAaC,K;;QApCZ,O;EAAAC,gC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,a;;CASD,6B,gBAAiBA,S;;CASjB,Y;;CASA,wB,gBAAYC,I;;CASZ,yB,gBAAaC,K;;QApCZ,O;EAAAC,gC;EAAAA;",
 "sources":["ButtonBuilder.java"],
 "names":["accessKey","name","value","org.gwtproject.dom.builder.shared.ButtonBuilder.<clinit>"]
 }
+

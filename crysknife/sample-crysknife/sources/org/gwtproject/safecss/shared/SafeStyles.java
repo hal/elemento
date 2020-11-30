@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,7 +64,7 @@ import java.io.Serializable;
  *   <li><code>background:url('http://url');</code>
  * </ul>
  *
- * In addition, the empty string is safe for use in a CSS attribute.
+ * <p>In addition, the empty string is safe for use in a CSS attribute.
  *
  * <p>The following example values do <em>not</em> comply with this type's contract:
  *
@@ -107,14 +107,13 @@ public interface SafeStyles extends Serializable {
    * @return the contents as a String
    */
   String asString();
-
+  /** Returns a hash code for this string. Must be equal to asString().hashCode(). */
+  int hashCode();
   /**
    * Compares this string to the specified object. Must be equal to asString().equals().
    *
    * @param anObject the object to compare to
    */
   boolean equals(Object anObject);
-
-  /** Returns a hash code for this string. Must be equal to asString().hashCode(). */
-  int hashCode();
 }
+

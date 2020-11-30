@@ -2,7 +2,8 @@
 "version":3,
 "file":"FontStyle$3.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAiCU,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,qG;EAAAA,iB;;;CAAA,yE;EAAAC,8F;;;CAEQ,c;EACZC,iB;;;;CAHI,6B;EAAAC,6E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MA+BU,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,qG;EAAAA,iB;;;CAAA,yE;EAAAC,8F;;;CAEQ,c;EACZC,iB;;;;CAHI,6B;EAAAC,6E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["FontStyle.java"],
 "names":["org.gwtproject.dom.style.shared.FontStyle$3.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.FontStyle$3.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.FontStyle$3.<init>","org.gwtproject.dom.style.shared.FontStyle$3.getCssName","org.gwtproject.dom.style.shared.FontStyle$3.compareTo","org.gwtproject.dom.style.shared.FontStyle$3.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlSanitizer.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;MAyBiB,a;;CASN,4B,gBAAgBA,I;;QATV,M;EAAAC,wB;EAAAA,8B;;;QAAA,O;EAAAC,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;MAuBiB,a;;CASN,4B,gBAAgBA,I;;QATV,M;EAAAC,wB;EAAAA,8B;;;QAAA,O;EAAAC,gC;EAAAA;",
 "sources":["HtmlSanitizer.java"],
 "names":["html","org.gwtproject.safehtml.shared.HtmlSanitizer.<synthetic: adapt_lambda>","org.gwtproject.safehtml.shared.HtmlSanitizer.<clinit>"]
 }
+

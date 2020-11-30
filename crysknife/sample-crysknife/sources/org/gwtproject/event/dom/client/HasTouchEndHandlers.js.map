@@ -6,3 +6,4 @@
 "sources":["HasTouchEndHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasTouchEndHandlers.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"VerticalAlign.impl.java.js",
 "lineCount":154,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MAoBY,a;;CAAA,W;EAAAA,Q;;;CAAA,2E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAmDa,c;;QAnDb,2B;EAAAC,wB;EAAAA;GAAAA,0IAAAA;G;EAAAA,6H;;;QAAA,U;EAAAC,wB;EAAAA,6oB;;;QACV,6D;EAAAC,2G;;;QAMA,wD;EAAAA,sG;;;QAMA,0D;EAAAA,wG;;;QAMA,wD;EAAAA,sG;;;QAMA,6D;EAAAA,2G;;;QAMA,2D;EAAAA,yG;;;QAMA,2D;EAAAA,yG;;;QAMA,gE;EAAAA,8G;;;QA3CU,O;EAAAC,gC;EAAAA,6B;EAAAA,e;EACVA,gO;EAMAA,iN;EAMAA,uN;EAMAA,iN;EAMAA,gO;EAMAA,0N;EAMAA,0N;EAMAA,yO;EA3CUA,wF;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;yE;AAAA;oE;AAAA;sE;AAAA;oE;AAAA;yE;AAAA;uE;AAAA;uE;AAAA;4E;AAAA;iF;AACV;qF;AAMA;gF;AAMA;kF;AAMA;gF;AAMA;qF;AAMA;mF;AAMA;mF;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MAkBY,a;;CAAA,W;EAAAA,Q;;;CAAA,2E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAmDa,c;;QAnDb,2B;EAAAC,wB;EAAAA;GAAAA,0IAAAA;G;EAAAA,6H;;;QAAA,U;EAAAC,wB;EAAAA,6oB;;;QACV,6D;EAAAC,2G;;;QAMA,wD;EAAAA,sG;;;QAMA,0D;EAAAA,wG;;;QAMA,wD;EAAAA,sG;;;QAMA,6D;EAAAA,2G;;;QAMA,2D;EAAAA,yG;;;QAMA,2D;EAAAA,yG;;;QAMA,gE;EAAAA,8G;;;QA3CU,O;EAAAC,gC;EAAAA,6B;EAAAA,e;EACVA,gO;EAMAA,iN;EAMAA,uN;EAMAA,iN;EAMAA,gO;EAMAA,0N;EAMAA,0N;EAMAA,yO;EA3CUA,wF;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;yE;AAAA;oE;AAAA;sE;AAAA;oE;AAAA;yE;AAAA;uE;AAAA;uE;AAAA;4E;AAAA;iF;AACV;qF;AAMA;gF;AAMA;kF;AAMA;gF;AAMA;qF;AAMA;mF;AAMA;mF;AAMA;;",
 "sources":["VerticalAlign.java"],
 "names":["org.gwtproject.dom.style.shared.VerticalAlign.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.VerticalAlign.<init>","org.gwtproject.dom.style.shared.VerticalAlign.valueOf","org.gwtproject.dom.style.shared.VerticalAlign.values","org.gwtproject.dom.style.shared.VerticalAlign.<synthetic: getter>","org.gwtproject.dom.style.shared.VerticalAlign.<clinit>"]
 }
+

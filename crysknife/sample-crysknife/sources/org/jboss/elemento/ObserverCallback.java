@@ -27,3 +27,4 @@ public interface ObserverCallback {
 
     void onObserved(MutationRecord mutationRecord);
 }
+

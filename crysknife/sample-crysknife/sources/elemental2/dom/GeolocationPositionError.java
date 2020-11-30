@@ -53,3 +53,4 @@ public interface GeolocationPositionError {
   @JsProperty
   void setMessage(String message);
 }
+

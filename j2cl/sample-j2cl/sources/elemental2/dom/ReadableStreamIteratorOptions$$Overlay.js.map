@@ -6,3 +6,4 @@
 "sources":["ReadableStreamIteratorOptions.java"],
 "names":["elemental2.dom.ReadableStreamIteratorOptions$$Overlay.create","elemental2.dom.ReadableStreamIteratorOptions$$Overlay.<clinit>"]
 }
+

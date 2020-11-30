@@ -24,3 +24,4 @@ class DOMError__Constants {
   static int SEVERITY_FATAL_ERROR;
   static int SEVERITY_WARNING;
 }
+

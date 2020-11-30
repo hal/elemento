@@ -87,3 +87,4 @@ public class File extends Blob {
 
   public File(JsArray<File.ConstructorContentsArrayUnionType> contents) {}
 }
+

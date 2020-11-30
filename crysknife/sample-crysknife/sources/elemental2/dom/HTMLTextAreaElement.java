@@ -27,11 +27,14 @@ public class HTMLTextAreaElement extends HTMLElement {
   public boolean disabled;
   public HTMLFormElement form;
   public NodeList<HTMLLabelElement> labels;
+  public int maxLength;
+  public int minLength;
   public String name;
   public String placeholder;
   public boolean readOnly;
   public int rows;
   public int tabIndex;
+  public int textLength;
   public String type;
   public String validationMessage;
   public ValidityState validity;
@@ -50,3 +53,4 @@ public class HTMLTextAreaElement extends HTMLElement {
 
   public native void setCustomValidity(String message);
 }
+

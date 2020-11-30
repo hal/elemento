@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class XPathNSResolver {
   public native String lookupNamespaceURI(String prefix);
 }
+

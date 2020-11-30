@@ -6,3 +6,4 @@
 "sources":["HtmlMediaBuilderBase.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.<init>","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.autoplay","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.controls","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.loop","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.muted","preload","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.preload","url","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.src","org.gwtproject.dom.builder.shared.HtmlMediaBuilderBase.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["ServiceWorkerClient.java"],
 "names":["message","transfer","elemental2.dom.ServiceWorkerClient$$Overlay.postMessage__$devirt","elemental2.dom.ServiceWorkerClient$$Overlay.<clinit>"]
 }
+

@@ -21,3 +21,4 @@ import jsinterop.annotations.JsFunction;
 public interface RTCStatsCallback {
   Object onInvoke(RTCStatsResponse p0, MediaStreamTrack p1);
 }
+

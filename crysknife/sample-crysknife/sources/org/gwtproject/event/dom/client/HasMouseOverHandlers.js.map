@@ -6,3 +6,4 @@
 "sources":["HasMouseOverHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasMouseOverHandlers.<clinit>"]
 }
+

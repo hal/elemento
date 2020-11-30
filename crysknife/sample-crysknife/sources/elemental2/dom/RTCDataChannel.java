@@ -27,6 +27,11 @@ import jsinterop.base.Js;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public interface RTCDataChannel extends EventTarget {
   @JsFunction
+  public interface OnbufferedamountlowFn {
+    Object onInvoke(Event p0);
+  }
+
+  @JsFunction
   public interface OncloseFn {
     Object onInvoke(Event p0);
   }
@@ -103,7 +108,13 @@ public interface RTCDataChannel extends EventTarget {
   int getBufferedAmount();
 
   @JsProperty
+  double getBufferedAmountLowThreshold();
+
+  @JsProperty
   String getLabel();
+
+  @JsProperty
+  RTCDataChannel.OnbufferedamountlowFn getOnbufferedamountlow();
 
   @JsProperty
   RTCDataChannel.OncloseFn getOnclose();
@@ -152,6 +163,12 @@ public interface RTCDataChannel extends EventTarget {
   void setBufferedAmount(int bufferedAmount);
 
   @JsProperty
+  void setBufferedAmountLowThreshold(double bufferedAmountLowThreshold);
+
+  @JsProperty
+  void setOnbufferedamountlow(RTCDataChannel.OnbufferedamountlowFn onbufferedamountlow);
+
+  @JsProperty
   void setOnclose(RTCDataChannel.OncloseFn onclose);
 
   @JsProperty
@@ -166,3 +183,4 @@ public interface RTCDataChannel extends EventTarget {
   @JsProperty
   void setReadyState(String readyState);
 }
+

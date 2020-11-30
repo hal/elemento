@@ -2,7 +2,6 @@ goog.module('org.jboss.elemento.sample.crysknife.Main');
 
 goog.require('java.lang.Object');
 goog.require('nativebootstrap.Util');
-goog.require('org.gwtproject.core.client.EntryPoint');
 goog.require('elemental2.dom.Event.$Overlay');
 goog.require('elemental2.dom.HTMLBodyElement.$Overlay');
 goog.require('elemental2.dom.HashChangeEvent.$Overlay');

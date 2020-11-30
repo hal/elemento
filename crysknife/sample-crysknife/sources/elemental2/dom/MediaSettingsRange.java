@@ -30,3 +30,4 @@ public interface MediaSettingsRange {
   @JsProperty
   double getStep();
 }
+

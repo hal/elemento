@@ -6,3 +6,4 @@
 "sources":["TouchEndEvent.java"],
 "names":["org.gwtproject.event.dom.client.TouchEndEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.TouchEndEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.TouchEndEvent.<init>","org.gwtproject.event.dom.client.TouchEndEvent.getType","org.gwtproject.event.dom.client.TouchEndEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.TouchEndEvent.dispatch","org.gwtproject.event.dom.client.TouchEndEvent.<clinit>"]
 }
+

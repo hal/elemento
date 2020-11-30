@@ -6,3 +6,4 @@
 "sources":["BaseRenderingContext2D.java"],
 "names":["o","elemental2.dom.BaseRenderingContext2D$SetStrokeColorAUnionType$$Overlay.of","elemental2.dom.BaseRenderingContext2D$SetStrokeColorAUnionType$$Overlay.asDouble__$devirt","elemental2.dom.BaseRenderingContext2D$SetStrokeColorAUnionType$$Overlay.asString__$devirt","elemental2.dom.BaseRenderingContext2D$SetStrokeColorAUnionType$$Overlay.isDouble__$devirt","elemental2.dom.BaseRenderingContext2D$SetStrokeColorAUnionType$$Overlay.isString__$devirt","elemental2.dom.BaseRenderingContext2D$SetStrokeColorAUnionType$$Overlay.<clinit>"]
 }
+

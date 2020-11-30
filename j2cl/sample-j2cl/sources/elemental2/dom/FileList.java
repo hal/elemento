@@ -25,3 +25,4 @@ public class FileList implements JsArrayLike<File> {
 
   public native File item(double i);
 }
+

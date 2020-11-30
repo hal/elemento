@@ -6,3 +6,4 @@
 "sources":["HandlesAllFocusEvents.java"],
 "names":["org.gwtproject.event.dom.client.HandlesAllFocusEvents.<synthetic: ctor_js>","org.gwtproject.event.dom.client.HandlesAllFocusEvents.<init>","source","org.gwtproject.event.dom.client.HandlesAllFocusEvents.handle","eventSource","reciever","org.gwtproject.event.dom.client.HandlesAllFocusEvents.<clinit>"]
 }
+

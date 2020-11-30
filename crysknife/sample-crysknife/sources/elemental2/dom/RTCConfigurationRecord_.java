@@ -33,7 +33,7 @@ public interface RTCConfigurationRecord_ {
     }
 
     @JsOverlay
-    default RTCConfigurationInterface_.IceServersFieldType asIceServersFieldType() {
+    default RTCConfigurationRecord_.IceServersFieldType asIceServersFieldType() {
       return Js.cast(this);
     }
 
@@ -43,8 +43,41 @@ public interface RTCConfigurationRecord_ {
     }
 
     @JsOverlay
-    default RTCConfigurationInterface_.UrlsFieldType asUrlsFieldType() {
+    default RTCConfigurationRecord_.UrlsFieldType asUrlsFieldType() {
       return Js.cast(this);
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface IceServersFieldType {
+    @JsOverlay
+    static RTCConfigurationRecord_.IceServersFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
+    }
+
+    @JsProperty
+    String getUrls();
+
+    @JsProperty
+    void setUrls(String urls);
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface UrlsFieldType {
+    @JsOverlay
+    static RTCConfigurationRecord_.UrlsFieldType create() {
+      return Js.uncheckedCast(JsPropertyMap.of());
+    }
+
+    @JsProperty
+    JsArray<String> getUrls();
+
+    @JsProperty
+    void setUrls(JsArray<String> urls);
+
+    @JsOverlay
+    default void setUrls(String[] urls) {
+      setUrls(Js.<JsArray<String>>uncheckedCast(urls));
     }
   }
 
@@ -71,3 +104,4 @@ public interface RTCConfigurationRecord_ {
   @JsProperty
   void setSdpSemantics(String sdpSemantics);
 }
+

@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"DatabaseCallback$$LambdaAdaptor.impl.java.js",
+"lineCount":37,
+"mappings":"A;;;;;;;;;;;MAsBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;8D;EAAAA,4G;;;CAAA,kG;EAAAC,iC;EAAAA,iE;;;CAAA,W;;GAAAC,4E;GAAAA,gB;;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["DatabaseCallback.java"],
+"names":["elemental2.dom.DatabaseCallback$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","elemental2.dom.DatabaseCallback$$LambdaAdaptor.<init>","elemental2.dom.DatabaseCallback$$LambdaAdaptor.handleEvent","elemental2.dom.DatabaseCallback$$LambdaAdaptor.<clinit>"]
+}
+

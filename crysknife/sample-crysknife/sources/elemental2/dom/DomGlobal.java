@@ -24,7 +24,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 
-@JsType(isNative = true, name = "window", namespace = JsPackage.GLOBAL)
+@JsType(isNative = true, name = "goog.global", namespace = JsPackage.GLOBAL)
 public class DomGlobal {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface CreateImageBitmapImageUnionType {
@@ -96,6 +96,29 @@ public class DomGlobal {
     @JsOverlay
     default boolean isImageData() {
       return (Object) this instanceof ImageData;
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface CreateImageBitmapSxOrOptionsUnionType {
+    @JsOverlay
+    static DomGlobal.CreateImageBitmapSxOrOptionsUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default double asDouble() {
+      return Js.asDouble(this);
+    }
+
+    @JsOverlay
+    default ImageBitmapOptions asImageBitmapOptions() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default boolean isDouble() {
+      return (Object) this instanceof Double;
     }
   }
 
@@ -359,7 +382,6 @@ public class DomGlobal {
   }
 
   public static CSSInterface CSS;
-  @Deprecated public static TrustedTypePolicyFactory TrustedTypes;
   public static ApplicationCache applicationCache;
   public static Console console;
   public static CustomElementRegistry customElements;
@@ -403,28 +425,162 @@ public class DomGlobal {
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      Blob image, double sx, double sy, double sw, double sh) {
+      Blob image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw, sh);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh,
+        options);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      Blob image, double sx, double sy, double sw) {
+      Blob image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh);
   }
 
   @JsOverlay
-  public static final Promise<ImageBitmap> createImageBitmap(Blob image, double sx, double sy) {
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy, sw);
   }
 
   @JsOverlay
-  public static final Promise<ImageBitmap> createImageBitmap(Blob image, double sx) {
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions, double sy) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, ImageBitmapOptions sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, ImageBitmapOptions sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, ImageBitmapOptions sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, ImageBitmapOptions sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, double sxOrOptions, double sy, double sw, double sh, ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, double sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, double sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      Blob image, double sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(Blob image, double sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
   }
 
   @JsOverlay
@@ -434,30 +590,174 @@ public class DomGlobal {
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      CanvasRenderingContext2D image, double sx, double sy, double sw, double sh) {
+      CanvasRenderingContext2D image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw, sh);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh,
+        options);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      CanvasRenderingContext2D image, double sx, double sy, double sw) {
+      CanvasRenderingContext2D image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      CanvasRenderingContext2D image, double sx, double sy) {
+      CanvasRenderingContext2D image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy, sw);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      CanvasRenderingContext2D image, double sx) {
+      CanvasRenderingContext2D image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image, ImageBitmapOptions sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image, ImageBitmapOptions sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image, ImageBitmapOptions sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image,
+      double sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image, double sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image, double sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image, double sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      CanvasRenderingContext2D image, double sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
   }
 
   @JsOverlay
@@ -466,45 +766,319 @@ public class DomGlobal {
   }
 
   public static native Promise<ImageBitmap> createImageBitmap(
-      DomGlobal.CreateImageBitmapImageUnionType image, double sx, double sy, double sw, double sh);
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options);
 
   public static native Promise<ImageBitmap> createImageBitmap(
-      DomGlobal.CreateImageBitmapImageUnionType image, double sx, double sy, double sw);
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh);
 
   public static native Promise<ImageBitmap> createImageBitmap(
-      DomGlobal.CreateImageBitmapImageUnionType image, double sx, double sy);
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw);
 
   public static native Promise<ImageBitmap> createImageBitmap(
-      DomGlobal.CreateImageBitmapImageUnionType image, double sx);
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy);
+
+  public static native Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions);
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        image,
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
+    return createImageBitmap(
+        image,
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw) {
+    return createImageBitmap(
+        image,
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image, ImageBitmapOptions sxOrOptions, double sy) {
+    return createImageBitmap(
+        image, Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions), sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image, ImageBitmapOptions sxOrOptions) {
+    return createImageBitmap(
+        image, Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      double sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        image,
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image,
+      double sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
+    return createImageBitmap(
+        image,
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image, double sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        image,
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image, double sxOrOptions, double sy) {
+    return createImageBitmap(
+        image, Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions), sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      DomGlobal.CreateImageBitmapImageUnionType image, double sxOrOptions) {
+    return createImageBitmap(
+        image, Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
 
   public static native Promise<ImageBitmap> createImageBitmap(
       DomGlobal.CreateImageBitmapImageUnionType image);
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLCanvasElement image, double sx, double sy, double sw, double sh) {
+      HTMLCanvasElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw, sh);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh,
+        options);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLCanvasElement image, double sx, double sy, double sw) {
+      HTMLCanvasElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLCanvasElement image, double sx, double sy) {
+      HTMLCanvasElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy, sw);
   }
 
   @JsOverlay
-  public static final Promise<ImageBitmap> createImageBitmap(HTMLCanvasElement image, double sx) {
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, ImageBitmapOptions sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, ImageBitmapOptions sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, ImageBitmapOptions sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, ImageBitmapOptions sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image,
+      double sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, double sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, double sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, double sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLCanvasElement image, double sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
   }
 
   @JsOverlay
@@ -514,29 +1088,170 @@ public class DomGlobal {
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLImageElement image, double sx, double sy, double sw, double sh) {
+      HTMLImageElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw, sh);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh,
+        options);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLImageElement image, double sx, double sy, double sw) {
+      HTMLImageElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLImageElement image, double sx, double sy) {
+      HTMLImageElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy, sw);
   }
 
   @JsOverlay
-  public static final Promise<ImageBitmap> createImageBitmap(HTMLImageElement image, double sx) {
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, ImageBitmapOptions sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, ImageBitmapOptions sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, ImageBitmapOptions sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, ImageBitmapOptions sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image,
+      double sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, double sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, double sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, double sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLImageElement image, double sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
   }
 
   @JsOverlay
@@ -546,29 +1261,170 @@ public class DomGlobal {
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLVideoElement image, double sx, double sy, double sw, double sh) {
+      HTMLVideoElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw, sh);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh,
+        options);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLVideoElement image, double sx, double sy, double sw) {
+      HTMLVideoElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      HTMLVideoElement image, double sx, double sy) {
+      HTMLVideoElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy, sw);
   }
 
   @JsOverlay
-  public static final Promise<ImageBitmap> createImageBitmap(HTMLVideoElement image, double sx) {
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, ImageBitmapOptions sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, ImageBitmapOptions sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, ImageBitmapOptions sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, ImageBitmapOptions sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image,
+      double sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, double sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, double sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, double sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      HTMLVideoElement image, double sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
   }
 
   @JsOverlay
@@ -578,29 +1434,168 @@ public class DomGlobal {
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      ImageBitmap image, double sx, double sy, double sw, double sh) {
+      ImageBitmap image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw, sh);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh,
+        options);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      ImageBitmap image, double sx, double sy, double sw) {
+      ImageBitmap image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      ImageBitmap image, double sx, double sy) {
+      ImageBitmap image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy, sw);
   }
 
   @JsOverlay
-  public static final Promise<ImageBitmap> createImageBitmap(ImageBitmap image, double sx) {
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions, double sy) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, ImageBitmapOptions sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, ImageBitmapOptions sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, ImageBitmapOptions sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, ImageBitmapOptions sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image,
+      double sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, double sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, double sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, double sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageBitmap image, double sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
   }
 
   @JsOverlay
@@ -610,29 +1605,167 @@ public class DomGlobal {
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      ImageData image, double sx, double sy, double sw, double sh) {
+      ImageData image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw, sh);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh,
+        options);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      ImageData image, double sx, double sy, double sw) {
+      ImageData image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw,
+      double sh) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy, sw);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        sxOrOptions,
+        sy,
+        sw,
+        sh);
   }
 
   @JsOverlay
   public static final Promise<ImageBitmap> createImageBitmap(
-      ImageData image, double sx, double sy) {
+      ImageData image,
+      DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions,
+      double sy,
+      double sw) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx, sy);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy, sw);
   }
 
   @JsOverlay
-  public static final Promise<ImageBitmap> createImageBitmap(ImageData image, double sx) {
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions, double sy) {
     return createImageBitmap(
-        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sx);
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions, sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, DomGlobal.CreateImageBitmapSxOrOptionsUnionType sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image), sxOrOptions);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image,
+      ImageBitmapOptions sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, ImageBitmapOptions sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, ImageBitmapOptions sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, ImageBitmapOptions sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, ImageBitmapOptions sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image,
+      double sxOrOptions,
+      double sy,
+      double sw,
+      double sh,
+      ImageBitmapOptions options) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh,
+        options);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, double sxOrOptions, double sy, double sw, double sh) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw,
+        sh);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, double sxOrOptions, double sy, double sw) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy,
+        sw);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(
+      ImageData image, double sxOrOptions, double sy) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions),
+        sy);
+  }
+
+  @JsOverlay
+  public static final Promise<ImageBitmap> createImageBitmap(ImageData image, double sxOrOptions) {
+    return createImageBitmap(
+        Js.<DomGlobal.CreateImageBitmapImageUnionType>uncheckedCast(image),
+        Js.<DomGlobal.CreateImageBitmapSxOrOptionsUnionType>uncheckedCast(sxOrOptions));
   }
 
   @JsOverlay
@@ -673,12 +1806,12 @@ public class DomGlobal {
 
   @JsOverlay
   public static final void importScripts(String... var_args) {
-    importScripts(Js.<DomGlobal.ImportScriptsVar_argsUnionType>uncheckedCast(var_args));
+    importScripts(Js.<DomGlobal.ImportScriptsVar_argsUnionType[]>uncheckedCast(var_args));
   }
 
   @JsOverlay
   public static final void importScripts(TrustedScriptURL... var_args) {
-    importScripts(Js.<DomGlobal.ImportScriptsVar_argsUnionType>uncheckedCast(var_args));
+    importScripts(Js.<DomGlobal.ImportScriptsVar_argsUnionType[]>uncheckedCast(var_args));
   }
 
   @JsOverlay
@@ -1009,3 +2142,4 @@ public class DomGlobal {
     return setTimeout(Js.<DomGlobal.SetTimeoutCallbackUnionType>uncheckedCast(callback));
   }
 }
+

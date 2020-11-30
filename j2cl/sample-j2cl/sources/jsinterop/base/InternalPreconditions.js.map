@@ -6,3 +6,4 @@
 "sources":["InternalPreconditions.java","InternalPreconditions.native_js"],
 "names":["jsinterop.base.InternalPreconditions.<synthetic: ctor_js>","expression","jsinterop.base.InternalPreconditions.checkType","e","jsinterop.base.InternalPreconditions.checkCriticalType","jsinterop.base.InternalPreconditions.<synthetic: ctor_create>","jsinterop.base.InternalPreconditions.<init>","jsinterop.base.InternalPreconditions.<clinit>","jsinterop.base.InternalPreconditions.<native>"]
 }
+

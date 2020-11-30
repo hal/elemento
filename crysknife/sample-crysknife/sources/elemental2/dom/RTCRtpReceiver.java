@@ -16,22 +16,22 @@
 package elemental2.dom;
 
 import elemental2.core.JsArray;
+import elemental2.promise.Promise;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface RTCRtpReceiver {
-  JsArray<RTCRtpContributingSource> getContributingSources();
+public class RTCRtpReceiver {
+  public static native RTCRtpCapabilities getCapabilities(String kind);
 
-  @JsProperty
-  double getJitterBufferDelayHint();
+  public double jitterBufferDelayHint;
+  public double playoutDelayHint;
+  public MediaStreamTrack track;
 
-  JsArray<RTCRtpContributingSource> getSynchronizationSources();
+  public native JsArray<RTCRtpContributingSource> getContributingSources();
 
-  @JsProperty
-  MediaStreamTrack getTrack();
+  public native Promise<RTCStatsReport> getStats();
 
-  @JsProperty
-  void setJitterBufferDelayHint(double jitterBufferDelayHint);
+  public native JsArray<RTCRtpContributingSource> getSynchronizationSources();
 }
+

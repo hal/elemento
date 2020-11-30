@@ -6,3 +6,4 @@
 "sources":["CountingEventBus.java"],
 "names":["org.gwtproject.event.shared.testing.CountingEventBus$TypeSourcePair.<synthetic: ctor_js>","type","source","org.gwtproject.event.shared.testing.CountingEventBus$TypeSourcePair.<synthetic: ctor_create>","org.gwtproject.event.shared.testing.CountingEventBus$TypeSourcePair.<init>","o","org.gwtproject.event.shared.testing.CountingEventBus$TypeSourcePair.equals","pair","org.gwtproject.event.shared.testing.CountingEventBus$TypeSourcePair.hashCode","hash","org.gwtproject.event.shared.testing.CountingEventBus$TypeSourcePair.<clinit>"]
 }
+

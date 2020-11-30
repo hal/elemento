@@ -42,7 +42,7 @@ class TouchStartEvent extends TouchEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** TouchStartHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_TouchStartHandler(/**@type {TouchStartHandler}*/ ($Casts.$to(arg0, TouchStartHandler)));
  }
  

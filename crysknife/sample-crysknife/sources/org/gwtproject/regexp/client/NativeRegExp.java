@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,121 +31,122 @@ import org.gwtproject.regexp.shared.SplitResult;
  * implementation simply calls on to the native Javascript classes.
  *
  * <p>There are a few small incompatibilities between the two implementations. Java-specific
- * constructs in the regular expression syntax (e.g. [a-z&amp;&amp;[^bc]], (?&lt;=foo), \A, \Q) work only in
- * the pure Java implementation, not the GWT implementation, and are not rejected by either. Also,
- * the Javascript-specific constructs $` and $' in the replacement expression work only in the GWT
- * implementation, not the pure Java implementation, which rejects them.
+ * constructs in the regular expression syntax (e.g. [a-z&amp;&amp;[^bc]], (?&lt;=foo), \A, \Q) work
+ * only in the pure Java implementation, not the GWT implementation, and are not rejected by either.
+ * Also, the Javascript-specific constructs $` and $' in the replacement expression work only in the
+ * GWT implementation, not the pure Java implementation, which rejects them.
  */
 public class NativeRegExp implements RegExp {
 
-    /**
-     * Creates a regular expression object from a pattern with no flags.
-     *
-     * @param pattern the Javascript regular expression pattern to compile
-     * @return a new regular expression
-     * @throws RuntimeException if the pattern is invalid
-     */
-    public static RegExp compile(String pattern) {
-        return new NativeRegExp(pattern);
-    }
+  private JsRegExp jsRegExp;
 
-    /**
-     * Creates a regular expression object from a pattern with no flags.
-     *
-     * @param pattern the Javascript regular expression pattern to compile
-     * @param flags   the flags string, containing at most one occurence of {@code 'g'} ({@link
-     *                #getGlobal()}), {@code 'i'} ({@link #getIgnoreCase()} ), or {@code 'm'} ({@link
-     *                #getMultiline()}).
-     * @return a new regular expression
-     * @throws RuntimeException if the pattern or the flags are invalid
-     */
-    public static RegExp compile(String pattern, String flags) {
-        return new NativeRegExp(pattern, flags);
-    }
+  private NativeRegExp(String pattern) {
+    this();
+    jsRegExp.compile(pattern);
+  }
 
-    /**
-     * Returns a literal pattern <code>String</code> for the specified <code>String</code>.
-     *
-     * <p>This method produces a <code>String</code> that can be used to create a <code>RegExp</code>
-     * that would match the string <code>s</code> as if it were a literal pattern. Metacharacters or
-     * escape sequences in the input sequence will be given no special meaning.
-     *
-     * @param input The string to be literalized
-     * @return A literal string replacement
-     */
-    public static String quote(String input) {
-        return new JsString(input).replace(new JsRegExp("([.?*+^$[\\]\\\\(){}|-])", "g"), "\\$1");
-    }
+  private NativeRegExp() {
+    jsRegExp = new JsRegExp();
+  }
 
-    private JsRegExp jsRegExp;
+  private NativeRegExp(String pattern, String flags) {
+    this();
+    jsRegExp.compile(pattern, flags);
+  }
 
-    private NativeRegExp() {
-        jsRegExp = new JsRegExp();
-    }
+  /**
+   * Creates a regular expression object from a pattern with no flags.
+   *
+   * @param pattern the Javascript regular expression pattern to compile
+   * @return a new regular expression
+   * @throws RuntimeException if the pattern is invalid
+   */
+  public static RegExp compile(String pattern) {
+    return new NativeRegExp(pattern);
+  }
 
-    private NativeRegExp(String pattern) {
-        this();
-        jsRegExp.compile(pattern);
-    }
+  /**
+   * Creates a regular expression object from a pattern with no flags.
+   *
+   * @param pattern the Javascript regular expression pattern to compile
+   * @param flags the flags string, containing at most one occurence of {@code 'g'} ({@link
+   *     #getGlobal()}), {@code 'i'} ({@link #getIgnoreCase()} ), or {@code 'm'} ({@link
+   *     #getMultiline()}).
+   * @return a new regular expression
+   * @throws RuntimeException if the pattern or the flags are invalid
+   */
+  public static RegExp compile(String pattern, String flags) {
+    return new NativeRegExp(pattern, flags);
+  }
 
-    private NativeRegExp(String pattern, String flags) {
-        this();
-        jsRegExp.compile(pattern, flags);
-    }
+  /**
+   * Returns a literal pattern <code>String</code> for the specified <code>String</code>.
+   *
+   * <p>This method produces a <code>String</code> that can be used to create a <code>RegExp</code>
+   * that would match the string <code>s</code> as if it were a literal pattern. Metacharacters or
+   * escape sequences in the input sequence will be given no special meaning.
+   *
+   * @param input The string to be literalized
+   * @return A literal string replacement
+   */
+  public static String quote(String input) {
+    return new JsString(input).replace(new JsRegExp("([.?*+^$[\\]\\\\(){}|-])", "g"), "\\$1");
+  }
 
-    @Override
-    public MatchResult exec(String input) {
-        String[] result = jsRegExp.exec(input);
-        return isNull(result) ? null : new NativeMatchResult(Js.cast(result));
-    }
+  @Override
+  public MatchResult exec(String input) {
+    String[] result = Js.uncheckedCast(jsRegExp.exec(input));
+    return isNull(result) ? null : new NativeMatchResult(Js.cast(result));
+  }
 
-    @Override
-    public boolean getGlobal() {
-        return jsRegExp.global;
-    }
+  @Override
+  public boolean getGlobal() {
+    return jsRegExp.global;
+  }
 
-    @Override
-    public boolean getIgnoreCase() {
-        return jsRegExp.ignoreCase;
-    }
+  @Override
+  public boolean getIgnoreCase() {
+    return jsRegExp.ignoreCase;
+  }
 
-    @Override
-    public int getLastIndex() {
-        return jsRegExp.lastIndex;
-    }
+  @Override
+  public int getLastIndex() {
+    return jsRegExp.lastIndex;
+  }
 
-    @Override
-    public boolean getMultiline() {
-        return jsRegExp.multiline;
-    }
+  @Override
+  public boolean getMultiline() {
+    return jsRegExp.multiline;
+  }
 
-    @Override
-    public String getSource() {
-        return jsRegExp.source;
-    }
+  @Override
+  public String getSource() {
+    return jsRegExp.source;
+  }
 
-    @Override
-    public String replace(String input, String replacement) {
-        return new JsString(input).replace(jsRegExp, replacement);
-    }
+  @Override
+  public String replace(String input, String replacement) {
+    return new JsString(input).replace(jsRegExp, replacement);
+  }
 
-    @Override
-    public void setLastIndex(int lastIndex) {
-        jsRegExp.lastIndex = lastIndex;
-    }
+  @Override
+  public void setLastIndex(int lastIndex) {
+    jsRegExp.lastIndex = lastIndex;
+  }
 
-    @Override
-    public SplitResult split(String input) {
-        return new NativeSplitResult(Js.cast(new JsString(input).split(jsRegExp)));
-    }
+  @Override
+  public SplitResult split(String input) {
+    return new NativeSplitResult(Js.cast(new JsString(input).split(jsRegExp)));
+  }
 
-    @Override
-    public SplitResult split(String input, int limit) {
-        return new NativeSplitResult(Js.cast(new JsString(input).split(jsRegExp, limit)));
-    }
+  @Override
+  public SplitResult split(String input, int limit) {
+    return new NativeSplitResult(Js.cast(new JsString(input).split(jsRegExp, limit)));
+  }
 
-    @Override
-    public boolean test(String input) {
-        return jsRegExp.test(input);
-    }
+  @Override
+  public boolean test(String input) {
+    return jsRegExp.test(input);
+  }
 }
+

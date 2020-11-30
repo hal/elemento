@@ -6,3 +6,4 @@
 "sources":["IdleCallbackOptions.java"],
 "names":["elemental2.dom.IdleCallbackOptions$$Overlay.create","elemental2.dom.IdleCallbackOptions$$Overlay.<clinit>"]
 }
+

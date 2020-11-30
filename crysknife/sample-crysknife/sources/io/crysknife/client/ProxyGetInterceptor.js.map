@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"ProxyGetInterceptor.impl.java.js",
+"lineCount":72,
+"mappings":"A;;;;;;;;;;;;;;;MAwBmB,mB;;CAAA,W;EAAAA,Q;EAAAA;OAEF,kDAFEA,C;EAAAA;OAIuC,sDAJvCA,C;EAAAA;OAKuC,wDALvCA,C;;;QAOV,yB,UAA2BC,M;EAA3BC,8B;EAAAA,0C;EAAAA,mF;EAAAA,uK;;;CAAA,gE,UAA2BD,M;EAA3BE,iC;EAAAA,0D;EACLA,iE;;;QAGU,uG,2DAAmBC,U,oBAAuBC,U;EAA1CC,8B;EACVA,4F;;;QAGU,qG,2DAAiBF,U,oBAAuBC,U;EAAxCE,8B;EACVA,8F;;;CAIY,gE,UAAgBC,M,iBAAeC,S,WAAkBC,Q;EAC7DC;GACEA;IACEA,oNADFA;IADFA;;GAKEA;IACEA,kNADFA;IALFA;G;EASAA,wI;;;CA9Be,kD;EAIjBR,8I;EACAA,gJ;;;QALiB,O;EAAAS,sC;EAAAA,mC;EAAAA;",
+"sources":["ProxyGetInterceptor.java"],
+"names":["io.crysknife.client.ProxyGetInterceptor.<synthetic: ctor_js>","target","io.crysknife.client.ProxyGetInterceptor.<synthetic: ctor_create>","io.crysknife.client.ProxyGetInterceptor.<init>","obfuscated","function","io.crysknife.client.ProxyGetInterceptor.addProperty","io.crysknife.client.ProxyGetInterceptor.addMethod","object","objectKey","receiver","io.crysknife.client.ProxyGetInterceptor.onInvoke","io.crysknife.client.ProxyGetInterceptor.<clinit>"]
+}
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomFieldSetBuilder.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;MAuBa,kB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAkCC,Q;EAAlCC,6B;EAAAA,yC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,uBAAkCD,Q;EAChCE,gI;;;QAJS,O;EAAAC,qC;EAAAA,kC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAqBa,kB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAkCC,Q;EAAlCC,6B;EAAAA,yC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,uBAAkCD,Q;EAChCE,gI;;;QAJS,O;EAAAC,qC;EAAAA,kC;EAAAA;",
 "sources":["DomFieldSetBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomFieldSetBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomFieldSetBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomFieldSetBuilder.<init>","org.gwtproject.dom.builder.client.DomFieldSetBuilder.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["TouchMoveEvent.java"],
 "names":["org.gwtproject.event.dom.client.TouchMoveEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.TouchMoveEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.TouchMoveEvent.<init>","org.gwtproject.event.dom.client.TouchMoveEvent.getType","org.gwtproject.event.dom.client.TouchMoveEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.TouchMoveEvent.dispatch","org.gwtproject.event.dom.client.TouchMoveEvent.<clinit>"]
 }
+

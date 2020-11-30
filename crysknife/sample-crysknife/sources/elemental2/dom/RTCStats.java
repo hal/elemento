@@ -61,3 +61,4 @@ public interface RTCStats {
   @JsProperty
   String getType();
 }
+

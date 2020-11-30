@@ -30,3 +30,4 @@ public class Text extends CharacterData {
 
   public native Text splitText(int offset);
 }
+

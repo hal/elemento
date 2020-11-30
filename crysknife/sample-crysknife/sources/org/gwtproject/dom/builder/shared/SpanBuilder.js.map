@@ -2,7 +2,8 @@
 "version":3,
 "file":"SpanBuilder.impl.java.js",
 "lineCount":14,
-"mappings":"A;;;;;;;;;MAoBiB,W;;QAAA,O;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,W;;QAAA,O;EAAAA,8B;EAAAA;",
 "sources":["SpanBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.SpanBuilder.<clinit>"]
 }
+

@@ -36,3 +36,4 @@ public interface Messages {
         return SafeHtmlUtils.fromSafeConstant(message);
     }
 }
+

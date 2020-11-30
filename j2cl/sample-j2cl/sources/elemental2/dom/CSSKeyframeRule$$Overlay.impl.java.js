@@ -2,27 +2,21 @@ goog.module('elemental2.dom.CSSKeyframeRule.$Overlay$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
 
-let Js = goog.forwardDeclare('jsinterop.base.Js$impl');
-let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
-
-class CSSKeyframeRule_$Overlay {
- /** @return {CSSKeyframeRule} */
- static m_create__() {
-  CSSKeyframeRule_$Overlay.$clinit();
-  return /**@type {CSSKeyframeRule}*/ (Js.m_uncheckedCast__java_lang_Object($Overlay.m_of__()));
- }
+class $Overlay {
  
  static $clinit() {
-  CSSKeyframeRule_$Overlay.$clinit = () =>{};
-  CSSKeyframeRule_$Overlay.$loadModules();
+  $Overlay.$clinit = () =>{};
+  $Overlay.$loadModules();
+ }
+ /** @return {boolean} */
+ static $isInstance(/** ? */ instance) {
+  return instance instanceof CSSKeyframeRule;
  }
  
- static $loadModules() {
-  Js = goog.module.get('jsinterop.base.Js$impl');
-  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
- }
+ static $loadModules() {}
  
 }
+$Util.$setClassMetadata($Overlay, 'CSSKeyframeRule');
 
-exports = CSSKeyframeRule_$Overlay; 
+exports = $Overlay; 
 //# sourceMappingURL=CSSKeyframeRule$$Overlay.js.map

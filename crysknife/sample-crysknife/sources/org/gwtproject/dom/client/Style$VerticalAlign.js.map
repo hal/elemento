@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$VerticalAlign.impl.java.js",
 "lineCount":100,
-"mappings":"A;;;;;;;;;;MAkVsB,mB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,8B;EAAAA,0C;EAAAA,mE;EAAAA,iB;;;CAAA,sD;EAAAC,iC;;;QAClB,6D;EAAAC,uH;;;QACA,wD;EAAAA,kH;;;QACA,0D;EAAAA,oH;;;QACA,wD;EAAAA,kH;;;QACA,6D;EAAAA,uH;;;QACA,2D;EAAAA,qH;;;QACA,2D;EAAAA,qH;;;QACA,gE;EAAAA,0H;;;QARkB,O;EAAAC,sC;EAAAA,mC;EAAAA,qB;EAClBA,yJ;EACAA,+I;EACAA,mJ;EACAA,+I;EACAA,yJ;EACAA,qJ;EACAA,qJ;EACAA,+J;;;;;;;;;;;;;;AARkB;+E;AAAA;0E;AAAA;4E;AAAA;0E;AAAA;+E;AAAA;6E;AAAA;6E;AAAA;;",
+"mappings":"A;;;;;;;;;;MAicsB,mB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,8B;EAAAA,0C;EAAAA,mE;EAAAA,iB;;;CAAA,sD;EAAAC,iC;;;QAClB,6D;EAAAC,uH;;;QAEA,wD;EAAAA,kH;;;QAEA,0D;EAAAA,oH;;;QAEA,wD;EAAAA,kH;;;QAEA,6D;EAAAA,uH;;;QAEA,2D;EAAAA,qH;;;QAEA,2D;EAAAA,qH;;;QAEA,gE;EAAAA,0H;;;QAfkB,O;EAAAC,sC;EAAAA,mC;EAAAA,qB;EAClBA,yJ;EAEAA,+I;EAEAA,mJ;EAEAA,+I;EAEAA,yJ;EAEAA,qJ;EAEAA,qJ;EAEAA,+J;;;;;;;;;;;;;;AAfkB;+E;AAAA;0E;AAAA;4E;AAAA;0E;AAAA;+E;AAAA;6E;AAAA;6E;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$VerticalAlign.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$VerticalAlign.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$VerticalAlign.<init>","org.gwtproject.dom.client.Style$VerticalAlign.<synthetic: getter>","org.gwtproject.dom.client.Style$VerticalAlign.<clinit>"]
 }
+

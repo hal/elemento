@@ -6,3 +6,4 @@
 "sources":["EventListenerOptions.java"],
 "names":["elemental2.dom.EventListenerOptions$$Overlay.create","elemental2.dom.EventListenerOptions$$Overlay.<clinit>"]
 }
+

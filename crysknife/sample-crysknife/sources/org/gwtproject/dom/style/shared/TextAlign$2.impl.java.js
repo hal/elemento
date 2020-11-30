@@ -27,7 +27,7 @@ class $2 extends TextAlign {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** TextAlign */ arg0) {
   return super.compareTo(/**@type {TextAlign}*/ ($Casts.$to(arg0, TextAlign)));
  }
  

@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class CSSCharsetRule extends CSSRule {
   public String encoding;
 }
+

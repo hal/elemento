@@ -6,3 +6,4 @@
 "sources":["KeyCodeEvent.java"],
 "names":["org.gwtproject.event.dom.client.KeyCodeEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.KeyCodeEvent.<init>","keyCode","org.gwtproject.event.dom.client.KeyCodeEvent.isArrow","org.gwtproject.event.dom.client.KeyCodeEvent.isDownArrow","org.gwtproject.event.dom.client.KeyCodeEvent.getNativeKeyCode","org.gwtproject.event.dom.client.KeyCodeEvent.isLeftArrow","org.gwtproject.event.dom.client.KeyCodeEvent.isRightArrow","org.gwtproject.event.dom.client.KeyCodeEvent.isUpArrow","org.gwtproject.event.dom.client.KeyCodeEvent.toDebugString","org.gwtproject.event.dom.client.KeyCodeEvent.<clinit>"]
 }
+

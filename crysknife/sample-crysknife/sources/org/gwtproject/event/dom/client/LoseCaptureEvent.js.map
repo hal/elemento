@@ -6,3 +6,4 @@
 "sources":["LoseCaptureEvent.java"],
 "names":["org.gwtproject.event.dom.client.LoseCaptureEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.LoseCaptureEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.LoseCaptureEvent.<init>","org.gwtproject.event.dom.client.LoseCaptureEvent.getType","org.gwtproject.event.dom.client.LoseCaptureEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.LoseCaptureEvent.dispatch","org.gwtproject.event.dom.client.LoseCaptureEvent.<clinit>"]
 }
+

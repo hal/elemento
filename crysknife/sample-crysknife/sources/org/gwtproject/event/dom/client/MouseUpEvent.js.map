@@ -6,3 +6,4 @@
 "sources":["MouseUpEvent.java"],
 "names":["org.gwtproject.event.dom.client.MouseUpEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.MouseUpEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.MouseUpEvent.<init>","org.gwtproject.event.dom.client.MouseUpEvent.getType","org.gwtproject.event.dom.client.MouseUpEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.MouseUpEvent.dispatch","org.gwtproject.event.dom.client.MouseUpEvent.<clinit>"]
 }
+

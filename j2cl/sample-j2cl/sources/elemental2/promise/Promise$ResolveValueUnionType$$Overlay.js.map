@@ -6,3 +6,4 @@
 "sources":["Promise.java"],
 "names":["o","elemental2.promise.Promise$ResolveValueUnionType$$Overlay.of","elemental2.promise.Promise$ResolveValueUnionType$$Overlay.asIThenable__$devirt","elemental2.promise.Promise$ResolveValueUnionType$$Overlay.asV__$devirt","elemental2.promise.Promise$ResolveValueUnionType$$Overlay.<clinit>"]
 }
+

@@ -39,3 +39,4 @@ public class MediaQueryList implements EventTarget {
 
   public native void removeListener(MediaQueryListListener listener);
 }
+

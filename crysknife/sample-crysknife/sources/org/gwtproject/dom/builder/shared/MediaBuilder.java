@@ -1,59 +1,49 @@
 /*
- * Copyright 2011 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ * Copyright © 2019 The GWT Project Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.builder.shared;
 
 /**
  * Common superclass for Audio and Video builders.
- * 
+ *
  * @param <T> the builder type returns from build methods
  */
 public interface MediaBuilder<T extends ElementBuilderBase<?>> extends ElementBuilderBase<T> {
 
-  /**
-   * Enable autoplay of the resource.
-   */
+  /** Enable autoplay of the resource. */
   T autoplay();
 
-  /**
-   * Enable interactive controls.
-   */
+  /** Enable interactive controls. */
   T controls();
 
-  /**
-   * Enable looping.
-   */
+  /** Enable looping. */
   T loop();
 
-  /**
-   * Enable muting.
-   */
+  /** Enable muting. */
   T muted();
 
   /**
-   * Set the preload setting to one of
-   * {@link org.gwtproject.dom.client.MediaElement#PRELOAD_AUTO},
-   * {@link org.gwtproject.dom.client.MediaElement#PRELOAD_METADATA}, or
-   * {@link org.gwtproject.dom.client.MediaElement#PRELOAD_NONE}.
-   * 
+   * Set the preload setting to one of {@link org.gwtproject.dom.client.MediaElement#PRELOAD_AUTO},
+   * {@link org.gwtproject.dom.client.MediaElement#PRELOAD_METADATA}, or {@link
+   * org.gwtproject.dom.client.MediaElement#PRELOAD_NONE}.
+   *
    * @param preload a String constants
    */
   T preload(String preload);
 
-  /**
-   * Sets the source URL for the media.
-   */
+  /** Sets the source URL for the media. */
   T src(String url);
 }
+

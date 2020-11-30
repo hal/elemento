@@ -15,7 +15,7 @@
  */
 package elemental2.dom;
 
-import elemental2.core.ArrayBufferView;
+import elemental2.core.JsIIterableResult;
 import elemental2.promise.Promise;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
@@ -28,10 +28,11 @@ public interface ReadableStreamBYOBReader {
   @JsProperty
   Promise<Void> getClosed();
 
-  Promise<IteratorResult> read(ArrayBufferView view);
+  <BUFFER> Promise<JsIIterableResult<BUFFER>> read(BUFFER view);
 
   void releaseLock();
 
   @JsProperty
   void setClosed(Promise<Void> closed);
 }
+

@@ -45,7 +45,7 @@ class AsHTMLElement extends j_l_Object {
  }
  //Bridge method.
  /** @override @return {HTMLElement} */
- m_apply__java_lang_Object(/** * */ arg0) {
+ m_apply__java_lang_Object(/** T */ arg0) {
   return this.m_apply__elemental2_dom_Node(/**@type {T}*/ ($Casts.$to(arg0, $Overlay)));
  }
  

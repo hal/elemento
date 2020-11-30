@@ -35,3 +35,4 @@ public interface CustomEventInit<T> extends EventInit {
   @JsProperty
   void setDetail(T detail);
 }
+

@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"EntryPoint$$LambdaAdaptor.impl.java.js",
+"lineCount":35,
+"mappings":"A;;;;;;;;;;;MAuBkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;iE;EAAAA,kH;;;CAAA,wG;EAAAC,iC;EAAAA,oE;;;CAAA,kB;EAAAC,0C;EAAAA,iG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["EntryPoint.java"],
+"names":["io.crysknife.annotation.EntryPoint$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","io.crysknife.annotation.EntryPoint$$LambdaAdaptor.<init>","io.crysknife.annotation.EntryPoint$$LambdaAdaptor.annotationType","io.crysknife.annotation.EntryPoint$$LambdaAdaptor.<clinit>"]
+}
+

@@ -27,7 +27,7 @@ class $2 extends Visibility {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Visibility */ arg0) {
   return super.compareTo(/**@type {Visibility}*/ ($Casts.$to(arg0, Visibility)));
  }
  

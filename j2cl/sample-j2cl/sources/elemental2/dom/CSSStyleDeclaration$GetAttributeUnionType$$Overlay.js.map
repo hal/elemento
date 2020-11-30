@@ -6,3 +6,4 @@
 "sources":["CSSStyleDeclaration.java"],
 "names":["o","elemental2.dom.CSSStyleDeclaration$GetAttributeUnionType$$Overlay.of","elemental2.dom.CSSStyleDeclaration$GetAttributeUnionType$$Overlay.asBoolean__$devirt","elemental2.dom.CSSStyleDeclaration$GetAttributeUnionType$$Overlay.asDouble__$devirt","elemental2.dom.CSSStyleDeclaration$GetAttributeUnionType$$Overlay.asString__$devirt","elemental2.dom.CSSStyleDeclaration$GetAttributeUnionType$$Overlay.isBoolean__$devirt","elemental2.dom.CSSStyleDeclaration$GetAttributeUnionType$$Overlay.isDouble__$devirt","elemental2.dom.CSSStyleDeclaration$GetAttributeUnionType$$Overlay.isString__$devirt","elemental2.dom.CSSStyleDeclaration$GetAttributeUnionType$$Overlay.<clinit>"]
 }
+

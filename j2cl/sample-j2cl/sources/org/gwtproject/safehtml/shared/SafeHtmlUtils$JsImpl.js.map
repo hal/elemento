@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeHtmlUtils$JsImpl.impl.java.js",
 "lineCount":86,
-"mappings":"A;;;;;;;;;;MAqCe,M;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,iB;EAAAA,6B;EAAAA,yE;EAAAA,iB;;;CAAA,4D;EAAAC,iC;;;CAOJ,iE,gBAAkBC,C;EACvBC;GACEA,SADFA;G;EAGAA;GACEA,qMADFA;G;EAGAA;GACEA,mMADFA;G;EAGAA;GACEA,mMADFA;G;EAGAA;GACEA,uMADFA;G;EAGAA;GACEA,uMADFA;G;EAGAA,S;;;QA1BS,O;EAAAC,yB;EAAAA,sB;EAAAA,qB;EACXA,oK;EACAA,6F;EACAA,4F;EACAA,4F;EACAA,+F;EACAA,+F;;;;;;;;;;;;;;;;AANW;OACmB,qEADnB,C;AAAA;OAEmB,8DAFnB,C;AAAA;OAGmB,6DAHnB,C;AAAA;OAImB,6DAJnB,C;AAAA;OAKmB,gEALnB,C;AAAA;OAMmB,+DANnB;",
+"mappings":"A;;;;;;;;;;MAqMe,M;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,iB;EAAAA,6B;EAAAA,yE;EAAAA,iB;;;CAAA,4D;EAAAC,iC;;;CASJ,iE,gBAAkBC,C;EACvBC;GACEA,SADFA;G;EAGAA;GACEA,qMADFA;G;EAGAA;GACEA,mMADFA;G;EAGAA;GACEA,mMADFA;G;EAGAA;GACEA,uMADFA;G;EAGAA;GACEA,uMADFA;G;EAGAA,S;;;QA5BS,O;EAAAC,yB;EAAAA,sB;EAAAA,qB;EAEXA,oK;EACAA,6F;EACAA,4F;EACAA,4F;EACAA,+F;EACAA,+F;;;;;;;;;;;;;;;;AAPW;OAEmB,qEAFnB,C;AAAA;OAGmB,8DAHnB,C;AAAA;OAImB,6DAJnB,C;AAAA;OAKmB,6DALnB,C;AAAA;OAMmB,gEANnB,C;AAAA;OAOmB,+DAPnB;",
 "sources":["SafeHtmlUtils.java"],
 "names":["org.gwtproject.safehtml.shared.SafeHtmlUtils$JsImpl.<synthetic: ctor_js>","org.gwtproject.safehtml.shared.SafeHtmlUtils$JsImpl.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.SafeHtmlUtils$JsImpl.<init>","s","org.gwtproject.safehtml.shared.SafeHtmlUtils$JsImpl.htmlEscape","org.gwtproject.safehtml.shared.SafeHtmlUtils$JsImpl.<clinit>"]
 }
+

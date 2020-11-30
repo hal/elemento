@@ -1,28 +1,28 @@
 /*
- * Copyright 2011 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ * Copyright © 2019 The GWT Project Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.builder.shared;
 
+import org.gwtproject.dom.client.*;
 import org.gwtproject.safecss.shared.SafeStyles;
 import org.gwtproject.safehtml.shared.SafeHtml;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
-import org.gwtproject.dom.client.*;
 
 /**
- * Implementation of methods in {@link ElementBuilderBase} used to render HTML
- * as a string, using innerHtml to generate an element.
+ * Implementation of methods in {@link ElementBuilderBase} used to render HTML as a string, using
+ * innerHtml to generate an element.
  */
 class HtmlBuilderImpl extends ElementBuilderImpl {
 
@@ -84,16 +84,13 @@ class HtmlBuilderImpl extends ElementBuilderImpl {
   private HtmlVideoBuilder videoBuilder;
 
   /**
-   * Used to builder the HTML string. We cannot use
-   * {@link org.gwtproject.safehtml.shared.SafeHtmlBuilder} because it does some
-   * rudimentary checks that the HTML tags are complete. Instead, we escape
-   * values before appending them.
+   * Used to builder the HTML string. We cannot use {@link
+   * org.gwtproject.safehtml.shared.SafeHtmlBuilder} because it does some rudimentary checks that
+   * the HTML tags are complete. Instead, we escape values before appending them.
    */
   private final StringBuilder sb = new StringBuilder();
 
-  /**
-   * Return the HTML as a {@link SafeHtml} string.
-   */
+  /** Return the HTML as a {@link SafeHtml} string. */
   public SafeHtml asSafeHtml() {
     // End all open tags.
     endAllTags();
@@ -561,18 +558,13 @@ class HtmlBuilderImpl extends ElementBuilderImpl {
     return style();
   }
 
-  /**
-   * Add a trusted attribute without escaping the name.
-   */
+  /** Add a trusted attribute without escaping the name. */
   public void trustedAttribute(String name, int value) {
     assertCanAddAttributeImpl();
     sb.append(" ").append(name).append("=\"").append(value).append("\"");
   }
 
-  /**
-   * Add a trusted attribute without escaping the name. The value is still
-   * escaped.
-   */
+  /** Add a trusted attribute without escaping the name. The value is still escaped. */
   public void trustedAttribute(String name, String value) {
     assertCanAddAttributeImpl();
     sb.append(" ").append(name).append("=\"").append(escape(value)).append("\"");
@@ -602,11 +594,11 @@ class HtmlBuilderImpl extends ElementBuilderImpl {
   protected void doEndTagImpl(String tagName) {
     /*
      * Add an end tag.
-     * 
+     *
      * Some browsers do not behave correctly if you self close (ex <select />)
      * certain tags, so we always add the end tag unless the element
      * specifically forbids an end tag (see doEndStartTagImpl()).
-     * 
+     *
      * The tag name is safe because it comes from the stack, and tag names are
      * checked before they are added to the stack.
      */
@@ -637,16 +629,14 @@ class HtmlBuilderImpl extends ElementBuilderImpl {
 
   /**
    * Escape a string.
-   * 
+   *
    * @param s the string to escape
    */
   private String escape(String s) {
     return SafeHtmlUtils.htmlEscape(s);
   }
 
-  /**
-   * Start a button with the specified type.
-   */
+  /** Start a button with the specified type. */
   private HtmlButtonBuilder startButton(String type) {
     if (buttonBuilder == null) {
       buttonBuilder = new HtmlButtonBuilder(this);
@@ -656,9 +646,7 @@ class HtmlBuilderImpl extends ElementBuilderImpl {
     return buttonBuilder;
   }
 
-  /**
-   * Start one of the many heading elements.
-   */
+  /** Start one of the many heading elements. */
   private HtmlHeadingBuilder startHeading(int level) {
     if (headingBuilder == null) {
       headingBuilder = new HtmlHeadingBuilder(this);
@@ -667,18 +655,14 @@ class HtmlBuilderImpl extends ElementBuilderImpl {
     return headingBuilder;
   }
 
-  /**
-   * Start an input with the specified type.
-   */
+  /** Start an input with the specified type. */
   private HtmlInputBuilder startInput(String type) {
     trustedStart("input", inputBuilder);
     attribute("type", type);
     return inputBuilder;
   }
 
-  /**
-   * Start a quote or blockquote.
-   */
+  /** Start a quote or blockquote. */
   private HtmlQuoteBuilder startQuote(String tagName) {
     if (quoteBuilder == null) {
       quoteBuilder = new HtmlQuoteBuilder(this);
@@ -687,9 +671,7 @@ class HtmlBuilderImpl extends ElementBuilderImpl {
     return quoteBuilder;
   }
 
-  /**
-   * Start a table section of the specified tag name.
-   */
+  /** Start a table section of the specified tag name. */
   private HtmlTableSectionBuilder startTableSection(String tagName) {
     if (tableSectionBuilder == null) {
       tableSectionBuilder = new HtmlTableSectionBuilder(this);
@@ -698,12 +680,10 @@ class HtmlBuilderImpl extends ElementBuilderImpl {
     return tableSectionBuilder;
   }
 
-  /**
-   * Start a tag using the specified builder. The tagName is not checked or
-   * escaped.
-   */
+  /** Start a tag using the specified builder. The tagName is not checked or escaped. */
   private void trustedStart(String tagName, ElementBuilderBase<?> builder) {
     onStart(tagName, builder);
     sb.append("<").append(tagName);
   }
 }
+

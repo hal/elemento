@@ -2,7 +2,6 @@ goog.module('org.jboss.elemento.sample.j2cl.Main$impl');
 
 const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
-const EntryPoint = goog.require('org.gwtproject.core.client.EntryPoint$impl');
 
 let DomGlobal_$Overlay = goog.forwardDeclare('elemental2.dom.DomGlobal.$Overlay$impl');
 let Event_$Overlay = goog.forwardDeclare('elemental2.dom.Event.$Overlay$impl');
@@ -16,9 +15,6 @@ let FooterElement = goog.forwardDeclare('org.jboss.elemento.sample.j2cl.FooterEl
 let TodoRepository = goog.forwardDeclare('org.jboss.elemento.sample.j2cl.TodoRepository$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
-/**
- * @implements {EntryPoint}
-  */
 class Main extends j_l_Object {
  /** @protected */
  constructor() {
@@ -35,13 +31,13 @@ class Main extends j_l_Object {
  $ctor__org_jboss_elemento_sample_j2cl_Main__() {
   this.$ctor__java_lang_Object__();
  }
- /** @override */
+ 
  m_onModuleLoad__() {
   let repository = TodoRepository.$create__();
   let application = ApplicationElement.$create__org_jboss_elemento_sample_j2cl_TodoRepository(repository);
   let footer = FooterElement.$create__();
   /**@type {HtmlContentBuilder<HTMLBodyElement>}*/ ($Casts.$to(Elements.m_body__().m_add__org_jboss_elemento_IsElement(application), HtmlContentBuilder)).m_add__org_jboss_elemento_IsElement(footer);
-  EventType.m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn(window.window, EventType.f_hashchange__org_jboss_elemento_EventType, (event) =>{
+  EventType.m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn(goog.global.window, EventType.f_hashchange__org_jboss_elemento_EventType, (event) =>{
    let event_1 = /**@type {HashChangeEvent}*/ ($Casts.$to(event, $Overlay));
    application.m_filter__java_lang_String_$pp_org_jboss_elemento_sample_j2cl(DomGlobal_$Overlay.f_location__elemental2_dom_DomGlobal_$Overlay.hash);
   });
@@ -73,8 +69,6 @@ class Main extends j_l_Object {
 }
 $Util.$setClassMetadata(Main, 'org.jboss.elemento.sample.j2cl.Main');
 
-EntryPoint.$markImplementor(Main);
-
 /* NATIVE.JS EPILOG */
 
 const org_jboss_elemento_sample_j2cl_Main = Main;
@@ -83,6 +77,7 @@ setTimeout(function(){
     var ep = Main.$create__();
     ep.m_onModuleLoad__()
 }, 0);
+
 
 
 exports = Main; 

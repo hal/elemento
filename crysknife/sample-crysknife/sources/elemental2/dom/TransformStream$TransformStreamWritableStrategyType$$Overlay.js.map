@@ -6,3 +6,4 @@
 "sources":["TransformStream.java"],
 "names":["elemental2.dom.TransformStream$TransformStreamWritableStrategyType$$Overlay.create","elemental2.dom.TransformStream$TransformStreamWritableStrategyType$$Overlay.<clinit>"]
 }
+

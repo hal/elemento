@@ -6,3 +6,4 @@
 "sources":["FetchEvent.java"],
 "names":["o","elemental2.dom.FetchEvent$RespondWithRUnionType$$Overlay.of","elemental2.dom.FetchEvent$RespondWithRUnionType$$Overlay.asIThenable__$devirt","elemental2.dom.FetchEvent$RespondWithRUnionType$$Overlay.asResponse__$devirt","elemental2.dom.FetchEvent$RespondWithRUnionType$$Overlay.isResponse__$devirt","elemental2.dom.FetchEvent$RespondWithRUnionType$$Overlay.<clinit>"]
 }
+

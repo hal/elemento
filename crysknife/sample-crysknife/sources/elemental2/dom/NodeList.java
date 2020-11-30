@@ -36,3 +36,4 @@ public class NodeList<T> implements JsIterable<T>, JsArrayLike<T> {
 
   public native T item(int index);
 }
+

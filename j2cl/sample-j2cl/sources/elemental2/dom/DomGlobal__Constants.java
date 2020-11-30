@@ -18,7 +18,7 @@ package elemental2.dom;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-@JsType(isNative = true, name = "window", namespace = JsPackage.GLOBAL)
+@JsType(isNative = true, name = "goog.global", namespace = JsPackage.GLOBAL)
 class DomGlobal__Constants {
   static HTMLDocument document;
   static boolean isSecureContext;
@@ -29,3 +29,4 @@ class DomGlobal__Constants {
   static Window top;
   static VisualViewport visualViewport;
 }
+

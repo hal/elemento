@@ -2,7 +2,8 @@
 "version":3,
 "file":"Instance.impl.java.js",
 "lineCount":31,
-"mappings":"A;;;;;;;;;;;;;;;MAKiB,Q;;CACD,iD,0BAAqBA,I;;CAEP,kE,iBAAgBA,I,2BAAoBC,I;;CAEtD,iB;;CAEA,e;;CAEH,2B,UAAUD,I;;QATF,O;EAAAE,2B;EAAAA,wB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MAkBiB,Q;;CACH,iD,0BAAqBA,I;;CAEP,kE,iBAAgBA,I,2BAAoBC,I;;CAEtD,iB;;CAEA,e;;CAEH,2B,UAAUD,I;;QATA,O;EAAAE,2B;EAAAA,wB;EAAAA;",
 "sources":["Instance.java"],
 "names":["var1","var2","javax.enterprise.inject.Instance.<clinit>"]
 }
+

@@ -1,31 +1,30 @@
 /*
- * Copyright 2011 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ * Copyright © 2019 The GWT Project Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.builder.client;
 
-import org.gwtproject.safehtml.shared.SafeHtml;
 import org.gwtproject.dom.builder.shared.ElementBuilderBase;
 import org.gwtproject.dom.builder.shared.ElementBuilderImpl;
 import org.gwtproject.dom.builder.shared.InputBuilder;
 import org.gwtproject.dom.builder.shared.StylesBuilder;
 import org.gwtproject.dom.client.*;
+import org.gwtproject.safehtml.shared.SafeHtml;
 
 /**
- * Implementation of methods in
- * {@link ElementBuilderBase} used to render
- * Elements using DOM manipulation.
+ * Implementation of methods in {@link ElementBuilderBase} used to render Elements using DOM
+ * manipulation.
  */
 class DomBuilderImpl extends ElementBuilderImpl {
 
@@ -85,15 +84,10 @@ class DomBuilderImpl extends ElementBuilderImpl {
   private DomUListBuilder uListBuilder;
   private DomVideoBuilder videoBuilder;
 
-  /**
-   * The root element of the DOM structure being built.
-   */
+  /** The root element of the DOM structure being built. */
   private Element rootElement;
 
-  /**
-   * The element at the top of the stack. We use DOM manipulation to move up and
-   * down the stack.
-   */
+  /** The element at the top of the stack. We use DOM manipulation to move up and down the stack. */
   private Element currentElement;
 
   public DomAnchorBuilder startAnchor() {
@@ -293,9 +287,7 @@ class DomBuilderImpl extends ElementBuilderImpl {
     return startInput(Document.get().createImageInputElement());
   }
 
-  /**
-   * Start an input using the specified InputElement.
-   */
+  /** Start an input using the specified InputElement. */
   public DomInputBuilder startInput(InputElement input) {
     start(input, inputBuilder);
     return inputBuilder;
@@ -591,7 +583,7 @@ class DomBuilderImpl extends ElementBuilderImpl {
 
   /**
    * Assert that the builder is in a state where an attribute can be added.
-   * 
+   *
    * @return the element on which the attribute can be set
    * @throw {@link IllegalStateException} if the start tag is closed
    */
@@ -602,7 +594,7 @@ class DomBuilderImpl extends ElementBuilderImpl {
 
   /**
    * Assert that the builder is in a state where a style property can be added.
-   * 
+   *
    * @return the {@link Style} on which the property can be set
    * @throw {@link IllegalStateException} if the style is not accessible
    */
@@ -611,9 +603,7 @@ class DomBuilderImpl extends ElementBuilderImpl {
     return getCurrentElement().getStyle();
   }
 
-  /**
-   * Get the element current being built.
-   */
+  /** Get the element current being built. */
   Element getCurrentElement() {
     if (currentElement == null) {
       throw new IllegalStateException("There are no elements on the stack.");
@@ -625,16 +615,14 @@ class DomBuilderImpl extends ElementBuilderImpl {
     return startInput(Document.get().createTextInputElement());
   }
 
-  /**
-   * Pop to the previous element in the stack.
-   */
+  /** Pop to the previous element in the stack. */
   private void popElement() {
     currentElement = getCurrentElement().getParentElement();
   }
 
   /**
    * Start a child element.
-   * 
+   *
    * @param element the element to start
    * @param builder the builder used to builder the new element
    */
@@ -654,9 +642,7 @@ class DomBuilderImpl extends ElementBuilderImpl {
     currentElement = element;
   }
 
-  /**
-   * Start a button using the specified {@link ButtonElement}.
-   */
+  /** Start a button using the specified {@link ButtonElement}. */
   private DomButtonBuilder startButton(ButtonElement button) {
     if (buttonBuilder == null) {
       buttonBuilder = new DomButtonBuilder(this);
@@ -665,9 +651,7 @@ class DomBuilderImpl extends ElementBuilderImpl {
     return buttonBuilder;
   }
 
-  /**
-   * Start one of the many headers.
-   */
+  /** Start one of the many headers. */
   private DomHeadingBuilder startHeading(int level) {
     if (headingBuilder == null) {
       headingBuilder = new DomHeadingBuilder(this);
@@ -676,9 +660,7 @@ class DomBuilderImpl extends ElementBuilderImpl {
     return headingBuilder;
   }
 
-  /**
-   * Start a quote or blockquote.
-   */
+  /** Start a quote or blockquote. */
   private DomQuoteBuilder startQuote(QuoteElement quote) {
     if (quoteBuilder == null) {
       quoteBuilder = new DomQuoteBuilder(this);
@@ -687,9 +669,7 @@ class DomBuilderImpl extends ElementBuilderImpl {
     return quoteBuilder;
   }
 
-  /**
-   * Start a table section using the specified {@link TableSectionElement}.
-   */
+  /** Start a table section using the specified {@link TableSectionElement}. */
   private DomTableSectionBuilder startTableSection(TableSectionElement section) {
     if (tableSectionBuilder == null) {
       tableSectionBuilder = new DomTableSectionBuilder(this);
@@ -698,3 +678,4 @@ class DomBuilderImpl extends ElementBuilderImpl {
     return tableSectionBuilder;
   }
 }
+

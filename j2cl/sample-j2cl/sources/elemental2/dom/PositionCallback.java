@@ -21,3 +21,4 @@ import jsinterop.annotations.JsFunction;
 public interface PositionCallback {
   void onInvoke(GeolocationPosition p0);
 }
+

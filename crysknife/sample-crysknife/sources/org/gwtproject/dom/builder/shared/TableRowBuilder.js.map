@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableRowBuilder.impl.java.js",
 "lineCount":43,
-"mappings":"A;;;;;;;;;MAoBiB,e;;CAYC,yB,gBAAaA,K;;CASb,sB,gBAAUC,E;;CASV,yB,gBAAaC,K;;CASb,0B,gBAAcC,M;;QAvCf,O;EAAAC,kC;EAAAA,+B;;;;;;;;;;;;;;;;;;;;AAEf;gBAAO,qEAAP;",
+"mappings":"A;;;;;;;;;MAkBiB,e;;CAaC,yB,gBAAaA,K;;CAQb,sB,gBAAUC,E;;CASV,yB,gBAAaC,K;;CASb,0B,gBAAcC,M;;QAvCf,O;EAAAC,kC;EAAAA,+B;;;;;;;;;;;;;;;;;;;;AAEf;gBAAO,qEAAP;",
 "sources":["TableRowBuilder.java"],
 "names":["align","ch","chOff","vAlign","org.gwtproject.dom.builder.shared.TableRowBuilder.<clinit>"]
 }
+

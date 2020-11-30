@@ -88,3 +88,4 @@ public class ApplicationCache implements EventTarget {
 
   public native void update();
 }
+

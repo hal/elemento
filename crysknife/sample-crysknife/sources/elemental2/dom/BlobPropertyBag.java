@@ -35,3 +35,4 @@ public interface BlobPropertyBag {
   @JsProperty
   void setType(String type);
 }
+

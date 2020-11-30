@@ -71,3 +71,4 @@ public abstract class GwtEvent<H> extends Event<H> {
     LOGGER.warning("GwtEvent is deprecated; please migrate to Event. " + msg);
   }
 }
+

@@ -25,3 +25,4 @@ public class DOMImplementationList implements JsArrayLike<DOMImplementation> {
 
   public native DOMImplementation item(int index);
 }
+

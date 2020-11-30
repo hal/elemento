@@ -53,3 +53,4 @@ public interface JsConstructorFn<T> {
     return clazz;
   }
 }
+

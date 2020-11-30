@@ -6,3 +6,4 @@
 "sources":["DragEnterClickHandler.java"],
 "names":["org.gwtproject.event.dom.client.DragEnterClickHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.DragEnterClickHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.DragEnterClickHandler$$LambdaAdaptor.onDoubleClick","org.gwtproject.event.dom.client.DragEnterClickHandler$$LambdaAdaptor.<clinit>"]
 }
+

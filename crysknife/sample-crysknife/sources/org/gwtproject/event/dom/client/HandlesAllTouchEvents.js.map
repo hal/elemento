@@ -6,3 +6,4 @@
 "sources":["HandlesAllTouchEvents.java"],
 "names":["org.gwtproject.event.dom.client.HandlesAllTouchEvents.<synthetic: ctor_js>","org.gwtproject.event.dom.client.HandlesAllTouchEvents.<init>","eventSource","org.gwtproject.event.dom.client.HandlesAllTouchEvents.handle","source","reciever","org.gwtproject.event.dom.client.HandlesAllTouchEvents.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$Overflow.impl.java.js",
 "lineCount":72,
-"mappings":"A;;;;;;;;;;MAyOsB,c;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,yB;EAAAA,qC;EAAAA,8D;EAAAA,iB;;;CAAA,iD;EAAAC,iC;;;QAClB,uD;EAAAC,uG;;;QACA,sD;EAAAA,sG;;;QACA,sD;EAAAA,sG;;;QACA,oD;EAAAA,oG;;;QAJkB,O;EAAAC,iC;EAAAA,8B;EAAAA,qB;EAClBA,mI;EACAA,iI;EACAA,iI;EACAA,6H;;;;;;;;;;;;;;AAJkB;oE;AAAA;mE;AAAA;mE;AAAA;;",
+"mappings":"A;;;;;;;;;;MAuTsB,c;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,yB;EAAAA,qC;EAAAA,8D;EAAAA,iB;;;CAAA,iD;EAAAC,iC;;;QAClB,uD;EAAAC,uG;;;QAEA,sD;EAAAA,sG;;;QAEA,sD;EAAAA,sG;;;QAEA,oD;EAAAA,oG;;;QAPkB,O;EAAAC,iC;EAAAA,8B;EAAAA,qB;EAClBA,mI;EAEAA,iI;EAEAA,iI;EAEAA,6H;;;;;;;;;;;;;;AAPkB;oE;AAAA;mE;AAAA;mE;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$Overflow.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$Overflow.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$Overflow.<init>","org.gwtproject.dom.client.Style$Overflow.<synthetic: getter>","org.gwtproject.dom.client.Style$Overflow.<clinit>"]
 }
+

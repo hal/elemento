@@ -105,3 +105,4 @@ public class HTMLElement extends Element {
 
   public native ShadowRoot webkitCreateShadowRoot();
 }
+

@@ -156,6 +156,7 @@ public class HTMLMediaElement extends HTMLElement {
   public boolean autoplay;
   public TimeRanges buffered;
   public boolean controls;
+  public String crossOrigin;
   public String currentSrc;
   public double currentTime;
   public double defaultPlaybackRate;
@@ -218,3 +219,4 @@ public class HTMLMediaElement extends HTMLElement {
 
   public native Promise<Void> setSinkId(String sinkId);
 }
+

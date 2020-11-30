@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlUListBuilder.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;;;;;MAoBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,kI;;;QAHS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAkBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,kI;;;QAHS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["HtmlUListBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlUListBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlUListBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlUListBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlUListBuilder.<clinit>"]
 }
+

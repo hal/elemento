@@ -6,3 +6,4 @@
 "sources":["Promise.java"],
 "names":["value","elemental2.promise.Promise$PromiseExecutorCallbackFn$ResolveCallbackFn$$Overlay.onInvoke__$devirt","elemental2.promise.Promise$PromiseExecutorCallbackFn$ResolveCallbackFn$$Overlay.<clinit>"]
 }
+

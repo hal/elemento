@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 class Element__Constants {
   static int ALLOW_KEYBOARD_INPUT;
 }
+

@@ -6,3 +6,4 @@
 "sources":["ClickHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.ClickHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.ClickHandler.<clinit>"]
 }
+

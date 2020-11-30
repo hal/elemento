@@ -12,10 +12,10 @@ let $LambdaAdaptor = goog.forwardDeclare('org.gwtproject.safehtml.shared.SafeHtm
 class SafeHtml {
  /** @abstract @return {?string} */
  m_asString__() {}
- /** @abstract @return {boolean} */
- equals(/** * */ anObject) {}
  /** @abstract @return {number} */
  hashCode() {}
+ /** @abstract @return {boolean} */
+ equals(/** * */ anObject) {}
  /** @return {SafeHtml} */
  static $adapt(/** ?function():?string */ fn) {
   SafeHtml.$clinit();

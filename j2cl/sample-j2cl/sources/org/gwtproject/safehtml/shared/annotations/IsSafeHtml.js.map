@@ -2,7 +2,8 @@
 "version":3,
 "file":"IsSafeHtml.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAgCkB,U;;QAAA,M;EAAAA,qB;EAAAA,8B;;;QAAA,O;EAAAC,6B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA4BkB,U;;QAAA,M;EAAAA,qB;EAAAA,8B;;;QAAA,O;EAAAC,6B;EAAAA;",
 "sources":["IsSafeHtml.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.IsSafeHtml.<synthetic: adapt_lambda>","org.gwtproject.safehtml.shared.annotations.IsSafeHtml.<clinit>"]
 }
+

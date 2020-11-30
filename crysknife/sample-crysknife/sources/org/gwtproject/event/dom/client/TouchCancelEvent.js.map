@@ -6,3 +6,4 @@
 "sources":["TouchCancelEvent.java"],
 "names":["org.gwtproject.event.dom.client.TouchCancelEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.TouchCancelEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.TouchCancelEvent.<init>","org.gwtproject.event.dom.client.TouchCancelEvent.getType","org.gwtproject.event.dom.client.TouchCancelEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.TouchCancelEvent.dispatch","org.gwtproject.event.dom.client.TouchCancelEvent.<clinit>"]
 }
+

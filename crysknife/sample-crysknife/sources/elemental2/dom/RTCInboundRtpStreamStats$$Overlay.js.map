@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"RTCInboundRtpStreamStats$$Overlay.impl.java.js",
+"lineCount":9,
+"mappings":"A;;;;MAyBiB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"sources":["RTCInboundRtpStreamStats.java"],
+"names":["elemental2.dom.RTCInboundRtpStreamStats$$Overlay.<clinit>"]
+}
+

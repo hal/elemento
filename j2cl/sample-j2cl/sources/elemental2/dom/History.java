@@ -26,8 +26,6 @@ public class History {
 
   public native void back();
 
-  public native void back(int distance);
-
   public native void forward();
 
   public native void go(int delta);
@@ -40,3 +38,4 @@ public class History {
 
   public native void replaceState(Object data, String title);
 }
+

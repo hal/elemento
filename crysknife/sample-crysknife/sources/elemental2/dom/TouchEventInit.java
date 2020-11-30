@@ -69,3 +69,4 @@ public interface TouchEventInit extends UIEventInit {
     setTouches(Js.<JsArray<Touch>>uncheckedCast(touches));
   }
 }
+

@@ -49,11 +49,6 @@ class SafeStylesBuilder extends j_l_Object {
   this.$init___$p_org_gwtproject_safecss_shared_SafeStylesBuilder();
  }
  /** @return {SafeStylesBuilder} */
- m_append__org_gwtproject_safecss_shared_SafeStyles(/** SafeStyles */ styles) {
-  this.f_sb__org_gwtproject_safecss_shared_SafeStylesBuilder_.m_append__java_lang_String(styles.m_asString__());
-  return this;
- }
- /** @return {SafeStylesBuilder} */
  m_appendTrustedString__java_lang_String(/** ?string */ styles) {
   SafeStylesUtils.m_verifySafeStylesConstraints__java_lang_String(styles);
   this.f_sb__org_gwtproject_safecss_shared_SafeStylesBuilder_.m_append__java_lang_String(styles);
@@ -62,6 +57,11 @@ class SafeStylesBuilder extends j_l_Object {
  /** @return {SafeStylesBuilder} */
  m_backgroundImage__org_gwtproject_safehtml_shared_SafeUri(/** SafeUri */ uri) {
   return this.m_append__org_gwtproject_safecss_shared_SafeStyles(SafeStylesUtils.m_forBackgroundImage__org_gwtproject_safehtml_shared_SafeUri(uri));
+ }
+ /** @return {SafeStylesBuilder} */
+ m_append__org_gwtproject_safecss_shared_SafeStyles(/** SafeStyles */ styles) {
+  this.f_sb__org_gwtproject_safecss_shared_SafeStylesBuilder_.m_append__java_lang_String(styles.m_asString__());
+  return this;
  }
  /** @return {SafeStylesBuilder} */
  m_borderStyle__org_gwtproject_dom_style_shared_BorderStyle(/** BorderStyle */ value) {

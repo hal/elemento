@@ -50,7 +50,7 @@ class Repetition extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Repetition */ arg0) {
   return super.compareTo(/**@type {Repetition}*/ ($Casts.$to(arg0, Repetition)));
  }
  /** @return {!Repetition} */

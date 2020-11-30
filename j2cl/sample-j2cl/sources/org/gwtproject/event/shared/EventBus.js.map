@@ -6,3 +6,4 @@
 "sources":["EventBus.java"],
 "names":["org.gwtproject.event.shared.EventBus.<synthetic: ctor_js>","org.gwtproject.event.shared.EventBus.<init>","event","handler","org.gwtproject.event.shared.EventBus.dispatchEvent","source","org.gwtproject.event.shared.EventBus.setSourceOfEvent","type","org.gwtproject.event.shared.EventBus.<clinit>"]
 }
+

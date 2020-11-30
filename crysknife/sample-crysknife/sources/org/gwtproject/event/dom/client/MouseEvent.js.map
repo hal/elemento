@@ -6,3 +6,4 @@
 "sources":["MouseEvent.java"],
 "names":["org.gwtproject.event.dom.client.MouseEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.MouseEvent.<init>","org.gwtproject.event.dom.client.MouseEvent.getNativeButton","org.gwtproject.event.dom.client.MouseEvent.getScreenX","org.gwtproject.event.dom.client.MouseEvent.getScreenY","org.gwtproject.event.dom.client.MouseEvent.getX","relativeElem","target","org.gwtproject.event.dom.client.MouseEvent.getRelativeX","e","org.gwtproject.event.dom.client.MouseEvent.getClientX","org.gwtproject.event.dom.client.MouseEvent.getY","org.gwtproject.event.dom.client.MouseEvent.getRelativeY","org.gwtproject.event.dom.client.MouseEvent.getClientY","org.gwtproject.event.dom.client.MouseEvent.<clinit>"]
 }
+

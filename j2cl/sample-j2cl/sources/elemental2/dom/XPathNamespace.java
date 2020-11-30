@@ -26,3 +26,4 @@ public class XPathNamespace extends Node {
 
   public Element ownerElement;
 }
+

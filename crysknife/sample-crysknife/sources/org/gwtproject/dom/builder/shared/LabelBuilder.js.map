@@ -2,7 +2,8 @@
 "version":3,
 "file":"LabelBuilder.impl.java.js",
 "lineCount":18,
-"mappings":"A;;;;;;;;;MAoBiB,Y;;CASF,6B,gBAAiBA,S;;CASjB,2B,gBAAeC,O;;QAlBb,O;EAAAC,+B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,Y;;CASF,6B,gBAAiBA,S;;CAQjB,2B,gBAAeC,O;;QAjBb,O;EAAAC,+B;EAAAA;",
 "sources":["LabelBuilder.java"],
 "names":["accessKey","htmlFor","org.gwtproject.dom.builder.shared.LabelBuilder.<clinit>"]
 }
+

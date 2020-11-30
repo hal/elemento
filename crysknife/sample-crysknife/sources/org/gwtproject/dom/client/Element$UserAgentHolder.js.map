@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"Element$UserAgentHolder.impl.java.js",
-"lineCount":55,
-"mappings":"A;;;;;;;MAmDuB,e;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,sC;EAAAA,uE;EAAAA,iB;;;CAAA,0D;EAAAC,iC;;;QACnB,mE;EAAAC,qH;;;QADmB,O;EAAAC,kC;EAAAA,+B;EAAAA,qB;EACnBA,6I;;;;;;;;;;;;;;AADmB;yF;;;;;;ACnDvBC,8C;AACAA,+B;AACAA;",
+"lineCount":70,
+"mappings":"A;;;;;;;MAgDuB,e;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,sC;EAAAA,uE;EAAAA,iB;;;CAAA,0D;EAAAC,iC;;;QACnB,mE;EAAAC,qH;;;QADmB,O;EAAAC,kC;EAAAA,+B;EAAAA,qB;EACnBA,6I;;;;;;;;;;;;;;AADmB;yF;;;;;;AChDvBC,E;CACCA,0C;CACAA,C;CACAA,iE;CACAA,kE;CACAA,yC;CACAA,C;CACAA,gD;CACAA,C;CACAA,qE;CACAA,mE;CACAA,0E;CACAA,qE;CACAA,gC;CACAA,E;AACDA,8C;AACAA,+B;AACAA;",
 "sources":["Element.java","Element$UserAgentHolder.native_js"],
 "names":["org.gwtproject.dom.client.Element$UserAgentHolder.<synthetic: ctor_js>","org.gwtproject.dom.client.Element$UserAgentHolder.<synthetic: ctor_create>","org.gwtproject.dom.client.Element$UserAgentHolder.<init>","org.gwtproject.dom.client.Element$UserAgentHolder.<synthetic: getter>","org.gwtproject.dom.client.Element$UserAgentHolder.<clinit>","org.gwtproject.dom.client.Element$UserAgentHolder.<native>"]
 }
+

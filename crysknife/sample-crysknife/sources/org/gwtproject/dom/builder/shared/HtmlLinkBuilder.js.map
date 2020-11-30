@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlLinkBuilder.impl.java.js",
 "lineCount":62,
-"mappings":"A;;;;;;;;;;;;;MAsBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,iJ;;;CAIiB,Y;EACjBC,qL;;;CAIiB,wB,gBAAkCC,I;EACnDC,2K;;;CAIiB,4B,gBAAgBC,Q;EACjCC,mL;;;CAIiB,yB,gBAAaC,K;EAC9BC,6K;;;CAIiB,uB,gBAAWC,G;EAC5BC,yK;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;CAIiB,wB,gBAAYC,I;EAC7BC,2K;;;QAtCS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAoBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,iJ;;;CAIiB,Y;EACjBC,qL;;;CAIiB,wB,gBAAkCC,I;EACnDC,2K;;;CAIiB,4B,gBAAgBC,Q;EACjCC,mL;;;CAIiB,yB,gBAAaC,K;EAC9BC,6K;;;CAIiB,uB,gBAAWC,G;EAC5BC,yK;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;CAIiB,wB,gBAAYC,I;EAC7BC,2K;;;QAtCS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["HtmlLinkBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlLinkBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.disabled","href","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.href","hreflang","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.hreflang","media","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.media","rel","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.rel","target","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.target","type","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.type","org.gwtproject.dom.builder.shared.HtmlLinkBuilder.<clinit>"]
 }
+

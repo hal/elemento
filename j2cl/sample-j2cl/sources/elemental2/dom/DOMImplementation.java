@@ -22,6 +22,8 @@ import jsinterop.annotations.JsType;
 public class DOMImplementation {
   public native Document createDocument(String namespaceURI, String publicId, DocumentType doctype);
 
+  public native Document createDocument(String namespaceURI, String publicId);
+
   public native DocumentType createDocumentType(
       String qualifiedName, String publicId, String systemId);
 
@@ -31,3 +33,4 @@ public class DOMImplementation {
 
   public native boolean hasFeature(String feature, String version);
 }
+

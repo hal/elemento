@@ -489,12 +489,12 @@ public class Window implements EventTarget {
 
   @JsOverlay
   public final void importScripts(String... var_args) {
-    importScripts(Js.<Window.ImportScriptsVar_argsUnionType>uncheckedCast(var_args));
+    importScripts(Js.<Window.ImportScriptsVar_argsUnionType[]>uncheckedCast(var_args));
   }
 
   @JsOverlay
   public final void importScripts(TrustedScriptURL... var_args) {
-    importScripts(Js.<Window.ImportScriptsVar_argsUnionType>uncheckedCast(var_args));
+    importScripts(Js.<Window.ImportScriptsVar_argsUnionType[]>uncheckedCast(var_args));
   }
 
   public native MediaQueryList matchMedia(String media_query_list);
@@ -557,6 +557,8 @@ public class Window implements EventTarget {
   }
 
   public native void postMessage(Object message, String targetOrigin);
+
+  public native void postMessage(Object message);
 
   public native void print();
 
@@ -649,3 +651,4 @@ public class Window implements EventTarget {
 
   public native void stop();
 }
+

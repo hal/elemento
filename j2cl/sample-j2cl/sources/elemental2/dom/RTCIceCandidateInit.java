@@ -53,3 +53,4 @@ public interface RTCIceCandidateInit {
   @JsProperty
   void setUsernameFragment(String usernameFragment);
 }
+

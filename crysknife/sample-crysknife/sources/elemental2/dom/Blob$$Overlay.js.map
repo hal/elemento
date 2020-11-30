@@ -2,7 +2,8 @@
 "version":3,
 "file":"Blob$$Overlay.impl.java.js",
 "lineCount":9,
-"mappings":"A;;;;MA0Ba,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;MA2Ba,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["Blob.java"],
 "names":["elemental2.dom.Blob$$Overlay.<clinit>"]
 }
+

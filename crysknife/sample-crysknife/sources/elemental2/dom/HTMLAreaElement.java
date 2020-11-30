@@ -31,3 +31,4 @@ public class HTMLAreaElement extends HTMLElement {
   public int tabIndex;
   public String target;
 }
+

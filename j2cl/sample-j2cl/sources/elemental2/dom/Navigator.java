@@ -64,3 +64,4 @@ public class Navigator implements NavigatorStorage {
 
   public native void unregisterProtocolHandler(String scheme, String url);
 }
+

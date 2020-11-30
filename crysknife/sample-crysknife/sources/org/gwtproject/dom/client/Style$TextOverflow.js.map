@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$TextOverflow.impl.java.js",
 "lineCount":58,
-"mappings":"A;;;;;;;;;;MA0TsB,kB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,yC;EAAAA,kE;EAAAA,iB;;;CAAA,qD;EAAAC,iC;;;QAClB,wD;EAAAC,gH;;;QACA,4D;EAAAA,oH;;;QAFkB,O;EAAAC,qC;EAAAA,kC;EAAAA,qB;EAClBA,6I;EACAA,qJ;;;;;;;;;;;;;;AAFkB;yE;AAAA;;",
+"mappings":"A;;;;;;;;;;MAmasB,kB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,yC;EAAAA,kE;EAAAA,iB;;;CAAA,qD;EAAAC,iC;;;QAClB,wD;EAAAC,gH;;;QAEA,4D;EAAAA,oH;;;QAHkB,O;EAAAC,qC;EAAAA,kC;EAAAA,qB;EAClBA,6I;EAEAA,qJ;;;;;;;;;;;;;;AAHkB;yE;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$TextOverflow.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$TextOverflow.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$TextOverflow.<init>","org.gwtproject.dom.client.Style$TextOverflow.<synthetic: getter>","org.gwtproject.dom.client.Style$TextOverflow.<clinit>"]
 }
+

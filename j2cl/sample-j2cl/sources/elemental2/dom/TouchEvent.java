@@ -38,3 +38,4 @@ public class TouchEvent extends UIEvent {
     super((String) null, (UIEventInit) null);
   }
 }
+

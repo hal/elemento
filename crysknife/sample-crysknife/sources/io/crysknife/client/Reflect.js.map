@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Reflect.impl.java.js",
+"lineCount":28,
+"mappings":"A;;;;;;;MAoBa,O;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,kB;EAAAA,8B;EAAAA,iD;EAAAA,iB;;;CAAA,oC;EAAAC,iC;;;QAAA,O;EAAAC,0B;EAAAA,uB;EAAAA;",
+"sources":["Reflect.java"],
+"names":["io.crysknife.client.Reflect.<synthetic: ctor_js>","io.crysknife.client.Reflect.<synthetic: ctor_create>","io.crysknife.client.Reflect.<init>","io.crysknife.client.Reflect.<clinit>"]
+}
+

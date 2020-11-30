@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"ElementCreator$$LambdaAdaptor.impl.java.js",
-"lineCount":37,
-"mappings":"A;;;;;;;;;;;;;MAqBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;gE;EAAAA,gH;;;CAAA,sG;EAAAC,iC;EAAAA,mE;;;CAAA,2C;EAAAC,oD;EAAAA,0G;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"lineCount":36,
+"mappings":"A;;;;;;;;;;;;MAqBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;gE;EAAAA,gH;;;CAAA,sG;EAAAC,iC;EAAAA,mE;;;CAAA,2C;EAAAC,oD;EAAAA,0G;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["ElementCreator.java"],
 "names":["org.jboss.elemento.ElementCreator$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.jboss.elemento.ElementCreator$$LambdaAdaptor.<init>","org.jboss.elemento.ElementCreator$$LambdaAdaptor.create","org.jboss.elemento.ElementCreator$$LambdaAdaptor.<clinit>"]
 }
+

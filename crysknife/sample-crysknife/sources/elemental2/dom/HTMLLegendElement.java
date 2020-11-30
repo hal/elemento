@@ -24,3 +24,4 @@ public class HTMLLegendElement extends HTMLElement {
   public String align;
   public HTMLFormElement form;
 }
+

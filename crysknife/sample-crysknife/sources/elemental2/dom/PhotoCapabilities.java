@@ -34,3 +34,4 @@ public interface PhotoCapabilities {
   @JsProperty
   String getRedEyeReduction();
 }
+

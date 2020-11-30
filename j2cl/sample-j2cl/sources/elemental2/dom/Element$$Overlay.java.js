@@ -17,7 +17,7 @@ goog.require('elemental2.dom.ScrollIntoViewOptions.$Overlay');
 goog.require('elemental2.dom.ScrollToOptions.$Overlay');
 goog.require('elemental2.dom.TrustedHTML.$Overlay');
 goog.require('elemental2.dom.TrustedScriptURL.$Overlay');
-goog.require('elemental2.dom.TrustedURL.$Overlay');
+goog.require('javaemul.internal.InternalPreconditions');
 goog.require('jsinterop.base.Js');
 
 const Element_$Overlay = goog.require('elemental2.dom.Element.$Overlay$impl');

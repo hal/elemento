@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomOptGroupBuilder.impl.java.js",
 "lineCount":45,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,kB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAkCC,Q;EAAlCC,6B;EAAAA,yC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,uBAAkCD,Q;EAChCE,gI;;;CAIqB,Y;EACrBC,6F;EACAA,Y;;;CAIqB,yB,gBAAaC,K;EAClCC,2F;EACAA,Y;;;QAhBS,O;EAAAC,qC;EAAAA,kC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,kB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAkCC,Q;EAAlCC,6B;EAAAA,yC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,uBAAkCD,Q;EAChCE,gI;;;CAIqB,Y;EACrBC,6F;EACAA,Y;;;CAIqB,yB,gBAAaC,K;EAClCC,2F;EACAA,Y;;;QAhBS,O;EAAAC,qC;EAAAA,kC;EAAAA;",
 "sources":["DomOptGroupBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomOptGroupBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomOptGroupBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomOptGroupBuilder.<init>","org.gwtproject.dom.builder.client.DomOptGroupBuilder.disabled","label","org.gwtproject.dom.builder.client.DomOptGroupBuilder.label","org.gwtproject.dom.builder.client.DomOptGroupBuilder.<clinit>"]
 }
+

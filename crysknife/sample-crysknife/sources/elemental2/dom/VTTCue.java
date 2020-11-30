@@ -96,3 +96,4 @@ public class VTTCue extends TextTrackCue {
 
   public native DocumentFragment getCueAsHTML();
 }
+

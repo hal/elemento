@@ -2,7 +2,8 @@
 "version":3,
 "file":"Observes.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAWkB,Q;;QAAA,M;EAAAA,mB;EAAAA,8B;;;QAAA,O;EAAAC,2B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAoFkB,Q;;QAAA,M;EAAAA,mB;EAAAA,8B;;;QAAA,O;EAAAC,2B;EAAAA;",
 "sources":["Observes.java"],
 "names":["javax.enterprise.event.Observes.<synthetic: adapt_lambda>","javax.enterprise.event.Observes.<clinit>"]
 }
+

@@ -41,3 +41,4 @@ public enum InputType {
     url,
     week
 }
+

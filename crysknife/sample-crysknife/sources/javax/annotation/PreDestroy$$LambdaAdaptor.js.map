@@ -2,7 +2,8 @@
 "version":3,
 "file":"PreDestroy$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MAWkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;0D;EAAAA,oG;;;CAAA,0F;EAAAC,iC;EAAAA,6D;;;CAAA,kB;EAAAC,0C;EAAAA,0F;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MA6EkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;0D;EAAAA,oG;;;CAAA,0F;EAAAC,iC;EAAAA,6D;;;CAAA,kB;EAAAC,0C;EAAAA,0F;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["PreDestroy.java"],
 "names":["javax.annotation.PreDestroy$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","javax.annotation.PreDestroy$$LambdaAdaptor.<init>","javax.annotation.PreDestroy$$LambdaAdaptor.annotationType","javax.annotation.PreDestroy$$LambdaAdaptor.<clinit>"]
 }
+

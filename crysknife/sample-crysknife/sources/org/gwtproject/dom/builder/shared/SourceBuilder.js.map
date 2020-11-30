@@ -2,7 +2,8 @@
 "version":3,
 "file":"SourceBuilder.impl.java.js",
 "lineCount":18,
-"mappings":"A;;;;;;;;;MAoBiB,a;;CAOD,uB,gBAAWA,G;;CAUX,wB,gBAAYC,I;;QAjBX,O;EAAAC,gC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,a;;CAOD,uB,gBAAWA,G;;CASX,wB,gBAAYC,I;;QAhBX,O;EAAAC,gC;EAAAA;",
 "sources":["SourceBuilder.java"],
 "names":["url","type","org.gwtproject.dom.builder.shared.SourceBuilder.<clinit>"]
 }
+

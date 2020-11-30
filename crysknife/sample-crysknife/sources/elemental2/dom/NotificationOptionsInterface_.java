@@ -57,3 +57,4 @@ public interface NotificationOptionsInterface_ {
   @JsProperty
   void setTag(String tag);
 }
+

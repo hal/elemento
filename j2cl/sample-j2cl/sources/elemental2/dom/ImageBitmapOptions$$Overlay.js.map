@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"ImageBitmapOptions$$Overlay.impl.java.js",
+"lineCount":17,
+"mappings":"A;;;;;;;MAyBiB,2B;;QAEW,U;EAAAA,sC;EACxBA,iG;;;QAHa,O;EAAAC,8C;EAAAA;",
+"sources":["ImageBitmapOptions.java"],
+"names":["elemental2.dom.ImageBitmapOptions$$Overlay.create","elemental2.dom.ImageBitmapOptions$$Overlay.<clinit>"]
+}
+

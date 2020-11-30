@@ -6,3 +6,4 @@
 "sources":["ClickEvent.java"],
 "names":["org.gwtproject.event.dom.client.ClickEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.ClickEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.ClickEvent.<init>","org.gwtproject.event.dom.client.ClickEvent.getType","org.gwtproject.event.dom.client.ClickEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.ClickEvent.dispatch","org.gwtproject.event.dom.client.ClickEvent.<clinit>"]
 }
+

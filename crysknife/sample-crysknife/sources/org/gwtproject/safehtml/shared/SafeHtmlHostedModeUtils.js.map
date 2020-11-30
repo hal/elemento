@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeHtmlHostedModeUtils.impl.java.js",
 "lineCount":69,
-"mappings":"A;;;;;;;MA+Ba,uB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,kC;EAAAA,8C;EAAAA,4E;EAAAA,iB;;;CAAA,+D;EAAAC,iC;;;QAsGW,kC,gBAAsBC,I;EAAtBC,kC;EACpBA,wI;;;QA6BiB,0C,gBAA8BD,I;EAA9BE,kC;EACjBA,yI;;;QAUiB,oC,gBAAkCC,K;EAAlCC,kC;EACjBA,kH;;;QAeiB,yC;EAAAC,kC;EACjBA,gP;;;QAhKS,O;EAAAC,0C;EAAAA,uC;EAAAA,qB;EA8DXA,8G;EAGEA,oE;;;;;;;;;;;;;;AAZF;wBAI2B,mFAJ3B,oD;AArDW;wBA4DY,iFA5DZ,S;AAAA;wBA8DkB,+DA9DlB;",
+"mappings":"A;;;;;;;MA2Ba,uB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,kC;EAAAA,8C;EAAAA,4E;EAAAA,iB;;;CAAA,+D;EAAAC,iC;;;QA4CW,kC,gBAAsBC,I;EAAtBC,kC;EACpBA,wI;;;QAwBiB,0C,gBAA8BD,I;EAA9BE,kC;EACjBA,yI;;;QASiB,oC,gBAAkCC,K;EAAlCC,kC;EACjBA,kH;;;QAciB,yC;EAAAC,kC;EACjBA,gP;;;QA/FS,O;EAAAC,0C;EAAAA,uC;EAAAA,qB;EASXA,8G;EAIEA,oE;;;;;;;;;;;;;;AAXF;wBAI2B,mFAJ3B,oD;AAFW;wBASkB,+DATlB,C;AAAA;wBAUY,iFAVZ;",
 "sources":["SafeHtmlHostedModeUtils.java"],
 "names":["org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils.<synthetic: ctor_js>","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils.<init>","html","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils.isCompleteHtml","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils.maybeCheckCompleteHtml","check","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils.setForceCheckCompleteHtml","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils.setForceCheckCompleteHtmlFromProperty","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils.<clinit>"]
 }
+

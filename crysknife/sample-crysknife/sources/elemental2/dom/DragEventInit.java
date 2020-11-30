@@ -35,3 +35,4 @@ public interface DragEventInit extends MouseEventInit {
   @JsProperty
   void setDataTransfer(DataTransfer dataTransfer);
 }
+

@@ -2,7 +2,6 @@ goog.module('org.jboss.elemento.sample.crysknife.Main$impl');
 
 const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
-const EntryPoint = goog.require('org.gwtproject.core.client.EntryPoint$impl');
 
 let Event_$Overlay = goog.forwardDeclare('elemental2.dom.Event.$Overlay$impl');
 let HTMLBodyElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLBodyElement.$Overlay$impl');
@@ -16,9 +15,6 @@ let MainBootstrap = goog.forwardDeclare('org.jboss.elemento.sample.crysknife.Mai
 let TodoRepository = goog.forwardDeclare('org.jboss.elemento.sample.crysknife.TodoRepository$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
-/**
- * @implements {EntryPoint}
-  */
 class Main extends j_l_Object {
  /** @protected */
  constructor() {
@@ -41,18 +37,18 @@ class Main extends j_l_Object {
  $ctor__org_jboss_elemento_sample_crysknife_Main__() {
   this.$ctor__java_lang_Object__();
  }
- /** @override */
+ 
  m_onModuleLoad__() {
   MainBootstrap.$create__org_jboss_elemento_sample_crysknife_Main(this).m_initialize___$pp_org_jboss_elemento_sample_crysknife();
  }
  
  m_init___$pp_org_jboss_elemento_sample_crysknife() {
-  /**@type {HtmlContentBuilder<HTMLBodyElement>}*/ ($Casts.$to(Elements.m_body__().m_add__elemental2_dom_Node(this.f_application__org_jboss_elemento_sample_crysknife_Main.m_getElement__()), HtmlContentBuilder)).m_add__elemental2_dom_Node(this.f_footer__org_jboss_elemento_sample_crysknife_Main.m_getElement__());
-  EventType.m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn(window.window, EventType.f_hashchange__org_jboss_elemento_EventType, (event) =>{
+  /**@type {HtmlContentBuilder<HTMLBodyElement>}*/ ($Casts.$to(Elements.m_body__().m_add__org_jboss_elemento_IsElement(this.f_application__org_jboss_elemento_sample_crysknife_Main), HtmlContentBuilder)).m_add__org_jboss_elemento_IsElement(this.f_footer__org_jboss_elemento_sample_crysknife_Main);
+  EventType.m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn(goog.global.window, EventType.f_hashchange__org_jboss_elemento_EventType, (event) =>{
    let event_1 = /**@type {HashChangeEvent}*/ ($Casts.$to(event, $Overlay));
-   this.f_application__org_jboss_elemento_sample_crysknife_Main.m_filter__java_lang_String_$pp_org_jboss_elemento_sample_crysknife(window.window.location.hash);
+   this.f_application__org_jboss_elemento_sample_crysknife_Main.m_filter__java_lang_String_$pp_org_jboss_elemento_sample_crysknife(goog.global.window.location.hash);
   });
-  this.f_application__org_jboss_elemento_sample_crysknife_Main.m_filter__java_lang_String_$pp_org_jboss_elemento_sample_crysknife(window.window.location.hash);
+  this.f_application__org_jboss_elemento_sample_crysknife_Main.m_filter__java_lang_String_$pp_org_jboss_elemento_sample_crysknife(goog.global.window.location.hash);
  }
  
  static $clinit() {
@@ -77,8 +73,6 @@ class Main extends j_l_Object {
 }
 $Util.$setClassMetadata(Main, 'org.jboss.elemento.sample.crysknife.Main');
 
-EntryPoint.$markImplementor(Main);
-
 /* NATIVE.JS EPILOG */
 
 const org_jboss_elemento_sample_crysknife_Main = Main;
@@ -87,6 +81,7 @@ setTimeout(function(){
     var ep = Main.$create__();
     ep.m_onModuleLoad__()
 }, 0);
+
 
 
 exports = Main; 

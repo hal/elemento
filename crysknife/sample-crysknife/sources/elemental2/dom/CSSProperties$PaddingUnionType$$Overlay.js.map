@@ -6,3 +6,4 @@
 "sources":["CSSProperties.java"],
 "names":["o","elemental2.dom.CSSProperties$PaddingUnionType$$Overlay.of","elemental2.dom.CSSProperties$PaddingUnionType$$Overlay.asDouble__$devirt","elemental2.dom.CSSProperties$PaddingUnionType$$Overlay.asString__$devirt","elemental2.dom.CSSProperties$PaddingUnionType$$Overlay.isDouble__$devirt","elemental2.dom.CSSProperties$PaddingUnionType$$Overlay.isString__$devirt","elemental2.dom.CSSProperties$PaddingUnionType$$Overlay.<clinit>"]
 }
+

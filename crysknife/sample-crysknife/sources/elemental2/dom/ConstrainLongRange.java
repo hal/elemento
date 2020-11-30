@@ -41,3 +41,4 @@ public interface ConstrainLongRange extends LongRange {
   @JsProperty
   void setIdeal(int ideal);
 }
+

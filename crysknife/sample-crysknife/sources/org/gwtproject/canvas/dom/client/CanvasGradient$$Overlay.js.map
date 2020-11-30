@@ -2,7 +2,8 @@
 "version":3,
 "file":"CanvasGradient$$Overlay.impl.java.js",
 "lineCount":9,
-"mappings":"A;;;;MAiCa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;MA4Ba,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["CanvasGradient.java"],
 "names":["org.gwtproject.canvas.dom.client.CanvasGradient$$Overlay.<clinit>"]
 }
+

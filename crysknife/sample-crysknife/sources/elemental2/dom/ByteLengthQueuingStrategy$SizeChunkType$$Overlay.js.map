@@ -6,3 +6,4 @@
 "sources":["ByteLengthQueuingStrategy.java"],
 "names":["elemental2.dom.ByteLengthQueuingStrategy$SizeChunkType$$Overlay.create","elemental2.dom.ByteLengthQueuingStrategy$SizeChunkType$$Overlay.<clinit>"]
 }
+

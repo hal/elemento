@@ -25,3 +25,4 @@ public class HTMLLabelElement extends HTMLElement {
   public HTMLFormElement form;
   public String htmlFor;
 }
+

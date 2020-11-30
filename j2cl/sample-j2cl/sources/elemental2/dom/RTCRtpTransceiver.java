@@ -15,9 +15,12 @@
  */
 package elemental2.dom;
 
+import elemental2.core.JsArray;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public interface RTCRtpTransceiver {
@@ -39,7 +42,15 @@ public interface RTCRtpTransceiver {
   @JsProperty
   boolean isStopped();
 
+  Object setCodecPreferences(JsArray<RTCRtpCodecCapability> codecs);
+
+  @JsOverlay
+  default Object setCodecPreferences(RTCRtpCodecCapability[] codecs) {
+    return setCodecPreferences(Js.<JsArray<RTCRtpCodecCapability>>uncheckedCast(codecs));
+  }
+
   Object setDirection(String direction);
 
   Object stop();
 }
+

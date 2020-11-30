@@ -39,3 +39,4 @@ public class WheelEvent extends MouseEvent {
     super((String) null, (MouseEventInit) null);
   }
 }
+

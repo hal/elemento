@@ -6,3 +6,4 @@
 "sources":["Window.java"],
 "names":["o","elemental2.dom.Window$FetchInputUnionType$$Overlay.of","elemental2.dom.Window$FetchInputUnionType$$Overlay.asRequest__$devirt","elemental2.dom.Window$FetchInputUnionType$$Overlay.asString__$devirt","elemental2.dom.Window$FetchInputUnionType$$Overlay.isRequest__$devirt","elemental2.dom.Window$FetchInputUnionType$$Overlay.isString__$devirt","elemental2.dom.Window$FetchInputUnionType$$Overlay.<clinit>"]
 }
+

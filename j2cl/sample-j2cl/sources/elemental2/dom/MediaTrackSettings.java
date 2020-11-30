@@ -208,3 +208,4 @@ public interface MediaTrackSettings {
   @JsProperty
   void setZoom(double zoom);
 }
+

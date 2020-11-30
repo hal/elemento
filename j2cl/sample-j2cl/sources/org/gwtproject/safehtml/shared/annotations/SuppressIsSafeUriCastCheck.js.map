@@ -2,7 +2,8 @@
 "version":3,
 "file":"SuppressIsSafeUriCastCheck.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MA4BkB,0B;;QAAA,M;EAAAA,qC;EAAAA,8B;;;QAAA,O;EAAAC,6C;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA2BkB,0B;;QAAA,M;EAAAA,qC;EAAAA,8B;;;QAAA,O;EAAAC,6C;EAAAA;",
 "sources":["SuppressIsSafeUriCastCheck.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.SuppressIsSafeUriCastCheck.<synthetic: adapt_lambda>","org.gwtproject.safehtml.shared.annotations.SuppressIsSafeUriCastCheck.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlButtonBuilder.impl.java.js",
 "lineCount":50,
-"mappings":"A;;;;;;;;;;;;;MAoBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,6B,gBAAiBC,S;EACpCC,yL;;;CAImB,Y;EACnBC,yL;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;QAxBS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,6B,gBAAiBC,S;EACpCC,yL;;;CAImB,Y;EACnBC,yL;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;QAxBS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
 "sources":["HtmlButtonBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlButtonBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlButtonBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlButtonBuilder.<init>","accessKey","org.gwtproject.dom.builder.shared.HtmlButtonBuilder.accessKey","org.gwtproject.dom.builder.shared.HtmlButtonBuilder.disabled","name","org.gwtproject.dom.builder.shared.HtmlButtonBuilder.name","value","org.gwtproject.dom.builder.shared.HtmlButtonBuilder.value","org.gwtproject.dom.builder.shared.HtmlButtonBuilder.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"Context2d$LineCap.impl.java.js",
 "lineCount":106,
-"mappings":"A;;;;;;;;;;;;;MA8Hc,O;;CAAA,W;EAAAA,Q;EAAAA;OAGW,4DAHXA,C;;;QAKF,gD,8DAAeC,K;EAAfC,8B;EAAAA,qI;EAAAA,iB;;;CAAA,kG,8DAAeD,K;EAAfE,qC;EAAAA,2C;EAAAA,mE;EACNA,0E;;;CAGY,Y;EACZC,yE;;;QAVQ,2B;EAAAC,kB;EAAAA;GAAAA,mIAAAA;G;EAAAA,4H;;;QAAA,U;EAAAC,kB;EAAAA,iR;;;;CAAA,6B;EAAAC,yE;;;QACV,8D;EAAAC,gG;;;QAAc,+D;EAAAA,iG;;;QAAgB,gE;EAAAA,kG;;;QADpB,O;EAAAC,0B;EAAAA,uB;EAAAA,e;EACVA,iP;EAAcA,qP;EAAgBA,yP;EADpBA,uF;;;;;;;;;;;;;;;;;AAAA;oE;AAAA;qE;AAAA;sE;AAAA;gF;AACV;gF;AAAc;iF;AAAgB;;",
+"mappings":"A;;;;;;;;;;;;;MAqHc,O;;CAAA,W;EAAAA,Q;EAAAA;OAKW,4DALXA,C;;;QAOF,gD,8DAAeC,K;EAAfC,8B;EAAAA,qI;EAAAA,iB;;;CAAA,kG,8DAAeD,K;EAAfE,qC;EAAAA,2C;EAAAA,mE;EACNA,0E;;;CAGY,Y;EACZC,yE;;;QAZQ,2B;EAAAC,kB;EAAAA;GAAAA,mIAAAA;G;EAAAA,4H;;;QAAA,U;EAAAC,kB;EAAAA,iR;;;;CAAA,6B;EAAAC,yE;;;QACV,8D;EAAAC,gG;;;QACA,+D;EAAAA,iG;;;QACA,gE;EAAAA,kG;;;QAHU,O;EAAAC,0B;EAAAA,uB;EAAAA,e;EACVA,iP;EACAA,qP;EACAA,yP;EAHUA,uF;;;;;;;;;;;;;;;;;AAAA;oE;AAAA;qE;AAAA;sE;AAAA;gF;AACV;gF;AACA;iF;AACA;;",
 "sources":["Context2d.java"],
 "names":["org.gwtproject.canvas.dom.client.Context2d$LineCap.<synthetic: ctor_js>","value","org.gwtproject.canvas.dom.client.Context2d$LineCap.<synthetic: ctor_create>","org.gwtproject.canvas.dom.client.Context2d$LineCap.<init>","org.gwtproject.canvas.dom.client.Context2d$LineCap.getValue","org.gwtproject.canvas.dom.client.Context2d$LineCap.valueOf","org.gwtproject.canvas.dom.client.Context2d$LineCap.values","org.gwtproject.canvas.dom.client.Context2d$LineCap.compareTo","org.gwtproject.canvas.dom.client.Context2d$LineCap.<synthetic: getter>","org.gwtproject.canvas.dom.client.Context2d$LineCap.<clinit>"]
 }
+

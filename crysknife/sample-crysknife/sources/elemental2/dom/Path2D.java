@@ -15,11 +15,49 @@
  */
 package elemental2.dom;
 
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class Path2D implements CanvasPathMethods {
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface ConstructorArgUnionType {
+    @JsOverlay
+    static Path2D.ConstructorArgUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default Path2D asPath2D() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isPath2D() {
+      return (Object) this instanceof Path2D;
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
+  public Path2D() {}
+
+  public Path2D(Path2D.ConstructorArgUnionType arg) {}
+
+  public Path2D(Path2D arg) {}
+
+  public Path2D(String arg) {}
+
   public native void addPath(Path2D path);
 
   public native void arc(
@@ -47,3 +85,4 @@ public class Path2D implements CanvasPathMethods {
 
   public native void rect(double x, double y, double w, double h);
 }
+

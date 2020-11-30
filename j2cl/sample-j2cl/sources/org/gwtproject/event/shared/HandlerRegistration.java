@@ -45,3 +45,4 @@ public interface HandlerRegistration {
    */
   void removeHandler();
 }
+

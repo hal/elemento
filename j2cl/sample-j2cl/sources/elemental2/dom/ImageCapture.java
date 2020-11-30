@@ -33,3 +33,4 @@ public class ImageCapture {
 
   public native Promise<Blob> takePhoto(PhotoSettings photoSettings);
 }
+

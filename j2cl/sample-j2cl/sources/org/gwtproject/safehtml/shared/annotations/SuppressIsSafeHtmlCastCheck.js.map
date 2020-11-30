@@ -2,7 +2,8 @@
 "version":3,
 "file":"SuppressIsSafeHtmlCastCheck.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MA6BkB,2B;;QAAA,M;EAAAA,sC;EAAAA,8B;;;QAAA,O;EAAAC,8C;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA2BkB,2B;;QAAA,M;EAAAA,sC;EAAAA,8B;;;QAAA,O;EAAAC,8C;EAAAA;",
 "sources":["SuppressIsSafeHtmlCastCheck.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.SuppressIsSafeHtmlCastCheck.<synthetic: adapt_lambda>","org.gwtproject.safehtml.shared.annotations.SuppressIsSafeHtmlCastCheck.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["ErrorEvent.java"],
 "names":["org.gwtproject.event.dom.client.ErrorEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.ErrorEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.ErrorEvent.<init>","org.gwtproject.event.dom.client.ErrorEvent.getType","org.gwtproject.event.dom.client.ErrorEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.ErrorEvent.dispatch","org.gwtproject.event.dom.client.ErrorEvent.<clinit>"]
 }
+

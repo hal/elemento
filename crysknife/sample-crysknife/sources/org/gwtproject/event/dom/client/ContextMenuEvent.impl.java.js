@@ -42,7 +42,7 @@ class ContextMenuEvent extends DomEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** ContextMenuHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_ContextMenuHandler(/**@type {ContextMenuHandler}*/ ($Casts.$to(arg0, ContextMenuHandler)));
  }
  

@@ -32,3 +32,4 @@ public class MediaError {
   public int code;
   public String message;
 }
+

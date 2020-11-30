@@ -47,3 +47,4 @@ public interface ScrollToOptions {
   @JsProperty
   void setTop(double top);
 }
+

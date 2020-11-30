@@ -68,3 +68,4 @@ public class RecordingEventBus extends EventBus {
     return firedEvents.contains(event);
   }
 }
+

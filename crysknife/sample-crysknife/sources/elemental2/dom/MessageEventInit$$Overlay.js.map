@@ -6,3 +6,4 @@
 "sources":["MessageEventInit.java"],
 "names":["elemental2.dom.MessageEventInit$$Overlay.create","ports","elemental2.dom.MessageEventInit$$Overlay.setPorts__$devirt","source","elemental2.dom.MessageEventInit$$Overlay.setSource__$devirt","elemental2.dom.MessageEventInit$$Overlay.<clinit>"]
 }
+

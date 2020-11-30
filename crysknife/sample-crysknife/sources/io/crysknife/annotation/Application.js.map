@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Application.impl.java.js",
+"lineCount":22,
+"mappings":"A;;;;;;;;;;;;MAuBkB,W;;QAAA,M;EAAAA,sB;EAAAA,8B;;;QAAA,O;EAAAC,8B;EAAAA;",
+"sources":["Application.java"],
+"names":["io.crysknife.annotation.Application.<synthetic: adapt_lambda>","io.crysknife.annotation.Application.<clinit>"]
+}
+

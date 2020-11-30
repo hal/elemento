@@ -42,7 +42,7 @@ class DragOverEvent extends DragDropEventBase {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** DragOverHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_DragOverHandler(/**@type {DragOverHandler}*/ ($Casts.$to(arg0, DragOverHandler)));
  }
  

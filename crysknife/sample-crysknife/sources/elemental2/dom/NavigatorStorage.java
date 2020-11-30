@@ -27,3 +27,4 @@ public interface NavigatorStorage {
   @JsProperty
   void setStorage(StorageManager storage);
 }
+

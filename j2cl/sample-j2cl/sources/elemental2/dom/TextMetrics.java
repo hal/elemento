@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class TextMetrics {
   public double width;
 }
+

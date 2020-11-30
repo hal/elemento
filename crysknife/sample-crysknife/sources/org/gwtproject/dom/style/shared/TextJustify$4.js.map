@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextJustify$4.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MA0CgB,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,uG;EAAAA,iB;;;CAAA,2E;EAAAC,gG;;;CAEE,c;EACZC,uB;;;;CAHU,6B;EAAAC,iF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAsCgB,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,uG;EAAAA,iB;;;CAAA,2E;EAAAC,gG;;;CAEE,c;EACZC,uB;;;;CAHU,6B;EAAAC,iF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["TextJustify.java"],
 "names":["org.gwtproject.dom.style.shared.TextJustify$4.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TextJustify$4.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.TextJustify$4.<init>","org.gwtproject.dom.style.shared.TextJustify$4.getCssName","org.gwtproject.dom.style.shared.TextJustify$4.compareTo","org.gwtproject.dom.style.shared.TextJustify$4.<clinit>"]
 }
+

@@ -12,10 +12,10 @@ let $LambdaAdaptor = goog.forwardDeclare('org.jboss.elemento.ElementCreator.$Lam
 class ElementCreator {
  /** @abstract @template E @return {E} */
  m_create__java_lang_String__java_lang_Class(/** ?string */ element, /** Class<E> */ type) {}
- /** @template E @return {ElementCreator} */
- static $adapt(/** ?function(?string, Class<E>):E */ fn) {
+ /** @return {ElementCreator} */
+ static $adapt(/** ?function(?string, Class<?>):? */ fn) {
   ElementCreator.$clinit();
-  return /**@type {!$LambdaAdaptor<E>}*/ (new $LambdaAdaptor(fn));
+  return new $LambdaAdaptor(fn);
  }
  
  static $clinit() {

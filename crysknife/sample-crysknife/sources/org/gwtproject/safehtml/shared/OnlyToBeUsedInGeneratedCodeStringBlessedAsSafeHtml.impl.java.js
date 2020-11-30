@@ -20,6 +20,20 @@ class OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml extends j_l_Object {
   /**@type {?string}*/
   this.f_html__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml_;
  }
+ //Factory method corresponding to constructor 'OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml()'.
+ /** @return {!OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml} */
+ static $create__() {
+  OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.$clinit();
+  let $instance = new OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml();
+  $instance.$ctor__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml__();
+  return $instance;
+ }
+ //Initialization from constructor 'OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml()'.
+ 
+ $ctor__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml__() {
+  this.$ctor__java_lang_Object__();
+ }
+ //Factory method corresponding to constructor 'OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml(String)'.
  /** @return {!OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml} */
  static $create__java_lang_String(/** ?string */ html) {
   OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.$clinit();
@@ -27,6 +41,7 @@ class OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml extends j_l_Object {
   $instance.$ctor__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml__java_lang_String(html);
   return $instance;
  }
+ //Initialization from constructor 'OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml(String)'.
  
  $ctor__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml__java_lang_String(/** ?string */ html) {
   this.$ctor__java_lang_Object__();
@@ -39,16 +54,16 @@ class OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml extends j_l_Object {
  m_asString__() {
   return this.f_html__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml_;
  }
+ /** @override @return {number} */
+ hashCode() {
+  return j_l_String.m_hashCode__java_lang_String(this.f_html__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml_);
+ }
  /** @override @return {boolean} */
  equals(/** * */ obj) {
   if (!SafeHtml.$isInstance(obj)) {
    return false;
   }
   return j_l_String.m_equals__java_lang_String__java_lang_Object(this.f_html__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml_, /**@type {SafeHtml}*/ ($Casts.$to(obj, SafeHtml)).m_asString__());
- }
- /** @override @return {number} */
- hashCode() {
-  return j_l_String.m_hashCode__java_lang_String(this.f_html__org_gwtproject_safehtml_shared_OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml_);
  }
  
  static $clinit() {

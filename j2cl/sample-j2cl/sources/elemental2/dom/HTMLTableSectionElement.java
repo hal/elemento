@@ -32,3 +32,4 @@ public class HTMLTableSectionElement extends HTMLElement {
 
   public native HTMLElement insertRow(int index);
 }
+

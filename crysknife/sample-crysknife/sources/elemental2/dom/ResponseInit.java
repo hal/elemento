@@ -101,3 +101,4 @@ public interface ResponseInit {
   @JsProperty
   void setStatusText(String statusText);
 }
+

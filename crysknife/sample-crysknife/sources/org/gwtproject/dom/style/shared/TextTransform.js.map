@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextTransform.impl.java.js",
 "lineCount":110,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAoBY,a;;CAAA,W;EAAAA,Q;;;CAAA,2E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CA2Ba,c;;QA3Bb,2B;EAAAC,wB;EAAAA;GAAAA,0IAAAA;G;EAAAA,6H;;;QAAA,U;EAAAC,wB;EAAAA,mX;;;QACV,+D;EAAAC,6G;;;QAMA,yD;EAAAA,uG;;;QAMA,8D;EAAAA,4G;;;QAMA,8D;EAAAA,4G;;;QAnBU,O;EAAAC,gC;EAAAA,6B;EAAAA,e;EACVA,sO;EAMAA,oN;EAMAA,mO;EAMAA,mO;EAnBUA,wF;;;;;;;;;;;;;;;;;;;;;;AAAA;2E;AAAA;qE;AAAA;0E;AAAA;0E;AAAA;iF;AACV;uF;AAMA;iF;AAMA;sF;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;MAkBY,a;;CAAA,W;EAAAA,Q;;;CAAA,2E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CA2Ba,c;;QA3Bb,2B;EAAAC,wB;EAAAA;GAAAA,0IAAAA;G;EAAAA,6H;;;QAAA,U;EAAAC,wB;EAAAA,mX;;;QACV,+D;EAAAC,6G;;;QAMA,yD;EAAAA,uG;;;QAMA,8D;EAAAA,4G;;;QAMA,8D;EAAAA,4G;;;QAnBU,O;EAAAC,gC;EAAAA,6B;EAAAA,e;EACVA,sO;EAMAA,oN;EAMAA,mO;EAMAA,mO;EAnBUA,wF;;;;;;;;;;;;;;;;;;;;;;AAAA;2E;AAAA;qE;AAAA;0E;AAAA;0E;AAAA;iF;AACV;uF;AAMA;iF;AAMA;sF;AAMA;;",
 "sources":["TextTransform.java"],
 "names":["org.gwtproject.dom.style.shared.TextTransform.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TextTransform.<init>","org.gwtproject.dom.style.shared.TextTransform.valueOf","org.gwtproject.dom.style.shared.TextTransform.values","org.gwtproject.dom.style.shared.TextTransform.<synthetic: getter>","org.gwtproject.dom.style.shared.TextTransform.<clinit>"]
 }
+

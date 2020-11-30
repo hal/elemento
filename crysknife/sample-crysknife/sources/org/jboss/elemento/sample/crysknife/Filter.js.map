@@ -6,3 +6,4 @@
 "sources":["Filter.java"],
 "names":["org.jboss.elemento.sample.crysknife.Filter.<synthetic: ctor_js>","fragment","org.jboss.elemento.sample.crysknife.Filter.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.Filter.<init>","org.jboss.elemento.sample.crysknife.Filter.fragment","org.jboss.elemento.sample.crysknife.Filter.filter","token","org.jboss.elemento.sample.crysknife.Filter.parseToken","org.jboss.elemento.sample.crysknife.Filter.valueOf","org.jboss.elemento.sample.crysknife.Filter.values","org.jboss.elemento.sample.crysknife.Filter.compareTo","org.jboss.elemento.sample.crysknife.Filter.<synthetic: getter>","org.jboss.elemento.sample.crysknife.Filter.<clinit>"]
 }
+

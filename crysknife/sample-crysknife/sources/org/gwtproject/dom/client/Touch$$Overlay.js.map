@@ -2,7 +2,8 @@
 "version":3,
 "file":"Touch$$Overlay.impl.java.js",
 "lineCount":65,
-"mappings":"A;;;;;;;;;;MA6Ba,wC;;QAWM,sD;EAAAA,mD;EACfA,uH;;;QASe,sD;EAAAC,mD;EACfA,uH;;;QASe,yD;EAAAC,mD;EACfA,sF;;;QASe,oD;EAAAC,mD;EACfA,qH;;;QASe,oD;EAAAC,mD;EACfA,qH;;;QAUe,2F,wCAAqBC,M;EAArBC,mD;EACfA,wX;;;QAWe,2F,wCAAqBD,M;EAArBE,mD;EACfA,qX;;;QAUe,sD;EAAAC,mD;EACfA,uH;;;QASe,sD;EAAAC,mD;EACfA,uH;;;QASuB,qD;EAAAC,mD;EACvBA,8I;;;QA1GS,O;EAAAC,2D;EAAAA;",
+"mappings":"A;;;;;;;;;;MA+Ba,wC;;QAUM,sD;EAAAA,mD;EACfA,uH;;;QASe,sD;EAAAC,mD;EACfA,uH;;;QASe,yD;EAAAC,mD;EACfA,sF;;;QASe,oD;EAAAC,mD;EACfA,qH;;;QASe,oD;EAAAC,mD;EACfA,qH;;;QAUe,2F,wCAAqBC,M;EAArBC,mD;EACfA,wX;;;QAae,2F,wCAAqBD,M;EAArBE,mD;EACfA,qX;;;QAYe,sD;EAAAC,mD;EACfA,uH;;;QASe,sD;EAAAC,mD;EACfA,uH;;;QASuB,qD;EAAAC,mD;EACvBA,8I;;;QA7GS,O;EAAAC,2D;EAAAA;",
 "sources":["Touch.java"],
 "names":["org.gwtproject.dom.client.Touch$$Overlay.getClientX__$devirt","org.gwtproject.dom.client.Touch$$Overlay.getClientY__$devirt","org.gwtproject.dom.client.Touch$$Overlay.getIdentifier__$devirt","org.gwtproject.dom.client.Touch$$Overlay.getPageX__$devirt","org.gwtproject.dom.client.Touch$$Overlay.getPageY__$devirt","target","org.gwtproject.dom.client.Touch$$Overlay.getRelativeX__$devirt","org.gwtproject.dom.client.Touch$$Overlay.getRelativeY__$devirt","org.gwtproject.dom.client.Touch$$Overlay.getScreenX__$devirt","org.gwtproject.dom.client.Touch$$Overlay.getScreenY__$devirt","org.gwtproject.dom.client.Touch$$Overlay.getTarget__$devirt","org.gwtproject.dom.client.Touch$$Overlay.<clinit>"]
 }
+

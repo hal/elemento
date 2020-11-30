@@ -1,44 +1,36 @@
 /*
- * Copyright 2011 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ * Copyright © 2019 The GWT Project Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.builder.shared;
 
+import org.gwtproject.dom.client.Element;
 import org.gwtproject.regexp.shared.RegExp;
 import org.gwtproject.safehtml.shared.SafeHtml;
-import org.gwtproject.dom.client.Element;
 
 /**
- * Base implementation of {@link ElementBuilderBase} that handles state, but
- * nothing else.
- * 
- * <p>
- * DO NOT USE THIS CLASS. This class is an implementation class and may change
- * in the future.
- * </p>
- * 
- * This class is used to ensure that the HTML and DOM implementations throw the
- * same exceptions, even if something is valid in one and not the other. For
- * example, the DOM implementation supports changing an attribute after setting
- * inner HTML, but the HTML version does not, so they should both throw an
- * error. Otherwise, they would not be swappable.
+ * Base implementation of {@link ElementBuilderBase} that handles state, but nothing else.
+ *
+ * <p>DO NOT USE THIS CLASS. This class is an implementation class and may change in the future.
+ * This class is used to ensure that the HTML and DOM implementations throw the same exceptions,
+ * even if something is valid in one and not the other. For example, the DOM implementation supports
+ * changing an attribute after setting inner HTML, but the HTML version does not, so they should
+ * both throw an error. Otherwise, they would not be swappable.
  */
 public abstract class ElementBuilderImpl {
 
-  /**
-   * A node in the builder stack.
-   */
+  /** A node in the builder stack. */
   private static class StackNode {
     private final ElementBuilderBase<?> builder;
     private StackNode next;
@@ -52,23 +44,19 @@ public abstract class ElementBuilderImpl {
 
   /**
    * A stack that allows quick access to its top element.
-   * 
-   * <p>
-   * FastPeekStack is implemented using a simple linked list of nodes to avoid
-   * the dynamic casts associated with the emulated version of
-   * {@link java.util.ArrayList}. When constructing a large DOM structure, such
-   * as a table, the dynamic casts in ArrayList can significantly degrade
+   *
+   * <p>FastPeekStack is implemented using a simple linked list of nodes to avoid the dynamic casts
+   * associated with the emulated version of {@link java.util.ArrayList}. When constructing a large
+   * DOM structure, such as a table, the dynamic casts in ArrayList can significantly degrade
    * performance.
-   * </p>
    */
   private class FastPeekStack {
 
     private static final String EMPTY_STACK_MESSAGE = "There are no elements on the stack.";
 
-    /**
-     * The top item in the stack.
-     */
+    /** The top item in the stack. */
     private StackNode top;
+
     private int size = 0;
 
     public boolean isEmpty() {
@@ -82,11 +70,9 @@ public abstract class ElementBuilderImpl {
 
     /**
      * Pop the current {@link StackNode} and return it.
-     * 
-     * <p>
-     * The popped node will be recycled and should not be saved.
-     * </p>
-     * 
+     *
+     * <p>The popped node will be recycled and should not be saved.
+     *
      * @return the popped node
      */
     public StackNode pop() {
@@ -110,7 +96,7 @@ public abstract class ElementBuilderImpl {
 
     /**
      * Assert that the stack is not empty.
-     * 
+     *
      * @throws IllegalStateException if empty
      */
     private void assertNotEmpty() {
@@ -120,42 +106,27 @@ public abstract class ElementBuilderImpl {
     }
   }
 
-  /**
-   * A regex for matching valid HTML tags.
-   */
+  /** A regex for matching valid HTML tags. */
   private static RegExp HTML_TAG_REGEX;
 
   private boolean asElementCalled;
 
-  /**
-   * True if the top most element has not yet been added.
-   */
+  /** True if the top most element has not yet been added. */
   private boolean isEmpty = true;
 
-  /**
-   * True if HTML of text has been added.
-   */
+  /** True if HTML of text has been added. */
   private boolean isHtmlOrTextAdded;
 
-  /**
-   * True if the start tag is still open (open bracket '&lt;' but no close
-   * bracket '&gt;').
-   */
+  /** True if the start tag is still open (open bracket '&lt;' but no close bracket '&gt;'). */
   private boolean isStartTagOpen;
 
-  /**
-   * True if the style attribute has been opened and closed.
-   */
+  /** True if the style attribute has been opened and closed. */
   private boolean isStyleClosed;
 
-  /**
-   * True if the style attribute is open.
-   */
+  /** True if the style attribute is open. */
   private boolean isStyleOpen;
 
-  /**
-   * The stack of element builders.
-   */
+  /** The stack of element builders. */
   private final FastPeekStack stack = new FastPeekStack();
 
   public ElementBuilderImpl() {
@@ -173,8 +144,12 @@ public abstract class ElementBuilderImpl {
     // Verify the tag name matches the expected tag.
     String topItem = getCurrentTagName();
     if (!topItem.equalsIgnoreCase(tagName)) {
-      throw new IllegalStateException("Specified tag \"" + tagName
-          + "\" does not match the current element \"" + topItem + "\"");
+      throw new IllegalStateException(
+          "Specified tag \""
+              + tagName
+              + "\" does not match the current element \""
+              + topItem
+              + "\"");
     }
 
     // End the element.
@@ -191,7 +166,7 @@ public abstract class ElementBuilderImpl {
 
   /**
    * Return the built DOM as an {@link Element}.
-   * 
+   *
    * @return the {@link Element} that was built
    */
   public Element finish() {
@@ -211,8 +186,8 @@ public abstract class ElementBuilderImpl {
   }
 
   public void html(SafeHtml html) {
-    assertStartTagOpen("html cannot be set on an element that already "
-        + "contains other content or elements.");
+    assertStartTagOpen(
+        "html cannot be set on an element that already " + "contains other content or elements.");
     lockCurrentElement();
     doHtmlImpl(html);
   }
@@ -227,8 +202,8 @@ public abstract class ElementBuilderImpl {
       // Check that the element supports children.
       assertEndTagNotForbidden("child elements");
       if (!getCurrentBuilder().isChildElementSupported()) {
-        throw new UnsupportedOperationException(getCurrentTagName()
-            + " does not support child elements.");
+        throw new UnsupportedOperationException(
+            getCurrentTagName() + " does not support child elements.");
       }
     }
 
@@ -249,38 +224,36 @@ public abstract class ElementBuilderImpl {
   }
 
   /**
-   * Get the {@link StylesBuilder} used to add style properties to the current
-   * element.
-   * 
+   * Get the {@link StylesBuilder} used to add style properties to the current element.
+   *
    * @return a {@link StylesBuilder}
    */
   public abstract StylesBuilder style();
 
   public void text(String text) {
-    assertStartTagOpen("text cannot be set on an element that already "
-        + "contains other content or elements.");
+    assertStartTagOpen(
+        "text cannot be set on an element that already " + "contains other content or elements.");
     lockCurrentElement();
     doTextImpl(text);
   }
 
   /**
    * Assert that the builder is in a state where an attribute can be added.
-   * 
-   * @throw {@link IllegalStateException} if the start tag is closed
+   *
+   * @throws IllegalStateException if the start tag is closed
    */
   protected void assertCanAddAttributeImpl() {
-    assertStartTagOpen("Attributes cannot be added after appending HTML or adding a child "
-        + "element.");
+    assertStartTagOpen(
+        "Attributes cannot be added after appending HTML or adding a child " + "element.");
     maybeCloseStyleAttribute();
   }
 
   /**
-   * Assert that a style property can be added, and setup the state as if one is
-   * about to be added.
+   * Assert that a style property can be added, and setup the state as if one is about to be added.
    */
   protected void assertCanAddStylePropertyImpl() {
-    assertStartTagOpen("Style properties cannot be added after appending HTML or adding a child "
-        + "element.");
+    assertStartTagOpen(
+        "Style properties cannot be added after appending HTML or adding a child " + "element.");
 
     // Check if a style attribute already exists.
     if (isStyleClosed) {
@@ -298,7 +271,7 @@ public abstract class ElementBuilderImpl {
 
   /**
    * Assert that the specified tag name is valid.
-   * 
+   *
    * @throws IllegalArgumentException if not valid
    */
   protected void assertValidTagName(String tagName) {
@@ -307,62 +280,51 @@ public abstract class ElementBuilderImpl {
     }
   }
 
-  /**
-   * Close the start tag.
-   */
+  /** Close the start tag. */
   protected abstract void doCloseStartTagImpl();
 
-  /**
-   * Close the style attribute.
-   */
+  /** Close the style attribute. */
   protected abstract void doCloseStyleAttributeImpl();
 
-  /**
-   * Self-close the start tag. This method is called for elements that forbid
-   * the end tag.
-   */
+  /** Self-close the start tag. This method is called for elements that forbid the end tag. */
   protected abstract void doEndStartTagImpl();
 
   /**
    * End the specified tag.
-   * 
+   *
    * @param tagName the name of the tag to end
    */
   protected abstract void doEndTagImpl(String tagName);
 
   /**
    * Return the build element.
-   * 
+   *
    * @return the element
    */
   protected abstract Element doFinishImpl();
 
   /**
    * Set the specified html as the inner HTML of the current element.
-   * 
+   *
    * @param html the HTML to set
    */
   protected abstract void doHtmlImpl(SafeHtml html);
 
-  /**
-   * Open the style attribute.
-   */
+  /** Open the style attribute. */
   protected abstract void doOpenStyleImpl();
 
   /**
    * Set the specified text as the inner text of the current element.
-   * 
+   *
    * @param text the text to set
    */
   protected abstract void doTextImpl(String text);
 
   /**
    * End all open tags, including the root element.
-   * 
-   * <p>
-   * Doing so also ensures that all builder methods will throw an exception
-   * because the stack is empty, and a new element cannot be started.
-   * </p>
+   *
+   * <p>Doing so also ensures that all builder methods will throw an exception because the stack is
+   * empty, and a new element cannot be started.
    */
   protected void endAllTags() {
     while (!stack.isEmpty()) {
@@ -371,8 +333,8 @@ public abstract class ElementBuilderImpl {
   }
 
   /**
-   * Lock the current element, preventing any additional changes to it. The only
-   * valid option is to call {@link #end()}.
+   * Lock the current element, preventing any additional changes to it. The only valid option is to
+   * call {@link #end()}.
    */
   protected void lockCurrentElement() {
     maybeCloseStartTag();
@@ -382,22 +344,22 @@ public abstract class ElementBuilderImpl {
 
   /**
    * Assert that the current builder does not forbid end tags.
-   * 
+   *
    * @param operation the operation that the user is attempting
-   * @throw {@link UnsupportedOperationException} if not supported
+   * @throws {@link UnsupportedOperationException} if not supported
    */
   private void assertEndTagNotForbidden(String operation) {
     if (getCurrentBuilder().isEndTagForbidden()) {
-      throw new UnsupportedOperationException(getCurrentTagName() + " does not support "
-          + operation);
+      throw new UnsupportedOperationException(
+          getCurrentTagName() + " does not support " + operation);
     }
   }
 
   /**
    * Assert that the start tag is still open.
-   * 
+   *
    * @param message the error message if the start tag is not open
-   * @throw {@link IllegalStateException} if the start tag is closed
+   * @throws {@link IllegalStateException} if the start tag is closed
    */
   private void assertStartTagOpen(String message) {
     if (!isStartTagOpen) {
@@ -407,7 +369,7 @@ public abstract class ElementBuilderImpl {
 
   /**
    * End the current element without checking the tag name.
-   * 
+   *
    * @param tagName the tag name to end
    */
   private void endImpl(String tagName) {
@@ -438,7 +400,7 @@ public abstract class ElementBuilderImpl {
 
   /**
    * Get the builder at the top of the stack.
-   * 
+   *
    * @return an {@link ElementBuilderBase}
    * @throws IllegalStateException if there are no elements on the stack
    */
@@ -448,7 +410,7 @@ public abstract class ElementBuilderImpl {
 
   /**
    * Get the tag name of the element at the top of the stack.
-   * 
+   *
    * @return a tag name
    * @throws IllegalStateException if there are no elements on the stack
    */
@@ -456,9 +418,7 @@ public abstract class ElementBuilderImpl {
     return stack.peek().tagName;
   }
 
-  /**
-   * Close the start tag if it is still open.
-   */
+  /** Close the start tag if it is still open. */
   private void maybeCloseStartTag() {
     maybeCloseStyleAttribute();
     if (isStartTagOpen) {
@@ -474,9 +434,7 @@ public abstract class ElementBuilderImpl {
     }
   }
 
-  /**
-   * Close the style attribute if it is still open.
-   */
+  /** Close the style attribute if it is still open. */
   private void maybeCloseStyleAttribute() {
     if (isStyleOpen) {
       isStyleOpen = false;
@@ -485,3 +443,4 @@ public abstract class ElementBuilderImpl {
     }
   }
 }
+

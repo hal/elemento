@@ -2,7 +2,8 @@
 "version":3,
 "file":"Scope.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MA8EkB,K;;QAAA,M;EAAAA,gB;EAAAA,8B;;;QAAA,O;EAAAC,wB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAgFkB,K;;QAAA,M;EAAAA,gB;EAAAA,8B;;;QAAA,O;EAAAC,wB;EAAAA;",
 "sources":["Scope.java"],
 "names":["javax.inject.Scope.<synthetic: adapt_lambda>","javax.inject.Scope.<clinit>"]
 }
+

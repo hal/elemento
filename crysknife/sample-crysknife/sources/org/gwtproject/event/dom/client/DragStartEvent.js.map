@@ -6,3 +6,4 @@
 "sources":["DragStartEvent.java"],
 "names":["org.gwtproject.event.dom.client.DragStartEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.DragStartEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.DragStartEvent.<init>","org.gwtproject.event.dom.client.DragStartEvent.getType","org.gwtproject.event.dom.client.DragStartEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.DragStartEvent.dispatch","org.gwtproject.event.dom.client.DragStartEvent.<clinit>"]
 }
+

@@ -21,3 +21,4 @@ import jsinterop.annotations.JsFunction;
 public interface PerformanceObserverCallback {
   void onInvoke(PerformanceObserverEntryList p0, PerformanceObserver p1);
 }
+

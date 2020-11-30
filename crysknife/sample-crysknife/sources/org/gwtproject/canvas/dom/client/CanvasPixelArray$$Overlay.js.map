@@ -2,7 +2,8 @@
 "version":3,
 "file":"CanvasPixelArray$$Overlay.impl.java.js",
 "lineCount":32,
-"mappings":"A;;;;;;;;;;;MAsCa,yB;;QAYM,sE,wCAAQA,C;EAARC,oC;EACfA,IAAOC,KAAPD,uR;EACAA,wF;;;QASe,uE;EAAAE,oC;EACfA,wL;;;QAagB,2E,wCAAQH,C,gBAAOE,K;EAAfE,oC;EAChBA,kQ;;;QAtCS,O;EAAAC,4C;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAkCa,yB;;QAWM,sE,wCAAQA,C;EAARC,oC;EACfA,IAAOC,KAAPD,uR;EACAA,wF;;;QASe,uE;EAAAE,oC;EACfA,wL;;;QAagB,2E,wCAAQH,C,gBAAOE,K;EAAfE,oC;EAChBA,kQ;;;QArCS,O;EAAAC,4C;EAAAA;",
 "sources":["CanvasPixelArray.java"],
 "names":["i","org.gwtproject.canvas.dom.client.CanvasPixelArray$$Overlay.get__$devirt","value","org.gwtproject.canvas.dom.client.CanvasPixelArray$$Overlay.getLength__$devirt","org.gwtproject.canvas.dom.client.CanvasPixelArray$$Overlay.set__$devirt","org.gwtproject.canvas.dom.client.CanvasPixelArray$$Overlay.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["MouseWheelEvent.java"],
 "names":["org.gwtproject.event.dom.client.MouseWheelEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.MouseWheelEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.MouseWheelEvent.<init>","org.gwtproject.event.dom.client.MouseWheelEvent.getType","org.gwtproject.event.dom.client.MouseWheelEvent.getAssociatedType","org.gwtproject.event.dom.client.MouseWheelEvent.isNorth","org.gwtproject.event.dom.client.MouseWheelEvent.getDeltaY","org.gwtproject.event.dom.client.MouseWheelEvent.isSouth","handler","org.gwtproject.event.dom.client.MouseWheelEvent.dispatch","org.gwtproject.event.dom.client.MouseWheelEvent.<clinit>"]
 }
+

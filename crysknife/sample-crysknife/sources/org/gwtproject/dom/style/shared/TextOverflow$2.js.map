@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextOverflow$2.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MA2BW,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,wG;EAAAA,iB;;;CAAA,4E;EAAAC,iG;;;CAEO,c;EACZC,kB;;;;CAHK,6B;EAAAC,mF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAyBW,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,wG;EAAAA,iB;;;CAAA,4E;EAAAC,iG;;;CAEO,c;EACZC,kB;;;;CAHK,6B;EAAAC,mF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["TextOverflow.java"],
 "names":["org.gwtproject.dom.style.shared.TextOverflow$2.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TextOverflow$2.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.TextOverflow$2.<init>","org.gwtproject.dom.style.shared.TextOverflow$2.getCssName","org.gwtproject.dom.style.shared.TextOverflow$2.compareTo","org.gwtproject.dom.style.shared.TextOverflow$2.<clinit>"]
 }
+

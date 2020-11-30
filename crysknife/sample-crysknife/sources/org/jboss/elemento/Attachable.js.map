@@ -6,3 +6,4 @@
 "sources":["Attachable.java"],
 "names":["element","attachable","org.jboss.elemento.Attachable.register","org.jboss.elemento.Attachable.<lambda in register>","mutationRecord","org.jboss.elemento.Attachable.<synthetic: adapt_lambda>","org.jboss.elemento.Attachable.detach__$default","org.jboss.elemento.Attachable.<clinit>"]
 }
+

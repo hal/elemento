@@ -2,7 +2,8 @@
 "version":3,
 "file":"Singleton$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MA8BkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;qD;EAAAA,0F;;;CAAA,gF;EAAAC,iC;EAAAA,wD;;;CAAA,kB;EAAAC,0C;EAAAA,qF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MA4BkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;qD;EAAAA,0F;;;CAAA,gF;EAAAC,iC;EAAAA,wD;;;CAAA,kB;EAAAC,0C;EAAAA,qF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["Singleton.java"],
 "names":["javax.inject.Singleton$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","javax.inject.Singleton$$LambdaAdaptor.<init>","javax.inject.Singleton$$LambdaAdaptor.annotationType","javax.inject.Singleton$$LambdaAdaptor.<clinit>"]
 }
+

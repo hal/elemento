@@ -2,7 +2,8 @@
 "version":3,
 "file":"IFrameBuilder.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;;;;;;MAwBiB,a;;CASD,kB,eAAgBA,W;;CAchB,+C,iBAAcC,I;;CASd,mB,eAAiBC,Y;;CASjB,kB,eAAgBC,W;;CAShB,wB,gBAAYC,I;;CASZ,Y;;CASA,6B,gBAAiBC,S;;CASjB,6C,gBAAYC,G;;CASZ,uB,gBAAsBA,G;;CActB,wB,gBAAYL,I;;QApGX,O;EAAAM,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAsBiB,a;;CASD,kB,eAAgBA,W;;CAWhB,+C,iBAAcC,I;;CASd,mB,eAAiBC,Y;;CASjB,kB,eAAgBC,W;;CAShB,wB,gBAAYC,I;;CASZ,Y;;CASA,6B,gBAAiBC,S;;CASjB,6C,gBAAYC,G;;CASZ,uB,gBAAsBA,G;;CAWtB,wB,gBAAYL,I;;QA9FX,O;EAAAM,gC;EAAAA;",
 "sources":["IFrameBuilder.java"],
 "names":["frameBorder","html","marginHeight","marginWidth","name","scrolling","src","org.gwtproject.dom.builder.shared.IFrameBuilder.<clinit>"]
 }
+

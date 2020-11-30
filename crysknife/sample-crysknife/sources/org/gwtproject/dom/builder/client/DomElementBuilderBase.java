@@ -1,92 +1,41 @@
 /*
- * Copyright 2011 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ * Copyright © 2019 The GWT Project Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.builder.client;
 
-import org.gwtproject.dom.builder.shared.AbstractElementBuilderBase;
-import org.gwtproject.dom.builder.shared.AnchorBuilder;
-import org.gwtproject.dom.builder.shared.AreaBuilder;
-import org.gwtproject.dom.builder.shared.AudioBuilder;
-import org.gwtproject.dom.builder.shared.BRBuilder;
-import org.gwtproject.dom.builder.shared.BaseBuilder;
-import org.gwtproject.dom.builder.shared.BodyBuilder;
-import org.gwtproject.dom.builder.shared.ButtonBuilder;
-import org.gwtproject.dom.builder.shared.CanvasBuilder;
-import org.gwtproject.dom.builder.shared.DListBuilder;
-import org.gwtproject.dom.builder.shared.DivBuilder;
-import org.gwtproject.dom.builder.shared.ElementBuilder;
-import org.gwtproject.dom.builder.shared.ElementBuilderBase;
-import org.gwtproject.dom.builder.shared.FieldSetBuilder;
-import org.gwtproject.dom.builder.shared.FormBuilder;
-import org.gwtproject.dom.builder.shared.FrameBuilder;
-import org.gwtproject.dom.builder.shared.FrameSetBuilder;
-import org.gwtproject.dom.builder.shared.HRBuilder;
-import org.gwtproject.dom.builder.shared.HeadBuilder;
-import org.gwtproject.dom.builder.shared.HeadingBuilder;
-import org.gwtproject.dom.builder.shared.IFrameBuilder;
-import org.gwtproject.dom.builder.shared.ImageBuilder;
-import org.gwtproject.dom.builder.shared.InputBuilder;
-import org.gwtproject.dom.builder.shared.LIBuilder;
-import org.gwtproject.dom.builder.shared.LabelBuilder;
-import org.gwtproject.dom.builder.shared.LegendBuilder;
-import org.gwtproject.dom.builder.shared.LinkBuilder;
-import org.gwtproject.dom.builder.shared.MapBuilder;
-import org.gwtproject.dom.builder.shared.MetaBuilder;
-import org.gwtproject.dom.builder.shared.OListBuilder;
-import org.gwtproject.dom.builder.shared.OptGroupBuilder;
-import org.gwtproject.dom.builder.shared.OptionBuilder;
-import org.gwtproject.dom.builder.shared.ParagraphBuilder;
-import org.gwtproject.dom.builder.shared.ParamBuilder;
-import org.gwtproject.dom.builder.shared.PreBuilder;
-import org.gwtproject.dom.builder.shared.QuoteBuilder;
-import org.gwtproject.dom.builder.shared.ScriptBuilder;
-import org.gwtproject.dom.builder.shared.SelectBuilder;
-import org.gwtproject.dom.builder.shared.SourceBuilder;
-import org.gwtproject.dom.builder.shared.SpanBuilder;
-import org.gwtproject.dom.builder.shared.StyleBuilder;
-import org.gwtproject.dom.builder.shared.TableBuilder;
-import org.gwtproject.dom.builder.shared.TableCaptionBuilder;
-import org.gwtproject.dom.builder.shared.TableCellBuilder;
-import org.gwtproject.dom.builder.shared.TableColBuilder;
-import org.gwtproject.dom.builder.shared.TableRowBuilder;
-import org.gwtproject.dom.builder.shared.TableSectionBuilder;
-import org.gwtproject.dom.builder.shared.TextAreaBuilder;
-import org.gwtproject.dom.builder.shared.UListBuilder;
-import org.gwtproject.dom.builder.shared.VideoBuilder;
+import org.gwtproject.dom.builder.shared.*;
 import org.gwtproject.dom.client.Element;
 
 /**
- * Implementation of {@link org.gwtproject.dom.builder.shared.ElementBuilderBase} that delegates to a
- * {@link DomBuilderImpl}.
- * 
- * <p>
- * Subclasses of {@link DomElementBuilderBase} operate directly on the
- * {@link Element} being built.
- * </p>
- * 
+ * Implementation of {@link org.gwtproject.dom.builder.shared.ElementBuilderBase} that delegates to
+ * a {@link DomBuilderImpl}.
+ *
+ * <p>Subclasses of {@link DomElementBuilderBase} operate directly on the {@link Element} being
+ * built.
+ *
  * @param <R> the builder type returned from build methods
  * @param <E> the {@link Element} type
  */
-public class DomElementBuilderBase<R extends ElementBuilderBase<?>, E extends Element> extends
-        AbstractElementBuilderBase<R> {
+public class DomElementBuilderBase<R extends ElementBuilderBase<?>, E extends Element>
+    extends AbstractElementBuilderBase<R> {
 
   private final DomBuilderImpl delegate;
 
   /**
    * Construct a new {@link DomElementBuilderBase}.
-   * 
+   *
    * @param delegate the delegate that builds the element
    */
   DomElementBuilderBase(DomBuilderImpl delegate) {
@@ -95,7 +44,7 @@ public class DomElementBuilderBase<R extends ElementBuilderBase<?>, E extends El
 
   /**
    * Construct a new {@link DomElementBuilderBase}.
-   * 
+   *
    * @param delegate the delegate that builds the element
    * @param isEndTagForbidden true if the end tag is forbidden for this element
    */
@@ -505,7 +454,7 @@ public class DomElementBuilderBase<R extends ElementBuilderBase<?>, E extends El
 
   /**
    * Assert that the builder is in a state where an attribute can be added.
-   * 
+   *
    * @return the element on which the attribute can be set
    */
   protected E assertCanAddAttribute() {
@@ -513,10 +462,11 @@ public class DomElementBuilderBase<R extends ElementBuilderBase<?>, E extends El
      * An explicit parameterized return type on cast() is required by some javac
      * compilers.
      */
-    return delegate.assertCanAddAttribute().<E> cast();
+    return delegate.assertCanAddAttribute().<E>cast();
   }
 
   DomBuilderImpl getDelegate() {
     return delegate;
   }
 }
+

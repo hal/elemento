@@ -2,7 +2,8 @@
 "version":3,
 "file":"UriUtils$JsImpl.impl.java.js",
 "lineCount":38,
-"mappings":"A;;;;;;;MA8BuB,M;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,iC;;;CACZ,6D,gBAAcC,G;EACnBC,4B;EAEAA;GACEA,qGADFA;G;EAGAA;GACEA,qGADFA;G;EAGAA,W;;;QAViB,O;EAAAC,yB;EAAAA,sB;EAAAA;",
+"mappings":"A;;;;;;;MAyOuB,M;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,iC;;;CAEZ,6D,gBAAcC,G;EACnBC,iC;EAEAA;GACEA,qGADFA;G;EAGAA;GACEA,qGADFA;G;EAGAA,W;;;QAXiB,O;EAAAC,yB;EAAAA,sB;EAAAA;",
 "sources":["UriUtils.java"],
 "names":["org.gwtproject.safehtml.shared.UriUtils$JsImpl.<synthetic: ctor_js>","org.gwtproject.safehtml.shared.UriUtils$JsImpl.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.UriUtils$JsImpl.<init>","uri","org.gwtproject.safehtml.shared.UriUtils$JsImpl.encode","org.gwtproject.safehtml.shared.UriUtils$JsImpl.<clinit>"]
 }
+

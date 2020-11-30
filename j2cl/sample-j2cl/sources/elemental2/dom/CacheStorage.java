@@ -84,3 +84,4 @@ public interface CacheStorage {
 
   Promise<Cache> open(String cacheName);
 }
+

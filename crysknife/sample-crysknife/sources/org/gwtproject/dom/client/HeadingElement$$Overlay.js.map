@@ -2,7 +2,8 @@
 "version":3,
 "file":"HeadingElement$$Overlay.impl.java.js",
 "lineCount":106,
-"mappings":"A;;;;;;;;;;;;;;;;;MAkCa,uB;;QAyBkB,uC,eAAWA,I;EAAXC,kC;EAC3BA;GACEA,wFADFA;G;EAIAA,uE;;;QASoB,iD,eAAoBC,C;EAApBC,kC;EACpBA;GACEA,sHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,kC;EACpBA;GACEA,yHADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,kC;EAEpBA;GACEA,aADFA;G;EAIAA,IAAOE,GAAPF,0K;EAEAA;GACEA,aADFA;G;EAIAA;GACEA,aADFA;G;EAIAA,IAAIG,CAAJH,uG;EACAA;GACEA,aADFA;G;EAIAA,Y;;;QApFF,6D;EAAAI,+H;;;QAFW,O;EAAAC,0C;EAAAA,uC;EAEXA,8oB;;;;;;;;;;;;;;;;;;;;;;;AAFW;mF;AAOX;wBAC2B,2DAD3B,Q;AAEA;wBAC2B,2DAD3B,Q;AAEA;wBAC2B,2DAD3B,Q;AAEA;wBAC2B,2DAD3B,Q;AAEA;wBAC2B,2DAD3B,Q;AAEA;wBAC2B,2DAD3B;",
+"mappings":"A;;;;;;;;;;;;;;;;;MAsCa,uB;;QAuBkB,uC,eAAWA,I;EAAXC,kC;EAC3BA;GACEA,wFADFA;G;EAIAA,uE;;;QAWoB,iD,eAAoBC,C;EAApBC,kC;EACpBA;GACEA,sHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,kC;EACpBA;GACEA,yHADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,kC;EAEpBA;GACEA,aADFA;G;EAIAA,IAAOE,GAAPF,0K;EAEAA;GACEA,aADFA;G;EAIAA;GACEA,aADFA;G;EAIAA,IAAIG,CAAJH,uG;EACAA;GACEA,aADFA;G;EAIAA,Y;;;QAxFF,6D;EAAAI,+H;;;QAFW,O;EAAAC,0C;EAAAA,uC;EAEXA,8oB;;;;;;;;;;;;;;;;;;;;;;;AAFW;mF;AAQX;wBAAsC,2DAAtC,Q;AACA;wBAAsC,2DAAtC,Q;AACA;wBAAsC,2DAAtC,Q;AACA;wBAAsC,2DAAtC,Q;AACA;wBAAsC,2DAAtC,Q;AACA;wBAAsC,2DAAtC;",
 "sources":["HeadingElement.java"],
 "names":["elem","org.gwtproject.dom.client.HeadingElement$$Overlay.as","o","org.gwtproject.dom.client.HeadingElement$$Overlay.is","node","tag","n","org.gwtproject.dom.client.HeadingElement$$Overlay.<synthetic: getter>","org.gwtproject.dom.client.HeadingElement$$Overlay.<clinit>"]
 }
+

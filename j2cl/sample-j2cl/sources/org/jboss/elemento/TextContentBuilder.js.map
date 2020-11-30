@@ -6,3 +6,4 @@
 "sources":["TextContentBuilder.java"],
 "names":["org.jboss.elemento.TextContentBuilder.<synthetic: ctor_js>","element","org.jboss.elemento.TextContentBuilder.<synthetic: ctor_create>","org.jboss.elemento.TextContentBuilder.<init>","org.jboss.elemento.TextContentBuilder.that","org.jboss.elemento.TextContentBuilder.textContent","org.jboss.elemento.TextContentBuilder.<clinit>"]
 }
+

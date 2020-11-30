@@ -6,3 +6,4 @@
 "sources":["FocusEvent.java"],
 "names":["org.gwtproject.event.dom.client.FocusEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.FocusEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.FocusEvent.<init>","org.gwtproject.event.dom.client.FocusEvent.getType","org.gwtproject.event.dom.client.FocusEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.FocusEvent.dispatch","org.gwtproject.event.dom.client.FocusEvent.<clinit>"]
 }
+

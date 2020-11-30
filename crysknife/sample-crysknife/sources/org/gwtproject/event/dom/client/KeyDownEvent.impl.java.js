@@ -42,7 +42,7 @@ class KeyDownEvent extends KeyCodeEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** KeyDownHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_KeyDownHandler(/**@type {KeyDownHandler}*/ ($Casts.$to(arg0, KeyDownHandler)));
  }
  

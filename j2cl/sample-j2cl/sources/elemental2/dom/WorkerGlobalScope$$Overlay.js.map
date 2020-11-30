@@ -6,3 +6,4 @@
 "sources":["WorkerGlobalScope.java"],
 "names":["input","init","elemental2.dom.WorkerGlobalScope$$Overlay.fetch__$devirt","message","transfer","elemental2.dom.WorkerGlobalScope$$Overlay.postMessage__$devirt","elemental2.dom.WorkerGlobalScope$$Overlay.<clinit>"]
 }
+

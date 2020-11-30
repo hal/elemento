@@ -28,3 +28,4 @@ public class MimeTypeArray implements JsArrayLike<MimeType>, JsPropertyMap<MimeT
 
   public native MimeType namedItem(String name);
 }
+

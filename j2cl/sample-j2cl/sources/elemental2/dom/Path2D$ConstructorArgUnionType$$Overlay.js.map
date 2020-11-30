@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Path2D$ConstructorArgUnionType$$Overlay.impl.java.js",
+"lineCount":39,
+"mappings":"A;;;;;;;;;MAyBmB,gC;;QAEuB,sB,UAAUA,C;EAAVC,2C;EACpCA,uD;;;QAIa,kE;EAAAC,2C;EACbA,yF;;;QAIa,kE;EAAAC,2C;EACbA,iD;;;QAIc,kE;EAAAC,2C;EACdA,uD;;;QAIc,kE;EAAAC,2C;EACdA,yD;;;QAvBa,O;EAAAC,mD;EAAAA;",
+"sources":["Path2D.java"],
+"names":["o","elemental2.dom.Path2D$ConstructorArgUnionType$$Overlay.of","elemental2.dom.Path2D$ConstructorArgUnionType$$Overlay.asPath2D__$devirt","elemental2.dom.Path2D$ConstructorArgUnionType$$Overlay.asString__$devirt","elemental2.dom.Path2D$ConstructorArgUnionType$$Overlay.isPath2D__$devirt","elemental2.dom.Path2D$ConstructorArgUnionType$$Overlay.isString__$devirt","elemental2.dom.Path2D$ConstructorArgUnionType$$Overlay.<clinit>"]
+}
+

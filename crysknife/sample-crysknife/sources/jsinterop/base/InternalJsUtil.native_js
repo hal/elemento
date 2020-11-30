@@ -146,3 +146,5 @@ const javaLangClass = goog.forwardDeclare('java.lang.Class');
 InternalJsUtil.toCtor = function(clazz) {
   return /** @type {?} */ (clazz.f_ctor__java_lang_Class_);
 };
+
+

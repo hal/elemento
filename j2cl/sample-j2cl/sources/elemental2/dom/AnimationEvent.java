@@ -65,3 +65,4 @@ public class AnimationEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

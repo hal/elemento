@@ -6,3 +6,4 @@
 "sources":["RequestInit.java"],
 "names":["elemental2.dom.RequestInit$$Overlay.create","body","elemental2.dom.RequestInit$$Overlay.setBody__$devirt","headers","elemental2.dom.RequestInit$$Overlay.setHeaders__$devirt","elemental2.dom.RequestInit$$Overlay.<clinit>"]
 }
+

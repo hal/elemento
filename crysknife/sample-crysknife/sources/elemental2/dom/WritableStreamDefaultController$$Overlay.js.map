@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"WritableStreamDefaultController$$Overlay.impl.java.js",
-"lineCount":9,
-"mappings":"A;;;;MAsBiB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"lineCount":17,
+"mappings":"A;;;;;;;MAuBiB,wC;;QAAA,kE;EAAAA,mD;EAAAA,8B;;;QAAA,O;EAAAC,2D;EAAAA;",
 "sources":["WritableStreamDefaultController.java"],
-"names":["elemental2.dom.WritableStreamDefaultController$$Overlay.<clinit>"]
+"names":["elemental2.dom.WritableStreamDefaultController$$Overlay.<synthetic: adapt_lambda>","elemental2.dom.WritableStreamDefaultController$$Overlay.<clinit>"]
 }
+

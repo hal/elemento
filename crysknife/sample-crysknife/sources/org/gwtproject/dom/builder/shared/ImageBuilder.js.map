@@ -2,7 +2,8 @@
 "version":3,
 "file":"ImageBuilder.impl.java.js",
 "lineCount":24,
-"mappings":"A;;;;;;;;;MAoBiB,Y;;CAUF,uB,gBAAWA,G;;CASX,a,eAAWC,M;;CASX,S;;CASA,uB,gBAAWC,G;;CASX,Y,eAAUC,K;;QA9CR,O;EAAAC,+B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,Y;;CAQF,uB,gBAAWA,G;;CASX,a,eAAWC,M;;CASX,S;;CASA,uB,gBAAWC,G;;CASX,Y,eAAUC,K;;QA5CR,O;EAAAC,+B;EAAAA;",
 "sources":["ImageBuilder.java"],
 "names":["alt","height","src","width","org.gwtproject.dom.builder.shared.ImageBuilder.<clinit>"]
 }
+

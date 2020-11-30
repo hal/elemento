@@ -2,7 +2,8 @@
 "version":3,
 "file":"Document$CreateTextNodeDataUnionType$$Overlay.impl.java.js",
 "lineCount":38,
-"mappings":"A;;;;;;;;MA0DmB,Q;;QAE6B,sB,UAAUA,C;EAAVC,mB;EAC1CA,uD;;;QAIa,wE;EAAAC,mB;EACbA,iD;;;QAIa,wE;EAAAC,mB;EACbA,iD;;;QAIc,wE;EAAAC,mB;EACdA,qD;;;QAIc,wE;EAAAC,mB;EACdA,yD;;;QAvBa,O;EAAAC,2B;EAAAA;",
+"mappings":"A;;;;;;;;MA+FmB,Q;;QAE6B,sB,UAAUA,C;EAAVC,mB;EAC1CA,uD;;;QAIa,wE;EAAAC,mB;EACbA,iD;;;QAIa,wE;EAAAC,mB;EACbA,iD;;;QAIc,wE;EAAAC,mB;EACdA,qD;;;QAIc,wE;EAAAC,mB;EACdA,yD;;;QAvBa,O;EAAAC,2B;EAAAA;",
 "sources":["Document.java"],
 "names":["o","elemental2.dom.Document$CreateTextNodeDataUnionType$$Overlay.of","elemental2.dom.Document$CreateTextNodeDataUnionType$$Overlay.asDouble__$devirt","elemental2.dom.Document$CreateTextNodeDataUnionType$$Overlay.asString__$devirt","elemental2.dom.Document$CreateTextNodeDataUnionType$$Overlay.isDouble__$devirt","elemental2.dom.Document$CreateTextNodeDataUnionType$$Overlay.isString__$devirt","elemental2.dom.Document$CreateTextNodeDataUnionType$$Overlay.<clinit>"]
 }
+

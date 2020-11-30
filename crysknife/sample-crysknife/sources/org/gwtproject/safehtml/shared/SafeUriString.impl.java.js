@@ -49,9 +49,9 @@ class SafeUriString extends j_l_Object {
  $ctor__org_gwtproject_safehtml_shared_SafeUriString__() {
   this.$ctor__java_lang_Object__();
  }
- /** @override @return {?string} */
- m_asString__() {
-  return this.f_uri__org_gwtproject_safehtml_shared_SafeUriString_;
+ /** @override @return {number} */
+ hashCode() {
+  return j_l_String.m_hashCode__java_lang_String(this.f_uri__org_gwtproject_safehtml_shared_SafeUriString_);
  }
  /** @override @return {boolean} */
  equals(/** * */ obj) {
@@ -60,13 +60,13 @@ class SafeUriString extends j_l_Object {
   }
   return j_l_String.m_equals__java_lang_String__java_lang_Object(this.f_uri__org_gwtproject_safehtml_shared_SafeUriString_, /**@type {SafeUri}*/ ($Casts.$to(obj, SafeUri)).m_asString__());
  }
- /** @override @return {number} */
- hashCode() {
-  return j_l_String.m_hashCode__java_lang_String(this.f_uri__org_gwtproject_safehtml_shared_SafeUriString_);
- }
  /** @override @return {?string} */
  toString() {
   return "safe: \"" + j_l_String.m_valueOf__java_lang_Object(this.m_asString__()) + "\"";
+ }
+ /** @override @return {?string} */
+ m_asString__() {
+  return this.f_uri__org_gwtproject_safehtml_shared_SafeUriString_;
  }
  
  static $clinit() {

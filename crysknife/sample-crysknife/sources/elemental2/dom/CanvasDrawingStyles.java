@@ -75,3 +75,4 @@ public interface CanvasDrawingStyles {
   @JsProperty
   void setTextBaseline(String textBaseline);
 }
+

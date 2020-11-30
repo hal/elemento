@@ -6,3 +6,4 @@
 "sources":["ServiceWorkerGlobalScope.java"],
 "names":["elemental2.dom.ServiceWorkerGlobalScope$NotificationFieldType$$Overlay.create","elemental2.dom.ServiceWorkerGlobalScope$NotificationFieldType$$Overlay.<clinit>"]
 }
+

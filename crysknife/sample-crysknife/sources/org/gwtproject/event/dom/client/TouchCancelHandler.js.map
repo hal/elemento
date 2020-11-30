@@ -6,3 +6,4 @@
 "sources":["TouchCancelHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.TouchCancelHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.TouchCancelHandler.<clinit>"]
 }
+

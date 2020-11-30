@@ -6,3 +6,4 @@
 "sources":["CSSProperties.java"],
 "names":["o","elemental2.dom.CSSProperties$BorderLeftWidthUnionType$$Overlay.of","elemental2.dom.CSSProperties$BorderLeftWidthUnionType$$Overlay.asDouble__$devirt","elemental2.dom.CSSProperties$BorderLeftWidthUnionType$$Overlay.asString__$devirt","elemental2.dom.CSSProperties$BorderLeftWidthUnionType$$Overlay.isDouble__$devirt","elemental2.dom.CSSProperties$BorderLeftWidthUnionType$$Overlay.isString__$devirt","elemental2.dom.CSSProperties$BorderLeftWidthUnionType$$Overlay.<clinit>"]
 }
+

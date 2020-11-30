@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$TextAlign.impl.java.js",
 "lineCount":72,
-"mappings":"A;;;;;;;;;;MA8QsB,e;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,0B;EAAAA,sC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EAAAC,iC;;;QAClB,uD;EAAAC,yG;;;QACA,wD;EAAAA,0G;;;QACA,qD;EAAAA,uG;;;QACA,sD;EAAAA,wG;;;QAJkB,O;EAAAC,kC;EAAAA,+B;EAAAA,qB;EAClBA,qI;EACAA,uI;EACAA,iI;EACAA,mI;;;;;;;;;;;;;;AAJkB;qE;AAAA;sE;AAAA;mE;AAAA;;",
+"mappings":"A;;;;;;;;;;MAsWsB,e;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,0B;EAAAA,sC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EAAAC,iC;;;QAClB,uD;EAAAC,yG;;;QAEA,wD;EAAAA,0G;;;QAEA,qD;EAAAA,uG;;;QAEA,sD;EAAAA,wG;;;QAPkB,O;EAAAC,kC;EAAAA,+B;EAAAA,qB;EAClBA,qI;EAEAA,uI;EAEAA,iI;EAEAA,mI;;;;;;;;;;;;;;AAPkB;qE;AAAA;sE;AAAA;mE;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$TextAlign.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$TextAlign.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$TextAlign.<init>","org.gwtproject.dom.client.Style$TextAlign.<synthetic: getter>","org.gwtproject.dom.client.Style$TextAlign.<clinit>"]
 }
+

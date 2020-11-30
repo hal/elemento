@@ -6,3 +6,4 @@
 "sources":["HasNativeEvent.java"],
 "names":["org.gwtproject.event.dom.client.HasNativeEvent$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.HasNativeEvent$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.HasNativeEvent$$LambdaAdaptor.getNativeEvent","org.gwtproject.event.dom.client.HasNativeEvent$$LambdaAdaptor.<clinit>"]
 }
+

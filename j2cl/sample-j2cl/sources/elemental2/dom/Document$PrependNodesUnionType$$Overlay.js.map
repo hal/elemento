@@ -2,7 +2,8 @@
 "version":3,
 "file":"Document$PrependNodesUnionType$$Overlay.impl.java.js",
 "lineCount":39,
-"mappings":"A;;;;;;;;;MAsFmB,8B;;QAEuB,sB,UAAUA,C;EAAVC,yC;EACpCA,uD;;;QAIW,gE;EAAAC,yC;EACXA,uF;;;QAIa,kE;EAAAC,yC;EACbA,iD;;;QAIc,gE;EAAAC,yC;EACdA,uD;;;QAIc,kE;EAAAC,yC;EACdA,yD;;;QAvBa,O;EAAAC,iD;EAAAA;",
+"mappings":"A;;;;;;;;;MA2HmB,8B;;QAEuB,sB,UAAUA,C;EAAVC,yC;EACpCA,uD;;;QAIW,gE;EAAAC,yC;EACXA,uF;;;QAIa,kE;EAAAC,yC;EACbA,iD;;;QAIc,gE;EAAAC,yC;EACdA,uD;;;QAIc,kE;EAAAC,yC;EACdA,yD;;;QAvBa,O;EAAAC,iD;EAAAA;",
 "sources":["Document.java"],
 "names":["o","elemental2.dom.Document$PrependNodesUnionType$$Overlay.of","elemental2.dom.Document$PrependNodesUnionType$$Overlay.asNode__$devirt","elemental2.dom.Document$PrependNodesUnionType$$Overlay.asString__$devirt","elemental2.dom.Document$PrependNodesUnionType$$Overlay.isNode__$devirt","elemental2.dom.Document$PrependNodesUnionType$$Overlay.isString__$devirt","elemental2.dom.Document$PrependNodesUnionType$$Overlay.<clinit>"]
 }
+

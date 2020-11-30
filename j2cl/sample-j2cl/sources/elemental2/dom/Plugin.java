@@ -25,3 +25,4 @@ public class Plugin {
   public int length;
   public String name;
 }
+

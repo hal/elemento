@@ -24,3 +24,4 @@ public class HTMLMenuElement extends HTMLElement {
   public String label;
   public String type;
 }
+

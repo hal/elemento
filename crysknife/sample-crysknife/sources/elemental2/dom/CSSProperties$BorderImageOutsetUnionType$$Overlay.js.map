@@ -6,3 +6,4 @@
 "sources":["CSSProperties.java"],
 "names":["o","elemental2.dom.CSSProperties$BorderImageOutsetUnionType$$Overlay.of","elemental2.dom.CSSProperties$BorderImageOutsetUnionType$$Overlay.asDouble__$devirt","elemental2.dom.CSSProperties$BorderImageOutsetUnionType$$Overlay.asString__$devirt","elemental2.dom.CSSProperties$BorderImageOutsetUnionType$$Overlay.isDouble__$devirt","elemental2.dom.CSSProperties$BorderImageOutsetUnionType$$Overlay.isString__$devirt","elemental2.dom.CSSProperties$BorderImageOutsetUnionType$$Overlay.<clinit>"]
 }
+

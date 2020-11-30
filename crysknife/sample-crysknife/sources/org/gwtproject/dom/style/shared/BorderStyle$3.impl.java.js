@@ -27,7 +27,7 @@ class $3 extends BorderStyle {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** BorderStyle */ arg0) {
   return super.compareTo(/**@type {BorderStyle}*/ ($Casts.$to(arg0, BorderStyle)));
  }
  

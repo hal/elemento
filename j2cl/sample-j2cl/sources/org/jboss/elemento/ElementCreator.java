@@ -23,3 +23,4 @@ public interface ElementCreator {
 
     <E extends HTMLElement> E create(String element, Class<E> type);
 }
+

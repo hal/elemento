@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeUriHostedModeUtils$JsImpl.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;MAiCuB,M;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,kF;EAAAA,iB;;;CAAA,qE;EAAAC,iC;;;CACJ,8B,gBAAkBC,G;EAC/BC,Y;;;CAGa,qC;EACbC,a;;;QANiB,O;EAAAC,yB;EAAAA,sB;EAAAA;",
+"mappings":"A;;;;;MA2IuB,M;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,kF;EAAAA,iB;;;CAAA,qE;EAAAC,iC;;;CAEJ,8B,gBAAkBC,G;EAC/BC,Y;;;CAGa,qC;EACbC,a;;;QAPiB,O;EAAAC,yB;EAAAA,sB;EAAAA;",
 "sources":["SafeUriHostedModeUtils.java"],
 "names":["org.gwtproject.safehtml.shared.SafeUriHostedModeUtils$JsImpl.<synthetic: ctor_js>","org.gwtproject.safehtml.shared.SafeUriHostedModeUtils$JsImpl.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.SafeUriHostedModeUtils$JsImpl.<init>","uri","org.gwtproject.safehtml.shared.SafeUriHostedModeUtils$JsImpl.isValidUri","org.gwtproject.safehtml.shared.SafeUriHostedModeUtils$JsImpl.getForceCheckValieUriFromProperty","org.gwtproject.safehtml.shared.SafeUriHostedModeUtils$JsImpl.<clinit>"]
 }
+

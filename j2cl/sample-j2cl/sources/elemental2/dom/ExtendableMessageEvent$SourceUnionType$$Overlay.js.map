@@ -6,3 +6,4 @@
 "sources":["ExtendableMessageEvent.java"],
 "names":["o","elemental2.dom.ExtendableMessageEvent$SourceUnionType$$Overlay.of","elemental2.dom.ExtendableMessageEvent$SourceUnionType$$Overlay.asMessagePort__$devirt","elemental2.dom.ExtendableMessageEvent$SourceUnionType$$Overlay.asServiceWorker__$devirt","elemental2.dom.ExtendableMessageEvent$SourceUnionType$$Overlay.asServiceWorkerClient__$devirt","elemental2.dom.ExtendableMessageEvent$SourceUnionType$$Overlay.isMessagePort__$devirt","elemental2.dom.ExtendableMessageEvent$SourceUnionType$$Overlay.isServiceWorker__$devirt","elemental2.dom.ExtendableMessageEvent$SourceUnionType$$Overlay.isServiceWorkerClient__$devirt","elemental2.dom.ExtendableMessageEvent$SourceUnionType$$Overlay.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomTableCellBuilder.impl.java.js",
 "lineCount":70,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAmCC,Q;EAAnCC,8B;EAAAA,0C;EAAAA,mI;EAAAA,iB;;;CAAA,8G,uBAAmCD,Q;EACjCE,gI;;;CAIsB,yB,gBAAaC,K;EACnCC,2F;EACAA,Y;;;CAIsB,sB,gBAAUC,E;EAChCC,qF;EACAA,Y;;;CAIsB,yB,gBAAaC,K;EACnCC,2F;EACAA,Y;;;CAIsB,c,eAAYC,O;EAClCC,+F;EACAA,Y;;;CAIsB,2B,gBAAeC,O;EACrCC,+F;EACAA,Y;;;CAIsB,c,eAAYC,O;EAClCC,+F;EACAA,Y;;;CAIsB,0B,gBAAcC,M;EACpCC,6F;EACAA,Y;;;QA9CS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAmCC,Q;EAAnCC,8B;EAAAA,0C;EAAAA,mI;EAAAA,iB;;;CAAA,8G,uBAAmCD,Q;EACjCE,gI;;;CAIsB,yB,gBAAaC,K;EACnCC,2F;EACAA,Y;;;CAIsB,sB,gBAAUC,E;EAChCC,qF;EACAA,Y;;;CAIsB,yB,gBAAaC,K;EACnCC,2F;EACAA,Y;;;CAIsB,c,eAAYC,O;EAClCC,+F;EACAA,Y;;;CAIsB,2B,gBAAeC,O;EACrCC,+F;EACAA,Y;;;CAIsB,c,eAAYC,O;EAClCC,+F;EACAA,Y;;;CAIsB,0B,gBAAcC,M;EACpCC,6F;EACAA,Y;;;QA9CS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
 "sources":["DomTableCellBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomTableCellBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomTableCellBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomTableCellBuilder.<init>","align","org.gwtproject.dom.builder.client.DomTableCellBuilder.align","ch","org.gwtproject.dom.builder.client.DomTableCellBuilder.ch","chOff","org.gwtproject.dom.builder.client.DomTableCellBuilder.chOff","colSpan","org.gwtproject.dom.builder.client.DomTableCellBuilder.colSpan","headers","org.gwtproject.dom.builder.client.DomTableCellBuilder.headers","rowSpan","org.gwtproject.dom.builder.client.DomTableCellBuilder.rowSpan","vAlign","org.gwtproject.dom.builder.client.DomTableCellBuilder.vAlign","org.gwtproject.dom.builder.client.DomTableCellBuilder.<clinit>"]
 }
+

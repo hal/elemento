@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableCaptionBuilder.impl.java.js",
 "lineCount":14,
-"mappings":"A;;;;;;;;;MAoBiB,mB;;QAAA,O;EAAAA,sC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,mB;;QAAA,O;EAAAA,sC;EAAAA;",
 "sources":["TableCaptionBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.TableCaptionBuilder.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["EventSourceInit.java"],
 "names":["elemental2.dom.EventSourceInit$$Overlay.create","elemental2.dom.EventSourceInit$$Overlay.<clinit>"]
 }
+

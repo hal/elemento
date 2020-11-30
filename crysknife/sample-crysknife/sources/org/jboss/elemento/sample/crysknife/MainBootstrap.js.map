@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"MainBootstrap.impl.java.js",
-"lineCount":69,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAWa,a;;CAAA,W;EAAAA,Q;EAAAA;OAEI,8DAFJA,C;EAAAA;OAIW,iEAJXA,C;EAAAA;OAsBsG,wGAtBtGA,C;EAAAA;OAwB0G,4GAxB1GA,C;EAAAA;OA0BqG,uGA1BrGA,C;;;QAMT,iD,aAAmBC,W;EAAnBC,wB;EAAAA,oC;EAAAA,0H;EAAAA,iB;;;CAAA,kG,aAAmBD,W;EAAnBE,iC;EACIA,4O;EACAA,wP;EACAA,yO;EACAA,kF;;;CAGC,sD;EACDC,oL;EACAA,kM;EACAA;GAAiIC,+HAAjID;O;EACAA;GAAkIC,mIAAlID;O;EACAA;GAA6HC,8HAA7HD;O;EACAA,uH;;;QAnBK,O;EAAAE,gC;EAAAA,6B;EAAAA;",
+"lineCount":75,
+"mappings":"A;;;;;;;;;;;;;;;;;;;MAWa,a;;CAAA,W;EAAAA,Q;EAAAA;OAEI,8DAFJA,C;EAAAA;OAIW,iEAJXA,C;EAAAA;OAsBsE,wGAtBtEA,C;EAAAA;OAwB0E,4GAxB1EA,C;EAAAA;OA0BqE,uGA1BrEA,C;;;QAMT,iD,aAAmBC,W;EAAnBC,wB;EAAAA,oC;EAAAA,0H;EAAAA,iB;;;CAAA,kG,aAAmBD,W;EAAnBE,iC;EACIA;GAAgEC,mIAAhED;K;EACAA;GAAoEC,2IAApED;K;EACAA;GAA+DC,iIAA/DD;K;EACAA,kF;;;CAGC,sD;EACDE,oL;EACAA,kM;EACAA;GAAiIC,uMAAjID;O;EACAA;GAAkIC,+MAAlID;O;EACAA;GAA6HC,qMAA7HD;O;EACAA,uH;;;QAnBK,O;EAAAE,gC;EAAAA,6B;EAAAA;",
 "sources":["MainBootstrap.java"],
-"names":["org.jboss.elemento.sample.crysknife.MainBootstrap.<synthetic: ctor_js>","application","org.jboss.elemento.sample.crysknife.MainBootstrap.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.MainBootstrap.<init>","org.jboss.elemento.sample.crysknife.MainBootstrap.initialize","org.jboss.elemento.sample.crysknife.MainBootstrap.<lambda in initialize>","org.jboss.elemento.sample.crysknife.MainBootstrap.<clinit>"]
+"names":["org.jboss.elemento.sample.crysknife.MainBootstrap.<synthetic: ctor_js>","application","org.jboss.elemento.sample.crysknife.MainBootstrap.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.MainBootstrap.<init>","org.jboss.elemento.sample.crysknife.MainBootstrap.<lambda in <init>>","org.jboss.elemento.sample.crysknife.MainBootstrap.initialize","org.jboss.elemento.sample.crysknife.MainBootstrap.<lambda in initialize>","org.jboss.elemento.sample.crysknife.MainBootstrap.<clinit>"]
 }
+

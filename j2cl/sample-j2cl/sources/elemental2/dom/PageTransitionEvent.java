@@ -54,3 +54,4 @@ public class PageTransitionEvent extends Event {
   public native void initPageTransitionEvent(
       String typeArg, boolean canBubbleArg, boolean cancelableArg, Object persistedArg);
 }
+

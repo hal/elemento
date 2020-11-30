@@ -19,9 +19,10 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public class ProgressEvent extends Event {
+public class ProgressEvent<TARGET> extends Event {
   public boolean lengthComputable;
   public double loaded;
+  public TARGET target;
   public double total;
 
   public ProgressEvent(String type, ProgressEventInit progressEventInitDict) {
@@ -34,3 +35,4 @@ public class ProgressEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

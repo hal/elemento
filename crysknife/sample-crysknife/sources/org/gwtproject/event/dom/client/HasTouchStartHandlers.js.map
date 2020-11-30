@@ -6,3 +6,4 @@
 "sources":["HasTouchStartHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasTouchStartHandlers.<clinit>"]
 }
+

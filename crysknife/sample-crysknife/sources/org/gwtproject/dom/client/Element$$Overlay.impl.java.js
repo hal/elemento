@@ -188,13 +188,13 @@ class org_gwtproject_dom_client_Element_$Overlay {
  /** @return {number} */
  static m_getPropertyDouble__$devirt__org_gwtproject_dom_client_Element__java_lang_String(/** !Object */ $thisArg, /** ?string */ name) {
   org_gwtproject_dom_client_Element_$Overlay.$clinit();
-  let value = window.parseFloat(JsPropertyMap_$Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String(Js.m_asPropertyMap__java_lang_Object($thisArg), name));
+  let value = goog.global.parseFloat(JsPropertyMap_$Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String(Js.m_asPropertyMap__java_lang_Object($thisArg), name));
   return isNaN(value) ? 0.0 : value;
  }
  /** @return {number} */
  static m_getPropertyInt__$devirt__org_gwtproject_dom_client_Element__java_lang_String(/** !Object */ $thisArg, /** ?string */ name) {
   org_gwtproject_dom_client_Element_$Overlay.$clinit();
-  return Js.m_coerceToInt__java_lang_Object(window.parseInt(JsPropertyMap_$Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String(Js.m_asPropertyMap__java_lang_Object($thisArg), name), 10));
+  return Js.m_coerceToInt__java_lang_Object(goog.global.parseInt(JsPropertyMap_$Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String(Js.m_asPropertyMap__java_lang_Object($thisArg), name), 10));
  }
  /** @return {Object} */
  static m_getPropertyJSO__$devirt__org_gwtproject_dom_client_Element__java_lang_String(/** !Object */ $thisArg, /** ?string */ name) {

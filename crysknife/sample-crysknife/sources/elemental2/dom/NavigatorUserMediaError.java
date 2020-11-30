@@ -51,3 +51,4 @@ public interface NavigatorUserMediaError {
   @JsProperty
   void setName(String name);
 }
+

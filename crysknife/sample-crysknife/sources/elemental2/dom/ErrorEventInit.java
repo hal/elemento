@@ -59,3 +59,4 @@ public interface ErrorEventInit extends EventInit {
   @JsProperty
   void setMessage(String message);
 }
+

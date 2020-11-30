@@ -42,3 +42,4 @@ public interface PushSubscriptionOptions {
   @JsProperty
   void setUserVisibleOnly(boolean userVisibleOnly);
 }
+

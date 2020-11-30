@@ -1,17 +1,17 @@
 /*
- * Copyright 2010 Google Inc.
+ * Copyright © 2019 The GWT Project Authors
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.canvas.dom.client;
 
@@ -27,14 +27,10 @@ import org.gwtproject.dom.client.VideoElement;
 /**
  * Rendering interface used to draw on a {@link CanvasElement}.
  *
- * @see <a href="http://www.w3.org/TR/2dcontext/#canvasrenderingcontext2d">W3C
- *      HTML 5 Specification</a>
+ * @see <a href="http://www.w3.org/TR/2dcontext/#canvasrenderingcontext2d">W3C HTML 5
+ *     Specification</a>
  */
-@JsType(
-        isNative = true,
-        name = "Object",
-        namespace = JsPackage.GLOBAL
-)
+@JsType(isNative = true, name = "Object", namespace = JsPackage.GLOBAL)
 public class Context2d extends JavaScriptObject implements Context {
   /**
    * Enum for composite style.
@@ -42,70 +38,65 @@ public class Context2d extends JavaScriptObject implements Context {
    * @see Context2d#setGlobalCompositeOperation(Composite)
    */
   public enum Composite {
-    /**
-     * A (B is ignored). Display the source image instead of the destination
-     * image.
-     */
+    /** A (B is ignored). Display the source image instead of the destination image. */
     COPY("copy"),
 
     /**
-     * B atop A. Same as source-atop but using the destination image instead of
-     * the source image and vice versa.
+     * B atop A. Same as source-atop but using the destination image instead of the source image and
+     * vice versa.
      */
     DESTINATION_ATOP("destination-atop"),
 
     /**
-     * B in A. Same as source-in but using the destination image instead of the
-     * source image and vice versa.
+     * B in A. Same as source-in but using the destination image instead of the source image and
+     * vice versa.
      */
     DESTINATION_IN("destination-in"),
 
     /**
-     * B out A. Same as source-out but using the destination image instead of the
-     * source image and vice versa.
+     * B out A. Same as source-out but using the destination image instead of the source image and
+     * vice versa.
      */
     DESTINATION_OUT("destination-out"),
 
     /**
-     * B over A. Same as source-over but using the destination image instead of
-     * the source image and vice versa.
+     * B over A. Same as source-over but using the destination image instead of the source image and
+     * vice versa.
      */
     DESTINATION_OVER("destination-over"),
 
     /**
-     * A plus B. Display the sum of the source image and destination image, with
-     * color values approaching 1 as a limit.
+     * A plus B. Display the sum of the source image and destination image, with color values
+     * approaching 1 as a limit.
      */
     LIGHTER("lighter"),
 
     /**
-     * A atop B. Display the source image wherever both images are opaque. Display
-     * the destination image wherever the destination image is opaque but the
-     * source image is transparent. Display transparency elsewhere.
+     * A atop B. Display the source image wherever both images are opaque. Display the destination
+     * image wherever the destination image is opaque but the source image is transparent. Display
+     * transparency elsewhere.
      */
     SOURCE_ATOP("source-atop"),
 
     /**
-     * A in B. Display the source image wherever both the source image and
-     * destination image are opaque. Display transparency elsewhere.
+     * A in B. Display the source image wherever both the source image and destination image are
+     * opaque. Display transparency elsewhere.
      */
     SOURCE_IN("source-in"),
 
     /**
-     * A out B. Display the source image wherever the source image is opaque and
-     * the destination image is transparent. Display transparency elsewhere.
+     * A out B. Display the source image wherever the source image is opaque and the destination
+     * image is transparent. Display transparency elsewhere.
      */
     SOURCE_OUT("source-out"),
 
     /**
-     * A over B. Display the source image wherever the source image is opaque.
-     * Display the destination image elsewhere.
+     * A over B. Display the source image wherever the source image is opaque. Display the
+     * destination image elsewhere.
      */
     SOURCE_OVER("source-over"),
 
-    /**
-     * A xor B. Exclusive OR of the source image and destination image.
-     */
+    /** A xor B. Exclusive OR of the source image and destination image. */
     XOR("xor");
 
     private final String value;
@@ -125,7 +116,9 @@ public class Context2d extends JavaScriptObject implements Context {
    * @see Context2d#setLineCap(LineCap)
    */
   public enum LineCap {
-    BUTT("butt"), ROUND("round"), SQUARE("square");
+    BUTT("butt"),
+    ROUND("round"),
+    SQUARE("square");
 
     private final String value;
 
@@ -144,7 +137,9 @@ public class Context2d extends JavaScriptObject implements Context {
    * @see Context2d#setLineJoin(LineJoin)
    */
   public enum LineJoin {
-    BEVEL("bevel"), MITER("miter"), ROUND("round");
+    BEVEL("bevel"),
+    MITER("miter"),
+    ROUND("round");
 
     private final String value;
 
@@ -164,7 +159,10 @@ public class Context2d extends JavaScriptObject implements Context {
    * @see Context2d#createPattern(CanvasElement, Repetition)
    */
   public enum Repetition {
-    NO_REPEAT("no-repeat"), REPEAT("repeat"), REPEAT_X("repeat-x"), REPEAT_Y("repeat-y");
+    NO_REPEAT("no-repeat"),
+    REPEAT("repeat"),
+    REPEAT_X("repeat-x"),
+    REPEAT_Y("repeat-y");
 
     private final String value;
 
@@ -183,7 +181,11 @@ public class Context2d extends JavaScriptObject implements Context {
    * @see Context2d#setTextAlign(TextAlign)
    */
   public enum TextAlign {
-    CENTER("center"), END("end"), LEFT("left"), RIGHT("right"), START("start");
+    CENTER("center"),
+    END("end"),
+    LEFT("left"),
+    RIGHT("right"),
+    START("start");
 
     private final String value;
 
@@ -202,8 +204,12 @@ public class Context2d extends JavaScriptObject implements Context {
    * @see Context2d#setTextBaseline(TextBaseline)
    */
   public enum TextBaseline {
-    ALPHABETIC("alphabetic"), BOTTOM("bottom"), HANGING("hanging"), IDEOGRAPHIC("ideographic"),
-    MIDDLE("middle"), TOP("top");
+    ALPHABETIC("alphabetic"),
+    BOTTOM("bottom"),
+    HANGING("hanging"),
+    IDEOGRAPHIC("ideographic"),
+    MIDDLE("middle"),
+    TOP("top");
 
     private final String value;
 
@@ -216,59 +222,46 @@ public class Context2d extends JavaScriptObject implements Context {
     }
   }
 
-  /**
-   * Specifies the context id property used in creating a Context.
-   */
-  @JsOverlay
-  public static final String CONTEXT_ID = "2d";
+  /** Specifies the context id property used in creating a Context. */
+  @JsOverlay public static final String CONTEXT_ID = "2d";
 
-  protected Context2d() {
-  }
+  protected Context2d() {}
 
   /**
-   * Draws an arc. If a current subpath exists, a line segment is added from the
-   * current point to the starting point of the arc. If {@code endAngle -
-   * startAngle} is equal to or greater than {@code 2 * Math.Pi}, the arc is the
-   * whole circumference of the circle.
+   * Draws an arc. If a current subpath exists, a line segment is added from the current point to
+   * the starting point of the arc. If {@code endAngle - startAngle} is equal to or greater than
+   * {@code 2 * Math.Pi}, the arc is the whole circumference of the circle.
    *
    * @param x the x coordinate of the center of the arc
    * @param y the y coordinate of the center of the arc
    * @param radius the radius of the arc
-   * @param startAngle the start angle, measured in radians clockwise from the
-   *          positive x-axis
-   * @param endAngle the end angle, measured in radians clockwise from the
-   *          positive x-axis
+   * @param startAngle the start angle, measured in radians clockwise from the positive x-axis
+   * @param endAngle the end angle, measured in radians clockwise from the positive x-axis
    */
   @JsOverlay
-  public final void arc(double x, double y, double radius, double startAngle,
-      double endAngle) {
+  public final void arc(double x, double y, double radius, double startAngle, double endAngle) {
     arc(x, y, radius, startAngle, endAngle, false);
   };
 
   /**
-   * Draws an arc. If a current subpath exists, a line segment is added from the
-   * current point to the starting point of the arc. If {@code anticlockwise} is
-   * false and {@code endAngle - startAngle} is equal to or greater than {@code
-   * 2 * Math.PI}, or if {@code anticlockwise} is {@code true} and {@code
-   * startAngle - endAngle} is equal to or greater than {@code 2 * Math.PI},
+   * Draws an arc. If a current subpath exists, a line segment is added from the current point to
+   * the starting point of the arc. If {@code anticlockwise} is false and {@code endAngle -
+   * startAngle} is equal to or greater than {@code 2 * Math.PI}, or if {@code anticlockwise} is
+   * {@code true} and {@code startAngle - endAngle} is equal to or greater than {@code 2 * Math.PI},
    * then the arc is the whole circumference of the circle.
    *
    * @param x the x coordinate of the center of the arc
    * @param y the y coordinate of the center of the arc
    * @param radius the radius of the arc
-   * @param startAngle the start angle, measured in radians clockwise from the
-   *          positive x-axis
-   * @param endAngle the end angle, measured in radians clockwise from the
-   *          positive x-axis
-   * @param anticlockwise if {@code true}, the arc is drawn in an anticlockwise
-   *       direction
+   * @param startAngle the start angle, measured in radians clockwise from the positive x-axis
+   * @param endAngle the end angle, measured in radians clockwise from the positive x-axis
+   * @param anticlockwise if {@code true}, the arc is drawn in an anticlockwise direction
    */
-  public final native void arc(double x, double y, double radius, double startAngle, double endAngle,
-      boolean anticlockwise);
+  public final native void arc(
+      double x, double y, double radius, double startAngle, double endAngle, boolean anticlockwise);
 
   /**
-   * Adds an arc to the current subpath, connecting it to the current point
-   * with a line segment.
+   * Adds an arc to the current subpath, connecting it to the current point with a line segment.
    *
    * @param x1 the x coordinate of the starting point of the arc
    * @param y1 the y coordinate of the starting point of the arc
@@ -278,14 +271,12 @@ public class Context2d extends JavaScriptObject implements Context {
    */
   public final native void arcTo(double x1, double y1, double x2, double y2, double radius);
 
-  /**
-   * Begins a new path.
-   */
+  /** Begins a new path. */
   public final native void beginPath();
 
   /**
-   * Draws a cubic B\u00e9zier curve from the current point to the point
-   * (x, y), with control points (cp1x, cp1y) and (cp2x, cp2y).
+   * Draws a cubic B\u00e9zier curve from the current point to the point (x, y), with control points
+   * (cp1x, cp1y) and (cp2x, cp2y).
    *
    * @param cp1x the x coordinate of the first control point
    * @param cp1y the y coordinate of the first control point
@@ -294,8 +285,8 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param x the x coordinate of the end point
    * @param y the y coordinate of the end point
    */
-  public final native void bezierCurveTo(double cp1x, double cp1y,
-      double cp2x, double cp2y, double x, double y);
+  public final native void bezierCurveTo(
+      double cp1x, double cp1y, double cp2x, double cp2y, double x, double y);
 
   /**
    * Clears a rectangle.
@@ -307,14 +298,10 @@ public class Context2d extends JavaScriptObject implements Context {
    */
   public final native void clearRect(double x, double y, double w, double h);
 
-  /**
-   * Creates a new clipping region from the current path.
-   */
+  /** Creates a new clipping region from the current path. */
   public final native void clip();
 
-  /**
-   * Closes the current path.
-   */
+  /** Closes the current path. */
   public final native void closePath();
 
   /**
@@ -343,8 +330,8 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param y1 the y coordinate of the ending point of the gradient
    * @return a {@link CanvasGradient} object
    */
-  public final native CanvasGradient createLinearGradient(double x0, double y0, double x1,
-                                                          double y1);
+  public final native CanvasGradient createLinearGradient(
+      double x0, double y0, double x1, double y1);
 
   /**
    * Creates a pattern from another canvas.
@@ -399,8 +386,8 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param r1 the radius of the end circle of the gradient
    * @return a {@link CanvasGradient} object
    */
-  public final native CanvasGradient createRadialGradient(double x0, double y0, double r0, double x1,
-                                                          double y1, double r1);
+  public final native CanvasGradient createRadialGradient(
+      double x0, double y0, double r0, double x1, double y1, double r1);
 
   /**
    * Draws an image.
@@ -420,8 +407,8 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param dw the width of the destination rectangle
    * @param dh the height of the destination rectangle
    */
-  public final native void drawImage(CanvasElement image, double dx, double dy, double dw,
-                                     double dh);
+  public final native void drawImage(
+      CanvasElement image, double dx, double dy, double dw, double dh);
 
   /**
    * Draws a scaled subset of an image.
@@ -436,8 +423,16 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param dw the width of the destination rectangle
    * @param dh the height of the destination rectangle
    */
-  public final native void drawImage(CanvasElement image, double sx, double sy, double sw, double sh,
-                                     double dx, double dy, double dw, double dh);
+  public final native void drawImage(
+      CanvasElement image,
+      double sx,
+      double sy,
+      double sw,
+      double sh,
+      double dx,
+      double dy,
+      double dw,
+      double dh);
 
   /**
    * Draws an image.
@@ -457,8 +452,8 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param dw the width of the destination rectangle
    * @param dh the height of the destination rectangle
    */
-  public final native void drawImage(ImageElement image, double dx, double dy, double dw,
-                                     double dh);
+  public final native void drawImage(
+      ImageElement image, double dx, double dy, double dw, double dh);
 
   /**
    * Draws a scaled subset of an image.
@@ -473,8 +468,16 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param dw the width of the destination rectangle
    * @param dh the height of the destination rectangle
    */
-  public final native void drawImage(ImageElement image, double sx, double sy, double sw, double sh,
-                                     double dx, double dy, double dw, double dh);
+  public final native void drawImage(
+      ImageElement image,
+      double sx,
+      double sy,
+      double sw,
+      double sh,
+      double dx,
+      double dy,
+      double dw,
+      double dh);
 
   /**
    * Draws a video's current frame.
@@ -494,8 +497,8 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param dw the width of the destination rectangle
    * @param dh the height of the destination rectangle
    */
-  public final native void drawImage(VideoElement image, double dx, double dy, double dw,
-                                     double dh);
+  public final native void drawImage(
+      VideoElement image, double dx, double dy, double dw, double dh);
 
   /**
    * Draws a scaled subset of a video's current frame.
@@ -510,12 +513,18 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param dw the width of the destination rectangle
    * @param dh the height of the destination rectangle
    */
-  public final native void drawImage(VideoElement image, double sx, double sy, double sw, double sh,
-                                     double dx, double dy, double dw, double dh);
+  public final native void drawImage(
+      VideoElement image,
+      double sx,
+      double sy,
+      double sw,
+      double sh,
+      double dx,
+      double dy,
+      double dw,
+      double dh);
 
-  /**
-   * Fills the current path.
-   */
+  /** Fills the current path. */
   public final native void fill();
 
   /**
@@ -556,8 +565,8 @@ public class Context2d extends JavaScriptObject implements Context {
   public final native CanvasElement getCanvas();
 
   /**
-   * Returns the context's fillStyle. In dev mode, the returned object will
-   * be wrapped in a JavaScript array.
+   * Returns the context's fillStyle. In dev mode, the returned object will be wrapped in a
+   * JavaScript array.
    *
    * @return a {@link FillStrokeStyle} object
    * @see #setFillStyle(FillStrokeStyle)
@@ -596,8 +605,7 @@ public class Context2d extends JavaScriptObject implements Context {
   public final native String getGlobalCompositeOperation();
 
   /**
-   * Returns an image data object for the screen area denoted by
-   * sx, sy, sw and sh.
+   * Returns an image data object for the screen area denoted by sx, sy, sw and sh.
    *
    * @param sx the x coordinate of the upper-left corner of the desired area
    * @param sy the y coordinate of the upper-left corner of the desired area
@@ -684,8 +692,8 @@ public class Context2d extends JavaScriptObject implements Context {
   public final native double getShadowOffsetY();
 
   /**
-   * Returns the context's strokeStyle. In dev mode, the returned object will
-   * be wrapped in a JavaScript array.
+   * Returns the context's strokeStyle. In dev mode, the returned object will be wrapped in a
+   * JavaScript array.
    *
    * @return the stroke style as a {@link FillStrokeStyle} object
    * @see #setStrokeStyle(FillStrokeStyle)
@@ -725,8 +733,7 @@ public class Context2d extends JavaScriptObject implements Context {
   public final native boolean isPointInPath(double x, double y);
 
   /**
-   * Adds a line from the current point to the point (x, y) to the current
-   * path.
+   * Adds a line from the current point to the point (x, y) to the current path.
    *
    * @param x the x coordinate of the line endpoint
    * @param y the y coordinate of the line endpoint
@@ -742,8 +749,7 @@ public class Context2d extends JavaScriptObject implements Context {
   public final native TextMetrics measureText(String text);
 
   /**
-   * Terminates the current path and sets the current path position to the point
-   * (x, y).
+   * Terminates the current path and sets the current path position to the point (x, y).
    *
    * @param x the x coordinate of the new position
    * @param y the y coordinate of the new position
@@ -759,8 +765,8 @@ public class Context2d extends JavaScriptObject implements Context {
   public final native void putImageData(ImageData imagedata, double x, double y);
 
   /**
-   * Draws a quadratic B\u00e9zier curve from the current point to the point
-   * (x, y), with control point (cpx, cpy).
+   * Draws a quadratic B\u00e9zier curve from the current point to the point (x, y), with control
+   * point (cpx, cpy).
    *
    * @param cpx the x coordinate of the control point
    * @param cpy the y coordinate of the control point
@@ -779,9 +785,7 @@ public class Context2d extends JavaScriptObject implements Context {
    */
   public final native void rect(double x, double y, double w, double h);
 
-  /**
-   * Restores the context's state.
-   */
+  /** Restores the context's state. */
   public final native void restore();
 
   /**
@@ -791,9 +795,7 @@ public class Context2d extends JavaScriptObject implements Context {
    */
   public final native void rotate(double angle);
 
-  /**
-   * Saves the context's state.
-   */
+  /** Saves the context's state. */
   public final native void save();
 
   /**
@@ -815,8 +817,8 @@ public class Context2d extends JavaScriptObject implements Context {
   public final native void setFillStyle(FillStrokeStyle fillStyle);
 
   /**
-   * Convenience method to set the context's fillStyle to a {@link CssColor},
-   * specified in String form.
+   * Convenience method to set the context's fillStyle to a {@link CssColor}, specified in String
+   * form.
    *
    * @param fillStyleColor the color as a String
    * @see #getFillStyle()
@@ -1031,12 +1033,10 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param dx the x translation value
    * @param dy the y translation value
    */
-  public final native void setTransform(double m11, double m12, double m21,
-      double m22, double dx, double dy);
+  public final native void setTransform(
+      double m11, double m12, double m21, double m22, double dx, double dy);
 
-  /**
-   * Draws the current path with the current stroke style.
-   */
+  /** Draws the current path with the current stroke style. */
   public final native void stroke();
 
   /**
@@ -1059,8 +1059,7 @@ public class Context2d extends JavaScriptObject implements Context {
   public final native void strokeText(String text, double x, double y);
 
   /**
-   * Draws the text outline, squeezing the text into the given max width by
-   * compressing the font.
+   * Draws the text outline, squeezing the text into the given max width by compressing the font.
    *
    * @param text the text as a String
    * @param x the x coordinate of the text position
@@ -1079,8 +1078,8 @@ public class Context2d extends JavaScriptObject implements Context {
    * @param dx the x translation value
    * @param dy the y translation value
    */
-  public final native void transform(double m11, double m12, double m21, double m22, double dx,
-      double dy);
+  public final native void transform(
+      double m11, double m12, double m21, double m22, double dx, double dy);
 
   /**
    * Applies a translation to the current transform.
@@ -1090,3 +1089,4 @@ public class Context2d extends JavaScriptObject implements Context {
    */
   public final native void translate(double x, double y);
 }
+

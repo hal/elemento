@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$OutlineStyle.impl.java.js",
 "lineCount":107,
-"mappings":"A;;;;;;;;;;MAuNsB,kB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,yC;EAAAA,kE;EAAAA,iB;;;CAAA,qD;EAAAC,iC;;;QAClB,wD;EAAAC,gH;;;QACA,0D;EAAAA,kH;;;QACA,0D;EAAAA,kH;;;QACA,0D;EAAAA,kH;;;QACA,0D;EAAAA,kH;;;QACA,yD;EAAAA,iH;;;QACA,0D;EAAAA,kH;;;QACA,yD;EAAAA,iH;;;QACA,yD;EAAAA,iH;;;QATkB,O;EAAAC,qC;EAAAA,kC;EAAAA,qB;EAClBA,6I;EACAA,iJ;EACAA,iJ;EACAA,iJ;EACAA,iJ;EACAA,+I;EACAA,iJ;EACAA,+I;EACAA,+I;;;;;;;;;;;;;;AATkB;yE;AAAA;2E;AAAA;2E;AAAA;2E;AAAA;2E;AAAA;0E;AAAA;2E;AAAA;0E;AAAA;;",
+"mappings":"A;;;;;;;;;;MA4RsB,kB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,yC;EAAAA,kE;EAAAA,iB;;;CAAA,qD;EAAAC,iC;;;QAClB,wD;EAAAC,gH;;;QAEA,0D;EAAAA,kH;;;QAEA,0D;EAAAA,kH;;;QAEA,0D;EAAAA,kH;;;QAEA,0D;EAAAA,kH;;;QAEA,yD;EAAAA,iH;;;QAEA,0D;EAAAA,kH;;;QAEA,yD;EAAAA,iH;;;QAEA,yD;EAAAA,iH;;;QAjBkB,O;EAAAC,qC;EAAAA,kC;EAAAA,qB;EAClBA,6I;EAEAA,iJ;EAEAA,iJ;EAEAA,iJ;EAEAA,iJ;EAEAA,+I;EAEAA,iJ;EAEAA,+I;EAEAA,+I;;;;;;;;;;;;;;AAjBkB;yE;AAAA;2E;AAAA;2E;AAAA;2E;AAAA;2E;AAAA;0E;AAAA;2E;AAAA;0E;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$OutlineStyle.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$OutlineStyle.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$OutlineStyle.<init>","org.gwtproject.dom.client.Style$OutlineStyle.<synthetic: getter>","org.gwtproject.dom.client.Style$OutlineStyle.<clinit>"]
 }
+

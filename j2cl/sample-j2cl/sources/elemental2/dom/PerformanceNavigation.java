@@ -35,3 +35,4 @@ public class PerformanceNavigation {
   public double redirectCount;
   public double type;
 }
+

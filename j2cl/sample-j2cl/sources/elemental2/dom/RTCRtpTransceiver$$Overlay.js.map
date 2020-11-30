@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"RTCRtpTransceiver$$Overlay.impl.java.js",
-"lineCount":9,
-"mappings":"A;;;;MAsBiB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"lineCount":18,
+"mappings":"A;;;;;;;;MAyBiB,0B;;QAsBA,8G,yEAA4CA,M;EAA5CC,qC;EACbA,8H;;;QAvBa,O;EAAAC,6C;EAAAA;",
 "sources":["RTCRtpTransceiver.java"],
-"names":["elemental2.dom.RTCRtpTransceiver$$Overlay.<clinit>"]
+"names":["codecs","elemental2.dom.RTCRtpTransceiver$$Overlay.setCodecPreferences__$devirt","elemental2.dom.RTCRtpTransceiver$$Overlay.<clinit>"]
 }
+

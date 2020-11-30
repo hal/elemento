@@ -27,7 +27,7 @@ class $6 extends Unit {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Unit */ arg0) {
   return super.compareTo(/**@type {Unit}*/ ($Casts.$to(arg0, Unit)));
  }
  

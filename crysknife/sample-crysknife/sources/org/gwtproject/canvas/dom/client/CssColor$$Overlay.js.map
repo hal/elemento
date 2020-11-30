@@ -2,7 +2,8 @@
 "version":3,
 "file":"CssColor$$Overlay.impl.java.js",
 "lineCount":29,
-"mappings":"A;;;;;;;;;MAuCa,iB;;QAWkB,qB,eAASA,C,gBAAOC,C,gBAAOC,C;EAAvBC,4B;EAC3BA,wF;;;QAY2B,wB,gBAAYC,Q;EAAZD,4B;EAC3BA,4E;;;QAYkB,2D;EAAAE,4B;EAClBA,sI;;;QAtCS,O;EAAAC,oC;EAAAA;",
+"mappings":"A;;;;;;;;;MA+Ba,iB;;QAWkB,qB,eAASA,C,gBAAOC,C,gBAAOC,C;EAAvBC,4B;EAC3BA,wF;;;QAY2B,wB,gBAAYC,Q;EAAZD,4B;EAC3BA,4E;;;QAWkB,2D;EAAAE,4B;EAClBA,sI;;;QArCS,O;EAAAC,oC;EAAAA;",
 "sources":["CssColor.java"],
 "names":["r","g","b","org.gwtproject.canvas.dom.client.CssColor$$Overlay.make","cssColor","org.gwtproject.canvas.dom.client.CssColor$$Overlay.value__$devirt","org.gwtproject.canvas.dom.client.CssColor$$Overlay.<clinit>"]
 }
+

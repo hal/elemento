@@ -20,8 +20,8 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface TransformStreamDefaultController {
-  void enqueue(Object chunk);
+public interface TransformStreamDefaultController<OUT_VALUE> {
+  void enqueue(OUT_VALUE chunk);
 
   void error(Object reason);
 
@@ -33,3 +33,4 @@ public interface TransformStreamDefaultController {
 
   void terminate();
 }
+

@@ -6,3 +6,4 @@
 "sources":["KeyUpHandler.java"],
 "names":["org.gwtproject.event.dom.client.KeyUpHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.KeyUpHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.KeyUpHandler$$LambdaAdaptor.onKeyUp","org.gwtproject.event.dom.client.KeyUpHandler$$LambdaAdaptor.<clinit>"]
 }
+

@@ -34,3 +34,4 @@ public class CSSRule {
   public CSSStyleDeclaration style;
   public int type;
 }
+

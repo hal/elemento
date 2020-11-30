@@ -36,3 +36,4 @@ public class ShadowRoot extends DocumentFragment {
 
   public native Selection getSelection();
 }
+

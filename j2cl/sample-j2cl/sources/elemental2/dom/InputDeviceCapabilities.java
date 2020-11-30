@@ -52,3 +52,4 @@ public class InputDeviceCapabilities {
   public InputDeviceCapabilities(
       InputDeviceCapabilities.InputDeviceCapabilitiesOptionsType options) {}
 }
+

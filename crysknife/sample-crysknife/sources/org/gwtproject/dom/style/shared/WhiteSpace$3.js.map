@@ -2,7 +2,8 @@
 "version":3,
 "file":"WhiteSpace$3.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAiCM,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,sG;EAAAA,iB;;;CAAA,0E;EAAAC,+F;;;CAEY,c;EACZC,a;;;;CAHA,6B;EAAAC,+E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MA+BM,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,sG;EAAAA,iB;;;CAAA,0E;EAAAC,+F;;;CAEY,c;EACZC,a;;;;CAHA,6B;EAAAC,+E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["WhiteSpace.java"],
 "names":["org.gwtproject.dom.style.shared.WhiteSpace$3.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.WhiteSpace$3.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.WhiteSpace$3.<init>","org.gwtproject.dom.style.shared.WhiteSpace$3.getCssName","org.gwtproject.dom.style.shared.WhiteSpace$3.compareTo","org.gwtproject.dom.style.shared.WhiteSpace$3.<clinit>"]
 }
+

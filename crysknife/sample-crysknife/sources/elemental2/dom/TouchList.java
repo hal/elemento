@@ -27,3 +27,4 @@ public class TouchList implements JsArrayLike<Touch> {
 
   public native Touch item(int index);
 }
+

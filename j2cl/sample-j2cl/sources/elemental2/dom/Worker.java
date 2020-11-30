@@ -74,3 +74,4 @@ public class Worker implements EventTarget {
 
   public native void webkitPostMessage(Object message);
 }
+

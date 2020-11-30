@@ -6,3 +6,4 @@
 "sources":["HasGestureChangeHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasGestureChangeHandlers.<clinit>"]
 }
+

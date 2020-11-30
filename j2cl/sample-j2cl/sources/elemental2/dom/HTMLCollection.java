@@ -29,3 +29,4 @@ public class HTMLCollection<T> implements JsIterable<T>, JsArrayLike<T>, JsPrope
 
   public native T namedItem(String name);
 }
+

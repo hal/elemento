@@ -130,3 +130,4 @@ public class MediaStream implements EventTarget {
   @Deprecated
   public native void stop();
 }
+

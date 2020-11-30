@@ -2,7 +2,8 @@
 "version":3,
 "file":"Elements$JsArrayElementIterator.impl.java.js",
 "lineCount":73,
-"mappings":"A;;;;;;;;;;;;;;;;;MAmhDyB,sB;;CAAA,W;EAAAA,Q;EAAAA;OAEG,6DAFHA,C;EAAAA;OAEW,2DAFXA,C;EAAAA;OAEiB,2DAFjBA,C;;;QAIV,mC,oBAAmCC,M;EAAnCC,iC;EAAAA,6C;EAAAA,wG;EAAAA,iB;;;CAAA,qF,oBAAmCD,M;EAAnCE,iC;EACHA,4E;EACAA,6I;;;CAIW,W;EACXC,gG;;;CAIe,Q;EACfC;GACIA,2DADJA;G;EAGAA,oI;EACAA,wM;EACAA,wE;;;CAIQ,U;EACRC;GACIA,0DADJA;G;EAGAA,iJ;EACAA,wE;;;;CA9Ba,+C;EAAAC,mG;;;QAAA,O;EAAAC,yC;EAAAA,sC;EAAAA,qB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;MAg+CyB,sB;;CAAA,W;EAAAA,Q;EAAAA;OAEG,6DAFHA,C;EAAAA;OAEW,2DAFXA,C;EAAAA;OAEiB,2DAFjBA,C;;;QAIV,mC,oBAAmCC,M;EAAnCC,iC;EAAAA,6C;EAAAA,wG;EAAAA,iB;;;CAAA,qF,oBAAmCD,M;EAAnCE,iC;EACHA,4E;EACAA,6I;;;CAIW,W;EACXC,gG;;;CAIe,Q;EACfC;GACIA,2DADJA;G;EAGAA,oI;EACAA,wM;EACAA,wE;;;CAIQ,U;EACRC;GACIA,0DADJA;G;EAGAA,iJ;EACAA,wE;;;;CA9Ba,+C;EAAAC,mG;;;QAAA,O;EAAAC,yC;EAAAA,sC;EAAAA,qB;EAAAA;",
 "sources":["Elements.java"],
 "names":["org.jboss.elemento.Elements$JsArrayElementIterator.<synthetic: ctor_js>","parent","org.jboss.elemento.Elements$JsArrayElementIterator.<synthetic: ctor_create>","org.jboss.elemento.Elements$JsArrayElementIterator.<init>","org.jboss.elemento.Elements$JsArrayElementIterator.hasNext","org.jboss.elemento.Elements$JsArrayElementIterator.next","org.jboss.elemento.Elements$JsArrayElementIterator.remove","org.jboss.elemento.Elements$JsArrayElementIterator.forEachRemaining","org.jboss.elemento.Elements$JsArrayElementIterator.<clinit>"]
 }
+

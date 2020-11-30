@@ -6,3 +6,4 @@
 "sources":["CanPlayThroughEvent.java"],
 "names":["org.gwtproject.event.dom.client.CanPlayThroughEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.CanPlayThroughEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.CanPlayThroughEvent.<init>","org.gwtproject.event.dom.client.CanPlayThroughEvent.getType","org.gwtproject.event.dom.client.CanPlayThroughEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.CanPlayThroughEvent.dispatch","org.gwtproject.event.dom.client.CanPlayThroughEvent.<clinit>"]
 }
+

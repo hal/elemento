@@ -35,3 +35,4 @@ public class InputEvent extends UIEvent {
     super((String) null, (UIEventInit) null);
   }
 }
+

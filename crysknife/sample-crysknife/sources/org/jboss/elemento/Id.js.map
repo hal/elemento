@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Id.impl.java.js",
+"lineCount":138,
+"mappings":"A;;;;;;;;;;;;;;;;;;MAyBmB,E;;CAAA,W;EAAAA,Q;;;QAMM,U;EAAAC,a;EACjBA,mBAAOC,EAAPD,C;EACAA;GACIA,2HADJA;GAEIA,uCAFJA;6G;EAIAA,U;;;QAIiB,oD,gBAAcC,E,wBAAcC,a;EAA5BF,a;EACjBA,yL;;;QAGiB,mD,gBAAaC,E,wBAAcC,a;EAA3BC,a;EACjBA,qG;;;QAGU,yD,gBAAaF,E,gBAASG,S,wBAAqBF,a;EAA3CC,a;EACVA;GACIA,4GADJA;G;EAGAA,IAAaE,GAAbF,4D;EACAA,Y;EACAA;GACIA;IAAAA,IAAYG,YAAZH,kBAAAA;IACIA;KACIA,sBADJA;KADJA;IADJA;G;EAOAA;GAAwBI,iEAAxBJ;GAAwBI,2CAAxBJ;;GAAyCI,mEAAzCJ;GAAyCI,mDAAzCJ;+I;;;QAOU,wB,gBAAYK,I;EAAZC,a;EACVA,IAASC,KAATD,0E;EACAA,IAAaE,SAAbF,4D;EACAA;GAAAA,IAAYG,IAAZH,kBAAAA;GACIA;IACIA,IAAOI,CAAPJ,mGADJA;IAEIA,2GAFJA;IAGIA,sFAHJA;IAIIA;KACIA,iBADJA;KAJJA;IADJA;G;EAUAA;GACIA,YADJA;;GAGIA,sJACgBI,GADhBJ;IACgBK,IAAAD,GAAAC,sDADhBL;IACqBK,2HADrBL;;IAEaK,iEAFbL;IAEaK,0DAFbL;+GAHJA;G;;;QAUI,S;EAAAM,yB;EAAAA,2C;EAAAA,iB;;;CAAA,8B;EAAAC,iC;;;QAnEO,O;EAAAC,qB;EAAAA,kB;EAAAA,qB;EAGfA,yC;;;;;;;;;;;;;;;;;;;;;;;;AADA;GAA4B,mCAA5B,S;AAFe;GAGI,iCAHJ;",
+"sources":["Id.java"],
+"names":["org.jboss.elemento.Id.<synthetic: ctor_js>","org.jboss.elemento.Id.unique","id","additionalIds","org.jboss.elemento.Id.build","separator","ids","additionalId","org.jboss.elemento.Id.<lambda in build>","text","org.jboss.elemento.Id.asId","parts","sanitized","part","s","org.jboss.elemento.Id.<lambda in asId>","org.jboss.elemento.Id.<synthetic: ctor_create>","org.jboss.elemento.Id.<init>","org.jboss.elemento.Id.<clinit>"]
+}
+

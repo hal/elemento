@@ -6,3 +6,4 @@
 "sources":["MediaTrackCapabilities.java"],
 "names":["echoCancellation","elemental2.dom.MediaTrackCapabilities$$Overlay.setEchoCancellation__$devirt","exposureMode","elemental2.dom.MediaTrackCapabilities$$Overlay.setExposureMode__$devirt","facingMode","elemental2.dom.MediaTrackCapabilities$$Overlay.setFacingMode__$devirt","focusMode","elemental2.dom.MediaTrackCapabilities$$Overlay.setFocusMode__$devirt","whiteBalanceMode","elemental2.dom.MediaTrackCapabilities$$Overlay.setWhiteBalanceMode__$devirt","elemental2.dom.MediaTrackCapabilities$$Overlay.<clinit>"]
 }
+

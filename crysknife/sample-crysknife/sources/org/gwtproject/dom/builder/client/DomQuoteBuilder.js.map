@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomQuoteBuilder.impl.java.js",
 "lineCount":46,
-"mappings":"A;;;;;;;;;;;;;;;MAyBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,gI;;;CAIkB,8C,gBAAaC,I;EAC/BC,gM;EACAA,Y;;;CAIkB,wB,gBAAuBD,I;EACzCC,yF;EACAA,Y;;;QAhBS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MAuBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,gI;;;CAIkB,8C,gBAAaC,I;EAC/BC,gM;EACAA,Y;;;CAIkB,wB,gBAAuBD,I;EACzCC,yF;EACAA,Y;;;QAhBS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["DomQuoteBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomQuoteBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomQuoteBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomQuoteBuilder.<init>","cite","org.gwtproject.dom.builder.client.DomQuoteBuilder.cite","org.gwtproject.dom.builder.client.DomQuoteBuilder.<clinit>"]
 }
+

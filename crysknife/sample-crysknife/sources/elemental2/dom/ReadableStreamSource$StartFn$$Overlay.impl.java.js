@@ -9,13 +9,13 @@ let IThenable_$Overlay = goog.forwardDeclare('elemental2.promise.IThenable.$Over
 let Js = goog.forwardDeclare('jsinterop.base.Js$impl');
 
 class StartFn_$Overlay {
- /** @return {IThenable<*>} */
+ /** @template VALUE @return {IThenable<*>} */
  static m_onInvoke__$devirt__elemental2_dom_ReadableStreamSource_StartFn__elemental2_dom_ReadableByteStreamController(/** function(?):IThenable<*> */ $thisArg, /** ReadableByteStreamController */ p0) {
   StartFn_$Overlay.$clinit();
   return $thisArg(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(p0)));
  }
- /** @return {IThenable<*>} */
- static m_onInvoke__$devirt__elemental2_dom_ReadableStreamSource_StartFn__elemental2_dom_ReadableStreamDefaultController(/** function(?):IThenable<*> */ $thisArg, /** ReadableStreamDefaultController */ p0) {
+ /** @template VALUE @return {IThenable<*>} */
+ static m_onInvoke__$devirt__elemental2_dom_ReadableStreamSource_StartFn__elemental2_dom_ReadableStreamDefaultController(/** function(?):IThenable<*> */ $thisArg, /** ReadableStreamDefaultController<VALUE> */ p0) {
   StartFn_$Overlay.$clinit();
   return $thisArg(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(p0)));
  }

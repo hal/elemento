@@ -2,7 +2,8 @@
 "version":3,
 "file":"FillStrokeStyle$$Overlay.impl.java.js",
 "lineCount":50,
-"mappings":"A;;;;;;;;;;MAiCa,wB;;QA4BM,oE;EAAAA,mC;EAEfA;GACEA,2GADFA;SAEOA;GACLA,2GADKA;;GAGLA,uMAHKA;GAILA,0GAJKA;G;;;QAhCE,O;EAAAC,2C;EAAAA,wC;;;;;;;;;;;;;;;;;;AAEX;yBAIwB,0EAJxB,K;AAMA;yBAIwB,0EAJxB,K;AAMA;yBAIwB,yEAJxB;",
+"mappings":"A;;;;;;;;;;MA4Ba,wB;;QAmBM,oE;EAAAA,mC;EAEfA;GACEA,2GADFA;SAEOA;GACLA,2GADKA;;GAGLA,uMAHKA;GAILA,0GAJKA;G;;;QAvBE,O;EAAAC,2C;EAAAA,wC;;;;;;;;;;;;;;;;;;AAEX;yBACmC,0EADnC,K;AAGA;yBACmC,0EADnC,K;AAGA;yBACmC,yEADnC;",
 "sources":["FillStrokeStyle.java"],
 "names":["org.gwtproject.canvas.dom.client.FillStrokeStyle$$Overlay.getType__$devirt","org.gwtproject.canvas.dom.client.FillStrokeStyle$$Overlay.<clinit>"]
 }
+

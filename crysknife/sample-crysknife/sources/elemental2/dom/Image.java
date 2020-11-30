@@ -26,3 +26,4 @@ public class Image extends HTMLImageElement {
 
   public Image(double width) {}
 }
+

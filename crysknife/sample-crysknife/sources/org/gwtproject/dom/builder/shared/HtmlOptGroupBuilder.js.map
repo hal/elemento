@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlOptGroupBuilder.impl.java.js",
 "lineCount":42,
-"mappings":"A;;;;;;;;;;;;;MAoBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAoCC,Q;EAApCC,8B;EAAAA,0C;EAAAA,oI;EAAAA,iB;;;CAAA,+G,wBAAoCD,Q;EAClCE,kI;;;CAIqB,Y;EACrBC,6L;;;CAIqB,yB,gBAAaC,K;EAClCC,qL;;;QAdS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAoCC,Q;EAApCC,8B;EAAAA,0C;EAAAA,oI;EAAAA,iB;;;CAAA,+G,wBAAoCD,Q;EAClCE,kI;;;CAIqB,Y;EACrBC,6L;;;CAIqB,yB,gBAAaC,K;EAClCC,qL;;;QAdS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
 "sources":["HtmlOptGroupBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlOptGroupBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlOptGroupBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlOptGroupBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlOptGroupBuilder.disabled","label","org.gwtproject.dom.builder.shared.HtmlOptGroupBuilder.label","org.gwtproject.dom.builder.shared.HtmlOptGroupBuilder.<clinit>"]
 }
+

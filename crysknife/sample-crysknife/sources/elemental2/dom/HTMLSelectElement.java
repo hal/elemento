@@ -55,3 +55,4 @@ public class HTMLSelectElement extends HTMLElement {
 
   public native void setCustomValidity(String message);
 }
+

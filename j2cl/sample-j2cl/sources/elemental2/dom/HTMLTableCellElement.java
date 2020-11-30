@@ -36,3 +36,4 @@ public class HTMLTableCellElement extends HTMLElement {
   public String vAlign;
   public String width;
 }
+

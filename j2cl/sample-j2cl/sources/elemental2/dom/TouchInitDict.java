@@ -101,3 +101,4 @@ public interface TouchInitDict {
   @JsProperty
   void setTarget(EventTarget target);
 }
+

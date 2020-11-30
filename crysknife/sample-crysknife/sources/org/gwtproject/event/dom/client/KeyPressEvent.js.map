@@ -6,3 +6,4 @@
 "sources":["KeyPressEvent.java"],
 "names":["org.gwtproject.event.dom.client.KeyPressEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.KeyPressEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.KeyPressEvent.<init>","org.gwtproject.event.dom.client.KeyPressEvent.getType","org.gwtproject.event.dom.client.KeyPressEvent.getAssociatedType","org.gwtproject.event.dom.client.KeyPressEvent.toDebugString","org.gwtproject.event.dom.client.KeyPressEvent.getCharCode","org.gwtproject.event.dom.client.KeyPressEvent.getUnicodeCharCode","handler","org.gwtproject.event.dom.client.KeyPressEvent.dispatch","org.gwtproject.event.dom.client.KeyPressEvent.<clinit>"]
 }
+

@@ -40,3 +40,4 @@ public interface ReadableByteStreamController {
   @JsProperty
   void setDesiredSize(int desiredSize);
 }
+

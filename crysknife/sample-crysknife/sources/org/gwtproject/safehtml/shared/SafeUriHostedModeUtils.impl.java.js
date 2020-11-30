@@ -101,13 +101,13 @@ class SafeUriHostedModeUtils extends j_l_Object {
 $Util.$setClassMetadata(SafeUriHostedModeUtils, 'org.gwtproject.safehtml.shared.SafeUriHostedModeUtils');
 
 /**@const {?string}*/
-SafeUriHostedModeUtils.f_HREF_DISCRETE_UCSCHAR__org_gwtproject_safehtml_shared_SafeUriHostedModeUtils = ":/?#[]@!$&'()*+,;=-._~ <>\"{}|\\^`%";
-/**@const {?string}*/
 SafeUriHostedModeUtils.f_FORCE_CHECK_VALID_URI__org_gwtproject_safehtml_shared_SafeUriHostedModeUtils = "com.google.gwt.safehtml.ForceCheckValidUri";
-/**@type {boolean}*/
-SafeUriHostedModeUtils.f_forceCheckValidUri__org_gwtproject_safehtml_shared_SafeUriHostedModeUtils_ = false;
+/**@const {?string}*/
+SafeUriHostedModeUtils.f_HREF_DISCRETE_UCSCHAR__org_gwtproject_safehtml_shared_SafeUriHostedModeUtils = ":/?#[]@!$&'()*+,;=-._~ <>\"{}|\\^`%";
 /**@type {JreImpl}*/
 SafeUriHostedModeUtils.f_impl__org_gwtproject_safehtml_shared_SafeUriHostedModeUtils_;
+/**@type {boolean}*/
+SafeUriHostedModeUtils.f_forceCheckValidUri__org_gwtproject_safehtml_shared_SafeUriHostedModeUtils_ = false;
 
 exports = SafeUriHostedModeUtils; 
 //# sourceMappingURL=SafeUriHostedModeUtils.js.map

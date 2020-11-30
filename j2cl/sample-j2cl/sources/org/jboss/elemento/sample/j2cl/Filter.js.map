@@ -6,3 +6,4 @@
 "sources":["Filter.java"],
 "names":["org.jboss.elemento.sample.j2cl.Filter.<synthetic: ctor_js>","fragment","org.jboss.elemento.sample.j2cl.Filter.<synthetic: ctor_create>","org.jboss.elemento.sample.j2cl.Filter.<init>","org.jboss.elemento.sample.j2cl.Filter.fragment","org.jboss.elemento.sample.j2cl.Filter.filter","token","org.jboss.elemento.sample.j2cl.Filter.parseToken","org.jboss.elemento.sample.j2cl.Filter.valueOf","org.jboss.elemento.sample.j2cl.Filter.values","org.jboss.elemento.sample.j2cl.Filter.compareTo","org.jboss.elemento.sample.j2cl.Filter.<synthetic: getter>","org.jboss.elemento.sample.j2cl.Filter.<clinit>"]
 }
+

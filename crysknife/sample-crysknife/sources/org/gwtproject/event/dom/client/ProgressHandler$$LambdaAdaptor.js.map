@@ -6,3 +6,4 @@
 "sources":["ProgressHandler.java"],
 "names":["org.gwtproject.event.dom.client.ProgressHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.ProgressHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.ProgressHandler$$LambdaAdaptor.onProgress","org.gwtproject.event.dom.client.ProgressHandler$$LambdaAdaptor.<clinit>"]
 }
+

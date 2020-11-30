@@ -27,7 +27,7 @@ class $1 extends WhiteSpace {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** WhiteSpace */ arg0) {
   return super.compareTo(/**@type {WhiteSpace}*/ ($Casts.$to(arg0, WhiteSpace)));
  }
  

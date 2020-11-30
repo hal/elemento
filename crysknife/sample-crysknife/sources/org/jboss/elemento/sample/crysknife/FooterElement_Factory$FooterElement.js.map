@@ -2,7 +2,8 @@
 "version":3,
 "file":"FooterElement_Factory$FooterElement.impl.java.js",
 "lineCount":48,
-"mappings":"A;;;;;;;;;;;MA6BgB,oC;;CAAA,W;EAAAA,Q;EAAAA;8F;EAAAA;OAEiC,gFAFjCA,C;;;QAID,kE;EAAAC,+C;EAAAA,2D;EAAAA,iK;EAAAA,iB;;;CAAA,yI;EAAAC,0G;EAAAA,kE;EAAAA,0F;EACHA,qM;EACAA,qS;;;CAI8B,c;EAC9BC,wH;;;CAXI,kF;EAERD,8O;;;QAFQ,O;EAAAE,uD;EAAAA,oD;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAiCgB,oC;;CAAA,W;EAAAA,Q;EAAAA;8F;EAAAA;OAEiC,gFAFjCA,C;;;QAID,kE;EAAAC,+C;EAAAA,2D;EAAAA,iK;EAAAA,iB;;;CAAA,yI;EAAAC,0G;EAAAA,kE;EAAAA,0F;EACHA,qM;EACAA,qS;;;CAI8B,W;EAC9BC,wH;;;CAXI,kF;EAERD,8O;;;QAFQ,O;EAAAE,uD;EAAAA,oD;EAAAA;",
 "sources":["FooterElement_Factory.java"],
-"names":["org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.<synthetic: ctor_js>","org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.<init>","org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.getElement","org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.<clinit>"]
+"names":["org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.<synthetic: ctor_js>","org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.<init>","org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.element","org.jboss.elemento.sample.crysknife.FooterElement_Factory$FooterElement.<clinit>"]
 }
+

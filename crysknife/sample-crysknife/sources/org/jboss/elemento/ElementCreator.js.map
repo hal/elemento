@@ -2,7 +2,8 @@
 "version":3,
 "file":"ElementCreator.impl.java.js",
 "lineCount":23,
-"mappings":"A;;;;;;;;;;;MAqBiB,c;;CAEa,2C,gBAAcA,O,kBAAkBC,I;;QAF7C,M;EAAAC,yB;EAAAA,gE;;;QAAA,O;EAAAC,iC;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAqBiB,c;;CAEa,2C,gBAAcA,O,kBAAkBC,I;;QAF7C,M;EAAAC,yB;EAAAA,8B;;;QAAA,O;EAAAC,iC;EAAAA;",
 "sources":["ElementCreator.java"],
 "names":["element","type","org.jboss.elemento.ElementCreator.<synthetic: adapt_lambda>","org.jboss.elemento.ElementCreator.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlFieldSetBuilder.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;;;;;MAoBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAoCC,Q;EAApCC,8B;EAAAA,0C;EAAAA,oI;EAAAA,iB;;;CAAA,+G,wBAAoCD,Q;EAClCE,kI;;;QAJS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAkBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAoCC,Q;EAApCC,8B;EAAAA,0C;EAAAA,oI;EAAAA,iB;;;CAAA,+G,wBAAoCD,Q;EAClCE,kI;;;QAJS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
 "sources":["HtmlFieldSetBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlFieldSetBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlFieldSetBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlFieldSetBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlFieldSetBuilder.<clinit>"]
 }
+

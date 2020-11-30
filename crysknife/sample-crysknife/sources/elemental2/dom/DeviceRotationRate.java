@@ -24,3 +24,4 @@ public class DeviceRotationRate {
   public double beta;
   public double gamma;
 }
+

@@ -25,3 +25,4 @@ public class HTMLEmbedElement extends HTMLElement {
   public String type;
   public String width;
 }
+

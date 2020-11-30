@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,9 @@ import org.gwtproject.event.legacy.shared.EventHandler;
 /**
  * Abstract class representing touch events.
  *
- * <p>See {@link <a
+ * <p>See <a
  * href="http://developer.apple.com/library/safari/documentation/UserExperience/Reference/TouchEventClassReference/TouchEvent/TouchEvent.html">Safari
- * Touch Event Documentation</a>}
+ * Touch Event Documentation</a>
  *
  * @param <H> handler type
  */
@@ -127,3 +127,4 @@ public abstract class TouchEvent<H extends EventHandler> extends HumanInputEvent
     }
   }
 }
+

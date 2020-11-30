@@ -6,3 +6,4 @@
 "sources":["ScrollEvent.java"],
 "names":["org.gwtproject.event.dom.client.ScrollEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.ScrollEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.ScrollEvent.<init>","org.gwtproject.event.dom.client.ScrollEvent.getType","org.gwtproject.event.dom.client.ScrollEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.ScrollEvent.dispatch","org.gwtproject.event.dom.client.ScrollEvent.<clinit>"]
 }
+

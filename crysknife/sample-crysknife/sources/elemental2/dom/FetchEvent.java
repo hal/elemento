@@ -82,3 +82,4 @@ public class FetchEvent extends ExtendableEvent {
     respondWith(Js.<FetchEvent.RespondWithRUnionType>uncheckedCast(r));
   }
 }
+

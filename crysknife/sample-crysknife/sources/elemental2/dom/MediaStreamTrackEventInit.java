@@ -35,3 +35,4 @@ public interface MediaStreamTrackEventInit {
   @JsProperty
   void setTrack(MediaStreamTrack track);
 }
+

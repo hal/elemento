@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLDataListElement extends HTMLElement {
   public HTMLCollection<HTMLOptionElement> options;
 }
+

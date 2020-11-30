@@ -6,3 +6,4 @@
 "sources":["HandlerRegistrations.java"],
 "names":["org.gwtproject.event.shared.HandlerRegistrations.<synthetic: ctor_js>","handlers","org.gwtproject.event.shared.HandlerRegistrations.compose","org.gwtproject.event.shared.HandlerRegistrations.<synthetic: ctor_create>","org.gwtproject.event.shared.HandlerRegistrations.<init>","org.gwtproject.event.shared.HandlerRegistrations.<clinit>"]
 }
+

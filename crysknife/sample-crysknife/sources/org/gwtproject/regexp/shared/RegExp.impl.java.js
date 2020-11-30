@@ -33,14 +33,14 @@ class RegExp {
  m_getIgnoreCase__() {}
  /** @abstract @return {number} */
  m_getLastIndex__() {}
+ /** @abstract */
+ m_setLastIndex__int(/** number */ lastIndex) {}
  /** @abstract @return {boolean} */
  m_getMultiline__() {}
  /** @abstract @return {?string} */
  m_getSource__() {}
  /** @abstract @return {?string} */
  m_replace__java_lang_String__java_lang_String(/** ?string */ input, /** ?string */ replacement) {}
- /** @abstract */
- m_setLastIndex__int(/** number */ lastIndex) {}
  /** @abstract @return {SplitResult} */
  m_split__java_lang_String(/** ?string */ input) {}
  /** @abstract @return {SplitResult} */

@@ -6,3 +6,4 @@
 "sources":["TransformStreamTransformer.java"],
 "names":["elemental2.dom.TransformStreamTransformer$$Overlay.create","elemental2.dom.TransformStreamTransformer$$Overlay.<clinit>"]
 }
+

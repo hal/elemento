@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomHeadBuilder.impl.java.js",
 "lineCount":45,
-"mappings":"A;;;;;;;;;;;;;;;;MAwBa,c;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA8BC,Q;EAA9BC,yB;EAAAA,qC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,uBAA8BD,Q;EAC5BE,gJ;;;CAIiB,+C,iBAAcC,I;EAC/BC,kE;;;CAIiB,wB,gBAAYC,I;EAC7BC,kE;;;QAdS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;MAsBa,c;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA8BC,Q;EAA9BC,yB;EAAAA,qC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,uBAA8BD,Q;EAC5BE,gJ;;;CAIiB,+C,iBAAcC,I;EAC/BC,kE;;;CAIiB,wB,gBAAYC,I;EAC7BC,kE;;;QAdS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["DomHeadBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomHeadBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomHeadBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomHeadBuilder.<init>","html","org.gwtproject.dom.builder.client.DomHeadBuilder.html","text","org.gwtproject.dom.builder.client.DomHeadBuilder.text","org.gwtproject.dom.builder.client.DomHeadBuilder.<clinit>"]
 }
+

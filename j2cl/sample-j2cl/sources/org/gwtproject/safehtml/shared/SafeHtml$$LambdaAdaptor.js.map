@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeHtml$$LambdaAdaptor.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;;MA8DiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;sE;EAAAA,4H;;;CAAA,kH;EAAAC,iC;EAAAA,yE;;;CAAA,Y;EAAAC,yC;EAAAA,sG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;MAmDiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;sE;EAAAA,4H;;;CAAA,kH;EAAAC,iC;EAAAA,yE;;;CAAA,Y;EAAAC,yC;EAAAA,sG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["SafeHtml.java"],
 "names":["org.gwtproject.safehtml.shared.SafeHtml$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.safehtml.shared.SafeHtml$$LambdaAdaptor.<init>","org.gwtproject.safehtml.shared.SafeHtml$$LambdaAdaptor.asString","org.gwtproject.safehtml.shared.SafeHtml$$LambdaAdaptor.<clinit>"]
 }
+

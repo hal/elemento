@@ -6,3 +6,4 @@
 "sources":["ChangeEvent.java"],
 "names":["org.gwtproject.event.dom.client.ChangeEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.ChangeEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.ChangeEvent.<init>","org.gwtproject.event.dom.client.ChangeEvent.getType","org.gwtproject.event.dom.client.ChangeEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.ChangeEvent.dispatch","org.gwtproject.event.dom.client.ChangeEvent.<clinit>"]
 }
+

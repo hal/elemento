@@ -6,3 +6,4 @@
 "sources":["ImageData.java"],
 "names":["o","elemental2.dom.ImageData$ConstructorDataOrWidthUnionType$$Overlay.of","elemental2.dom.ImageData$ConstructorDataOrWidthUnionType$$Overlay.asDouble__$devirt","elemental2.dom.ImageData$ConstructorDataOrWidthUnionType$$Overlay.asUint8ClampedArray__$devirt","elemental2.dom.ImageData$ConstructorDataOrWidthUnionType$$Overlay.isDouble__$devirt","elemental2.dom.ImageData$ConstructorDataOrWidthUnionType$$Overlay.isUint8ClampedArray__$devirt","elemental2.dom.ImageData$ConstructorDataOrWidthUnionType$$Overlay.<clinit>"]
 }
+

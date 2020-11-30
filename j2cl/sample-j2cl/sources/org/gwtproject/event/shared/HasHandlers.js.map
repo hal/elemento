@@ -6,3 +6,4 @@
 "sources":["HasHandlers.java"],
 "names":["event","org.gwtproject.event.shared.HasHandlers.<synthetic: adapt_lambda>","org.gwtproject.event.shared.HasHandlers.<clinit>"]
 }
+

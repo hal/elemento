@@ -6,3 +6,4 @@
 "sources":["DragLeaveHandler.java"],
 "names":["org.gwtproject.event.dom.client.DragLeaveHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.DragLeaveHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.DragLeaveHandler$$LambdaAdaptor.onDragLeave","org.gwtproject.event.dom.client.DragLeaveHandler$$LambdaAdaptor.<clinit>"]
 }
+

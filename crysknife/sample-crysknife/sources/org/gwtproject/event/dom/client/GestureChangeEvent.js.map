@@ -6,3 +6,4 @@
 "sources":["GestureChangeEvent.java"],
 "names":["org.gwtproject.event.dom.client.GestureChangeEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.GestureChangeEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.GestureChangeEvent.<init>","org.gwtproject.event.dom.client.GestureChangeEvent.getType","org.gwtproject.event.dom.client.GestureChangeEvent.getAssociatedType","org.gwtproject.event.dom.client.GestureChangeEvent.getRotation","org.gwtproject.event.dom.client.GestureChangeEvent.getScale","handler","org.gwtproject.event.dom.client.GestureChangeEvent.dispatch","org.gwtproject.event.dom.client.GestureChangeEvent.<clinit>"]
 }
+

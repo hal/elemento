@@ -41,3 +41,4 @@ public interface MediaTrackConstraints extends MediaTrackConstraintSet {
     setAdvanced(Js.<JsArray<MediaTrackConstraintSet>>uncheckedCast(advanced));
   }
 }
+

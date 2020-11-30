@@ -150,3 +150,4 @@ public class HTMLOptionsCollection extends HTMLCollection<HTMLOptionElement> {
 
   public native void remove(double index);
 }
+

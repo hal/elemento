@@ -25,3 +25,4 @@ class WebSocket__Constants {
   static int CONNECTING;
   static int OPEN;
 }
+

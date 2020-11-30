@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomVideoBuilder.impl.java.js",
 "lineCount":50,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,8H;;;CAIkB,a,eAAWC,M;EAC7BC,6F;EACAA,Y;;;CAIkB,0B,gBAAcC,G;EAChCC,0F;EACAA,Y;;;CAIkB,Y,eAAUC,K;EAC5BC,2F;EACAA,Y;;;QAtBS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,8H;;;CAIkB,a,eAAWC,M;EAC7BC,6F;EACAA,Y;;;CAIkB,0B,gBAAcC,G;EAChCC,0F;EACAA,Y;;;CAIkB,Y,eAAUC,K;EAC5BC,2F;EACAA,Y;;;QAtBS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["DomVideoBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomVideoBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomVideoBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomVideoBuilder.<init>","height","org.gwtproject.dom.builder.client.DomVideoBuilder.height","url","org.gwtproject.dom.builder.client.DomVideoBuilder.poster","width","org.gwtproject.dom.builder.client.DomVideoBuilder.width","org.gwtproject.dom.builder.client.DomVideoBuilder.<clinit>"]
 }
+

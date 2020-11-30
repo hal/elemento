@@ -2,7 +2,8 @@
 "version":3,
 "file":"QuoteElement$$Overlay.impl.java.js",
 "lineCount":71,
-"mappings":"A;;;;;;;;;;;;;MAgCa,qB;;QAYgB,uC,eAAWA,I;EAAXC,gC;EACzBA,sF;EACAA,qE;;;QASoB,iD,eAAoBC,C;EAApBC,gC;EACpBA;GACEA,oHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,gC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,gC;EACpBA,2e;;;QAqBgB,kG,yCAAgBE,I;EAAhBC,gC;EAChBA,oC;;;QAxES,O;EAAAC,wC;EAAAA,qC;;;;;;;;;;;;;;;;;;AAEX;sBAC2B,iEAD3B,gB;AAEA;sBAC2B,wDAD3B;",
+"mappings":"A;;;;;;;;;;;;;MAiCa,qB;;QAagB,uC,eAAWA,I;EAAXC,gC;EACzBA,sF;EACAA,qE;;;QAWoB,iD,eAAoBC,C;EAApBC,gC;EACpBA;GACEA,oHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,gC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,gC;EACpBA,2e;;;QAuBgB,kG,yCAAgBE,I;EAAhBC,gC;EAChBA,oC;;;QAjFS,O;EAAAC,wC;EAAAA,qC;;;;;;;;;;;;;;;;;;AAEX;sBAAsC,iEAAtC,gB;AACA;sBAAsC,wDAAtC;",
 "sources":["QuoteElement.java"],
 "names":["elem","org.gwtproject.dom.client.QuoteElement$$Overlay.as","o","org.gwtproject.dom.client.QuoteElement$$Overlay.is","node","cite","org.gwtproject.dom.client.QuoteElement$$Overlay.setCite__$devirt","org.gwtproject.dom.client.QuoteElement$$Overlay.<clinit>"]
 }
+

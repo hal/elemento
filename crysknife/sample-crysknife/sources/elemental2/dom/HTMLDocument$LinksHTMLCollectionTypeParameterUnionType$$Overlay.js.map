@@ -6,3 +6,4 @@
 "sources":["HTMLDocument.java"],
 "names":["o","elemental2.dom.HTMLDocument$LinksHTMLCollectionTypeParameterUnionType$$Overlay.of","elemental2.dom.HTMLDocument$LinksHTMLCollectionTypeParameterUnionType$$Overlay.asHTMLAnchorElement__$devirt","elemental2.dom.HTMLDocument$LinksHTMLCollectionTypeParameterUnionType$$Overlay.asHTMLAreaElement__$devirt","elemental2.dom.HTMLDocument$LinksHTMLCollectionTypeParameterUnionType$$Overlay.isHTMLAnchorElement__$devirt","elemental2.dom.HTMLDocument$LinksHTMLCollectionTypeParameterUnionType$$Overlay.isHTMLAreaElement__$devirt","elemental2.dom.HTMLDocument$LinksHTMLCollectionTypeParameterUnionType$$Overlay.<clinit>"]
 }
+

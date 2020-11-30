@@ -23,3 +23,4 @@ public class HTMLOptGroupElement extends HTMLElement {
   public boolean disabled;
   public String label;
 }
+

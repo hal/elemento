@@ -23,3 +23,4 @@ public interface IsElement<E extends HTMLElement> {
     /** @return the element of the custom component */
     E element();
 }
+

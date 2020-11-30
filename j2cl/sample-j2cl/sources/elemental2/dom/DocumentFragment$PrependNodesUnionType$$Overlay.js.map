@@ -6,3 +6,4 @@
 "sources":["DocumentFragment.java"],
 "names":["o","elemental2.dom.DocumentFragment$PrependNodesUnionType$$Overlay.of","elemental2.dom.DocumentFragment$PrependNodesUnionType$$Overlay.asNode__$devirt","elemental2.dom.DocumentFragment$PrependNodesUnionType$$Overlay.asString__$devirt","elemental2.dom.DocumentFragment$PrependNodesUnionType$$Overlay.isNode__$devirt","elemental2.dom.DocumentFragment$PrependNodesUnionType$$Overlay.isString__$devirt","elemental2.dom.DocumentFragment$PrependNodesUnionType$$Overlay.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"BorderStyle.impl.java.js",
 "lineCount":121,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;MAoBY,W;;CAAA,W;EAAAA,Q;;;CAAA,yE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAiCa,c;;QAjCb,2B;EAAAC,sB;EAAAA;GAAAA,oIAAAA;G;EAAAA,yH;;;QAAA,U;EAAAC,sB;EAAAA,wZ;;;QACV,uD;EAAAC,iG;;;QAMA,yD;EAAAA,mG;;;QAMA,yD;EAAAA,mG;;;QAMA,yD;EAAAA,mG;;;QAMA,wD;EAAAA,kG;;;QAzBU,O;EAAAC,8B;EAAAA,2B;EAAAA,e;EACVA,4M;EAMAA,kN;EAMAA,kN;EAMAA,kN;EAMAA,+M;EAzBUA,oF;;;;;;;;;;;;;;;;;;;;;;;AAAA;iE;AAAA;mE;AAAA;mE;AAAA;mE;AAAA;kE;AAAA;6E;AACV;6E;AAMA;+E;AAMA;+E;AAMA;+E;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;;MAkBY,W;;CAAA,W;EAAAA,Q;;;CAAA,yE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAiCa,c;;QAjCb,2B;EAAAC,sB;EAAAA;GAAAA,oIAAAA;G;EAAAA,yH;;;QAAA,U;EAAAC,sB;EAAAA,wZ;;;QACV,uD;EAAAC,iG;;;QAMA,yD;EAAAA,mG;;;QAMA,yD;EAAAA,mG;;;QAMA,yD;EAAAA,mG;;;QAMA,wD;EAAAA,kG;;;QAzBU,O;EAAAC,8B;EAAAA,2B;EAAAA,e;EACVA,4M;EAMAA,kN;EAMAA,kN;EAMAA,kN;EAMAA,+M;EAzBUA,oF;;;;;;;;;;;;;;;;;;;;;;;AAAA;iE;AAAA;mE;AAAA;mE;AAAA;mE;AAAA;kE;AAAA;6E;AACV;6E;AAMA;+E;AAMA;+E;AAMA;+E;AAMA;;",
 "sources":["BorderStyle.java"],
 "names":["org.gwtproject.dom.style.shared.BorderStyle.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.BorderStyle.<init>","org.gwtproject.dom.style.shared.BorderStyle.valueOf","org.gwtproject.dom.style.shared.BorderStyle.values","org.gwtproject.dom.style.shared.BorderStyle.<synthetic: getter>","org.gwtproject.dom.style.shared.BorderStyle.<clinit>"]
 }
+

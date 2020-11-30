@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class DocumentCSS {
   public native CSSStyleDeclaration getOverrideStyle(Element elt, String pseudoElt);
 }
+

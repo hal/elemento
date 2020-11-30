@@ -12,15 +12,15 @@ class GetReaderUnionType_$Overlay {
   GetReaderUnionType_$Overlay.$clinit();
   return /**@type {?}*/ (Js.m_cast__java_lang_Object(o));
  }
- /** @return {ReadableStreamBYOBReader} */
+ /** @template VALUE @return {ReadableStreamBYOBReader} */
  static m_asReadableStreamBYOBReader__$devirt__elemental2_dom_ReadableStream_GetReaderUnionType(/** ? */ $thisArg) {
   GetReaderUnionType_$Overlay.$clinit();
   return /**@type {ReadableStreamBYOBReader}*/ (Js.m_cast__java_lang_Object($thisArg));
  }
- /** @return {ReadableStreamDefaultReader} */
+ /** @template VALUE @return {ReadableStreamDefaultReader<VALUE>} */
  static m_asReadableStreamDefaultReader__$devirt__elemental2_dom_ReadableStream_GetReaderUnionType(/** ? */ $thisArg) {
   GetReaderUnionType_$Overlay.$clinit();
-  return /**@type {ReadableStreamDefaultReader}*/ (Js.m_cast__java_lang_Object($thisArg));
+  return /**@type {ReadableStreamDefaultReader<VALUE>}*/ (Js.m_cast__java_lang_Object($thisArg));
  }
  
  static $clinit() {

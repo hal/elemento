@@ -6,3 +6,4 @@
 "sources":["TouchStartEvent.java"],
 "names":["org.gwtproject.event.dom.client.TouchStartEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.TouchStartEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.TouchStartEvent.<init>","org.gwtproject.event.dom.client.TouchStartEvent.getType","org.gwtproject.event.dom.client.TouchStartEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.TouchStartEvent.dispatch","org.gwtproject.event.dom.client.TouchStartEvent.<clinit>"]
 }
+

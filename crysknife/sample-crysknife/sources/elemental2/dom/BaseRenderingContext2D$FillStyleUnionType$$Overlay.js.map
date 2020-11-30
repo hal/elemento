@@ -6,3 +6,4 @@
 "sources":["BaseRenderingContext2D.java"],
 "names":["o","elemental2.dom.BaseRenderingContext2D$FillStyleUnionType$$Overlay.of","elemental2.dom.BaseRenderingContext2D$FillStyleUnionType$$Overlay.asCanvasGradient__$devirt","elemental2.dom.BaseRenderingContext2D$FillStyleUnionType$$Overlay.asCanvasPattern__$devirt","elemental2.dom.BaseRenderingContext2D$FillStyleUnionType$$Overlay.asString__$devirt","elemental2.dom.BaseRenderingContext2D$FillStyleUnionType$$Overlay.isCanvasGradient__$devirt","elemental2.dom.BaseRenderingContext2D$FillStyleUnionType$$Overlay.isCanvasPattern__$devirt","elemental2.dom.BaseRenderingContext2D$FillStyleUnionType$$Overlay.isString__$devirt","elemental2.dom.BaseRenderingContext2D$FillStyleUnionType$$Overlay.<clinit>"]
 }
+

@@ -21,7 +21,6 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
-import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public interface RTCConfigurationInterface_ {
@@ -33,7 +32,7 @@ public interface RTCConfigurationInterface_ {
     }
 
     @JsOverlay
-    default RTCConfigurationInterface_.IceServersFieldType asIceServersFieldType() {
+    default RTCConfigurationRecord_.IceServersFieldType asIceServersFieldType() {
       return Js.cast(this);
     }
 
@@ -43,41 +42,8 @@ public interface RTCConfigurationInterface_ {
     }
 
     @JsOverlay
-    default RTCConfigurationInterface_.UrlsFieldType asUrlsFieldType() {
+    default RTCConfigurationRecord_.UrlsFieldType asUrlsFieldType() {
       return Js.cast(this);
-    }
-  }
-
-  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
-  public interface IceServersFieldType {
-    @JsOverlay
-    static RTCConfigurationInterface_.IceServersFieldType create() {
-      return Js.uncheckedCast(JsPropertyMap.of());
-    }
-
-    @JsProperty
-    String getUrls();
-
-    @JsProperty
-    void setUrls(String urls);
-  }
-
-  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
-  public interface UrlsFieldType {
-    @JsOverlay
-    static RTCConfigurationInterface_.UrlsFieldType create() {
-      return Js.uncheckedCast(JsPropertyMap.of());
-    }
-
-    @JsProperty
-    JsArray<String> getUrls();
-
-    @JsProperty
-    void setUrls(JsArray<String> urls);
-
-    @JsOverlay
-    default void setUrls(String[] urls) {
-      setUrls(Js.<JsArray<String>>uncheckedCast(urls));
     }
   }
 
@@ -100,3 +66,4 @@ public interface RTCConfigurationInterface_ {
   @JsProperty
   void setSdpSemantics(String sdpSemantics);
 }
+

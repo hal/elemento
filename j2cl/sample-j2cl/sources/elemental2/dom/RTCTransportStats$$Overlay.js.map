@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"RTCTransportStats$$Overlay.impl.java.js",
+"lineCount":9,
+"mappings":"A;;;;MAsBiB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"sources":["RTCTransportStats.java"],
+"names":["elemental2.dom.RTCTransportStats$$Overlay.<clinit>"]
+}
+

@@ -6,3 +6,4 @@
 "sources":["DragEndEvent.java"],
 "names":["org.gwtproject.event.dom.client.DragEndEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.DragEndEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.DragEndEvent.<init>","org.gwtproject.event.dom.client.DragEndEvent.getType","org.gwtproject.event.dom.client.DragEndEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.DragEndEvent.dispatch","org.gwtproject.event.dom.client.DragEndEvent.<clinit>"]
 }
+

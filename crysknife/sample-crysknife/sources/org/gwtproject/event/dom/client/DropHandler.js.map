@@ -6,3 +6,4 @@
 "sources":["DropHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.DropHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.DropHandler.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomHRBuilder.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;MAuBa,Y;;CAAA,W;EAAAA,Q;;;QAEX,yD,uBAA4BC,Q;EAA5BC,uB;EAAAA,mC;EAAAA,4H;EAAAA,iB;;;CAAA,uG,uBAA4BD,Q;EAC1BE,+I;;;QAHS,O;EAAAC,+B;EAAAA,4B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAqBa,Y;;CAAA,W;EAAAA,Q;;;QAEX,yD,uBAA4BC,Q;EAA5BC,uB;EAAAA,mC;EAAAA,4H;EAAAA,iB;;;CAAA,uG,uBAA4BD,Q;EAC1BE,+I;;;QAHS,O;EAAAC,+B;EAAAA,4B;EAAAA;",
 "sources":["DomHRBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomHRBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomHRBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomHRBuilder.<init>","org.gwtproject.dom.builder.client.DomHRBuilder.<clinit>"]
 }
+

@@ -77,3 +77,4 @@ public interface MutationObserverInit {
   @JsProperty
   void setSubtree(boolean subtree);
 }
+

@@ -31,3 +31,4 @@ public class PerformanceNavigationTiming extends PerformanceResourceTiming {
   public double unloadEventEnd;
   public double unloadEventStart;
 }
+

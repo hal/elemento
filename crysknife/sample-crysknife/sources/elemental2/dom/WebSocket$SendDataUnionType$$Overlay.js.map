@@ -6,3 +6,4 @@
 "sources":["WebSocket.java"],
 "names":["o","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.of","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.asArrayBuffer__$devirt","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.asArrayBufferView__$devirt","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.asBlob__$devirt","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.asString__$devirt","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.isArrayBuffer__$devirt","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.isArrayBufferView__$devirt","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.isBlob__$devirt","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.isString__$devirt","elemental2.dom.WebSocket$SendDataUnionType$$Overlay.<clinit>"]
 }
+

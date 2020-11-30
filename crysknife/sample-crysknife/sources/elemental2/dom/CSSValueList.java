@@ -25,3 +25,4 @@ public class CSSValueList extends CSSValue implements JsArrayLike<CSSValue> {
 
   public native CSSValue item(int index);
 }
+

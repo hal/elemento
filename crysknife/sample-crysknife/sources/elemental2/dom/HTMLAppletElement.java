@@ -32,3 +32,4 @@ public class HTMLAppletElement extends HTMLElement {
   public double vspace;
   public String width;
 }
+

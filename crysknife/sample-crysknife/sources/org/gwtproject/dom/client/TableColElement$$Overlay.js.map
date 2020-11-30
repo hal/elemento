@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableColElement$$Overlay.impl.java.js",
 "lineCount":65,
-"mappings":"A;;;;;;;;;;;;MA8Ba,wB;;QAYmB,uC,eAAWA,I;EAAXC,mC;EAC5BA,yF;EACAA,wE;;;QASoB,iD,eAAoBC,C;EAApBC,mC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,mC;EACpBA;GACEA,0HADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,mC;EACpBA,uf;;;QAlDS,O;EAAAE,2C;EAAAA,wC;;;;;;;;;;;;;;;;;;AAEX;yBAC2B,6DAD3B,S;AAEA;yBAC2B,kEAD3B;",
+"mappings":"A;;;;;;;;;;;;MA+Ba,wB;;QAamB,uC,eAAWA,I;EAAXC,mC;EAC5BA,yF;EACAA,wE;;;QAWoB,iD,eAAoBC,C;EAApBC,mC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,mC;EACpBA;GACEA,0HADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,mC;EACpBA,uf;;;QAzDS,O;EAAAE,2C;EAAAA,wC;;;;;;;;;;;;;;;;;;AAEX;yBAAsC,6DAAtC,S;AACA;yBAAsC,kEAAtC;",
 "sources":["TableColElement.java"],
 "names":["elem","org.gwtproject.dom.client.TableColElement$$Overlay.as","o","org.gwtproject.dom.client.TableColElement$$Overlay.is","node","org.gwtproject.dom.client.TableColElement$$Overlay.<clinit>"]
 }
+

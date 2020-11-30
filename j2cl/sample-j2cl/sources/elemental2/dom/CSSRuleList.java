@@ -25,3 +25,4 @@ public class CSSRuleList implements JsArrayLike<CSSRule> {
 
   public native CSSRule item(int index);
 }
+

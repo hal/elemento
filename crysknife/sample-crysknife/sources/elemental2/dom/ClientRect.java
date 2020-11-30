@@ -28,3 +28,4 @@ public class ClientRect {
   public double top;
   public double width;
 }
+

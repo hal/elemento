@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"PerformanceEventTiming$$Overlay.impl.java.js",
+"lineCount":9,
+"mappings":"A;;;;MAqBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"sources":["PerformanceEventTiming.java"],
+"names":["elemental2.dom.PerformanceEventTiming$$Overlay.<clinit>"]
+}
+

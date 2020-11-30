@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$WhiteSpace.impl.java.js",
 "lineCount":79,
-"mappings":"A;;;;;;;;;;MA8WsB,gB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,2B;EAAAA,uC;EAAAA,gE;EAAAA,iB;;;CAAA,mD;EAAAC,iC;;;QAClB,wD;EAAAC,4G;;;QACA,wD;EAAAA,4G;;;QACA,qD;EAAAA,yG;;;QACA,0D;EAAAA,8G;;;QACA,0D;EAAAA,8G;;;QALkB,O;EAAAC,mC;EAAAA,gC;EAAAA,qB;EAClBA,yI;EACAA,yI;EACAA,mI;EACAA,6I;EACAA,6I;;;;;;;;;;;;;;AALkB;uE;AAAA;uE;AAAA;oE;AAAA;yE;AAAA;;",
+"mappings":"A;;;;;;;;;;MAuesB,gB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,2B;EAAAA,uC;EAAAA,gE;EAAAA,iB;;;CAAA,mD;EAAAC,iC;;;QAClB,wD;EAAAC,4G;;;QAEA,wD;EAAAA,4G;;;QAEA,qD;EAAAA,yG;;;QAEA,0D;EAAAA,8G;;;QAEA,0D;EAAAA,8G;;;QATkB,O;EAAAC,mC;EAAAA,gC;EAAAA,qB;EAClBA,yI;EAEAA,yI;EAEAA,mI;EAEAA,6I;EAEAA,6I;;;;;;;;;;;;;;AATkB;uE;AAAA;uE;AAAA;oE;AAAA;yE;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$WhiteSpace.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$WhiteSpace.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$WhiteSpace.<init>","org.gwtproject.dom.client.Style$WhiteSpace.<synthetic: getter>","org.gwtproject.dom.client.Style$WhiteSpace.<clinit>"]
 }
+

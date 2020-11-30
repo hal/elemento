@@ -2,7 +2,8 @@
 "version":3,
 "file":"WhiteSpace.impl.java.js",
 "lineCount":121,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;MAoBY,U;;CAAA,W;EAAAA,Q;;;CAAA,wE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAiCa,c;;QAjCb,2B;EAAAC,qB;EAAAA;GAAAA,iIAAAA;G;EAAAA,uH;;;QAAA,U;EAAAC,qB;EAAAA,gZ;;;QACV,wD;EAAAC,gG;;;QAMA,wD;EAAAA,gG;;;QAMA,qD;EAAAA,6F;;;QAMA,0D;EAAAA,kG;;;QAMA,0D;EAAAA,kG;;;QAzBU,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EACVA,8M;EAMAA,8M;EAMAA,qM;EAMAA,oN;EAMAA,oN;EAzBUA,kF;;;;;;;;;;;;;;;;;;;;;;;AAAA;iE;AAAA;iE;AAAA;8D;AAAA;mE;AAAA;mE;AAAA;2E;AACV;6E;AAMA;6E;AAMA;0E;AAMA;+E;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;;MAkBY,U;;CAAA,W;EAAAA,Q;;;CAAA,wE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAiCa,c;;QAjCb,2B;EAAAC,qB;EAAAA;GAAAA,iIAAAA;G;EAAAA,uH;;;QAAA,U;EAAAC,qB;EAAAA,gZ;;;QACV,wD;EAAAC,gG;;;QAMA,wD;EAAAA,gG;;;QAMA,qD;EAAAA,6F;;;QAMA,0D;EAAAA,kG;;;QAMA,0D;EAAAA,kG;;;QAzBU,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EACVA,8M;EAMAA,8M;EAMAA,qM;EAMAA,oN;EAMAA,oN;EAzBUA,kF;;;;;;;;;;;;;;;;;;;;;;;AAAA;iE;AAAA;iE;AAAA;8D;AAAA;mE;AAAA;mE;AAAA;2E;AACV;6E;AAMA;6E;AAMA;0E;AAMA;+E;AAMA;;",
 "sources":["WhiteSpace.java"],
 "names":["org.gwtproject.dom.style.shared.WhiteSpace.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.WhiteSpace.<init>","org.gwtproject.dom.style.shared.WhiteSpace.valueOf","org.gwtproject.dom.style.shared.WhiteSpace.values","org.gwtproject.dom.style.shared.WhiteSpace.<synthetic: getter>","org.gwtproject.dom.style.shared.WhiteSpace.<clinit>"]
 }
+

@@ -138,3 +138,4 @@ public class Node implements EventTarget {
 
   public native Node replaceChild(Node newChild, Node oldChild);
 }
+

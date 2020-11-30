@@ -37,3 +37,4 @@ public class HTMLOutputElement extends HTMLElement {
 
   public native Object setCustomValidity(String message);
 }
+

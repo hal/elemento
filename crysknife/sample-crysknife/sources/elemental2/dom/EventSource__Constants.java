@@ -24,3 +24,4 @@ class EventSource__Constants {
   static int CONNECTING;
   static int OPEN;
 }
+

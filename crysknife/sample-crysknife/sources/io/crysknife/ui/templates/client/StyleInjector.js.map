@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"StyleInjector.impl.java.js",
+"lineCount":44,
+"mappings":"A;;;;;;;;;;;MAqBa,a;;CAAA,W;EAAAA,Q;;;QAEH,S;EAAAC,oC;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,iC;;;QAEiB,8B,gBAAkBC,S;EAAlBC,wB;EACvBA,uD;;;QAG8B,iC,gBAAqBC,Q;EAArBC,wB;EAC9BA,IAAiBC,KAAjBD,wJ;EACAA,oI;EACAA,2B;EACAA,a;;;QAZS,O;EAAAE,gC;EAAAA,6B;EAAAA;",
+"sources":["StyleInjector.java"],
+"names":["io.crysknife.ui.templates.client.StyleInjector.<synthetic: ctor_js>","io.crysknife.ui.templates.client.StyleInjector.<synthetic: ctor_create>","io.crysknife.ui.templates.client.StyleInjector.<init>","styleBody","io.crysknife.ui.templates.client.StyleInjector.fromString","contents","io.crysknife.ui.templates.client.StyleInjector.createElement","style","io.crysknife.ui.templates.client.StyleInjector.<clinit>"]
+}
+

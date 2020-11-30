@@ -2,7 +2,8 @@
 "version":3,
 "file":"CSSKeyframesRule$$Overlay.impl.java.js",
 "lineCount":9,
-"mappings":"A;;;;MAsBiB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;MAqBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["CSSKeyframesRule.java"],
 "names":["elemental2.dom.CSSKeyframesRule$$Overlay.<clinit>"]
 }
+

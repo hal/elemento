@@ -65,3 +65,4 @@ public class EventSource implements EventTarget {
 
   public native void removeEventListener(String type, EventListener listener);
 }
+

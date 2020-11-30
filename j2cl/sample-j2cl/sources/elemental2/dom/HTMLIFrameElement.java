@@ -21,6 +21,7 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class HTMLIFrameElement extends HTMLElement {
   public String align;
+  public String allow;
   public Document contentDocument;
   public Window contentWindow;
   public String frameBorder;
@@ -29,9 +30,10 @@ public class HTMLIFrameElement extends HTMLElement {
   public String marginHeight;
   public String marginWidth;
   public String name;
-  public String sandbox;
+  public DOMTokenList sandbox;
   public String scrolling;
   public String src;
   public String srcdoc;
   public String width;
 }
+

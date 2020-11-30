@@ -6,3 +6,4 @@
 "sources":["MouseWheelHandler.java"],
 "names":["org.gwtproject.event.dom.client.MouseWheelHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.MouseWheelHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.MouseWheelHandler$$LambdaAdaptor.onMouseWheel","org.gwtproject.event.dom.client.MouseWheelHandler$$LambdaAdaptor.<clinit>"]
 }
+

@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Instance.impl.java.js",
+"lineCount":19,
+"mappings":"A;;;;;;;;MAkBiB,Q;;CAET,O;;CAED,2B,UAAUA,I;;CAEV,c;;QANU,O;EAAAC,2B;EAAAA;",
+"sources":["Instance.java"],
+"names":["var1","io.crysknife.client.Instance.<clinit>"]
+}
+

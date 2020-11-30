@@ -2,7 +2,8 @@
 "version":3,
 "file":"UriUtils$JvmImpl.impl.java.js",
 "lineCount":26,
-"mappings":"A;;;;;MA4CuB,O;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,kB;EAAAA,8B;EAAAA,qE;EAAAA,iB;;;CAAA,wD;EAAAC,+D;;;QAAA,O;EAAAC,0B;EAAAA,uB;EAAAA;",
+"mappings":"A;;;;;MAwPuB,O;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,kB;EAAAA,8B;EAAAA,qE;EAAAA,iB;;;CAAA,wD;EAAAC,+D;;;QAAA,O;EAAAC,0B;EAAAA,uB;EAAAA;",
 "sources":["UriUtils.java"],
 "names":["org.gwtproject.safehtml.shared.UriUtils$JvmImpl.<synthetic: ctor_js>","org.gwtproject.safehtml.shared.UriUtils$JvmImpl.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.UriUtils$JvmImpl.<init>","org.gwtproject.safehtml.shared.UriUtils$JvmImpl.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"Named.impl.java.js",
 "lineCount":16,
-"mappings":"A;;;;;;;;;MAqCkB,K;;CAEd,S;;QAFc,O;EAAAA,wB;EAAAA;",
+"mappings":"A;;;;;;;;;MAqCkB,K;;CAEhB,S;;QAFgB,O;EAAAA,wB;EAAAA;",
 "sources":["Named.java"],
 "names":["javax.inject.Named.<clinit>"]
 }
+

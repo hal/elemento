@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 class XPathNamespace__Constants {
   static int XPATH_NAMESPACE_NODE;
 }
+

@@ -28,7 +28,12 @@ public class StorageEvent extends Event {
   public Storage storageArea;
   public String url;
 
-  public StorageEvent() {
+  public StorageEvent(String type, StorageEventInit eventInitDict) {
+    // This super call is here only for the code to compile; it is never executed.
+    super((String) null, (EventInit) null);
+  }
+
+  public StorageEvent(String type) {
     // This super call is here only for the code to compile; it is never executed.
     super((String) null, (EventInit) null);
   }
@@ -43,3 +48,4 @@ public class StorageEvent extends Event {
       String urlArg,
       Storage storageAreaArg);
 }
+

@@ -43,3 +43,4 @@ public class HTMLButtonElement extends HTMLElement {
 
   public native void setCustomValidity(String message);
 }
+

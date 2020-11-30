@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeStyles.impl.java.js",
 "lineCount":27,
-"mappings":"A;;;;;;;;;;;MAiFiB,U;;CA2BR,Y;;CAOC,M,UAAcA,Q;;CAGlB,Q;;QArCW,M;EAAAC,qB;EAAAA,8B;;;QAAA,O;EAAAC,6B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAiFiB,U;;CA2BR,Y;;CAEH,Q;;CAMI,M,UAAcA,Q;;QAnCP,M;EAAAC,qB;EAAAA,8B;;;QAAA,O;EAAAC,6B;EAAAA;",
 "sources":["SafeStyles.java"],
 "names":["anObject","org.gwtproject.safecss.shared.SafeStyles.<synthetic: adapt_lambda>","org.gwtproject.safecss.shared.SafeStyles.<clinit>"]
 }
+

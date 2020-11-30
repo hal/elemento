@@ -28,3 +28,4 @@ public class CSSValue {
   public String cssText;
   public double cssValueType;
 }
+

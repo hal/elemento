@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$Position.impl.java.js",
 "lineCount":72,
-"mappings":"A;;;;;;;;;;MAsPsB,c;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,yB;EAAAA,qC;EAAAA,8D;EAAAA,iB;;;CAAA,iD;EAAAC,iC;;;QAClB,sD;EAAAC,sG;;;QACA,wD;EAAAA,wG;;;QACA,wD;EAAAA,wG;;;QACA,qD;EAAAA,qG;;;QAJkB,O;EAAAC,iC;EAAAA,8B;EAAAA,qB;EAClBA,iI;EACAA,qI;EACAA,qI;EACAA,+H;;;;;;;;;;;;;;AAJkB;mE;AAAA;qE;AAAA;qE;AAAA;;",
+"mappings":"A;;;;;;;;;;MAwUsB,c;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,yB;EAAAA,qC;EAAAA,8D;EAAAA,iB;;;CAAA,iD;EAAAC,iC;;;QAClB,sD;EAAAC,sG;;;QAEA,wD;EAAAA,wG;;;QAEA,wD;EAAAA,wG;;;QAEA,qD;EAAAA,qG;;;QAPkB,O;EAAAC,iC;EAAAA,8B;EAAAA,qB;EAClBA,iI;EAEAA,qI;EAEAA,qI;EAEAA,+H;;;;;;;;;;;;;;AAPkB;mE;AAAA;qE;AAAA;qE;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$Position.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$Position.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$Position.<init>","org.gwtproject.dom.client.Style$Position.<synthetic: getter>","org.gwtproject.dom.client.Style$Position.<clinit>"]
 }
+

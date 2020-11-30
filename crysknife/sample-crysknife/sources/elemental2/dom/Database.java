@@ -82,3 +82,4 @@ public class Database {
 
   public native void transaction(Database.TransactionCallbackFn callback);
 }
+

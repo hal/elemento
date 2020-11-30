@@ -2,16 +2,26 @@ goog.module('elemental2.dom.EventListener.$Overlay$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
 
-class $Overlay {
- 
- static $clinit() {
-  $Overlay.$clinit = () =>{};
-  $Overlay.$loadModules();
+let $Overlay = goog.forwardDeclare('elemental2.dom.Event.$Overlay$impl');
+let $LambdaAdaptor = goog.forwardDeclare('elemental2.dom.EventListener.$LambdaAdaptor$impl');
+
+class EventListener_$Overlay {
+ /** @return {EventListener} */
+ static $adapt__elemental2_dom_EventListener_$JsFunction(/** ?function(Event):void */ fn) {
+  EventListener_$Overlay.$clinit();
+  return new $LambdaAdaptor(fn);
  }
  
- static $loadModules() {}
+ static $clinit() {
+  EventListener_$Overlay.$clinit = () =>{};
+  EventListener_$Overlay.$loadModules();
+ }
+ 
+ static $loadModules() {
+  $LambdaAdaptor = goog.module.get('elemental2.dom.EventListener.$LambdaAdaptor$impl');
+ }
  
 }
 
-exports = $Overlay; 
+exports = EventListener_$Overlay; 
 //# sourceMappingURL=EventListener$$Overlay.js.map

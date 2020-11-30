@@ -2,7 +2,8 @@
 "version":3,
 "file":"Provider$$LambdaAdaptor.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;MA2CiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;oD;EAAAA,wF;;;CAAA,8E;EAAAC,iC;EAAAA,uD;;;CAAA,O;EAAAC,mC;EAAAA,oF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;MA0CiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;oD;EAAAA,wF;;;CAAA,8E;EAAAC,iC;EAAAA,uD;;;CAAA,O;EAAAC,mC;EAAAA,oF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["Provider.java"],
 "names":["javax.inject.Provider$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","javax.inject.Provider$$LambdaAdaptor.<init>","javax.inject.Provider$$LambdaAdaptor.get","javax.inject.Provider$$LambdaAdaptor.<clinit>"]
 }
+

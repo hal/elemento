@@ -26,32 +26,32 @@ import jsinterop.base.Js;
 public class FileReader implements EventTarget {
   @JsFunction
   public interface OnabortFn {
-    Object onInvoke(ProgressEvent p0);
+    Object onInvoke(ProgressEvent<FileReader> p0);
   }
 
   @JsFunction
   public interface OnerrorFn {
-    Object onInvoke(ProgressEvent p0);
+    Object onInvoke(ProgressEvent<FileReader> p0);
   }
 
   @JsFunction
   public interface OnloadFn {
-    Object onInvoke(ProgressEvent p0);
+    Object onInvoke(ProgressEvent<FileReader> p0);
   }
 
   @JsFunction
   public interface OnloadendFn {
-    Object onInvoke(ProgressEvent p0);
+    Object onInvoke(ProgressEvent<FileReader> p0);
   }
 
   @JsFunction
   public interface OnloadstartFn {
-    Object onInvoke(ProgressEvent p0);
+    Object onInvoke(ProgressEvent<FileReader> p0);
   }
 
   @JsFunction
   public interface OnprogressFn {
-    Object onInvoke(ProgressEvent p0);
+    Object onInvoke(ProgressEvent<FileReader> p0);
   }
 
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
@@ -129,3 +129,4 @@ public class FileReader implements EventTarget {
 
   public native void removeEventListener(String type, EventListener listener);
 }
+

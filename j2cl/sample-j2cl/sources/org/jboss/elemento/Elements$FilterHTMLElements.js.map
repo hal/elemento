@@ -2,7 +2,8 @@
 "version":3,
 "file":"Elements$FilterHTMLElements.impl.java.js",
 "lineCount":53,
-"mappings":"A;;;;;;;;;;;;MAg9CyB,kB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,yC;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,iC;;;CAGF,wB,UAAOC,C;EAClBC,+B;;;;CAJa,mC;EAAAC,qI;;;;CAAA,U;EAAAC,oG;;;;CAAA,kC;EAAAC,oI;;;QAAA,O;EAAAC,qC;EAAAA,kC;EAAAA,qB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA65CyB,kB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,yC;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,iC;;;CAGF,wB,UAAOC,C;EAClBC,+B;;;;CAJa,mC;EAAAC,qI;;;;CAAA,U;EAAAC,oG;;;;CAAA,kC;EAAAC,oI;;;QAAA,O;EAAAC,qC;EAAAA,kC;EAAAA,qB;EAAAA;",
 "sources":["Elements.java"],
 "names":["org.jboss.elemento.Elements$FilterHTMLElements.<synthetic: ctor_js>","org.jboss.elemento.Elements$FilterHTMLElements.<synthetic: ctor_create>","org.jboss.elemento.Elements$FilterHTMLElements.<init>","t","org.jboss.elemento.Elements$FilterHTMLElements.test","org.jboss.elemento.Elements$FilterHTMLElements.and","org.jboss.elemento.Elements$FilterHTMLElements.negate","org.jboss.elemento.Elements$FilterHTMLElements.or","org.jboss.elemento.Elements$FilterHTMLElements.<clinit>"]
 }
+

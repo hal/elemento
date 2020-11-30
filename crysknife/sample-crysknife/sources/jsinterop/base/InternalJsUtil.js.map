@@ -6,3 +6,4 @@
 "sources":["InternalJsUtil.java","InternalJsUtil.native_js"],
 "names":["jsinterop.base.InternalJsUtil.<synthetic: ctor_js>","obj","key","value","cb","length","clazz","jsinterop.base.InternalJsUtil.<synthetic: ctor_create>","jsinterop.base.InternalJsUtil.<init>","jsinterop.base.InternalJsUtil.<clinit>","jsinterop.base.InternalJsUtil.<native>"]
 }
+

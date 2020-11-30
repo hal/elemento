@@ -6,3 +6,4 @@
 "sources":["SimpleEventBus.java"],
 "names":["org.gwtproject.event.shared.SimpleEventBus$Command.<synthetic: adapt_lambda>","org.gwtproject.event.shared.SimpleEventBus$Command.<clinit>"]
 }
+

@@ -32,3 +32,4 @@ public class DragEvent extends MouseEvent {
     super((String) null, (MouseEventInit) null);
   }
 }
+

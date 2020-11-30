@@ -2,7 +2,8 @@
 "version":3,
 "file":"MapBuilder.impl.java.js",
 "lineCount":16,
-"mappings":"A;;;;;;;;;MAoBiB,U;;CASJ,wB,gBAAYA,I;;QATR,O;EAAAC,6B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,U;;CASJ,wB,gBAAYA,I;;QATR,O;EAAAC,6B;EAAAA;",
 "sources":["MapBuilder.java"],
 "names":["name","org.gwtproject.dom.builder.shared.MapBuilder.<clinit>"]
 }
+

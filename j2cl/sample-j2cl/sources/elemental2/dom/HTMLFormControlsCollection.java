@@ -23,3 +23,4 @@ import jsinterop.base.JsArrayLike;
 public class HTMLFormControlsCollection<T> extends HTMLCollection<T> implements JsArrayLike<T> {
   public native T namedItem(String name);
 }
+

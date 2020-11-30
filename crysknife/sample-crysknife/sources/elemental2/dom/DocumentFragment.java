@@ -86,23 +86,24 @@ public class DocumentFragment extends Node {
 
   @JsOverlay
   public final void append(Node... nodes) {
-    append(Js.<DocumentFragment.AppendNodesUnionType>uncheckedCast(nodes));
+    append(Js.<DocumentFragment.AppendNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void append(String... nodes) {
-    append(Js.<DocumentFragment.AppendNodesUnionType>uncheckedCast(nodes));
+    append(Js.<DocumentFragment.AppendNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void prepend(Node... nodes) {
-    prepend(Js.<DocumentFragment.PrependNodesUnionType>uncheckedCast(nodes));
+    prepend(Js.<DocumentFragment.PrependNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void prepend(DocumentFragment.PrependNodesUnionType... nodes);
 
   @JsOverlay
   public final void prepend(String... nodes) {
-    prepend(Js.<DocumentFragment.PrependNodesUnionType>uncheckedCast(nodes));
+    prepend(Js.<DocumentFragment.PrependNodesUnionType[]>uncheckedCast(nodes));
   }
 }
+

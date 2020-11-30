@@ -32,3 +32,4 @@ public class ClipboardEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

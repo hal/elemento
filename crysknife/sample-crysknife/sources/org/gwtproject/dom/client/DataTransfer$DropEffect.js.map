@@ -2,7 +2,8 @@
 "version":3,
 "file":"DataTransfer$DropEffect.impl.java.js",
 "lineCount":108,
-"mappings":"A;;;;;;;;;;;;;MAsJc,U;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,iC;EAAAA,2G;EAAAA,iB;;;CAAA,+E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;QAAA,2B;EAAAC,qB;EAAAA;GAAAA,wIAAAA;G;EAAAA,8H;;;QAAA,U;EAAAC,qB;EAAAA,iW;;;;CAAA,6B;EAAAC,+E;;;QACV,6D;EAAAC,qG;;;QAKA,6D;EAAAA,qG;;;QAKA,6D;EAAAA,qG;;;QAKA,6D;EAAAA,qG;;;QAhBU,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EACVA,8N;EAKAA,8N;EAKAA,8N;EAKAA,8N;EAhBUA,yF;;;;;;;;;;;;;;;;;AAAA;sE;AAAA;sE;AAAA;sE;AAAA;sE;AAAA;kF;AACV;kF;AAKA;kF;AAKA;kF;AAKA;;",
+"mappings":"A;;;;;;;;;;;;;MAmIc,U;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,iC;EAAAA,2G;EAAAA,iB;;;CAAA,+E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;QAAA,2B;EAAAC,qB;EAAAA;GAAAA,wIAAAA;G;EAAAA,8H;;;QAAA,U;EAAAC,qB;EAAAA,iW;;;;CAAA,6B;EAAAC,+E;;;QACV,6D;EAAAC,qG;;;QAGA,6D;EAAAA,qG;;;QAGA,6D;EAAAA,qG;;;QAGA,6D;EAAAA,qG;;;QAVU,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EACVA,8N;EAGAA,8N;EAGAA,8N;EAGAA,8N;EAVUA,yF;;;;;;;;;;;;;;;;;AAAA;sE;AAAA;sE;AAAA;sE;AAAA;sE;AAAA;kF;AACV;kF;AAGA;kF;AAGA;kF;AAGA;;",
 "sources":["DataTransfer.java"],
 "names":["org.gwtproject.dom.client.DataTransfer$DropEffect.<synthetic: ctor_js>","org.gwtproject.dom.client.DataTransfer$DropEffect.<synthetic: ctor_create>","org.gwtproject.dom.client.DataTransfer$DropEffect.<init>","org.gwtproject.dom.client.DataTransfer$DropEffect.valueOf","org.gwtproject.dom.client.DataTransfer$DropEffect.values","org.gwtproject.dom.client.DataTransfer$DropEffect.compareTo","org.gwtproject.dom.client.DataTransfer$DropEffect.<synthetic: getter>","org.gwtproject.dom.client.DataTransfer$DropEffect.<clinit>"]
 }
+

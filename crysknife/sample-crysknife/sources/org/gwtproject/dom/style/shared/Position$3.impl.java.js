@@ -27,7 +27,7 @@ class $3 extends Position {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Position */ arg0) {
   return super.compareTo(/**@type {Position}*/ ($Casts.$to(arg0, Position)));
  }
  

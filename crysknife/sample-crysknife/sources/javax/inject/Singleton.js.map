@@ -2,7 +2,8 @@
 "version":3,
 "file":"Singleton.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MA8BkB,S;;QAAA,M;EAAAA,oB;EAAAA,8B;;;QAAA,O;EAAAC,4B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA4BkB,S;;QAAA,M;EAAAA,oB;EAAAA,8B;;;QAAA,O;EAAAC,4B;EAAAA;",
 "sources":["Singleton.java"],
 "names":["javax.inject.Singleton.<synthetic: adapt_lambda>","javax.inject.Singleton.<clinit>"]
 }
+

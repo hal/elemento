@@ -32,3 +32,4 @@ public class ValidityState {
   public boolean valid;
   public boolean valueMissing;
 }
+

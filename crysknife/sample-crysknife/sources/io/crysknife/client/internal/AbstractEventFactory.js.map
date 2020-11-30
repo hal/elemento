@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"AbstractEventFactory.impl.java.js",
+"lineCount":43,
+"mappings":"A;;;;;;;;;;;;;;;MAuBsB,oB;;CAAA,W;EAAAA,Q;EAAAA;OAEc,2DAFdA,C;;;CAAA,0D;EAAAC,iC;EAAAA,oE;;;CAIA,sB,cAAUC,I;EAC5BC;GACEA,gLADFA;G;EAIAA,sI;;;CATkB,4D;EAEpBF,mI;;;QAFoB,O;EAAAG,uC;EAAAA,oC;EAAAA;",
+"sources":["AbstractEventFactory.java"],
+"names":["io.crysknife.client.internal.AbstractEventFactory.<synthetic: ctor_js>","io.crysknife.client.internal.AbstractEventFactory.<init>","type","io.crysknife.client.internal.AbstractEventFactory.get","io.crysknife.client.internal.AbstractEventFactory.<clinit>"]
+}
+

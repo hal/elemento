@@ -6,3 +6,4 @@
 "sources":["RTCRtpTransceiverInit.java"],
 "names":["elemental2.dom.RTCRtpTransceiverInit$$Overlay.create","sendEncodings","elemental2.dom.RTCRtpTransceiverInit$$Overlay.setSendEncodings__$devirt","streams","elemental2.dom.RTCRtpTransceiverInit$$Overlay.setStreams__$devirt","elemental2.dom.RTCRtpTransceiverInit$$Overlay.<clinit>"]
 }
+

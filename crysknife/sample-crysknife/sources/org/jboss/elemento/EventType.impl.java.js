@@ -7,8 +7,8 @@ let ClipboardEvent_$Overlay = goog.forwardDeclare('elemental2.dom.ClipboardEvent
 let Document_$Overlay = goog.forwardDeclare('elemental2.dom.Document.$Overlay$impl');
 let DragEvent_$Overlay = goog.forwardDeclare('elemental2.dom.DragEvent.$Overlay$impl');
 let Element_$Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.Event.$Overlay$impl');
-let EventListener_$Overlay = goog.forwardDeclare('elemental2.dom.EventListener.$Overlay$impl');
+let Event_$Overlay = goog.forwardDeclare('elemental2.dom.Event.$Overlay$impl');
+let $Overlay = goog.forwardDeclare('elemental2.dom.EventListener.$Overlay$impl');
 let EventTarget_$Overlay = goog.forwardDeclare('elemental2.dom.EventTarget.$Overlay$impl');
 let FocusEvent_$Overlay = goog.forwardDeclare('elemental2.dom.FocusEvent.$Overlay$impl');
 let HTMLElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLElement.$Overlay$impl');
@@ -25,8 +25,6 @@ let Window_$Overlay = goog.forwardDeclare('elemental2.dom.Window.$Overlay$impl')
 let StorageEvent_$Overlay = goog.forwardDeclare('elemental2.webstorage.StorageEvent.$Overlay$impl');
 let Js = goog.forwardDeclare('jsinterop.base.Js$impl');
 let HandlerRegistration = goog.forwardDeclare('org.gwtproject.event.shared.HandlerRegistration$impl');
-let $LambdaAdaptor$1 = goog.forwardDeclare('org.jboss.elemento.EventType.$LambdaAdaptor$1$impl');
-let $LambdaAdaptor$2 = goog.forwardDeclare('org.jboss.elemento.EventType.$LambdaAdaptor$2$impl');
 let IsElement = goog.forwardDeclare('org.jboss.elemento.IsElement$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -48,8 +46,8 @@ class EventType extends j_l_Object {
  /** @template T_1 @return {HandlerRegistration} */
  static m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn(/** EventTarget */ target, /** EventType<T_1, ?> */ type, /** ?function(T_1):void */ listener) {
   EventType.$clinit();
-  return EventType.m_bind__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_EventListener(target, type.f_name__org_jboss_elemento_EventType_, new $LambdaAdaptor$1((/** Event */ e) =>{
-   listener(/**@type {T_1}*/ ($Casts.$to(Js.m_cast__java_lang_Object(e), $Overlay)));
+  return EventType.m_bind__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_EventListener(target, type.f_name__org_jboss_elemento_EventType_, $Overlay.$adapt__elemental2_dom_EventListener_$JsFunction((/** Event */ e) =>{
+   listener(/**@type {T_1}*/ ($Casts.$to(Js.m_cast__java_lang_Object(e), Event_$Overlay)));
   }));
  }
  /** @return {HandlerRegistration} */
@@ -63,8 +61,8 @@ class EventType extends j_l_Object {
  /** @template T_1 @return {HandlerRegistration} */
  static m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__boolean__org_jboss_elemento_EventCallbackFn(/** EventTarget */ target, /** EventType<T_1, ?> */ type, /** boolean */ useCapture, /** ?function(T_1):void */ listener) {
   EventType.$clinit();
-  return EventType.m_bind__elemental2_dom_EventTarget__java_lang_String__boolean__elemental2_dom_EventListener(target, type.f_name__org_jboss_elemento_EventType_, useCapture, new $LambdaAdaptor$2((/** Event */ e) =>{
-   listener(/**@type {T_1}*/ ($Casts.$to(Js.m_cast__java_lang_Object(e), $Overlay)));
+  return EventType.m_bind__elemental2_dom_EventTarget__java_lang_String__boolean__elemental2_dom_EventListener(target, type.f_name__org_jboss_elemento_EventType_, useCapture, $Overlay.$adapt__elemental2_dom_EventListener_$JsFunction((/** Event */ e) =>{
+   listener(/**@type {T_1}*/ ($Casts.$to(Js.m_cast__java_lang_Object(e), Event_$Overlay)));
   }));
  }
  /** @return {HandlerRegistration} */
@@ -422,12 +420,11 @@ class EventType extends j_l_Object {
  }
  
  static $loadModules() {
-  $Overlay = goog.module.get('elemental2.dom.Event.$Overlay$impl');
+  Event_$Overlay = goog.module.get('elemental2.dom.Event.$Overlay$impl');
+  $Overlay = goog.module.get('elemental2.dom.EventListener.$Overlay$impl');
   EventTarget_$Overlay = goog.module.get('elemental2.dom.EventTarget.$Overlay$impl');
   Js = goog.module.get('jsinterop.base.Js$impl');
   HandlerRegistration = goog.module.get('org.gwtproject.event.shared.HandlerRegistration$impl');
-  $LambdaAdaptor$1 = goog.module.get('org.jboss.elemento.EventType.$LambdaAdaptor$1$impl');
-  $LambdaAdaptor$2 = goog.module.get('org.jboss.elemento.EventType.$LambdaAdaptor$2$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
  

@@ -56,6 +56,18 @@ class SafeStylesUtils extends j_l_Object {
   return SafeStylesUtils.m_fromTrustedNameAndValue__java_lang_String__java_lang_String("background-image", "url(\"" + j_l_String.m_valueOf__java_lang_Object(uri.m_asString__()) + "\")");
  }
  /** @return {SafeStyles} */
+ static m_fromTrustedNameAndValue__java_lang_String__java_lang_String(/** ?string */ name, /** ?string */ value) {
+  SafeStylesUtils.$clinit();
+  SafeStylesHostedModeUtils.m_maybeCheckValidStyleName__java_lang_String(name);
+  SafeStylesHostedModeUtils.m_maybeCheckValidStyleValue__java_lang_String(value);
+  return SafeStylesUtils.m_fromTrustedString__java_lang_String(j_l_String.m_valueOf__java_lang_Object(name) + ":" + j_l_String.m_valueOf__java_lang_Object(value) + ";");
+ }
+ /** @return {SafeStyles} */
+ static m_fromTrustedString__java_lang_String(/** ?string */ s) {
+  SafeStylesUtils.$clinit();
+  return SafeStylesString.$create__java_lang_String(s);
+ }
+ /** @return {SafeStyles} */
  static m_forBorderStyle__org_gwtproject_dom_style_shared_BorderStyle(/** BorderStyle */ value) {
   SafeStylesUtils.$clinit();
   return SafeStylesUtils.m_fromTrustedNameAndValue__java_lang_String__java_lang_String("border-style", value.m_getCssName__());
@@ -64,6 +76,12 @@ class SafeStylesUtils extends j_l_Object {
  static m_forBorderWidth__double__org_gwtproject_dom_style_shared_Unit(/** number */ value, /** Unit */ unit) {
   SafeStylesUtils.$clinit();
   return SafeStylesUtils.m_fromTrustedNameAndValue__java_lang_String__double__org_gwtproject_dom_style_shared_Unit("border-width", value, unit);
+ }
+ /** @return {SafeStyles} */
+ static m_fromTrustedNameAndValue__java_lang_String__double__org_gwtproject_dom_style_shared_Unit(/** ?string */ name, /** number */ value, /** Unit */ unit) {
+  SafeStylesUtils.$clinit();
+  SafeStylesHostedModeUtils.m_maybeCheckValidStyleName__java_lang_String(name);
+  return SafeStylesString.$create__java_lang_String(j_l_String.m_valueOf__java_lang_Object(name) + ":" + value + j_l_String.m_valueOf__java_lang_Object(unit.m_getType__()) + ";");
  }
  /** @return {SafeStyles} */
  static m_forBottom__double__org_gwtproject_dom_style_shared_Unit(/** number */ value, /** Unit */ unit) {
@@ -309,24 +327,6 @@ class SafeStylesUtils extends j_l_Object {
  static m_forZIndex__int(/** number */ value) {
   SafeStylesUtils.$clinit();
   return SafeStylesString.$create__java_lang_String("z-index: " + value + ";");
- }
- /** @return {SafeStyles} */
- static m_fromTrustedNameAndValue__java_lang_String__double__org_gwtproject_dom_style_shared_Unit(/** ?string */ name, /** number */ value, /** Unit */ unit) {
-  SafeStylesUtils.$clinit();
-  SafeStylesHostedModeUtils.m_maybeCheckValidStyleName__java_lang_String(name);
-  return SafeStylesString.$create__java_lang_String(j_l_String.m_valueOf__java_lang_Object(name) + ":" + value + j_l_String.m_valueOf__java_lang_Object(unit.m_getType__()) + ";");
- }
- /** @return {SafeStyles} */
- static m_fromTrustedNameAndValue__java_lang_String__java_lang_String(/** ?string */ name, /** ?string */ value) {
-  SafeStylesUtils.$clinit();
-  SafeStylesHostedModeUtils.m_maybeCheckValidStyleName__java_lang_String(name);
-  SafeStylesHostedModeUtils.m_maybeCheckValidStyleValue__java_lang_String(value);
-  return SafeStylesUtils.m_fromTrustedString__java_lang_String(j_l_String.m_valueOf__java_lang_Object(name) + ":" + j_l_String.m_valueOf__java_lang_Object(value) + ";");
- }
- /** @return {SafeStyles} */
- static m_fromTrustedString__java_lang_String(/** ?string */ s) {
-  SafeStylesUtils.$clinit();
-  return SafeStylesString.$create__java_lang_String(s);
  }
  
  static m_verifySafeStylesConstraints__java_lang_String(/** ?string */ styles) {

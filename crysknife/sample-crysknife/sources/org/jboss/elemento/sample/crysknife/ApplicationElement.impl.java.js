@@ -2,7 +2,7 @@ goog.module('org.jboss.elemento.sample.crysknife.ApplicationElement$impl');
 
 const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
-const IsElement = goog.require('org.jboss.gwt.elemento.core.IsElement$impl');
+const IsElement = goog.require('org.jboss.elemento.IsElement$impl');
 
 let Event_$Overlay = goog.forwardDeclare('elemental2.dom.Event.$Overlay$impl');
 let HTMLButtonElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLButtonElement.$Overlay$impl');
@@ -35,6 +35,8 @@ class ApplicationElement extends j_l_Object {
   this.f_repository__org_jboss_elemento_sample_crysknife_ApplicationElement_;
   /**@type {Filter}*/
   this.f_filter__org_jboss_elemento_sample_crysknife_ApplicationElement_;
+  /**@type {HTMLElement}*/
+  this.f_todos__org_jboss_elemento_sample_crysknife_ApplicationElement;
   /**@type {HTMLInputElement}*/
   this.f_newTodo__org_jboss_elemento_sample_crysknife_ApplicationElement;
   /**@type {HTMLElement}*/
@@ -72,6 +74,10 @@ class ApplicationElement extends j_l_Object {
  m_init___$pp_org_jboss_elemento_sample_crysknife() {
   this.m_reset___$p_org_jboss_elemento_sample_crysknife_ApplicationElement();
   this.m_update___$pp_org_jboss_elemento_sample_crysknife();
+ }
+ /** @override @return {HTMLElement} */
+ m_element__() {
+  return this.f_todos__org_jboss_elemento_sample_crysknife_ApplicationElement;
  }
  
  m_newTodo__elemental2_dom_KeyboardEvent_$pp_org_jboss_elemento_sample_crysknife(/** KeyboardEvent */ event) {
@@ -167,17 +173,11 @@ class ApplicationElement extends j_l_Object {
    this.f_list__org_jboss_elemento_sample_crysknife_ApplicationElement.appendChild(TodoElement.$create__org_jboss_elemento_sample_crysknife_ApplicationElement__org_jboss_elemento_sample_crysknife_TodoRepository__org_jboss_elemento_sample_crysknife_Todo(this, this.f_repository__org_jboss_elemento_sample_crysknife_ApplicationElement_, item).m_element__());
   }
  }
- //Default method forwarding stub.
- /** @override @return {HTMLElement} */
- m_getElement__() {
-  return IsElement.m_getElement__$default__org_jboss_gwt_elemento_core_IsElement(this);
- }
  
  static $clinit() {
   ApplicationElement.$clinit = () =>{};
   ApplicationElement.$loadModules();
   j_l_Object.$clinit();
-  IsElement.$clinit();
  }
  /** @return {boolean} */
  static $isInstance(/** ? */ instance) {

@@ -6,3 +6,4 @@
 "sources":["RTCRtpContributingSource.java"],
 "names":["o","elemental2.dom.RTCRtpContributingSource$GetTimestampUnionType$$Overlay.of","elemental2.dom.RTCRtpContributingSource$GetTimestampUnionType$$Overlay.asDouble__$devirt","elemental2.dom.RTCRtpContributingSource$GetTimestampUnionType$$Overlay.asJsDate__$devirt","elemental2.dom.RTCRtpContributingSource$GetTimestampUnionType$$Overlay.isDouble__$devirt","elemental2.dom.RTCRtpContributingSource$GetTimestampUnionType$$Overlay.isJsDate__$devirt","elemental2.dom.RTCRtpContributingSource$GetTimestampUnionType$$Overlay.<clinit>"]
 }
+

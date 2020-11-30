@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLShadowElement extends HTMLElement {
   public native NodeList<Node> getDistributedNodes();
 }
+

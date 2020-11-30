@@ -6,3 +6,4 @@
 "sources":["ContextMenuHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.ContextMenuHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.ContextMenuHandler.<clinit>"]
 }
+

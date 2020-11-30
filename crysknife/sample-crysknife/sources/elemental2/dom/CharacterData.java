@@ -115,12 +115,12 @@ public class CharacterData extends Node {
 
   @JsOverlay
   public final void after(Node... nodes) {
-    after(Js.<CharacterData.AfterNodesUnionType>uncheckedCast(nodes));
+    after(Js.<CharacterData.AfterNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void after(String... nodes) {
-    after(Js.<CharacterData.AfterNodesUnionType>uncheckedCast(nodes));
+    after(Js.<CharacterData.AfterNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void appendData(String arg);
@@ -129,12 +129,12 @@ public class CharacterData extends Node {
 
   @JsOverlay
   public final void before(Node... nodes) {
-    before(Js.<CharacterData.BeforeNodesUnionType>uncheckedCast(nodes));
+    before(Js.<CharacterData.BeforeNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void before(String... nodes) {
-    before(Js.<CharacterData.BeforeNodesUnionType>uncheckedCast(nodes));
+    before(Js.<CharacterData.BeforeNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void deleteData(int offset, int count);
@@ -147,15 +147,16 @@ public class CharacterData extends Node {
 
   @JsOverlay
   public final void replaceWith(Node... nodes) {
-    replaceWith(Js.<CharacterData.ReplaceWithNodesUnionType>uncheckedCast(nodes));
+    replaceWith(Js.<CharacterData.ReplaceWithNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void replaceWith(CharacterData.ReplaceWithNodesUnionType... nodes);
 
   @JsOverlay
   public final void replaceWith(String... nodes) {
-    replaceWith(Js.<CharacterData.ReplaceWithNodesUnionType>uncheckedCast(nodes));
+    replaceWith(Js.<CharacterData.ReplaceWithNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native String substringData(int offset, int count);
 }
+

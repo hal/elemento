@@ -28,3 +28,4 @@ public class XMLHttpRequestUpload extends XMLHttpRequestEventTarget {
 
   public XMLHttpRequestUpload.OnprogressFn onprogress;
 }
+

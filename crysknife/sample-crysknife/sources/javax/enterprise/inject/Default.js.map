@@ -2,7 +2,8 @@
 "version":3,
 "file":"Default.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MAckB,O;;QAAA,M;EAAAA,kB;EAAAA,8B;;;QAAA,O;EAAAC,0B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAuFkB,O;;QAAA,M;EAAAA,kB;EAAAA,8B;;;QAAA,O;EAAAC,0B;EAAAA;",
 "sources":["Default.java"],
 "names":["javax.enterprise.inject.Default.<synthetic: adapt_lambda>","javax.enterprise.inject.Default.<clinit>"]
 }
+

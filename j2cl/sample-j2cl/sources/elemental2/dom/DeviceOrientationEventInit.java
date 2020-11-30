@@ -53,3 +53,4 @@ public interface DeviceOrientationEventInit extends EventInit {
   @JsProperty
   void setGamma(double gamma);
 }
+

@@ -6,3 +6,4 @@
 "sources":["Any.java"],
 "names":["jsinterop.base.Any$$Overlay.asPropertyMap__$devirt","jsinterop.base.Any$$Overlay.asArrayLike__$devirt","jsinterop.base.Any$$Overlay.asArray__$devirt","jsinterop.base.Any$$Overlay.asString__$devirt","jsinterop.base.Any$$Overlay.asBoolean__$devirt","jsinterop.base.Any$$Overlay.asDouble__$devirt","jsinterop.base.Any$$Overlay.asFloat__$devirt","jsinterop.base.Any$$Overlay.asLong__$devirt","jsinterop.base.Any$$Overlay.asInt__$devirt","jsinterop.base.Any$$Overlay.asShort__$devirt","jsinterop.base.Any$$Overlay.asChar__$devirt","jsinterop.base.Any$$Overlay.asByte__$devirt","jsinterop.base.Any$$Overlay.cast__$devirt","jsinterop.base.Any$$Overlay.uncheckedCast__$devirt","jsinterop.base.Any$$Overlay.<clinit>"]
 }
+

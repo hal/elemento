@@ -6,3 +6,4 @@
 "sources":["HandlesAllMouseEvents.java"],
 "names":["org.gwtproject.event.dom.client.HandlesAllMouseEvents.<synthetic: ctor_js>","org.gwtproject.event.dom.client.HandlesAllMouseEvents.<init>","eventSource","org.gwtproject.event.dom.client.HandlesAllMouseEvents.handle","source","reciever","org.gwtproject.event.dom.client.HandlesAllMouseEvents.<clinit>"]
 }
+

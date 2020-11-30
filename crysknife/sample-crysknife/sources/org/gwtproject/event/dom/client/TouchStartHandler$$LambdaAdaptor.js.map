@@ -6,3 +6,4 @@
 "sources":["TouchStartHandler.java"],
 "names":["org.gwtproject.event.dom.client.TouchStartHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.TouchStartHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.TouchStartHandler$$LambdaAdaptor.onTouchStart","org.gwtproject.event.dom.client.TouchStartHandler$$LambdaAdaptor.<clinit>"]
 }
+

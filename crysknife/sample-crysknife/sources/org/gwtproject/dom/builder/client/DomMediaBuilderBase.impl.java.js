@@ -32,17 +32,17 @@ class DomMediaBuilderBase extends DomElementBuilderBase {
  }
  /** @override @return {R} */
  m_autoplay__() {
-  $Overlay.m_setAutoplay__$devirt__org_gwtproject_dom_client_MediaElement__boolean(/**@type {Object}*/ ($Casts.$to(this.m_assertCanAddAttribute__(), $Overlay)), true);
+  $Overlay.m_setAutoplay__$devirt__org_gwtproject_dom_client_MediaElement__boolean(/**@type {!Object}*/ ($Casts.$to(this.m_assertCanAddAttribute__(), $Overlay)), true);
   return /**@type {R}*/ ($Casts.$to(this.m_getReturnBuilder__(), MediaBuilder));
  }
  /** @override @return {R} */
  m_controls__() {
-  $Overlay.m_setControls__$devirt__org_gwtproject_dom_client_MediaElement__boolean(/**@type {Object}*/ ($Casts.$to(this.m_assertCanAddAttribute__(), $Overlay)), true);
+  $Overlay.m_setControls__$devirt__org_gwtproject_dom_client_MediaElement__boolean(/**@type {!Object}*/ ($Casts.$to(this.m_assertCanAddAttribute__(), $Overlay)), true);
   return /**@type {R}*/ ($Casts.$to(this.m_getReturnBuilder__(), MediaBuilder));
  }
  /** @override @return {R} */
  m_loop__() {
-  $Overlay.m_setLoop__$devirt__org_gwtproject_dom_client_MediaElement__boolean(/**@type {Object}*/ ($Casts.$to(this.m_assertCanAddAttribute__(), $Overlay)), true);
+  $Overlay.m_setLoop__$devirt__org_gwtproject_dom_client_MediaElement__boolean(/**@type {!Object}*/ ($Casts.$to(this.m_assertCanAddAttribute__(), $Overlay)), true);
   return /**@type {R}*/ ($Casts.$to(this.m_getReturnBuilder__(), MediaBuilder));
  }
  /** @override @return {R} */

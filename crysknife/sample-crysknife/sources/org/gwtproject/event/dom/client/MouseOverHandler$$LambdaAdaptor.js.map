@@ -6,3 +6,4 @@
 "sources":["MouseOverHandler.java"],
 "names":["org.gwtproject.event.dom.client.MouseOverHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.MouseOverHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.MouseOverHandler$$LambdaAdaptor.onMouseOver","org.gwtproject.event.dom.client.MouseOverHandler$$LambdaAdaptor.<clinit>"]
 }
+

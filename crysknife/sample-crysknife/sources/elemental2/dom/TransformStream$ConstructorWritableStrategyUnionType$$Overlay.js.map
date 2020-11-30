@@ -6,3 +6,4 @@
 "sources":["TransformStream.java"],
 "names":["o","elemental2.dom.TransformStream$ConstructorWritableStrategyUnionType$$Overlay.of","elemental2.dom.TransformStream$ConstructorWritableStrategyUnionType$$Overlay.asByteLengthQueuingStrategy__$devirt","elemental2.dom.TransformStream$ConstructorWritableStrategyUnionType$$Overlay.asCountQueuingStrategy__$devirt","elemental2.dom.TransformStream$ConstructorWritableStrategyUnionType$$Overlay.asTransformStreamWritableStrategyType__$devirt","elemental2.dom.TransformStream$ConstructorWritableStrategyUnionType$$Overlay.isByteLengthQueuingStrategy__$devirt","elemental2.dom.TransformStream$ConstructorWritableStrategyUnionType$$Overlay.isCountQueuingStrategy__$devirt","elemental2.dom.TransformStream$ConstructorWritableStrategyUnionType$$Overlay.<clinit>"]
 }
+

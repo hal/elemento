@@ -46,3 +46,4 @@ class DOMException__Constants {
   static int VALIDATION_ERR;
   static int WRONG_DOCUMENT_ERR;
 }
+

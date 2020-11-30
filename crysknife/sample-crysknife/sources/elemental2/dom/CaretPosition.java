@@ -23,3 +23,4 @@ public class CaretPosition {
   public double offset;
   public Node offsetNode;
 }
+

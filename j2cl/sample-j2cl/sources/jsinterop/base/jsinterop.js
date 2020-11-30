@@ -26,3 +26,4 @@ goog.provide('jsinterop');
 
 /** @define {string} */
 jsinterop.checks = goog.define('jsinterop.checks', 'DISABLED');
+

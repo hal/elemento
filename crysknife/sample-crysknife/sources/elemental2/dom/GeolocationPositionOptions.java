@@ -47,3 +47,4 @@ public interface GeolocationPositionOptions {
   @JsProperty
   void setTimeout(double timeout);
 }
+

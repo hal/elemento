@@ -276,3 +276,4 @@ public interface RequestInit {
   @JsProperty
   void setWindow(Object window);
 }
+

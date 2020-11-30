@@ -6,3 +6,4 @@
 "sources":["GeolocationPosition.java"],
 "names":["elemental2.dom.GeolocationPosition$$Overlay.create","elemental2.dom.GeolocationPosition$$Overlay.<clinit>"]
 }
+

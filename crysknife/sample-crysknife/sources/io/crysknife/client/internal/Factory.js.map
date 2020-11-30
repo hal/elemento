@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Factory.impl.java.js",
+"lineCount":22,
+"mappings":"A;;;;;;;;;;;;MAgCiB,O;;QAAA,M;EAAAA,kB;EAAAA,gE;;;QAAA,O;EAAAC,0B;EAAAA;",
+"sources":["Factory.java"],
+"names":["io.crysknife.client.internal.Factory.<synthetic: adapt_lambda>","io.crysknife.client.internal.Factory.<clinit>"]
+}
+

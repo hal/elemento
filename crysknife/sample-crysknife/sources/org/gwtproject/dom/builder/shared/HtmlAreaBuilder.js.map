@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlAreaBuilder.impl.java.js",
 "lineCount":58,
-"mappings":"A;;;;;;;;;;;;;MAoBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,iJ;;;CAIiB,6B,gBAAiBC,S;EAClCC,qL;;;CAIiB,uB,gBAAWC,G;EAC5BC,yK;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;CAIiB,wB,gBAAYC,I;EAC7BC,2K;;;CAIiB,yB,gBAAaC,K;EAC9BC,6K;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;QAjCS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,iJ;;;CAIiB,6B,gBAAiBC,S;EAClCC,qL;;;CAIiB,uB,gBAAWC,G;EAC5BC,yK;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;CAIiB,wB,gBAAYC,I;EAC7BC,2K;;;CAIiB,yB,gBAAaC,K;EAC9BC,6K;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;QAjCS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["HtmlAreaBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlAreaBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.<init>","accessKey","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.accessKey","alt","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.alt","coords","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.coords","href","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.href","shape","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.shape","target","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.target","org.gwtproject.dom.builder.shared.HtmlAreaBuilder.<clinit>"]
 }
+

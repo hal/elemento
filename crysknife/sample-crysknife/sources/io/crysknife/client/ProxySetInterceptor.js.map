@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"ProxySetInterceptor.impl.java.js",
+"lineCount":38,
+"mappings":"A;;;;;;;;;MAoBmB,mB;;CAAA,W;EAAAA,Q;EAAAA;OAEF,kDAFEA,C;;;QAIV,yB,UAA2BC,M;EAA3BC,8B;EAAAA,0C;EAAAA,mF;EAAAA,uK;;;CAAA,gE,UAA2BD,M;EAA3BE,iC;EACLA,iE;;;CAIa,gE,UAAgBC,M,iBAAeC,S,WAAkBC,K;EAC9DC,0J;EACAA,Y;;;QAXe,O;EAAAC,sC;EAAAA,mC;EAAAA;",
+"sources":["ProxySetInterceptor.java"],
+"names":["io.crysknife.client.ProxySetInterceptor.<synthetic: ctor_js>","target","io.crysknife.client.ProxySetInterceptor.<synthetic: ctor_create>","io.crysknife.client.ProxySetInterceptor.<init>","object","objectKey","value","io.crysknife.client.ProxySetInterceptor.onInvoke","io.crysknife.client.ProxySetInterceptor.<clinit>"]
+}
+

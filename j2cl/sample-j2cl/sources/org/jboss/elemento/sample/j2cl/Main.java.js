@@ -2,7 +2,6 @@ goog.module('org.jboss.elemento.sample.j2cl.Main');
 
 goog.require('java.lang.Object');
 goog.require('nativebootstrap.Util');
-goog.require('org.gwtproject.core.client.EntryPoint');
 goog.require('elemental2.dom.DomGlobal.$Overlay');
 goog.require('elemental2.dom.Event.$Overlay');
 goog.require('elemental2.dom.HTMLBodyElement.$Overlay');

@@ -31,3 +31,4 @@ public class WebStorageWindow extends Window {
   public Storage localStorage;
   public Storage sessionStorage;
 }
+

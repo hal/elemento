@@ -19,6 +19,8 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
+@FunctionalInterface
 public interface EventListener {
   void handleEvent(Event evt);
 }
+

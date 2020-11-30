@@ -65,3 +65,4 @@ public interface TreeWalker {
   @JsProperty
   void setWhatToShow(double whatToShow);
 }
+

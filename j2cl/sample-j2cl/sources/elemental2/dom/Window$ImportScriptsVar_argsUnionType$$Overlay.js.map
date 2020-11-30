@@ -6,3 +6,4 @@
 "sources":["Window.java"],
 "names":["o","elemental2.dom.Window$ImportScriptsVar_argsUnionType$$Overlay.of","elemental2.dom.Window$ImportScriptsVar_argsUnionType$$Overlay.asString__$devirt","elemental2.dom.Window$ImportScriptsVar_argsUnionType$$Overlay.asTrustedScriptURL__$devirt","elemental2.dom.Window$ImportScriptsVar_argsUnionType$$Overlay.isString__$devirt","elemental2.dom.Window$ImportScriptsVar_argsUnionType$$Overlay.isTrustedScriptURL__$devirt","elemental2.dom.Window$ImportScriptsVar_argsUnionType$$Overlay.<clinit>"]
 }
+

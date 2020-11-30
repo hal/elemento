@@ -27,3 +27,4 @@ class ApplicationCache__Constants {
   static int UNCACHED;
   static int UPDATEREADY;
 }
+

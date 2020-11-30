@@ -8,10 +8,15 @@ class $Overlay {
   $Overlay.$clinit = () =>{};
   $Overlay.$loadModules();
  }
+ /** @return {boolean} */
+ static $isInstance(/** ? */ instance) {
+  return instance instanceof RTCRtpReceiver;
+ }
  
  static $loadModules() {}
  
 }
+$Util.$setClassMetadata($Overlay, 'RTCRtpReceiver');
 
 exports = $Overlay; 
 //# sourceMappingURL=RTCRtpReceiver$$Overlay.js.map

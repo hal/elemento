@@ -2,7 +2,8 @@
 "version":3,
 "file":"ImageElement$$Overlay.impl.java.js",
 "lineCount":73,
-"mappings":"A;;;;;;;;;;;;MA+Ba,qB;;QAUgB,uC,eAAWA,I;EAAXC,gC;EACzBA,sF;EACAA,qE;;;QASoB,iD,eAAoBC,C;EAApBC,gC;EACpBA;GACEA,oHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,gC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,gC;EACpBA,+M;;;QA6CmB,wD;EAAAE,gC;EACnBA,uD;;;QA6DmB,yD;EAAAC,gC;EACnBA,wD;;;QA5JS,O;EAAAC,wC;EAAAA,qC;;;;;;;;;;;;;;;;;;AAEX;sBAC2B,sDAD3B;",
+"mappings":"A;;;;;;;;;;;;MAgCa,qB;;QAYgB,uC,eAAWA,I;EAAXC,gC;EACzBA,sF;EACAA,qE;;;QAWoB,iD,eAAoBC,C;EAApBC,gC;EACpBA;GACEA,oHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,gC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,gC;EACpBA,+M;;;QAoDmB,wD;EAAAE,gC;EACnBA,uD;;;QAwEmB,yD;EAAAC,gC;EACnBA,wD;;;QAtLS,O;EAAAC,wC;EAAAA,qC;;;;;;;;;;;;;;;;;;AAEX;sBAAsC,sDAAtC;",
 "sources":["ImageElement.java"],
 "names":["elem","org.gwtproject.dom.client.ImageElement$$Overlay.as","o","org.gwtproject.dom.client.ImageElement$$Overlay.is","node","org.gwtproject.dom.client.ImageElement$$Overlay.isMap__$devirt","org.gwtproject.dom.client.ImageElement$$Overlay.useMap__$devirt","org.gwtproject.dom.client.ImageElement$$Overlay.<clinit>"]
 }
+

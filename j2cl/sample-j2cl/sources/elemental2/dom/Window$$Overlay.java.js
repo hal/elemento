@@ -17,6 +17,7 @@ goog.require('elemental2.dom.Window.ScrollByScrollToOptionsOrXUnionType.$Overlay
 goog.require('elemental2.dom.Window.ScrollScrollToOptionsOrXUnionType.$Overlay');
 goog.require('elemental2.dom.Window.ScrollToScrollToOptionsOrXUnionType.$Overlay');
 goog.require('elemental2.promise.Promise.$Overlay');
+goog.require('javaemul.internal.InternalPreconditions');
 goog.require('jsinterop.base.Js');
 
 const Window_$Overlay = goog.require('elemental2.dom.Window.$Overlay$impl');

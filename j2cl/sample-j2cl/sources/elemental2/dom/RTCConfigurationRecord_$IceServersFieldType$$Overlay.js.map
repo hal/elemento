@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"RTCConfigurationRecord_$IceServersFieldType$$Overlay.impl.java.js",
+"lineCount":17,
+"mappings":"A;;;;;;;MAmDmB,4B;;QAEoC,U;EAAAA,uC;EACjDA,gF;;;QAHa,O;EAAAC,+C;EAAAA;",
+"sources":["RTCConfigurationRecord_.java"],
+"names":["elemental2.dom.RTCConfigurationRecord_$IceServersFieldType$$Overlay.create","elemental2.dom.RTCConfigurationRecord_$IceServersFieldType$$Overlay.<clinit>"]
+}
+

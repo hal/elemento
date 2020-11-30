@@ -24,3 +24,4 @@ class FileReader__Constants {
   static int EMPTY;
   static int LOADING;
 }
+

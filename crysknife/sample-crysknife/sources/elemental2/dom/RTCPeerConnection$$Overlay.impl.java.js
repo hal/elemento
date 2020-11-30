@@ -7,7 +7,11 @@ let MediaStream_$Overlay = goog.forwardDeclare('elemental2.dom.MediaStream.$Over
 let MediaStreamTrack_$Overlay = goog.forwardDeclare('elemental2.dom.MediaStreamTrack.$Overlay$impl');
 let RTCCertificate_$Overlay = goog.forwardDeclare('elemental2.dom.RTCCertificate.$Overlay$impl');
 let RTCConfigurationRecord___$Overlay = goog.forwardDeclare('elemental2.dom.RTCConfigurationRecord_.$Overlay$impl');
+let RTCDataChannel_$Overlay = goog.forwardDeclare('elemental2.dom.RTCDataChannel.$Overlay$impl');
+let RTCDataChannelInitDictionary___$Overlay = goog.forwardDeclare('elemental2.dom.RTCDataChannelInitDictionary_.$Overlay$impl');
+let RTCDataChannelInitRecord___$Overlay = goog.forwardDeclare('elemental2.dom.RTCDataChannelInitRecord_.$Overlay$impl');
 let AddTransceiverTrackOrKindUnionType_$Overlay = goog.forwardDeclare('elemental2.dom.RTCPeerConnection.AddTransceiverTrackOrKindUnionType.$Overlay$impl');
+let CreateDataChannelDataChannelDictUnionType_$Overlay = goog.forwardDeclare('elemental2.dom.RTCPeerConnection.CreateDataChannelDataChannelDictUnionType.$Overlay$impl');
 let RTCRtpTransceiver_$Overlay = goog.forwardDeclare('elemental2.dom.RTCRtpTransceiver.$Overlay$impl');
 let RTCRtpTransceiverInit_$Overlay = goog.forwardDeclare('elemental2.dom.RTCRtpTransceiverInit.$Overlay$impl');
 let RTCSessionDescription_$Overlay = goog.forwardDeclare('elemental2.dom.RTCSessionDescription.$Overlay$impl');
@@ -59,6 +63,16 @@ class RTCPeerConnection_$Overlay {
  static m_createAnswer__$devirt__elemental2_dom_RTCPeerConnection__java_lang_Object(/** !RTCPeerConnection */ $thisArg, /** * */ successCallbackOrConstraints) {
   RTCPeerConnection_$Overlay.$clinit();
   return $thisArg.createAnswer(/**@type {Object}*/ (Js.m_uncheckedCast__java_lang_Object(successCallbackOrConstraints)));
+ }
+ /** @return {RTCDataChannel} */
+ static m_createDataChannel__$devirt__elemental2_dom_RTCPeerConnection__java_lang_String__elemental2_dom_RTCDataChannelInitDictionary_(/** !RTCPeerConnection */ $thisArg, /** ?string */ label, /** RTCDataChannelInitDictionary_ */ dataChannelDict) {
+  RTCPeerConnection_$Overlay.$clinit();
+  return $thisArg.createDataChannel(label, /**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(dataChannelDict)));
+ }
+ /** @return {RTCDataChannel} */
+ static m_createDataChannel__$devirt__elemental2_dom_RTCPeerConnection__java_lang_String__elemental2_dom_RTCDataChannelInitRecord_(/** !RTCPeerConnection */ $thisArg, /** ?string */ label, /** RTCDataChannelInitRecord_ */ dataChannelDict) {
+  RTCPeerConnection_$Overlay.$clinit();
+  return $thisArg.createDataChannel(label, /**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(dataChannelDict)));
  }
  /** @return {Promise<RTCSessionDescription>} */
  static m_createOffer__$devirt__elemental2_dom_RTCPeerConnection__java_lang_Object__elemental2_dom_RTCPeerConnectionErrorCallback__java_lang_Object(/** !RTCPeerConnection */ $thisArg, /** * */ successCallbackOrConstraints, /** ?function(?string):* */ errorCallback, /** * */ constraints) {

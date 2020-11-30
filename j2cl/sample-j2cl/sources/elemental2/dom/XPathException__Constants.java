@@ -23,3 +23,4 @@ class XPathException__Constants {
   static int INVALID_EXPRESSION_ERR;
   static int TYPE_ERR;
 }
+

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,13 +21,13 @@ import org.gwtproject.regexp.client.NativeRegExp;
 class NativeRegExpFactory extends RegExpFactory {
 
   @Override
-  RegExp compile(String pattern, String flags) {
-    return NativeRegExp.compile(pattern, flags);
+  RegExp compile(String pattern) {
+    return NativeRegExp.compile(pattern);
   }
 
   @Override
-  RegExp compile(String pattern) {
-    return NativeRegExp.compile(pattern);
+  RegExp compile(String pattern, String flags) {
+    return NativeRegExp.compile(pattern, flags);
   }
 
   @Override
@@ -35,3 +35,4 @@ class NativeRegExpFactory extends RegExpFactory {
     return NativeRegExp.quote(input);
   }
 }
+

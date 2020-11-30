@@ -27,7 +27,7 @@ class $1 extends TextOverflow {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** TextOverflow */ arg0) {
   return super.compareTo(/**@type {TextOverflow}*/ ($Casts.$to(arg0, TextOverflow)));
  }
  

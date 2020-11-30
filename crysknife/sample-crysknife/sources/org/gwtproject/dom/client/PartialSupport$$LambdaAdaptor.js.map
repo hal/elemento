@@ -2,7 +2,8 @@
 "version":3,
 "file":"PartialSupport$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MA+BkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;uE;EAAAA,8H;;;CAAA,oH;EAAAC,iC;EAAAA,0E;;;CAAA,kB;EAAAC,0C;EAAAA,uG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MA4BkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;uE;EAAAA,8H;;;CAAA,oH;EAAAC,iC;EAAAA,0E;;;CAAA,kB;EAAAC,0C;EAAAA,uG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["PartialSupport.java"],
 "names":["org.gwtproject.dom.client.PartialSupport$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.dom.client.PartialSupport$$LambdaAdaptor.<init>","org.gwtproject.dom.client.PartialSupport$$LambdaAdaptor.annotationType","org.gwtproject.dom.client.PartialSupport$$LambdaAdaptor.<clinit>"]
 }
+

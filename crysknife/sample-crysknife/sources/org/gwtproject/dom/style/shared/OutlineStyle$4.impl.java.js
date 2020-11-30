@@ -27,7 +27,7 @@ class $4 extends OutlineStyle {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** OutlineStyle */ arg0) {
   return super.compareTo(/**@type {OutlineStyle}*/ ($Casts.$to(arg0, OutlineStyle)));
  }
  

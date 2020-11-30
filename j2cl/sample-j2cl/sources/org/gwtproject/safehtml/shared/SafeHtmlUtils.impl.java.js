@@ -15,6 +15,16 @@ class SafeHtmlUtils extends j_l_Object {
  constructor() {
   super();
  }
+ /** @return {!SafeHtmlUtils} */
+ static $create__() {
+  let $instance = new SafeHtmlUtils();
+  $instance.$ctor__org_gwtproject_safehtml_shared_SafeHtmlUtils__();
+  return $instance;
+ }
+ 
+ $ctor__org_gwtproject_safehtml_shared_SafeHtmlUtils__() {
+  this.$ctor__java_lang_Object__();
+ }
  /** @return {SafeHtml} */
  static m_fromSafeConstant__java_lang_String(/** ?string */ s) {
   SafeHtmlUtils.$clinit();
@@ -25,6 +35,11 @@ class SafeHtmlUtils extends j_l_Object {
  static m_fromString__java_lang_String(/** ?string */ s) {
   SafeHtmlUtils.$clinit();
   return SafeHtmlString.$create__java_lang_String(SafeHtmlUtils.m_htmlEscape__java_lang_String(s));
+ }
+ /** @return {?string} */
+ static m_htmlEscape__java_lang_String(/** ?string */ s) {
+  SafeHtmlUtils.$clinit();
+  return SafeHtmlUtils.f_impl__org_gwtproject_safehtml_shared_SafeHtmlUtils_.m_htmlEscape__java_lang_String_$pp_org_gwtproject_safehtml_shared(s);
  }
  /** @return {SafeHtml} */
  static m_fromTrustedString__java_lang_String(/** ?string */ s) {
@@ -50,11 +65,6 @@ class SafeHtmlUtils extends j_l_Object {
   }
  }
  /** @return {?string} */
- static m_htmlEscape__java_lang_String(/** ?string */ s) {
-  SafeHtmlUtils.$clinit();
-  return SafeHtmlUtils.f_impl__org_gwtproject_safehtml_shared_SafeHtmlUtils_.m_htmlEscape__java_lang_String_$pp_org_gwtproject_safehtml_shared(s);
- }
- /** @return {?string} */
  static m_htmlEscapeAllowEntities__java_lang_String(/** ?string */ text) {
   SafeHtmlUtils.$clinit();
   let escaped = StringBuilder.$create__();
@@ -75,16 +85,6 @@ class SafeHtmlUtils extends j_l_Object {
    }
   }
   return escaped.toString();
- }
- /** @return {!SafeHtmlUtils} */
- static $create__() {
-  let $instance = new SafeHtmlUtils();
-  $instance.$ctor__org_gwtproject_safehtml_shared_SafeHtmlUtils__();
-  return $instance;
- }
- 
- $ctor__org_gwtproject_safehtml_shared_SafeHtmlUtils__() {
-  this.$ctor__java_lang_Object__();
  }
  /** @return {SafeHtml} */
  static get f_EMPTY_SAFE_HTML__org_gwtproject_safehtml_shared_SafeHtmlUtils() {
@@ -117,9 +117,9 @@ $Util.$setClassMetadata(SafeHtmlUtils, 'org.gwtproject.safehtml.shared.SafeHtmlU
 /**@private {SafeHtml}*/
 SafeHtmlUtils.$f_EMPTY_SAFE_HTML__org_gwtproject_safehtml_shared_SafeHtmlUtils;
 /**@const {?string}*/
-SafeHtmlUtils.f_HTML_ENTITY_REGEX__org_gwtproject_safehtml_shared_SafeHtmlUtils_ = "[a-z]+|#[0-9]+|#x[0-9a-fA-F]+";
-/**@const {?string}*/
 SafeHtmlUtils.f_HTML_CHARS__org_gwtproject_safehtml_shared_SafeHtmlUtils = "[&<>'\"]";
+/**@const {?string}*/
+SafeHtmlUtils.f_HTML_ENTITY_REGEX__org_gwtproject_safehtml_shared_SafeHtmlUtils_ = "[a-z]+|#[0-9]+|#x[0-9a-fA-F]+";
 /**@type {JvmImpl}*/
 SafeHtmlUtils.f_impl__org_gwtproject_safehtml_shared_SafeHtmlUtils_;
 

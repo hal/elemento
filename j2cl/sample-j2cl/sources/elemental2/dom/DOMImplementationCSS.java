@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class DOMImplementationCSS {
   public native CSSStyleSheet createCSSStyleSheet(String title, String media);
 }
+

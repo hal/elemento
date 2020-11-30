@@ -2,7 +2,8 @@
 "version":3,
 "file":"Document$WritelnTextUnionType$$Overlay.impl.java.js",
 "lineCount":39,
-"mappings":"A;;;;;;;;;MA0KmB,6B;;QAEsB,sB,UAAUA,C;EAAVC,wC;EACnCA,uD;;;QAIa,iE;EAAAC,wC;EACbA,iD;;;QAIkB,sE;EAAAC,wC;EAClBA,8F;;;QAIc,iE;EAAAC,wC;EACdA,yD;;;QAIc,sE;EAAAC,wC;EACdA,uD;;;QAvBa,O;EAAAC,gD;EAAAA;",
+"mappings":"A;;;;;;;;;MA+MmB,6B;;QAEsB,sB,UAAUA,C;EAAVC,wC;EACnCA,uD;;;QAIa,iE;EAAAC,wC;EACbA,iD;;;QAIkB,sE;EAAAC,wC;EAClBA,8F;;;QAIc,iE;EAAAC,wC;EACdA,yD;;;QAIc,sE;EAAAC,wC;EACdA,uD;;;QAvBa,O;EAAAC,gD;EAAAA;",
 "sources":["Document.java"],
 "names":["o","elemental2.dom.Document$WritelnTextUnionType$$Overlay.of","elemental2.dom.Document$WritelnTextUnionType$$Overlay.asString__$devirt","elemental2.dom.Document$WritelnTextUnionType$$Overlay.asTrustedHTML__$devirt","elemental2.dom.Document$WritelnTextUnionType$$Overlay.isString__$devirt","elemental2.dom.Document$WritelnTextUnionType$$Overlay.isTrustedHTML__$devirt","elemental2.dom.Document$WritelnTextUnionType$$Overlay.<clinit>"]
 }
+

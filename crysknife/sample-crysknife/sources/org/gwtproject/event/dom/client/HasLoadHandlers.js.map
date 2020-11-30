@@ -6,3 +6,4 @@
 "sources":["HasLoadHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasLoadHandlers.<clinit>"]
 }
+

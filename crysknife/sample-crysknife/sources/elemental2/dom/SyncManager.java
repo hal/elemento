@@ -26,3 +26,4 @@ public class SyncManager {
 
   public native Promise<Void> register(String tag);
 }
+

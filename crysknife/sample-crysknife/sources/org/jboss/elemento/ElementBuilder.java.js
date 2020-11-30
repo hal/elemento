@@ -22,6 +22,7 @@ goog.require('nativebootstrap.Equality');
 goog.require('org.jboss.elemento.By');
 goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.EventType');
+goog.require('org.jboss.elemento.Id');
 goog.require('vmbootstrap.Casts');
 
 const ElementBuilder = goog.require('org.jboss.elemento.ElementBuilder$impl');

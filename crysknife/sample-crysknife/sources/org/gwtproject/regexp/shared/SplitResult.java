@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,26 +16,28 @@
 package org.gwtproject.regexp.shared;
 
 public interface SplitResult {
-    /**
-     * Returns one the strings split off.
-     *
-     * @param index the index of the string to be returned.
-     * @return The index'th string resulting from the split.
-     */
-    String get(int index);
 
-    /**
-     * Returns the number of strings split off.
-     *
-     * @return the length
-     */
-    int length();
+  /**
+   * Returns one the strings split off.
+   *
+   * @param index the index of the string to be returned.
+   * @return The index'th string resulting from the split.
+   */
+  String get(int index);
 
-    /**
-     * Sets (overrides) one of the strings split off.
-     *
-     * @param index the index of the string to be set.
-     * @param value the string to be set
-     */
-    void set(int index, String value);
+  /**
+   * Returns the number of strings split off.
+   *
+   * @return the length
+   */
+  int length();
+
+  /**
+   * Sets (overrides) one of the strings split off.
+   *
+   * @param index the index of the string to be set.
+   * @param value the string to be set
+   */
+  void set(int index, String value);
 }
+

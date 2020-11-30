@@ -25,6 +25,5 @@ public class TrustedTypePolicy {
   public native TrustedScript createScript(String s);
 
   public native TrustedScriptURL createScriptURL(String s);
-
-  public native TrustedURL createURL(String s);
 }
+

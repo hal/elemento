@@ -39,3 +39,4 @@ public interface SharedWorkerGlobalScope extends WorkerGlobalScope {
   @JsProperty
   void setOnconnect(SharedWorkerGlobalScope.OnconnectFn onconnect);
 }
+

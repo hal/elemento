@@ -6,3 +6,4 @@
 "sources":["HasFocusHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasFocusHandlers.<clinit>"]
 }
+

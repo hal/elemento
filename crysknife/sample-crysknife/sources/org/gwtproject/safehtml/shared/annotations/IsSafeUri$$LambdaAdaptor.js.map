@@ -6,3 +6,4 @@
 "sources":["IsSafeUri.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.IsSafeUri$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.safehtml.shared.annotations.IsSafeUri$$LambdaAdaptor.<init>","org.gwtproject.safehtml.shared.annotations.IsSafeUri$$LambdaAdaptor.annotationType","org.gwtproject.safehtml.shared.annotations.IsSafeUri$$LambdaAdaptor.<clinit>"]
 }
+

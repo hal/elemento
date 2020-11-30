@@ -27,7 +27,7 @@ class $6 extends TextJustify {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** TextJustify */ arg0) {
   return super.compareTo(/**@type {TextJustify}*/ ($Casts.$to(arg0, TextJustify)));
  }
  

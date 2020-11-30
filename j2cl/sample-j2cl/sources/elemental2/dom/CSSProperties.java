@@ -1099,6 +1099,7 @@ public class CSSProperties {
   public String animationPlayState;
   public String animationTimingFunction;
   public String azimuth;
+  public String backdropFilter;
   public String backfaceVisibility;
   public String background;
   public String backgroundAttachment;
@@ -1146,6 +1147,7 @@ public class CSSProperties {
   public String captionSide;
   public String clear;
   public String clip;
+  public String clipPath;
   public String color;
   public String contain;
   public String content;
@@ -1236,6 +1238,17 @@ public class CSSProperties {
   public String speakPunctuation;
   public String speechRate;
   public String stress;
+  public String stroke;
+  public String strokeAlignment;
+  public String strokeDashadjust;
+  public String strokeDasharray;
+  public String strokeDashcorner;
+  public String strokeDashoffset;
+  public String strokeLinecap;
+  public String strokeLinejoin;
+  public String strokeMiterlimit;
+  public String strokeOpacity;
+  public String strokeWidth;
   public String tableLayout;
   public String textAlign;
   public String textDecoration;
@@ -1266,3 +1279,4 @@ public class CSSProperties {
   public String wordWrap;
   public CSSProperties.ZIndexUnionType zIndex;
 }
+

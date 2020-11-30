@@ -6,3 +6,4 @@
 "sources":["LazyElement.java"],
 "names":["org.jboss.elemento.LazyElement.<synthetic: ctor_js>","org.jboss.elemento.LazyElement.<init>","org.jboss.elemento.LazyElement.element","org.jboss.elemento.LazyElement.initialized","org.jboss.elemento.LazyElement.<clinit>"]
 }
+

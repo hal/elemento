@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$Unit.impl.java.js",
 "lineCount":107,
-"mappings":"A;;;;;;;;;;MA4DsB,U;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,qB;EAAAA,iC;EAAAA,0D;EAAAA,iB;;;CAAA,6C;EAAAC,iC;;;QAClB,8C;EAAAC,sF;;;QACA,+C;EAAAA,uF;;;QACA,8C;EAAAA,sF;;;QACA,8C;EAAAA,sF;;;QACA,8C;EAAAA,sF;;;QACA,8C;EAAAA,sF;;;QACA,8C;EAAAA,sF;;;QACA,8C;EAAAA,sF;;;QACA,8C;EAAAA,sF;;;QATkB,O;EAAAC,6B;EAAAA,0B;EAAAA,qB;EAClBA,yG;EACAA,2G;EACAA,yG;EACAA,yG;EACAA,yG;EACAA,yG;EACAA,yG;EACAA,yG;EACAA,yG;;;;;;;;;;;;;;AATkB;uD;AAAA;wD;AAAA;uD;AAAA;uD;AAAA;uD;AAAA;uD;AAAA;uD;AAAA;uD;AAAA;;",
+"mappings":"A;;;;;;;;;;MAuDsB,U;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,qB;EAAAA,iC;EAAAA,0D;EAAAA,iB;;;CAAA,6C;EAAAC,iC;;;QAClB,8C;EAAAC,sF;;;QAEA,+C;EAAAA,uF;;;QAEA,8C;EAAAA,sF;;;QAEA,8C;EAAAA,sF;;;QAEA,8C;EAAAA,sF;;;QAEA,8C;EAAAA,sF;;;QAEA,8C;EAAAA,sF;;;QAEA,8C;EAAAA,sF;;;QAEA,8C;EAAAA,sF;;;QAjBkB,O;EAAAC,6B;EAAAA,0B;EAAAA,qB;EAClBA,yG;EAEAA,2G;EAEAA,yG;EAEAA,yG;EAEAA,yG;EAEAA,yG;EAEAA,yG;EAEAA,yG;EAEAA,yG;;;;;;;;;;;;;;AAjBkB;uD;AAAA;wD;AAAA;uD;AAAA;uD;AAAA;uD;AAAA;uD;AAAA;uD;AAAA;uD;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$Unit.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$Unit.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$Unit.<init>","org.gwtproject.dom.client.Style$Unit.<synthetic: getter>","org.gwtproject.dom.client.Style$Unit.<clinit>"]
 }
+

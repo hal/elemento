@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.impl.java.js",
-"lineCount":57,
-"mappings":"A;;;;;;;;;;;;;;;MA4Ba,kD;;CAAA,W;EAAAA,Q;EAAAA;OAEI,0FAFJA,C;;;QASJ,yB,gBAA0DC,I;EAA1DC,6D;EAAAA,yE;EAAAA,2H;EAAAA,iB;;;CAAA,0G,gBAA0DD,I;EAA1DE,iC;EACLA;GACEA,uFADFA;G;EAGAA,uG;;;CAQY,Y;EACZC,uG;;;CAOa,M,UAAcC,G;EAC3BC;GACEA,aADFA;G;EAGAA,kO;;;CAOS,Q;EACTC,gJ;;;QAzCS,O;EAAAC,qE;EAAAA,kE;EAAAA;",
+"lineCount":72,
+"mappings":"A;;;;;;;;;;;;;;;MA2Ba,kD;;CAAA,W;EAAAA,Q;EAAAA;OAEI,0FAFJA,C;;;;QAIJ,S;EAAAC,6D;EAAAA,yE;EAAAA,uG;EAAAA,iB;;;;CAAA,0F;EAAAC,iC;;;;QAOA,yB,gBAA0DC,I;EAA1DF,6D;EAAAA,yE;EAAAA,2H;EAAAA,iB;;;;CAAA,0G,gBAA0DE,I;EAA1DD,iC;EACLA;GACEA,uFADFA;G;EAGAA,uG;;;CAMY,Y;EACZE,uG;;;CAKS,Q;EACTC,gJ;;;CAKa,M,UAAcC,G;EAC3BC;GACEA,aADFA;G;EAGAA,kO;;;QArCS,O;EAAAC,qE;EAAAA,kE;EAAAA;",
 "sources":["OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.java"],
-"names":["org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.<synthetic: ctor_js>","html","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.<init>","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.asString","obj","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.equals","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.hashCode","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.<clinit>"]
+"names":["org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.<synthetic: ctor_js>","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.<init>","html","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.asString","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.hashCode","obj","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.equals","org.gwtproject.safehtml.shared.OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml.<clinit>"]
 }
+

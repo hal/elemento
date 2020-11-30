@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"AbstractEventHandler.impl.java.js",
+"lineCount":48,
+"mappings":"A;;;;;;;;;;;;;;;;MAwBsB,oB;;CAAA,W;EAAAA,Q;EAAAA;OAEK,iEAFLA,C;;;CAAA,0D;EAAAC,iC;EAAAA,oE;;;CAIR,wB,UAAOC,C;EACjBC,+HAAoBC,UAApBD;GAAoBE,IAAAD,YAAAC,4DAApBF;GAAkCE,2CAAlCF;M;;;CAGU,4C,oBAA0BC,U;EACpCE,uF;;;CATkB,4D;EAEpBL,kI;;;QAFoB,O;EAAAM,uC;EAAAA,oC;EAAAA;",
+"sources":["AbstractEventHandler.java"],
+"names":["io.crysknife.client.internal.AbstractEventHandler.<synthetic: ctor_js>","io.crysknife.client.internal.AbstractEventHandler.<init>","t","io.crysknife.client.internal.AbstractEventHandler.fire","subscriber","io.crysknife.client.internal.AbstractEventHandler.<lambda in fire>","io.crysknife.client.internal.AbstractEventHandler.addSubscriber","io.crysknife.client.internal.AbstractEventHandler.<clinit>"]
+}
+

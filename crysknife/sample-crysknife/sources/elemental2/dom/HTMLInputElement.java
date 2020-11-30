@@ -93,3 +93,4 @@ public class HTMLInputElement extends HTMLElement {
 
   public native void stepUp(int n);
 }
+

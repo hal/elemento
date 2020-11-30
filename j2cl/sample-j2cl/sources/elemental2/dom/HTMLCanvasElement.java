@@ -56,3 +56,4 @@ public class HTMLCanvasElement extends HTMLElement {
 
   public native OffscreenCanvas transferControlToOffscreen();
 }
+

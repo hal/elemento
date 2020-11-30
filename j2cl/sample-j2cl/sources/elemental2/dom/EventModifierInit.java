@@ -113,3 +113,4 @@ public interface EventModifierInit extends UIEventInit {
   @JsProperty
   void setShiftKey(boolean shiftKey);
 }
+

@@ -6,3 +6,4 @@
 "sources":["Worker.java"],
 "names":["message","transfer","elemental2.dom.Worker$$Overlay.postMessage__$devirt","elemental2.dom.Worker$$Overlay.webkitPostMessage__$devirt","elemental2.dom.Worker$$Overlay.<clinit>"]
 }
+

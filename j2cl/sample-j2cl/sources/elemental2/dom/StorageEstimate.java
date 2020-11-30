@@ -41,3 +41,4 @@ public interface StorageEstimate {
   @JsProperty
   void setUsage(double usage);
 }
+

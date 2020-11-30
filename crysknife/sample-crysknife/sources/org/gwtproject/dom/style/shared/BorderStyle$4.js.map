@@ -2,7 +2,8 @@
 "version":3,
 "file":"BorderStyle$4.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAuCS,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,uG;EAAAA,iB;;;CAAA,2E;EAAAC,gG;;;CAES,c;EACZC,gB;;;;CAHG,6B;EAAAC,iF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAqCS,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,uG;EAAAA,iB;;;CAAA,2E;EAAAC,gG;;;CAES,c;EACZC,gB;;;;CAHG,6B;EAAAC,iF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["BorderStyle.java"],
 "names":["org.gwtproject.dom.style.shared.BorderStyle$4.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.BorderStyle$4.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.BorderStyle$4.<init>","org.gwtproject.dom.style.shared.BorderStyle$4.getCssName","org.gwtproject.dom.style.shared.BorderStyle$4.compareTo","org.gwtproject.dom.style.shared.BorderStyle$4.<clinit>"]
 }
+

@@ -58,3 +58,4 @@ public interface RTCRtpTransceiverInit {
     setStreams(Js.<JsArray<MediaStream>>uncheckedCast(streams));
   }
 }
+

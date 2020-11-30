@@ -6,3 +6,4 @@
 "sources":["GestureEndEvent.java"],
 "names":["org.gwtproject.event.dom.client.GestureEndEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.GestureEndEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.GestureEndEvent.<init>","org.gwtproject.event.dom.client.GestureEndEvent.getType","org.gwtproject.event.dom.client.GestureEndEvent.getAssociatedType","org.gwtproject.event.dom.client.GestureEndEvent.getRotation","org.gwtproject.event.dom.client.GestureEndEvent.getScale","handler","org.gwtproject.event.dom.client.GestureEndEvent.dispatch","org.gwtproject.event.dom.client.GestureEndEvent.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"MediaBuilder.impl.java.js",
 "lineCount":27,
-"mappings":"A;;;;;;;;;;MAsBiB,Y;;CAKb,Y;;CAKA,Y;;CAKA,Q;;CAKA,S;;CAUA,2B,gBAAeA,O;;CAKf,uB,gBAAWC,G;;QAnCE,O;EAAAC,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;MAsBiB,Y;;CAGb,Y;;CAGA,Y;;CAGA,Q;;CAGA,S;;CASA,2B,gBAAeA,O;;CAGf,uB,gBAAWC,G;;QAxBE,O;EAAAC,+B;EAAAA;",
 "sources":["MediaBuilder.java"],
 "names":["preload","url","org.gwtproject.dom.builder.shared.MediaBuilder.<clinit>"]
 }
+

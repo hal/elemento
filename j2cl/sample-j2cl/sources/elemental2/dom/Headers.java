@@ -88,5 +88,6 @@ public class Headers implements JsIterable<JsArray<String>> {
 
   public native void set(String name, String value);
 
-  public native JsIterator<String> values();
+  public native JsIterator<String, Object, Object> values();
 }
+

@@ -10,10 +10,10 @@ let $LambdaAdaptor = goog.forwardDeclare('org.gwtproject.safehtml.shared.SafeUri
 class SafeUri {
  /** @abstract @return {?string} */
  m_asString__() {}
- /** @abstract @return {boolean} */
- equals(/** * */ anObject) {}
  /** @abstract @return {number} */
  hashCode() {}
+ /** @abstract @return {boolean} */
+ equals(/** * */ anObject) {}
  /** @return {SafeUri} */
  static $adapt(/** ?function():?string */ fn) {
   SafeUri.$clinit();

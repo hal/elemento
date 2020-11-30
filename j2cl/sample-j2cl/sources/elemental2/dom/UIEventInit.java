@@ -41,3 +41,4 @@ public interface UIEventInit extends EventInit {
   @JsProperty
   void setView(Window view);
 }
+

@@ -6,3 +6,4 @@
 "sources":["DragEnterEvent.java"],
 "names":["org.gwtproject.event.dom.client.DragEnterEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.DragEnterEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.DragEnterEvent.<init>","org.gwtproject.event.dom.client.DragEnterEvent.getType","org.gwtproject.event.dom.client.DragEnterEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.DragEnterEvent.dispatch","org.gwtproject.event.dom.client.DragEnterEvent.<clinit>"]
 }
+

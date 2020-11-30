@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$TextDecoration.impl.java.js",
 "lineCount":79,
-"mappings":"A;;;;;;;;;;MA2RsB,oB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,+B;EAAAA,2C;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,iC;;;QAClB,2D;EAAAC,uH;;;QACA,kE;EAAAA,8H;;;QACA,0D;EAAAA,sH;;;QACA,8D;EAAAA,0H;;;QACA,+D;EAAAA,2H;;;QALkB,O;EAAAC,uC;EAAAA,oC;EAAAA,qB;EAClBA,uJ;EACAA,qK;EACAA,qJ;EACAA,6J;EACAA,+J;;;;;;;;;;;;;;AALkB;8E;AAAA;qF;AAAA;6E;AAAA;iF;AAAA;;",
+"mappings":"A;;;;;;;;;;MAuXsB,oB;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,+B;EAAAA,2C;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,iC;;;QAClB,2D;EAAAC,uH;;;QAEA,kE;EAAAA,8H;;;QAEA,0D;EAAAA,sH;;;QAEA,8D;EAAAA,0H;;;QAEA,+D;EAAAA,2H;;;QATkB,O;EAAAC,uC;EAAAA,oC;EAAAA,qB;EAClBA,uJ;EAEAA,qK;EAEAA,qJ;EAEAA,6J;EAEAA,+J;;;;;;;;;;;;;;AATkB;8E;AAAA;qF;AAAA;6E;AAAA;iF;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$TextDecoration.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$TextDecoration.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$TextDecoration.<init>","org.gwtproject.dom.client.Style$TextDecoration.<synthetic: getter>","org.gwtproject.dom.client.Style$TextDecoration.<clinit>"]
 }
+

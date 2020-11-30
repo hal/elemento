@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlTableRowBuilder.impl.java.js",
 "lineCount":61,
-"mappings":"A;;;;;;;;;;;;;;;;MAsBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAoCC,Q;EAApCC,8B;EAAAA,0C;EAAAA,oI;EAAAA,iB;;;CAAA,+G,wBAAoCD,Q;EAClCE,kI;;;CAIqB,yB,gBAAaC,K;EAClCC,qL;;;CAIqB,sB,gBAAUC,E;EAC/BC,+K;;;CAIqB,yB,gBAAaC,K;EAClCC,qL;;;CAIqB,+C,iBAAcC,I;EACnCC,uK;;;CAIqB,wB,gBAAYC,I;EACjCC,uK;;;CAIqB,0B,gBAAcC,M;EACnCC,uL;;;QAlCS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;MAoBa,mB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAoCC,Q;EAApCC,8B;EAAAA,0C;EAAAA,oI;EAAAA,iB;;;CAAA,+G,wBAAoCD,Q;EAClCE,kI;;;CAIqB,yB,gBAAaC,K;EAClCC,qL;;;CAIqB,sB,gBAAUC,E;EAC/BC,+K;;;CAIqB,yB,gBAAaC,K;EAClCC,qL;;;CAIqB,+C,iBAAcC,I;EACnCC,uK;;;CAIqB,wB,gBAAYC,I;EACjCC,uK;;;CAIqB,0B,gBAAcC,M;EACnCC,uL;;;QAlCS,O;EAAAC,sC;EAAAA,mC;EAAAA;",
 "sources":["HtmlTableRowBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.<init>","align","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.align","ch","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.ch","chOff","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.chOff","html","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.html","text","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.text","vAlign","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.vAlign","org.gwtproject.dom.builder.shared.HtmlTableRowBuilder.<clinit>"]
 }
+

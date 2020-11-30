@@ -25,3 +25,4 @@ public class ClientRectList implements JsArrayLike<DOMRect> {
 
   public native DOMRect item(int index);
 }
+

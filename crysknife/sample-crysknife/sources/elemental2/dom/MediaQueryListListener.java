@@ -21,3 +21,4 @@ import jsinterop.annotations.JsFunction;
 public interface MediaQueryListListener {
   void onInvoke(MediaQueryList p0);
 }
+

@@ -15,6 +15,7 @@
  */
 package elemental2.dom;
 
+import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -22,6 +23,11 @@ import jsinterop.base.Js;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public interface EventTarget {
+  @JsFunction
+  public interface AddEventListenerListenerFn {
+    Object onInvoke(Event p0);
+  }
+
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface AddEventListenerOptionsUnionType {
     @JsOverlay
@@ -43,6 +49,11 @@ public interface EventTarget {
     default boolean isBoolean() {
       return (Object) this instanceof Boolean;
     }
+  }
+
+  @JsFunction
+  public interface RemoveEventListenerListenerFn {
+    Object onInvoke(Event p0);
   }
 
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
@@ -106,3 +117,4 @@ public interface EventTarget {
 
   void removeEventListener(String type, EventListener listener);
 }
+

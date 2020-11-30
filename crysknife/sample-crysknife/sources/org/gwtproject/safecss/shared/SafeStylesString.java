@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package org.gwtproject.safecss.shared;
  * A string wrapped as an object of type {@link SafeStyles}.
  *
  * <p>This class is package-private and intended for internal use by the {@link
- * com.google.gwt.safecss} package.
+ * org.gwtproject.safecss} package.
  *
  * <p>All implementors must implement .equals and .hashCode so that they operate just like
  * String.equals() and String.hashCode().
@@ -49,6 +49,12 @@ class SafeStylesString implements SafeStyles {
     return css;
   }
 
+  /** Returns a hash code for this string. */
+  @Override
+  public int hashCode() {
+    return css.hashCode();
+  }
+
   /** Compares this string to the specified object. */
   @Override
   public boolean equals(Object obj) {
@@ -57,10 +63,5 @@ class SafeStylesString implements SafeStyles {
     }
     return css.equals(((SafeStyles) obj).asString());
   }
-
-  /** Returns a hash code for this string. */
-  @Override
-  public int hashCode() {
-    return css.hashCode();
-  }
 }
+

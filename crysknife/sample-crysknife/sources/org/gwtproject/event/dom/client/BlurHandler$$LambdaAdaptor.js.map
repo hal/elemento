@@ -6,3 +6,4 @@
 "sources":["BlurHandler.java"],
 "names":["org.gwtproject.event.dom.client.BlurHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.BlurHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.BlurHandler$$LambdaAdaptor.onBlur","org.gwtproject.event.dom.client.BlurHandler$$LambdaAdaptor.<clinit>"]
 }
+

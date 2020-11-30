@@ -2,7 +2,8 @@
 "version":3,
 "file":"MatchResult.impl.java.js",
 "lineCount":20,
-"mappings":"A;;;;;;;MAiBiB,W;;CAWN,e,eAAaA,K;;CAMhB,iB;;CAMA,Y;;CAMG,Y;;QA7BM,O;EAAAC,8B;EAAAA;",
+"mappings":"A;;;;;;;MAiBiB,W;;CAWR,e,eAAaA,K;;CAOhB,iB;;CAOA,Y;;CAOG,Y;;QAhCQ,O;EAAAC,8B;EAAAA;",
 "sources":["MatchResult.java"],
 "names":["index","org.gwtproject.regexp.shared.MatchResult.<clinit>"]
 }
+

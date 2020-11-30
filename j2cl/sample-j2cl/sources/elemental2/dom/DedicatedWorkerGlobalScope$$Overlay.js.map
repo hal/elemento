@@ -6,3 +6,4 @@
 "sources":["DedicatedWorkerGlobalScope.java"],
 "names":["message","transfer","elemental2.dom.DedicatedWorkerGlobalScope$$Overlay.webkitPostMessage__$devirt","elemental2.dom.DedicatedWorkerGlobalScope$$Overlay.<clinit>"]
 }
+

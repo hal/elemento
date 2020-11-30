@@ -2,7 +2,8 @@
 "version":3,
 "file":"ParamBuilder.impl.java.js",
 "lineCount":18,
-"mappings":"A;;;;;;;;;MAoBiB,Y;;CASF,wB,gBAAYA,I;;CASZ,yB,gBAAaC,K;;QAlBX,O;EAAAC,+B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,Y;;CASF,wB,gBAAYA,I;;CASZ,yB,gBAAaC,K;;QAlBX,O;EAAAC,+B;EAAAA;",
 "sources":["ParamBuilder.java"],
 "names":["name","value","org.gwtproject.dom.builder.shared.ParamBuilder.<clinit>"]
 }
+

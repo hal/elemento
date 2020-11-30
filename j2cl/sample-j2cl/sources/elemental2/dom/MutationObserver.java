@@ -44,3 +44,4 @@ public class MutationObserver {
 
   public native JsArray<MutationRecord> takeRecords();
 }
+

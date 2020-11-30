@@ -27,3 +27,4 @@ public interface WindowSessionStorage {
   @JsProperty
   void setSessionStorage(Storage sessionStorage);
 }
+

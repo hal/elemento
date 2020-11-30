@@ -26,3 +26,4 @@ public class CSSInterface {
 
   public native boolean supports(String property);
 }
+

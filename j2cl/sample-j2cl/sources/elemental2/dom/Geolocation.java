@@ -42,3 +42,4 @@ public class Geolocation {
 
   public native int watchPosition(PositionCallback successCallback);
 }
+

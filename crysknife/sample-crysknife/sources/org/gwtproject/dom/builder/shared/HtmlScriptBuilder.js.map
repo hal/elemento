@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlScriptBuilder.impl.java.js",
 "lineCount":57,
-"mappings":"A;;;;;;;;;;;;;;;;MAuBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;CAImB,+C,iBAAcC,I;EACjCC,mK;;;CAIa,2B;EACbC,a;;;CAImB,uB,gBAAiCC,G;EACpDC,6K;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;QA7BS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;MAqBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;CAImB,+C,iBAAcC,I;EACjCC,mK;;;CAIa,2B;EACbC,a;;;CAImB,uB,gBAAiCC,G;EACpDC,6K;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;QA7BS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
 "sources":["HtmlScriptBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlScriptBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlScriptBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlScriptBuilder.<init>","defer","org.gwtproject.dom.builder.shared.HtmlScriptBuilder.defer","html","org.gwtproject.dom.builder.shared.HtmlScriptBuilder.html","org.gwtproject.dom.builder.shared.HtmlScriptBuilder.isChildElementSupported","src","org.gwtproject.dom.builder.shared.HtmlScriptBuilder.src","type","org.gwtproject.dom.builder.shared.HtmlScriptBuilder.type","org.gwtproject.dom.builder.shared.HtmlScriptBuilder.<clinit>"]
 }
+

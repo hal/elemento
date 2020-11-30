@@ -24,3 +24,4 @@ public class HTMLFontElement extends HTMLElement {
   public String face;
   public String size;
 }
+

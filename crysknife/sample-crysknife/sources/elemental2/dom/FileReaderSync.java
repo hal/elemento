@@ -31,3 +31,4 @@ public class FileReaderSync {
 
   public native String readAsText(Blob blob);
 }
+

@@ -50,7 +50,7 @@ class Composite extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Composite */ arg0) {
   return super.compareTo(/**@type {Composite}*/ ($Casts.$to(arg0, Composite)));
  }
  /** @return {!Composite} */

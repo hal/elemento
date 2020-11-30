@@ -6,3 +6,4 @@
 "sources":["EndedHandler.java"],
 "names":["org.gwtproject.event.dom.client.EndedHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.EndedHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.EndedHandler$$LambdaAdaptor.onEnded","org.gwtproject.event.dom.client.EndedHandler$$LambdaAdaptor.<clinit>"]
 }
+

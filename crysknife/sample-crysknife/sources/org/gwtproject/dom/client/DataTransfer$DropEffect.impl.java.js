@@ -43,7 +43,7 @@ class DropEffect extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** DropEffect */ arg0) {
   return super.compareTo(/**@type {DropEffect}*/ ($Casts.$to(arg0, DropEffect)));
  }
  /** @return {!DropEffect} */

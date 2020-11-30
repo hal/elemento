@@ -47,3 +47,4 @@ public interface ShareData {
   @JsProperty
   void setUrl(String url);
 }
+

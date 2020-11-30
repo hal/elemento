@@ -2,7 +2,8 @@
 "version":3,
 "file":"ApplicationElement_Factory$ApplicationElement.impl.java.js",
 "lineCount":49,
-"mappings":"A;;;;;;;;;;;;MA8EgB,8C;;CAAA,W;EAAAA,Q;EAAAA;wG;EAAAA;OAEiC,0FAFjCA,C;;;QAID,2H,uEAAsEC,U;EAAtEC,yD;EAAAA,qE;EAAAA,gP;EAAAA,iB;;;CAAA,4M,uEAAsED,U;EAAtEE,oH;EACHA,mI;EADGA,oG;EAEHA,kN;EACAA,86C;;;CAI8B,c;EAC9BC,kI;;;CAZI,4F;EAERD,yP;;;QAFQ,O;EAAAE,iE;EAAAA,8D;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAmFgB,8C;;CAAA,W;EAAAA,Q;EAAAA;wG;EAAAA;OAEiC,0FAFjCA,C;;;QAID,2H,uEAAsEC,U;EAAtEC,yD;EAAAA,qE;EAAAA,gP;EAAAA,iB;;;CAAA,4M,uEAAsED,U;EAAtEE,oH;EACHA,mI;EADGA,oG;EAEHA,kN;EACAA,86C;;;CAI8B,W;EAC9BC,kI;;;CAZI,4F;EAERD,yP;;;QAFQ,O;EAAAE,iE;EAAAA,8D;EAAAA;",
 "sources":["ApplicationElement_Factory.java"],
-"names":["org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.<synthetic: ctor_js>","repository","org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.<init>","org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.getElement","org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.<clinit>"]
+"names":["org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.<synthetic: ctor_js>","repository","org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.<init>","org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.element","org.jboss.elemento.sample.crysknife.ApplicationElement_Factory$ApplicationElement.<clinit>"]
 }
+

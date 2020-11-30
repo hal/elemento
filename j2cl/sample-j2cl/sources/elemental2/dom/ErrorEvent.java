@@ -36,3 +36,4 @@ public class ErrorEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

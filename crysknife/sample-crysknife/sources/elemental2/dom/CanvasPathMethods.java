@@ -39,3 +39,4 @@ public interface CanvasPathMethods {
 
   void rect(double x, double y, double w, double h);
 }
+

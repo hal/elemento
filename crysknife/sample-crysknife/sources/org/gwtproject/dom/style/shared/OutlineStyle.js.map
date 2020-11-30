@@ -2,7 +2,8 @@
 "version":3,
 "file":"OutlineStyle.impl.java.js",
 "lineCount":165,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;MAoBY,Y;;CAAA,W;EAAAA,Q;;;CAAA,0E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAyDa,c;;QAzDb,2B;EAAAC,uB;EAAAA;GAAAA,uIAAAA;G;EAAAA,2H;;;QAAA,U;EAAAC,uB;EAAAA,0rB;;;QACV,wD;EAAAC,oG;;;QAMA,0D;EAAAA,sG;;;QAMA,0D;EAAAA,sG;;;QAMA,0D;EAAAA,sG;;;QAMA,0D;EAAAA,sG;;;QAMA,yD;EAAAA,qG;;;QAMA,0D;EAAAA,sG;;;QAMA,yD;EAAAA,qG;;;QAMA,yD;EAAAA,qG;;;QAjDU,O;EAAAC,+B;EAAAA,4B;EAAAA,e;EACVA,gN;EAMAA,sN;EAMAA,sN;EAMAA,sN;EAMAA,sN;EAMAA,mN;EAMAA,sN;EAMAA,mN;EAMAA,mN;EAjDUA,sF;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;mE;AAAA;qE;AAAA;qE;AAAA;qE;AAAA;qE;AAAA;oE;AAAA;qE;AAAA;oE;AAAA;oE;AAAA;+E;AACV;+E;AAMA;iF;AAMA;iF;AAMA;iF;AAMA;iF;AAMA;gF;AAMA;iF;AAMA;gF;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;MAkBY,Y;;CAAA,W;EAAAA,Q;;;CAAA,0E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAyDa,c;;QAzDb,2B;EAAAC,uB;EAAAA;GAAAA,uIAAAA;G;EAAAA,2H;;;QAAA,U;EAAAC,uB;EAAAA,0rB;;;QACV,wD;EAAAC,oG;;;QAMA,0D;EAAAA,sG;;;QAMA,0D;EAAAA,sG;;;QAMA,0D;EAAAA,sG;;;QAMA,0D;EAAAA,sG;;;QAMA,yD;EAAAA,qG;;;QAMA,0D;EAAAA,sG;;;QAMA,yD;EAAAA,qG;;;QAMA,yD;EAAAA,qG;;;QAjDU,O;EAAAC,+B;EAAAA,4B;EAAAA,e;EACVA,gN;EAMAA,sN;EAMAA,sN;EAMAA,sN;EAMAA,sN;EAMAA,mN;EAMAA,sN;EAMAA,mN;EAMAA,mN;EAjDUA,sF;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;mE;AAAA;qE;AAAA;qE;AAAA;qE;AAAA;qE;AAAA;oE;AAAA;qE;AAAA;oE;AAAA;oE;AAAA;+E;AACV;+E;AAMA;iF;AAMA;iF;AAMA;iF;AAMA;iF;AAMA;gF;AAMA;iF;AAMA;gF;AAMA;;",
 "sources":["OutlineStyle.java"],
 "names":["org.gwtproject.dom.style.shared.OutlineStyle.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.OutlineStyle.<init>","org.gwtproject.dom.style.shared.OutlineStyle.valueOf","org.gwtproject.dom.style.shared.OutlineStyle.values","org.gwtproject.dom.style.shared.OutlineStyle.<synthetic: getter>","org.gwtproject.dom.style.shared.OutlineStyle.<clinit>"]
 }
+

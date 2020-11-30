@@ -27,3 +27,4 @@ public class RTCPeerConnectionIceEvent {
 
   public RTCPeerConnectionIceEvent(String type, Object eventInitDict) {}
 }
+

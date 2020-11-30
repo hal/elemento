@@ -84,3 +84,4 @@ public class DOMException {
 
   public DOMException(String message) {}
 }
+

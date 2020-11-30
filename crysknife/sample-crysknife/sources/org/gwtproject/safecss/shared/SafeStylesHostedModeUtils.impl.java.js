@@ -7,7 +7,6 @@ let Character = goog.forwardDeclare('java.lang.Character$impl');
 let IllegalArgumentException = goog.forwardDeclare('java.lang.IllegalArgumentException$impl');
 let Integer = goog.forwardDeclare('java.lang.Integer$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
-let System = goog.forwardDeclare('java.lang.System$impl');
 let HashMap = goog.forwardDeclare('java.util.HashMap$impl');
 let Stack = goog.forwardDeclare('java.util.Stack$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
@@ -31,6 +30,18 @@ class SafeStylesHostedModeUtils extends j_l_Object {
  $ctor__org_gwtproject_safecss_shared_SafeStylesHostedModeUtils__() {
   this.$ctor__java_lang_Object__();
  }
+ 
+ static m_maybeCheckValidStyleName__java_lang_String(/** ?string */ name) {
+  SafeStylesHostedModeUtils.$clinit();
+  if ($Equality.$same("on", $Util.$getDefine("superdevmode")) || SafeStylesHostedModeUtils.f_forceCheck__org_gwtproject_safecss_shared_SafeStylesHostedModeUtils_) {
+   let errorText = SafeStylesHostedModeUtils.m_isValidStyleName__java_lang_String(name);
+   if (!$Equality.$same(errorText, null)) {
+    throw $Exceptions.toJs(IllegalArgumentException.$create__java_lang_String(errorText));
+   }
+  } else {
+   $Asserts.$assertWithMessage($Equality.$same(SafeStylesHostedModeUtils.m_isValidStyleName__java_lang_String(name), null), SafeStylesHostedModeUtils.m_isValidStyleName__java_lang_String(name));
+  }
+ }
  /** @return {?string} */
  static m_isValidStyleName__java_lang_String(/** ?string */ name) {
   SafeStylesHostedModeUtils.$clinit();
@@ -53,6 +64,18 @@ class SafeStylesHostedModeUtils extends j_l_Object {
    return "Style property names cannot contain a colon: " + j_l_String.m_valueOf__java_lang_Object(name);
   }
   return null;
+ }
+ 
+ static m_maybeCheckValidStyleValue__java_lang_String(/** ?string */ value) {
+  SafeStylesHostedModeUtils.$clinit();
+  if ($Equality.$same("on", $Util.$getDefine("superdevmode")) || SafeStylesHostedModeUtils.f_forceCheck__org_gwtproject_safecss_shared_SafeStylesHostedModeUtils_) {
+   let errorText = SafeStylesHostedModeUtils.m_isValidStyleValue__java_lang_String(value);
+   if (!$Equality.$same(errorText, null)) {
+    throw $Exceptions.toJs(IllegalArgumentException.$create__java_lang_String(errorText));
+   }
+  } else {
+   $Asserts.$assertWithMessage($Equality.$same(SafeStylesHostedModeUtils.m_isValidStyleValue__java_lang_String(value), null), SafeStylesHostedModeUtils.m_isValidStyleValue__java_lang_String(value));
+  }
  }
  /** @return {?string} */
  static m_isValidStyleValue__java_lang_String(/** ?string */ value) {
@@ -131,40 +154,13 @@ class SafeStylesHostedModeUtils extends j_l_Object {
   return null;
  }
  
- static m_maybeCheckValidStyleName__java_lang_String(/** ?string */ name) {
-  SafeStylesHostedModeUtils.$clinit();
-  if ($Equality.$same("on", $Util.$getDefine("superdevmode")) || SafeStylesHostedModeUtils.f_forceCheck__org_gwtproject_safecss_shared_SafeStylesHostedModeUtils_) {
-   let errorText = SafeStylesHostedModeUtils.m_isValidStyleName__java_lang_String(name);
-   if (!$Equality.$same(errorText, null)) {
-    throw $Exceptions.toJs(IllegalArgumentException.$create__java_lang_String(errorText));
-   }
-  } else {
-   $Asserts.$assertWithMessage($Equality.$same(SafeStylesHostedModeUtils.m_isValidStyleName__java_lang_String(name), null), SafeStylesHostedModeUtils.m_isValidStyleName__java_lang_String(name));
-  }
- }
- 
- static m_maybeCheckValidStyleValue__java_lang_String(/** ?string */ value) {
-  SafeStylesHostedModeUtils.$clinit();
-  System.f_out__java_lang_System.m_println__java_lang_String("method: maybeCheckValidStyleValue - value >>" + j_l_String.m_valueOf__java_lang_Object(value) + "<< - forceCheck >>" + SafeStylesHostedModeUtils.f_forceCheck__org_gwtproject_safecss_shared_SafeStylesHostedModeUtils_ + "<< - System.getProperty(\"superdevmode\" >>" + j_l_String.m_valueOf__java_lang_Object($Util.$getDefine("superdevmode")) + "<<");
-  if ($Equality.$same("on", $Util.$getDefine("superdevmode")) || SafeStylesHostedModeUtils.f_forceCheck__org_gwtproject_safecss_shared_SafeStylesHostedModeUtils_) {
-   let errorText = SafeStylesHostedModeUtils.m_isValidStyleValue__java_lang_String(value);
-   if (!$Equality.$same(errorText, null)) {
-    throw $Exceptions.toJs(IllegalArgumentException.$create__java_lang_String(errorText));
-   }
-  } else {
-   $Asserts.$assertWithMessage($Equality.$same(SafeStylesHostedModeUtils.m_isValidStyleValue__java_lang_String(value), null), SafeStylesHostedModeUtils.m_isValidStyleValue__java_lang_String(value));
-  }
- }
- 
  static m_setForceCheckValidStyle__boolean(/** boolean */ check) {
   SafeStylesHostedModeUtils.$clinit();
-  System.f_out__java_lang_System.m_println__java_lang_String("setForceCheckValidStyle - check >>" + check + "<<");
   SafeStylesHostedModeUtils.f_forceCheck__org_gwtproject_safecss_shared_SafeStylesHostedModeUtils_ = check;
  }
  
  static m_setForceCheckValidStyleFromProperty__() {
   SafeStylesHostedModeUtils.$clinit();
-  System.f_out__java_lang_System.m_println__java_lang_String("setForceCheckValidStyleFromProperty - System.getProperty(org.gwtproject.safecss.ForceCheckValidStyles) >>" + j_l_String.m_valueOf__java_lang_Object($Util.$getDefine("org.gwtproject.safecss.ForceCheckValidStyles")) + "<<");
   SafeStylesHostedModeUtils.f_forceCheck__org_gwtproject_safecss_shared_SafeStylesHostedModeUtils_ = !$Equality.$same($Util.$getDefine("org.gwtproject.safecss.ForceCheckValidStyles"), null);
  }
  
@@ -183,7 +179,6 @@ class SafeStylesHostedModeUtils extends j_l_Object {
   IllegalArgumentException = goog.module.get('java.lang.IllegalArgumentException$impl');
   Integer = goog.module.get('java.lang.Integer$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
-  System = goog.module.get('java.lang.System$impl');
   HashMap = goog.module.get('java.util.HashMap$impl');
   Stack = goog.module.get('java.util.Stack$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');

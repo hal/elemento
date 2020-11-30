@@ -2,7 +2,8 @@
 "version":3,
 "file":"HasSafeHtml.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;MAyBiB,W;;CAgBV,kD,iBAAiBA,I;;QAhBP,M;EAAAC,sB;EAAAA,8B;;;QAAA,O;EAAAC,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;MAuBiB,W;;CAcV,kD,iBAAiBA,I;;QAdP,M;EAAAC,sB;EAAAA,8B;;;QAAA,O;EAAAC,8B;EAAAA;",
 "sources":["HasSafeHtml.java"],
 "names":["html","org.gwtproject.safehtml.client.HasSafeHtml.<synthetic: adapt_lambda>","org.gwtproject.safehtml.client.HasSafeHtml.<clinit>"]
 }
+

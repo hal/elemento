@@ -41,3 +41,4 @@ public class DOMRectReadOnly extends ClientRect {
 
   public native DOMRectReadOnly fromRect(DOMRectInit other);
 }
+

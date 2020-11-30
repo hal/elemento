@@ -6,3 +6,4 @@
 "sources":["LoadedMetadataHandler.java"],
 "names":["org.gwtproject.event.dom.client.LoadedMetadataHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.LoadedMetadataHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.LoadedMetadataHandler$$LambdaAdaptor.onLoadedMetadata","org.gwtproject.event.dom.client.LoadedMetadataHandler$$LambdaAdaptor.<clinit>"]
 }
+

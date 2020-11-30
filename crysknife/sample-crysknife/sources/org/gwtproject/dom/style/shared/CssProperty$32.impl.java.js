@@ -27,7 +27,7 @@ class $32 extends CssProperty {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** CssProperty */ arg0) {
   return super.compareTo(/**@type {CssProperty}*/ ($Casts.$to(arg0, CssProperty)));
  }
  

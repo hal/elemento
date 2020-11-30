@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class CanvasGradient {
   public native void addColorStop(double offset, String color);
 }
+

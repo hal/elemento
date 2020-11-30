@@ -25,3 +25,4 @@ class CSSValue__Constants {
   static int CSS_PRIMITIVE_VALUE;
   static int CSS_VALUE_LIST;
 }
+

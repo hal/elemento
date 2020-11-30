@@ -35,3 +35,4 @@ public interface FilePropertyBag extends BlobPropertyBag {
   @JsProperty
   void setLastModified(double lastModified);
 }
+

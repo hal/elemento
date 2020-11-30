@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"RTCReceivedRtpStreamStats$$Overlay.impl.java.js",
+"lineCount":9,
+"mappings":"A;;;;MAsBiB,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"sources":["RTCReceivedRtpStreamStats.java"],
+"names":["elemental2.dom.RTCReceivedRtpStreamStats$$Overlay.<clinit>"]
+}
+

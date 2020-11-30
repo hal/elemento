@@ -18,6 +18,7 @@ package elemental2.dom;
 import elemental2.core.ArrayBuffer;
 import elemental2.core.ArrayBufferView;
 import elemental2.core.JsArray;
+import elemental2.promise.Promise;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -87,6 +88,8 @@ public class Blob {
 
   public Blob(JsArray<Blob.ConstructorBlobPartsArrayUnionType> blobParts) {}
 
+  public native Promise<ArrayBuffer> arrayBuffer();
+
   public native Blob slice();
 
   public native Blob slice(int start, int length, String contentType);
@@ -94,4 +97,7 @@ public class Blob {
   public native Blob slice(int start, int length);
 
   public native Blob slice(int start);
+
+  public native Promise<String> text();
 }
+

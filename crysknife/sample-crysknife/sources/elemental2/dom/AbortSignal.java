@@ -47,3 +47,4 @@ public interface AbortSignal extends EventTarget {
   @JsProperty
   void setOnabort(AbortSignal.OnabortFn onabort);
 }
+

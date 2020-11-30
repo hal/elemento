@@ -53,3 +53,4 @@ public interface MediaRecorderOptions {
   @JsProperty
   void setVideoBitsPerSecond(int videoBitsPerSecond);
 }
+

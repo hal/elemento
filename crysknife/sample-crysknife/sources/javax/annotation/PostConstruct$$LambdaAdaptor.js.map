@@ -2,7 +2,8 @@
 "version":3,
 "file":"PostConstruct$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MAWkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;6D;EAAAA,0G;;;CAAA,gG;EAAAC,iC;EAAAA,gE;;;CAAA,kB;EAAAC,0C;EAAAA,6F;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MA6EkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;6D;EAAAA,0G;;;CAAA,gG;EAAAC,iC;EAAAA,gE;;;CAAA,kB;EAAAC,0C;EAAAA,6F;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["PostConstruct.java"],
 "names":["javax.annotation.PostConstruct$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","javax.annotation.PostConstruct$$LambdaAdaptor.<init>","javax.annotation.PostConstruct$$LambdaAdaptor.annotationType","javax.annotation.PostConstruct$$LambdaAdaptor.<clinit>"]
 }
+

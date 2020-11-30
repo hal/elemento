@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class OffscreenCanvasRenderingContext2D extends BaseRenderingContext2D {
   public OffscreenCanvas canvas;
 }
+

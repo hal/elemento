@@ -35,3 +35,4 @@ public interface EventSourceInit {
   @JsProperty
   void setWithCredentials(boolean withCredentials);
 }
+

@@ -6,3 +6,4 @@
 "sources":["MediaConstraintsInterface_.java"],
 "names":["mandatory","elemental2.dom.MediaConstraintsInterface_$$Overlay.setMandatory__$devirt","optional","elemental2.dom.MediaConstraintsInterface_$$Overlay.setOptional__$devirt","elemental2.dom.MediaConstraintsInterface_$$Overlay.<clinit>"]
 }
+

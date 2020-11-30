@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlLIBuilder.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;;;;;MAoBa,a;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAA8BC,Q;EAA9BC,wB;EAAAA,oC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,wBAA8BD,Q;EAC5BE,kI;;;QAHS,O;EAAAC,gC;EAAAA,6B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAkBa,a;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAA8BC,Q;EAA9BC,wB;EAAAA,oC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,wBAA8BD,Q;EAC5BE,kI;;;QAHS,O;EAAAC,gC;EAAAA,6B;EAAAA;",
 "sources":["HtmlLIBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlLIBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlLIBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlLIBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlLIBuilder.<clinit>"]
 }
+

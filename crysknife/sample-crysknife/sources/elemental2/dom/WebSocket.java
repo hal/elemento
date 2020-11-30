@@ -224,3 +224,4 @@ public class WebSocket implements EventTarget {
     send(Js.<WebSocket.SendDataUnionType>uncheckedCast(data));
   }
 }
+

@@ -27,3 +27,4 @@ public class PushManager {
 
   public native Promise<PushSubscription> subscribe(PushSubscriptionOptionsInit options);
 }
+

@@ -6,3 +6,4 @@
 "sources":["DataTransferItemList.java"],
 "names":["o","elemental2.dom.DataTransferItemList$AddDataUnionType$$Overlay.of","elemental2.dom.DataTransferItemList$AddDataUnionType$$Overlay.asFile__$devirt","elemental2.dom.DataTransferItemList$AddDataUnionType$$Overlay.asString__$devirt","elemental2.dom.DataTransferItemList$AddDataUnionType$$Overlay.isFile__$devirt","elemental2.dom.DataTransferItemList$AddDataUnionType$$Overlay.isString__$devirt","elemental2.dom.DataTransferItemList$AddDataUnionType$$Overlay.<clinit>"]
 }
+

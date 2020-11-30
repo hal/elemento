@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"BeanManager.impl.java.js",
+"lineCount":21,
+"mappings":"A;;;;;;;;;;MAoBiB,W;;CAEV,+B,UAAmBA,G;;CAER,8C,cAAuBC,I,kBAAkCC,S;;CAEzD,6B,cAAuBD,I;;QANxB,O;EAAAE,8B;EAAAA;",
+"sources":["BeanManager.java"],
+"names":["ref","type","qualifier","io.crysknife.client.BeanManager.<clinit>"]
+}
+

@@ -41,3 +41,4 @@ public interface LongRange {
   @JsProperty
   void setMin(int min);
 }
+

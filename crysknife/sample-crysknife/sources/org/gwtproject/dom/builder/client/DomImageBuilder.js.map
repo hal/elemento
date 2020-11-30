@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomImageBuilder.impl.java.js",
 "lineCount":60,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,+I;;;CAIkB,uB,gBAAWC,G;EAC7BC,uF;EACAA,Y;;;CAIkB,a,eAAWC,M;EAC7BC,6F;EACAA,Y;;;CAIkB,S;EAClBC,0F;EACAA,Y;;;CAIkB,uB,gBAAWC,G;EAC7BC,uF;EACAA,Y;;;CAIkB,Y,eAAUC,K;EAC5BC,2F;EACAA,Y;;;QAlCS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,+I;;;CAIkB,uB,gBAAWC,G;EAC7BC,uF;EACAA,Y;;;CAIkB,a,eAAWC,M;EAC7BC,6F;EACAA,Y;;;CAIkB,S;EAClBC,0F;EACAA,Y;;;CAIkB,uB,gBAAWC,G;EAC7BC,uF;EACAA,Y;;;CAIkB,Y,eAAUC,K;EAC5BC,2F;EACAA,Y;;;QAlCS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["DomImageBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomImageBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomImageBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomImageBuilder.<init>","alt","org.gwtproject.dom.builder.client.DomImageBuilder.alt","height","org.gwtproject.dom.builder.client.DomImageBuilder.height","org.gwtproject.dom.builder.client.DomImageBuilder.isMap","src","org.gwtproject.dom.builder.client.DomImageBuilder.src","width","org.gwtproject.dom.builder.client.DomImageBuilder.width","org.gwtproject.dom.builder.client.DomImageBuilder.<clinit>"]
 }
+

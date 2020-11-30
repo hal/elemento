@@ -47,3 +47,4 @@ public interface EventInit {
   @JsProperty
   void setComposed(boolean composed);
 }
+

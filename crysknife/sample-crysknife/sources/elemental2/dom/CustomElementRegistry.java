@@ -66,3 +66,4 @@ public class CustomElementRegistry {
 
   public native Promise<Void> whenDefined(String tagName);
 }
+

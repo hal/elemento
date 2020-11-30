@@ -6,3 +6,4 @@
 "sources":["MouseUpHandler.java"],
 "names":["org.gwtproject.event.dom.client.MouseUpHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.MouseUpHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.MouseUpHandler$$LambdaAdaptor.onMouseUp","org.gwtproject.event.dom.client.MouseUpHandler$$LambdaAdaptor.<clinit>"]
 }
+

@@ -41,3 +41,4 @@ public interface DoubleRange {
   @JsProperty
   void setMin(double min);
 }
+

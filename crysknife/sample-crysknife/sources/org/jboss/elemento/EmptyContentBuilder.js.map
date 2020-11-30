@@ -6,3 +6,4 @@
 "sources":["EmptyContentBuilder.java"],
 "names":["org.jboss.elemento.EmptyContentBuilder.<synthetic: ctor_js>","element","org.jboss.elemento.EmptyContentBuilder.<synthetic: ctor_create>","org.jboss.elemento.EmptyContentBuilder.<init>","org.jboss.elemento.EmptyContentBuilder.that","org.jboss.elemento.EmptyContentBuilder.<clinit>"]
 }
+

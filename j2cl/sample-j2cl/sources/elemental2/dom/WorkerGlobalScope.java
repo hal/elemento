@@ -148,3 +148,4 @@ public interface WorkerGlobalScope extends EventTarget {
   @JsProperty
   void setSelf(WorkerGlobalScope self);
 }
+

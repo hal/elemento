@@ -50,3 +50,4 @@ public interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
 
   void webkitPostMessage(Object message);
 }
+

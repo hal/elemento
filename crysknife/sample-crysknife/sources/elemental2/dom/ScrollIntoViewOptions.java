@@ -47,3 +47,4 @@ public interface ScrollIntoViewOptions {
   @JsProperty
   void setInline(String inline);
 }
+

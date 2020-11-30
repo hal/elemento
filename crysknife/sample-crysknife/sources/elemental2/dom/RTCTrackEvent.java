@@ -31,3 +31,4 @@ public class RTCTrackEvent {
 
   public RTCTrackEvent(String type, Object eventInitDict) {}
 }
+

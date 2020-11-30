@@ -55,6 +55,24 @@ public class RTCPeerConnection implements EventTarget {
   }
 
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface CreateDataChannelDataChannelDictUnionType {
+    @JsOverlay
+    static RTCPeerConnection.CreateDataChannelDataChannelDictUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default RTCDataChannelInitDictionary_ asRTCDataChannelInitDictionary_() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default RTCDataChannelInitRecord_ asRTCDataChannelInitRecord_() {
+      return Js.cast(this);
+    }
+  }
+
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface GetStatsUnionType {
     @JsOverlay
     static RTCPeerConnection.GetStatsUnionType of(Object o) {
@@ -80,6 +98,11 @@ public class RTCPeerConnection implements EventTarget {
   @JsFunction
   public interface OnaddstreamFn {
     Object onInvoke(MediaStreamEvent p0);
+  }
+
+  @JsFunction
+  public interface OnconnectionstatechangeFn {
+    Object onInvoke(Event p0);
   }
 
   @JsFunction
@@ -129,10 +152,12 @@ public class RTCPeerConnection implements EventTarget {
     return generateCertificate(Js.<JsObject>uncheckedCast(keygenAlgorithm));
   }
 
+  public String connectionState;
   public String iceConnectionState;
   public String iceGatheringState;
   public RTCSessionDescription localDescription;
   public RTCPeerConnection.OnaddstreamFn onaddstream;
+  public RTCPeerConnection.OnconnectionstatechangeFn onconnectionstatechange;
   public RTCPeerConnection.OndatachannelFn ondatachannel;
   public RTCPeerConnection.OnicecandidateFn onicecandidate;
   public RTCPeerConnection.OniceconnectionstatechangeFn oniceconnectionstatechange;
@@ -244,7 +269,25 @@ public class RTCPeerConnection implements EventTarget {
   }
 
   public native RTCDataChannel createDataChannel(
-      String label, RTCDataChannelInitDictionary_ dataChannelDict);
+      String label, RTCPeerConnection.CreateDataChannelDataChannelDictUnionType dataChannelDict);
+
+  @JsOverlay
+  public final RTCDataChannel createDataChannel(
+      String label, RTCDataChannelInitDictionary_ dataChannelDict) {
+    return createDataChannel(
+        label,
+        Js.<RTCPeerConnection.CreateDataChannelDataChannelDictUnionType>uncheckedCast(
+            dataChannelDict));
+  }
+
+  @JsOverlay
+  public final RTCDataChannel createDataChannel(
+      String label, RTCDataChannelInitRecord_ dataChannelDict) {
+    return createDataChannel(
+        label,
+        Js.<RTCPeerConnection.CreateDataChannelDataChannelDictUnionType>uncheckedCast(
+            dataChannelDict));
+  }
 
   public native RTCDataChannel createDataChannel(String label);
 
@@ -351,3 +394,4 @@ public class RTCPeerConnection implements EventTarget {
 
   public native void updateIce(RTCConfigurationRecord_ configuration);
 }
+

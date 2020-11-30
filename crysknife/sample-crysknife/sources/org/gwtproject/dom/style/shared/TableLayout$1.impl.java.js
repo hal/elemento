@@ -27,7 +27,7 @@ class $1 extends TableLayout {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** TableLayout */ arg0) {
   return super.compareTo(/**@type {TableLayout}*/ ($Casts.$to(arg0, TableLayout)));
  }
  

@@ -49,9 +49,9 @@ class SafeHtmlString extends j_l_Object {
  $ctor__org_gwtproject_safehtml_shared_SafeHtmlString__() {
   this.$ctor__java_lang_Object__();
  }
- /** @override @return {?string} */
- m_asString__() {
-  return this.f_html__org_gwtproject_safehtml_shared_SafeHtmlString_;
+ /** @override @return {number} */
+ hashCode() {
+  return j_l_String.m_hashCode__java_lang_String(this.f_html__org_gwtproject_safehtml_shared_SafeHtmlString_);
  }
  /** @override @return {boolean} */
  equals(/** * */ obj) {
@@ -60,13 +60,13 @@ class SafeHtmlString extends j_l_Object {
   }
   return j_l_String.m_equals__java_lang_String__java_lang_Object(this.f_html__org_gwtproject_safehtml_shared_SafeHtmlString_, /**@type {SafeHtml}*/ ($Casts.$to(obj, SafeHtml)).m_asString__());
  }
- /** @override @return {number} */
- hashCode() {
-  return j_l_String.m_hashCode__java_lang_String(this.f_html__org_gwtproject_safehtml_shared_SafeHtmlString_);
- }
  /** @override @return {?string} */
  toString() {
   return "safe: \"" + j_l_String.m_valueOf__java_lang_Object(this.m_asString__()) + "\"";
+ }
+ /** @override @return {?string} */
+ m_asString__() {
+  return this.f_html__org_gwtproject_safehtml_shared_SafeHtmlString_;
  }
  
  static $clinit() {

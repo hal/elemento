@@ -6,3 +6,4 @@
 "sources":["RecordingEventBus.java"],
 "names":["org.gwtproject.event.shared.testing.RecordingEventBus.<synthetic: ctor_js>","org.gwtproject.event.shared.testing.RecordingEventBus.<synthetic: ctor_create>","org.gwtproject.event.shared.testing.RecordingEventBus.<init>","wrapped","type","handler","org.gwtproject.event.shared.testing.RecordingEventBus.addHandler","source","org.gwtproject.event.shared.testing.RecordingEventBus.addHandlerToSource","org.gwtproject.event.shared.testing.RecordingEventBus.clearFiredEvents","event","org.gwtproject.event.shared.testing.RecordingEventBus.fireEvent","org.gwtproject.event.shared.testing.RecordingEventBus.fireEventFromSource","org.gwtproject.event.shared.testing.RecordingEventBus.wasEventFired","org.gwtproject.event.shared.testing.RecordingEventBus.<clinit>"]
 }
+

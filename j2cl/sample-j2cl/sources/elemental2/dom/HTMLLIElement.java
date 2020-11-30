@@ -23,3 +23,4 @@ public class HTMLLIElement extends HTMLElement {
   public String type;
   public int value;
 }
+

@@ -28,3 +28,4 @@ public class RTCIceCandidate {
 
   public RTCIceCandidate(RTCIceCandidateInit candidateInitDict) {}
 }
+

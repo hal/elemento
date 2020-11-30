@@ -6,3 +6,4 @@
 "sources":["GetNotificationOptions.java"],
 "names":["elemental2.dom.GetNotificationOptions$$Overlay.create","elemental2.dom.GetNotificationOptions$$Overlay.<clinit>"]
 }
+

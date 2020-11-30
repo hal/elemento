@@ -6,3 +6,4 @@
 "sources":["ChangeHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.ChangeHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.ChangeHandler.<clinit>"]
 }
+

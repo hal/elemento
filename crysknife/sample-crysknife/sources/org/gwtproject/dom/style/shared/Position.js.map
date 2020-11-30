@@ -2,7 +2,8 @@
 "version":3,
 "file":"Position.impl.java.js",
 "lineCount":110,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAoBY,Q;;CAAA,W;EAAAA,Q;;;CAAA,sE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CA2Ba,c;;QA3Bb,2B;EAAAC,mB;EAAAA;GAAAA,2HAAAA;G;EAAAA,mH;;;QAAA,U;EAAAC,mB;EAAAA,4T;;;QACV,sD;EAAAC,0F;;;QAMA,wD;EAAAA,4F;;;QAMA,wD;EAAAA,4F;;;QAMA,qD;EAAAA,yF;;;QAnBU,O;EAAAC,2B;EAAAA,wB;EAAAA,e;EACVA,sM;EAMAA,4M;EAMAA,4M;EAMAA,mM;EAnBUA,8E;;;;;;;;;;;;;;;;;;;;;;AAAA;6D;AAAA;+D;AAAA;+D;AAAA;4D;AAAA;uE;AACV;yE;AAMA;2E;AAMA;2E;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;MAkBY,Q;;CAAA,W;EAAAA,Q;;;CAAA,sE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CA2Ba,c;;QA3Bb,2B;EAAAC,mB;EAAAA;GAAAA,2HAAAA;G;EAAAA,mH;;;QAAA,U;EAAAC,mB;EAAAA,4T;;;QACV,sD;EAAAC,0F;;;QAMA,wD;EAAAA,4F;;;QAMA,wD;EAAAA,4F;;;QAMA,qD;EAAAA,yF;;;QAnBU,O;EAAAC,2B;EAAAA,wB;EAAAA,e;EACVA,sM;EAMAA,4M;EAMAA,4M;EAMAA,mM;EAnBUA,8E;;;;;;;;;;;;;;;;;;;;;;AAAA;6D;AAAA;+D;AAAA;+D;AAAA;4D;AAAA;uE;AACV;yE;AAMA;2E;AAMA;2E;AAMA;;",
 "sources":["Position.java"],
 "names":["org.gwtproject.dom.style.shared.Position.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Position.<init>","org.gwtproject.dom.style.shared.Position.valueOf","org.gwtproject.dom.style.shared.Position.values","org.gwtproject.dom.style.shared.Position.<synthetic: getter>","org.gwtproject.dom.style.shared.Position.<clinit>"]
 }
+

@@ -16,6 +16,7 @@
 package elemental2.dom;
 
 import elemental2.core.JsArray;
+import elemental2.promise.Promise;
 import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
@@ -540,11 +541,6 @@ public class Element extends Node {
     }
 
     @JsOverlay
-    default TrustedURL asTrustedURL() {
-      return Js.cast(this);
-    }
-
-    @JsOverlay
     default boolean isBoolean() {
       return (Object) this instanceof Boolean;
     }
@@ -567,11 +563,6 @@ public class Element extends Node {
     @JsOverlay
     default boolean isTrustedScriptURL() {
       return (Object) this instanceof TrustedScriptURL;
-    }
-
-    @JsOverlay
-    default boolean isTrustedURL() {
-      return (Object) this instanceof TrustedURL;
     }
   }
 
@@ -645,36 +636,36 @@ public class Element extends Node {
 
   @JsOverlay
   public final void after(Node... nodes) {
-    after(Js.<Element.AfterNodesUnionType>uncheckedCast(nodes));
+    after(Js.<Element.AfterNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void after(String... nodes) {
-    after(Js.<Element.AfterNodesUnionType>uncheckedCast(nodes));
+    after(Js.<Element.AfterNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void append(Element.AppendNodesUnionType... nodes);
 
   @JsOverlay
   public final void append(Node... nodes) {
-    append(Js.<Element.AppendNodesUnionType>uncheckedCast(nodes));
+    append(Js.<Element.AppendNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void append(String... nodes) {
-    append(Js.<Element.AppendNodesUnionType>uncheckedCast(nodes));
+    append(Js.<Element.AppendNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void before(Element.BeforeNodesUnionType... nodes);
 
   @JsOverlay
   public final void before(Node... nodes) {
-    before(Js.<Element.BeforeNodesUnionType>uncheckedCast(nodes));
+    before(Js.<Element.BeforeNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void before(String... nodes) {
-    before(Js.<Element.BeforeNodesUnionType>uncheckedCast(nodes));
+    before(Js.<Element.BeforeNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void blur();
@@ -744,14 +735,14 @@ public class Element extends Node {
 
   @JsOverlay
   public final void prepend(Node... nodes) {
-    prepend(Js.<Element.PrependNodesUnionType>uncheckedCast(nodes));
+    prepend(Js.<Element.PrependNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void prepend(Element.PrependNodesUnionType... nodes);
 
   @JsOverlay
   public final void prepend(String... nodes) {
-    prepend(Js.<Element.PrependNodesUnionType>uncheckedCast(nodes));
+    prepend(Js.<Element.PrependNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native Element querySelector(String selectors);
@@ -768,19 +759,19 @@ public class Element extends Node {
 
   @JsOverlay
   public final void replaceWith(Node... nodes) {
-    replaceWith(Js.<Element.ReplaceWithNodesUnionType>uncheckedCast(nodes));
+    replaceWith(Js.<Element.ReplaceWithNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void replaceWith(Element.ReplaceWithNodesUnionType... nodes);
 
   @JsOverlay
   public final void replaceWith(String... nodes) {
-    replaceWith(Js.<Element.ReplaceWithNodesUnionType>uncheckedCast(nodes));
+    replaceWith(Js.<Element.ReplaceWithNodesUnionType[]>uncheckedCast(nodes));
   }
 
-  public native void requestFullscreen();
+  public native Promise<Void> requestFullscreen();
 
-  public native void requestFullscreen(FullscreenOptions options);
+  public native Promise<Void> requestFullscreen(FullscreenOptions options);
 
   public native void scrollIntoView();
 
@@ -839,11 +830,6 @@ public class Element extends Node {
   }
 
   @JsOverlay
-  public final void setAttribute(String name, TrustedURL value) {
-    setAttribute(name, Js.<Element.SetAttributeValueUnionType>uncheckedCast(value));
-  }
-
-  @JsOverlay
   public final void setAttribute(String name, boolean value) {
     setAttribute(name, Js.<Element.SetAttributeValueUnionType>uncheckedCast(value));
   }
@@ -878,12 +864,6 @@ public class Element extends Node {
 
   public native Attr setAttributeNodeNS(Attr newAttr);
 
-  public native void setIdAttribute(String name, boolean isId);
-
-  public native void setIdAttributeNS(String namespaceURI, String localName, boolean isId);
-
-  public native void setIdAttributeNode(Attr idAttr, boolean isId);
-
   public native boolean toggleAttribute(String name, boolean force);
 
   public native boolean toggleAttribute(String name);
@@ -898,3 +878,4 @@ public class Element extends Node {
 
   public native void webkitRequestFullscreen(int allowKeyboardInput);
 }
+

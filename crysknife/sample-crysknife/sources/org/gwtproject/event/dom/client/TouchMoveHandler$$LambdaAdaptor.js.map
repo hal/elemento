@@ -6,3 +6,4 @@
 "sources":["TouchMoveHandler.java"],
 "names":["org.gwtproject.event.dom.client.TouchMoveHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.TouchMoveHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.TouchMoveHandler$$LambdaAdaptor.onTouchMove","org.gwtproject.event.dom.client.TouchMoveHandler$$LambdaAdaptor.<clinit>"]
 }
+

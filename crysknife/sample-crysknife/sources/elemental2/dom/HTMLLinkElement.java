@@ -44,3 +44,4 @@ public class HTMLLinkElement extends HTMLElement implements LinkStyle {
   @JsProperty
   public native void setSheet(StyleSheet sheet);
 }
+

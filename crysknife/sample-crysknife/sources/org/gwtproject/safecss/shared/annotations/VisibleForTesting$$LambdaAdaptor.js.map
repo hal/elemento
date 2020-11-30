@@ -6,3 +6,4 @@
 "sources":["VisibleForTesting.java"],
 "names":["org.gwtproject.safecss.shared.annotations.VisibleForTesting$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.safecss.shared.annotations.VisibleForTesting$$LambdaAdaptor.<init>","org.gwtproject.safecss.shared.annotations.VisibleForTesting$$LambdaAdaptor.annotationType","org.gwtproject.safecss.shared.annotations.VisibleForTesting$$LambdaAdaptor.<clinit>"]
 }
+

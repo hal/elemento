@@ -66,3 +66,4 @@ public interface FetchEventInit {
   @JsProperty
   void setRequest(Request request);
 }
+

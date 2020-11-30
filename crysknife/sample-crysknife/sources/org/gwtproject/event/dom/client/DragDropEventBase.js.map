@@ -6,3 +6,4 @@
 "sources":["DragDropEventBase.java"],
 "names":["org.gwtproject.event.dom.client.DragDropEventBase.<synthetic: ctor_js>","org.gwtproject.event.dom.client.DragDropEventBase.<init>","org.gwtproject.event.dom.client.DragDropEventBase.isSupported","format","org.gwtproject.event.dom.client.DragDropEventBase.getData","dt","org.gwtproject.event.dom.client.DragDropEventBase.getDataTransfer","data","org.gwtproject.event.dom.client.DragDropEventBase.setData","org.gwtproject.event.dom.client.DragDropEventBase.<clinit>"]
 }
+

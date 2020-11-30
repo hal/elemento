@@ -99,6 +99,16 @@ class InputBuilder extends ElementBuilder {
   /**@type {HTMLInputElement}*/ ($Casts.$to(this.m_element__(), $Overlay)).tabIndex = tabIndex;
   return this.m_that__();
  }
+ /** @return {InputBuilder<E>} */
+ m_multiple__boolean(/** boolean */ multiple) {
+  /**@type {HTMLInputElement}*/ ($Casts.$to(this.m_element__(), $Overlay)).multiple = multiple;
+  return this.m_that__();
+ }
+ /** @return {InputBuilder<E>} */
+ m_accept__java_lang_String(/** ?string */ accept) {
+  /**@type {HTMLInputElement}*/ ($Casts.$to(this.m_element__(), $Overlay)).accept = accept;
+  return this.m_that__();
+ }
  
  static $clinit() {
   InputBuilder.$clinit = () =>{};

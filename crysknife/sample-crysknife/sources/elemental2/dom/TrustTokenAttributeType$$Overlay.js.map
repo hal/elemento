@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"TrustTokenAttributeType$$Overlay.impl.java.js",
+"lineCount":23,
+"mappings":"A;;;;;;;;MA0BiB,gC;;QAEgB,U;EAAAA,2C;EAC7BA,sG;;;QAyBW,uG,iEAAoCC,uB;EAApCC,2C;EACXA,+H;;;QA7Ba,O;EAAAC,mD;EAAAA;",
+"sources":["TrustTokenAttributeType.java"],
+"names":["elemental2.dom.TrustTokenAttributeType$$Overlay.create","additionalSignedHeaders","elemental2.dom.TrustTokenAttributeType$$Overlay.setAdditionalSignedHeaders__$devirt","elemental2.dom.TrustTokenAttributeType$$Overlay.<clinit>"]
+}
+

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,14 @@
 package org.gwtproject.event.dom.client;
 
 /**
- * Contains the native key codes previously defined in {@link
+ * Contains the native key codes previously defined in {@code
  * org.gwtproject.user.client.ui.KeyboardListener}. When converting keyboard listener instances,
  * developers can use the following static import to access these constants:
  *
  * <pre> import static org.gwtproject.event.dom.client.KeyCodes.*; </pre>
  *
  * <p>These constants are defined with an int data type in order to be compatible with the constants
- * defined in {@link org.gwtproject.user.client.ui.KeyboardListener}.
+ * defined in {@code org.gwtproject.user.client.ui.KeyboardListener}.
  */
 public class KeyCodes {
 
@@ -226,7 +226,12 @@ public class KeyCodes {
   // This class should never be instantiated
   private KeyCodes() {}
 
-  /** Determines if a key code is an arrow key. */
+  /**
+   * Determines if a key code is an arrow key.
+   *
+   * @param code the key code to test
+   * @return true if the key represents an arrow key
+   */
   public static boolean isArrowKey(int code) {
     switch (code) {
       case KEY_DOWN:
@@ -245,7 +250,9 @@ public class KeyCodes {
    * <p>Note: this method is used internally by built-in GWT widgets but could be renamed/refactored
    * without notice.
    *
-   * <p>This method simplifies RTL handling in your code: <code><pre>
+   * <p>This method simplifies RTL handling in your code:
+   *
+   * <pre><code>
    * int keyCode = KeyCodes.maybeSwapArrowKeysForRtl(event.getKeyCode(),
    *   LocaleInfo.getCurrentLocale().isRTL());
    * switch (keyCode) {
@@ -257,7 +264,11 @@ public class KeyCodes {
    *     break;
    *   ...
    *   }
-   * </pre></code>
+   * </code></pre>
+   *
+   * @param code the key code being checked
+   * @param isRtl true if the current locale is RTL
+   * @return the corrected key code, if the original code was left or right and isRtl was true
    */
   public static int maybeSwapArrowKeysForRtl(int code, boolean isRtl) {
     if (isRtl) {
@@ -270,3 +281,4 @@ public class KeyCodes {
     return code;
   }
 }
+

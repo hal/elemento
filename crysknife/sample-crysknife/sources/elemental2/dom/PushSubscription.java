@@ -27,3 +27,4 @@ public class PushSubscription {
 
   public native Promise<Boolean> unsubscribe();
 }
+

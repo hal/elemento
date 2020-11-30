@@ -6,3 +6,4 @@
 "sources":["DeviceOrientationEventInit.java"],
 "names":["elemental2.dom.DeviceOrientationEventInit$$Overlay.create","elemental2.dom.DeviceOrientationEventInit$$Overlay.<clinit>"]
 }
+

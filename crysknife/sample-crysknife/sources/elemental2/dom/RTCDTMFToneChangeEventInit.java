@@ -35,3 +35,4 @@ public interface RTCDTMFToneChangeEventInit {
   @JsProperty
   void setTone(String tone);
 }
+

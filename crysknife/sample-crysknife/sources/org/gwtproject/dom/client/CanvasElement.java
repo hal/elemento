@@ -1,17 +1,17 @@
 /*
- * Copyright 2010 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ * Copyright © 2019 The GWT Project Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.client;
 
@@ -22,21 +22,17 @@ import org.gwtproject.canvas.dom.client.Context2d;
 
 /**
  * Canvas element.
- * 
+ *
  * @see <a href="http://www.w3.org/TR/html5/#canvas">W3C HTML 5 Specification</a>
  */
 @JsType(isNative = true, name = "Object", namespace = JsPackage.GLOBAL)
 @TagName(CanvasElement.TAG)
 public class CanvasElement extends Element {
 
-  /**
-   * The tag for this element.
-   */
-  @JsOverlay
-  public static final String TAG = "canvas";
+  /** The tag for this element. */
+  @JsOverlay public static final String TAG = "canvas";
 
-  protected CanvasElement() {
-  }
+  protected CanvasElement() {}
 
   /**
    * Gets the rendering context that may be used to draw on this canvas.
@@ -48,9 +44,9 @@ public class CanvasElement extends Element {
 
   /**
    * Returns a 2D rendering context.
-   * 
-   * This is a convenience method, see {@link #getContext(String)}.
-   * 
+   *
+   * <p>This is a convenience method, see {@link #getContext(String)}.
+   *
    * @return a 2D canvas rendering context
    */
   @JsOverlay
@@ -60,7 +56,7 @@ public class CanvasElement extends Element {
 
   /**
    * Gets the height of the canvas.
-   * 
+   *
    * @return the height, in pixels
    * @see #setHeight(int)
    */
@@ -69,7 +65,7 @@ public class CanvasElement extends Element {
 
   /**
    * Gets the width of the canvas.
-   * 
+   *
    * @return the width, in pixels
    * @see #setWidth(int)
    */
@@ -78,7 +74,7 @@ public class CanvasElement extends Element {
 
   /**
    * Sets the height of the canvas.
-   * 
+   *
    * @param height the height, in pixels
    * @see #getHeight()
    */
@@ -87,7 +83,7 @@ public class CanvasElement extends Element {
 
   /**
    * Sets the width of the canvas.
-   * 
+   *
    * @param width the width, in pixels
    * @see #getWidth()
    */
@@ -96,7 +92,7 @@ public class CanvasElement extends Element {
 
   /**
    * Returns a data URL for the current content of the canvas element.
-   * 
+   *
    * @return a data URL for the current content of this element.
    */
   @JsMethod(name = "toDataURL")
@@ -104,10 +100,11 @@ public class CanvasElement extends Element {
 
   /**
    * Returns a data URL for the current content of the canvas element, with a specified type.
-   * 
+   *
    * @param type the type of the data url, e.g., image/jpeg or image/png.
    * @return a data URL for the current content of this element with the specified type.
    */
   @JsMethod(name = "toDataURL")
   public final native String toDataUrl(String type);
 }
+

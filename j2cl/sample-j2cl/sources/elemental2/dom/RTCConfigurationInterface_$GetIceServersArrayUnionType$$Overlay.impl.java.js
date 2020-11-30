@@ -2,8 +2,8 @@ goog.module('elemental2.dom.RTCConfigurationInterface_.GetIceServersArrayUnionTy
 
 const $Util = goog.require('nativebootstrap.Util$impl');
 
-let $Overlay = goog.forwardDeclare('elemental2.dom.RTCConfigurationInterface_.IceServersFieldType.$Overlay$impl');
-let UrlsFieldType_$Overlay = goog.forwardDeclare('elemental2.dom.RTCConfigurationInterface_.UrlsFieldType.$Overlay$impl');
+let $Overlay = goog.forwardDeclare('elemental2.dom.RTCConfigurationRecord_.IceServersFieldType.$Overlay$impl');
+let UrlsFieldType_$Overlay = goog.forwardDeclare('elemental2.dom.RTCConfigurationRecord_.UrlsFieldType.$Overlay$impl');
 let RTCIceServerInterface___$Overlay = goog.forwardDeclare('elemental2.dom.RTCIceServerInterface_.$Overlay$impl');
 let Js = goog.forwardDeclare('jsinterop.base.Js$impl');
 

@@ -2,7 +2,8 @@
 "version":3,
 "file":"DataTransfer$$Overlay.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;;MAqCa,+C;;QAyEO,4G,wCAAqBA,O,gBAAaC,C,gBAAOC,C;EAAzCC,0D;EAChBA;GACEA,qCADFA;G;;;QAiBgB,mH,4CAAyBC,U;EAAzBC,0D;EAChBA,+P;;;QASW,kF,yCAAqBD,U;EAChCC;GACEA,mGADFA;G;;;QAtGS,O;EAAAC,kE;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAgCa,+C;;QA2DO,4G,wCAAqBA,O,gBAAaC,C,gBAAOC,C;EAAzCC,0D;EAChBA;GACEA,qCADFA;G;;;QAiBgB,mH,4CAAyBC,U;EAAzBC,0D;EAChBA,+P;;;QASW,kF,yCAAqBD,U;EAChCC;GACEA,mGADFA;G;;;QAxFS,O;EAAAC,kE;EAAAA;",
 "sources":["DataTransfer.java"],
 "names":["element","x","y","org.gwtproject.dom.client.DataTransfer$$Overlay.setDragImage__$devirt","dropEffect","org.gwtproject.dom.client.DataTransfer$$Overlay.setDropEffect__$devirt","org.gwtproject.dom.client.DataTransfer$$Overlay.<clinit>"]
 }
+

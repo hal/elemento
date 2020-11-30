@@ -1,17 +1,17 @@
 /*
- * Copyright 2010 Google Inc.
+ * Copyright © 2019 The GWT Project Authors
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.safehtml.shared;
 
@@ -21,14 +21,15 @@ import org.gwtproject.safehtml.shared.annotations.SuppressIsSafeHtmlCastCheck;
 /**
  * A string wrapped as an object of type {@link SafeHtml}.
  *
- * <p>
- * This class is intended only for use in generated code where the code
- * generator guarantees that instances of this type will adhere to the
- * {@link SafeHtml} contract (hence the purposely unwieldy class name).
+ * <p>This class is intended only for use in generated code where the code generator guarantees that
+ * instances of this type will adhere to the {@link SafeHtml} contract (hence the purposely unwieldy
+ * class name).
  */
-public class OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml
-    implements SafeHtml {
+public class OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml implements SafeHtml {
+
   private String html;
+
+  public OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml() {}
 
   /**
    * Constructs an instance from a given HTML String.
@@ -42,18 +43,20 @@ public class OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml
     this.html = html;
   }
 
-  /**
-   * {@inheritDoc}
-   */
+  /** {@inheritDoc} */
   @IsSafeHtml
   @SuppressIsSafeHtmlCastCheck
   public String asString() {
     return html;
   }
 
-  /**
-   * Compares this string to the specified object.
-   */
+  /** Returns a hash code for this string. */
+  @Override
+  public int hashCode() {
+    return html.hashCode();
+  }
+
+  /** Compares this string to the specified object. */
   @Override
   public boolean equals(Object obj) {
     if (!(obj instanceof SafeHtml)) {
@@ -61,12 +64,5 @@ public class OnlyToBeUsedInGeneratedCodeStringBlessedAsSafeHtml
     }
     return html.equals(((SafeHtml) obj).asString());
   }
-
-  /**
-   * Returns a hash code for this string.
-   */
-  @Override
-  public int hashCode() {
-    return html.hashCode();
-  }
 }
+

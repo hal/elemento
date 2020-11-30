@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"PerformancePaintTiming$$Overlay.impl.java.js",
+"lineCount":9,
+"mappings":"A;;;;MAqBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"sources":["PerformancePaintTiming.java"],
+"names":["elemental2.dom.PerformancePaintTiming$$Overlay.<clinit>"]
+}
+

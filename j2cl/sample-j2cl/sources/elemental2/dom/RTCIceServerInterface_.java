@@ -85,3 +85,4 @@ public interface RTCIceServerInterface_ {
   @JsProperty
   void setUsername(String username);
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomFormBuilder.impl.java.js",
 "lineCount":71,
-"mappings":"A;;;;;;;;;;;;;;;MAyBa,c;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA8BC,Q;EAA9BC,yB;EAAAA,qC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,uBAA8BD,Q;EAC5BE,gI;;;CAIiB,iC,gBAAqBC,a;EACtCC,2G;EACAA,Y;;;CAIiB,gD,gBAAeC,M;EAChCC,mM;EACAA,Y;;;CAIiB,0B,gBAAyBD,M;EAC1CC,6F;EACAA,Y;;;CAIiB,2B,gBAAeC,O;EAChCC,+F;EACAA,Y;;;CAIiB,0B,gBAAcC,M;EAC/BC,6F;EACAA,Y;;;CAIiB,wB,gBAAYC,I;EAC7BC,yF;EACAA,Y;;;CAIiB,0B,gBAAcC,M;EAC/BC,6F;EACAA,Y;;;QA9CS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MAuBa,c;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA8BC,Q;EAA9BC,yB;EAAAA,qC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,uBAA8BD,Q;EAC5BE,gI;;;CAIiB,iC,gBAAqBC,a;EACtCC,2G;EACAA,Y;;;CAIiB,gD,gBAAeC,M;EAChCC,mM;EACAA,Y;;;CAIiB,0B,gBAAyBD,M;EAC1CC,6F;EACAA,Y;;;CAIiB,2B,gBAAeC,O;EAChCC,+F;EACAA,Y;;;CAIiB,0B,gBAAcC,M;EAC/BC,6F;EACAA,Y;;;CAIiB,wB,gBAAYC,I;EAC7BC,yF;EACAA,Y;;;CAIiB,0B,gBAAcC,M;EAC/BC,6F;EACAA,Y;;;QA9CS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["DomFormBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomFormBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomFormBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomFormBuilder.<init>","acceptCharset","org.gwtproject.dom.builder.client.DomFormBuilder.acceptCharset","action","org.gwtproject.dom.builder.client.DomFormBuilder.action","enctype","org.gwtproject.dom.builder.client.DomFormBuilder.enctype","method","org.gwtproject.dom.builder.client.DomFormBuilder.method","name","org.gwtproject.dom.builder.client.DomFormBuilder.name","target","org.gwtproject.dom.builder.client.DomFormBuilder.target","org.gwtproject.dom.builder.client.DomFormBuilder.<clinit>"]
 }
+

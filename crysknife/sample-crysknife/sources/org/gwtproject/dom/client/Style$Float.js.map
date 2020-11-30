@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$Float.impl.java.js",
 "lineCount":65,
-"mappings":"A;;;;;;;;;;MAgKsB,W;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,sB;EAAAA,kC;EAAAA,2D;EAAAA,iB;;;CAAA,8C;EAAAC,iC;;;QAClB,iD;EAAAC,2F;;;QACA,kD;EAAAA,4F;;;QACA,iD;EAAAA,2F;;;QAHkB,O;EAAAC,8B;EAAAA,2B;EAAAA,qB;EAClBA,iH;EACAA,mH;EACAA,iH;;;;;;;;;;;;;;AAHkB;2D;AAAA;4D;AAAA;;",
+"mappings":"A;;;;;;;;;;MAkNsB,W;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,sB;EAAAA,kC;EAAAA,2D;EAAAA,iB;;;CAAA,8C;EAAAC,iC;;;QAClB,iD;EAAAC,2F;;;QAEA,kD;EAAAA,4F;;;QAEA,iD;EAAAA,2F;;;QALkB,O;EAAAC,8B;EAAAA,2B;EAAAA,qB;EAClBA,iH;EAEAA,mH;EAEAA,iH;;;;;;;;;;;;;;AALkB;2D;AAAA;4D;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$Float.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$Float.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$Float.<init>","org.gwtproject.dom.client.Style$Float.<synthetic: getter>","org.gwtproject.dom.client.Style$Float.<clinit>"]
 }
+

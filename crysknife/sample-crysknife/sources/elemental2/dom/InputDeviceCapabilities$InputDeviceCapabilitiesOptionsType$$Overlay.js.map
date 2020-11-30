@@ -6,3 +6,4 @@
 "sources":["InputDeviceCapabilities.java"],
 "names":["elemental2.dom.InputDeviceCapabilities$InputDeviceCapabilitiesOptionsType$$Overlay.create","elemental2.dom.InputDeviceCapabilities$InputDeviceCapabilitiesOptionsType$$Overlay.<clinit>"]
 }
+

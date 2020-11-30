@@ -26,3 +26,4 @@ public class TimeRanges {
 
   public native double start(int index);
 }
+

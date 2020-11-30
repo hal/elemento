@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomLIBuilder.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;MAuBa,Y;;CAAA,W;EAAAA,Q;;;QAEX,yD,uBAA4BC,Q;EAA5BC,uB;EAAAA,mC;EAAAA,4H;EAAAA,iB;;;CAAA,uG,uBAA4BD,Q;EAC1BE,gI;;;QAHS,O;EAAAC,+B;EAAAA,4B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAqBa,Y;;CAAA,W;EAAAA,Q;;;QAEX,yD,uBAA4BC,Q;EAA5BC,uB;EAAAA,mC;EAAAA,4H;EAAAA,iB;;;CAAA,uG,uBAA4BD,Q;EAC1BE,gI;;;QAHS,O;EAAAC,+B;EAAAA,4B;EAAAA;",
 "sources":["DomLIBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomLIBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomLIBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomLIBuilder.<init>","org.gwtproject.dom.builder.client.DomLIBuilder.<clinit>"]
 }
+

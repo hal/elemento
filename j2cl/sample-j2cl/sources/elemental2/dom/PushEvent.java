@@ -32,3 +32,4 @@ public class PushEvent extends ExtendableEvent {
     super((String) null, (ExtendableEventInit) null);
   }
 }
+

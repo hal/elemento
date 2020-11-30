@@ -177,3 +177,4 @@ class InternalJsUtil {
 
   private InternalJsUtil() {} // Hide constructor for utility class.
 }
+

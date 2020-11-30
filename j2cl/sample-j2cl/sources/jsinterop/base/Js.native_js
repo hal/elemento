@@ -42,3 +42,5 @@ Js.isTripleEqual = function(obj1, obj2) {
 Js.coerceToDouble = function(d) {
   return +/** @type {?} */ (d);
 };
+
+

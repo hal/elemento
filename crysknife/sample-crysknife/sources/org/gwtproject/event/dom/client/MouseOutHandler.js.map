@@ -6,3 +6,4 @@
 "sources":["MouseOutHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.MouseOutHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.MouseOutHandler.<clinit>"]
 }
+

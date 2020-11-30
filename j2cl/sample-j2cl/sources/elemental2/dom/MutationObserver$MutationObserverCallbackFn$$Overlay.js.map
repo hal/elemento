@@ -6,3 +6,4 @@
 "sources":["MutationObserver.java"],
 "names":["p0","p1","elemental2.dom.MutationObserver$MutationObserverCallbackFn$$Overlay.onInvoke__$devirt","elemental2.dom.MutationObserver$MutationObserverCallbackFn$$Overlay.<clinit>"]
 }
+

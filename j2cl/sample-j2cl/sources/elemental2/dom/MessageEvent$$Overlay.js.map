@@ -6,3 +6,4 @@
 "sources":["MessageEvent.java"],
 "names":["typeArg","canBubbleArg","cancelableArg","dataArg","originArg","lastEventIdArg","sourceArg","portsArg","elemental2.dom.MessageEvent$$Overlay.initMessageEvent__$devirt","namespaceURI","elemental2.dom.MessageEvent$$Overlay.initMessageEventNS__$devirt","elemental2.dom.MessageEvent$$Overlay.<clinit>"]
 }
+

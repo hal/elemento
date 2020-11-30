@@ -2,7 +2,8 @@
 "version":3,
 "file":"Overflow$4.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAuCO,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,oG;EAAAA,iB;;;CAAA,wE;EAAAC,6F;;;CAEW,c;EACZC,c;;;;CAHC,6B;EAAAC,2E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAqCO,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,oG;EAAAA,iB;;;CAAA,wE;EAAAC,6F;;;CAEW,c;EACZC,c;;;;CAHC,6B;EAAAC,2E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["Overflow.java"],
 "names":["org.gwtproject.dom.style.shared.Overflow$4.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Overflow$4.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.Overflow$4.<init>","org.gwtproject.dom.style.shared.Overflow$4.getCssName","org.gwtproject.dom.style.shared.Overflow$4.compareTo","org.gwtproject.dom.style.shared.Overflow$4.<clinit>"]
 }
+

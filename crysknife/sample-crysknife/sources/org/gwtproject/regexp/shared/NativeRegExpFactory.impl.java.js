@@ -23,12 +23,12 @@ class NativeRegExpFactory extends RegExpFactory {
   this.$ctor__org_gwtproject_regexp_shared_RegExpFactory__();
  }
  /** @override @return {RegExp} */
- m_compile__java_lang_String__java_lang_String_$pp_org_gwtproject_regexp_shared(/** ?string */ pattern, /** ?string */ flags) {
-  return NativeRegExp.m_compile__java_lang_String__java_lang_String(pattern, flags);
- }
- /** @override @return {RegExp} */
  m_compile__java_lang_String_$pp_org_gwtproject_regexp_shared(/** ?string */ pattern) {
   return NativeRegExp.m_compile__java_lang_String(pattern);
+ }
+ /** @override @return {RegExp} */
+ m_compile__java_lang_String__java_lang_String_$pp_org_gwtproject_regexp_shared(/** ?string */ pattern, /** ?string */ flags) {
+  return NativeRegExp.m_compile__java_lang_String__java_lang_String(pattern, flags);
  }
  /** @override @return {?string} */
  m_quote__java_lang_String_$pp_org_gwtproject_regexp_shared(/** ?string */ input) {

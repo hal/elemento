@@ -6,3 +6,4 @@
 "sources":["ContextMenuEvent.java"],
 "names":["org.gwtproject.event.dom.client.ContextMenuEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.ContextMenuEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.ContextMenuEvent.<init>","org.gwtproject.event.dom.client.ContextMenuEvent.getType","org.gwtproject.event.dom.client.ContextMenuEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.ContextMenuEvent.dispatch","org.gwtproject.event.dom.client.ContextMenuEvent.<clinit>"]
 }
+

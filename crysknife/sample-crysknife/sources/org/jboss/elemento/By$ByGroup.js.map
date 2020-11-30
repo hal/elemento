@@ -2,7 +2,8 @@
 "version":3,
 "file":"By$ByGroup.impl.java.js",
 "lineCount":43,
-"mappings":"A;;;;;;;;;;;;MAqPyB,O;;CAAA,W;EAAAA,Q;EAAAA;OAEE,2CAFFA,C;;;QAIT,sC,kBAAaC,S;EAAbC,kB;EAAAA,8B;EAAAA,yF;EAAAA,iB;;;CAAA,mE,kBAAaD,S;EAAbE,sC;EACJA,6D;;;CAIG,mC;EACHC;GAA6BC,oDAA7BD;GAA6BC,oDAA7BD;+G;;;QAVa,O;EAAAE,0B;EAAAA,uB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA8XyB,O;;CAAA,W;EAAAA,Q;EAAAA;OAEE,2CAFFA,C;;;QAIT,sC,kBAAaC,S;EAAbC,kB;EAAAA,8B;EAAAA,yF;EAAAA,iB;;;CAAA,mE,kBAAaD,S;EAAbE,sC;EACJA,6D;;;CAIG,mC;EACHC;GAA6BC,oDAA7BD;GAA6BC,oDAA7BD;+G;;;QAVa,O;EAAAE,0B;EAAAA,uB;EAAAA;",
 "sources":["By.java"],
 "names":["org.jboss.elemento.By$ByGroup.<synthetic: ctor_js>","selectors","org.jboss.elemento.By$ByGroup.<synthetic: ctor_create>","org.jboss.elemento.By$ByGroup.<init>","org.jboss.elemento.By$ByGroup.selector","org.jboss.elemento.By$ByGroup.<lambda in selector>","org.jboss.elemento.By$ByGroup.<clinit>"]
 }
+

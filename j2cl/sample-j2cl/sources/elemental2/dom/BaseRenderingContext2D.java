@@ -1258,3 +1258,4 @@ public class BaseRenderingContext2D implements CanvasDrawingStyles, CanvasPathMe
 
   public native void translate(double x, double y);
 }
+

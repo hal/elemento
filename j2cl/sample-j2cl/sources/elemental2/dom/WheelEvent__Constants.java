@@ -24,3 +24,4 @@ class WheelEvent__Constants {
   static int DOM_DELTA_PAGE;
   static int DOM_DELTA_PIXEL;
 }
+

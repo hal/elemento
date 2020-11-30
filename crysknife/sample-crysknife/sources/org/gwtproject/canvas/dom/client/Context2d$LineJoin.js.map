@@ -2,7 +2,8 @@
 "version":3,
 "file":"Context2d$LineJoin.impl.java.js",
 "lineCount":106,
-"mappings":"A;;;;;;;;;;;;;MAiJc,Q;;CAAA,W;EAAAA,Q;EAAAA;OAGW,6DAHXA,C;;;QAKF,gD,8DAAgBC,K;EAAhBC,+B;EAAAA,sI;EAAAA,iB;;;CAAA,mG,8DAAgBD,K;EAAhBE,qC;EAAAA,2C;EAAAA,mE;EACNA,2E;;;CAGY,Y;EACZC,0E;;;QAVQ,2B;EAAAC,mB;EAAAA;GAAAA,sIAAAA;G;EAAAA,8H;;;QAAA,U;EAAAC,mB;EAAAA,yR;;;;CAAA,6B;EAAAC,2E;;;QACV,gE;EAAAC,oG;;;QAAgB,gE;EAAAA,oG;;;QAAgB,gE;EAAAA,oG;;;QADtB,O;EAAAC,2B;EAAAA,wB;EAAAA,e;EACVA,0P;EAAgBA,0P;EAAgBA,0P;EADtBA,yF;;;;;;;;;;;;;;;;;AAAA;uE;AAAA;uE;AAAA;uE;AAAA;kF;AACV;mF;AAAgB;mF;AAAgB;;",
+"mappings":"A;;;;;;;;;;;;;MA0Ic,Q;;CAAA,W;EAAAA,Q;EAAAA;OAKW,6DALXA,C;;;QAOF,gD,8DAAgBC,K;EAAhBC,+B;EAAAA,sI;EAAAA,iB;;;CAAA,mG,8DAAgBD,K;EAAhBE,qC;EAAAA,2C;EAAAA,mE;EACNA,2E;;;CAGY,Y;EACZC,0E;;;QAZQ,2B;EAAAC,mB;EAAAA;GAAAA,sIAAAA;G;EAAAA,8H;;;QAAA,U;EAAAC,mB;EAAAA,yR;;;;CAAA,6B;EAAAC,2E;;;QACV,gE;EAAAC,oG;;;QACA,gE;EAAAA,oG;;;QACA,gE;EAAAA,oG;;;QAHU,O;EAAAC,2B;EAAAA,wB;EAAAA,e;EACVA,0P;EACAA,0P;EACAA,0P;EAHUA,yF;;;;;;;;;;;;;;;;;AAAA;uE;AAAA;uE;AAAA;uE;AAAA;kF;AACV;mF;AACA;mF;AACA;;",
 "sources":["Context2d.java"],
 "names":["org.gwtproject.canvas.dom.client.Context2d$LineJoin.<synthetic: ctor_js>","value","org.gwtproject.canvas.dom.client.Context2d$LineJoin.<synthetic: ctor_create>","org.gwtproject.canvas.dom.client.Context2d$LineJoin.<init>","org.gwtproject.canvas.dom.client.Context2d$LineJoin.getValue","org.gwtproject.canvas.dom.client.Context2d$LineJoin.valueOf","org.gwtproject.canvas.dom.client.Context2d$LineJoin.values","org.gwtproject.canvas.dom.client.Context2d$LineJoin.compareTo","org.gwtproject.canvas.dom.client.Context2d$LineJoin.<synthetic: getter>","org.gwtproject.canvas.dom.client.Context2d$LineJoin.<clinit>"]
 }
+

@@ -23,3 +23,4 @@ public class MessageChannel {
   public MessagePort port1;
   public MessagePort port2;
 }
+

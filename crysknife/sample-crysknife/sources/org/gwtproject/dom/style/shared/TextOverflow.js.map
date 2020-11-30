@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextOverflow.impl.java.js",
 "lineCount":88,
-"mappings":"A;;;;;;;;;;;;;;;;;MAoBY,Y;;CAAA,W;EAAAA,Q;;;CAAA,0E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAea,c;;QAfb,2B;EAAAC,uB;EAAAA;GAAAA,uIAAAA;G;EAAAA,2H;;;QAAA,U;EAAAC,uB;EAAAA,qN;;;QACV,wD;EAAAC,oG;;;QAMA,4D;EAAAA,wG;;;QAPU,O;EAAAC,+B;EAAAA,4B;EAAAA,e;EACVA,gN;EAMAA,4N;EAPUA,sF;;;;;;;;;;;;;;;;;;;;AAAA;mE;AAAA;uE;AAAA;+E;AACV;+E;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;MAkBY,Y;;CAAA,W;EAAAA,Q;;;CAAA,0E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAea,c;;QAfb,2B;EAAAC,uB;EAAAA;GAAAA,uIAAAA;G;EAAAA,2H;;;QAAA,U;EAAAC,uB;EAAAA,qN;;;QACV,wD;EAAAC,oG;;;QAMA,4D;EAAAA,wG;;;QAPU,O;EAAAC,+B;EAAAA,4B;EAAAA,e;EACVA,gN;EAMAA,4N;EAPUA,sF;;;;;;;;;;;;;;;;;;;;AAAA;mE;AAAA;uE;AAAA;+E;AACV;+E;AAMA;;",
 "sources":["TextOverflow.java"],
 "names":["org.gwtproject.dom.style.shared.TextOverflow.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TextOverflow.<init>","org.gwtproject.dom.style.shared.TextOverflow.valueOf","org.gwtproject.dom.style.shared.TextOverflow.values","org.gwtproject.dom.style.shared.TextOverflow.<synthetic: getter>","org.gwtproject.dom.style.shared.TextOverflow.<clinit>"]
 }
+

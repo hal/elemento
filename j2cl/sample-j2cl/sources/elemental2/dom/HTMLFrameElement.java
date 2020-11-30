@@ -30,3 +30,4 @@ public class HTMLFrameElement extends HTMLElement {
   public String scrolling;
   public String src;
 }
+

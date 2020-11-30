@@ -33,3 +33,4 @@ public class DataTransferItem {
 
   public native void getAsString(DataTransferItem.GetAsStringCallbackFn callback);
 }
+

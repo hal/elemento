@@ -6,3 +6,4 @@
 "sources":["PushSubscriptionOptionsInit.java"],
 "names":["elemental2.dom.PushSubscriptionOptionsInit$$Overlay.create","applicationServerKey","elemental2.dom.PushSubscriptionOptionsInit$$Overlay.setApplicationServerKey__$devirt","elemental2.dom.PushSubscriptionOptionsInit$$Overlay.<clinit>"]
 }
+

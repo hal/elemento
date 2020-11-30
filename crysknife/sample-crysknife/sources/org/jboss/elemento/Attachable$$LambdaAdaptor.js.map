@@ -6,3 +6,4 @@
 "sources":["Attachable.java"],
 "names":["org.jboss.elemento.Attachable$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.jboss.elemento.Attachable$$LambdaAdaptor.<init>","org.jboss.elemento.Attachable$$LambdaAdaptor.attach","org.jboss.elemento.Attachable$$LambdaAdaptor.detach","org.jboss.elemento.Attachable$$LambdaAdaptor.<clinit>"]
 }
+

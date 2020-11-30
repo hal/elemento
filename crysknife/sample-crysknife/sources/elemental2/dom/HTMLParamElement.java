@@ -25,3 +25,4 @@ public class HTMLParamElement extends HTMLElement {
   public String value;
   public String valueType;
 }
+

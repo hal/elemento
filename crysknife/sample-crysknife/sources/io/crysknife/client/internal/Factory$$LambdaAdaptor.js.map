@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Factory$$LambdaAdaptor.impl.java.js",
+"lineCount":34,
+"mappings":"A;;;;;;;;;;MAgCiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;mE;EAAAA,sH;;;CAAA,4G;EAAAC,iC;EAAAA,sE;;;CAAA,O;EAAAC,mC;EAAAA,mG;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["Factory.java"],
+"names":["io.crysknife.client.internal.Factory$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","io.crysknife.client.internal.Factory$$LambdaAdaptor.<init>","io.crysknife.client.internal.Factory$$LambdaAdaptor.get","io.crysknife.client.internal.Factory$$LambdaAdaptor.<clinit>"]
+}
+

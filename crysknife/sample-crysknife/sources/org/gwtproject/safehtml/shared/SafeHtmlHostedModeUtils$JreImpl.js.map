@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeHtmlHostedModeUtils$JreImpl.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;MA2CuB,O;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,kB;EAAAA,8B;EAAAA,oF;EAAAA,iB;;;CAAA,uE;EAAAC,8E;;;QA4BC,0C,gBAAsBC,Y,iBAAqBC,O;EAC7DC;GACEA,oFADFA;G;;;QA7BiB,O;EAAAC,0B;EAAAA,uB;EAAAA;",
+"mappings":"A;;;;;;;;MA0IuB,O;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,kB;EAAAA,8B;EAAAA,oF;EAAAA,iB;;;CAAA,uE;EAAAC,8E;;;QA6BC,0C,gBAAsBC,Y,iBAAqBC,O;EAC7DC;GACEA,oFADFA;G;;;QA9BiB,O;EAAAC,0B;EAAAA,uB;EAAAA;",
 "sources":["SafeHtmlHostedModeUtils.java"],
 "names":["org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils$JreImpl.<synthetic: ctor_js>","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils$JreImpl.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils$JreImpl.<init>","completeHtml","message","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils$JreImpl.checkArgument","org.gwtproject.safehtml.shared.SafeHtmlHostedModeUtils$JreImpl.<clinit>"]
 }
+

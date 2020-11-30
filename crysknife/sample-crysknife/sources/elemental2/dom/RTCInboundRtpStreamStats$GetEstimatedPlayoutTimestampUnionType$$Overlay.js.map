@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"RTCInboundRtpStreamStats$GetEstimatedPlayoutTimestampUnionType$$Overlay.impl.java.js",
+"lineCount":39,
+"mappings":"A;;;;;;;;;MA2BmB,8C;;QAEuD,sB,UAAUA,C;EAAVC,yD;EACpEA,uD;;;QAIa,kG;EAAAC,yD;EACbA,iD;;;QAIa,kG;EAAAC,yD;EACbA,uF;;;QAIc,kG;EAAAC,yD;EACdA,qD;;;QAIc,kG;EAAAC,yD;EACdA,uD;;;QAvBa,O;EAAAC,iE;EAAAA;",
+"sources":["RTCInboundRtpStreamStats.java"],
+"names":["o","elemental2.dom.RTCInboundRtpStreamStats$GetEstimatedPlayoutTimestampUnionType$$Overlay.of","elemental2.dom.RTCInboundRtpStreamStats$GetEstimatedPlayoutTimestampUnionType$$Overlay.asDouble__$devirt","elemental2.dom.RTCInboundRtpStreamStats$GetEstimatedPlayoutTimestampUnionType$$Overlay.asJsDate__$devirt","elemental2.dom.RTCInboundRtpStreamStats$GetEstimatedPlayoutTimestampUnionType$$Overlay.isDouble__$devirt","elemental2.dom.RTCInboundRtpStreamStats$GetEstimatedPlayoutTimestampUnionType$$Overlay.isJsDate__$devirt","elemental2.dom.RTCInboundRtpStreamStats$GetEstimatedPlayoutTimestampUnionType$$Overlay.<clinit>"]
+}
+

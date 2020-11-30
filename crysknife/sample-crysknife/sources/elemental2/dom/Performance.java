@@ -62,3 +62,4 @@ public class Performance {
 
   public native void setResourceTimingBufferSize(int maxSize);
 }
+

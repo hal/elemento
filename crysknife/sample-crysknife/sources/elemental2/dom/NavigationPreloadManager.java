@@ -31,3 +31,4 @@ public class NavigationPreloadManager {
 
   public native Promise<Void> setHeaderValue(String value);
 }
+

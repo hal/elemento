@@ -156,3 +156,4 @@ public interface ServiceWorkerGlobalScope extends WorkerGlobalScope {
 
   Promise<Void> skipWaiting();
 }
+

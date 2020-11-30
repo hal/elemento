@@ -57,7 +57,7 @@ class KeyPressEvent extends KeyEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** KeyPressHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_KeyPressHandler(/**@type {KeyPressHandler}*/ ($Casts.$to(arg0, KeyPressHandler)));
  }
  

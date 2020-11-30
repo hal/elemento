@@ -6,3 +6,4 @@
 "sources":["GestureStartHandler.java"],
 "names":["org.gwtproject.event.dom.client.GestureStartHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.GestureStartHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.GestureStartHandler$$LambdaAdaptor.onGestureStart","org.gwtproject.event.dom.client.GestureStartHandler$$LambdaAdaptor.<clinit>"]
 }
+

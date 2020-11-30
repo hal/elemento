@@ -41,3 +41,4 @@ public class MutationEvent extends Event {
       String attrNameArg,
       int attrChangeArg);
 }
+

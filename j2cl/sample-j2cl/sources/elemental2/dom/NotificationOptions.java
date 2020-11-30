@@ -124,3 +124,4 @@ public interface NotificationOptions {
     setVibrate(Js.<JsArray<Double>>uncheckedCast(vibrate));
   }
 }
+

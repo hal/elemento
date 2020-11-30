@@ -45,3 +45,4 @@ public interface PhotoSettings {
   @JsProperty
   void setRedEyeReduction(boolean redEyeReduction);
 }
+

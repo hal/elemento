@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlAudioBuilder.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;;;;;MAoBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,gI;;;QAHS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAkBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,gI;;;QAHS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["HtmlAudioBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlAudioBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlAudioBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlAudioBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlAudioBuilder.<clinit>"]
 }
+

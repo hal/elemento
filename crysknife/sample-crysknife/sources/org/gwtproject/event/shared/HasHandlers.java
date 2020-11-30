@@ -31,3 +31,4 @@ public interface HasHandlers {
    */
   void fireEvent(Event<?> event);
 }
+

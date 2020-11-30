@@ -29,3 +29,4 @@ public class HTMLSlotElement extends HTMLElement {
 
   public native JsArray<Node> assignedNodes(AssignedNodesOptions options);
 }
+

@@ -52,3 +52,4 @@ public class MouseEvent extends UIEvent {
 
   public native boolean getModifierState(String keyIdentifierArg);
 }
+

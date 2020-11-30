@@ -2,7 +2,8 @@
 "version":3,
 "file":"TableCellElement$$Overlay.impl.java.js",
 "lineCount":65,
-"mappings":"A;;;;;;;;;;;;MA8Ba,yB;;QAYoB,uC,eAAWA,I;EAAXC,oC;EAC7BA,0F;EACAA,yE;;;QASoB,iD,eAAoBC,C;EAApBC,oC;EACpBA;GACEA,wHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,oC;EACpBA;GACEA,2HADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,oC;EACpBA,of;;;QAlDS,O;EAAAE,4C;EAAAA,yC;;;;;;;;;;;;;;;;;;AAEX;0BAC2B,6DAD3B,Q;AAEA;0BAC2B,6DAD3B;",
+"mappings":"A;;;;;;;;;;;;MA+Ba,yB;;QAaoB,uC,eAAWA,I;EAAXC,oC;EAC7BA,0F;EACAA,yE;;;QAWoB,iD,eAAoBC,C;EAApBC,oC;EACpBA;GACEA,wHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,oC;EACpBA;GACEA,2HADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,oC;EACpBA,of;;;QAzDS,O;EAAAE,4C;EAAAA,yC;;;;;;;;;;;;;;;;;;AAEX;0BAAsC,6DAAtC,Q;AACA;0BAAsC,6DAAtC;",
 "sources":["TableCellElement.java"],
 "names":["elem","org.gwtproject.dom.client.TableCellElement$$Overlay.as","o","org.gwtproject.dom.client.TableCellElement$$Overlay.is","node","org.gwtproject.dom.client.TableCellElement$$Overlay.<clinit>"]
 }
+

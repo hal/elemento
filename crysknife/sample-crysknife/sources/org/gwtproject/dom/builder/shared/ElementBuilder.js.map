@@ -2,7 +2,8 @@
 "version":3,
 "file":"ElementBuilder.impl.java.js",
 "lineCount":14,
-"mappings":"A;;;;;;;;;MAoBiB,c;;QAAA,O;EAAAA,iC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,c;;QAAA,O;EAAAA,iC;EAAAA;",
 "sources":["ElementBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.ElementBuilder.<clinit>"]
 }
+

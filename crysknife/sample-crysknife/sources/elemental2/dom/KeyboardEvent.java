@@ -21,6 +21,10 @@ import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class KeyboardEvent extends UIEvent {
+  public static int DOM_KEY_LOCATION_LEFT;
+  public static int DOM_KEY_LOCATION_NUMPAD;
+  public static int DOM_KEY_LOCATION_RIGHT;
+  public static int DOM_KEY_LOCATION_STANDARD;
   public boolean altKey;
 
   @JsProperty(name = "char")
@@ -57,3 +61,4 @@ public class KeyboardEvent extends UIEvent {
       int keyLocationArg,
       String modifiersList);
 }
+

@@ -1,6 +1,6 @@
 package javax.enterprise.event;
 
-import org.treblereel.gwt.crysknife.client.internal.AbstractEventFactory;
+import io.crysknife.client.internal.AbstractEventFactory;
 
 public class Event_Factory extends AbstractEventFactory {
 
@@ -12,3 +12,4 @@ public class Event_Factory extends AbstractEventFactory {
 
     private static javax.enterprise.event.Event_Factory instance;
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextDecoration$2.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MA2Be,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,0G;EAAAA,iB;;;CAAA,8E;EAAAC,mG;;;CAEG,c;EACZC,sB;;;;CAHS,6B;EAAAC,uF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAyBe,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,0G;EAAAA,iB;;;CAAA,8E;EAAAC,mG;;;CAEG,c;EACZC,sB;;;;CAHS,6B;EAAAC,uF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["TextDecoration.java"],
 "names":["org.gwtproject.dom.style.shared.TextDecoration$2.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TextDecoration$2.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.TextDecoration$2.<init>","org.gwtproject.dom.style.shared.TextDecoration$2.getCssName","org.gwtproject.dom.style.shared.TextDecoration$2.compareTo","org.gwtproject.dom.style.shared.TextDecoration$2.<clinit>"]
 }
+

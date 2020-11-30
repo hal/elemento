@@ -41,3 +41,4 @@ public interface GeolocationPosition {
   @JsProperty
   void setTimestamp(double timestamp);
 }
+

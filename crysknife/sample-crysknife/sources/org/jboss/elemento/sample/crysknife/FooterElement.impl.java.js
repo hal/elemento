@@ -2,7 +2,7 @@ goog.module('org.jboss.elemento.sample.crysknife.FooterElement$impl');
 
 const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
-const IsElement = goog.require('org.jboss.gwt.elemento.core.IsElement$impl');
+const IsElement = goog.require('org.jboss.elemento.IsElement$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLElement.$Overlay$impl');
 
@@ -13,6 +13,8 @@ class FooterElement extends j_l_Object {
  /** @protected */
  constructor() {
   super();
+  /**@type {HTMLElement}*/
+  this.f_info__org_jboss_elemento_sample_crysknife_FooterElement;
  }
  /** @return {!FooterElement} */
  static $create__() {
@@ -25,17 +27,15 @@ class FooterElement extends j_l_Object {
  $ctor__org_jboss_elemento_sample_crysknife_FooterElement__() {
   this.$ctor__java_lang_Object__();
  }
- //Default method forwarding stub.
  /** @override @return {HTMLElement} */
- m_getElement__() {
-  return IsElement.m_getElement__$default__org_jboss_gwt_elemento_core_IsElement(this);
+ m_element__() {
+  return this.f_info__org_jboss_elemento_sample_crysknife_FooterElement;
  }
  
  static $clinit() {
   FooterElement.$clinit = () =>{};
   FooterElement.$loadModules();
   j_l_Object.$clinit();
-  IsElement.$clinit();
  }
  /** @return {boolean} */
  static $isInstance(/** ? */ instance) {

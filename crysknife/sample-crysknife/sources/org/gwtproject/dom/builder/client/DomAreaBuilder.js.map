@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomAreaBuilder.impl.java.js",
 "lineCount":65,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,c;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA8BC,Q;EAA9BC,yB;EAAAA,qC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,uBAA8BD,Q;EAC5BE,+I;;;CAIiB,6B,gBAAiBC,S;EAClCC,mG;EACAA,Y;;;CAIiB,uB,gBAAWC,G;EAC5BC,uF;EACAA,Y;;;CAIiB,0B,gBAAcC,M;EAC/BC,6F;EACAA,Y;;;CAIiB,wB,gBAAYC,I;EAC7BC,yF;EACAA,Y;;;CAIiB,yB,gBAAaC,K;EAC9BC,2F;EACAA,Y;;;CAIiB,0B,gBAAcC,M;EAC/BC,6F;EACAA,Y;;;QAxCS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,c;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA8BC,Q;EAA9BC,yB;EAAAA,qC;EAAAA,8H;EAAAA,iB;;;CAAA,yG,uBAA8BD,Q;EAC5BE,+I;;;CAIiB,6B,gBAAiBC,S;EAClCC,mG;EACAA,Y;;;CAIiB,uB,gBAAWC,G;EAC5BC,uF;EACAA,Y;;;CAIiB,0B,gBAAcC,M;EAC/BC,6F;EACAA,Y;;;CAIiB,wB,gBAAYC,I;EAC7BC,yF;EACAA,Y;;;CAIiB,yB,gBAAaC,K;EAC9BC,2F;EACAA,Y;;;CAIiB,0B,gBAAcC,M;EAC/BC,6F;EACAA,Y;;;QAxCS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["DomAreaBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomAreaBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomAreaBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomAreaBuilder.<init>","accessKey","org.gwtproject.dom.builder.client.DomAreaBuilder.accessKey","alt","org.gwtproject.dom.builder.client.DomAreaBuilder.alt","coords","org.gwtproject.dom.builder.client.DomAreaBuilder.coords","href","org.gwtproject.dom.builder.client.DomAreaBuilder.href","shape","org.gwtproject.dom.builder.client.DomAreaBuilder.shape","target","org.gwtproject.dom.builder.client.DomAreaBuilder.target","org.gwtproject.dom.builder.client.DomAreaBuilder.<clinit>"]
 }
+

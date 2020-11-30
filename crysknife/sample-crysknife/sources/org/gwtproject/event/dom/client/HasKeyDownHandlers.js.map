@@ -6,3 +6,4 @@
 "sources":["HasKeyDownHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasKeyDownHandlers.<clinit>"]
 }
+

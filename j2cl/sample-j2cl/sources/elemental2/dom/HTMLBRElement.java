@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLBRElement extends HTMLElement {
   public String clear;
 }
+

@@ -6,3 +6,4 @@
 "sources":["DropEvent.java"],
 "names":["org.gwtproject.event.dom.client.DropEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.DropEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.DropEvent.<init>","org.gwtproject.event.dom.client.DropEvent.getType","org.gwtproject.event.dom.client.DropEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.DropEvent.dispatch","org.gwtproject.event.dom.client.DropEvent.<clinit>"]
 }
+

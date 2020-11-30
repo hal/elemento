@@ -26,3 +26,4 @@ public class ClientInformation {
 
   public native void registerProtocolHandler(String protocol, String uri, String title);
 }
+

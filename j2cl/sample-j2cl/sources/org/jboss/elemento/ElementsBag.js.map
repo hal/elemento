@@ -6,3 +6,4 @@
 "sources":["ElementsBag.java"],
 "names":["org.jboss.elemento.ElementsBag.<synthetic: ctor_js>","org.jboss.elemento.ElementsBag.<synthetic: ctor_create>","org.jboss.elemento.ElementsBag.<init>","org.jboss.elemento.ElementsBag.that","org.jboss.elemento.ElementsBag.elements","element","org.jboss.elemento.ElementsBag.add","elements","org.jboss.elemento.ElementsBag.addAll","org.jboss.elemento.ElementsBag.<clinit>"]
 }
+

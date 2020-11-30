@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"ForEvent.impl.java.js",
+"lineCount":16,
+"mappings":"A;;;;;;;;;MAyBkB,Q;;CAChB,S;;QADgB,O;EAAAA,2B;EAAAA;",
+"sources":["ForEvent.java"],
+"names":["io.crysknife.ui.templates.client.annotation.ForEvent.<clinit>"]
+}
+

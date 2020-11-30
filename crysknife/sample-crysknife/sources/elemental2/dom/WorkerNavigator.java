@@ -31,3 +31,4 @@ public class WorkerNavigator implements NavigatorStorage {
   @JsProperty
   public native void setStorage(StorageManager storage);
 }
+

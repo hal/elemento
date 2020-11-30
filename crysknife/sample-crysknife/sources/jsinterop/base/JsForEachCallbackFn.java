@@ -23,3 +23,4 @@ import jsinterop.annotations.JsFunction;
 public interface JsForEachCallbackFn {
   void onKey(String key);
 }
+

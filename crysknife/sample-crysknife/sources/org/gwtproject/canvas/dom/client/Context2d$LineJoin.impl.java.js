@@ -50,7 +50,7 @@ class LineJoin extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** LineJoin */ arg0) {
   return super.compareTo(/**@type {LineJoin}*/ ($Casts.$to(arg0, LineJoin)));
  }
  /** @return {!LineJoin} */

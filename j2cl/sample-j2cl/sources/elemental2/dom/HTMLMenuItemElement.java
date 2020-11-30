@@ -32,3 +32,4 @@ public class HTMLMenuItemElement extends HTMLElement {
   public String radiogroup;
   public String type;
 }
+

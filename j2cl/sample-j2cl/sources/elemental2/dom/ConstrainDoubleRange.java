@@ -41,3 +41,4 @@ public interface ConstrainDoubleRange extends DoubleRange {
   @JsProperty
   void setIdeal(double ideal);
 }
+

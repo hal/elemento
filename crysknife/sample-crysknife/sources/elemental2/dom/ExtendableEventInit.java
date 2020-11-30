@@ -41,3 +41,4 @@ public interface ExtendableEventInit {
   @JsProperty
   void setCancelable(boolean cancelable);
 }
+

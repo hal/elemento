@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"BarProp$$LambdaAdaptor.impl.java.js",
+"lineCount":34,
+"mappings":"A;;;;;;;;;;MAuBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;qD;EAAAA,0F;;;CAAA,gF;EAAAC,iC;EAAAA,wD;;;CAAA,W;EAAAC,yC;EAAAA,qF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["BarProp.java"],
+"names":["elemental2.dom.BarProp$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","elemental2.dom.BarProp$$LambdaAdaptor.<init>","elemental2.dom.BarProp$$LambdaAdaptor.isVisible","elemental2.dom.BarProp$$LambdaAdaptor.<clinit>"]
+}
+

@@ -6,3 +6,4 @@
 "sources":["MouseMoveHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.MouseMoveHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.MouseMoveHandler.<clinit>"]
 }
+

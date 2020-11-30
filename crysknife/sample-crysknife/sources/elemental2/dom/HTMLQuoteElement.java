@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLQuoteElement extends HTMLElement {
   public String cite;
 }
+

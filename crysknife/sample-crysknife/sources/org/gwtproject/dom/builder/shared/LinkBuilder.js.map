@@ -2,7 +2,8 @@
 "version":3,
 "file":"LinkBuilder.impl.java.js",
 "lineCount":28,
-"mappings":"A;;;;;;;;;MAsBiB,W;;CAMH,Y;;CAUA,wB,gBAAkCA,I;;CASlC,4B,gBAAgBC,Q;;CAShB,yB,gBAAaC,K;;CASb,uB,gBAAWC,G;;CASX,0B,gBAAcC,M;;CASd,wB,gBAAYC,I;;QA7DT,O;EAAAC,8B;EAAAA;",
+"mappings":"A;;;;;;;;;MAoBiB,W;;CAMH,Y;;CAUA,wB,gBAAkCA,I;;CASlC,4B,gBAAgBC,Q;;CAShB,yB,gBAAaC,K;;CAQb,uB,gBAAWC,G;;CASX,0B,gBAAcC,M;;CAQd,wB,gBAAYC,I;;QA3DT,O;EAAAC,8B;EAAAA;",
 "sources":["LinkBuilder.java"],
 "names":["href","hreflang","media","rel","target","type","org.gwtproject.dom.builder.shared.LinkBuilder.<clinit>"]
 }
+

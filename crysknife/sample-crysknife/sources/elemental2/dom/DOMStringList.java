@@ -27,3 +27,4 @@ public class DOMStringList implements JsArrayLike<String> {
 
   public native String item(int index);
 }
+

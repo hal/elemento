@@ -27,7 +27,7 @@ class $3 extends VerticalAlign {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** VerticalAlign */ arg0) {
   return super.compareTo(/**@type {VerticalAlign}*/ ($Casts.$to(arg0, VerticalAlign)));
  }
  

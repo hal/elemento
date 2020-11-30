@@ -38,3 +38,4 @@ public class PerformanceResourceTiming extends PerformanceEntry {
   public int transferSize;
   public double workerStart;
 }
+

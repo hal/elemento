@@ -6,3 +6,4 @@
 "sources":["HasLoseCaptureHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasLoseCaptureHandlers.<clinit>"]
 }
+

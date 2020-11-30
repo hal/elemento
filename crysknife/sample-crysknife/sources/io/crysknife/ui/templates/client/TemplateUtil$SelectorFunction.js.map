@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"TemplateUtil$SelectorFunction.impl.java.js",
+"lineCount":23,
+"mappings":"A;;;;;;;;;;;MAmKoB,gB;;CAER,sD,oBAAmBA,O,iBAAgBC,U;;QAF3B,M;EAAAC,2B;EAAAA,8B;;;QAAA,O;EAAAC,mC;EAAAA;",
+"sources":["TemplateUtil.java"],
+"names":["context","identifier","io.crysknife.ui.templates.client.TemplateUtil$SelectorFunction.<synthetic: adapt_lambda>","io.crysknife.ui.templates.client.TemplateUtil$SelectorFunction.<clinit>"]
+}
+

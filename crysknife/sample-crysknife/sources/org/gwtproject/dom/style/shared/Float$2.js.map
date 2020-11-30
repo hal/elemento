@@ -2,7 +2,8 @@
 "version":3,
 "file":"Float$2.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MA2BQ,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,iG;EAAAA,iB;;;CAAA,qE;EAAAC,0F;;;CAEU,c;EACZC,e;;;;CAHE,6B;EAAAC,qE;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAyBQ,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,iG;EAAAA,iB;;;CAAA,qE;EAAAC,0F;;;CAEU,c;EACZC,e;;;;CAHE,6B;EAAAC,qE;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["Float.java"],
 "names":["org.gwtproject.dom.style.shared.Float$2.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Float$2.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.Float$2.<init>","org.gwtproject.dom.style.shared.Float$2.getCssName","org.gwtproject.dom.style.shared.Float$2.compareTo","org.gwtproject.dom.style.shared.Float$2.<clinit>"]
 }
+

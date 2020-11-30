@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlHeadBuilder.impl.java.js",
 "lineCount":44,
-"mappings":"A;;;;;;;;;;;;;;;MAsBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,kI;;;CAIiB,+C,iBAAcC,I;EAC/BC,kE;;;CAIiB,wB,gBAAYC,I;EAC7BC,kE;;;QAbS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MAoBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,kI;;;CAIiB,+C,iBAAcC,I;EAC/BC,kE;;;CAIiB,wB,gBAAYC,I;EAC7BC,kE;;;QAbS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["HtmlHeadBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlHeadBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlHeadBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlHeadBuilder.<init>","html","org.gwtproject.dom.builder.shared.HtmlHeadBuilder.html","text","org.gwtproject.dom.builder.shared.HtmlHeadBuilder.text","org.gwtproject.dom.builder.shared.HtmlHeadBuilder.<clinit>"]
 }
+

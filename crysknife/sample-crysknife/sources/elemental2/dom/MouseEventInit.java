@@ -71,3 +71,4 @@ public interface MouseEventInit extends EventModifierInit {
   @JsProperty
   void setScreenY(double screenY);
 }
+

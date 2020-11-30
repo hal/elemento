@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Interceptor.impl.java.js",
+"lineCount":59,
+"mappings":"A;;;;;;;;;;;;MAuBa,W;;CAAA,W;EAAAA,Q;EAAAA;OAEG,yCAFHA,C;EAAAA;OAIiB,uCAJjBA,C;EAAAA;OAMiB,uCANjBA,C;;;QAQJ,yB,UAAmBC,M;EAAnBC,sB;EAAAA,kC;EAAAA,2E;EAAAA,iB;;;CAAA,wD,UAAmBD,M;EAAnBE,iC;EACLA,qG;EACAA,qG;EACAA,IAAcC,MAAdD,sD;EACAA,uJ;EACAA,uJ;EAEAA,2E;;;CAGiB,4E,gBAAiCE,sB,mCACbC,U;EACrCC,8M;EACAA,Y;;;CAGiB,0E,gBAA+BF,sB,oBAAmCC,U;EACnFE,4M;EACAA,Y;;;CAGW,Y;EACXC,6G;;;QA9BS,O;EAAAC,8B;EAAAA,2B;EAAAA;",
+"sources":["Interceptor.java"],
+"names":["io.crysknife.client.Interceptor.<synthetic: ctor_js>","target","io.crysknife.client.Interceptor.<synthetic: ctor_create>","io.crysknife.client.Interceptor.<init>","holder","obfuscatedPropertyName","function","io.crysknife.client.Interceptor.addGetPropertyInterceptor","io.crysknife.client.Interceptor.addGetMethodInterceptor","io.crysknife.client.Interceptor.getProxy","io.crysknife.client.Interceptor.<clinit>"]
+}
+

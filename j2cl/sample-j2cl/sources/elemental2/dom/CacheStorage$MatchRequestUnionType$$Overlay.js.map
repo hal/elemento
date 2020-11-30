@@ -6,3 +6,4 @@
 "sources":["CacheStorage.java"],
 "names":["o","elemental2.dom.CacheStorage$MatchRequestUnionType$$Overlay.of","elemental2.dom.CacheStorage$MatchRequestUnionType$$Overlay.asRequest__$devirt","elemental2.dom.CacheStorage$MatchRequestUnionType$$Overlay.asString__$devirt","elemental2.dom.CacheStorage$MatchRequestUnionType$$Overlay.isRequest__$devirt","elemental2.dom.CacheStorage$MatchRequestUnionType$$Overlay.isString__$devirt","elemental2.dom.CacheStorage$MatchRequestUnionType$$Overlay.<clinit>"]
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"Text$$Overlay.impl.java.js",
 "lineCount":19,
-"mappings":"A;;;;;;;;MA0Ba,a;;QAOQ,oC,eAAQA,I;EAARC,wB;EACjBA,kD;EACAA,6D;;;QATS,O;EAAAC,gC;EAAAA;",
+"mappings":"A;;;;;;;;MAwBa,a;;QAUQ,oC,eAAQA,I;EAARC,wB;EACjBA,kD;EACAA,6D;;;QAZS,O;EAAAC,gC;EAAAA;",
 "sources":["Text.java"],
 "names":["node","org.gwtproject.dom.client.Text$$Overlay.as","org.gwtproject.dom.client.Text$$Overlay.<clinit>"]
 }
+

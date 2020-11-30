@@ -111,3 +111,4 @@ public interface MediaTrackSupportedConstraints {
   @JsProperty
   void setWidth(boolean width);
 }
+

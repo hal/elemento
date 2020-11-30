@@ -6,3 +6,4 @@
 "sources":["SQLTransaction.java"],
 "names":["sqlStatement","queryArgs","callback","errorCallback","elemental2.dom.SQLTransaction$$Overlay.executeSql__$devirt","elemental2.dom.SQLTransaction$$Overlay.<clinit>"]
 }
+

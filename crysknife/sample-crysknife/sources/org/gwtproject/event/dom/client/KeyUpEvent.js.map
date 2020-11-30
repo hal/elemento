@@ -6,3 +6,4 @@
 "sources":["KeyUpEvent.java"],
 "names":["org.gwtproject.event.dom.client.KeyUpEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.KeyUpEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.KeyUpEvent.<init>","org.gwtproject.event.dom.client.KeyUpEvent.getType","org.gwtproject.event.dom.client.KeyUpEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.KeyUpEvent.dispatch","org.gwtproject.event.dom.client.KeyUpEvent.<clinit>"]
 }
+

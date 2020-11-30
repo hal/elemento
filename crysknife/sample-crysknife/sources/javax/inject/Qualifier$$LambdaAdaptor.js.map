@@ -6,3 +6,4 @@
 "sources":["Qualifier.java"],
 "names":["javax.inject.Qualifier$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","javax.inject.Qualifier$$LambdaAdaptor.<init>","javax.inject.Qualifier$$LambdaAdaptor.annotationType","javax.inject.Qualifier$$LambdaAdaptor.<clinit>"]
 }
+

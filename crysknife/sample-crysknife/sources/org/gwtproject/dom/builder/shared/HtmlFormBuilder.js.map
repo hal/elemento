@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlFormBuilder.impl.java.js",
 "lineCount":63,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,kI;;;CAIiB,iC,gBAAqBC,a;EACtCC,6L;;;CAIiB,gD,gBAAeC,M;EAChCC,8D;;;CAIiB,0B,gBAAyBD,M;EAC1CC,+K;;;CAIiB,2B,gBAAeC,O;EAChCC,iL;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;CAIiB,wB,gBAAYC,I;EAC7BC,2K;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;QAtCS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,e;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAgCC,Q;EAAhCC,0B;EAAAA,sC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,wBAAgCD,Q;EAC9BE,kI;;;CAIiB,iC,gBAAqBC,a;EACtCC,6L;;;CAIiB,gD,gBAAeC,M;EAChCC,8D;;;CAIiB,0B,gBAAyBD,M;EAC1CC,+K;;;CAIiB,2B,gBAAeC,O;EAChCC,iL;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;CAIiB,wB,gBAAYC,I;EAC7BC,2K;;;CAIiB,0B,gBAAcC,M;EAC/BC,+K;;;QAtCS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["HtmlFormBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlFormBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlFormBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlFormBuilder.<init>","acceptCharset","org.gwtproject.dom.builder.shared.HtmlFormBuilder.acceptCharset","action","org.gwtproject.dom.builder.shared.HtmlFormBuilder.action","enctype","org.gwtproject.dom.builder.shared.HtmlFormBuilder.enctype","method","org.gwtproject.dom.builder.shared.HtmlFormBuilder.method","name","org.gwtproject.dom.builder.shared.HtmlFormBuilder.name","target","org.gwtproject.dom.builder.shared.HtmlFormBuilder.target","org.gwtproject.dom.builder.shared.HtmlFormBuilder.<clinit>"]
 }
+

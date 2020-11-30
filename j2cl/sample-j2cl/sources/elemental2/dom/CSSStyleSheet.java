@@ -27,3 +27,4 @@ public class CSSStyleSheet extends StyleSheet {
 
   public native int insertRule(String rule, int index);
 }
+

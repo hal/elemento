@@ -2,7 +2,8 @@
 "version":3,
 "file":"FrameSetBuilder.impl.java.js",
 "lineCount":18,
-"mappings":"A;;;;;;;;;MAoBiB,e;;CASC,wB,gBAAYA,I;;CASZ,wB,gBAAYC,I;;QAlBb,O;EAAAC,kC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,e;;CASC,wB,gBAAYA,I;;CASZ,wB,gBAAYC,I;;QAlBb,O;EAAAC,kC;EAAAA;",
 "sources":["FrameSetBuilder.java"],
 "names":["cols","rows","org.gwtproject.dom.builder.shared.FrameSetBuilder.<clinit>"]
 }
+

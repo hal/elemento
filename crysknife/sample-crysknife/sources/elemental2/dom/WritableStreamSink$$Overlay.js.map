@@ -6,3 +6,4 @@
 "sources":["WritableStreamSink.java"],
 "names":["elemental2.dom.WritableStreamSink$$Overlay.create","elemental2.dom.WritableStreamSink$$Overlay.<clinit>"]
 }
+

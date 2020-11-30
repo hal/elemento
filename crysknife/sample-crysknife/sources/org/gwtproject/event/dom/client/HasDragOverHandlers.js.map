@@ -6,3 +6,4 @@
 "sources":["HasDragOverHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasDragOverHandlers.<clinit>"]
 }
+

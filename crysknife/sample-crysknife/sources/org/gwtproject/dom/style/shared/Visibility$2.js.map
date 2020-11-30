@@ -2,7 +2,8 @@
 "version":3,
 "file":"Visibility$2.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MA2BS,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,sG;EAAAA,iB;;;CAAA,0E;EAAAC,+F;;;CAES,c;EACZC,gB;;;;CAHG,6B;EAAAC,+E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAyBS,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,sG;EAAAA,iB;;;CAAA,0E;EAAAC,+F;;;CAES,c;EACZC,gB;;;;CAHG,6B;EAAAC,+E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["Visibility.java"],
 "names":["org.gwtproject.dom.style.shared.Visibility$2.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Visibility$2.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.Visibility$2.<init>","org.gwtproject.dom.style.shared.Visibility$2.getCssName","org.gwtproject.dom.style.shared.Visibility$2.compareTo","org.gwtproject.dom.style.shared.Visibility$2.<clinit>"]
 }
+

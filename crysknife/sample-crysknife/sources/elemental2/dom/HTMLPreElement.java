@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLPreElement extends HTMLElement {
   public int width;
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlSelectBuilder.impl.java.js",
 "lineCount":62,
-"mappings":"A;;;;;;;;;;;;;MAoBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,Y;EACnBC,yL;;;CAImB,Y;EACnBC,yL;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;CAImB,oB,eAAkBC,K;EACrCC,oK;;;CAImB,W,eAASC,I;EAC5BC,kK;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;QAvCS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,Y;EACnBC,yL;;;CAImB,Y;EACnBC,yL;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;CAImB,oB,eAAkBC,K;EACrCC,oK;;;CAImB,W,eAASC,I;EAC5BC,kK;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;CAImB,yB,gBAAaC,K;EAChCC,iL;;;QAvCS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
 "sources":["HtmlSelectBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlSelectBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.disabled","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.multiple","name","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.name","index","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.selectedIndex","size","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.size","type","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.type","value","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.value","org.gwtproject.dom.builder.shared.HtmlSelectBuilder.<clinit>"]
 }
+

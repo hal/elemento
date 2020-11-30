@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlSourceBuilder.impl.java.js",
 "lineCount":42,
-"mappings":"A;;;;;;;;;;;;;MAoBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,iJ;;;CAImB,uB,gBAAWC,G;EAC9BC,6K;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;QAdS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,iJ;;;CAImB,uB,gBAAWC,G;EAC9BC,6K;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;QAdS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
 "sources":["HtmlSourceBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlSourceBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlSourceBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlSourceBuilder.<init>","url","org.gwtproject.dom.builder.shared.HtmlSourceBuilder.src","type","org.gwtproject.dom.builder.shared.HtmlSourceBuilder.type","org.gwtproject.dom.builder.shared.HtmlSourceBuilder.<clinit>"]
 }
+

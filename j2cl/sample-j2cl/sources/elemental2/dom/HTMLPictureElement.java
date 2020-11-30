@@ -20,3 +20,4 @@ import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class HTMLPictureElement extends HTMLElement {}
+

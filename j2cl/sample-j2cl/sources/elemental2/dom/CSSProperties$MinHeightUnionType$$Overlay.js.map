@@ -6,3 +6,4 @@
 "sources":["CSSProperties.java"],
 "names":["o","elemental2.dom.CSSProperties$MinHeightUnionType$$Overlay.of","elemental2.dom.CSSProperties$MinHeightUnionType$$Overlay.asDouble__$devirt","elemental2.dom.CSSProperties$MinHeightUnionType$$Overlay.asString__$devirt","elemental2.dom.CSSProperties$MinHeightUnionType$$Overlay.isDouble__$devirt","elemental2.dom.CSSProperties$MinHeightUnionType$$Overlay.isString__$devirt","elemental2.dom.CSSProperties$MinHeightUnionType$$Overlay.<clinit>"]
 }
+

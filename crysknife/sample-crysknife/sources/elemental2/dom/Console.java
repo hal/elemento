@@ -79,3 +79,4 @@ public class Console {
 
   public native void warn(Object... var_data);
 }
+

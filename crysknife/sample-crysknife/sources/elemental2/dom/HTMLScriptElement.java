@@ -36,3 +36,4 @@ public class HTMLScriptElement extends HTMLElement {
   public String text;
   public String type;
 }
+

@@ -27,3 +27,4 @@ public interface LinkStyle {
   @JsProperty
   void setSheet(StyleSheet sheet);
 }
+

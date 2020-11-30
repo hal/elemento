@@ -32,3 +32,4 @@ public class FocusEvent extends UIEvent {
     super((String) null, (UIEventInit) null);
   }
 }
+

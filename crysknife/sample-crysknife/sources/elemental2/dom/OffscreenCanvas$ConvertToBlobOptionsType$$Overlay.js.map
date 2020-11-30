@@ -6,3 +6,4 @@
 "sources":["OffscreenCanvas.java"],
 "names":["elemental2.dom.OffscreenCanvas$ConvertToBlobOptionsType$$Overlay.create","elemental2.dom.OffscreenCanvas$ConvertToBlobOptionsType$$Overlay.<clinit>"]
 }
+

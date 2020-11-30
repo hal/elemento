@@ -6,3 +6,4 @@
 "sources":["CountingEventBus.java"],
 "names":["org.gwtproject.event.shared.testing.CountingEventBus$KeyedCounter.<synthetic: ctor_js>","org.gwtproject.event.shared.testing.CountingEventBus$KeyedCounter.<synthetic: ctor_create>","org.gwtproject.event.shared.testing.CountingEventBus$KeyedCounter.<init>","key","org.gwtproject.event.shared.testing.CountingEventBus$KeyedCounter.getCount","count","org.gwtproject.event.shared.testing.CountingEventBus$KeyedCounter.decrement","org.gwtproject.event.shared.testing.CountingEventBus$KeyedCounter.increment","org.gwtproject.event.shared.testing.CountingEventBus$KeyedCounter.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["DomEvent.java"],
 "names":["org.gwtproject.event.dom.client.DomEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.DomEvent.<init>","nativeEvent","handlerSource","org.gwtproject.event.dom.client.DomEvent.fireNativeEvent","relativeElem","types","type","currentNative","currentRelativeElem","org.gwtproject.event.dom.client.DomEvent.init","org.gwtproject.event.dom.client.DomEvent.getNativeEvent","org.gwtproject.event.dom.client.DomEvent.setNativeEvent","org.gwtproject.event.dom.client.DomEvent.getRelativeElement","org.gwtproject.event.dom.client.DomEvent.setRelativeElement","org.gwtproject.event.dom.client.DomEvent.preventDefault","org.gwtproject.event.dom.client.DomEvent.stopPropagation","org.gwtproject.event.dom.client.DomEvent.<synthetic: getter>","org.gwtproject.event.dom.client.DomEvent.<synthetic: setter>","org.gwtproject.event.dom.client.DomEvent.<clinit>"]
 }
+

@@ -128,3 +128,4 @@ public interface ConstrainDOMStringParameters {
     setIdeal(Js.<JsArray<String>>uncheckedCast(ideal));
   }
 }
+

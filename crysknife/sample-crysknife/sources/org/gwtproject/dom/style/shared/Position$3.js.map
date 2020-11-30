@@ -2,7 +2,8 @@
 "version":3,
 "file":"Position$3.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAiCW,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,oG;EAAAA,iB;;;CAAA,wE;EAAAC,6F;;;CAEO,c;EACZC,kB;;;;CAHK,6B;EAAAC,2E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MA+BW,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,oG;EAAAA,iB;;;CAAA,wE;EAAAC,6F;;;CAEO,c;EACZC,kB;;;;CAHK,6B;EAAAC,2E;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["Position.java"],
 "names":["org.gwtproject.dom.style.shared.Position$3.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Position$3.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.Position$3.<init>","org.gwtproject.dom.style.shared.Position$3.getCssName","org.gwtproject.dom.style.shared.Position$3.compareTo","org.gwtproject.dom.style.shared.Position$3.<clinit>"]
 }
+

@@ -683,3 +683,4 @@ public interface MediaTrackConstraintSet {
     setWidth(Js.<MediaTrackConstraintSet.GetWidthUnionType>uncheckedCast(width));
   }
 }
+

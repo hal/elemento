@@ -6,3 +6,4 @@
 "sources":["Request.java"],
 "names":["o","elemental2.dom.Request$ConstructorInputUnionType$$Overlay.of","elemental2.dom.Request$ConstructorInputUnionType$$Overlay.asRequest__$devirt","elemental2.dom.Request$ConstructorInputUnionType$$Overlay.asString__$devirt","elemental2.dom.Request$ConstructorInputUnionType$$Overlay.isRequest__$devirt","elemental2.dom.Request$ConstructorInputUnionType$$Overlay.isString__$devirt","elemental2.dom.Request$ConstructorInputUnionType$$Overlay.<clinit>"]
 }
+

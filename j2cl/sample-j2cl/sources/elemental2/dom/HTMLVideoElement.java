@@ -40,3 +40,4 @@ public class HTMLVideoElement extends HTMLMediaElement {
 
   public native void webkitExitFullscreen();
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"PartialSupport.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;;;MA+BkB,c;;QAAA,M;EAAAA,yB;EAAAA,8B;;;QAAA,O;EAAAC,iC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MA4BkB,c;;QAAA,M;EAAAA,yB;EAAAA,8B;;;QAAA,O;EAAAC,iC;EAAAA;",
 "sources":["PartialSupport.java"],
 "names":["org.gwtproject.dom.client.PartialSupport.<synthetic: adapt_lambda>","org.gwtproject.dom.client.PartialSupport.<clinit>"]
 }
+

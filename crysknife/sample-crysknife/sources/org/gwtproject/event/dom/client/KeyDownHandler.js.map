@@ -6,3 +6,4 @@
 "sources":["KeyDownHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.KeyDownHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.KeyDownHandler.<clinit>"]
 }
+

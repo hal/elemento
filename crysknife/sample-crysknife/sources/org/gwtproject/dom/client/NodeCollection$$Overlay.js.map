@@ -2,7 +2,8 @@
 "version":3,
 "file":"NodeCollection$$Overlay.impl.java.js",
 "lineCount":24,
-"mappings":"A;;;;;;;;;MAkCa,uB;;QAcI,iE,mDAAYA,K;EAAZC,kC;EACbA,8K;;;QAwBa,mF,oDAAoBC,I;EAApBC,kC;EACbA,0M;;;QAxCS,O;EAAAC,0C;EAAAA;",
+"mappings":"A;;;;;;;;;MAkCa,uB;;QAaI,iE,mDAAYA,K;EAAZC,kC;EACbA,8K;;;QAmBa,mF,oDAAoBC,I;EAApBC,kC;EACbA,0M;;;QAlCS,O;EAAAC,0C;EAAAA;",
 "sources":["NodeCollection.java"],
 "names":["index","org.gwtproject.dom.client.NodeCollection$$Overlay.getItem__$devirt","name","org.gwtproject.dom.client.NodeCollection$$Overlay.getNamedItem__$devirt","org.gwtproject.dom.client.NodeCollection$$Overlay.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["IsTrustedResourceUri.java"],
 "names":["org.gwtproject.safehtml.shared.annotations.IsTrustedResourceUri$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.safehtml.shared.annotations.IsTrustedResourceUri$$LambdaAdaptor.<init>","org.gwtproject.safehtml.shared.annotations.IsTrustedResourceUri$$LambdaAdaptor.annotationType","org.gwtproject.safehtml.shared.annotations.IsTrustedResourceUri$$LambdaAdaptor.<clinit>"]
 }
+

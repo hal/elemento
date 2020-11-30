@@ -6,3 +6,4 @@
 "sources":["CssProperty.java"],
 "names":["org.gwtproject.dom.style.shared.CssProperty$38.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.CssProperty$38.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.CssProperty$38.<init>","org.gwtproject.dom.style.shared.CssProperty$38.getJsName","org.gwtproject.dom.style.shared.CssProperty$38.compareTo","org.gwtproject.dom.style.shared.CssProperty$38.<clinit>"]
 }
+

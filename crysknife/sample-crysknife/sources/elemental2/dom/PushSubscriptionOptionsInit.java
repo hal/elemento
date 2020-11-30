@@ -103,3 +103,4 @@ public interface PushSubscriptionOptionsInit {
   @JsProperty
   void setUserVisibleOnly(boolean userVisibleOnly);
 }
+

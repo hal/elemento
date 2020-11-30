@@ -6,3 +6,4 @@
 "sources":["TodoElement.java"],
 "names":["org.jboss.elemento.sample.j2cl.TodoElement.<synthetic: ctor_js>","application","repository","item","org.jboss.elemento.sample.j2cl.TodoElement.<synthetic: ctor_create>","org.jboss.elemento.sample.j2cl.TodoElement.<init>","org.jboss.elemento.sample.j2cl.TodoElement.element","mutationRecord","org.jboss.elemento.sample.j2cl.TodoElement.attach","ev","org.jboss.elemento.sample.j2cl.TodoElement.<lambda in attach>","org.jboss.elemento.sample.j2cl.TodoElement.detach","org.jboss.elemento.sample.j2cl.TodoElement.toggle","org.jboss.elemento.sample.j2cl.TodoElement.edit","org.jboss.elemento.sample.j2cl.TodoElement.destroy","event","org.jboss.elemento.sample.j2cl.TodoElement.keyDown","org.jboss.elemento.sample.j2cl.TodoElement.blur","value","org.jboss.elemento.sample.j2cl.TodoElement.<clinit>"]
 }
+

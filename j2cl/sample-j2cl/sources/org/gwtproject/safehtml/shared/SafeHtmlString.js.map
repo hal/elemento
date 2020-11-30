@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeHtmlString.impl.java.js",
 "lineCount":75,
-"mappings":"A;;;;;;;;;;;;;;;MA+BM,c;;CAAA,W;EAAAA,Q;EAAAA;OACW,sDADXA,C;;;;QAWJ,yB,gBAAsBC,I;EAAtBC,yB;EAAAA,qC;EAAAA,uF;EAAAA,iB;;;;CAAA,sE,gBAAsBD,I;EAAtBE,iC;EACEA;GACEA,uFADFA;G;EAGAA,mE;;;;QAOM,S;EAAAD,qC;EAAAA,mE;EAAAA,iB;;;;CAAA,sD;EAAAC,iC;;;CAQM,Y;EACZC,mE;;;CAOa,M,UAAcC,G;EAC3BC;GACEA,aADFA;G;EAGAA,8L;;;CAOS,Q;EACTC,4G;;;CAIY,Q;EACZC,uF;;;QAvDE,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MA6BM,c;;CAAA,W;EAAAA,Q;EAAAA;OAEW,sDAFXA,C;;;;QAWJ,yB,gBAAsBC,I;EAAtBC,yB;EAAAA,qC;EAAAA,uF;EAAAA,iB;;;;CAAA,sE,gBAAsBD,I;EAAtBE,iC;EACEA;GACEA,uFADFA;G;EAGAA,mE;;;;QAKM,S;EAAAD,qC;EAAAA,mE;EAAAA,iB;;;;CAAA,sD;EAAAC,iC;;;CAIG,Q;EACTC,4G;;;CAKa,M,UAAcC,G;EAC3BC;GACEA,aADFA;G;EAGAA,8L;;;CAIY,Q;EACZC,uF;;;CAMY,Y;EACZC,mE;;;QA9CE,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["SafeHtmlString.java"],
-"names":["org.gwtproject.safehtml.shared.SafeHtmlString.<synthetic: ctor_js>","html","org.gwtproject.safehtml.shared.SafeHtmlString.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.SafeHtmlString.<init>","org.gwtproject.safehtml.shared.SafeHtmlString.asString","obj","org.gwtproject.safehtml.shared.SafeHtmlString.equals","org.gwtproject.safehtml.shared.SafeHtmlString.hashCode","org.gwtproject.safehtml.shared.SafeHtmlString.toString","org.gwtproject.safehtml.shared.SafeHtmlString.<clinit>"]
+"names":["org.gwtproject.safehtml.shared.SafeHtmlString.<synthetic: ctor_js>","html","org.gwtproject.safehtml.shared.SafeHtmlString.<synthetic: ctor_create>","org.gwtproject.safehtml.shared.SafeHtmlString.<init>","org.gwtproject.safehtml.shared.SafeHtmlString.hashCode","obj","org.gwtproject.safehtml.shared.SafeHtmlString.equals","org.gwtproject.safehtml.shared.SafeHtmlString.toString","org.gwtproject.safehtml.shared.SafeHtmlString.asString","org.gwtproject.safehtml.shared.SafeHtmlString.<clinit>"]
 }
+

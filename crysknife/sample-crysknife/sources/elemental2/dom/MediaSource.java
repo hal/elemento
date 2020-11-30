@@ -52,3 +52,4 @@ public class MediaSource implements EventTarget {
 
   public native Object setLiveSeekableRange(double start, double end);
 }
+

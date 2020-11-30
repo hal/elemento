@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomDivBuilder.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;MAuBa,a;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA6BC,Q;EAA7BC,wB;EAAAA,oC;EAAAA,6H;EAAAA,iB;;;CAAA,wG,uBAA6BD,Q;EAC3BE,gI;;;QAJS,O;EAAAC,gC;EAAAA,6B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAqBa,a;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA6BC,Q;EAA7BC,wB;EAAAA,oC;EAAAA,6H;EAAAA,iB;;;CAAA,wG,uBAA6BD,Q;EAC3BE,gI;;;QAJS,O;EAAAC,gC;EAAAA,6B;EAAAA;",
 "sources":["DomDivBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomDivBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomDivBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomDivBuilder.<init>","org.gwtproject.dom.builder.client.DomDivBuilder.<clinit>"]
 }
+

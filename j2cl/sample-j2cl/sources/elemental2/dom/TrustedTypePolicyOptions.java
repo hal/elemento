@@ -40,11 +40,6 @@ public interface TrustedTypePolicyOptions {
     String onInvoke(String p0, Object... p1);
   }
 
-  @JsFunction
-  public interface CreateURLFn {
-    String onInvoke(String p0, Object... p1);
-  }
-
   @JsOverlay
   static TrustedTypePolicyOptions create() {
     return Js.uncheckedCast(JsPropertyMap.of());
@@ -60,9 +55,6 @@ public interface TrustedTypePolicyOptions {
   TrustedTypePolicyOptions.CreateScriptURLFn getCreateScriptURL();
 
   @JsProperty
-  TrustedTypePolicyOptions.CreateURLFn getCreateURL();
-
-  @JsProperty
   void setCreateHTML(TrustedTypePolicyOptions.CreateHTMLFn createHTML);
 
   @JsProperty
@@ -70,7 +62,5 @@ public interface TrustedTypePolicyOptions {
 
   @JsProperty
   void setCreateScriptURL(TrustedTypePolicyOptions.CreateScriptURLFn createScriptURL);
-
-  @JsProperty
-  void setCreateURL(TrustedTypePolicyOptions.CreateURLFn createURL);
 }
+

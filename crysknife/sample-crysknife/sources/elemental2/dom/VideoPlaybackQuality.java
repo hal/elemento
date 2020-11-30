@@ -59,3 +59,4 @@ public interface VideoPlaybackQuality {
   @JsProperty
   void setTotalVideoFrames(int totalVideoFrames);
 }
+

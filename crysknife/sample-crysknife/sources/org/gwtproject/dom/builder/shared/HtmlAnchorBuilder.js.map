@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlAnchorBuilder.impl.java.js",
 "lineCount":67,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,6B,gBAAiBC,S;EACpCC,yL;;;CAImB,8C,gBAAaC,I;EAChCC,0D;;;CAImB,wB,gBAAuBD,I;EAC1CC,+K;;;CAImB,4B,gBAAgBC,Q;EACnCC,uL;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;CAImB,uB,gBAAWC,G;EAC9BC,6K;;;CAImB,0B,gBAAcC,M;EACjCC,mL;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;QA5CS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,iB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAkCC,Q;EAAlCC,4B;EAAAA,wC;EAAAA,kI;EAAAA,iB;;;CAAA,6G,wBAAkCD,Q;EAChCE,kI;;;CAImB,6B,gBAAiBC,S;EACpCC,yL;;;CAImB,8C,gBAAaC,I;EAChCC,0D;;;CAImB,wB,gBAAuBD,I;EAC1CC,+K;;;CAImB,4B,gBAAgBC,Q;EACnCC,uL;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;CAImB,uB,gBAAWC,G;EAC9BC,6K;;;CAImB,0B,gBAAcC,M;EACjCC,mL;;;CAImB,wB,gBAAYC,I;EAC/BC,+K;;;QA5CS,O;EAAAC,oC;EAAAA,iC;EAAAA;",
 "sources":["HtmlAnchorBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.<init>","accessKey","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.accessKey","href","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.href","hreflang","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.hreflang","name","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.name","rel","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.rel","target","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.target","type","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.type","org.gwtproject.dom.builder.shared.HtmlAnchorBuilder.<clinit>"]
 }
+

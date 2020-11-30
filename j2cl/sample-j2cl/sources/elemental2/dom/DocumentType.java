@@ -106,10 +106,7 @@ public class DocumentType extends Node {
     }
   }
 
-  public NamedNodeMap<Entity> entities;
-  public String internalSubset;
   public String name;
-  public NamedNodeMap<Notation> notations;
   public String publicId;
   public String systemId;
 
@@ -117,37 +114,38 @@ public class DocumentType extends Node {
 
   @JsOverlay
   public final void after(Node... nodes) {
-    after(Js.<DocumentType.AfterNodesUnionType>uncheckedCast(nodes));
+    after(Js.<DocumentType.AfterNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void after(String... nodes) {
-    after(Js.<DocumentType.AfterNodesUnionType>uncheckedCast(nodes));
+    after(Js.<DocumentType.AfterNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void before(DocumentType.BeforeNodesUnionType... nodes);
 
   @JsOverlay
   public final void before(Node... nodes) {
-    before(Js.<DocumentType.BeforeNodesUnionType>uncheckedCast(nodes));
+    before(Js.<DocumentType.BeforeNodesUnionType[]>uncheckedCast(nodes));
   }
 
   @JsOverlay
   public final void before(String... nodes) {
-    before(Js.<DocumentType.BeforeNodesUnionType>uncheckedCast(nodes));
+    before(Js.<DocumentType.BeforeNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void remove();
 
   @JsOverlay
   public final void replaceWith(Node... nodes) {
-    replaceWith(Js.<DocumentType.ReplaceWithNodesUnionType>uncheckedCast(nodes));
+    replaceWith(Js.<DocumentType.ReplaceWithNodesUnionType[]>uncheckedCast(nodes));
   }
 
   public native void replaceWith(DocumentType.ReplaceWithNodesUnionType... nodes);
 
   @JsOverlay
   public final void replaceWith(String... nodes) {
-    replaceWith(Js.<DocumentType.ReplaceWithNodesUnionType>uncheckedCast(nodes));
+    replaceWith(Js.<DocumentType.ReplaceWithNodesUnionType[]>uncheckedCast(nodes));
   }
 }
+

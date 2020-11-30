@@ -53,3 +53,4 @@ public class PopStateEvent extends Event {
   public native void initPopStateEvent(
       String typeArg, boolean canBubbleArg, boolean cancelableArg, Object stateArg);
 }
+

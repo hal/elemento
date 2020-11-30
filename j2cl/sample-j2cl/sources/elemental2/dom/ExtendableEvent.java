@@ -35,3 +35,4 @@ public class ExtendableEvent extends Event {
 
   public native void waitUntil(IThenable f);
 }
+

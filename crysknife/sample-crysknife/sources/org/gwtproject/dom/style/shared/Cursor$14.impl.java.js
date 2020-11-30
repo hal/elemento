@@ -27,7 +27,7 @@ class $14 extends Cursor {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Cursor */ arg0) {
   return super.compareTo(/**@type {Cursor}*/ ($Casts.$to(arg0, Cursor)));
  }
  

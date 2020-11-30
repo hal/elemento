@@ -2,7 +2,8 @@
 "version":3,
 "file":"By$ByData.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;MAuNyB,M;;CAAA,W;EAAAA,Q;;;QAEK,oC,gBAAwBC,G;EAE1CC,8K;;;QAGI,oF,gBAAcC,I,2BAAwBC,iB,iBAA0BC,K;EAAhEC,iB;EAAAA,6B;EAAAA,2J;EAAAA,iB;;;CAAA,gH,gBAAcH,I,2BAAwBC,iB,iBAA0BC,K;EACpEE,gV;;;QARa,O;EAAAC,yB;EAAAA,sB;EAAAA;",
+"mappings":"A;;;;;;;;MAoWyB,M;;CAAA,W;EAAAA,Q;;;QAEK,oC,gBAAwBC,G;EAE1CC,8K;;;QAGI,oF,gBAAcC,I,2BAAwBC,iB,iBAA0BC,K;EAAhEC,iB;EAAAA,6B;EAAAA,2J;EAAAA,iB;;;CAAA,gH,gBAAcH,I,2BAAwBC,iB,iBAA0BC,K;EACpEE,gV;;;QARa,O;EAAAC,yB;EAAAA,sB;EAAAA;",
 "sources":["By.java"],
 "names":["org.jboss.elemento.By$ByData.<synthetic: ctor_js>","str","org.jboss.elemento.By$ByData.camelToKebabCase","name","attributeOperator","value","org.jboss.elemento.By$ByData.<synthetic: ctor_create>","org.jboss.elemento.By$ByData.<init>","org.jboss.elemento.By$ByData.<clinit>"]
 }
+

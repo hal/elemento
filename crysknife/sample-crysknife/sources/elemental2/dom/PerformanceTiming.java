@@ -42,3 +42,4 @@ public class PerformanceTiming {
   public double unloadEventEnd;
   public double unloadEventStart;
 }
+

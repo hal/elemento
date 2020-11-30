@@ -6,3 +6,4 @@
 "sources":["MouseDownEvent.java"],
 "names":["org.gwtproject.event.dom.client.MouseDownEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.MouseDownEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.MouseDownEvent.<init>","org.gwtproject.event.dom.client.MouseDownEvent.getType","org.gwtproject.event.dom.client.MouseDownEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.MouseDownEvent.dispatch","org.gwtproject.event.dom.client.MouseDownEvent.<clinit>"]
 }
+

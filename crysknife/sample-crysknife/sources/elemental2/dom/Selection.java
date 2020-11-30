@@ -65,3 +65,4 @@ public class Selection {
 
   public native void setPosition(Node node);
 }
+

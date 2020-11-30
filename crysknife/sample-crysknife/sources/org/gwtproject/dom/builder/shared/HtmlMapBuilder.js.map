@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlMapBuilder.impl.java.js",
 "lineCount":38,
-"mappings":"A;;;;;;;;;;;;;MAoBa,c;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAA+BC,Q;EAA/BC,yB;EAAAA,qC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,wBAA+BD,Q;EAC7BE,kI;;;CAIgB,wB,gBAAYC,I;EAC5BC,yK;;;QARS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MAkBa,c;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAA+BC,Q;EAA/BC,yB;EAAAA,qC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,wBAA+BD,Q;EAC7BE,kI;;;CAIgB,wB,gBAAYC,I;EAC5BC,yK;;;QARS,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["HtmlMapBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlMapBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlMapBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlMapBuilder.<init>","name","org.gwtproject.dom.builder.shared.HtmlMapBuilder.name","org.gwtproject.dom.builder.shared.HtmlMapBuilder.<clinit>"]
 }
+

@@ -57,3 +57,4 @@ public class ByteLengthQueuingStrategy {
 
   public native int size(ByteLengthQueuingStrategy.SizeChunkType chunk);
 }
+

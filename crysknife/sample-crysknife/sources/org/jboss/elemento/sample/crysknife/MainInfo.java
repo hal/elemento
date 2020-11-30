@@ -1,6 +1,6 @@
 package org.jboss.elemento.sample.crysknife;
 
-import org.treblereel.gwt.crysknife.client.Reflect;
+import io.crysknife.client.Reflect;
 
 public class MainInfo {
 
@@ -10,3 +10,4 @@ public class MainInfo {
 
     public final static String footer = "f_footer__org_jboss_elemento_sample_crysknife_Main";
 }
+

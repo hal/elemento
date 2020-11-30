@@ -6,3 +6,4 @@
 "sources":["GestureStartEvent.java"],
 "names":["org.gwtproject.event.dom.client.GestureStartEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.GestureStartEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.GestureStartEvent.<init>","org.gwtproject.event.dom.client.GestureStartEvent.getType","org.gwtproject.event.dom.client.GestureStartEvent.getAssociatedType","org.gwtproject.event.dom.client.GestureStartEvent.getRotation","org.gwtproject.event.dom.client.GestureStartEvent.getScale","handler","org.gwtproject.event.dom.client.GestureStartEvent.dispatch","org.gwtproject.event.dom.client.GestureStartEvent.<clinit>"]
 }
+

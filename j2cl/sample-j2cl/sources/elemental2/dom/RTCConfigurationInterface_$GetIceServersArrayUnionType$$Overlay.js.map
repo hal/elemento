@@ -2,7 +2,8 @@
 "version":3,
 "file":"RTCConfigurationInterface_$GetIceServersArrayUnionType$$Overlay.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;MA4BmB,oC;;QAE+C,sB,UAAUA,C;EAAVC,+C;EAC5DA,uD;;;QAIqD,uG;EAAAC,+C;EACrDA,8D;;;QAI6B,0G;EAAAC,+C;EAC7BA,mF;;;QAI+C,iG;EAAAC,+C;EAC/CA,8D;;;QAlBa,O;EAAAC,uD;EAAAA;",
+"mappings":"A;;;;;;;;;MA2BmB,oC;;QAE+C,sB,UAAUA,C;EAAVC,+C;EAC5DA,uD;;;QAIkD,uG;EAAAC,+C;EAClDA,8D;;;QAI6B,0G;EAAAC,+C;EAC7BA,mF;;;QAI4C,iG;EAAAC,+C;EAC5CA,8D;;;QAlBa,O;EAAAC,uD;EAAAA;",
 "sources":["RTCConfigurationInterface_.java"],
 "names":["o","elemental2.dom.RTCConfigurationInterface_$GetIceServersArrayUnionType$$Overlay.of","elemental2.dom.RTCConfigurationInterface_$GetIceServersArrayUnionType$$Overlay.asIceServersFieldType__$devirt","elemental2.dom.RTCConfigurationInterface_$GetIceServersArrayUnionType$$Overlay.asRTCIceServerInterface___$devirt","elemental2.dom.RTCConfigurationInterface_$GetIceServersArrayUnionType$$Overlay.asUrlsFieldType__$devirt","elemental2.dom.RTCConfigurationInterface_$GetIceServersArrayUnionType$$Overlay.<clinit>"]
 }
+

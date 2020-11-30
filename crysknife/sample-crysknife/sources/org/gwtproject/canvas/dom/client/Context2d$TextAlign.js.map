@@ -2,7 +2,8 @@
 "version":3,
 "file":"Context2d$TextAlign.impl.java.js",
 "lineCount":124,
-"mappings":"A;;;;;;;;;;;;;MAwLc,S;;CAAA,W;EAAAA,Q;EAAAA;OAGW,8DAHXA,C;;;QAKF,gD,8DAAiBC,K;EAAjBC,gC;EAAAA,uI;EAAAA,iB;;;CAAA,oG,8DAAiBD,K;EAAjBE,qC;EAAAA,2C;EAAAA,mE;EACNA,4E;;;CAGY,Y;EACZC,2E;;;QAVQ,2B;EAAAC,oB;EAAAA;GAAAA,yIAAAA;G;EAAAA,gI;;;QAAA,U;EAAAC,oB;EAAAA,mb;;;;CAAA,6B;EAAAC,6E;;;QACV,kE;EAAAC,wG;;;QAAkB,+D;EAAAA,qG;;;QAAY,gE;EAAAA,sG;;;QAAc,iE;EAAAA,uG;;;QAAgB,iE;EAAAA,uG;;;QADlD,O;EAAAC,4B;EAAAA,yB;EAAAA,e;EACVA,mQ;EAAkBA,uP;EAAYA,2P;EAAcA,+P;EAAgBA,+P;EADlDA,2F;;;;;;;;;;;;;;;;;AAAA;0E;AAAA;uE;AAAA;wE;AAAA;yE;AAAA;yE;AAAA;oF;AACV;sF;AAAkB;mF;AAAY;oF;AAAc;qF;AAAgB;;",
+"mappings":"A;;;;;;;;;;;;;MAsLc,S;;CAAA,W;EAAAA,Q;EAAAA;OAOW,8DAPXA,C;;;QASF,gD,8DAAiBC,K;EAAjBC,gC;EAAAA,uI;EAAAA,iB;;;CAAA,oG,8DAAiBD,K;EAAjBE,qC;EAAAA,2C;EAAAA,mE;EACNA,4E;;;CAGY,Y;EACZC,2E;;;QAdQ,2B;EAAAC,oB;EAAAA;GAAAA,yIAAAA;G;EAAAA,gI;;;QAAA,U;EAAAC,oB;EAAAA,mb;;;;CAAA,6B;EAAAC,6E;;;QACV,kE;EAAAC,wG;;;QACA,+D;EAAAA,qG;;;QACA,gE;EAAAA,sG;;;QACA,iE;EAAAA,uG;;;QACA,iE;EAAAA,uG;;;QALU,O;EAAAC,4B;EAAAA,yB;EAAAA,e;EACVA,mQ;EACAA,uP;EACAA,2P;EACAA,+P;EACAA,+P;EALUA,2F;;;;;;;;;;;;;;;;;AAAA;0E;AAAA;uE;AAAA;wE;AAAA;yE;AAAA;yE;AAAA;oF;AACV;sF;AACA;mF;AACA;oF;AACA;qF;AACA;;",
 "sources":["Context2d.java"],
 "names":["org.gwtproject.canvas.dom.client.Context2d$TextAlign.<synthetic: ctor_js>","value","org.gwtproject.canvas.dom.client.Context2d$TextAlign.<synthetic: ctor_create>","org.gwtproject.canvas.dom.client.Context2d$TextAlign.<init>","org.gwtproject.canvas.dom.client.Context2d$TextAlign.getValue","org.gwtproject.canvas.dom.client.Context2d$TextAlign.valueOf","org.gwtproject.canvas.dom.client.Context2d$TextAlign.values","org.gwtproject.canvas.dom.client.Context2d$TextAlign.compareTo","org.gwtproject.canvas.dom.client.Context2d$TextAlign.<synthetic: getter>","org.gwtproject.canvas.dom.client.Context2d$TextAlign.<clinit>"]
 }
+

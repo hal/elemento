@@ -2,7 +2,8 @@
 "version":3,
 "file":"StyleBuilder.impl.java.js",
 "lineCount":49,
-"mappings":"A;;;;;;;;;;;MAsBiB,Y;;CAQF,2B,gBAAeA,O;;CAKf,Y;;CAYA,+C,iBAAcC,I;;CASd,yB,gBAAaC,K;;CAYb,wB,gBAAYC,I;;CASZ,wB,gBAAYC,I;;QAvDV,O;EAAAC,+B;EAAAA,4B;;;;;;;;;;;;;;;;;;;;AAEf;aAAO,kEAAP;",
+"mappings":"A;;;;;;;;;;;MAoBiB,Y;;CAMF,2B,gBAAeA,O;;CAGf,Y;;CAUA,+C,iBAAcC,I;;CASd,yB,gBAAaC,K;;CAUb,wB,gBAAYC,I;;CASZ,wB,gBAAYC,I;;QA/CV,O;EAAAC,+B;EAAAA,4B;;;;;;;;;;;;;;;;;;;;AAEf;aAAO,kEAAP;",
 "sources":["StyleBuilder.java"],
 "names":["cssText","html","media","text","type","org.gwtproject.dom.builder.shared.StyleBuilder.<clinit>"]
 }
+

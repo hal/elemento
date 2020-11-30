@@ -146,3 +146,4 @@ public class CountingEventBus extends EventBus {
     }
   }
 }
+

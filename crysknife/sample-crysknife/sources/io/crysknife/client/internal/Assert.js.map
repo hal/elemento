@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"Assert.impl.java.js",
+"lineCount":45,
+"mappings":"A;;;;;;;;;MAuBa,M;;CAAA,W;EAAAA,Q;;;QAEH,S;EAAAC,6B;EAAAA,yD;EAAAA,iB;;;CAAA,4C;EAAAC,iC;;;QAcY,6C,gBAAqBC,Y,WAAsBC,K;EAA3CC,iB;EAClBA;GACEA,qFADFA;G;EAGAA,a;;;QAakB,2B,UAAgBD,K;EAAhBC,iB;EAClBA;GACEA,yDADFA;G;EAGAA,a;;;QArCS,O;EAAAC,yB;EAAAA,sB;EAAAA;",
+"sources":["Assert.java"],
+"names":["io.crysknife.client.internal.Assert.<synthetic: ctor_js>","io.crysknife.client.internal.Assert.<synthetic: ctor_create>","io.crysknife.client.internal.Assert.<init>","errorMessage","value","io.crysknife.client.internal.Assert.notNull","io.crysknife.client.internal.Assert.<clinit>"]
+}
+

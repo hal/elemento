@@ -50,7 +50,7 @@ class TextBaseline extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** TextBaseline */ arg0) {
   return super.compareTo(/**@type {TextBaseline}*/ ($Casts.$to(arg0, TextBaseline)));
  }
  /** @return {!TextBaseline} */

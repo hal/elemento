@@ -6,3 +6,4 @@
 "sources":["FontFace.java"],
 "names":["o","elemental2.dom.FontFace$ConstructorSourceUnionType$$Overlay.of","elemental2.dom.FontFace$ConstructorSourceUnionType$$Overlay.asArrayBuffer__$devirt","elemental2.dom.FontFace$ConstructorSourceUnionType$$Overlay.asArrayBufferView__$devirt","elemental2.dom.FontFace$ConstructorSourceUnionType$$Overlay.asString__$devirt","elemental2.dom.FontFace$ConstructorSourceUnionType$$Overlay.isArrayBuffer__$devirt","elemental2.dom.FontFace$ConstructorSourceUnionType$$Overlay.isArrayBufferView__$devirt","elemental2.dom.FontFace$ConstructorSourceUnionType$$Overlay.isString__$devirt","elemental2.dom.FontFace$ConstructorSourceUnionType$$Overlay.<clinit>"]
 }
+

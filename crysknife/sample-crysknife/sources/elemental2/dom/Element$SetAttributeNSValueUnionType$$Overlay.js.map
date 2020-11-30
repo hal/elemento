@@ -2,7 +2,8 @@
 "version":3,
 "file":"Element$SetAttributeNSValueUnionType$$Overlay.impl.java.js",
 "lineCount":49,
-"mappings":"A;;;;;;;;;MAwdmB,Q;;QAE6B,sB,UAAUA,C;EAAVC,mB;EAC1CA,uD;;;QAIc,yE;EAAAC,mB;EACdA,kD;;;QAIa,wE;EAAAC,mB;EACbA,iD;;;QAIa,wE;EAAAC,mB;EACbA,iD;;;QAIc,yE;EAAAC,mB;EACdA,sD;;;QAIc,wE;EAAAC,mB;EACdA,qD;;;QAIc,wE;EAAAC,mB;EACdA,yD;;;QAjCa,O;EAAAC,2B;EAAAA;",
+"mappings":"A;;;;;;;;;MAydmB,Q;;QAE6B,sB,UAAUA,C;EAAVC,mB;EAC1CA,uD;;;QAIc,yE;EAAAC,mB;EACdA,kD;;;QAIa,wE;EAAAC,mB;EACbA,iD;;;QAIa,wE;EAAAC,mB;EACbA,iD;;;QAIc,yE;EAAAC,mB;EACdA,sD;;;QAIc,wE;EAAAC,mB;EACdA,qD;;;QAIc,wE;EAAAC,mB;EACdA,yD;;;QAjCa,O;EAAAC,2B;EAAAA;",
 "sources":["Element.java"],
 "names":["o","elemental2.dom.Element$SetAttributeNSValueUnionType$$Overlay.of","elemental2.dom.Element$SetAttributeNSValueUnionType$$Overlay.asBoolean__$devirt","elemental2.dom.Element$SetAttributeNSValueUnionType$$Overlay.asDouble__$devirt","elemental2.dom.Element$SetAttributeNSValueUnionType$$Overlay.asString__$devirt","elemental2.dom.Element$SetAttributeNSValueUnionType$$Overlay.isBoolean__$devirt","elemental2.dom.Element$SetAttributeNSValueUnionType$$Overlay.isDouble__$devirt","elemental2.dom.Element$SetAttributeNSValueUnionType$$Overlay.isString__$devirt","elemental2.dom.Element$SetAttributeNSValueUnionType$$Overlay.<clinit>"]
 }
+

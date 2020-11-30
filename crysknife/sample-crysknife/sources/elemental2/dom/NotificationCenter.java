@@ -32,3 +32,4 @@ public class NotificationCenter {
 
   public native void requestPermission(Function callback);
 }
+

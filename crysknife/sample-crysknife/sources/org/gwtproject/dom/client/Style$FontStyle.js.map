@@ -2,7 +2,8 @@
 "version":3,
 "file":"Style$FontStyle.impl.java.js",
 "lineCount":65,
-"mappings":"A;;;;;;;;;;MA4KsB,e;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,0B;EAAAA,sC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EAAAC,iC;;;QAClB,uD;EAAAC,yG;;;QACA,uD;EAAAA,yG;;;QACA,wD;EAAAA,0G;;;QAHkB,O;EAAAC,kC;EAAAA,+B;EAAAA,qB;EAClBA,qI;EACAA,qI;EACAA,uI;;;;;;;;;;;;;;AAHkB;qE;AAAA;qE;AAAA;;",
+"mappings":"A;;;;;;;;;;MAiOsB,e;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,0B;EAAAA,sC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EAAAC,iC;;;QAClB,uD;EAAAC,yG;;;QAEA,uD;EAAAA,yG;;;QAEA,wD;EAAAA,0G;;;QALkB,O;EAAAC,kC;EAAAA,+B;EAAAA,qB;EAClBA,qI;EAEAA,qI;EAEAA,uI;;;;;;;;;;;;;;AALkB;qE;AAAA;qE;AAAA;;",
 "sources":["Style.java"],
 "names":["org.gwtproject.dom.client.Style$FontStyle.<synthetic: ctor_js>","org.gwtproject.dom.client.Style$FontStyle.<synthetic: ctor_create>","org.gwtproject.dom.client.Style$FontStyle.<init>","org.gwtproject.dom.client.Style$FontStyle.<synthetic: getter>","org.gwtproject.dom.client.Style$FontStyle.<clinit>"]
 }
+

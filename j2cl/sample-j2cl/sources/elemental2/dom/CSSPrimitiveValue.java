@@ -63,3 +63,4 @@ public class CSSPrimitiveValue extends CSSValue {
 
   public native void setStringValue(double stringType, String stringValue);
 }
+

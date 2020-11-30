@@ -17,10 +17,45 @@ class UriUtils extends j_l_Object {
  constructor() {
   super();
  }
- /** @return {?string} */
- static m_encode__java_lang_String(/** ?string */ uri) {
+ /** @return {!UriUtils} */
+ static $create__() {
+  let $instance = new UriUtils();
+  $instance.$ctor__org_gwtproject_safehtml_shared_UriUtils__();
+  return $instance;
+ }
+ 
+ $ctor__org_gwtproject_safehtml_shared_UriUtils__() {
+  this.$ctor__java_lang_Object__();
+ }
+ /** @return {SafeUri} */
+ static m_fromSafeConstant__java_lang_String(/** ?string */ s) {
   UriUtils.$clinit();
-  return UriUtils.f_impl__org_gwtproject_safehtml_shared_UriUtils_.m_encode__java_lang_String_$pp_org_gwtproject_safehtml_shared(uri);
+  SafeUriHostedModeUtils.m_maybeCheckValidUri__java_lang_String(s);
+  return SafeUriString.$create__java_lang_String(s);
+ }
+ /** @return {SafeUri} */
+ static m_fromString__java_lang_String(/** ?string */ s) {
+  UriUtils.$clinit();
+  return SafeUriString.$create__java_lang_String(UriUtils.m_sanitizeUri__java_lang_String(s));
+ }
+ /** @return {?string} */
+ static m_sanitizeUri__java_lang_String(/** ?string */ uri) {
+  UriUtils.$clinit();
+  if (UriUtils.m_isSafeUri__java_lang_String(uri)) {
+   return UriUtils.m_encodeAllowEscapes__java_lang_String(uri);
+  } else {
+   return "#";
+  }
+ }
+ /** @return {boolean} */
+ static m_isSafeUri__java_lang_String(/** ?string */ uri) {
+  UriUtils.$clinit();
+  let scheme = UriUtils.m_extractScheme__java_lang_String(uri);
+  if ($Equality.$same(scheme, null)) {
+   return true;
+  }
+  let schemeLc = j_l_String.m_toLowerCase__java_lang_String__java_util_Locale(scheme, Locale.f_ROOT__java_util_Locale);
+  return ($Equality.$same("http", schemeLc) || $Equality.$same("https", schemeLc) || $Equality.$same("ftp", schemeLc) || $Equality.$same("mailto", schemeLc) || $Equality.$same("MAILTO", j_l_String.m_toUpperCase__java_lang_String__java_util_Locale(scheme, Locale.f_ROOT__java_util_Locale)));
  }
  /** @return {?string} */
  static m_encodeAllowEscapes__java_lang_String(/** ?string */ uri) {
@@ -56,16 +91,10 @@ class UriUtils extends j_l_Object {
   }
   return scheme;
  }
- /** @return {SafeUri} */
- static m_fromSafeConstant__java_lang_String(/** ?string */ s) {
+ /** @return {?string} */
+ static m_encode__java_lang_String(/** ?string */ uri) {
   UriUtils.$clinit();
-  SafeUriHostedModeUtils.m_maybeCheckValidUri__java_lang_String(s);
-  return SafeUriString.$create__java_lang_String(s);
- }
- /** @return {SafeUri} */
- static m_fromString__java_lang_String(/** ?string */ s) {
-  UriUtils.$clinit();
-  return SafeUriString.$create__java_lang_String(UriUtils.m_sanitizeUri__java_lang_String(s));
+  return UriUtils.f_impl__org_gwtproject_safehtml_shared_UriUtils_.m_encode__java_lang_String_$pp_org_gwtproject_safehtml_shared(uri);
  }
  /** @return {SafeUri} */
  static m_fromTrustedString__java_lang_String(/** ?string */ s) {
@@ -73,39 +102,10 @@ class UriUtils extends j_l_Object {
   SafeUriHostedModeUtils.m_maybeCheckValidUri__java_lang_String(s);
   return SafeUriString.$create__java_lang_String(s);
  }
- /** @return {boolean} */
- static m_isSafeUri__java_lang_String(/** ?string */ uri) {
-  UriUtils.$clinit();
-  let scheme = UriUtils.m_extractScheme__java_lang_String(uri);
-  if ($Equality.$same(scheme, null)) {
-   return true;
-  }
-  let schemeLc = j_l_String.m_toLowerCase__java_lang_String__java_util_Locale(scheme, Locale.f_ROOT__java_util_Locale);
-  return ($Equality.$same("http", schemeLc) || $Equality.$same("https", schemeLc) || $Equality.$same("ftp", schemeLc) || $Equality.$same("mailto", schemeLc) || $Equality.$same("MAILTO", j_l_String.m_toUpperCase__java_lang_String__java_util_Locale(scheme, Locale.f_ROOT__java_util_Locale)));
- }
- /** @return {?string} */
- static m_sanitizeUri__java_lang_String(/** ?string */ uri) {
-  UriUtils.$clinit();
-  if (UriUtils.m_isSafeUri__java_lang_String(uri)) {
-   return UriUtils.m_encodeAllowEscapes__java_lang_String(uri);
-  } else {
-   return "#";
-  }
- }
  /** @return {SafeUri} @deprecated */
  static m_unsafeCastFromUntrustedString__java_lang_String(/** ?string */ s) {
   UriUtils.$clinit();
   return SafeUriString.$create__java_lang_String(s);
- }
- /** @return {!UriUtils} */
- static $create__() {
-  let $instance = new UriUtils();
-  $instance.$ctor__org_gwtproject_safehtml_shared_UriUtils__();
-  return $instance;
- }
- 
- $ctor__org_gwtproject_safehtml_shared_UriUtils__() {
-  this.$ctor__java_lang_Object__();
  }
  
  static $clinit() {

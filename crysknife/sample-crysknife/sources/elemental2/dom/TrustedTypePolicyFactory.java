@@ -15,30 +15,20 @@
  */
 package elemental2.dom;
 
-import elemental2.core.JsArray;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class TrustedTypePolicyFactory {
   public TrustedHTML emptyHTML;
-
-  public native TrustedTypePolicy createPolicy(
-      String name, TrustedTypePolicyOptions policy, boolean expose);
+  public TrustedScript emptyScript;
 
   public native TrustedTypePolicy createPolicy(String name, TrustedTypePolicyOptions policy);
-
-  @Deprecated
-  public native TrustedTypePolicy getExposedPolicy(String name);
-
-  public native JsArray<String> getPolicyNames();
 
   public native boolean isHTML(Object obj);
 
   public native boolean isScript(Object obj);
 
   public native boolean isScriptURL(Object obj);
-
-  @Deprecated
-  public native boolean isURL(Object obj);
 }
+

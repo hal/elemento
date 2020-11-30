@@ -27,3 +27,4 @@ public interface TextContent<E extends HTMLElement, B extends TypedBuilder<E, B>
         return that();
     }
 }
+

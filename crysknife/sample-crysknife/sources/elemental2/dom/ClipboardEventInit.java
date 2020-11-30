@@ -35,3 +35,4 @@ public interface ClipboardEventInit extends EventInit {
   @JsProperty
   void setClipboardData(DataTransfer clipboardData);
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"AnchorElement$$Overlay.impl.java.js",
 "lineCount":67,
-"mappings":"A;;;;;;;;;;;;MAgCa,sB;;QAUiB,uC,eAAWA,I;EAAXC,iC;EAC1BA,uF;EACAA,sE;;;QASoB,iD,eAAoBC,C;EAApBC,iC;EACpBA;GACEA,qHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,iC;EACpBA;GACEA,wHADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,iC;EACpBA,iN;;;QA6EgB,mG,yCAAgBE,I;EAAhBC,iC;EAChBA,oC;;;QA9HS,O;EAAAC,yC;EAAAA,sC;;;;;;;;;;;;;;;;;AAEX;uBAC2B,uDAD3B;",
+"mappings":"A;;;;;;;;;;;;MAiCa,sB;;QAYiB,uC,eAAWA,I;EAAXC,iC;EAC1BA,uF;EACAA,sE;;;QAWoB,iD,eAAoBC,C;EAApBC,iC;EACpBA;GACEA,qHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,iC;EACpBA;GACEA,wHADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,iC;EACpBA,iN;;;QAwFgB,mG,yCAAgBE,I;EAAhBC,iC;EAChBA,oC;;;QAjJS,O;EAAAC,yC;EAAAA,sC;;;;;;;;;;;;;;;;;AAEX;uBAAsC,uDAAtC;",
 "sources":["AnchorElement.java"],
 "names":["elem","org.gwtproject.dom.client.AnchorElement$$Overlay.as","o","org.gwtproject.dom.client.AnchorElement$$Overlay.is","node","href","org.gwtproject.dom.client.AnchorElement$$Overlay.setHref__$devirt","org.gwtproject.dom.client.AnchorElement$$Overlay.<clinit>"]
 }
+

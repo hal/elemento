@@ -88,3 +88,4 @@ public class Notification implements EventTarget {
 
   public native void show();
 }
+

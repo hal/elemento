@@ -27,7 +27,7 @@ class $1 extends TextTransform {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** TextTransform */ arg0) {
   return super.compareTo(/**@type {TextTransform}*/ ($Casts.$to(arg0, TextTransform)));
  }
  

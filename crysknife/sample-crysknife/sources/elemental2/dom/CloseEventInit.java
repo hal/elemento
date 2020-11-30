@@ -47,3 +47,4 @@ public interface CloseEventInit extends EventInit {
   @JsProperty
   void setWasClean(boolean wasClean);
 }
+

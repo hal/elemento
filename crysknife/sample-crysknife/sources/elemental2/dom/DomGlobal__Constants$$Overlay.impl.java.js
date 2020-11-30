@@ -10,13 +10,13 @@ class $Overlay {
  }
  /** @return {boolean} */
  static $isInstance(/** ? */ instance) {
-  return instance instanceof window;
+  return instance instanceof goog.global;
  }
  
  static $loadModules() {}
  
 }
-$Util.$setClassMetadata($Overlay, 'window');
+$Util.$setClassMetadata($Overlay, 'goog.global');
 
 exports = $Overlay; 
 //# sourceMappingURL=DomGlobal__Constants$$Overlay.js.map

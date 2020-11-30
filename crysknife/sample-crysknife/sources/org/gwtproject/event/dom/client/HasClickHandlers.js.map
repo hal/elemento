@@ -6,3 +6,4 @@
 "sources":["HasClickHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasClickHandlers.<clinit>"]
 }
+

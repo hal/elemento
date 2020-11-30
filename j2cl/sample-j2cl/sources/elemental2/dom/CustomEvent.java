@@ -35,3 +35,4 @@ public class CustomEvent<T> extends Event {
   public native void initCustomEvent(
       String eventType, boolean bubbles, boolean cancelable, T detail);
 }
+

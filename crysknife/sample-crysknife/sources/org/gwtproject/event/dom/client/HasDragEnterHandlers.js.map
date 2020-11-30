@@ -6,3 +6,4 @@
 "sources":["HasDragEnterHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasDragEnterHandlers.<clinit>"]
 }
+

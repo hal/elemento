@@ -142,3 +142,4 @@ public class CSSStyleDeclaration extends CSSProperties
 
   public native void setProperty(String propertyName, String value);
 }
+

@@ -6,3 +6,4 @@
 "sources":["FocusHandler.java"],
 "names":["org.gwtproject.event.dom.client.FocusHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.FocusHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.FocusHandler$$LambdaAdaptor.onFocus","org.gwtproject.event.dom.client.FocusHandler$$LambdaAdaptor.<clinit>"]
 }
+

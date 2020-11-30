@@ -65,3 +65,4 @@ public interface FontFaceDescriptors {
   @JsProperty
   void setWeight(String weight);
 }
+

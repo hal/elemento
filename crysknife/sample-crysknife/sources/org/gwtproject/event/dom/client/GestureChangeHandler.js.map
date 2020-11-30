@@ -6,3 +6,4 @@
 "sources":["GestureChangeHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.GestureChangeHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.GestureChangeHandler.<clinit>"]
 }
+

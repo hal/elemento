@@ -6,3 +6,4 @@
 "sources":["CanPlayThroughHandler.java"],
 "names":["org.gwtproject.event.dom.client.CanPlayThroughHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.CanPlayThroughHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.CanPlayThroughHandler$$LambdaAdaptor.onCanPlayThrough","org.gwtproject.event.dom.client.CanPlayThroughHandler$$LambdaAdaptor.<clinit>"]
 }
+

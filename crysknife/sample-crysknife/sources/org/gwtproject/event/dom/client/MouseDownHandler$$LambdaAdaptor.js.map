@@ -6,3 +6,4 @@
 "sources":["MouseDownHandler.java"],
 "names":["org.gwtproject.event.dom.client.MouseDownHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.MouseDownHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.MouseDownHandler$$LambdaAdaptor.onMouseDown","org.gwtproject.event.dom.client.MouseDownHandler$$LambdaAdaptor.<clinit>"]
 }
+

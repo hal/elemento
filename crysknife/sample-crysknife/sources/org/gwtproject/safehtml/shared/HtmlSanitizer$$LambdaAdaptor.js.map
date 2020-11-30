@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlSanitizer$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MAyBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;2E;EAAAA,sI;;;CAAA,4H;EAAAC,iC;EAAAA,8E;;;CAAA,4B;EAAAC,iD;EAAAA,+G;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAuBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;2E;EAAAA,sI;;;CAAA,4H;EAAAC,iC;EAAAA,8E;;;CAAA,4B;EAAAC,iD;EAAAA,+G;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["HtmlSanitizer.java"],
 "names":["org.gwtproject.safehtml.shared.HtmlSanitizer$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.safehtml.shared.HtmlSanitizer$$LambdaAdaptor.<init>","org.gwtproject.safehtml.shared.HtmlSanitizer$$LambdaAdaptor.sanitize","org.gwtproject.safehtml.shared.HtmlSanitizer$$LambdaAdaptor.<clinit>"]
 }
+

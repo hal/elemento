@@ -352,3 +352,4 @@ public interface Cache {
     return put(Js.<Cache.PutRequestUnionType>uncheckedCast(request), response);
   }
 }
+

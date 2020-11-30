@@ -33,3 +33,4 @@ public class NamedNodeMap<T> implements JsIterable<T>, JsArrayLike<T>, JsPropert
 
   public native Node setNamedItem(Node arg);
 }
+

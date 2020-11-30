@@ -6,3 +6,4 @@
 "sources":["HasMouseMoveHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasMouseMoveHandlers.<clinit>"]
 }
+

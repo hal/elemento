@@ -6,3 +6,4 @@
 "sources":["TodoRepository_Factory.java"],
 "names":["org.jboss.elemento.sample.crysknife.TodoRepository_Factory.<synthetic: ctor_js>","org.jboss.elemento.sample.crysknife.TodoRepository_Factory.get","org.jboss.elemento.sample.crysknife.TodoRepository_Factory.<synthetic: ctor_create>","org.jboss.elemento.sample.crysknife.TodoRepository_Factory.<init>","org.jboss.elemento.sample.crysknife.TodoRepository_Factory.create","org.jboss.elemento.sample.crysknife.TodoRepository_Factory.<clinit>"]
 }
+

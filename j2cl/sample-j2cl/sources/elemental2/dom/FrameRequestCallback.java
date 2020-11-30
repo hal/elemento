@@ -21,3 +21,4 @@ import jsinterop.annotations.JsFunction;
 public interface FrameRequestCallback {
   void onInvoke(double timestamp);
 }
+

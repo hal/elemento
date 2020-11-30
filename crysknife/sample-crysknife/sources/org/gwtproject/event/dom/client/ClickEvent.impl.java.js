@@ -42,7 +42,7 @@ class ClickEvent extends MouseEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** ClickHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_ClickHandler(/**@type {ClickHandler}*/ ($Casts.$to(arg0, ClickHandler)));
  }
  

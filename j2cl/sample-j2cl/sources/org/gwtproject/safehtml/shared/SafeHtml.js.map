@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeHtml.impl.java.js",
 "lineCount":27,
-"mappings":"A;;;;;;;;;;;MA8DiB,Q;;CA8BR,Y;;CAQC,M,UAAcA,Q;;CAMlB,Q;;QA5CW,M;EAAAC,mB;EAAAA,8B;;;QAAA,O;EAAAC,2B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAmDiB,Q;;CA6BR,Y;;CAEH,Q;;CAMI,M,UAAcA,Q;;QArCP,M;EAAAC,mB;EAAAA,8B;;;QAAA,O;EAAAC,2B;EAAAA;",
 "sources":["SafeHtml.java"],
 "names":["anObject","org.gwtproject.safehtml.shared.SafeHtml.<synthetic: adapt_lambda>","org.gwtproject.safehtml.shared.SafeHtml.<clinit>"]
 }
+

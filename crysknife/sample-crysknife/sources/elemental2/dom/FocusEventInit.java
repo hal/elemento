@@ -35,3 +35,4 @@ public interface FocusEventInit extends UIEventInit {
   @JsProperty
   void setRelatedTarget(EventTarget relatedTarget);
 }
+

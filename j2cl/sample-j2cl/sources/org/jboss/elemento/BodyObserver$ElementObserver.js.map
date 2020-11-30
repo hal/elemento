@@ -2,7 +2,8 @@
 "version":3,
 "file":"BodyObserver$ElementObserver.impl.java.js",
 "lineCount":21,
-"mappings":"A;;;;;;;;;;MAmKsB,e;;CAEP,Y;;CAEK,mB;;CAEK,Y;;QANH,O;EAAAA,kC;EAAAA;",
+"mappings":"A;;;;;;;;;;MAkKsB,e;;CAEP,Y;;CAEK,mB;;CAEK,Y;;QANH,O;EAAAA,kC;EAAAA;",
 "sources":["BodyObserver.java"],
 "names":["org.jboss.elemento.BodyObserver$ElementObserver.<clinit>"]
 }
+

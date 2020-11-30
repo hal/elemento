@@ -36,3 +36,4 @@ public class DOMError {
   public double severity;
   public String type;
 }
+

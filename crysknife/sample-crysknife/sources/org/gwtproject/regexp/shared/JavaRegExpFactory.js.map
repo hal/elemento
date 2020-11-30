@@ -6,3 +6,4 @@
 "sources":["JavaRegExpFactory.java"],
 "names":["org.gwtproject.regexp.shared.JavaRegExpFactory.<synthetic: ctor_js>","org.gwtproject.regexp.shared.JavaRegExpFactory.<synthetic: ctor_create>","org.gwtproject.regexp.shared.JavaRegExpFactory.<init>","org.gwtproject.regexp.shared.JavaRegExpFactory.<clinit>"]
 }
+

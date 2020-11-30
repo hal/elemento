@@ -30,3 +30,4 @@ public class RTCSessionDescription {
 
   public RTCSessionDescription(Object descriptionInitDict) {}
 }
+

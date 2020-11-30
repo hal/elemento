@@ -21,3 +21,4 @@ public interface TypedBuilder<T, B extends TypedBuilder<T, B>> {
     /** In order to make builders work with inheritance, sub-builders must return a reference to their instance. */
     B that();
 }
+

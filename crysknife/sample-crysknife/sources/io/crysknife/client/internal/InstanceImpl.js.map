@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"InstanceImpl.impl.java.js",
+"lineCount":44,
+"mappings":"A;;;;;;;;;;;;MAsBa,Y;;CAAA,W;EAAAA,Q;EAAAA;OAEC,qDAFDA,C;;;QAIJ,8B,oBAAyBC,Q;EAAzBC,uB;EAAAA,mC;EAAAA,4F;EAAAA,iB;;;CAAA,uE,oBAAyBD,Q;EAAzBE,iC;EACLA,sE;;;CAIO,O;EACPC,4E;;;CAIU,2B,UAAUC,I;;CAGV,c;;QAjBD,O;EAAAC,+B;EAAAA,4B;EAAAA;",
+"sources":["InstanceImpl.java"],
+"names":["io.crysknife.client.internal.InstanceImpl.<synthetic: ctor_js>","provider","io.crysknife.client.internal.InstanceImpl.<synthetic: ctor_create>","io.crysknife.client.internal.InstanceImpl.<init>","io.crysknife.client.internal.InstanceImpl.get","var1","io.crysknife.client.internal.InstanceImpl.<clinit>"]
+}
+

@@ -27,3 +27,4 @@ public class MediaStreamTrackEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

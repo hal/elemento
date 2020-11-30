@@ -6,3 +6,4 @@
 "sources":["ScrollHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.ScrollHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.ScrollHandler.<clinit>"]
 }
+

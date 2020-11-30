@@ -23,3 +23,4 @@ public class ProcessingInstruction extends Node {
   public String data;
   public String target;
 }
+

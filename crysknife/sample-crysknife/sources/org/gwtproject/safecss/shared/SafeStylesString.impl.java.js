@@ -49,16 +49,16 @@ class SafeStylesString extends j_l_Object {
  m_asString__() {
   return this.f_css__org_gwtproject_safecss_shared_SafeStylesString_;
  }
+ /** @override @return {number} */
+ hashCode() {
+  return j_l_String.m_hashCode__java_lang_String(this.f_css__org_gwtproject_safecss_shared_SafeStylesString_);
+ }
  /** @override @return {boolean} */
  equals(/** * */ obj) {
   if (!SafeStyles.$isInstance(obj)) {
    return false;
   }
   return j_l_String.m_equals__java_lang_String__java_lang_Object(this.f_css__org_gwtproject_safecss_shared_SafeStylesString_, /**@type {SafeStyles}*/ ($Casts.$to(obj, SafeStyles)).m_asString__());
- }
- /** @override @return {number} */
- hashCode() {
-  return j_l_String.m_hashCode__java_lang_String(this.f_css__org_gwtproject_safecss_shared_SafeStylesString_);
  }
  
  static $clinit() {

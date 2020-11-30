@@ -33,3 +33,4 @@ public class NotificationEvent extends ExtendableEvent {
     super((String) null, (ExtendableEventInit) null);
   }
 }
+

@@ -33,3 +33,4 @@ public class HTMLFieldSetElement extends HTMLElement {
 
   public native void setCustomValidity(String message);
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"StyleElement$$Overlay.impl.java.js",
 "lineCount":69,
-"mappings":"A;;;;;;;;;;;;;MAkCa,qB;;QAUgB,uC,eAAWA,I;EAAXC,gC;EACzBA,sF;EACAA,qE;;;QAUoB,iD,eAAoBC,C;EAApBC,gC;EACpBA;GACEA,oHADFA;G;EAGAA,a;;;QASoB,oC,eAAQC,I;EAARD,gC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QASoB,uC,eAAWH,I;EAAXG,gC;EACpBA,+M;;;QAgCmB,6D;EAAAE,gC;EACnBA,gI;;;QAlFS,O;EAAAC,wC;EAAAA,qC;;;;;;;;;;;;;;;;;;AAEX;sBAC2B,sDAD3B;",
+"mappings":"A;;;;;;;;;;;;;MAqCa,qB;;QAYgB,uC,eAAWA,I;EAAXC,gC;EACzBA,sF;EACAA,qE;;;QAWoB,iD,eAAoBC,C;EAApBC,gC;EACpBA;GACEA,oHADFA;G;EAGAA,a;;;QAWoB,oC,eAAQC,I;EAARD,gC;EACpBA;GACEA,uHADFA;G;EAGAA,a;;;QAWoB,uC,eAAWH,I;EAAXG,gC;EACpBA,+M;;;QA+BmB,6D;EAAAE,gC;EACnBA,gI;;;QAxFS,O;EAAAC,wC;EAAAA,qC;;;;;;;;;;;;;;;;;;AAEX;sBAAsC,sDAAtC;",
 "sources":["StyleElement.java"],
 "names":["elem","org.gwtproject.dom.client.StyleElement$$Overlay.as","o","org.gwtproject.dom.client.StyleElement$$Overlay.is","node","org.gwtproject.dom.client.StyleElement$$Overlay.isDisabled__$devirt","org.gwtproject.dom.client.StyleElement$$Overlay.<clinit>"]
 }
+

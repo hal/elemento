@@ -21,7 +21,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface WritableStreamDefaultWriter {
+public interface WritableStreamDefaultWriter<VALUE> {
   Promise<Void> abort(Object reason);
 
   Promise<Void> close();
@@ -46,5 +46,6 @@ public interface WritableStreamDefaultWriter {
   @JsProperty
   void setReady(Promise<Double> ready);
 
-  Promise<Void> write(Object chunk);
+  Promise<Void> write(VALUE chunk);
 }
+

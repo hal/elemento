@@ -62,3 +62,4 @@ public class SQLTransaction {
 
   public native void executeSql(String sqlStatement);
 }
+

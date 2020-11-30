@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class RadioNodeList<T> extends NodeList<T> {
   public String value;
 }
+

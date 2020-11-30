@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"ImmutableMultimap.impl.java.js",
+"lineCount":110,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;MA2Ba,iB;;CAAA,W;EAAAA,Q;;;;QAEH,S;EAAAC,wC;EAAAA,gF;EAAAA,iB;;;;CAAA,mE;EACNC,wI;;;;QAGM,sB,wBAAkCC,M;EAAlCF,wC;EAAAA,mG;EAAAA,iB;;;;CAAA,gF,wBAAkCE,M;EACxCD,qF;;;QAG2C,M;EAAAE,4B;EAC3CA,uE;;;QAG2C,2D,uBAA0CC,Q;EAA1CC,4B;EAC3CA,8P;;;CAIU,yC,UAAMC,G,WAAOC,K;EACvBC,kE;;;CAGmB,U;EACnBC,kL;;;CAGa,uB,UAAMH,G;EACnBI,uM;;;CAGU,4C,UAASJ,G,WAAOC,K;EAC1BI,kE;;;CAGmB,Q;EACnBC,mL;;;CAGY,U;EACZC,mL;;;CAGU,S;EACVC,kE;;;CAGU,6B,UAAYR,G;EACtBS,kE;;;CAGiC,W;EACjCC,IAAUC,GAAVD,qD;EACAA,kFAAqBV,GAArBU;GACEE,iHAAgCC,CAAhCD;IAAqCA,gBAArCA;OADFF;M;EAGAA,0B;;;QAxDS,O;EAAAI,oC;EAAAA,iC;EAAAA;",
+"sources":["ImmutableMultimap.java"],
+"names":["io.crysknife.client.internal.collections.ImmutableMultimap.<synthetic: ctor_js>","io.crysknife.client.internal.collections.ImmutableMultimap.<synthetic: ctor_create>","io.crysknife.client.internal.collections.ImmutableMultimap.<init>","holder","io.crysknife.client.internal.collections.ImmutableMultimap.of","multimap","io.crysknife.client.internal.collections.ImmutableMultimap.copyOf","key","value","io.crysknife.client.internal.collections.ImmutableMultimap.put","io.crysknife.client.internal.collections.ImmutableMultimap.values","io.crysknife.client.internal.collections.ImmutableMultimap.get","io.crysknife.client.internal.collections.ImmutableMultimap.remove","io.crysknife.client.internal.collections.ImmutableMultimap.keys","io.crysknife.client.internal.collections.ImmutableMultimap.keySet","io.crysknife.client.internal.collections.ImmutableMultimap.clear","io.crysknife.client.internal.collections.ImmutableMultimap.removeAll","io.crysknife.client.internal.collections.ImmutableMultimap.entries","map","io.crysknife.client.internal.collections.ImmutableMultimap.<lambda in entries>","v","io.crysknife.client.internal.collections.ImmutableMultimap.<clinit>"]
+}
+

@@ -92,3 +92,4 @@ public class SourceBuffer implements EventTarget {
 
   public native void removeEventListener(String type, EventListener listener);
 }
+

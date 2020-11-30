@@ -2,7 +2,8 @@
 "version":3,
 "file":"AnchorBuilder.impl.java.js",
 "lineCount":32,
-"mappings":"A;;;;;;;;;;;MAuBiB,a;;CASD,6B,gBAAiBA,S;;CASjB,8C,gBAAaC,I;;CASb,wB,gBAAuBA,I;;CASvB,4B,gBAAgBC,Q;;CAShB,wB,gBAAYC,I;;CASZ,uB,gBAAWC,G;;CASX,0B,gBAAcC,M;;CASd,wB,gBAAYC,I;;QAxEX,O;EAAAC,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAqBiB,a;;CASD,6B,gBAAiBA,S;;CAQjB,8C,gBAAaC,I;;CAQb,wB,gBAAuBA,I;;CASvB,4B,gBAAgBC,Q;;CAQhB,wB,gBAAYC,I;;CAQZ,uB,gBAAWC,G;;CASX,0B,gBAAcC,M;;CAQd,wB,gBAAYC,I;;QAnEX,O;EAAAC,gC;EAAAA;",
 "sources":["AnchorBuilder.java"],
 "names":["accessKey","href","hreflang","name","rel","target","type","org.gwtproject.dom.builder.shared.AnchorBuilder.<clinit>"]
 }
+

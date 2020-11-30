@@ -6,3 +6,4 @@
 "sources":["Event.java"],
 "names":["org.gwtproject.event.shared.Event.<synthetic: ctor_js>","org.gwtproject.event.shared.Event.<init>","org.gwtproject.event.shared.Event.getSource","org.gwtproject.event.shared.Event.toDebugString","name","org.gwtproject.event.shared.Event.toString","handler","source","org.gwtproject.event.shared.Event.setSource","org.gwtproject.event.shared.Event.<clinit>"]
 }
+

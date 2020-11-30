@@ -35,3 +35,4 @@ public interface ReadableStreamIteratorOptions {
   @JsProperty
   void setPreventCancel(boolean preventCancel);
 }
+

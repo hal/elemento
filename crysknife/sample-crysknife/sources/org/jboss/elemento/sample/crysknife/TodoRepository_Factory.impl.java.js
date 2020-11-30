@@ -1,12 +1,12 @@
 goog.module('org.jboss.elemento.sample.crysknife.TodoRepository_Factory$impl');
 
+const Factory = goog.require('io.crysknife.client.internal.Factory$impl');
 const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
-const Factory = goog.require('org.treblereel.gwt.crysknife.client.internal.Factory$impl');
 
+let Interceptor = goog.forwardDeclare('io.crysknife.client.Interceptor$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let TodoRepository = goog.forwardDeclare('org.jboss.elemento.sample.crysknife.TodoRepository$impl');
-let Interceptor = goog.forwardDeclare('org.treblereel.gwt.crysknife.client.Interceptor$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
@@ -57,9 +57,9 @@ class TodoRepository__Factory extends j_l_Object {
  }
  
  static $loadModules() {
+  Interceptor = goog.module.get('io.crysknife.client.Interceptor$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   TodoRepository = goog.module.get('org.jboss.elemento.sample.crysknife.TodoRepository$impl');
-  Interceptor = goog.module.get('org.treblereel.gwt.crysknife.client.Interceptor$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
  

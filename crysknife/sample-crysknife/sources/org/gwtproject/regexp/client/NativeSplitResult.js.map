@@ -6,3 +6,4 @@
 "sources":["NativeSplitResult.java"],
 "names":["org.gwtproject.regexp.client.NativeSplitResult.<synthetic: ctor_js>","result","org.gwtproject.regexp.client.NativeSplitResult.<synthetic: ctor_create>","org.gwtproject.regexp.client.NativeSplitResult.<init>","index","org.gwtproject.regexp.client.NativeSplitResult.get","org.gwtproject.regexp.client.NativeSplitResult.length","value","org.gwtproject.regexp.client.NativeSplitResult.set","org.gwtproject.regexp.client.NativeSplitResult.<clinit>"]
 }
+

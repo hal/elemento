@@ -68,3 +68,4 @@ public class ImageData {
 
   public ImageData(double dataOrWidth, double widthOrHeight) {}
 }
+

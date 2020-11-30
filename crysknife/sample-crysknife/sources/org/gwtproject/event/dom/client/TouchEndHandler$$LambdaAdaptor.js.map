@@ -6,3 +6,4 @@
 "sources":["TouchEndHandler.java"],
 "names":["org.gwtproject.event.dom.client.TouchEndHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.TouchEndHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.TouchEndHandler$$LambdaAdaptor.onTouchEnd","org.gwtproject.event.dom.client.TouchEndHandler$$LambdaAdaptor.<clinit>"]
 }
+

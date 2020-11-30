@@ -47,3 +47,4 @@ public interface PipeOptions {
   @JsProperty
   void setPreventClose(boolean preventClose);
 }
+

@@ -632,3 +632,4 @@ public class MessageEvent<T> extends Event {
 
   public native void initMessageEventNS(String namespaceURI);
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"SelectBuilder.impl.java.js",
 "lineCount":28,
-"mappings":"A;;;;;;;;;MAoBiB,a;;CASD,Y;;CASA,Y;;CASA,wB,gBAAYA,I;;CAOZ,oB,eAAkBC,K;;CASlB,W,eAASC,I;;CAMT,wB,gBAAYC,I;;CAOZ,yB,gBAAaC,K;;QAxDZ,O;EAAAC,gC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,a;;CASD,Y;;CASA,Y;;CASA,wB,gBAAYA,I;;CAOZ,oB,eAAkBC,K;;CASlB,W,eAASC,I;;CAMT,wB,gBAAYC,I;;CAMZ,yB,gBAAaC,K;;QAvDZ,O;EAAAC,gC;EAAAA;",
 "sources":["SelectBuilder.java"],
 "names":["name","index","size","type","value","org.gwtproject.dom.builder.shared.SelectBuilder.<clinit>"]
 }
+

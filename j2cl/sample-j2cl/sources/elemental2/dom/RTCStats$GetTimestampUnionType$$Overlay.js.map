@@ -6,3 +6,4 @@
 "sources":["RTCStats.java"],
 "names":["o","elemental2.dom.RTCStats$GetTimestampUnionType$$Overlay.of","elemental2.dom.RTCStats$GetTimestampUnionType$$Overlay.asDouble__$devirt","elemental2.dom.RTCStats$GetTimestampUnionType$$Overlay.asJsDate__$devirt","elemental2.dom.RTCStats$GetTimestampUnionType$$Overlay.isDouble__$devirt","elemental2.dom.RTCStats$GetTimestampUnionType$$Overlay.isJsDate__$devirt","elemental2.dom.RTCStats$GetTimestampUnionType$$Overlay.<clinit>"]
 }
+

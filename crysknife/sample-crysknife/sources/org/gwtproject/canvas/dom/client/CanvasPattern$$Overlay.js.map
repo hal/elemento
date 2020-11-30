@@ -2,7 +2,8 @@
 "version":3,
 "file":"CanvasPattern$$Overlay.impl.java.js",
 "lineCount":9,
-"mappings":"A;;;;MAiCa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;MA6Ba,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["CanvasPattern.java"],
 "names":["org.gwtproject.canvas.dom.client.CanvasPattern$$Overlay.<clinit>"]
 }
+

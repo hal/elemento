@@ -6,3 +6,4 @@
 "sources":["DomEvent.java"],
 "names":["org.gwtproject.event.dom.client.DomEvent$Type.<synthetic: ctor_js>","eventName","flyweight","org.gwtproject.event.dom.client.DomEvent$Type.<synthetic: ctor_create>","org.gwtproject.event.dom.client.DomEvent$Type.<init>","types","org.gwtproject.event.dom.client.DomEvent$Type.getName","org.gwtproject.event.dom.client.DomEvent$Type.<clinit>"]
 }
+

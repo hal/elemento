@@ -1,47 +1,42 @@
 /*
- * Copyright 2011 Google Inc.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ * Copyright © 2019 The GWT Project Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.gwtproject.dom.builder.shared;
 
-import org.gwtproject.safehtml.shared.SafeHtml;
 import org.gwtproject.dom.client.TitleElement;
+import org.gwtproject.safehtml.shared.SafeHtml;
 
 /**
- * Implementation of {@link ElementBuilderBase} that delegates to an
- * {@link HtmlBuilderImpl}.
- * 
- * <p>
- * Subclasses of {@link HtmlElementBuilderBase} act as typed wrappers around a
- * shared {@link ElementBuilderBase} implementation that handles the actual
- * building. The wrappers merely delegate to the shared implementation, so
- * wrapper instances can be reused, avoiding object creation. This approach is
- * necessary so that the return value of common methods, such as
- * {@link #id(String)}, return a typed builder instead of the generic
- * {@link ElementBuilderBase}.
- * </p>
- * 
+ * Implementation of {@link ElementBuilderBase} that delegates to an {@link HtmlBuilderImpl}.
+ *
+ * <p>Subclasses of {@link HtmlElementBuilderBase} act as typed wrappers around a shared {@link
+ * ElementBuilderBase} implementation that handles the actual building. The wrappers merely delegate
+ * to the shared implementation, so wrapper instances can be reused, avoiding object creation. This
+ * approach is necessary so that the return value of common methods, such as {@link #id(String)},
+ * return a typed builder instead of the generic {@link ElementBuilderBase}.
+ *
  * @param <R> the builder type returned from build methods
  */
-public class HtmlElementBuilderBase<R extends ElementBuilderBase<?>> extends
-    AbstractElementBuilderBase<R> {
+public class HtmlElementBuilderBase<R extends ElementBuilderBase<?>>
+    extends AbstractElementBuilderBase<R> {
 
   private final HtmlBuilderImpl delegate;
 
   /**
    * Construct a new {@link HtmlElementBuilderBase}.
-   * 
+   *
    * @param delegate the delegate that builds the element
    */
   HtmlElementBuilderBase(HtmlBuilderImpl delegate) {
@@ -50,7 +45,7 @@ public class HtmlElementBuilderBase<R extends ElementBuilderBase<?>> extends
 
   /**
    * Construct a new {@link HtmlElementBuilderBase}.
-   * 
+   *
    * @param delegate the delegate that builds the element
    * @param isEndTagForbidden true if the end tag is forbidden for this element
    */
@@ -59,9 +54,7 @@ public class HtmlElementBuilderBase<R extends ElementBuilderBase<?>> extends
     this.delegate = delegate;
   }
 
-  /**
-   * Return the HTML as a {@link SafeHtml} string.
-   */
+  /** Return the HTML as a {@link SafeHtml} string. */
   public SafeHtml asSafeHtml() {
     return delegate.asSafeHtml();
   }
@@ -95,7 +88,7 @@ public class HtmlElementBuilderBase<R extends ElementBuilderBase<?>> extends
 
   /**
    * End the current element.
-   * 
+   *
    * @see #end()
    */
   public void endTitle() {
@@ -439,7 +432,7 @@ public class HtmlElementBuilderBase<R extends ElementBuilderBase<?>> extends
 
   /**
    * Append a title element.
-   * 
+   *
    * @return the builder for the new element
    */
   public TitleBuilder startTitle() {
@@ -476,19 +469,16 @@ public class HtmlElementBuilderBase<R extends ElementBuilderBase<?>> extends
     return delegate.trustedStart(tagName);
   }
 
-  /**
-   * Add an attribute with a trusted name.
-   */
+  /** Add an attribute with a trusted name. */
   R trustedAttribute(String name, int value) {
     delegate.trustedAttribute(name, value);
     return getReturnBuilder();
   }
 
-  /**
-   * Add an attribute with a trusted name. The name is still escaped.
-   */
+  /** Add an attribute with a trusted name. The name is still escaped. */
   R trustedAttribute(String name, String value) {
     delegate.trustedAttribute(name, value);
     return getReturnBuilder();
   }
 }
+

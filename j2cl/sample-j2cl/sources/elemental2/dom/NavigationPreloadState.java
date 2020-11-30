@@ -41,3 +41,4 @@ public interface NavigationPreloadState {
   @JsProperty
   void setHeaderValue(String headerValue);
 }
+

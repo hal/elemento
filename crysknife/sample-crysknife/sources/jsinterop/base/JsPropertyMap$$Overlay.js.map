@@ -6,3 +6,4 @@
 "sources":["JsPropertyMap.java"],
 "names":["jsinterop.base.JsPropertyMap$$Overlay.of","k","v","map","k1","v1","k2","v2","k3","v3","propertyName","jsinterop.base.JsPropertyMap$$Overlay.get__$devirt","qualifiedName","jsinterop.base.JsPropertyMap$$Overlay.nestedGet__$devirt","jsinterop.base.JsPropertyMap$$Overlay.getAny__$devirt","jsinterop.base.JsPropertyMap$$Overlay.getAsAny__$devirt","jsinterop.base.JsPropertyMap$$Overlay.nestedGetAsAny__$devirt","jsinterop.base.JsPropertyMap$$Overlay.has__$devirt","jsinterop.base.JsPropertyMap$$Overlay.delete__$devirt","value","jsinterop.base.JsPropertyMap$$Overlay.set__$devirt","cb","jsinterop.base.JsPropertyMap$$Overlay.forEach__$devirt","jsinterop.base.JsPropertyMap$$Overlay.<clinit>"]
 }
+

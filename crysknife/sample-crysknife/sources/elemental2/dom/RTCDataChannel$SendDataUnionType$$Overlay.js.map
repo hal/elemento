@@ -2,7 +2,8 @@
 "version":3,
 "file":"RTCDataChannel$SendDataUnionType$$Overlay.impl.java.js",
 "lineCount":61,
-"mappings":"A;;;;;;;;;;;MAiDmB,0B;;QAEyB,sB,UAAUA,C;EAAVC,qC;EACtCA,uD;;;QAIkB,yE;EAAAC,qC;EAClBA,8F;;;QAIsB,6E;EAAAC,qC;EACtBA,kH;;;QAIW,kE;EAAAC,qC;EACXA,4F;;;QAIa,oE;EAAAC,qC;EACbA,iD;;;QAIc,yE;EAAAC,qC;EACdA,uD;;;QAIc,6E;EAAAC,qC;EACdA,uE;;;QAIc,kE;EAAAC,qC;EACdA,4D;;;QAIc,oE;EAAAC,qC;EACdA,yD;;;QA3Ca,O;EAAAC,6C;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAsDmB,0B;;QAEyB,sB,UAAUA,C;EAAVC,qC;EACtCA,uD;;;QAIkB,yE;EAAAC,qC;EAClBA,8F;;;QAIsB,6E;EAAAC,qC;EACtBA,kH;;;QAIW,kE;EAAAC,qC;EACXA,4F;;;QAIa,oE;EAAAC,qC;EACbA,iD;;;QAIc,yE;EAAAC,qC;EACdA,uD;;;QAIc,6E;EAAAC,qC;EACdA,uE;;;QAIc,kE;EAAAC,qC;EACdA,4D;;;QAIc,oE;EAAAC,qC;EACdA,yD;;;QA3Ca,O;EAAAC,6C;EAAAA;",
 "sources":["RTCDataChannel.java"],
 "names":["o","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.of","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.asArrayBuffer__$devirt","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.asArrayBufferView__$devirt","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.asBlob__$devirt","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.asString__$devirt","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.isArrayBuffer__$devirt","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.isArrayBufferView__$devirt","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.isBlob__$devirt","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.isString__$devirt","elemental2.dom.RTCDataChannel$SendDataUnionType$$Overlay.<clinit>"]
 }
+

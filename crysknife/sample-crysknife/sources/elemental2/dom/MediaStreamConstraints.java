@@ -107,3 +107,4 @@ public interface MediaStreamConstraints {
     setVideo(Js.<MediaStreamConstraints.GetVideoUnionType>uncheckedCast(video));
   }
 }
+

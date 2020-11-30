@@ -12,10 +12,10 @@ let $LambdaAdaptor = goog.forwardDeclare('org.gwtproject.safecss.shared.SafeStyl
 class SafeStyles {
  /** @abstract @return {?string} */
  m_asString__() {}
- /** @abstract @return {boolean} */
- equals(/** * */ anObject) {}
  /** @abstract @return {number} */
  hashCode() {}
+ /** @abstract @return {boolean} */
+ equals(/** * */ anObject) {}
  /** @return {SafeStyles} */
  static $adapt(/** ?function():?string */ fn) {
   SafeStyles.$clinit();

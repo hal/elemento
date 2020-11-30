@@ -46,7 +46,7 @@ class Combinator extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Combinator */ arg0) {
   return super.compareTo(/**@type {Combinator}*/ ($Casts.$to(arg0, Combinator)));
  }
  /** @return {!Combinator} */

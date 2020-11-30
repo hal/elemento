@@ -6,3 +6,4 @@
 "sources":["ElementsBag.java"],
 "names":["org.jboss.elemento.ElementsBag$IterableImpl.<synthetic: ctor_js>","org.jboss.elemento.ElementsBag$IterableImpl.<synthetic: ctor_create>","org.jboss.elemento.ElementsBag$IterableImpl.<init>","org.jboss.elemento.ElementsBag$IterableImpl.iterator","org.jboss.elemento.ElementsBag$IterableImpl.forEach","org.jboss.elemento.ElementsBag$IterableImpl.spliterator","org.jboss.elemento.ElementsBag$IterableImpl.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["KeyPressHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.KeyPressHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.KeyPressHandler.<clinit>"]
 }
+

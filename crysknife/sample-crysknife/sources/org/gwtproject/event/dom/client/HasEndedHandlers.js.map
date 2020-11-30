@@ -6,3 +6,4 @@
 "sources":["HasEndedHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasEndedHandlers.<clinit>"]
 }
+

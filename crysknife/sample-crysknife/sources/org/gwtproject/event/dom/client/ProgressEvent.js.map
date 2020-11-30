@@ -6,3 +6,4 @@
 "sources":["ProgressEvent.java"],
 "names":["org.gwtproject.event.dom.client.ProgressEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.ProgressEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.ProgressEvent.<init>","org.gwtproject.event.dom.client.ProgressEvent.getType","org.gwtproject.event.dom.client.ProgressEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.ProgressEvent.dispatch","org.gwtproject.event.dom.client.ProgressEvent.<clinit>"]
 }
+

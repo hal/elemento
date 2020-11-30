@@ -22,7 +22,7 @@ class JsImpl extends j_l_Object {
  }
  /** @return {?string} */
  m_encode__java_lang_String_$pp_org_gwtproject_safehtml_shared(/** ?string */ uri) {
-  uri = window.encodeURI(uri);
+  uri = goog.global.encodeURI(uri);
   if (j_l_String.m_indexOf__java_lang_String__java_lang_String(uri, "%5B") != -1) {
    uri = j_l_String.m_replaceAll__java_lang_String__java_lang_String__java_lang_String(uri, "%5B", "[");
   }

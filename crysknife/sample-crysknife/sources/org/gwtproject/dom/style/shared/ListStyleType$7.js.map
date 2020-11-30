@@ -2,7 +2,8 @@
 "version":3,
 "file":"ListStyleType$7.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAyDc,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,yG;EAAAA,iB;;;CAAA,6E;EAAAC,kG;;;CAEI,c;EACZC,qB;;;;CAHQ,6B;EAAAC,qF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAuDc,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,yG;EAAAA,iB;;;CAAA,6E;EAAAC,kG;;;CAEI,c;EACZC,qB;;;;CAHQ,6B;EAAAC,qF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["ListStyleType.java"],
 "names":["org.gwtproject.dom.style.shared.ListStyleType$7.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.ListStyleType$7.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.ListStyleType$7.<init>","org.gwtproject.dom.style.shared.ListStyleType$7.getCssName","org.gwtproject.dom.style.shared.ListStyleType$7.compareTo","org.gwtproject.dom.style.shared.ListStyleType$7.<clinit>"]
 }
+

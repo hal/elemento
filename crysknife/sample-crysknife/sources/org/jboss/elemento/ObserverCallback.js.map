@@ -6,3 +6,4 @@
 "sources":["ObserverCallback.java"],
 "names":["mutationRecord","org.jboss.elemento.ObserverCallback.<synthetic: adapt_lambda>","org.jboss.elemento.ObserverCallback.<clinit>"]
 }
+

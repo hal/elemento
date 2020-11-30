@@ -6,3 +6,4 @@
 "sources":["GestureChangeHandler.java"],
 "names":["org.gwtproject.event.dom.client.GestureChangeHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.GestureChangeHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.GestureChangeHandler$$LambdaAdaptor.onGestureChange","org.gwtproject.event.dom.client.GestureChangeHandler$$LambdaAdaptor.<clinit>"]
 }
+

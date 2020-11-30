@@ -17,6 +17,7 @@ package elemental2.dom;
 
 import elemental2.core.JsArray;
 import elemental2.core.JsDate;
+import elemental2.core.JsIterable;
 import elemental2.core.JsIteratorIterable;
 import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsOverlay;
@@ -26,7 +27,8 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface RTCStatsReport {
+public interface RTCStatsReport
+    extends JsIterable<JsArray<RTCStatsReport.JsIterableTypeParameterArrayUnionType>> {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface EntriesJsIteratorIterableTypeParameterArrayUnionType {
     @JsOverlay
@@ -83,6 +85,29 @@ public interface RTCStatsReport {
     }
   }
 
+  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
+  public interface JsIterableTypeParameterArrayUnionType {
+    @JsOverlay
+    static RTCStatsReport.JsIterableTypeParameterArrayUnionType of(Object o) {
+      return Js.cast(o);
+    }
+
+    @JsOverlay
+    default RTCStats asRTCStats() {
+      return Js.cast(this);
+    }
+
+    @JsOverlay
+    default String asString() {
+      return Js.asString(this);
+    }
+
+    @JsOverlay
+    default boolean isString() {
+      return (Object) this instanceof String;
+    }
+  }
+
   JsIteratorIterable<JsArray<RTCStatsReport.EntriesJsIteratorIterableTypeParameterArrayUnionType>>
       entries(String key);
 
@@ -122,3 +147,4 @@ public interface RTCStatsReport {
 
   JsIteratorIterable<RTCStats> values();
 }
+

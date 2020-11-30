@@ -113,3 +113,4 @@ public class HTMLDialogElement extends HTMLElement {
 
   public native void showModal(HTMLDialogElement.ShowModalAnchorUnionType anchor);
 }
+

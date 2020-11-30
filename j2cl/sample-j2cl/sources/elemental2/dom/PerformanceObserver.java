@@ -15,11 +15,14 @@
  */
 package elemental2.dom;
 
+import elemental2.core.JsArray;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class PerformanceObserver {
+  public JsArray<String> supportedEntryTypes;
+
   public PerformanceObserver(PerformanceObserverCallback callback) {}
 
   public native void disconnect();
@@ -28,3 +31,4 @@ public class PerformanceObserver {
 
   public native PerformanceObserverEntryList takeRecords();
 }
+

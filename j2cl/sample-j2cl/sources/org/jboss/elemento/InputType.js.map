@@ -6,3 +6,4 @@
 "sources":["InputType.java"],
 "names":["org.jboss.elemento.InputType.<synthetic: ctor_js>","org.jboss.elemento.InputType.<synthetic: ctor_create>","org.jboss.elemento.InputType.<init>","org.jboss.elemento.InputType.valueOf","org.jboss.elemento.InputType.values","org.jboss.elemento.InputType.compareTo","org.jboss.elemento.InputType.<synthetic: getter>","org.jboss.elemento.InputType.<clinit>"]
 }
+

@@ -58,3 +58,4 @@ public class HTMLImageElement extends HTMLElement {
 
   public native Promise<Void> decode();
 }
+

@@ -6,3 +6,4 @@
 "sources":["HandlerRegistrations.java"],
 "names":["org.gwtproject.event.shared.HandlerRegistrations$HandlerRegistrationCollection.<synthetic: ctor_js>","handlers","org.gwtproject.event.shared.HandlerRegistrations$HandlerRegistrationCollection.<synthetic: ctor_create>","org.gwtproject.event.shared.HandlerRegistrations$HandlerRegistrationCollection.<init>","org.gwtproject.event.shared.HandlerRegistrations$HandlerRegistrationCollection.removeHandler","hr","org.gwtproject.event.shared.HandlerRegistrations$HandlerRegistrationCollection.<clinit>"]
 }
+

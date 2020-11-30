@@ -30,3 +30,4 @@ public class DeviceMotionEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

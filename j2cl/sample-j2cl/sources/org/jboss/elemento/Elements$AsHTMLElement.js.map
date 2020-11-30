@@ -2,7 +2,8 @@
 "version":3,
 "file":"Elements$AsHTMLElement.impl.java.js",
 "lineCount":56,
-"mappings":"A;;;;;;;;;;;;;;;MAw8CyB,a;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,wB;EAAAA,oC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EAAAC,iC;;;CAGE,4B,UAAQC,C;EACvBC,0E;;;;CAJa,sC;EAAAC,kK;;;;CAAA,sC;EAAAC,4K;;;;CAAA,yB;EAAAF,sF;;;QAAA,O;EAAAG,gC;EAAAA,6B;EAAAA,qB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MAq5CyB,a;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,wB;EAAAA,oC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EAAAC,iC;;;CAGE,4B,UAAQC,C;EACvBC,0E;;;;CAJa,sC;EAAAC,kK;;;;CAAA,sC;EAAAC,4K;;;;CAAA,yB;EAAAF,sF;;;QAAA,O;EAAAG,gC;EAAAA,6B;EAAAA,qB;EAAAA;",
 "sources":["Elements.java"],
 "names":["org.jboss.elemento.Elements$AsHTMLElement.<synthetic: ctor_js>","org.jboss.elemento.Elements$AsHTMLElement.<synthetic: ctor_create>","org.jboss.elemento.Elements$AsHTMLElement.<init>","t","org.jboss.elemento.Elements$AsHTMLElement.apply","org.jboss.elemento.Elements$AsHTMLElement.andThen","org.jboss.elemento.Elements$AsHTMLElement.compose","org.jboss.elemento.Elements$AsHTMLElement.<clinit>"]
 }
+

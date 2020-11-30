@@ -2,7 +2,8 @@
 "version":3,
 "file":"SafeStylesString.impl.java.js",
 "lineCount":67,
-"mappings":"A;;;;;;;;;;;;;MA0BM,gB;;CAAA,W;EAAAA,Q;EAAAA;OAEW,sDAFXA,C;;;;QAWJ,yB,gBAAwBC,G;EAAxBC,2B;EAAAA,uC;EAAAA,uF;EAAAA,iB;;;;CAAA,uE,gBAAwBD,G;EAAxBE,iC;EACEA,qE;EACAA,kE;;;;QAKM,S;EAAAD,uC;EAAAA,oE;EAAAA,iB;;;;CAAA,uD;EAAAC,iC;;;CAGM,Y;EACZC,mE;;;CAKa,M,UAAcC,G;EAC3BC;GACEA,aADFA;G;EAGAA,kM;;;CAKS,Q;EACTC,4G;;;QArCE,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;MA0BM,gB;;CAAA,W;EAAAA,Q;EAAAA;OAEW,sDAFXA,C;;;;QAWJ,yB,gBAAwBC,G;EAAxBC,2B;EAAAA,uC;EAAAA,uF;EAAAA,iB;;;;CAAA,uE,gBAAwBD,G;EAAxBE,iC;EACEA,qE;EACAA,kE;;;;QAKM,S;EAAAD,uC;EAAAA,oE;EAAAA,iB;;;;CAAA,uD;EAAAC,iC;;;CAGM,Y;EACZC,mE;;;CAKS,Q;EACTC,4G;;;CAKa,M,UAAcC,G;EAC3BC;GACEA,aADFA;G;EAGAA,kM;;;QArCE,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["SafeStylesString.java"],
-"names":["org.gwtproject.safecss.shared.SafeStylesString.<synthetic: ctor_js>","css","org.gwtproject.safecss.shared.SafeStylesString.<synthetic: ctor_create>","org.gwtproject.safecss.shared.SafeStylesString.<init>","org.gwtproject.safecss.shared.SafeStylesString.asString","obj","org.gwtproject.safecss.shared.SafeStylesString.equals","org.gwtproject.safecss.shared.SafeStylesString.hashCode","org.gwtproject.safecss.shared.SafeStylesString.<clinit>"]
+"names":["org.gwtproject.safecss.shared.SafeStylesString.<synthetic: ctor_js>","css","org.gwtproject.safecss.shared.SafeStylesString.<synthetic: ctor_create>","org.gwtproject.safecss.shared.SafeStylesString.<init>","org.gwtproject.safecss.shared.SafeStylesString.asString","org.gwtproject.safecss.shared.SafeStylesString.hashCode","obj","org.gwtproject.safecss.shared.SafeStylesString.equals","org.gwtproject.safecss.shared.SafeStylesString.<clinit>"]
 }
+

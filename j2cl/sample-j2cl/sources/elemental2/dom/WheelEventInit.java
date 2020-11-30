@@ -53,3 +53,4 @@ public interface WheelEventInit extends MouseEventInit {
   @JsProperty
   void setDeltaZ(double deltaZ);
 }
+

@@ -24,6 +24,7 @@ import jsinterop.base.JsArrayLike;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class DOMTokenList implements JsArrayLike<String> {
   public int length;
+  public String value;
 
   public native void add(String... var_args);
 
@@ -46,3 +47,4 @@ public class DOMTokenList implements JsArrayLike<String> {
 
   public native JsIteratorIterable<String> values();
 }
+

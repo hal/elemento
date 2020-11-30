@@ -118,3 +118,4 @@ public interface ExtendableMessageEventInit<T> extends ExtendableEventInit {
     setSource(Js.<ExtendableMessageEventInit.GetSourceUnionType>uncheckedCast(source));
   }
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"Float.impl.java.js",
 "lineCount":99,
-"mappings":"A;;;;;;;;;;;;;;;;;;MAoBY,K;;CAAA,W;EAAAA,Q;;;CAAA,mE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAqBa,c;;QArBb,2B;EAAAC,gB;EAAAA;GAAAA,kHAAAA;G;EAAAA,6G;;;QAAA,U;EAAAC,gB;EAAAA,8N;;;QACV,iD;EAAAC,+E;;;QAMA,kD;EAAAA,gF;;;QAMA,iD;EAAAA,+E;;;QAbU,O;EAAAC,wB;EAAAA,qB;EAAAA,e;EACVA,oL;EAMAA,uL;EAMAA,oL;EAbUA,wE;;;;;;;;;;;;;;;;;;;;;AAAA;qD;AAAA;sD;AAAA;qD;AAAA;iE;AACV;iE;AAMA;kE;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;MAkBY,K;;CAAA,W;EAAAA,Q;;;CAAA,mE;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAqBa,c;;QArBb,2B;EAAAC,gB;EAAAA;GAAAA,kHAAAA;G;EAAAA,6G;;;QAAA,U;EAAAC,gB;EAAAA,8N;;;QACV,iD;EAAAC,+E;;;QAMA,kD;EAAAA,gF;;;QAMA,iD;EAAAA,+E;;;QAbU,O;EAAAC,wB;EAAAA,qB;EAAAA,e;EACVA,oL;EAMAA,uL;EAMAA,oL;EAbUA,wE;;;;;;;;;;;;;;;;;;;;;AAAA;qD;AAAA;sD;AAAA;qD;AAAA;iE;AACV;iE;AAMA;kE;AAMA;;",
 "sources":["Float.java"],
 "names":["org.gwtproject.dom.style.shared.Float.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Float.<init>","org.gwtproject.dom.style.shared.Float.valueOf","org.gwtproject.dom.style.shared.Float.values","org.gwtproject.dom.style.shared.Float.<synthetic: getter>","org.gwtproject.dom.style.shared.Float.<clinit>"]
 }
+

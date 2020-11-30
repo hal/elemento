@@ -26,3 +26,4 @@ class XMLHttpRequest__Constants {
   static int OPENED;
   static int UNSENT;
 }
+

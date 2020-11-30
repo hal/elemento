@@ -23,3 +23,4 @@ public class HTMLIsIndexElement extends HTMLElement {
   public HTMLFormElement form;
   public String prompt;
 }
+

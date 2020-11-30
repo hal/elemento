@@ -102,3 +102,4 @@ public abstract class EventBus implements HasHandlers {
    */
   public abstract void fireEventFromSource(Event<?> event, Object source);
 }
+

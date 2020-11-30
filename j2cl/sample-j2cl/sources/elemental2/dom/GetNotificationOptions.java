@@ -35,3 +35,4 @@ public interface GetNotificationOptions {
   @JsProperty
   void setTag(String tag);
 }
+

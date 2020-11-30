@@ -24,7 +24,7 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public class TransformStream implements ITransformStream {
+public class TransformStream<IN_VALUE, OUT_VALUE> implements ITransformStream<IN_VALUE, OUT_VALUE> {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface ConstructorReadableStrategyUnionType {
     @JsOverlay
@@ -118,116 +118,119 @@ public class TransformStream implements ITransformStream {
     void setSize(TransformStream.TransformStreamWritableStrategyType.SizeFn size);
   }
 
-  public ReadableStream readable;
-  public WritableStream writable;
+  public ReadableStream<OUT_VALUE> readable;
+  public WritableStream<IN_VALUE> writable;
 
   public TransformStream() {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       ByteLengthQueuingStrategy writableStrategy,
       ByteLengthQueuingStrategy readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       ByteLengthQueuingStrategy writableStrategy,
       TransformStream.ConstructorReadableStrategyUnionType readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       ByteLengthQueuingStrategy writableStrategy,
       CountQueuingStrategy readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       ByteLengthQueuingStrategy writableStrategy,
       TransformStream.TransformStreamWritableStrategyType readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer, ByteLengthQueuingStrategy writableStrategy) {}
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
+      ByteLengthQueuingStrategy writableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.ConstructorWritableStrategyUnionType writableStrategy,
       ByteLengthQueuingStrategy readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.ConstructorWritableStrategyUnionType writableStrategy,
       TransformStream.ConstructorReadableStrategyUnionType readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.ConstructorWritableStrategyUnionType writableStrategy,
       CountQueuingStrategy readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.ConstructorWritableStrategyUnionType writableStrategy,
       TransformStream.TransformStreamWritableStrategyType readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.ConstructorWritableStrategyUnionType writableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       CountQueuingStrategy writableStrategy,
       ByteLengthQueuingStrategy readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       CountQueuingStrategy writableStrategy,
       TransformStream.ConstructorReadableStrategyUnionType readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       CountQueuingStrategy writableStrategy,
       CountQueuingStrategy readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       CountQueuingStrategy writableStrategy,
       TransformStream.TransformStreamWritableStrategyType readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer, CountQueuingStrategy writableStrategy) {}
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
+      CountQueuingStrategy writableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.TransformStreamWritableStrategyType writableStrategy,
       ByteLengthQueuingStrategy readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.TransformStreamWritableStrategyType writableStrategy,
       TransformStream.ConstructorReadableStrategyUnionType readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.TransformStreamWritableStrategyType writableStrategy,
       CountQueuingStrategy readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.TransformStreamWritableStrategyType writableStrategy,
       TransformStream.TransformStreamWritableStrategyType readableStrategy) {}
 
   public TransformStream(
-      TransformStreamTransformer transformer,
+      TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer,
       TransformStream.TransformStreamWritableStrategyType writableStrategy) {}
 
-  public TransformStream(TransformStreamTransformer transformer) {}
+  public TransformStream(TransformStreamTransformer<IN_VALUE, OUT_VALUE> transformer) {}
 
   @JsProperty
-  public native ReadableStream getReadable();
+  public native ReadableStream<OUT_VALUE> getReadable();
 
   @JsProperty
-  public native WritableStream getWritable();
+  public native WritableStream<IN_VALUE> getWritable();
 
   @JsProperty
-  public native void setReadable(ReadableStream readable);
+  public native void setReadable(ReadableStream<OUT_VALUE> readable);
 
   @JsProperty
-  public native void setWritable(WritableStream writable);
+  public native void setWritable(WritableStream<IN_VALUE> writable);
 }
+

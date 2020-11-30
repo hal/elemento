@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextAreaBuilder.impl.java.js",
 "lineCount":51,
-"mappings":"A;;;;;;;;;MAoBiB,e;;CAYC,6B,gBAAiBA,S;;CASjB,W,eAASC,I;;CAOT,gC,gBAAoBC,Y;;CASpB,Y;;CASA,wB,gBAAYC,I;;CASZ,Y;;CASA,W,eAASC,I;;CAST,yB,gBAAaC,K;;QAzEd,O;EAAAC,kC;EAAAA,+B;;;;;;;;;;;;;;;;;;;;AAEf;gBAAO,qEAAP;",
+"mappings":"A;;;;;;;;;MAkBiB,e;;CAYC,6B,gBAAiBA,S;;CASjB,W,eAASC,I;;CAMT,gC,gBAAoBC,Y;;CASpB,Y;;CASA,wB,gBAAYC,I;;CASZ,Y;;CASA,W,eAASC,I;;CAQT,yB,gBAAaC,K;;QAvEd,O;EAAAC,kC;EAAAA,+B;;;;;;;;;;;;;;;;;;;;AAEf;gBAAO,qEAAP;",
 "sources":["TextAreaBuilder.java"],
 "names":["accessKey","cols","defaultValue","name","rows","value","org.gwtproject.dom.builder.shared.TextAreaBuilder.<clinit>"]
 }
+

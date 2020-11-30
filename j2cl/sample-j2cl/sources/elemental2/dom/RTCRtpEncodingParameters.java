@@ -127,3 +127,4 @@ public interface RTCRtpEncodingParameters {
   @JsProperty
   void setScaleResolutionDownBy(double scaleResolutionDownBy);
 }
+

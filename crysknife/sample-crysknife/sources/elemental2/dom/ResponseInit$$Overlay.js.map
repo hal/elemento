@@ -6,3 +6,4 @@
 "sources":["ResponseInit.java"],
 "names":["elemental2.dom.ResponseInit$$Overlay.create","headers","elemental2.dom.ResponseInit$$Overlay.setHeaders__$devirt","elemental2.dom.ResponseInit$$Overlay.<clinit>"]
 }
+

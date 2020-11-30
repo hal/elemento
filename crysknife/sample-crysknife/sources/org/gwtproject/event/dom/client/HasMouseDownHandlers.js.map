@@ -6,3 +6,4 @@
 "sources":["HasMouseDownHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasMouseDownHandlers.<clinit>"]
 }
+

@@ -39,3 +39,4 @@ class Node__Constants {
   static int PROCESSING_INSTRUCTION_NODE;
   static int TEXT_NODE;
 }
+

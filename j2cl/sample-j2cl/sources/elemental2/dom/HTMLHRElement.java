@@ -25,3 +25,4 @@ public class HTMLHRElement extends HTMLElement {
   public String size;
   public String width;
 }
+

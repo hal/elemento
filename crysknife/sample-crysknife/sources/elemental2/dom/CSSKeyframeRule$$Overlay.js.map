@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"CSSKeyframeRule$$Overlay.impl.java.js",
-"lineCount":17,
-"mappings":"A;;;;;;;MAyBiB,wB;;QAEQ,U;EAAAA,mC;EACrBA,8F;;;QAHa,O;EAAAC,2C;EAAAA;",
+"lineCount":9,
+"mappings":"A;;;;MAqBa,Q;;QAAA,O;EAAAA,2B;EAAAA;",
 "sources":["CSSKeyframeRule.java"],
-"names":["elemental2.dom.CSSKeyframeRule$$Overlay.create","elemental2.dom.CSSKeyframeRule$$Overlay.<clinit>"]
+"names":["elemental2.dom.CSSKeyframeRule$$Overlay.<clinit>"]
 }
+

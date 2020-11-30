@@ -6,3 +6,4 @@
 "sources":["DragOverHandler.java"],
 "names":["org.gwtproject.event.dom.client.DragOverHandler$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.dom.client.DragOverHandler$$LambdaAdaptor.<init>","org.gwtproject.event.dom.client.DragOverHandler$$LambdaAdaptor.onDragOver","org.gwtproject.event.dom.client.DragOverHandler$$LambdaAdaptor.<clinit>"]
 }
+

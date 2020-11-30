@@ -34,7 +34,7 @@ class FooterElement__Factory_FooterElement extends FooterElement {
   this.f_root__org_jboss_elemento_sample_crysknife_FooterElement_Factory_FooterElement_.innerHTML = "<p>Double-click to edit a todo</p> <p><span>Created by</span>&nbsp;<a href=\"http://hpehl.info\">Harald Pehl</a></p> <p><span>Part of</span>&nbsp;<a href=\"http://todomvc.com\">TodoMVC</a></p>";
  }
  /** @override @return {HTMLElement} */
- m_getElement__() {
+ m_element__() {
   return /**@type {HTMLElement}*/ (this.f_root__org_jboss_elemento_sample_crysknife_FooterElement_Factory_FooterElement_);
  }
  /** @private */

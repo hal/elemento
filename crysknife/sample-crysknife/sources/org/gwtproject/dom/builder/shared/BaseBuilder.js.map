@@ -2,7 +2,8 @@
 "version":3,
 "file":"BaseBuilder.impl.java.js",
 "lineCount":18,
-"mappings":"A;;;;;;;;;MAoBiB,W;;CASH,wB,gBAAYA,I;;CASZ,0B,gBAAcC,M;;QAlBX,O;EAAAC,8B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,W;;CASH,wB,gBAAYA,I;;CASZ,0B,gBAAcC,M;;QAlBX,O;EAAAC,8B;EAAAA;",
 "sources":["BaseBuilder.java"],
 "names":["href","target","org.gwtproject.dom.builder.shared.BaseBuilder.<clinit>"]
 }
+

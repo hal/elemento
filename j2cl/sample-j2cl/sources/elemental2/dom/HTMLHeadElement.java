@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class HTMLHeadElement extends HTMLElement {
   public String profile;
 }
+

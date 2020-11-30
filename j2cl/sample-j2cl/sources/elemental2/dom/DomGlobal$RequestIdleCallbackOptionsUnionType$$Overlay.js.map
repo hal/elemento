@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomGlobal$RequestIdleCallbackOptionsUnionType$$Overlay.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;MAuPmB,4C;;QAEsC,sB,UAAUA,C;EAAVC,uD;EACnDA,uD;;;QAI0B,8F;EAAAC,uD;EAC1BA,gF;;;QAIU,8E;EAAAC,uD;EACVA,8C;;;QAIc,8E;EAAAC,uD;EACdA,qD;;;QAlBa,O;EAAAC,+D;EAAAA;",
+"mappings":"A;;;;;;;;MA8QmB,4C;;QAEsC,sB,UAAUA,C;EAAVC,uD;EACnDA,uD;;;QAI0B,8F;EAAAC,uD;EAC1BA,gF;;;QAIU,8E;EAAAC,uD;EACVA,8C;;;QAIc,8E;EAAAC,uD;EACdA,qD;;;QAlBa,O;EAAAC,+D;EAAAA;",
 "sources":["DomGlobal.java"],
 "names":["o","elemental2.dom.DomGlobal$RequestIdleCallbackOptionsUnionType$$Overlay.of","elemental2.dom.DomGlobal$RequestIdleCallbackOptionsUnionType$$Overlay.asIdleCallbackOptions__$devirt","elemental2.dom.DomGlobal$RequestIdleCallbackOptionsUnionType$$Overlay.asInt__$devirt","elemental2.dom.DomGlobal$RequestIdleCallbackOptionsUnionType$$Overlay.isInt__$devirt","elemental2.dom.DomGlobal$RequestIdleCallbackOptionsUnionType$$Overlay.<clinit>"]
 }
+

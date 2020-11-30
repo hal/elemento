@@ -24,3 +24,4 @@ public class SQLResultSet {
   public SQLResultSetRowList rows;
   public int rowsAffected;
 }
+

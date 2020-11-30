@@ -23,3 +23,4 @@ public class CSSStyleRule extends CSSRule {
   public String selectorText;
   public CSSStyleDeclaration style;
 }
+

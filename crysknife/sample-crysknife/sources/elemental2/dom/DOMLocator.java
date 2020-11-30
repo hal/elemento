@@ -27,3 +27,4 @@ public class DOMLocator {
   public String uri;
   public double utf16Offset;
 }
+

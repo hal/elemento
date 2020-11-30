@@ -47,3 +47,4 @@ public interface RegistrationOptions {
   @JsProperty
   void setUseCache(boolean useCache);
 }
+

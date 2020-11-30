@@ -30,3 +30,4 @@ class HTMLMediaElement__Constants {
   static int NETWORK_LOADING;
   static int NETWORK_NO_SOURCE;
 }
+

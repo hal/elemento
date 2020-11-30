@@ -35,3 +35,4 @@ public class ServiceWorker extends Worker {
     super((String) null, (WorkerOptions) null);
   }
 }
+

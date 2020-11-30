@@ -2,7 +2,8 @@
 "version":3,
 "file":"By$BySelector.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;MAqGyB,U;;CAAA,W;EAAAA,Q;EAAAA;OAEI,6CAFJA,C;;;QAIT,yB,gBAAkBC,Q;EAAlBC,qB;EAAAA,iC;EAAAA,8E;EAAAA,iB;;;CAAA,yD,gBAAkBD,Q;EAAlBE,sC;EACJA,8D;;;CAIG,mC;EACHC,0D;;;QAVa,O;EAAAC,6B;EAAAA,0B;EAAAA;",
+"mappings":"A;;;;;MA0ZyB,U;;CAAA,W;EAAAA,Q;EAAAA;OAEI,6CAFJA,C;;;QAIT,yB,gBAAkBC,Q;EAAlBC,qB;EAAAA,iC;EAAAA,8E;EAAAA,iB;;;CAAA,yD,gBAAkBD,Q;EAAlBE,sC;EACJA,8D;;;CAIG,mC;EACHC,0D;;;QAVa,O;EAAAC,6B;EAAAA,0B;EAAAA;",
 "sources":["By.java"],
 "names":["org.jboss.elemento.By$BySelector.<synthetic: ctor_js>","selector","org.jboss.elemento.By$BySelector.<synthetic: ctor_create>","org.jboss.elemento.By$BySelector.<init>","org.jboss.elemento.By$BySelector.selector","org.jboss.elemento.By$BySelector.<clinit>"]
 }
+

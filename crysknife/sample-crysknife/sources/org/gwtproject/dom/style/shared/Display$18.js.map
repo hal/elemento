@@ -2,7 +2,8 @@
 "version":3,
 "file":"Display$18.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MA2HO,G;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,c;EAAAA,0B;EAAAA,oG;EAAAA,iB;;;CAAA,wE;EAAAC,4F;;;CAEW,c;EACZC,c;;;;CAHC,6B;EAAAC,yE;;;QAAA,O;EAAAC,sB;EAAAA,mB;EAAAA;",
+"mappings":"A;;;;;;;MAyHO,G;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,c;EAAAA,0B;EAAAA,oG;EAAAA,iB;;;CAAA,wE;EAAAC,4F;;;CAEW,c;EACZC,c;;;;CAHC,6B;EAAAC,yE;;;QAAA,O;EAAAC,sB;EAAAA,mB;EAAAA;",
 "sources":["Display.java"],
 "names":["org.gwtproject.dom.style.shared.Display$18.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Display$18.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.Display$18.<init>","org.gwtproject.dom.style.shared.Display$18.getCssName","org.gwtproject.dom.style.shared.Display$18.compareTo","org.gwtproject.dom.style.shared.Display$18.<clinit>"]
 }
+

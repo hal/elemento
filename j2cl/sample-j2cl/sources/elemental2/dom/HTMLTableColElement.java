@@ -27,3 +27,4 @@ public class HTMLTableColElement extends HTMLElement {
   public String vAlign;
   public String width;
 }
+

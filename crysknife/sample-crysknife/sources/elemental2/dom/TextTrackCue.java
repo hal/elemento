@@ -27,3 +27,4 @@ public class TextTrackCue {
 
   public TextTrackCue(double startTime, double endTime, String text) {}
 }
+

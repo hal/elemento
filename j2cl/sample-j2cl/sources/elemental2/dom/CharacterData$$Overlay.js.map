@@ -1,8 +1,9 @@
 {
 "version":3,
 "file":"CharacterData$$Overlay.impl.java.js",
-"lineCount":45,
-"mappings":"A;;;;;;;;;;MAuBa,sB;;QA6FO,2E,oDAAcA,K;EAAdC,iC;EAChBA,6E;;;QAIgB,wE,uDAAgBD,K;EAAhBC,iC;EAChBA,6E;;;QAQgB,4E,oDAAeD,K;EAAfE,iC;EAChBA,8E;;;QAIgB,yE,uDAAiBF,K;EAAjBE,iC;EAChBA,8E;;;QAYgB,iF,oDAAoBF,K;EAApBG,iC;EAChBA,mF;;;QAMgB,8E,uDAAsBH,K;EAAtBG,iC;EAChBA,mF;;;QArIS,O;EAAAC,yC;EAAAA;",
+"lineCount":46,
+"mappings":"A;;;;;;;;;;;MAuBa,sB;;QA6FO,2E,oDAAcA,K;EAAdC,iC;EAChBA,+I;;;QAIgB,wE,uDAAgBD,K;EAAhBC,iC;EAChBA,+I;;;QAQgB,4E,oDAAeD,K;EAAfE,iC;EAChBA,gJ;;;QAIgB,yE,uDAAiBF,K;EAAjBE,iC;EAChBA,gJ;;;QAYgB,iF,oDAAoBF,K;EAApBG,iC;EAChBA,qJ;;;QAMgB,8E,uDAAsBH,K;EAAtBG,iC;EAChBA,qJ;;;QArIS,O;EAAAC,yC;EAAAA;",
 "sources":["CharacterData.java"],
 "names":["nodes","elemental2.dom.CharacterData$$Overlay.after__$devirt","elemental2.dom.CharacterData$$Overlay.before__$devirt","elemental2.dom.CharacterData$$Overlay.replaceWith__$devirt","elemental2.dom.CharacterData$$Overlay.<clinit>"]
 }
+

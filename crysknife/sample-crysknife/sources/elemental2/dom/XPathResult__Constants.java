@@ -31,3 +31,4 @@ class XPathResult__Constants {
   static int UNORDERED_NODE_ITERATOR_TYPE;
   static int UNORDERED_NODE_SNAPSHOT_TYPE;
 }
+

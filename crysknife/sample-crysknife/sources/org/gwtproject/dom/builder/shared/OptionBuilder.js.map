@@ -2,7 +2,8 @@
 "version":3,
 "file":"OptionBuilder.impl.java.js",
 "lineCount":24,
-"mappings":"A;;;;;;;;;MAoBiB,a;;CAWD,mB;;CASA,Y;;CASA,yB,gBAAaA,K;;CAQb,Y;;CASA,yB,gBAAaC,K;;QA9CZ,O;EAAAC,gC;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,a;;CAUD,mB;;CASA,Y;;CASA,yB,gBAAaA,K;;CAOb,Y;;CASA,yB,gBAAaC,K;;QA5CZ,O;EAAAC,gC;EAAAA;",
 "sources":["OptionBuilder.java"],
 "names":["label","value","org.gwtproject.dom.builder.shared.OptionBuilder.<clinit>"]
 }
+

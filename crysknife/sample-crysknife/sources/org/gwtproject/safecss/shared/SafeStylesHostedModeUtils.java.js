@@ -6,7 +6,6 @@ goog.require('java.lang.Character');
 goog.require('java.lang.IllegalArgumentException');
 goog.require('java.lang.Integer');
 goog.require('java.lang.String');
-goog.require('java.lang.System');
 goog.require('java.util.HashMap');
 goog.require('java.util.Stack');
 goog.require('nativebootstrap.Equality');

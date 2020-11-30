@@ -2,7 +2,8 @@
 "version":3,
 "file":"BRBuilder.impl.java.js",
 "lineCount":14,
-"mappings":"A;;;;;;;;;MAoBiB,S;;QAAA,O;EAAAA,4B;EAAAA;",
+"mappings":"A;;;;;;;;;MAkBiB,S;;QAAA,O;EAAAA,4B;EAAAA;",
 "sources":["BRBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.BRBuilder.<clinit>"]
 }
+

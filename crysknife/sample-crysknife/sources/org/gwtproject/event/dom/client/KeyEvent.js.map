@@ -6,3 +6,4 @@
 "sources":["KeyEvent.java"],
 "names":["org.gwtproject.event.dom.client.KeyEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.KeyEvent.<init>","org.gwtproject.event.dom.client.KeyEvent.isAnyModifierKeyDown","org.gwtproject.event.dom.client.KeyEvent.isControlKeyDown","org.gwtproject.event.dom.client.KeyEvent.isShiftKeyDown","org.gwtproject.event.dom.client.KeyEvent.isMetaKeyDown","org.gwtproject.event.dom.client.KeyEvent.isAltKeyDown","org.gwtproject.event.dom.client.KeyEvent.<clinit>"]
 }
+

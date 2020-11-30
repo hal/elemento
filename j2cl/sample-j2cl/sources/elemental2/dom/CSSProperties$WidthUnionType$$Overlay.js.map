@@ -6,3 +6,4 @@
 "sources":["CSSProperties.java"],
 "names":["o","elemental2.dom.CSSProperties$WidthUnionType$$Overlay.of","elemental2.dom.CSSProperties$WidthUnionType$$Overlay.asDouble__$devirt","elemental2.dom.CSSProperties$WidthUnionType$$Overlay.asString__$devirt","elemental2.dom.CSSProperties$WidthUnionType$$Overlay.isDouble__$devirt","elemental2.dom.CSSProperties$WidthUnionType$$Overlay.isString__$devirt","elemental2.dom.CSSProperties$WidthUnionType$$Overlay.<clinit>"]
 }
+

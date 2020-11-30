@@ -47,7 +47,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Generates and sets an unique id on the element. */
     public B id() {
-        return id(Elements.uniqueId());
+        return id(Id.unique());
     }
 
     /** Sets the id on the element. */

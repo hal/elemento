@@ -6,3 +6,4 @@
 "sources":["Key.java"],
 "names":["org.jboss.elemento.Key.<synthetic: ctor_js>","event","org.jboss.elemento.Key.fromEvent","key","org.jboss.elemento.Key.<synthetic: ctor_create>","org.jboss.elemento.Key.<init>","alternatives","org.jboss.elemento.Key.match","alternative","org.jboss.elemento.Key.valueOf","org.jboss.elemento.Key.values","org.jboss.elemento.Key.compareTo","org.jboss.elemento.Key.<synthetic: getter>","org.jboss.elemento.Key.<clinit>"]
 }
+

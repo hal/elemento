@@ -6,3 +6,4 @@
 "sources":["DragOverHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.DragOverHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.DragOverHandler.<clinit>"]
 }
+

@@ -70,3 +70,4 @@ public class HTMLDocument extends Document {
 
   public native void open(String mimeType);
 }
+

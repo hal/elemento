@@ -6,3 +6,4 @@
 "sources":["HasMouseUpHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasMouseUpHandlers.<clinit>"]
 }
+

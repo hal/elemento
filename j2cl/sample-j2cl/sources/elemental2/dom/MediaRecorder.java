@@ -95,3 +95,4 @@ public class MediaRecorder implements EventTarget {
 
   public native void stop();
 }
+

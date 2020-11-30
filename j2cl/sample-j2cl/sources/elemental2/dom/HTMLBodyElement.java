@@ -27,3 +27,4 @@ public class HTMLBodyElement extends HTMLElement {
   public String text;
   public String vLink;
 }
+

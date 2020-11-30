@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomLabelBuilder.impl.java.js",
 "lineCount":45,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,gI;;;CAIkB,6B,gBAAiBC,S;EACnCC,mG;EACAA,Y;;;CAIkB,2B,gBAAeC,O;EACjCC,+F;EACAA,Y;;;QAhBS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,e;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAA+BC,Q;EAA/BC,0B;EAAAA,sC;EAAAA,+H;EAAAA,iB;;;CAAA,0G,uBAA+BD,Q;EAC7BE,gI;;;CAIkB,6B,gBAAiBC,S;EACnCC,mG;EACAA,Y;;;CAIkB,2B,gBAAeC,O;EACjCC,+F;EACAA,Y;;;QAhBS,O;EAAAC,kC;EAAAA,+B;EAAAA;",
 "sources":["DomLabelBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomLabelBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomLabelBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomLabelBuilder.<init>","accessKey","org.gwtproject.dom.builder.client.DomLabelBuilder.accessKey","htmlFor","org.gwtproject.dom.builder.client.DomLabelBuilder.htmlFor","org.gwtproject.dom.builder.client.DomLabelBuilder.<clinit>"]
 }
+

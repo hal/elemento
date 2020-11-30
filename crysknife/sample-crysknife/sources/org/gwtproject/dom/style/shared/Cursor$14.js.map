@@ -2,7 +2,8 @@
 "version":3,
 "file":"Cursor$14.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAmGO,G;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,c;EAAAA,0B;EAAAA,mG;EAAAA,iB;;;CAAA,uE;EAAAC,2F;;;CAEW,c;EACZC,c;;;;CAHC,6B;EAAAC,uE;;;QAAA,O;EAAAC,sB;EAAAA,mB;EAAAA;",
+"mappings":"A;;;;;;;MAiGO,G;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,c;EAAAA,0B;EAAAA,mG;EAAAA,iB;;;CAAA,uE;EAAAC,2F;;;CAEW,c;EACZC,c;;;;CAHC,6B;EAAAC,uE;;;QAAA,O;EAAAC,sB;EAAAA,mB;EAAAA;",
 "sources":["Cursor.java"],
 "names":["org.gwtproject.dom.style.shared.Cursor$14.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Cursor$14.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.Cursor$14.<init>","org.gwtproject.dom.style.shared.Cursor$14.getCssName","org.gwtproject.dom.style.shared.Cursor$14.compareTo","org.gwtproject.dom.style.shared.Cursor$14.<clinit>"]
 }
+

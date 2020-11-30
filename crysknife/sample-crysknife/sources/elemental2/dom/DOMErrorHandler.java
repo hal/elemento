@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class DOMErrorHandler {
   public native boolean handleError(DOMError error);
 }
+

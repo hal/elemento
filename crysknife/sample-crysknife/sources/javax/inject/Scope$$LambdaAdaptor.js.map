@@ -2,7 +2,8 @@
 "version":3,
 "file":"Scope$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MA8EkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;iD;EAAAA,kF;;;CAAA,wE;EAAAC,iC;EAAAA,oD;;;CAAA,kB;EAAAC,0C;EAAAA,iF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAgFkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;iD;EAAAA,kF;;;CAAA,wE;EAAAC,iC;EAAAA,oD;;;CAAA,kB;EAAAC,0C;EAAAA,iF;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["Scope.java"],
 "names":["javax.inject.Scope$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","javax.inject.Scope$$LambdaAdaptor.<init>","javax.inject.Scope$$LambdaAdaptor.annotationType","javax.inject.Scope$$LambdaAdaptor.<clinit>"]
 }
+

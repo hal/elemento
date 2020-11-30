@@ -75,3 +75,4 @@ public interface WorkerLocation {
   @JsProperty
   void setSearch(String search);
 }
+

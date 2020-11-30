@@ -6,3 +6,4 @@
 "sources":["HasBlurHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasBlurHandlers.<clinit>"]
 }
+

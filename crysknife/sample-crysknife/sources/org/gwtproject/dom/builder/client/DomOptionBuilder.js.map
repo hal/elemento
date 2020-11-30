@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomOptionBuilder.impl.java.js",
 "lineCount":60,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,gB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAgCC,Q;EAAhCC,2B;EAAAA,uC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,uBAAgCD,Q;EAC9BE,gI;;;CAImB,mB;EACnBC,oG;EACAA,Y;;;CAImB,Y;EACnBC,6F;EACAA,Y;;;CAImB,yB,gBAAaC,K;EAChCC,2F;EACAA,Y;;;CAImB,Y;EACnBC,6F;EACAA,Y;;;CAImB,yB,gBAAaC,K;EAChCC,2F;EACAA,Y;;;QAlCS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,gB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAgCC,Q;EAAhCC,2B;EAAAA,uC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,uBAAgCD,Q;EAC9BE,gI;;;CAImB,mB;EACnBC,oG;EACAA,Y;;;CAImB,Y;EACnBC,6F;EACAA,Y;;;CAImB,yB,gBAAaC,K;EAChCC,2F;EACAA,Y;;;CAImB,Y;EACnBC,6F;EACAA,Y;;;CAImB,yB,gBAAaC,K;EAChCC,2F;EACAA,Y;;;QAlCS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["DomOptionBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomOptionBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomOptionBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomOptionBuilder.<init>","org.gwtproject.dom.builder.client.DomOptionBuilder.defaultSelected","org.gwtproject.dom.builder.client.DomOptionBuilder.disabled","label","org.gwtproject.dom.builder.client.DomOptionBuilder.label","org.gwtproject.dom.builder.client.DomOptionBuilder.selected","value","org.gwtproject.dom.builder.client.DomOptionBuilder.value","org.gwtproject.dom.builder.client.DomOptionBuilder.<clinit>"]
 }
+

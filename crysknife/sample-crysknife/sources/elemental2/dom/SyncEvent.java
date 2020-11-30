@@ -28,3 +28,4 @@ public class SyncEvent extends ExtendableEvent {
     super((String) null, (ExtendableEventInit) null);
   }
 }
+

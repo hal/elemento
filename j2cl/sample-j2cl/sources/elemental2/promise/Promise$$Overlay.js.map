@@ -6,3 +6,4 @@
 "sources":["Promise.java"],
 "names":["promises","elemental2.promise.Promise$$Overlay.all","elemental2.promise.Promise$$Overlay.race","value","elemental2.promise.Promise$$Overlay.resolve","elemental2.promise.Promise$$Overlay.<clinit>"]
 }
+

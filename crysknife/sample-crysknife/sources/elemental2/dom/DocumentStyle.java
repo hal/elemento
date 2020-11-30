@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class DocumentStyle {
   public StyleSheetList styleSheets;
 }
+

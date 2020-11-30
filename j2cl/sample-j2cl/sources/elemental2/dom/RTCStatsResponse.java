@@ -20,6 +20,8 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
+@FunctionalInterface
 public interface RTCStatsResponse {
   JsArray<RTCStatsReport> result();
 }
+

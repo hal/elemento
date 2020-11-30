@@ -23,3 +23,4 @@ public class HTMLUListElement extends HTMLElement {
   public boolean compact;
   public String type;
 }
+

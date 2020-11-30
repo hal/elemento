@@ -32,3 +32,4 @@ public class PluginArray implements JsArrayLike<Plugin>, JsPropertyMap<Plugin> {
 
   public native void refresh(boolean reloadDocuments);
 }
+

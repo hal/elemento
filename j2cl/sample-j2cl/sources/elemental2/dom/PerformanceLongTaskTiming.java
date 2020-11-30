@@ -23,3 +23,4 @@ import jsinterop.annotations.JsType;
 public class PerformanceLongTaskTiming extends PerformanceEntry {
   public JsArray<TaskAttributionTiming> attribution;
 }
+

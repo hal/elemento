@@ -1,5 +1,5 @@
 /*
- * Copyright © 2019 The GWT Authors
+ * Copyright © 2019 The GWT Project Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,9 +15,7 @@
  */
 package org.gwtproject.dom.style.shared;
 
-/**
- * Enum for the 'text-justify' CSS3 property.
- */
+/** Enum for the 'text-justify' CSS3 property. */
 public enum TextJustify implements HasCssName {
   AUTO {
     @Override
@@ -25,9 +23,7 @@ public enum TextJustify implements HasCssName {
       return "auto";
     }
   },
-  /**
-   * @deprecated Use {@link #INTER_CHARACTER} instead
-   */
+  /** @deprecated Use {@link #INTER_CHARACTER} instead */
   DISTRIBUTE {
     @Override
     public String getCssName() {
@@ -74,3 +70,4 @@ public enum TextJustify implements HasCssName {
   @Override
   public abstract String getCssName();
 }
+

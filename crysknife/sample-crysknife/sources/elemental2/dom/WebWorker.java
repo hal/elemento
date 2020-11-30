@@ -50,3 +50,4 @@ public class WebWorker implements EventTarget {
 
   public native void terminate();
 }
+

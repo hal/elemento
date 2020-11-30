@@ -20,10 +20,10 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public interface ReadableStreamDefaultController {
+public interface ReadableStreamDefaultController<VALUE> {
   void close();
 
-  void enqueue(Object chunk);
+  void enqueue(VALUE chunk);
 
   void error(Object err);
 
@@ -33,3 +33,4 @@ public interface ReadableStreamDefaultController {
   @JsProperty
   void setDesiredSize(int desiredSize);
 }
+

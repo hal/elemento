@@ -90,3 +90,4 @@ public interface BatteryManager extends EventTarget {
   @JsProperty
   void setOnlevelchange(BatteryManager.OnlevelchangeFn onlevelchange);
 }
+

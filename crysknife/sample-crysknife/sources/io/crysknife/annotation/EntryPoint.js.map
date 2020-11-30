@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"EntryPoint.impl.java.js",
+"lineCount":22,
+"mappings":"A;;;;;;;;;;;;MAuBkB,U;;QAAA,M;EAAAA,qB;EAAAA,8B;;;QAAA,O;EAAAC,6B;EAAAA;",
+"sources":["EntryPoint.java"],
+"names":["io.crysknife.annotation.EntryPoint.<synthetic: adapt_lambda>","io.crysknife.annotation.EntryPoint.<clinit>"]
+}
+

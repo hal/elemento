@@ -26,7 +26,7 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
-public class ReadableStream {
+public class ReadableStream<VALUE> {
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
   public interface ConstructorQueuingStrategyUnionType {
     @JsOverlay
@@ -76,7 +76,7 @@ public class ReadableStream {
   }
 
   @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
-  public interface GetReaderUnionType {
+  public interface GetReaderUnionType<VALUE> {
     @JsOverlay
     static ReadableStream.GetReaderUnionType of(Object o) {
       return Js.cast(o);
@@ -88,7 +88,7 @@ public class ReadableStream {
     }
 
     @JsOverlay
-    default ReadableStreamDefaultReader asReadableStreamDefaultReader() {
+    default ReadableStreamDefaultReader<VALUE> asReadableStreamDefaultReader() {
       return Js.cast(this);
     }
   }
@@ -98,20 +98,20 @@ public class ReadableStream {
   public ReadableStream() {}
 
   public ReadableStream(
-      ReadableStreamSource underlyingSource, ByteLengthQueuingStrategy queuingStrategy) {}
+      ReadableStreamSource<VALUE> underlyingSource, ByteLengthQueuingStrategy queuingStrategy) {}
 
   public ReadableStream(
-      ReadableStreamSource underlyingSource,
+      ReadableStreamSource<VALUE> underlyingSource,
       ReadableStream.ConstructorQueuingStrategyUnionType queuingStrategy) {}
 
   public ReadableStream(
-      ReadableStreamSource underlyingSource, CountQueuingStrategy queuingStrategy) {}
+      ReadableStreamSource<VALUE> underlyingSource, CountQueuingStrategy queuingStrategy) {}
 
   public ReadableStream(
-      ReadableStreamSource underlyingSource,
+      ReadableStreamSource<VALUE> underlyingSource,
       TransformStream.TransformStreamWritableStrategyType queuingStrategy) {}
 
-  public ReadableStream(ReadableStreamSource underlyingSource) {}
+  public ReadableStream(ReadableStreamSource<VALUE> underlyingSource) {}
 
   public native Promise<Void> cancel(Object reason);
 
@@ -119,18 +119,21 @@ public class ReadableStream {
 
   public native AsyncIterator getIterator(ReadableStreamIteratorOptions options);
 
-  public native ReadableStream.GetReaderUnionType getReader();
+  public native ReadableStream.GetReaderUnionType<VALUE> getReader();
 
-  public native ReadableStream.GetReaderUnionType getReader(
+  public native ReadableStream.GetReaderUnionType<VALUE> getReader(
       ReadableStream.GetReaderOptionsType options);
 
-  public native ReadableStream pipeThrough(ITransformStream transform, PipeOptions options);
+  public native <PIPE_VALUE> ReadableStream<PIPE_VALUE> pipeThrough(
+      ITransformStream<PIPE_VALUE, VALUE> transform, PipeOptions options);
 
-  public native ReadableStream pipeThrough(ITransformStream transform);
+  public native <PIPE_VALUE> ReadableStream<PIPE_VALUE> pipeThrough(
+      ITransformStream<PIPE_VALUE, VALUE> transform);
 
-  public native Promise<Void> pipeTo(WritableStream dest, PipeOptions options);
+  public native Promise<Void> pipeTo(WritableStream<VALUE> dest, PipeOptions options);
 
-  public native Promise<Void> pipeTo(WritableStream dest);
+  public native Promise<Void> pipeTo(WritableStream<VALUE> dest);
 
-  public native JsArray<ReadableStream> tee();
+  public native JsArray<ReadableStream<VALUE>> tee();
 }
+

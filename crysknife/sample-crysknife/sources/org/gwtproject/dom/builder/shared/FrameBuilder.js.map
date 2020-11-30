@@ -2,7 +2,8 @@
 "version":3,
 "file":"FrameBuilder.impl.java.js",
 "lineCount":36,
-"mappings":"A;;;;;;;;;;;MAwBiB,Y;;CASF,kB,eAAgBA,W;;CAShB,kD,gBAAiBC,Q;;CASjB,4B,gBAA2BA,Q;;CAS3B,mB,eAAiBC,Y;;CASjB,kB,eAAgBC,W;;CAShB,wB,gBAAYC,I;;CASZ,Y;;CASA,6B,gBAAiBC,S;;CASjB,6C,gBAAkCC,G;;CASlC,uB,gBAAiCA,G;;QA1F/B,O;EAAAC,+B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAsBiB,Y;;CASF,kB,eAAgBA,W;;CAShB,kD,gBAAiBC,Q;;CASjB,4B,gBAA2BA,Q;;CAS3B,mB,eAAiBC,Y;;CASjB,kB,eAAgBC,W;;CAShB,wB,gBAAYC,I;;CASZ,Y;;CASA,6B,gBAAiBC,S;;CASjB,6C,gBAAkCC,G;;CASlC,uB,gBAAiCA,G;;QA1F/B,O;EAAAC,+B;EAAAA;",
 "sources":["FrameBuilder.java"],
 "names":["frameBorder","longDesc","marginHeight","marginWidth","name","scrolling","src","org.gwtproject.dom.builder.shared.FrameBuilder.<clinit>"]
 }
+

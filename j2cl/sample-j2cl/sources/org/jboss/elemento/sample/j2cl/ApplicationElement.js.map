@@ -6,3 +6,4 @@
 "sources":["ApplicationElement.java"],
 "names":["org.jboss.elemento.sample.j2cl.ApplicationElement.<synthetic: ctor_js>","repository","org.jboss.elemento.sample.j2cl.ApplicationElement.<synthetic: ctor_create>","org.jboss.elemento.sample.j2cl.ApplicationElement.<init>","l","org.jboss.elemento.sample.j2cl.ApplicationElement.<lambda in <init>>","event","org.jboss.elemento.sample.j2cl.ApplicationElement.reset","item","org.jboss.elemento.sample.j2cl.ApplicationElement.element","org.jboss.elemento.sample.j2cl.ApplicationElement.newTodo","text","org.jboss.elemento.sample.j2cl.ApplicationElement.toggleAll","li","cb","org.jboss.elemento.sample.j2cl.ApplicationElement.clearCompleted","ids","iterator","id","token","org.jboss.elemento.sample.j2cl.ApplicationElement.filter","org.jboss.elemento.sample.j2cl.ApplicationElement.update","activeCount","completedCount","size","org.jboss.elemento.sample.j2cl.ApplicationElement.<clinit>"]
 }
+

@@ -24,3 +24,4 @@ public class DOMImplementationSource {
 
   public native DOMImplementationList getDOMImplementationList(String features);
 }
+

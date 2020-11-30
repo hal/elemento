@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlHeadingBuilder.impl.java.js",
 "lineCount":33,
-"mappings":"A;;;;;;;;;;;;MAoBa,kB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAmCC,Q;EAAnCC,6B;EAAAA,yC;EAAAA,mI;EAAAA,iB;;;CAAA,8G,wBAAmCD,Q;EACjCE,kI;;;QAJS,O;EAAAC,qC;EAAAA,kC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;MAkBa,kB;;CAAA,W;EAAAA,Q;;;QAGX,0D,wBAAmCC,Q;EAAnCC,6B;EAAAA,yC;EAAAA,mI;EAAAA,iB;;;CAAA,8G,wBAAmCD,Q;EACjCE,kI;;;QAJS,O;EAAAC,qC;EAAAA,kC;EAAAA;",
 "sources":["HtmlHeadingBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlHeadingBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlHeadingBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlHeadingBuilder.<init>","org.gwtproject.dom.builder.shared.HtmlHeadingBuilder.<clinit>"]
 }
+

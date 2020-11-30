@@ -48,7 +48,7 @@ class MouseOutEvent extends MouseEvent {
  }
  //Bridge method.
  /** @override */
- m_dispatch__java_lang_Object(/** * */ arg0) {
+ m_dispatch__java_lang_Object(/** MouseOutHandler */ arg0) {
   this.m_dispatch__org_gwtproject_event_dom_client_MouseOutHandler(/**@type {MouseOutHandler}*/ ($Casts.$to(arg0, MouseOutHandler)));
  }
  

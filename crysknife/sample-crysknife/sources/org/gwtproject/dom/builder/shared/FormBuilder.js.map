@@ -2,7 +2,8 @@
 "version":3,
 "file":"FormBuilder.impl.java.js",
 "lineCount":30,
-"mappings":"A;;;;;;;;;;;MAuBiB,W;;CASH,iC,gBAAqBA,a;;CASrB,gD,gBAAeC,M;;CASf,0B,gBAAyBA,M;;CAczB,2B,gBAAeC,O;;CASf,0B,gBAAcC,M;;CAKd,wB,gBAAYC,I;;CASZ,0B,gBAAcC,M;;QAhEX,O;EAAAC,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAqBiB,W;;CASH,iC,gBAAqBA,a;;CASrB,gD,gBAAeC,M;;CASf,0B,gBAAyBA,M;;CAazB,2B,gBAAeC,O;;CASf,0B,gBAAcC,M;;CAGd,wB,gBAAYC,I;;CASZ,0B,gBAAcC,M;;QA7DX,O;EAAAC,8B;EAAAA;",
 "sources":["FormBuilder.java"],
 "names":["acceptCharset","action","enctype","method","name","target","org.gwtproject.dom.builder.shared.FormBuilder.<clinit>"]
 }
+

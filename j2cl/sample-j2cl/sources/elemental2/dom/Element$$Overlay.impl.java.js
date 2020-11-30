@@ -18,39 +18,39 @@ let ScrollIntoViewOptions_$Overlay = goog.forwardDeclare('elemental2.dom.ScrollI
 let ScrollToOptions_$Overlay = goog.forwardDeclare('elemental2.dom.ScrollToOptions.$Overlay$impl');
 let TrustedHTML_$Overlay = goog.forwardDeclare('elemental2.dom.TrustedHTML.$Overlay$impl');
 let TrustedScriptURL_$Overlay = goog.forwardDeclare('elemental2.dom.TrustedScriptURL.$Overlay$impl');
-let TrustedURL_$Overlay = goog.forwardDeclare('elemental2.dom.TrustedURL.$Overlay$impl');
+let InternalPreconditions = goog.forwardDeclare('javaemul.internal.InternalPreconditions$impl');
 let Js = goog.forwardDeclare('jsinterop.base.Js$impl');
 
 class Element_$Overlay {
  
  static m_after__$devirt__elemental2_dom_Element__arrayOf_elemental2_dom_Node(/** !Element */ $thisArg, /** Array<Node> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.after(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.after(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_after__$devirt__elemental2_dom_Element__arrayOf_java_lang_String(/** !Element */ $thisArg, /** Array<?string> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.after(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.after(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_append__$devirt__elemental2_dom_Element__arrayOf_elemental2_dom_Node(/** !Element */ $thisArg, /** Array<Node> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.append(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.append(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_append__$devirt__elemental2_dom_Element__arrayOf_java_lang_String(/** !Element */ $thisArg, /** Array<?string> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.append(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.append(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_before__$devirt__elemental2_dom_Element__arrayOf_elemental2_dom_Node(/** !Element */ $thisArg, /** Array<Node> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.before(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.before(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_before__$devirt__elemental2_dom_Element__arrayOf_java_lang_String(/** !Element */ $thisArg, /** Array<?string> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.before(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.before(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  /** @return {boolean} */
  static m_matchesSelector__$devirt__elemental2_dom_Element__java_lang_String__elemental2_dom_Node(/** !Element */ $thisArg, /** ?string */ selectors, /** Node */ refNodes) {
@@ -65,22 +65,22 @@ class Element_$Overlay {
  
  static m_prepend__$devirt__elemental2_dom_Element__arrayOf_elemental2_dom_Node(/** !Element */ $thisArg, /** Array<Node> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.prepend(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.prepend(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_prepend__$devirt__elemental2_dom_Element__arrayOf_java_lang_String(/** !Element */ $thisArg, /** Array<?string> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.prepend(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.prepend(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_replaceWith__$devirt__elemental2_dom_Element__arrayOf_elemental2_dom_Node(/** !Element */ $thisArg, /** Array<Node> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.replaceWith(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.replaceWith(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_replaceWith__$devirt__elemental2_dom_Element__arrayOf_java_lang_String(/** !Element */ $thisArg, /** Array<?string> */ nodes) {
   Element_$Overlay.$clinit();
-  $thisArg.replaceWith(/**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(nodes)));
+  $thisArg.replaceWith(...InternalPreconditions.m_checkNotNull__java_lang_Object(/**@type {Array<?>}*/ (Js.m_uncheckedCast__java_lang_Object(nodes))));
  }
  
  static m_scrollIntoView__$devirt__elemental2_dom_Element__elemental2_dom_ScrollIntoViewOptions(/** !Element */ $thisArg, /** ScrollIntoViewOptions */ top) {
@@ -128,11 +128,6 @@ class Element_$Overlay {
   $thisArg.setAttribute(name, /**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(value)));
  }
  
- static m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__elemental2_dom_TrustedURL(/** !Element */ $thisArg, /** ?string */ name, /** TrustedURL */ value) {
-  Element_$Overlay.$clinit();
-  $thisArg.setAttribute(name, /**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(value)));
- }
- 
  static m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean(/** !Element */ $thisArg, /** ?string */ name, /** boolean */ value) {
   Element_$Overlay.$clinit();
   $thisArg.setAttribute(name, /**@type {?}*/ (Js.m_uncheckedCast__java_lang_Object(value)));
@@ -173,6 +168,7 @@ class Element_$Overlay {
  }
  
  static $loadModules() {
+  InternalPreconditions = goog.module.get('javaemul.internal.InternalPreconditions$impl');
   Js = goog.module.get('jsinterop.base.Js$impl');
  }
  

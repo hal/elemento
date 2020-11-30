@@ -2,7 +2,8 @@
 "version":3,
 "file":"TextTransform$1.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MAqBa,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,yG;EAAAA,iB;;;CAAA,6E;EAAAC,kG;;;CAEK,c;EACZC,oB;;;;CAHO,6B;EAAAC,qF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MAmBa,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,yG;EAAAA,iB;;;CAAA,6E;EAAAC,kG;;;CAEK,c;EACZC,oB;;;;CAHO,6B;EAAAC,qF;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["TextTransform.java"],
 "names":["org.gwtproject.dom.style.shared.TextTransform$1.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.TextTransform$1.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.TextTransform$1.<init>","org.gwtproject.dom.style.shared.TextTransform$1.getCssName","org.gwtproject.dom.style.shared.TextTransform$1.compareTo","org.gwtproject.dom.style.shared.TextTransform$1.<clinit>"]
 }
+

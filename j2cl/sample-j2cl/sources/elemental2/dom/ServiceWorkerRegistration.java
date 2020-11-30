@@ -89,3 +89,4 @@ public interface ServiceWorkerRegistration extends EventTarget {
 
   Promise<Void> update();
 }
+

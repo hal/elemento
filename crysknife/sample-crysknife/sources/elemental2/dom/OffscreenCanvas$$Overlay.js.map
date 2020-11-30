@@ -6,3 +6,4 @@
 "sources":["OffscreenCanvas.java"],
 "names":["contextId","options","elemental2.dom.OffscreenCanvas$$Overlay.getContext__$devirt","elemental2.dom.OffscreenCanvas$$Overlay.<clinit>"]
 }
+

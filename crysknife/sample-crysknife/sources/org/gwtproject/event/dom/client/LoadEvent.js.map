@@ -6,3 +6,4 @@
 "sources":["LoadEvent.java"],
 "names":["org.gwtproject.event.dom.client.LoadEvent.<synthetic: ctor_js>","org.gwtproject.event.dom.client.LoadEvent.<synthetic: ctor_create>","org.gwtproject.event.dom.client.LoadEvent.<init>","org.gwtproject.event.dom.client.LoadEvent.getType","org.gwtproject.event.dom.client.LoadEvent.getAssociatedType","handler","org.gwtproject.event.dom.client.LoadEvent.dispatch","org.gwtproject.event.dom.client.LoadEvent.<clinit>"]
 }
+

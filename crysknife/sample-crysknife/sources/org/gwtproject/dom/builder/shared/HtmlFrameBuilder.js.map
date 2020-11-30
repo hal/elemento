@@ -2,7 +2,8 @@
 "version":3,
 "file":"HtmlFrameBuilder.impl.java.js",
 "lineCount":75,
-"mappings":"A;;;;;;;;;;;;;;MAyBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,iJ;;;CAIkB,kB,eAAgBC,W;EAClCC,8K;;;CAIkB,kD,gBAAiBC,Q;EACnCC,kE;;;CAIkB,4B,gBAA2BD,Q;EAC7CC,qL;;;CAIkB,mB,eAAiBC,Y;EACnCC,gL;;;CAIkB,kB,eAAgBC,W;EAClCC,8K;;;CAIkB,wB,gBAAYC,I;EAC9BC,6K;;;CAIkB,Y;EAClBC,uL;;;CAIkB,6B,gBAAiBC,S;EACnCC,uL;;;CAKkB,6C,gBAAkCC,G;EACpDC,wD;;;CAIkB,uB,gBAAiCD,G;EACnDC,2K;;;QAtDS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAuBa,gB;;CAAA,W;EAAAA,Q;;;QAEX,0D,wBAAiCC,Q;EAAjCC,2B;EAAAA,uC;EAAAA,iI;EAAAA,iB;;;CAAA,4G,wBAAiCD,Q;EAC/BE,iJ;;;CAIkB,kB,eAAgBC,W;EAClCC,8K;;;CAIkB,kD,gBAAiBC,Q;EACnCC,kE;;;CAIkB,4B,gBAA2BD,Q;EAC7CC,qL;;;CAIkB,mB,eAAiBC,Y;EACnCC,gL;;;CAIkB,kB,eAAgBC,W;EAClCC,8K;;;CAIkB,wB,gBAAYC,I;EAC9BC,6K;;;CAIkB,Y;EAClBC,uL;;;CAIkB,6B,gBAAiBC,S;EACnCC,uL;;;CAKkB,6C,gBAAkCC,G;EACpDC,wD;;;CAIkB,uB,gBAAiCD,G;EACnDC,2K;;;QAtDS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["HtmlFrameBuilder.java"],
 "names":["org.gwtproject.dom.builder.shared.HtmlFrameBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.<init>","frameBorder","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.frameBorder","longDesc","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.longDesc","marginHeight","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.marginHeight","marginWidth","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.marginWidth","name","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.name","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.noResize","scrolling","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.scrolling","src","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.src","org.gwtproject.dom.builder.shared.HtmlFrameBuilder.<clinit>"]
 }
+

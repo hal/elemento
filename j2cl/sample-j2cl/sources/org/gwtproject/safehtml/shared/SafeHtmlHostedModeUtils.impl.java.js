@@ -63,10 +63,10 @@ $Util.$setClassMetadata(SafeHtmlHostedModeUtils, 'org.gwtproject.safehtml.shared
 
 /**@const {?string}*/
 SafeHtmlHostedModeUtils.f_FORCE_CHECK_COMPLETE_HTML__org_gwtproject_safehtml_shared_SafeHtmlHostedModeUtils = "com.google.gwt.safehtml.ForceCheckCompleteHtml";
-/**@type {boolean}*/
-SafeHtmlHostedModeUtils.f_forceCheckCompleteHtml__org_gwtproject_safehtml_shared_SafeHtmlHostedModeUtils_ = false;
 /**@type {JreImpl}*/
 SafeHtmlHostedModeUtils.f_impl__org_gwtproject_safehtml_shared_SafeHtmlHostedModeUtils_;
+/**@type {boolean}*/
+SafeHtmlHostedModeUtils.f_forceCheckCompleteHtml__org_gwtproject_safehtml_shared_SafeHtmlHostedModeUtils_ = false;
 
 exports = SafeHtmlHostedModeUtils; 
 //# sourceMappingURL=SafeHtmlHostedModeUtils.js.map

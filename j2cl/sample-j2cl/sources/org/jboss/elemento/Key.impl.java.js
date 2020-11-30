@@ -94,7 +94,7 @@ class Key extends Enum {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Key */ arg0) {
   return super.compareTo(/**@type {Key}*/ ($Casts.$to(arg0, Key)));
  }
  /** @return {!Key} */

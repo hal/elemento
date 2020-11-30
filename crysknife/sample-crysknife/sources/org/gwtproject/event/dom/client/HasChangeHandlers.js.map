@@ -6,3 +6,4 @@
 "sources":["HasChangeHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasChangeHandlers.<clinit>"]
 }
+

@@ -37,3 +37,4 @@ public class DeviceOrientationEvent extends Event {
     super((String) null, (EventInit) null);
   }
 }
+

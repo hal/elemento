@@ -6,3 +6,4 @@
 "sources":["BaseRenderingContext2D.java"],
 "names":["optFillRuleOrPath","optFillRule","elemental2.dom.BaseRenderingContext2D$$Overlay.clip__$devirt","image","repetition","elemental2.dom.BaseRenderingContext2D$$Overlay.createPattern__$devirt","dx","dy","dw","dh","sx","sy","sw","sh","elemental2.dom.BaseRenderingContext2D$$Overlay.drawImage__$devirt","elemental2.dom.BaseRenderingContext2D$$Overlay.fill__$devirt","a","b","c","d","e","elemental2.dom.BaseRenderingContext2D$$Overlay.setFillColor__$devirt","elemental2.dom.BaseRenderingContext2D$$Overlay.setStrokeColor__$devirt","elemental2.dom.BaseRenderingContext2D$$Overlay.<clinit>"]
 }
+

@@ -20,58 +20,9 @@ import jsinterop.annotations.JsFunction;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class Event {
-  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
-  public interface ComposedPathArrayUnionType {
-    @JsOverlay
-    static Event.ComposedPathArrayUnionType of(Object o) {
-      return Js.cast(o);
-    }
-
-    @JsOverlay
-    default Document asDocument() {
-      return Js.cast(this);
-    }
-
-    @JsOverlay
-    default Element asElement() {
-      return Js.cast(this);
-    }
-
-    @JsOverlay
-    default ShadowRoot asShadowRoot() {
-      return Js.cast(this);
-    }
-
-    @JsOverlay
-    default Window asWindow() {
-      return Js.cast(this);
-    }
-
-    @JsOverlay
-    default boolean isDocument() {
-      return (Object) this instanceof Document;
-    }
-
-    @JsOverlay
-    default boolean isElement() {
-      return (Object) this instanceof Element;
-    }
-
-    @JsOverlay
-    default boolean isShadowRoot() {
-      return (Object) this instanceof ShadowRoot;
-    }
-
-    @JsOverlay
-    default boolean isWindow() {
-      return (Object) this instanceof Window;
-    }
-  }
-
   @JsFunction
   public interface DeepPathFn {
     JsArray<EventTarget> onInvoke();
@@ -97,7 +48,7 @@ public class Event {
 
   public Event(String type) {}
 
-  public native JsArray<Event.ComposedPathArrayUnionType> composedPath();
+  public native JsArray<EventTarget> composedPath();
 
   public native void initEvent(String eventTypeArg, boolean canBubbleArg, boolean cancelableArg);
 
@@ -111,3 +62,4 @@ public class Event {
 
   public native void stopPropagation();
 }
+

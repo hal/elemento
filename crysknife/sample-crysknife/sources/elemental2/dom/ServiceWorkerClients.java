@@ -36,3 +36,4 @@ public interface ServiceWorkerClients {
 
   Promise<ServiceWorkerClient> openWindow(String url);
 }
+

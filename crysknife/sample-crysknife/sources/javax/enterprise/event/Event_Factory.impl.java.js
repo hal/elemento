@@ -1,7 +1,7 @@
 goog.module('javax.enterprise.event.Event_Factory$impl');
 
+const AbstractEventFactory = goog.require('io.crysknife.client.internal.AbstractEventFactory$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
-const AbstractEventFactory = goog.require('org.treblereel.gwt.crysknife.client.internal.AbstractEventFactory$impl');
 
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 
@@ -19,7 +19,7 @@ class Event__Factory extends AbstractEventFactory {
  }
  
  $ctor__javax_enterprise_event_Event_Factory__() {
-  this.$ctor__org_treblereel_gwt_crysknife_client_internal_AbstractEventFactory__();
+  this.$ctor__io_crysknife_client_internal_AbstractEventFactory__();
  }
  /** @return {Event__Factory} */
  static m_get__() {

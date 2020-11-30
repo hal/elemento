@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"BeanManager_Factory.impl.java.js",
+"lineCount":44,
+"mappings":"A;;;;;;;;;;;;;MAMa,oB;;CAAA,W;EAAAA,Q;EAAAA;OAEW,uDAFXA,C;;;CAKU,O;EACfC,iC;;;QAGI,S;EAAAC,2C;EAAAA,6D;EAAAA,iB;;;CAAA,gD;EAAAC,iC;;;QAG0B,U;EAAAC,+B;EAC9BA,wC;;;QAbK,O;EAAAC,uC;EAAAA,oC;EAAAA;",
+"sources":["BeanManager_Factory.java"],
+"names":["io.crysknife.client.BeanManager_Factory.<synthetic: ctor_js>","io.crysknife.client.BeanManager_Factory.get","io.crysknife.client.BeanManager_Factory.<synthetic: ctor_create>","io.crysknife.client.BeanManager_Factory.<init>","io.crysknife.client.BeanManager_Factory.create","io.crysknife.client.BeanManager_Factory.<clinit>"]
+}
+

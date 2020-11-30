@@ -2,7 +2,8 @@
 "version":3,
 "file":"DomSourceBuilder.impl.java.js",
 "lineCount":45,
-"mappings":"A;;;;;;;;;;;;;;MAuBa,gB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAgCC,Q;EAAhCC,2B;EAAAA,uC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,uBAAgCD,Q;EAC9BE,+I;;;CAImB,uB,gBAAWC,G;EAC9BC,uF;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EACAA,Y;;;QAhBS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;MAqBa,gB;;CAAA,W;EAAAA,Q;;;QAGX,yD,uBAAgCC,Q;EAAhCC,2B;EAAAA,uC;EAAAA,gI;EAAAA,iB;;;CAAA,2G,uBAAgCD,Q;EAC9BE,+I;;;CAImB,uB,gBAAWC,G;EAC9BC,uF;EACAA,Y;;;CAImB,wB,gBAAYC,I;EAC/BC,yF;EACAA,Y;;;QAhBS,O;EAAAC,mC;EAAAA,gC;EAAAA;",
 "sources":["DomSourceBuilder.java"],
 "names":["org.gwtproject.dom.builder.client.DomSourceBuilder.<synthetic: ctor_js>","delegate","org.gwtproject.dom.builder.client.DomSourceBuilder.<synthetic: ctor_create>","org.gwtproject.dom.builder.client.DomSourceBuilder.<init>","url","org.gwtproject.dom.builder.client.DomSourceBuilder.src","type","org.gwtproject.dom.builder.client.DomSourceBuilder.type","org.gwtproject.dom.builder.client.DomSourceBuilder.<clinit>"]
 }
+

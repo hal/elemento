@@ -39,3 +39,4 @@ public class DOMRect extends DOMRectReadOnly {
 
   public DOMRect(double x) {}
 }
+

@@ -71,3 +71,4 @@ public interface KeyboardEventInit extends EventModifierInit {
   @JsProperty
   void setRepeat(boolean repeat);
 }
+

@@ -25,6 +25,45 @@ class NativeRegExp extends j_l_Object {
   /**@type {RegExp}*/
   this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_;
  }
+ //Factory method corresponding to constructor 'NativeRegExp(String)'.
+ /** @return {!NativeRegExp} */
+ static $create__java_lang_String(/** ?string */ pattern) {
+  let $instance = new NativeRegExp();
+  $instance.$ctor__org_gwtproject_regexp_client_NativeRegExp__java_lang_String(pattern);
+  return $instance;
+ }
+ //Initialization from constructor 'NativeRegExp(String)'.
+ 
+ $ctor__org_gwtproject_regexp_client_NativeRegExp__java_lang_String(/** ?string */ pattern) {
+  this.$ctor__org_gwtproject_regexp_client_NativeRegExp__();
+  this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_.compile(pattern);
+ }
+ //Factory method corresponding to constructor 'NativeRegExp()'.
+ /** @return {!NativeRegExp} */
+ static $create__() {
+  let $instance = new NativeRegExp();
+  $instance.$ctor__org_gwtproject_regexp_client_NativeRegExp__();
+  return $instance;
+ }
+ //Initialization from constructor 'NativeRegExp()'.
+ 
+ $ctor__org_gwtproject_regexp_client_NativeRegExp__() {
+  this.$ctor__java_lang_Object__();
+  this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_ = new RegExp();
+ }
+ //Factory method corresponding to constructor 'NativeRegExp(String, String)'.
+ /** @return {!NativeRegExp} */
+ static $create__java_lang_String__java_lang_String(/** ?string */ pattern, /** ?string */ flags) {
+  let $instance = new NativeRegExp();
+  $instance.$ctor__org_gwtproject_regexp_client_NativeRegExp__java_lang_String__java_lang_String(pattern, flags);
+  return $instance;
+ }
+ //Initialization from constructor 'NativeRegExp(String, String)'.
+ 
+ $ctor__org_gwtproject_regexp_client_NativeRegExp__java_lang_String__java_lang_String(/** ?string */ pattern, /** ?string */ flags) {
+  this.$ctor__org_gwtproject_regexp_client_NativeRegExp__();
+  this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_.compile(pattern, flags);
+ }
  /** @return {org_gwtproject_regexp_shared_RegExp} */
  static m_compile__java_lang_String(/** ?string */ pattern) {
   NativeRegExp.$clinit();
@@ -40,48 +79,9 @@ class NativeRegExp extends j_l_Object {
   NativeRegExp.$clinit();
   return $Overlay.m_replace__$devirt__elemental2_core_JsString__elemental2_core_JsRegExp__java_lang_String(new String(input), new RegExp("([.?*+^$[\\]\\\\(){}|-])", "g"), "\\$1");
  }
- //Factory method corresponding to constructor 'NativeRegExp()'.
- /** @return {!NativeRegExp} */
- static $create__() {
-  let $instance = new NativeRegExp();
-  $instance.$ctor__org_gwtproject_regexp_client_NativeRegExp__();
-  return $instance;
- }
- //Initialization from constructor 'NativeRegExp()'.
- 
- $ctor__org_gwtproject_regexp_client_NativeRegExp__() {
-  this.$ctor__java_lang_Object__();
-  this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_ = new RegExp();
- }
- //Factory method corresponding to constructor 'NativeRegExp(String)'.
- /** @return {!NativeRegExp} */
- static $create__java_lang_String(/** ?string */ pattern) {
-  let $instance = new NativeRegExp();
-  $instance.$ctor__org_gwtproject_regexp_client_NativeRegExp__java_lang_String(pattern);
-  return $instance;
- }
- //Initialization from constructor 'NativeRegExp(String)'.
- 
- $ctor__org_gwtproject_regexp_client_NativeRegExp__java_lang_String(/** ?string */ pattern) {
-  this.$ctor__org_gwtproject_regexp_client_NativeRegExp__();
-  this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_.compile(pattern);
- }
- //Factory method corresponding to constructor 'NativeRegExp(String, String)'.
- /** @return {!NativeRegExp} */
- static $create__java_lang_String__java_lang_String(/** ?string */ pattern, /** ?string */ flags) {
-  let $instance = new NativeRegExp();
-  $instance.$ctor__org_gwtproject_regexp_client_NativeRegExp__java_lang_String__java_lang_String(pattern, flags);
-  return $instance;
- }
- //Initialization from constructor 'NativeRegExp(String, String)'.
- 
- $ctor__org_gwtproject_regexp_client_NativeRegExp__java_lang_String__java_lang_String(/** ?string */ pattern, /** ?string */ flags) {
-  this.$ctor__org_gwtproject_regexp_client_NativeRegExp__();
-  this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_.compile(pattern, flags);
- }
  /** @override @return {MatchResult} */
  m_exec__java_lang_String(/** ?string */ input) {
-  let result = this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_.exec(input);
+  let result = /**@type {Array<?string>}*/ (Js.m_uncheckedCast__java_lang_Object(this.f_jsRegExp__org_gwtproject_regexp_client_NativeRegExp_.exec(input)));
   return Objects.m_isNull__java_lang_Object(result) ? null : NativeMatchResult.$create__elemental2_core_JsArray(/**@type {Array<?string>}*/ ($Casts.$to(Js.m_cast__java_lang_Object(result), JsArray_$Overlay)));
  }
  /** @override @return {boolean} */

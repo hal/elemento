@@ -6,3 +6,4 @@
 "sources":["BaseRenderingContext2D.java"],
 "names":["o","elemental2.dom.BaseRenderingContext2D$CanvasUnionType$$Overlay.of","elemental2.dom.BaseRenderingContext2D$CanvasUnionType$$Overlay.asHTMLCanvasElement__$devirt","elemental2.dom.BaseRenderingContext2D$CanvasUnionType$$Overlay.asOffscreenCanvas__$devirt","elemental2.dom.BaseRenderingContext2D$CanvasUnionType$$Overlay.isHTMLCanvasElement__$devirt","elemental2.dom.BaseRenderingContext2D$CanvasUnionType$$Overlay.isOffscreenCanvas__$devirt","elemental2.dom.BaseRenderingContext2D$CanvasUnionType$$Overlay.<clinit>"]
 }
+

@@ -34,3 +34,4 @@ public interface Storage {
 
   void setItem(String key, String data);
 }
+

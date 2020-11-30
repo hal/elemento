@@ -53,3 +53,4 @@ public interface PerformanceObserverInit {
   @JsProperty
   void setType(String type);
 }
+

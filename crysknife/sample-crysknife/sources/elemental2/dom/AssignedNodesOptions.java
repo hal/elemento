@@ -35,3 +35,4 @@ public interface AssignedNodesOptions {
   @JsProperty
   void setFlatten(boolean flatten);
 }
+

@@ -2,7 +2,8 @@
 "version":3,
 "file":"ListStyleType.impl.java.js",
 "lineCount":165,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;MAoBY,a;;CAAA,W;EAAAA,Q;;;CAAA,2E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAyDa,c;;QAzDb,2B;EAAAC,wB;EAAAA;GAAAA,0IAAAA;G;EAAAA,6H;;;QAAA,U;EAAAC,wB;EAAAA,ouB;;;QACV,yD;EAAAC,uG;;;QAMA,yD;EAAAA,uG;;;QAMA,2D;EAAAA,yG;;;QAMA,2D;EAAAA,yG;;;QAMA,4D;EAAAA,0G;;;QAMA,gE;EAAAA,8G;;;QAMA,gE;EAAAA,8G;;;QAMA,gE;EAAAA,8G;;;QAMA,gE;EAAAA,8G;;;QAjDU,O;EAAAC,gC;EAAAA,6B;EAAAA,e;EACVA,oN;EAMAA,oN;EAMAA,0N;EAMAA,0N;EAMAA,6N;EAMAA,yO;EAMAA,yO;EAMAA,yO;EAMAA,yO;EAjDUA,wF;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;qE;AAAA;qE;AAAA;uE;AAAA;uE;AAAA;wE;AAAA;4E;AAAA;4E;AAAA;4E;AAAA;4E;AAAA;iF;AACV;iF;AAMA;iF;AAMA;mF;AAMA;mF;AAMA;oF;AAMA;wF;AAMA;wF;AAMA;wF;AAMA;;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;MAkBY,a;;CAAA,W;EAAAA,Q;;;CAAA,2E;EAAAC,qC;EAAAA,2C;EAAAA,mE;;;CAyDa,c;;QAzDb,2B;EAAAC,wB;EAAAA;GAAAA,0IAAAA;G;EAAAA,6H;;;QAAA,U;EAAAC,wB;EAAAA,ouB;;;QACV,yD;EAAAC,uG;;;QAMA,yD;EAAAA,uG;;;QAMA,2D;EAAAA,yG;;;QAMA,2D;EAAAA,yG;;;QAMA,4D;EAAAA,0G;;;QAMA,gE;EAAAA,8G;;;QAMA,gE;EAAAA,8G;;;QAMA,gE;EAAAA,8G;;;QAMA,gE;EAAAA,8G;;;QAjDU,O;EAAAC,gC;EAAAA,6B;EAAAA,e;EACVA,oN;EAMAA,oN;EAMAA,0N;EAMAA,0N;EAMAA,6N;EAMAA,yO;EAMAA,yO;EAMAA,yO;EAMAA,yO;EAjDUA,wF;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;qE;AAAA;qE;AAAA;uE;AAAA;uE;AAAA;wE;AAAA;4E;AAAA;4E;AAAA;4E;AAAA;4E;AAAA;iF;AACV;iF;AAMA;iF;AAMA;mF;AAMA;mF;AAMA;oF;AAMA;wF;AAMA;wF;AAMA;wF;AAMA;;",
 "sources":["ListStyleType.java"],
 "names":["org.gwtproject.dom.style.shared.ListStyleType.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.ListStyleType.<init>","org.gwtproject.dom.style.shared.ListStyleType.valueOf","org.gwtproject.dom.style.shared.ListStyleType.values","org.gwtproject.dom.style.shared.ListStyleType.<synthetic: getter>","org.gwtproject.dom.style.shared.ListStyleType.<clinit>"]
 }
+

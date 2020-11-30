@@ -6,3 +6,4 @@
 "sources":["TouchEventInit.java"],
 "names":["elemental2.dom.TouchEventInit$$Overlay.create","changedTouches","elemental2.dom.TouchEventInit$$Overlay.setChangedTouches__$devirt","targetTouches","elemental2.dom.TouchEventInit$$Overlay.setTargetTouches__$devirt","touches","elemental2.dom.TouchEventInit$$Overlay.setTouches__$devirt","elemental2.dom.TouchEventInit$$Overlay.<clinit>"]
 }
+

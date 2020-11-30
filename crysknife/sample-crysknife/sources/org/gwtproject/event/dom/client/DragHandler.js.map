@@ -6,3 +6,4 @@
 "sources":["DragHandler.java"],
 "names":["event","org.gwtproject.event.dom.client.DragHandler.<synthetic: adapt_lambda>","org.gwtproject.event.dom.client.DragHandler.<clinit>"]
 }
+

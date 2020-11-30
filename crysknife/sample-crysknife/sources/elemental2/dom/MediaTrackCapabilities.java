@@ -199,3 +199,4 @@ public interface MediaTrackCapabilities {
   @JsProperty
   void setZoom(MediaSettingsRange zoom);
 }
+

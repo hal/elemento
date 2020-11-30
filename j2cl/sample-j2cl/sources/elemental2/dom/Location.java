@@ -15,69 +15,11 @@
  */
 package elemental2.dom;
 
-import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class Location {
-  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
-  public interface AssignUrlUnionType {
-    @JsOverlay
-    static Location.AssignUrlUnionType of(Object o) {
-      return Js.cast(o);
-    }
-
-    @JsOverlay
-    default String asString() {
-      return Js.asString(this);
-    }
-
-    @JsOverlay
-    default TrustedURL asTrustedURL() {
-      return Js.cast(this);
-    }
-
-    @JsOverlay
-    default boolean isString() {
-      return (Object) this instanceof String;
-    }
-
-    @JsOverlay
-    default boolean isTrustedURL() {
-      return (Object) this instanceof TrustedURL;
-    }
-  }
-
-  @JsType(isNative = true, name = "?", namespace = JsPackage.GLOBAL)
-  public interface ReplaceUrlUnionType {
-    @JsOverlay
-    static Location.ReplaceUrlUnionType of(Object o) {
-      return Js.cast(o);
-    }
-
-    @JsOverlay
-    default String asString() {
-      return Js.asString(this);
-    }
-
-    @JsOverlay
-    default TrustedURL asTrustedURL() {
-      return Js.cast(this);
-    }
-
-    @JsOverlay
-    default boolean isString() {
-      return (Object) this instanceof String;
-    }
-
-    @JsOverlay
-    default boolean isTrustedURL() {
-      return (Object) this instanceof TrustedURL;
-    }
-  }
-
   public DOMStringList ancestorOrigins;
   public String hash;
   public String host;
@@ -89,31 +31,12 @@ public class Location {
   public String protocol;
   public String search;
 
-  public native void assign(Location.AssignUrlUnionType url);
-
-  @JsOverlay
-  public final void assign(String url) {
-    assign(Js.<Location.AssignUrlUnionType>uncheckedCast(url));
-  }
-
-  @JsOverlay
-  public final void assign(TrustedURL url) {
-    assign(Js.<Location.AssignUrlUnionType>uncheckedCast(url));
-  }
+  public native void assign(String url);
 
   public native void reload();
 
   public native void reload(boolean forceReload);
 
-  public native void replace(Location.ReplaceUrlUnionType url);
-
-  @JsOverlay
-  public final void replace(String url) {
-    replace(Js.<Location.ReplaceUrlUnionType>uncheckedCast(url));
-  }
-
-  @JsOverlay
-  public final void replace(TrustedURL url) {
-    replace(Js.<Location.ReplaceUrlUnionType>uncheckedCast(url));
-  }
+  public native void replace(String url);
 }
+

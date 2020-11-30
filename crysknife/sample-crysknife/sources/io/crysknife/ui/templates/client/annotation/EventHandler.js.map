@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"EventHandler.impl.java.js",
+"lineCount":16,
+"mappings":"A;;;;;;;;;MA2BkB,Y;;CAChB,S;;QADgB,O;EAAAA,+B;EAAAA;",
+"sources":["EventHandler.java"],
+"names":["io.crysknife.ui.templates.client.annotation.EventHandler.<clinit>"]
+}
+

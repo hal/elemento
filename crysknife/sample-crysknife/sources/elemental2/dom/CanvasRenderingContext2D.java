@@ -22,3 +22,4 @@ import jsinterop.annotations.JsType;
 public class CanvasRenderingContext2D extends BaseRenderingContext2D {
   public HTMLCanvasElement canvas;
 }
+

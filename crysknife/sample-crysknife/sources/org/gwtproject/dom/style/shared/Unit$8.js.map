@@ -2,7 +2,8 @@
 "version":3,
 "file":"Unit$8.impl.java.js",
 "lineCount":37,
-"mappings":"A;;;;;;;MA+DK,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,gG;EAAAA,iB;;;CAAA,oE;EAAAC,yF;;;CAEa,W;EACZC,Y;;;;CAHD,6B;EAAAC,mE;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
+"mappings":"A;;;;;;;MA6DK,E;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,a;EAAAA,yB;EAAAA,gG;EAAAA,iB;;;CAAA,oE;EAAAC,yF;;;CAEa,W;EACZC,Y;;;;CAHD,6B;EAAAC,mE;;;QAAA,O;EAAAC,qB;EAAAA,kB;EAAAA;",
 "sources":["Unit.java"],
 "names":["org.gwtproject.dom.style.shared.Unit$8.<synthetic: ctor_js>","org.gwtproject.dom.style.shared.Unit$8.<synthetic: ctor_create>","org.gwtproject.dom.style.shared.Unit$8.<init>","org.gwtproject.dom.style.shared.Unit$8.getType","org.gwtproject.dom.style.shared.Unit$8.compareTo","org.gwtproject.dom.style.shared.Unit$8.<clinit>"]
 }
+

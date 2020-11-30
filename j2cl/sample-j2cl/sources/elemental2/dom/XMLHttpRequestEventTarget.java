@@ -32,3 +32,4 @@ public class XMLHttpRequestEventTarget implements EventTarget {
 
   public native void removeEventListener(String type, EventListener listener);
 }
+

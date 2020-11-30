@@ -6,3 +6,4 @@
 "sources":["CustomElementRegistry.java"],
 "names":["elemental2.dom.CustomElementRegistry$DefineOptionsType$$Overlay.create","elemental2.dom.CustomElementRegistry$DefineOptionsType$$Overlay.<clinit>"]
 }
+

@@ -6,3 +6,4 @@
 "sources":["HandlerRegistration.java"],
 "names":["org.gwtproject.event.shared.HandlerRegistration$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.gwtproject.event.shared.HandlerRegistration$$LambdaAdaptor.<init>","org.gwtproject.event.shared.HandlerRegistration$$LambdaAdaptor.removeHandler","org.gwtproject.event.shared.HandlerRegistration$$LambdaAdaptor.<clinit>"]
 }
+

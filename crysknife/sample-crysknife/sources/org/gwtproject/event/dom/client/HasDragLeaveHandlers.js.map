@@ -6,3 +6,4 @@
 "sources":["HasDragLeaveHandlers.java"],
 "names":["handler","org.gwtproject.event.dom.client.HasDragLeaveHandlers.<clinit>"]
 }
+

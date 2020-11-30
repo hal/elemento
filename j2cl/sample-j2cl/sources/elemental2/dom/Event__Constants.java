@@ -24,3 +24,4 @@ class Event__Constants {
   static int BUBBLING_PHASE;
   static int CAPTURING_PHASE;
 }
+

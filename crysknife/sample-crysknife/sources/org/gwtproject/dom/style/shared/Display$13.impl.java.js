@@ -27,7 +27,7 @@ class $13 extends Display {
  }
  //Bridge method.
  /** @override @return {number} */
- m_compareTo__java_lang_Object(/** * */ arg0) {
+ m_compareTo__java_lang_Object(/** Display */ arg0) {
   return super.compareTo(/**@type {Display}*/ ($Casts.$to(arg0, Display)));
  }
  

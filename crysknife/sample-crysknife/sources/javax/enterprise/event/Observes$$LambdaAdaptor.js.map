@@ -2,7 +2,8 @@
 "version":3,
 "file":"Observes$$LambdaAdaptor.impl.java.js",
 "lineCount":35,
-"mappings":"A;;;;;;;;;;;MAWkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;8D;EAAAA,4G;;;CAAA,kG;EAAAC,iC;EAAAA,iE;;;CAAA,kB;EAAAC,0C;EAAAA,8F;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"mappings":"A;;;;;;;;;;;MAoFkB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;8D;EAAAA,4G;;;CAAA,kG;EAAAC,iC;EAAAA,iE;;;CAAA,kB;EAAAC,0C;EAAAA,8F;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
 "sources":["Observes.java"],
 "names":["javax.enterprise.event.Observes$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","javax.enterprise.event.Observes$$LambdaAdaptor.<init>","javax.enterprise.event.Observes$$LambdaAdaptor.annotationType","javax.enterprise.event.Observes$$LambdaAdaptor.<clinit>"]
 }
+

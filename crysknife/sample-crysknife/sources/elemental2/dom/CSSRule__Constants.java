@@ -28,3 +28,4 @@ class CSSRule__Constants {
   static int STYLE_RULE;
   static int UNKNOWN_RULE;
 }
+
