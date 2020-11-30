@@ -309,7 +309,7 @@ See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/o
 
 # J2CL / GWT 3
 
-Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends only on `org.gwtproject.event:gwt-event`, `org.gwtproject.safehtml:gwt-safehtml` and Elemental2 1.0.0, but can also be used with Elemental2 1.0.0-RC1. In this case you have to override the Elemental2 dependencies. See the [GWT 2.8](samples/gwt28) sample for more infos.
+Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends only on Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`) and GWT project dependencies (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`). But it can also be used with GWT 2.8 and Elemental2 1.0.0-RC1. In this case you have to override the Elemental2 dependencies. See the [GWT 2.8](samples/gwt28) sample for more infos.
 
 # Samples
 
