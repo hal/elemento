@@ -315,9 +315,9 @@ Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to cl
 
 Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application. 
                      
-- [GWT 2.8](samples/gwt28): Uses GWT 2.8
+- [GWT 2.8](samples/gwt28): Uses GWT 2.8 and Elemental 1.0.0-RC1
 - [GWT 2.9](samples/gwt29): Uses GWT 2.9
-- [GWT 3.0](samples/gwt30): Uses GWT HEAD-SNAPSHOT and Elemental2 1.0.0
+- [GWT 3.0](samples/gwt30): Uses GWT HEAD-SNAPSHOT
 - [J2CL](samples/j2cl): Uses J2CL
 - [Crysknife](samples/crysknife): Uses J2CL, Crysknife CDI and Crysknife templates
 
