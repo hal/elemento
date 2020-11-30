@@ -18,15 +18,16 @@ package org.jboss.elemento.sample.crysknife;
 import javax.inject.Singleton;
 
 import elemental2.dom.HTMLElement;
+import io.crysknife.ui.templates.client.annotation.DataField;
+import io.crysknife.ui.templates.client.annotation.Templated;
 import org.jboss.elemento.IsElement;
-import org.treblereel.gwt.crysknife.templates.client.annotation.DataField;
-import org.treblereel.gwt.crysknife.templates.client.annotation.Templated;
 
 @Singleton
 @Templated("Todo.html#info")
 public class FooterElement implements IsElement<HTMLElement> {
 
-    @DataField HTMLElement info;
+    @DataField
+    HTMLElement info;
 
     @Override
     public HTMLElement element() {
