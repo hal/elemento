@@ -15,17 +15,14 @@
  */
 package org.jboss.elemento.sample.j2cl;
 
-import org.gwtproject.core.client.EntryPoint;
-
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.hashchange;
 
-public class Main implements EntryPoint {
+public class Main {
 
-    @Override
     public void onModuleLoad() {
         TodoRepository repository = new TodoRepository();
         ApplicationElement application = new ApplicationElement(repository);
