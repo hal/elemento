@@ -58,6 +58,14 @@ cd $ROOT
 
 
 
+# GWT 2.9 sample
+box "Build GWT 2.9 sample"
+cd samples/gwt29
+mvn package -P prod || { echo "Maven build failed" ; exit 1; }
+cd $ROOT
+
+
+
 # GWT 3.0 sample
 box "Build GWT 3.0 sample"
 cd samples/gwt30
@@ -89,6 +97,7 @@ cd /tmp/
 git clone -b gh-pages --single-branch git@github.com:hal/elemento.git
 cd elemento
 cp -R $ROOT/samples/gwt28/target/sample-gwt28/todo gwt28
+cp -R $ROOT/samples/gwt30/target/sample-gwt29/todo gwt29
 cp -R $ROOT/samples/gwt30/target/sample-gwt30/todo gwt30
 cp -R $ROOT/samples/j2cl/target/sample-j2cl j2cl
 cp -R $ROOT/samples/crysknife/target/sample-crysknife crysknife
