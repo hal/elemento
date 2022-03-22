@@ -1,0 +1,103 @@
+name: Release Elemento
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+
+  deploy:
+    name: Deploy Maven Artifacts
+    runs-on: ubuntu-latest
+    env:
+      MVN: ./mvnw --show-version --batch-mode
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+      - name: Set up JDK
+        id: setup-jdk
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+          distribution: temurin
+          cache: maven
+      - name: Package
+        id: package
+        run: $MVN package
+      - name: Set up Maven Settings
+        id: setup-maven-settings
+        uses: actions/setup-java@v2
+        with: # running setup-java again overwrites the settings.xml
+          java-version: 11
+          distribution: temurin
+          server-id: ossrh
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Deploy
+        id: deploy
+        run: $MVN deploy
+        env:
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
+  publish:
+    name: Publish API documentation
+    needs: apidoc
+    runs-on: ubuntu-latest
+    env:
+      MVN: ./mvnw --show-version --batch-mode
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+      - name: Set up JDK
+        id: setup-jdk
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+          distribution: temurin
+          cache: maven
+      - name: JavaDoc
+        id: javadoc
+        run: $MVN javadoc:javadoc
+      - name: Publish
+        id: publish
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: apidic
+          folder: ./target/site/apidocs
+          clean: true
+
+  release:
+    name: Create GitHub Release
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Version
+        id: get-version
+        uses: battila7/get-version-action@v2.3.0
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+      - name: Read Changelog
+        id: read-changelog
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          path: ./CHANGELOG.md
+          version: ${{ steps.get-version.outputs.version-without-v }}
+      - name: Create GitHub Release
+        id: create-gh-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get-version.outputs.version }}
+          release_name: Elemento ${{ steps.get-version.outputs.version-without-v }}
+          body: ${{ steps.read-changelog.outputs.changes }}
+          draft: false
+          prerelease: false
