@@ -44,7 +44,7 @@
     <artifactId>elemento-core</artifactId>
     <version>1.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Elemento :: Core</name>
+    <name>Elemento Core</name>
     <description>Builder API and other goodies for GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
     <inceptionYear>2022</inceptionYear>
