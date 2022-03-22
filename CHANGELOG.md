@@ -7,10 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 
 - Fix release workflow
+- Adjust URLs for distribution management
 
 ## [1.0.5] - 2022-03-22
 
-### Updated
+### Changed
 
 - Update documentation
 
