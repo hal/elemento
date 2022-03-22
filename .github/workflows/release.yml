@@ -47,7 +47,7 @@ jobs:
 
   publish:
     name: Publish API documentation
-    needs: apidoc
+    needs: deploy
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
