@@ -1,4 +1,4 @@
-[![TC Build](https://ci.wildfly.org/app/rest/builds/buildType:(id:hal_Elemento)/statusIcon.svg)](https://ci.wildfly.org/viewType.html?buildTypeId=hal_Elemento&guest=1) ![GWT3/J2CL compatible](https://img.shields.io/badge/GWT3/J2CL-compatible-brightgreen.svg) [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
+[![Verify Codebase](https://github.com/hal/elemento/actions/workflows/verify.yml/badge.svg)](https://github.com/hal/elemento/actions/workflows/verify.yml) [![Maven Central](https://img.shields.io/maven-central/v/org.jboss.elemento/elemento-core)](https://search.maven.org/search?q=g:org.jboss.elemento%20AND%20a:elemento-core) ![GWT3/J2CL compatible](https://img.shields.io/badge/GWT3/J2CL-compatible-brightgreen.svg) [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html) [![Chat on Gitter](https://badges.gitter.im/hal/elemento.svg)](https://gitter.im/hal/elemento)
 
 # Elemento
 
@@ -28,13 +28,13 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 
 # Get Started
 
-Elemento is available in [Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jboss.elemento/elemento-core). To use it add the following dependency to your POM:
+Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org.jboss.elemento%20AND%20a:elemento-core). To use it add the following dependency to your POM:
 
 ```xml
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>1.0.3</version>
 </dependency>
 ```
  
@@ -309,17 +309,17 @@ See the API documentation of [Elements](https://rawgit.com/hal/elemento/apidoc/o
 
 # J2CL / GWT 3
 
-Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends only on Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`) and GWT project dependencies (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`). But it can also be used with GWT 2.8 and Elemental2 1.0.0-RC1. In this case you have to override the Elemental2 dependencies. See the [GWT 2.8](samples/gwt28) sample for more infos.
+Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends only on Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`) and GWT project dependencies (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`). But it can also be used with GWT 2.8 and Elemental2 1.0.0-RC1. In this case you have to override the Elemental2 dependencies. See the [GWT 2.8](https://github.com/hal/elemento-samples/tree/main/gwt28) sample for more infos.
 
 # Samples
 
 Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application. 
                      
-- [GWT 2.8](samples/gwt28): Uses GWT 2.8 and Elemental 1.0.0-RC1
-- [GWT 2.9](samples/gwt29): Uses GWT 2.9
-- [GWT 3.0](samples/gwt30): Uses GWT HEAD-SNAPSHOT
-- [J2CL](samples/j2cl): Uses J2CL
-- [Crysknife](samples/crysknife): Uses J2CL, Crysknife CDI and Crysknife templates
+- [GWT 2.8](https://github.com/hal/elemento-samples/tree/main/gwt28): Uses GWT 2.8 and Elemental 1.0.0-RC1
+- [GWT 2.9](https://github.com/hal/elemento-samples/tree/main/gwt29): Uses GWT 2.9
+- [GWT 3.0](https://github.com/hal/elemento-samples/tree/main/gwt30): Uses GWT HEAD-SNAPSHOT
+- [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl): Uses J2CL
+- [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife): Uses J2CL, Crysknife CDI and Crysknife templates
 
 All samples are available online at https://hal.github.io/elemento/index.html.
 

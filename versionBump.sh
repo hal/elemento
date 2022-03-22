@@ -1,17 +1,104 @@
-#!/bin/sh
+#!/usr/bin/env bash
+#
+#  Copyright 2022 Red Hat
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
 
-# Use this script to bump the version across all POMs and files containing a version reference.
 
-PROGNAME=`basename "$0"`
+# --------------------------------------------------
+#
+# Bumps the version in Maven POMs and GWT modules
+#
+# --------------------------------------------------
 
-if [ "$#" -ne 1 ]; then
-    echo "Illegal number of arguments. Use '$PROGNAME <version>'"
-else
-    mvn versions:set -DnewVersion=$1 -P samples
-    mvn versions:set -pl core -DnewVersion=$1
-    sed -i.versionsBackup "s/<version>.*<\/version>/<version>$1<\/version>/" README.md
-    sed -i.versionsBackup "s/<elemento\.version>.*<\/elemento\.version>/<elemento\.version>$1<\/elemento\.version>/" samples/gwt/pom.xml
-    sed -i.versionsBackup "s/<elemento\.version>.*<\/elemento\.version>/<elemento\.version>$1<\/elemento\.version>/" samples/j2cl/pom.xml
-    sed -i.versionsBackup "s/<elemento\.version>.*<\/elemento\.version>/<elemento\.version>$1<\/elemento\.version>/" samples/crysknife/pom.xml
-    find . -name "*.versionsBackup" -exec rm {} \;
-fi
+set -Eeuo pipefail
+trap cleanup SIGINT SIGTERM ERR EXIT
+
+VERSION=0.0.1
+
+# Change into the script's directory
+# Using relative paths is safe!
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
+readonly script_dir
+cd "${script_dir}"
+
+usage() {
+  cat <<EOF
+USAGE:
+    $(basename "${BASH_SOURCE[0]}") [FLAGS] <version>
+
+FLAGS:
+    -h, --help          Prints help information
+    -v, --version       Prints version information
+    --no-color          Uses plain text output
+
+ARGS:
+    <version>           The new version
+EOF
+  exit
+}
+
+cleanup() {
+  trap - SIGINT SIGTERM ERR EXIT
+}
+
+setup_colors() {
+  if [[ -t 2 ]] && [[ -z "${NO_COLOR-}" ]] && [[ "${TERM-}" != "dumb" ]]; then
+    NOFORMAT='\033[0m' RED='\033[0;31m' GREEN='\033[0;32m' ORANGE='\033[0;33m' BLUE='\033[0;34m' PURPLE='\033[0;35m' CYAN='\033[0;36m' YELLOW='\033[1;33m'
+  else
+    # shellcheck disable=SC2034
+    NOFORMAT='' RED='' GREEN='' ORANGE='' BLUE='' PURPLE='' CYAN='' YELLOW=''
+  fi
+}
+
+msg() {
+  echo >&2 -e "${1-}"
+}
+
+die() {
+  local msg=$1
+  local code=${2-1} # default exit status 1
+  msg "$msg"
+  exit "$code"
+}
+
+version() {
+  msg "${BASH_SOURCE[0]} $VERSION"
+  exit 0
+}
+
+parse_params() {
+  while :; do
+    case "${1-}" in
+    -h | --help) usage ;;
+    -v | --version) version ;;
+    --no-color) NO_COLOR=1 ;;
+    -?*) die "Unknown option: $1" ;;
+    *) break ;;
+    esac
+    shift
+  done
+
+  ARGS=("$@")
+  [[ ${#ARGS[@]} -eq 0 ]] && die "Missing new version"
+  NEW_VERSION=${ARGS[0]}
+
+  return 0
+}
+
+parse_params "$@"
+setup_colors
+
+msg "Update version to ${CYAN}${NEW_VERSION}${NOFORMAT}"
+mvn versions:set -DnewVersion="${NEW_VERSION}"

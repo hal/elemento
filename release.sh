@@ -1,105 +1,164 @@
-#!/bin/bash
-
-# Script to build, deploy and release Elemento.
+#!/usr/bin/env bash
 #
-# Prerequisites
-#   - Clean git status (no uncommitted changes in branch 'develop')
-#   - No tag for the specified version
+#  Copyright 2022 Red Hat
 #
-# Parameters
-#   1. New version number
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
 #
-# What it does
-#   1. Build branch 'develop'
-#   2. Bump versions to '<version>'
-#   3. Publish API doc
-#   4. Deploy and release w/ git-flow
-#   5. Switch back to 'HEAD-SNAPSHOT'
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
 
 
+# -------------------------------------------------------
+#
+# Creates a new release:
+#   - bump to release version
+#   - update changelog
+#   - commit & push changes
+#   - create & push tag (trigger GitHub release workflow)
+#   - bump to next snapshot version
+#   - commit & push changes
+#
+# -------------------------------------------------------
 
-ROOT=$PWD
-VERSION=$1
+set -Eeuo pipefail
+trap cleanup SIGINT SIGTERM ERR EXIT
 
-function box()
-{
-  local s="$*"
-  tput setaf 3
-  echo
-  echo
-  echo
-  echo " -${s//?/-}-
-| ${s//?/ } |
-| $(tput setaf 4)$s$(tput setaf 3) |
-| ${s//?/ } |
- -${s//?/-}-"
-  tput sgr 0
+VERSION=0.0.1
+
+# Change into the script's directory
+# Using relative paths is safe!
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
+readonly script_dir
+cd "${script_dir}"
+
+usage() {
+  cat <<EOF
+USAGE:
+    $(basename "${BASH_SOURCE[0]}") [FLAGS] <release-version> <next-version>
+
+FLAGS:
+    -h, --help          Prints help information
+    -v, --version       Prints version information
+    --no-color          Uses plain text output
+
+ARGS:
+    <release-version>   The release version (as semver)
+    <next-snapshot>     The next snapshot version  (as semver)
+EOF
+  exit
 }
 
+cleanup() {
+  trap - SIGINT SIGTERM ERR EXIT
+}
 
+setup_colors() {
+  if [[ -t 2 ]] && [[ -z "${NO_COLOR-}" ]] && [[ "${TERM-}" != "dumb" ]]; then
+    NOFORMAT='\033[0m' RED='\033[0;31m' GREEN='\033[0;32m' ORANGE='\033[0;33m' BLUE='\033[0;34m' PURPLE='\033[0;35m' CYAN='\033[0;36m' YELLOW='\033[1;33m'
+  else
+    # shellcheck disable=SC2034
+    NOFORMAT='' RED='' GREEN='' ORANGE='' BLUE='' PURPLE='' CYAN='' YELLOW=''
+  fi
+}
 
-# Prerequisites
-if [[ "$#" -ne 1 ]]; then
-    echo "Illegal number of parameters. Please use $0 <version>"
-    exit 1
-fi
+msg() {
+  echo >&2 -e "${1-}"
+}
 
-if git rev-parse -q --verify "refs/tags/$VERSION" >/dev/null; then
-    echo "A tag for '$VERSION' already exists."
-    exit 1
-fi
+die() {
+  local msg=$1
+  local code=${2-1} # default exit status 1
+  msg "$msg"
+  exit "$code"
+}
 
-git checkout develop
-if ! git diff --no-ext-diff --quiet --exit-code; then
-    echo "Unable to release. You have uncommitted changes in the branch 'develop'."
-    exit 1
-fi
+version() {
+  msg "${BASH_SOURCE[0]} $VERSION"
+  exit 0
+}
 
+parse_params() {
+  while :; do
+    case "${1-}" in
+    -h | --help) usage ;;
+    -v | --version) version ;;
+    --no-color) NO_COLOR=1 ;;
+    -?*) die "Unknown option: $1" ;;
+    *) break ;;
+    esac
+    shift
+  done
 
+  ARGS=("$@")
+  [[ ${#ARGS[@]} -eq 2 ]] || die "Missing release and/or snapshot version"
+  RELEASE_VERSION=${ARGS[0]}
+  NEXT_VERSION=${ARGS[1]}
+  return 0
+}
 
-# Branch 'develop'
-BRANCH=develop
-box "Switch to branch '$BRANCH'"
-git checkout $BRANCH
-git pull origin $BRANCH
+is_semver() {
+    local version
+    version="$1"
+    if [[ ! ${version} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+        return 1
+    fi
+}
 
-box "Build branch '$BRANCH'"
-mvn clean install -P samples || { echo "Maven build failed" ; exit 1; }
+version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
 
-box "Update version to '$VERSION'"
-git flow release start $VERSION
-./versionBump.sh $VERSION
-git commit -am "Bump to $VERSION"
+parse_params "$@"
+setup_colors
 
-box "Deploy '$VERSION'"
-cd core
-mvn deploy -P release || { echo "Maven deploy failed" ; exit 1; }
-cd $ROOT
-export GIT_MERGE_AUTOEDIT=no
-git flow release finish -m "$VERSION" $VERSION
-unset GIT_MERGE_AUTOEDIT
-git push origin develop
-git push origin master
-git push origin --tags
+FINAL_VERSION="${RELEASE_VERSION}"
+SNAPSHOT_VERSION="${NEXT_VERSION}-SNAPSHOT"
+TAG="v${RELEASE_VERSION}"
 
-box "Publish API documentation"
-rm -rf /tmp/elemento
-cd /tmp/
-git clone -b apidoc --single-branch git@github.com:hal/elemento.git
-cd elemento
-unzip $ROOT/core/target/elemento-core-$VERSION-javadoc.jar -d .
-git add --all
-git commit -am "Update API documentation for $VERSION"
-git push -f origin apidoc
-cd $ROOT
+is_semver "${RELEASE_VERSION}" || die "Release version is not a semantic version"
+is_semver "${NEXT_VERSION}" || die "Next version is not a semantic version"
+version_gt "${NEXT_VERSION}" "${RELEASE_VERSION}" || die "Next version must be greater than release version"
+git diff-index --quiet HEAD || die "You have uncommitted changes"
+[[ $(git tag -l "${TAG}") ]] && die "Tag ${TAG} already defined"
 
-box "Back to 'HEAD-SNAPSHOT'"
-git checkout $BRANCH
-./versionBump.sh HEAD-SNAPSHOT
-git commit -am "Back to HEAD-SNAPSHOT"
-git push origin $BRANCH
+msg ""
+msg "Codebase is ready to be released."
+msg ""
+msg "If you decide to continue, this script will "
+msg ""
+msg "   1. Bump the version to ${CYAN}${FINAL_VERSION}${NOFORMAT}"
+msg "   2. Update the ${CYAN}changelog${NOFORMAT} (there should already be entries in the ${CYAN}Unreleased${NOFORMAT} section!)"
+msg "   3. Create a tag for ${CYAN}${TAG}${NOFORMAT}"
+msg "   4. ${CYAN}Commit${NOFORMAT} and ${CYAN}push${NOFORMAT} to origin (which will trigger the ${CYAN}release workflow${NOFORMAT} at GitHub)"
+msg "   5. Bump the version to ${CYAN}${SNAPSHOT_VERSION}${NOFORMAT}"
+msg "   6. ${CYAN}Commit${NOFORMAT} and ${CYAN}push${NOFORMAT} to origin"
+msg ""
+echo "Do you wish to continue?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) break;;
+        No ) die "Aborted ";;
+    esac
+done
 
-
-
-# Done
-box "  <<--==  Elemento successfully released  ==-->>  "
+msg ""
+./versionBump.sh "${FINAL_VERSION}"
+msg "Update changelog"
+mvn --quiet -DskipModules keepachangelog:release &> /dev/null
+msg "Push changes"
+git commit --quiet -am "Release ${RELEASE_VERSION}"
+git push --quiet origin main &> /dev/null
+msg "Push tag"
+git tag "${TAG}"
+git push --quiet --tags origin main &> /dev/null
+./versionBump.sh "${SNAPSHOT_VERSION}"
+msg "Push changes"
+git commit --quiet -am "Next is ${NEXT_VERSION}"
+git push --quiet origin main &> /dev/null
+msg "Done. Watch the release workflow at https://github.com/hal/elemento/actions/workflows/release.yml"
