@@ -8,33 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.0.7] - 2022-03-22
 
-### Changed
-
-- Update links to API documentation
-- Adjust branch names in CONTRIBUTING.md
-
-### Fixed
-
-- Fix release workflow
-
-## [1.0.6] - 2022-03-22
-
-### Changed
-
-- Adjust URLs for distribution management
-
-### Fixed
-
-- Fix release workflow
-
-## [1.0.5] - 2022-03-22
-
-### Changed
-
-- Update documentation
-
-## [1.0.4] - 2022-03-22
-
 ### Added
 
 - Add dependabot
@@ -45,8 +18,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
+- Update documentation
+- Update links to API documentation
 - Move away from git flow
 - Change default branch `develop` → `main`
+- Adjust branch names in CONTRIBUTING.md
+- Adjust URLs for distribution management
 - Move samples to its own repository: https://github.com/hal/elemento-samples
 
 ## [1.0.3] - 2020-11-25
@@ -433,9 +410,6 @@ Switch to Apache2 license
 
 [Unreleased]: https://github.com/hal/elemento/compare/v1.0.7...HEAD
 [1.0.7]: https://github.com/hal/elemento/compare/v1.0.6...v1.0.7
-[1.0.6]: https://github.com/hal/elemento/compare/v1.0.5...v1.0.6
-[1.0.5]: https://github.com/hal/elemento/compare/v1.0.4...v1.0.5
-[1.0.4]: https://github.com/hal/elemento/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/hal/elemento/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/hal/elemento/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/hal/elemento/compare/v1.0.0...v1.0.1
