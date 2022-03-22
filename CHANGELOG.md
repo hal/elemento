@@ -11,10 +11,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Update links to API documentation
 - Adjust branch names in CONTRIBUTING.md
 
-## [1.0.6] - 2022-03-22
+### Fixed
 
 - Fix release workflow
+
+## [1.0.6] - 2022-03-22
+
+### Changed
+
 - Adjust URLs for distribution management
+
+### Fixed
+
+- Fix release workflow
 
 ## [1.0.5] - 2022-03-22
 
