@@ -8,10 +8,6 @@ We expect all contributors and users to follow our [Code of Conduct](CODE_OF_CON
 
 If you don't have one already, head to https://github.com/
 
-## Git Flow
-
-We use [Git Flow](https://github.com/nvie/gitflow) to manage branches. Although it's no requirement, it helps if you've read and understood the [basic ideas](http://nvie.com/posts/a-successful-git-branching-model/) behind Git Flow. The most important fact is that development happens in the `develop` branch and that the latest stable version is always available in branch `master`.
-
 ## Fork Elemento
 
 Fork https://github.com/hal/elemento into your GitHub account.
@@ -60,10 +56,10 @@ git checkout -b my_cool_feature
 
 ## Make the changes
 
-Make whatever code changes, including new tests to verify your change, are necessary and ensure that the build and tests pass. Make sure your code changes apply to the checkstyle rules defined at [build/checkstyle.xml](build/checkstyle.xml):
+Make whatever code changes, including new tests to verify your change, are necessary and ensure that the build and tests pass. Make sure your code changes apply to the checkstyle rules:
 
 ```bash
-mvn clean install
+mvn clean verify
 ```
 
 > If you're making non code changes, the above step is not required.
@@ -101,8 +97,8 @@ Now your updates are in your GitHub repo, you will need to notify the project th
  * Lastly, switch back to develop from your topic branch and pull the updates
 
 ```bash
-git checkout develop
-git pull upstream develop
+git checkout main
+git pull upstream main
 ```
 
  * You may also choose to update your origin on GitHub as well
