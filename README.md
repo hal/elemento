@@ -6,7 +6,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
 - [Helper methods](#goodies) to manipulate the DOM tree
-- Ready to be used with GWT 2.8, GWT 2.9, J2CL and next gen GWT (GWT3)
+- Ready to be used with current and future GWT releases and J2CL
 - Minimal dependencies
   - Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
   - GWT (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`)  
@@ -21,7 +21,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [Goodies](#goodies)
   * [Attach / Detach](#attach--detach)
   * [Iterators / Iterables / Streams](#iterators--iterables--streams)
-* [J2CL / GWT3](#j2cl--gwt-3)
+* [GWT / J2CL](#gwt--j2cl)
 * [Samples](#samples)
 * [Contributing](#contributing)
 * [Get Help](#get-help)
@@ -307,21 +307,19 @@ Elemento provides several methods to iterate over node lists, child elements or 
 
 See the API documentation of [Elements](https://hal.github.io/elemento/org/jboss/elemento/Elements.html) for more details.
 
-# J2CL / GWT 3
+# GWT / J2CL
 
-Elemento is ready to be used with J2CL and GWT 3.0. It has no dependencies to classes from `com.google.gwt`. Elemento depends only on Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`) and GWT project dependencies (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`). But it can also be used with GWT 2.8 and Elemental2 1.0.0-RC1. In this case you have to override the Elemental2 dependencies. See the [GWT 2.8](https://github.com/hal/elemento-samples/tree/main/gwt28) sample for more infos.
+Elemento is ready to be used with current and future GWT releases and J2CL. It has no dependencies to classes from `com.google.gwt`. Elemento depends only on Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`) and GWT project dependencies (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`).
 
 # Samples
 
-Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application. 
+Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application using Elemento in different setups: 
                      
-- [GWT 2.8](https://github.com/hal/elemento-samples/tree/main/gwt28): Uses GWT 2.8 and Elemental 1.0.0-RC1
-- [GWT 2.9](https://github.com/hal/elemento-samples/tree/main/gwt29): Uses GWT 2.9
-- [GWT 3.0](https://github.com/hal/elemento-samples/tree/main/gwt30): Uses GWT HEAD-SNAPSHOT
-- [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl): Uses J2CL
-- [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife): Uses J2CL, Crysknife CDI and Crysknife templates
+- [GWT](https://github.com/hal/elemento-samples/tree/main/gwt)
+- [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl)
+- [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife): J2CL, Crysknife CDI and Crysknife templates
 
-All samples are available online at https://hal.github.io/elemento/index.html.
+All samples are available online at https://hal.github.io/elemento-samples/
 
 # Contributing
 
