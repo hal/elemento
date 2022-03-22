@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- Update links to API documentation
+
 ## [1.0.6] - 2022-03-22
 
 - Fix release workflow
