@@ -313,13 +313,13 @@ Elemento is ready to be used with current and future GWT releases and J2CL. It h
 
 # Samples
 
-Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application using Elemento in different setups: 
+Elemento comes with different implementations of the [TodoMVC](http://todomvc.com/) application using Elemento using different frameworks: 
                      
 - [GWT](https://github.com/hal/elemento-samples/tree/main/gwt)
 - [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl)
-- [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife): J2CL, Crysknife CDI and Crysknife templates
+- [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife)
 
-All samples are available online at https://hal.github.io/elemento-samples/
+All [samples](https://github.com/hal/elemento-samples) are available online at https://hal.github.io/elemento-samples/
 
 # Contributing
 
