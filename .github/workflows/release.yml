@@ -69,7 +69,7 @@ jobs:
         id: publish
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          branch: apidic
+          branch: apidoc
           folder: ./target/site/apidocs
           clean: true
 
