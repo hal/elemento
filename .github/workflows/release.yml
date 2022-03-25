@@ -57,10 +57,12 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v3
-      - name: GWT.com
-        id: gwtcom
+      - name: Update Version
+        id: update-version
+        run: $MVN versions:set -DnewVersion="${{ steps.get-version.outputs.version-without-v }}-gwtcom"
+      - name: Replace Code
+        id: replace-code
         run: |
-          ./versionBump.sh ${{ steps.get-version.outputs.version-without-v }}-gwtcom
           sed -f sed/pom.sed pom.xml
           sed -f sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
           sed -f sed/import.sed src/main/java/org/jboss/elemento/Elements.java
