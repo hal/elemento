@@ -1,0 +1,34 @@
+name: GWT.com
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy-gwtcom:
+    name: Deploy GWT.com Maven Artifacts
+    runs-on: ubuntu-latest
+    env:
+      MVN: ./mvnw --show-version --batch-mode
+    steps:
+      - name: Get Version
+        id: get-version
+        uses: battila7/get-version-action@v2.3.0
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+      - name: GWT.com
+        id: gwtcom
+        run: |
+          ./versionBump.sh ${{ steps.get-version.outputs.version-without-v }}-gwtcom
+          sed -f sed/pom.sed pom.xml
+          sed -f sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
+          sed -f sed/import.sed src/main/java/org/jboss/elemento/Elements.java
+          sed -f sed/import.sed src/main/java/org/jboss/elemento/EventType.java
+          sed -f sed/import.sed src/main/java/org/jboss/elemento/HtmlContent.java
+      - name: Results
+        id: results
+        run: |
+          more pom.xml

@@ -107,4 +107,5 @@ sed -i '' -f sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
 msg "    ${YELLOW}✓${NOFORMAT} GWT module"
 sed -i '' -f sed/import.sed src/main/java/org/jboss/elemento/Elements.java
 sed -i '' -f sed/import.sed src/main/java/org/jboss/elemento/EventType.java
+sed -i '' -f sed/import.sed src/main/java/org/jboss/elemento/HtmlContent.java
 msg "    ${YELLOW}✓${NOFORMAT} Java imports"
