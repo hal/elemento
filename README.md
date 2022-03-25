@@ -9,7 +9,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 - Ready to be used with current and future GWT releases and J2CL
 - Minimal dependencies
   - Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
-  - GWT (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`)  
+  - GWT (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`)
 
 **TOC**  
 * [Get Started](#get-started)
@@ -21,7 +21,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [Goodies](#goodies)
   * [Attach / Detach](#attach--detach)
   * [Iterators / Iterables / Streams](#iterators--iterables--streams)
-* [GWT / J2CL](#gwt--j2cl)
+* [GWT.com](#gwtcom)
 * [Samples](#samples)
 * [Contributing](#contributing)
 * [Get Help](#get-help)
@@ -307,15 +307,36 @@ Elemento provides several methods to iterate over node lists, child elements or 
 
 See the API documentation of [Elements](https://hal.github.io/elemento/org/jboss/elemento/Elements.html) for more details.
 
-# GWT / J2CL
+# GWT.com
 
-Elemento is ready to be used with current and future GWT releases and J2CL. It has no dependencies to classes from `com.google.gwt`. Elemento depends only on Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`) and GWT project dependencies (`org.gwtproject.event:gwt-event:1.0.0-RC1` and `org.gwtproject.safehtml:gwt-safehtml:1.0.0-RC1`).
+Elemento depends on GWT project dependencies (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`). For those still relying on GWT.com (`com.google.gwt:gwt-user`) there's a `-gwtcom` version pendant available (starting with version `1.0.8`). 
+
+To use it replace
+
+```xml
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-core</artifactId>
+    <version>1.0.7</version>
+</dependency>
+```
+
+with 
+
+```xml
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-core</artifactId>
+    <version>1.0.7-gwtcom</version>
+</dependency>
+```
 
 # Samples
 
 Elemento comes with different [implementations](https://github.com/hal/elemento-samples) of the [TodoMVC](http://todomvc.com/) application using different frameworks: 
                      
 - [GWT](https://github.com/hal/elemento-samples/tree/main/gwt)
+- [GWT.com](https://github.com/hal/elemento-samples/tree/main/gwtcom)
 - [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl)
 - [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife)
 

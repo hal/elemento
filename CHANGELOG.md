@@ -6,6 +6,66 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+This release adds a GWT.com compatible version of Elemento: `1.0.8-gwtcom`. 
+
+This version differs from `1.0.8` in the following points:
+
+### Dependencies
+
+#### 1.0.8
+
+```xml
+<dependency>
+    <groupId>org.gwtproject.event</groupId>
+    <artifactId>gwt-event</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.gwtproject.safehtml</groupId>
+    <artifactId>gwt-safehtml</artifactId>
+</dependency>
+```
+
+#### 1.0.8-gwtcom
+
+```xml
+<dependency>
+    <groupId>com.google.gwt</groupId>
+    <artifactId>gwt-user</artifactId>
+</dependency>
+```
+
+# GWT Module
+
+#### 1.0.8
+
+```xml
+<inherits name="org.gwtproject.event.Event"/>
+<inherits name="org.gwtproject.safehtml.SafeHtml"/>
+```
+
+#### 1.0.8-gwtcom
+
+```xml
+<inherits name="com.google.event.Event"/>
+<inherits name="com.google.safehtml.SafeHtml"/>
+```
+
+# Classes
+
+#### 1.0.8
+
+```java
+import org.gwtproject.safehtml.shared.SafeHtml;
+import org.gwtproject.event.shared.HandlerRegistration;
+```
+
+#### 1.0.8-gwtcom
+
+```java
+import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.web.bindery.event.shared.HandlerRegistration;
+```
+
 ## [1.0.7] - 2022-03-22
 
 ### Added
