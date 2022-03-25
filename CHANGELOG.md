@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.0.8] - 2022-03-25
+
 This release adds a GWT.com compatible version of Elemento: `1.0.8-gwtcom`. 
 
 This version differs from `1.0.8` in the following points:
@@ -468,8 +470,9 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.0.7...HEAD
-[1.0.7]: https://github.com/hal/elemento/compare/v1.0.6...v1.0.7
+[Unreleased]: https://github.com/hal/elemento/compare/v1.0.8...HEAD
+[1.0.8]: https://github.com/hal/elemento/compare/v1.0.7...v1.0.8
+[1.0.7]: https://github.com/hal/elemento/compare/v1.0.3...v1.0.7
 [1.0.3]: https://github.com/hal/elemento/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/hal/elemento/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/hal/elemento/compare/v1.0.0...v1.0.1
