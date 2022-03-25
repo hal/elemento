@@ -23,11 +23,11 @@ jobs:
         id: gwtcom
         run: |
           ./versionBump.sh ${{ steps.get-version.outputs.version-without-v }}-gwtcom
-          sed -f sed/pom.sed pom.xml
-          sed -f sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
-          sed -f sed/import.sed src/main/java/org/jboss/elemento/Elements.java
-          sed -f sed/import.sed src/main/java/org/jboss/elemento/EventType.java
-          sed -f sed/import.sed src/main/java/org/jboss/elemento/HtmlContent.java
+          sed -nf sed/pom.sed pom.xml
+          sed -nf sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
+          sed -nf sed/import.sed src/main/java/org/jboss/elemento/Elements.java
+          sed -nf sed/import.sed src/main/java/org/jboss/elemento/EventType.java
+          sed -nf sed/import.sed src/main/java/org/jboss/elemento/HtmlContent.java
       - name: Results
         id: results
         run: |
