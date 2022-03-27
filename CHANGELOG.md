@@ -6,15 +6,41 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added 
+
+- Add documentation for GWT.com related release
+
+### Changed
+
+- Fix GWT.com related release process
+
 ## [1.0.8] - 2022-03-25
 
-This release adds a GWT.com compatible version of Elemento: `1.0.8-gwtcom`. 
+Starting with this release, Elemento comes with GWT.com compatible versions. The GWT.com compatible versions end with suffix `-gwtcom`. To use it replace
 
-This version differs from `1.0.8` in the following points:
+```xml
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-core</artifactId>
+    <version>1.0.8</version>
+</dependency>
+```
+
+with
+
+```xml
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-core</artifactId>
+    <version>1.0.8-gwtcom</version>
+</dependency>
+```
+
+The GWT.com compatible versions differ in the following points:
 
 ### Dependencies
 
-#### 1.0.8
+#### GWT Project
 
 ```xml
 <dependency>
@@ -27,7 +53,7 @@ This version differs from `1.0.8` in the following points:
 </dependency>
 ```
 
-#### 1.0.8-gwtcom
+#### GWT.com
 
 ```xml
 <dependency>
@@ -36,32 +62,32 @@ This version differs from `1.0.8` in the following points:
 </dependency>
 ```
 
-# GWT Module
+### GWT Module
 
-#### 1.0.8
+#### GWT Project
 
 ```xml
 <inherits name="org.gwtproject.event.Event"/>
 <inherits name="org.gwtproject.safehtml.SafeHtml"/>
 ```
 
-#### 1.0.8-gwtcom
+#### GWT.com
 
 ```xml
 <inherits name="com.google.event.Event"/>
 <inherits name="com.google.safehtml.SafeHtml"/>
 ```
 
-# Classes
+### Classes
 
-#### 1.0.8
+#### GWT Project
 
 ```java
 import org.gwtproject.safehtml.shared.SafeHtml;
 import org.gwtproject.event.shared.HandlerRegistration;
 ```
 
-#### 1.0.8-gwtcom
+#### GWT.com
 
 ```java
 import com.google.gwt.safehtml.shared.SafeHtml;

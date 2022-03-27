@@ -9,7 +9,8 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 - Ready to be used with current and future GWT releases and J2CL
 - Minimal dependencies
   - Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
-  - GWT (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`)
+  - GWT project (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`) *or*
+  - GWT.com (`com.google.gwt:gwt-user`)
 
 **TOC**  
 * [Get Started](#get-started)
@@ -34,7 +35,7 @@ Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
  
@@ -309,7 +310,7 @@ See the API documentation of [Elements](https://hal.github.io/elemento/org/jboss
 
 # GWT.com
 
-Elemento depends on GWT project dependencies (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`). For those still relying on GWT.com (`com.google.gwt:gwt-user`) there's a `-gwtcom` version pendant available (starting with version `1.0.8`). 
+Elemento depends on GWT project dependencies (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`). For those still relying on GWT.com (`com.google.gwt:gwt-user`) there are `-gwtcom` compatible versions available.  
 
 To use it replace
 
@@ -317,7 +318,7 @@ To use it replace
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
@@ -327,15 +328,73 @@ with
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.0.7-gwtcom</version>
+    <version>1.0.8-gwtcom</version>
 </dependency>
+```
+
+The GWT.com compatible versions differ in the following points:
+
+## Dependencies
+
+### GWT Project
+
+```xml
+<dependency>
+    <groupId>org.gwtproject.event</groupId>
+    <artifactId>gwt-event</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.gwtproject.safehtml</groupId>
+    <artifactId>gwt-safehtml</artifactId>
+</dependency>
+```
+
+### GWT.com
+
+```xml
+<dependency>
+    <groupId>com.google.gwt</groupId>
+    <artifactId>gwt-user</artifactId>
+</dependency>
+```
+
+## GWT Module
+
+### GWT Project
+
+```xml
+<inherits name="org.gwtproject.event.Event"/>
+<inherits name="org.gwtproject.safehtml.SafeHtml"/>
+```
+
+### GWT.com
+
+```xml
+<inherits name="com.google.event.Event"/>
+<inherits name="com.google.safehtml.SafeHtml"/>
+```
+
+## Classes
+
+### GWT Project
+
+```java
+import org.gwtproject.safehtml.shared.SafeHtml;
+import org.gwtproject.event.shared.HandlerRegistration;
+```
+
+### GWT.com
+
+```java
+import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 ```
 
 # Samples
 
 Elemento comes with different [implementations](https://github.com/hal/elemento-samples) of the [TodoMVC](http://todomvc.com/) application using different frameworks: 
                      
-- [GWT](https://github.com/hal/elemento-samples/tree/main/gwt)
+- [GWT project](https://github.com/hal/elemento-samples/tree/main/gwtproject)
 - [GWT.com](https://github.com/hal/elemento-samples/tree/main/gwtcom)
 - [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl)
 - [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife)

@@ -73,9 +73,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:${repo.scm.connection}</connection>
-        <developerConnection>scm:git:${repo.scm.connection}</developerConnection>
-        <url>${repo.scm.url}</url>
+        <connection>scm:git:git@github.com:hal/elemento.git</connection>
+        <developerConnection>scm:git:git@github.com:hal/elemento.git</developerConnection>
+        <url>https://github.com/hal/elemento</url>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
@@ -109,10 +109,6 @@
         <version.keepachangelog>2.1.1</version.keepachangelog>
         <version.license.plugin>4.1</version.license.plugin>
         <version.nexus.staging.plugin>1.6.8</version.nexus.staging.plugin>
-
-        <!-- Repos, URLs & protocols -->
-        <repo.scm.connection>git@github.com:hal/elemento.git</repo.scm.connection>
-        <repo.scm.url>https://github.com/hal/elemento</repo.scm.url>
 
         <!-- Build related -->
         <encoding>UTF-8</encoding>

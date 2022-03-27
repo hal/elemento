@@ -150,7 +150,7 @@ done
 msg ""
 ./versionBump.sh "${FINAL_VERSION}"
 msg "Update README & changelog"
-sed -i '' "s/<version>[0-9]+\.[0-9]+\.[0-9]+/<version>$FINAL_VERSION/" README.md
+sed -i '' -E "s/<version>[0-9]+\.[0-9]+\.[0-9]+(.*)<\/version>/<version>$FINAL_VERSION\1<\/version>/" README.md
 mvn --quiet -DskipModules keepachangelog:release &> /dev/null
 msg "Push changes"
 git commit --quiet -am "Release ${RELEASE_VERSION}"
