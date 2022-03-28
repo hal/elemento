@@ -99,7 +99,7 @@ jobs:
 
   publish:
     name: Publish API documentation
-    needs: deploy
+    needs: [deploy, deploy-gwt]
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
@@ -127,7 +127,7 @@ jobs:
 
   release:
     name: Create GitHub Release
-    needs: deploy
+    needs: [deploy, deploy-gwt]
     runs-on: ubuntu-latest
     steps:
       - name: Get Version
