@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.0.10] - 2022-03-28
 
+## [1.0.10] - 2022-03-28
+
 ### Changed
 
 - Update GitHub release workflow
@@ -510,6 +512,7 @@ Switch to Apache2 license
 -->
 
 [Unreleased]: https://github.com/hal/elemento/compare/v1.0.10...HEAD
+[1.0.10]: https://github.com/hal/elemento/compare/v1.0.10...v1.0.10
 [1.0.10]: https://github.com/hal/elemento/compare/v1.0.9...v1.0.10
 [1.0.9]: https://github.com/hal/elemento/compare/v1.0.8...v1.0.9
 [1.0.8]: https://github.com/hal/elemento/compare/v1.0.7...v1.0.8
