@@ -10,9 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Add documentation for GWT.com related release
 
-### Changed
+### Fixed
 
 - Fix GWT.com related release process
+- Fix wrong GWT.com module names
 
 ## [1.0.8] - 2022-03-25
 
@@ -74,8 +75,8 @@ The GWT.com compatible versions differ in the following points:
 #### GWT.com
 
 ```xml
-<inherits name="com.google.event.Event"/>
-<inherits name="com.google.safehtml.SafeHtml"/>
+<inherits name="com.google.gwt.event.Event"/>
+<inherits name="com.google.gwt.safehtml.SafeHtml"/>
 ```
 
 ### Classes
