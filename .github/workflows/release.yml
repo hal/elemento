@@ -63,11 +63,11 @@ jobs:
       - name: Replace Code
         id: replace-code
         run: |
-          sed -f sed/pom.sed pom.xml
-          sed -f sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
-          sed -f sed/import.sed src/main/java/org/jboss/elemento/Elements.java
-          sed -f sed/import.sed src/main/java/org/jboss/elemento/EventType.java
-          sed -f sed/import.sed src/main/java/org/jboss/elemento/HtmlContent.java
+          sed -i -f sed/pom.sed pom.xml
+          sed -i -f sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
+          sed -i -f sed/import.sed src/main/java/org/jboss/elemento/Elements.java
+          sed -i -f sed/import.sed src/main/java/org/jboss/elemento/EventType.java
+          sed -i -f sed/import.sed src/main/java/org/jboss/elemento/HtmlContent.java
       - name: Set up JDK
         id: setup-jdk
         uses: actions/setup-java@v2
