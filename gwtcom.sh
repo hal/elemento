@@ -25,6 +25,10 @@
 #   - GWT module inherit statements
 #   - Java import statements
 #
+# The modifications made by this script are part of the
+# release workflow and are not meant to be run on its own.
+# Run this script manually only if you know what you're doing!
+#
 # -------------------------------------------------------
 
 set -Eeuo pipefail
