@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.0.10] - 2022-03-28
 
-## [1.0.10] - 2022-03-28
-
 ### Changed
 
 - Update GitHub release workflow
