@@ -370,8 +370,8 @@ The GWT.com compatible versions differ in the following points:
 ### GWT.com
 
 ```xml
-<inherits name="com.google.event.Event"/>
-<inherits name="com.google.safehtml.SafeHtml"/>
+<inherits name="com.google.gwt.event.Event"/>
+<inherits name="com.google.gwt.safehtml.SafeHtml"/>
 ```
 
 ## Classes
@@ -394,8 +394,8 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 
 Elemento comes with different [implementations](https://github.com/hal/elemento-samples) of the [TodoMVC](http://todomvc.com/) application using different frameworks: 
                      
-- [GWT project](https://github.com/hal/elemento-samples/tree/main/gwtproject)
 - [GWT.com](https://github.com/hal/elemento-samples/tree/main/gwtcom)
+- [GWT project](https://github.com/hal/elemento-samples/tree/main/gwtproject)
 - [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl)
 - [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife)
 
