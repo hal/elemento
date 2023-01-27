@@ -99,7 +99,7 @@
         <version.elemental2>1.1.0</version.elemental2>
         <version.gwt.event>1.0.0-RC1</version.gwt.event>
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
-        <version.junit>5.8.2</version.junit>
+        <version.junit>5.9.2</version.junit>
 
         <!-- Plugin versions -->
         <version.checkstyle.plugin>3.1.1</version.checkstyle.plugin>
@@ -224,6 +224,7 @@
                         <excludes>
                             <exclude>.sdkmanrc</exclude>
                             <exclude>LICENSE</exclude>
+                            <exclude>sed/*.sed</exclude>
                             <exclude>**/*license*.txt</exclude>
                         </excludes>
                     </configuration>
