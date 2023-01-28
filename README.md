@@ -394,10 +394,8 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 
 Elemento comes with different [implementations](https://github.com/hal/elemento-samples) of the [TodoMVC](http://todomvc.com/) application using different frameworks: 
                      
-- [GWT.com](https://github.com/hal/elemento-samples/tree/main/gwtcom)
 - [GWT project](https://github.com/hal/elemento-samples/tree/main/gwtproject)
 - [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl)
-- [Crysknife](https://github.com/hal/elemento-samples/tree/main/crysknife)
 
 All samples are available online at https://hal.github.io/elemento-samples/
 
