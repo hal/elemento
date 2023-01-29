@@ -119,7 +119,7 @@ jobs:
         run: $MVN javadoc:javadoc
       - name: Publish
         id: publish
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: apidoc
           folder: ./target/site/apidocs
