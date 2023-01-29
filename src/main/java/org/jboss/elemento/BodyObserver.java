@@ -24,6 +24,7 @@ import elemental2.dom.MutationObserverInit;
 import elemental2.dom.MutationRecord;
 import jsinterop.base.Js;
 
+import static elemental2.dom.DomGlobal.console;
 import static elemental2.dom.DomGlobal.document;
 import static java.util.stream.Collectors.toList;
 import static org.jboss.elemento.Elements.asHtmlElement;
@@ -42,6 +43,7 @@ final class BodyObserver {
     private static void startObserving() {
         MutationObserver mutationObserver = new MutationObserver((mutationRecords, observer) -> {
             MutationRecord[] records = Js.uncheckedCast(mutationRecords);
+            // noinspection DataFlowIssue,ForLoopReplaceableByForEach
             for (int i = 0; i < records.length; i++) {
                 onElementsRemoved(records[i]);
                 onElementsAppended(records[i]);
@@ -52,8 +54,12 @@ final class BodyObserver {
         MutationObserverInit mutationObserverInit = MutationObserverInit.create();
         mutationObserverInit.setChildList(true);
         mutationObserverInit.setSubtree(true);
-        mutationObserver.observe(document.body, mutationObserverInit);
-        ready = true;
+        if (document.body == null) {
+            console.error("Cannot start observing elements. Document is not ready yet!");
+        } else {
+            mutationObserver.observe(document.body, mutationObserverInit);
+            ready = true;
+        }
     }
 
     @SuppressWarnings("DuplicatedCode")
