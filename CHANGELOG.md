@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.0.11] - 2023-01-29
+
 ### Changed
 
 - Add safety check to mutation observer
@@ -517,8 +519,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.0.10...HEAD
-[1.0.10]: https://github.com/hal/elemento/compare/v1.0.10...v1.0.10
+[Unreleased]: https://github.com/hal/elemento/compare/v1.0.11...HEAD
+[1.0.11]: https://github.com/hal/elemento/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/hal/elemento/compare/v1.0.9...v1.0.10
 [1.0.9]: https://github.com/hal/elemento/compare/v1.0.8...v1.0.9
 [1.0.8]: https://github.com/hal/elemento/compare/v1.0.7...v1.0.8
