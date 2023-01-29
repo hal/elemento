@@ -10,20 +10,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "com.google.elemental2:*"
-        versions: ["*"]
-      - dependency-name: "com.google.guava:guava"
-        versions: ["*"]
-
-  - package-ecosystem: "npm"
-    directory: "/app"
-    schedule:
-      interval: "daily"
-    ignore:
-      - dependency-name: "bootstrap"
-        versions: [">=4"]
-      - dependency-name: "d3"
-        versions: [">=6"]
-      - dependency-name: "datatables.net-buttons"
-        versions: [">=2"]
