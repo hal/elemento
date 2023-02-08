@@ -104,7 +104,7 @@
         <!-- Plugin versions -->
         <version.checkstyle.plugin>3.1.1</version.checkstyle.plugin>
         <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
-        <version.formatter.plugin>2.21.0</version.formatter.plugin>
+        <version.formatter.plugin>2.22.0</version.formatter.plugin>
         <version.impsort.plugin>1.8.0</version.impsort.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
         <version.license.plugin>4.1</version.license.plugin>
