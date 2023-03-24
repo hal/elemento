@@ -107,7 +107,7 @@
         <version.formatter.plugin>2.22.0</version.formatter.plugin>
         <version.impsort.plugin>1.8.0</version.impsort.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
-        <version.license.plugin>4.1</version.license.plugin>
+        <version.license.plugin>4.2</version.license.plugin>
         <version.nexus.staging.plugin>1.6.13</version.nexus.staging.plugin>
 
         <!-- Build related -->
