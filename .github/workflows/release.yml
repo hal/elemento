@@ -20,7 +20,7 @@ jobs:
         id: setup-jdk
         uses: actions/setup-java@v3
         with:
-          java-version: 11
+          java-version: 17
           distribution: temurin
           cache: maven
       - name: Package
@@ -30,7 +30,7 @@ jobs:
         id: setup-maven-settings
         uses: actions/setup-java@v3
         with: # running setup-java again overwrites the settings.xml
-          java-version: 11
+          java-version: 17
           distribution: temurin
           server-id: ossrh
           server-username: OSSRH_USERNAME
@@ -72,7 +72,7 @@ jobs:
         id: setup-jdk
         uses: actions/setup-java@v3
         with:
-          java-version: 11
+          java-version: 17
           distribution: temurin
           cache: maven
       - name: Package
@@ -82,7 +82,7 @@ jobs:
         id: setup-maven-settings
         uses: actions/setup-java@v3
         with: # running setup-java again overwrites the settings.xml
-          java-version: 11
+          java-version: 17
           distribution: temurin
           server-id: ossrh
           server-username: OSSRH_USERNAME
@@ -111,7 +111,7 @@ jobs:
         id: setup-jdk
         uses: actions/setup-java@v3
         with:
-          java-version: 11
+          java-version: 17
           distribution: temurin
           cache: maven
       - name: JavaDoc

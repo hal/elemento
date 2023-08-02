@@ -102,8 +102,8 @@
         <version.junit>5.10.0</version.junit>
 
         <!-- Plugin versions -->
-        <version.checkstyle.plugin>3.1.1</version.checkstyle.plugin>
-        <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
+        <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>
+        <version.enforcer.plugin>3.3.0</version.enforcer.plugin>
         <version.formatter.plugin>2.23.0</version.formatter.plugin>
         <version.impsort.plugin>1.9.0</version.impsort.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
