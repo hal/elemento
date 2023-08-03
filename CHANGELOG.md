@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.0.13] - 2023-08-03
+
 ### Upgrades
 
 - Upgrade to Java 17
@@ -531,7 +533,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.0.12...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.0.13...HEAD
+[1.0.13]: https://github.com/hal/elemento/compare/v1.0.12...v1.0.13
 [1.0.12]: https://github.com/hal/elemento/compare/v1.0.11...v1.0.12
 [1.0.11]: https://github.com/hal/elemento/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/hal/elemento/compare/v1.0.9...v1.0.10
