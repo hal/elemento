@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.0.14] - 2023-08-17
+
 ### Added
 
 - Add methods to set `int` and `boolean` (aria) attributes:
@@ -545,7 +547,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.0.13...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.0.14...HEAD
+[1.0.14]: https://github.com/hal/elemento/compare/v1.0.13...v1.0.14
 [1.0.13]: https://github.com/hal/elemento/compare/v1.0.12...v1.0.13
 [1.0.12]: https://github.com/hal/elemento/compare/v1.0.11...v1.0.12
 [1.0.11]: https://github.com/hal/elemento/compare/v1.0.10...v1.0.11
