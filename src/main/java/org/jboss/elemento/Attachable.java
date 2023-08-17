@@ -21,7 +21,11 @@ import elemental2.dom.MutationRecord;
 import static org.jboss.elemento.Elements.onAttach;
 import static org.jboss.elemento.Elements.onDetach;
 
-/** Interface to get notified when an element has been attached / detached from the DOM. */
+/**
+ * Interface to get notified when an element has been attached / detached from the DOM.
+ * <p>
+ * {@snippet class = Greeting region = attach}
+ */
 public interface Attachable {
 
     /** Registers the specified element for both attach and detach. */

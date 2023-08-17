@@ -42,7 +42,8 @@ import jsinterop.base.Js;
 /**
  * Known event types used in {@link ElementBuilder#on(EventType, EventCallbackFn)}.
  *
- * @see <a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a>
+ * @see <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a>
  */
 public class EventType<T extends Event, V extends EventTarget> {
 
@@ -146,48 +147,85 @@ public class EventType<T extends Event, V extends EventTarget> {
 
     // ------------------------------------------------------ binding methods
 
-    /** Registers an event handler. */
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
     public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
             EventCallbackFn<T> listener) {
         return bind(target, type.name, e -> listener.onEvent(Js.cast(e)));
     }
 
-    /** Registers an event handler. */
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
     public static HandlerRegistration bind(EventTarget target, String type, EventListener listener) {
         target.addEventListener(type, listener);
         return () -> target.removeEventListener(type, listener);
     }
 
-    /** Registers an event handler. */
-    public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type, boolean useCapture,
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
+    public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
+            boolean useCapture,
             EventCallbackFn<T> listener) {
         return bind(target, type.name, useCapture, e -> listener.onEvent(Js.cast(e)));
     }
 
-    /** Registers an event handler. */
-    public static HandlerRegistration bind(EventTarget target, String type, boolean useCapture, EventListener listener) {
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
+    public static HandlerRegistration bind(EventTarget target, String type, boolean useCapture,
+            EventListener listener) {
         target.addEventListener(type, listener, useCapture);
         return () -> target.removeEventListener(type, listener, useCapture);
     }
 
-    /** Registers an event handler. */
-    public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target, EventType<T, ?> type,
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
+    public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
+            EventType<T, ?> type,
             EventCallbackFn<T> listener) {
         return bind(target.element(), type, listener);
     }
 
-    /** Registers an event handler. */
-    public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target, String type, EventListener listener) {
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
+    public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target, String type,
+            EventListener listener) {
         return bind(target.element(), type, listener);
     }
 
-    /** Registers an event handler. */
-    public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target, EventType<T, ?> type,
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
+    public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
+            EventType<T, ?> type,
             boolean useCapture, EventCallbackFn<T> listener) {
         return bind(target.element(), type, useCapture, listener);
     }
 
-    /** Registers an event handler. */
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
     public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target, String type, boolean useCapture,
             EventListener listener) {
         return bind(target.element(), type, useCapture, listener);

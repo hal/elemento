@@ -27,17 +27,7 @@ import static java.util.stream.Collectors.joining;
  * Typesafe CSS selector API.
  * <p>
  * Use the static methods in this class to create arbitrary complex CSS selectors:
- * <p>
- *
- * <pre>
- * // #main [data-list-item=foo] a[href^="http://"] > .fas.fa-check, .external[hidden]
- * By.group(
- *         By.id("main")
- *                 .desc(By.data("listItem", "foo")
- *                         .desc(By.element("a").and(By.attribute("href", STARTS_WITH, "http://"))
- *                                 .child(By.classnames("fas", "fa-check")))),
- *         By.classname("external").and(By.attribute("hidden")));
- * </pre>
+ * {@snippet class = ByDemo region = group}
  *
  * @see <a href=
  *      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors</a>
@@ -165,7 +155,11 @@ public abstract class By {
         return new ByData(name, operator, value);
     }
 
-    /** Groups the specified selectors using {@code ,}. */
+    /**
+     * Groups the specified selectors using {@code ,}.
+     * <p>
+     * {@snippet class = ByDemo region = group}
+     */
     public static By group(By first, By second, By... remaining) {
         int length = 2;
         if (remaining != null) {
@@ -184,7 +178,11 @@ public abstract class By {
         return new ByGroup(group);
     }
 
-    /** Groups the specified selectors using {@code ,}. */
+    /**
+     * Groups the specified selectors using {@code ,}.
+     * <p>
+     * {@snippet class = ByDemo region = group}
+     */
     public static By group(By[] selectors) {
         return new ByGroup(selectors);
     }
@@ -195,11 +193,7 @@ public abstract class By {
      * Combines this selector with the given selector. Use this method to express selectors like {@code button.primary} or
      * {@code input[type=checkbox]}:
      * <p>
-     *
-     * <pre>
-     * By.element("button").and(By.classname("primary"))
-     * By.element("input").and(By.attribute("type", "checkbox"));
-     * </pre>
+     * {@snippet class = ByDemo region = and}
      */
     public final By and(By selector) {
         return combinator(Combinator.AND, selector);

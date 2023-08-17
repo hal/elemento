@@ -87,11 +87,14 @@ import static java.util.Spliterators.spliteratorUnknownSize;
 import static jsinterop.base.Js.cast;
 
 /**
- * Helper methods for working with {@link elemental2.dom.HTMLElement}s and/or {@link IsElement}.
+ * Builder and helper methods for working with {@link elemental2.dom.HTMLElement}s and/or {@link IsElement}.
+ * <p>
+ * {@snippet class = ElementsDemo region = builder}
  *
  * @see <a href=
  *      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
  */
+@SuppressWarnings({ "unused", "ConfusingMainMethod" })
 public final class Elements {
 
     static ElementCreator createElement = new ElementCreator() {
@@ -926,7 +929,11 @@ public final class Elements {
 
     // ------------------------------------------------------ builder factories
 
-    /** Returns a builder to collect {@link HTMLElement}s. */
+    /**
+     * Returns a builder to collect {@link HTMLElement}s.
+     * <p>
+     * {@snippet class = ElementsBagDemo region = bag}
+     */
     public static ElementsBag bag() {
         return new ElementsBag();
     }
@@ -1006,12 +1013,22 @@ public final class Elements {
         return find(element.element(), selector);
     }
 
-    /** Finds the closest HTML elements for the given selector. */
+    /**
+     * Finds the closest HTML elements for the given selector.
+     *
+     * @see <a href=
+     *      "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
+     */
     public static <E extends HTMLElement> E closest(Element element, By selector) {
         return cast(element.closest(selector.selector()));
     }
 
-    /** Finds the closest HTML elements for the given selector. */
+    /**
+     * Finds the closest HTML elements for the given selector.
+     *
+     * @see <a href=
+     *      "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
+     */
     public static <E extends HTMLElement, F extends HTMLElement> F closest(IsElement<E> element, By selector) {
         return cast(element.element().closest(selector.selector()));
     }
@@ -1092,7 +1109,11 @@ public final class Elements {
 
     // ------------------------------------------------------ stream methods
 
-    /** Returns a stream for the elements in the given array-like. */
+    /**
+     * Returns a stream for the elements in the given array-like.
+     * <p>
+     * {@snippet class = ElementsDemo region = stream}
+     */
     public static <E> Stream<E> stream(JsArrayLike<E> nodes) {
         if (nodes == null) {
             return Stream.empty();
@@ -1101,7 +1122,11 @@ public final class Elements {
         }
     }
 
-    /** Returns a stream for the child nodes of the given parent node. */
+    /**
+     * Returns a stream for the child nodes of the given parent node.
+     * <p>
+     * {@snippet class = ElementsDemo region = stream}
+     */
     public static Stream<Node> stream(Node parent) {
         if (parent == null) {
             return Stream.empty();
@@ -1110,7 +1135,11 @@ public final class Elements {
         }
     }
 
-    /** Returns a stream for the child elements of the given parent element. */
+    /**
+     * Returns a stream for the child elements of the given parent element.
+     * <p>
+     * {@snippet class = ElementsDemo region = stream}
+     */
     public static Stream<HTMLElement> stream(HTMLElement parent) {
         if (parent == null) {
             return Stream.empty();
@@ -1119,7 +1148,11 @@ public final class Elements {
         }
     }
 
-    /** Returns a stream for the child elements of the given parent element. */
+    /**
+     * Returns a stream for the child elements of the given parent element.
+     * <p>
+     * {@snippet class = ElementsDemo region = stream}
+     */
     public static <E extends HTMLElement> Stream<HTMLElement> stream(IsElement<E> parent) {
         if (parent == null) {
             return Stream.empty();
@@ -1140,6 +1173,10 @@ public final class Elements {
         }
     }
 
+    /**
+     * Appends element {@code child} to element {@code parent} if not already present. If parent already contains child, this
+     * method does nothing.
+     */
     public static <E extends HTMLElement> void lazyAppend(Element parent, IsElement<E> child) {
         if (child != null) {
             lazyAppend(parent, child.element());
@@ -1151,6 +1188,7 @@ public final class Elements {
         after.parentNode.insertBefore(newElement, after.nextSibling);
     }
 
+    /** Inserts element {@code newElement} into the parent after element {@code after}. */
     public static <E extends HTMLElement> void insertAfter(IsElement<E> newElement, Element after) {
         if (newElement != null) {
             insertAfter(newElement.element(), after);
@@ -1167,6 +1205,10 @@ public final class Elements {
         }
     }
 
+    /**
+     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent already
+     * contains {@code newElement}, this method does nothing.
+     */
     public static <E extends HTMLElement> void lazyInsertAfter(IsElement<E> newElement, Element after) {
         if (newElement != null) {
             lazyInsertAfter(newElement.element(), after);
@@ -1183,6 +1225,10 @@ public final class Elements {
         }
     }
 
+    /**
+     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent already
+     * contains {@code newElement}, this method does nothing.
+     */
     public static <E extends HTMLElement> void lazyInsertAfter(Element parent, IsElement<E> newElement, Element after) {
         if (newElement != null) {
             lazyInsertAfter(parent, newElement.element(), after);
@@ -1194,6 +1240,7 @@ public final class Elements {
         before.parentNode.insertBefore(newElement, before);
     }
 
+    /** Inserts element {@code newElement} into the parent before element {@code before}. */
     public static <E extends HTMLElement> void insertBefore(IsElement<E> newElement, Element before) {
         if (newElement != null) {
             insertBefore(newElement.element(), before);
@@ -1210,6 +1257,10 @@ public final class Elements {
         }
     }
 
+    /**
+     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If parent
+     * already contains {@code newElement}, this method does nothing.
+     */
     public static <E extends HTMLElement> void lazyInsertBefore(IsElement<E> newElement, Element before) {
         if (newElement != null) {
             lazyInsertBefore(newElement.element(), before);
@@ -1226,6 +1277,10 @@ public final class Elements {
         }
     }
 
+    /**
+     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If parent
+     * already contains {@code newElement}, this method does nothing.
+     */
     public static <E extends HTMLElement> void lazyInsertBefore(Element parent, IsElement<E> newElement, Element before) {
         if (newElement != null) {
             lazyInsertBefore(parent, newElement.element(), before);
@@ -1237,6 +1292,7 @@ public final class Elements {
         parent.insertBefore(newElement, parent.firstChild);
     }
 
+    /** Inserts element {@code newElement} as first element into {@code parent}. */
     public static <E extends HTMLElement> void insertFirst(Element parent, IsElement<E> newElement) {
         if (newElement != null) {
             insertFirst(parent, newElement.element());
@@ -1252,6 +1308,7 @@ public final class Elements {
         }
     }
 
+    /** Removes all child elements from {@code element} */
     public static <E extends HTMLElement> void removeChildrenFrom(IsElement<E> element) {
         if (element != null) {
             removeChildrenFrom(element.element());
@@ -1261,12 +1318,17 @@ public final class Elements {
     /**
      * Removes the element from its parent if the element is not null and has a parent.
      *
-     * @return {@code true} if the the element has been removed from its parent, {@code false} otherwise.
+     * @return {@code true} if the element has been removed from its parent, {@code false} otherwise.
      */
     public static boolean failSafeRemoveFromParent(Element element) {
         return failSafeRemove(element != null ? element.parentNode : null, element);
     }
 
+    /**
+     * Removes the element from its parent if the element is not null and has a parent.
+     *
+     * @return {@code true} if the element has been removed from its parent, {@code false} otherwise.
+     */
     public static <E extends HTMLElement> boolean failSafeRemoveFromParent(IsElement<E> element) {
         if (element != null) {
             return failSafeRemoveFromParent(element.element());
@@ -1286,6 +1348,11 @@ public final class Elements {
         return false;
     }
 
+    /**
+     * Removes the child from parent if both parent and child are not null and parent contains child.
+     *
+     * @return {@code true} if the element has been removed from its parent, {@code false} otherwise.
+     */
     public static <E extends HTMLElement> boolean failSafeRemove(Node parent, IsElement<E> child) {
         if (child != null) {
             return failSafeRemove(parent, child.element());
@@ -1308,6 +1375,13 @@ public final class Elements {
         }
     }
 
+    /**
+     * Registers a callback when an element is appended to the document body. Note that the callback will be called only once,
+     * if the element is appended more than once a new callback should be registered.
+     *
+     * @param element the element which is going to be added to the body
+     * @param callback {@link ObserverCallback}
+     */
     public static <E extends HTMLElement> void onAttach(IsElement<E> element, ObserverCallback callback) {
         if (element != null) {
             onAttach(element.element(), callback);
@@ -1327,6 +1401,13 @@ public final class Elements {
         }
     }
 
+    /**
+     * Registers a callback when an element is removed from the document body. Note that the callback will be called only once,
+     * if the element is removed and re-appended a new callback should be registered.
+     *
+     * @param element the element which is going to be removed from the body
+     * @param callback {@link ObserverCallback}
+     */
     public static <E extends HTMLElement> void onDetach(IsElement<E> element, ObserverCallback callback) {
         if (element != null) {
             onDetach(element.element(), callback);
@@ -1340,6 +1421,7 @@ public final class Elements {
         return element != null && !"none".equals(element.style.display);
     }
 
+    /** Checks whether the given element is visible (i.e. {@code display} is not {@code none}) */
     public static <E extends HTMLElement> boolean isVisible(IsElement<E> element) {
         return element != null && isVisible(element.element());
     }
@@ -1351,6 +1433,7 @@ public final class Elements {
         }
     }
 
+    /** Shows / hide the specified element by modifying the {@code display} property. */
     public static <E extends HTMLElement> void setVisible(IsElement<E> element, boolean visible) {
         if (element != null) {
             setVisible(element.element(), visible);
@@ -1366,6 +1449,7 @@ public final class Elements {
         }
     }
 
+    /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
     public static <E extends HTMLElement> void toggle(IsElement<E> element, String css, boolean condition) {
         if (element != null) {
             toggle(element.element(), css, condition);
@@ -1379,6 +1463,7 @@ public final class Elements {
         }
     }
 
+    /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
     public static <E extends HTMLElement> void toggle(IsElement<E> element, String css, Supplier<Boolean> condition) {
         if (element != null) {
             element.element().classList.toggle(css, condition.get());
@@ -1394,6 +1479,7 @@ public final class Elements {
         }
     }
 
+    /** Convenience method to set the inner HTML of the given element. */
     public static <E extends HTMLElement> void innerHtml(IsElement<E> element, SafeHtml html) {
         if (element != null) {
             innerHtml(element.element(), html);
@@ -1469,7 +1555,9 @@ public final class Elements {
 
     private static class JsArrayNodeIterator implements Iterator<Node> {
 
-        private Node parent, last, next;
+        private final Node parent;
+        private Node last;
+        private Node next;
 
         public JsArrayNodeIterator(Node parent) {
             this.parent = parent;
@@ -1505,7 +1593,9 @@ public final class Elements {
     // cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
     private static class JsArrayElementIterator implements Iterator<HTMLElement> {
 
-        private HTMLElement parent, last, next;
+        private final HTMLElement parent;
+        private HTMLElement last;
+        private HTMLElement next;
 
         public JsArrayElementIterator(HTMLElement parent) {
             this.parent = parent;

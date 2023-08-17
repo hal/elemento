@@ -17,7 +17,11 @@ package org.jboss.elemento;
 
 import elemental2.dom.HTMLElement;
 
-/** Interface for custom components returning a single element. */
+/**
+ * Interface for custom components returning a single element.
+ * <p>
+ * {@snippet class = TodoElement region = isElement}
+ */
 public interface IsElement<E extends HTMLElement> {
 
     /** @return the element of the custom component */

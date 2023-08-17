@@ -107,6 +107,18 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     }
 
     /** Sets the specified attribute of the element. */
+    public B attr(String name, boolean value) {
+        element().setAttribute(name, value);
+        return that();
+    }
+
+    /** Sets the specified attribute of the element. */
+    public B attr(String name, int value) {
+        element().setAttribute(name, value);
+        return that();
+    }
+
+    /** Sets the specified attribute of the element. */
     public B attr(String name, String value) {
         element().setAttribute(name, value);
         return that();
@@ -121,6 +133,28 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
     public B data(String name, String value) {
         element().dataset.set(name.replaceFirst("^data-", ""), value);
         return that();
+    }
+
+    /**
+     * Adds an {@code aria-} attribute to the element.
+     *
+     * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
+     *        present.
+     */
+    public B aria(String name, boolean value) {
+        String safeName = name.startsWith("aria-") ? name : "aria-" + name;
+        return attr(safeName, value);
+    }
+
+    /**
+     * Adds an {@code aria-} attribute to the element.
+     *
+     * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
+     *        present.
+     */
+    public B aria(String name, int value) {
+        String safeName = name.startsWith("aria-") ? name : "aria-" + name;
+        return attr(safeName, value);
     }
 
     /**
@@ -148,7 +182,11 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     // ------------------------------------------------------ event handler
 
-    /** Adds the given callback to the element. */
+    /**
+     * Adds the given callback to the element.
+     * <p>
+     * {@snippet class = ElementsDemo region = on}
+     */
     public <V extends Event> B on(EventType<V, ?> type, EventCallbackFn<V> callback) {
         bind(element(), type, callback);
         return that();
@@ -156,7 +194,11 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     // ------------------------------------------------------ finder methods
 
-    /** Finds all HTML elements for the given selector. */
+    /**
+     * Finds all HTML elements for the given selector.
+     * <p>
+     * {@snippet class = ElementsDemo region = findAll}
+     */
     public Iterable<HTMLElement> findAll(By selector) {
         return Elements.findAll(element(), selector);
     }

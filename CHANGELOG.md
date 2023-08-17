@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Add methods to set `int` and `boolean` (aria) attributes:
+  - `ElementBuilder.attr(String, boolean)`
+  - `ElementBuilder.attr(String, int)`
+  - `ElementBuilder.aria(String, boolean)`
+  - `ElementBuilder.aria(String, int)`
+
+### Changed
+
+- Added [code snippets](https://openjdk.org/jeps/413) to the [API documentation](https://hal.github.io/elemento/). 
+
 ## [1.0.13] - 2023-08-03
 
 ### Upgrades

@@ -21,7 +21,11 @@ import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
-/** Builder for container-like elements with inner HTML. */
+/**
+ * Builder for container-like elements with inner HTML.
+ * <p>
+ * {@snippet class = HtmlContentDemo region = addAll}
+ */
 public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TextContent<E, B> {
 
     /** Modifies the inner HTML on the element using {@link HTMLElement#innerHTML}. */

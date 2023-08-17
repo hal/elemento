@@ -20,7 +20,11 @@ import java.util.Iterator;
 import elemental2.core.JsArray;
 import elemental2.dom.HTMLElement;
 
-/** Class to collect {@link HTMLElement}s */
+/**
+ * Class to collect {@link HTMLElement}s
+ * <p>
+ * {@snippet class = ElementsBagDemo region = bag}
+ */
 public class ElementsBag implements TypedBuilder<Iterable<HTMLElement>, ElementsBag> {
 
     private final IterableImpl iterable;
