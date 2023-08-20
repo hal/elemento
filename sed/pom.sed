@@ -41,3 +41,29 @@ s/.*<version\.gwt\.safehtml>.*<\/version\.gwt\.safehtml>/        <version.gwt>2.
         }
     }
 }
+/<plugin>/ {
+    N;
+    /<groupId>org.codehaus.mojo<\/groupId>/ {
+        N;
+        /<artifactId>build-helper-maven-plugin<\/artifactId>/ {
+            N;
+            /<executions>/ {
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                N;
+                d;
+            }
+        }
+    }
+}
