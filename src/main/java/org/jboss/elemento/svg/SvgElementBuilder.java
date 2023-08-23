@@ -51,8 +51,8 @@ public class SvgElementBuilder<E extends SVGElement> extends ElementBuilder<E, S
     /**
      * Adds a {@code data-} attribute to the element.
      *
-     * @param name The name of the data attribute w/o the {@code data-} prefix. However, it won't be added if it's
-     *             already present.
+     * @param name The name of the data attribute w/o the {@code data-} prefix. However, it won't be added if it's already
+     *        present.
      */
     public SvgElementBuilder<E> data(String name, String value) {
         element.dataset.set(name.replaceFirst("^data-", ""), value);

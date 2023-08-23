@@ -102,9 +102,9 @@ import static jsinterop.base.Js.cast;
  * {@snippet class = ElementsDemo region = builder}
  *
  * @see <a href=
- * "https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
+ *      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
  */
-@SuppressWarnings({"unused", "ConfusingMainMethod"})
+@SuppressWarnings({ "unused", "ConfusingMainMethod" })
 public final class Elements {
 
     static HtmlElementCreator createHtmlElement = new HtmlElementCreator() {
@@ -1075,7 +1075,7 @@ public final class Elements {
      * Finds the closest HTML elements for the given selector.
      *
      * @see <a href=
-     * "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
+     *      "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
      */
     public static <E extends HTMLElement> E closest(Element element, By selector) {
         return cast(element.closest(selector.selector()));
@@ -1085,7 +1085,7 @@ public final class Elements {
      * Finds the closest HTML elements for the given selector.
      *
      * @see <a href=
-     * "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
+     *      "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
      */
     public static <E extends HTMLElement, F extends HTMLElement> F closest(IsElement<E> element, By selector) {
         return cast(element.element().closest(selector.selector()));
@@ -1102,24 +1102,24 @@ public final class Elements {
     }
 
     /**
-     * Returns an iterator over the children of the given parent node. The iterator supports the
-     * {@link Iterator#remove()} operation, which removes the current node from its parent.
+     * Returns an iterator over the children of the given parent node. The iterator supports the {@link Iterator#remove()}
+     * operation, which removes the current node from its parent.
      */
     public static Iterator<Node> iterator(Node parent) {
         return parent != null ? new JsArrayNodeIterator(parent) : emptyIterator();
     }
 
     /**
-     * Returns an iterator over the children of the given parent element. The iterator supports the
-     * {@link Iterator#remove()} operation, which removes the current node from its parent.
+     * Returns an iterator over the children of the given parent element. The iterator supports the {@link Iterator#remove()}
+     * operation, which removes the current node from its parent.
      */
     public static Iterator<HTMLElement> iterator(HTMLElement parent) {
         return parent != null ? new JsArrayElementIterator(parent) : emptyIterator();
     }
 
     /**
-     * Returns an iterator over the children of the given parent element. The iterator supports the
-     * {@link Iterator#remove()} operation, which removes the current node from its parent.
+     * Returns an iterator over the children of the given parent element. The iterator supports the {@link Iterator#remove()}
+     * operation, which removes the current node from its parent.
      */
     public static <E extends HTMLElement> Iterator<HTMLElement> iterator(IsElement<E> parent) {
         return parent != null ? iterator(parent.element()) : emptyIterator();
@@ -1158,8 +1158,8 @@ public final class Elements {
     }
 
     /**
-     * Casts to {@link HTMLElement}. Make sure to {@linkplain #htmlElements() filter} for HTML elements before using
-     * this function.
+     * Casts to {@link HTMLElement}. Make sure to {@linkplain #htmlElements() filter} for HTML elements before using this
+     * function.
      */
     public static <T extends Node> Function<T, HTMLElement> asHtmlElement() {
         return new AsHTMLElement<>();
@@ -1222,8 +1222,8 @@ public final class Elements {
     // ------------------------------------------------------ element append, insert & remove methods
 
     /**
-     * Appends element {@code child} to element {@code parent} if not already present. If parent already contains child,
-     * this method does nothing.
+     * Appends element {@code child} to element {@code parent} if not already present. If parent already contains child, this
+     * method does nothing.
      */
     public static void lazyAppend(Element parent, Element child) {
         if (!parent.contains(child)) {
@@ -1232,8 +1232,8 @@ public final class Elements {
     }
 
     /**
-     * Appends element {@code child} to element {@code parent} if not already present. If parent already contains child,
-     * this method does nothing.
+     * Appends element {@code child} to element {@code parent} if not already present. If parent already contains child, this
+     * method does nothing.
      */
     public static <E extends HTMLElement> void lazyAppend(Element parent, IsElement<E> child) {
         if (child != null) {
@@ -1254,8 +1254,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent
-     * already contains {@code newElement}, this method does nothing.
+     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent already
+     * contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertAfter(Element newElement, Element after) {
         if (!after.parentNode.contains(newElement)) {
@@ -1264,8 +1264,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent
-     * already contains {@code newElement}, this method does nothing.
+     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent already
+     * contains {@code newElement}, this method does nothing.
      */
     public static <E extends HTMLElement> void lazyInsertAfter(IsElement<E> newElement, Element after) {
         if (newElement != null) {
@@ -1274,8 +1274,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent
-     * already contains {@code newElement}, this method does nothing.
+     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent already
+     * contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertAfter(Element parent, Element newElement, Element after) {
         if (!parent.contains(newElement)) {
@@ -1284,8 +1284,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent
-     * already contains {@code newElement}, this method does nothing.
+     * Inserts element {@code newElement} into the parent after element {@code after} if not already present. If parent already
+     * contains {@code newElement}, this method does nothing.
      */
     public static <E extends HTMLElement> void lazyInsertAfter(Element parent, IsElement<E> newElement, Element after) {
         if (newElement != null) {
@@ -1306,8 +1306,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If
-     * parent already contains {@code newElement}, this method does nothing.
+     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If parent
+     * already contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertBefore(Element newElement, Element before) {
         if (!before.parentNode.contains(newElement)) {
@@ -1316,8 +1316,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If
-     * parent already contains {@code newElement}, this method does nothing.
+     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If parent
+     * already contains {@code newElement}, this method does nothing.
      */
     public static <E extends HTMLElement> void lazyInsertBefore(IsElement<E> newElement, Element before) {
         if (newElement != null) {
@@ -1326,8 +1326,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If
-     * parent already contains {@code newElement}, this method does nothing.
+     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If parent
+     * already contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertBefore(Element parent, Element newElement, Element before) {
         if (!parent.contains(newElement)) {
@@ -1336,8 +1336,8 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If
-     * parent already contains {@code newElement}, this method does nothing.
+     * Inserts element {@code newElement} into the parent before element {@code before} if not already present. If parent
+     * already contains {@code newElement}, this method does nothing.
      */
     public static <E extends HTMLElement> void lazyInsertBefore(Element parent, IsElement<E> newElement,
             Element before) {
@@ -1422,10 +1422,10 @@ public final class Elements {
     // ------------------------------------------------------ attach / detach
 
     /**
-     * Registers a callback when an element is appended to the document body. Note that the callback will be called only
-     * once, if the element is appended more than once a new callback should be registered.
+     * Registers a callback when an element is appended to the document body. Note that the callback will be called only once,
+     * if the element is appended more than once a new callback should be registered.
      *
-     * @param element  the HTML element which is going to be added to the body
+     * @param element the HTML element which is going to be added to the body
      * @param callback {@link ObserverCallback}
      */
     public static void onAttach(HTMLElement element, ObserverCallback callback) {
@@ -1435,10 +1435,10 @@ public final class Elements {
     }
 
     /**
-     * Registers a callback when an element is appended to the document body. Note that the callback will be called only
-     * once, if the element is appended more than once a new callback should be registered.
+     * Registers a callback when an element is appended to the document body. Note that the callback will be called only once,
+     * if the element is appended more than once a new callback should be registered.
      *
-     * @param element  the element which is going to be added to the body
+     * @param element the element which is going to be added to the body
      * @param callback {@link ObserverCallback}
      */
     public static <E extends HTMLElement> void onAttach(IsElement<E> element, ObserverCallback callback) {
@@ -1448,10 +1448,10 @@ public final class Elements {
     }
 
     /**
-     * Registers a callback when an element is removed from the document body. Note that the callback will be called
-     * only once, if the element is removed and re-appended a new callback should be registered.
+     * Registers a callback when an element is removed from the document body. Note that the callback will be called only once,
+     * if the element is removed and re-appended a new callback should be registered.
      *
-     * @param element  the HTML element which is going to be removed from the body
+     * @param element the HTML element which is going to be removed from the body
      * @param callback {@link ObserverCallback}
      */
     public static void onDetach(HTMLElement element, ObserverCallback callback) {
@@ -1461,10 +1461,10 @@ public final class Elements {
     }
 
     /**
-     * Registers a callback when an element is removed from the document body. Note that the callback will be called
-     * only once, if the element is removed and re-appended a new callback should be registered.
+     * Registers a callback when an element is removed from the document body. Note that the callback will be called only once,
+     * if the element is removed and re-appended a new callback should be registered.
      *
-     * @param element  the element which is going to be removed from the body
+     * @param element the element which is going to be removed from the body
      * @param callback {@link ObserverCallback}
      */
     public static <E extends HTMLElement> void onDetach(IsElement<E> element, ObserverCallback callback) {
