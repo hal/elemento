@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 
@@ -27,20 +28,15 @@ import static java.util.Arrays.asList;
 import static java.util.Objects.requireNonNull;
 import static org.jboss.elemento.EventType.bind;
 
-/** Base builder with methods common to all typed builders. */
-public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBuilder<E, B>>
-        implements TypedBuilder<E, B>, IsElement<E> {
+/** Base builder for elements. */
+public abstract class ElementBuilder<E extends Element, B extends ElementBuilder<E, B>>
+        implements TypedBuilder<E, B> {
 
     protected final E element;
 
     /** Creates a new element builder to mutate the passed element. */
     protected ElementBuilder(E element) {
         this.element = requireNonNull(element, "element required");
-    }
-
-    @Override
-    public E element() {
-        return element;
     }
 
     // ------------------------------------------------------ modify current element
@@ -52,13 +48,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Sets the id on the element. */
     public B id(String id) {
-        element().id = id;
-        return that();
-    }
-
-    /** Sets the title on the element. */
-    public B title(String title) {
-        element().title = title;
+        element.id = id;
         return that();
     }
 
@@ -76,7 +66,7 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
                 }
             }
             for (String failSafeClass : failSafeClasses) {
-                element().classList.add(failSafeClass);
+                element.classList.add(failSafeClass);
             }
         }
         return that();
@@ -84,54 +74,37 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Toggle the class value; i.e., if the class exists then remove it, if not, then add it. */
     public B toggle(String className) {
-        element().classList.toggle(className);
+        element.classList.toggle(className);
         return that();
     }
 
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
     public B toggle(String className, boolean force) {
-        element().classList.toggle(className, force);
+        element.classList.toggle(className, force);
         return that();
     }
 
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
     public B toggle(String className, Supplier<Boolean> force) {
-        element().classList.toggle(className, force.get());
-        return that();
-    }
-
-    /** Sets the CSS style of the element. */
-    public B style(String style) {
-        element().style.cssText = style;
+        element.classList.toggle(className, force.get());
         return that();
     }
 
     /** Sets the specified attribute of the element. */
     public B attr(String name, boolean value) {
-        element().setAttribute(name, value);
+        element.setAttribute(name, value);
         return that();
     }
 
     /** Sets the specified attribute of the element. */
     public B attr(String name, int value) {
-        element().setAttribute(name, value);
+        element.setAttribute(name, value);
         return that();
     }
 
     /** Sets the specified attribute of the element. */
     public B attr(String name, String value) {
-        element().setAttribute(name, value);
-        return that();
-    }
-
-    /**
-     * Adds a {@code data-} attribute to the element.
-     *
-     * @param name The name of the data attribute w/o the {@code data-} prefix. However it won't be added if it's already
-     *        present.
-     */
-    public B data(String name, String value) {
-        element().dataset.set(name.replaceFirst("^data-", ""), value);
+        element.setAttribute(name, value);
         return that();
     }
 
@@ -170,25 +143,18 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
 
     /** Provides a way to modify the element using the specified consumer. */
     public B apply(Consumer<E> consumer) {
-        consumer.accept(element());
-        return that();
-    }
-
-    /** Modifies the {@code hidden} flag. */
-    public B hidden(boolean hidden) {
-        element().hidden = hidden;
+        consumer.accept(element);
         return that();
     }
 
     // ------------------------------------------------------ event handler
-
     /**
      * Adds the given callback to the element.
      * <p>
      * {@snippet class = ElementsDemo region = on}
      */
     public <V extends Event> B on(EventType<V, ?> type, EventCallbackFn<V> callback) {
-        bind(element(), type, callback);
+        bind(element, type, callback);
         return that();
     }
 
@@ -200,16 +166,16 @@ public abstract class ElementBuilder<E extends HTMLElement, B extends ElementBui
      * {@snippet class = ElementsDemo region = findAll}
      */
     public Iterable<HTMLElement> findAll(By selector) {
-        return Elements.findAll(element(), selector);
+        return Elements.findAll(element, selector);
     }
 
     /** Finds a single HTML element for the given selector. */
     public <F extends HTMLElement> F find(By selector) {
-        return Elements.find(element(), selector);
+        return Elements.find(element, selector);
     }
 
     /** Finds the closest HTML element for the given selector. */
     public <F extends HTMLElement> F closest(By selector) {
-        return Elements.closest(element(), selector);
+        return Elements.closest(element, selector);
     }
 }

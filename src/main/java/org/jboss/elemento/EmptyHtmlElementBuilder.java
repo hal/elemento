@@ -15,15 +15,17 @@
  */
 package org.jboss.elemento;
 
-import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
 
-/**
- * Interface for custom components returning a single element.
- * <p>
- * {@snippet class = TodoElement region = isElement}
- */
-public interface IsElement<E extends Element> {
+/** Builder for empty HTML elements like <code>&lt;br/&gt;</code>, <code>&lt;hr/&gt;</code> or <code>&lt;img/&gt;</code>. */
+public class EmptyHtmlElementBuilder<E extends HTMLElement> extends HtmlElementBuilder<E, EmptyHtmlElementBuilder<E>> {
 
-    /** @return the element of the custom component */
-    E element();
+    public EmptyHtmlElementBuilder(E element) {
+        super(element);
+    }
+
+    @Override
+    public EmptyHtmlElementBuilder<E> that() {
+        return this;
+    }
 }

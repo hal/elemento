@@ -13,19 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento;
+package org.jboss.elemento.svg;
 
-import elemental2.dom.HTMLElement;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsType;
 
-/** Builder for empty elements like <code>&lt;br/&gt;</code>, <code>&lt;hr/&gt;</code> or <code>&lt;img/&gt;</code>. */
-public class EmptyContentBuilder<E extends HTMLElement> extends ElementBuilder<E, EmptyContentBuilder<E>> {
-
-    public EmptyContentBuilder(E element) {
-        super(element);
-    }
-
-    @Override
-    public EmptyContentBuilder<E> that() {
-        return this;
-    }
+@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+public class SVGPolygonElement extends SVGElement {
 }

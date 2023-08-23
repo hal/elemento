@@ -15,11 +15,11 @@
  */
 package org.jboss.elemento;
 
-import elemental2.dom.HTMLElement;
+import elemental2.dom.Element;
 
 /** Factory to create elements. */
 @FunctionalInterface
 public interface ElementCreator {
 
-    <E extends HTMLElement> E create(String element, Class<E> type);
+    <E extends Element> E create(String element, Class<E> type);
 }

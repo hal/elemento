@@ -177,7 +177,7 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>org/jboss/elemento/*.java</include>
+                    <include>org/jboss/elemento/**/*.java</include>
                 </includes>
             </resource>
             <resource>

@@ -15,15 +15,18 @@
  */
 package org.jboss.elemento;
 
-import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
 
-/**
- * Interface for custom components returning a single element.
- * <p>
- * {@snippet class = TodoElement region = isElement}
- */
-public interface IsElement<E extends Element> {
+/** Builder for container-like HTML elements with inner HTML. */
+public class HtmlContainerBuilder<E extends HTMLElement> extends HtmlElementBuilder<E, HtmlContainerBuilder<E>>
+        implements HtmlContainer<E, HtmlContainerBuilder<E>> {
 
-    /** @return the element of the custom component */
-    E element();
+    public HtmlContainerBuilder(E element) {
+        super(element);
+    }
+
+    @Override
+    public HtmlContainerBuilder<E> that() {
+        return this;
+    }
 }

@@ -17,7 +17,7 @@ package org.jboss.elemento;
 
 import elemental2.dom.HTMLElement;
 
-/** Builder for elements with inner text. */
+/** Common methods for HTML elements with inner text. */
 public interface TextContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>, IsElement<E> {
 
     /** Sets the inner text on the element using {@link HTMLElement#textContent}. */

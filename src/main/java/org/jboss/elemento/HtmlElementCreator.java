@@ -15,15 +15,11 @@
  */
 package org.jboss.elemento;
 
-import elemental2.dom.Element;
+import elemental2.dom.HTMLElement;
 
-/**
- * Interface for custom components returning a single element.
- * <p>
- * {@snippet class = TodoElement region = isElement}
- */
-public interface IsElement<E extends Element> {
+/** Factory to create elements. */
+@FunctionalInterface
+public interface HtmlElementCreator {
 
-    /** @return the element of the custom component */
-    E element();
+    <E extends HTMLElement> E create(String element, Class<E> type);
 }

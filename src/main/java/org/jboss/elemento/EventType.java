@@ -40,10 +40,9 @@ import elemental2.webstorage.StorageEvent;
 import jsinterop.base.Js;
 
 /**
- * Known event types used in {@link ElementBuilder#on(EventType, EventCallbackFn)}.
+ * Known event types used in {@link HtmlElementBuilder#on(EventType, EventCallbackFn)}.
  *
- * @see <a
- * href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a>
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a>
  */
 public class EventType<T extends Event, V extends EventTarget> {
 

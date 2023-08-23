@@ -13,17 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento;
+package org.jboss.elemento.svg;
 
-import elemental2.dom.Element;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsType;
 
-/**
- * Interface for custom components returning a single element.
- * <p>
- * {@snippet class = TodoElement region = isElement}
- */
-public interface IsElement<E extends Element> {
-
-    /** @return the element of the custom component */
-    E element();
+@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+public class SVGGElement extends SVGElement {
 }

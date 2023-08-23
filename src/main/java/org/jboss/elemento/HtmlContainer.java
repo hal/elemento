@@ -15,53 +15,64 @@
  */
 package org.jboss.elemento;
 
-import java.util.Iterator;
+import org.gwtproject.safehtml.shared.SafeHtml;
 
-import elemental2.core.JsArray;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Node;
 
 /**
- * Class to collect {@link HTMLElement}s
+ * Common methods for container-like HTML elements with inner HTML.
  * <p>
- * {@snippet class = ElementsBagDemo region = bag}
+ * {@snippet class = HtmlContainerDemo region = addAll}
  */
-public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag> {
+public interface HtmlContainer<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TextContent<E, B> {
 
-    private final IterableImpl iterable;
-
-    public ElementsBag() {
-        iterable = new IterableImpl();
+    /** Modifies the inner HTML on the element using {@link HTMLElement#innerHTML}. */
+    default B innerHtml(SafeHtml html) {
+        element().innerHTML = html.asString();
+        return that();
     }
 
-    @Override
-    public ElementsBag that() {
-        return this;
+    // ------------------------------------------------------ child element(s)
+
+    /** Adds the given text as a text node. */
+    default B add(String text) {
+        return add(element().ownerDocument.createTextNode(text));
     }
 
-    // ------------------------------------------------------ mirror add() methods from HtmlContent
-
-    /** @return the elements in this bag. */
-    public Iterable<Element> elements() {
-        return iterable;
-    }
-
-    /** Adds the given element. */
-    public ElementsBag add(Element element) {
-        iterable.elements.push(element);
+    /** Adds the given node. */
+    default B add(Node element) {
+        element().appendChild(element);
         return that();
     }
 
     /** Adds the given element by calling {@code element.element()}. */
-    public ElementsBag add(IsElement<?> element) {
+    default B add(IsElement<?> element) {
         if (element != null) {
             return add(element.element());
         }
         return that();
     }
 
+    /** Adds all nodes. */
+    default B addAll(Node... nodes) {
+        for (Node node : nodes) {
+            add(node);
+        }
+        return that();
+    }
+
     /** Adds all elements. */
-    public ElementsBag addAll(HTMLElement... elements) {
+    default B addAll(Element... elements) {
+        for (Element element : elements) {
+            add(element);
+        }
+        return that();
+    }
+
+    /** Adds all HTML elements. */
+    default B addAll(HTMLElement... elements) {
         for (HTMLElement element : elements) {
             add(element);
         }
@@ -69,7 +80,7 @@ public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag>
     }
 
     /** Adds all elements. */
-    public ElementsBag addAll(IsElement<?>... elements) {
+    default <F extends HTMLElement> B addAll(IsElement<?>... elements) {
         for (IsElement<?> element : elements) {
             if (element != null) {
                 add(element.element());
@@ -79,31 +90,15 @@ public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag>
     }
 
     /** Adds all elements. */
-    public ElementsBag addAll(Iterable<?> elements) {
+    default B addAll(Iterable<?> elements) {
         for (Object element : elements) {
-            if (element instanceof HTMLElement) {
-                add(((HTMLElement) element));
+            if (element instanceof Node) {
+                add(((Node) element));
             } else if (element instanceof IsElement) {
                 // noinspection rawtypes
                 add(((IsElement) element).element());
             }
         }
         return that();
-    }
-
-    // ------------------------------------------------------ inner classes
-
-    private static class IterableImpl implements Iterable<Element> {
-
-        final JsArray<Element> elements;
-
-        private IterableImpl() {
-            elements = new JsArray<>();
-        }
-
-        @Override
-        public Iterator<Element> iterator() {
-            return Elements.iterator(elements);
-        }
     }
 }

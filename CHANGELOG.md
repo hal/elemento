@@ -6,13 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added 
+
+- Add support for basic SVG elements
+
+### Changed
+
+- Rename `HtmlContent*` classes to `HtmlContainer*`
+
 ## [1.0.15] - 2023-08-20
-
-### Fixed
-
-- Redo broken last release
-
-## [1.0.14] - 2023-08-20
 
 ### Added
 
@@ -24,7 +26,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Added [code snippets](https://openjdk.org/jeps/413) to the [API documentation](https://hal.github.io/elemento/). 
+- Add [code snippets](https://openjdk.org/jeps/413) to the [API documentation](https://hal.github.io/elemento/).
+
+## [1.0.14] - 2023-08-20
+
+Please don't use this release. 
 
 ## [1.0.13] - 2023-08-03
 

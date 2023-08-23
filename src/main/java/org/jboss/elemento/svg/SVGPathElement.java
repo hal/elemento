@@ -13,20 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento;
+package org.jboss.elemento.svg;
 
-import elemental2.dom.HTMLElement;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsType;
 
-/** Builder for container-like elements with inner HTML. */
-public class HtmlContentBuilder<E extends HTMLElement> extends ElementBuilder<E, HtmlContentBuilder<E>>
-        implements HtmlContent<E, HtmlContentBuilder<E>> {
-
-    public HtmlContentBuilder(E element) {
-        super(element);
-    }
-
-    @Override
-    public HtmlContentBuilder<E> that() {
-        return this;
-    }
+@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+public class SVGPathElement extends SVGElement {
 }

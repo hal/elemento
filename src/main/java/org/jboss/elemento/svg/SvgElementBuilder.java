@@ -13,42 +13,62 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento;
+package org.jboss.elemento.svg;
 
-import org.gwtproject.safehtml.shared.SafeHtml;
+import org.jboss.elemento.ElementBuilder;
+import org.jboss.elemento.IsElement;
 
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
-/**
- * Builder for container-like elements with inner HTML.
- * <p>
- * {@snippet class = HtmlContentDemo region = addAll}
- */
-public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TextContent<E, B> {
+/** Builder for container-like HTML elements with inner HTML. */
+public class SvgElementBuilder<E extends SVGElement> extends ElementBuilder<E, SvgElementBuilder<E>>
+        implements IsElement<E> {
 
-    /** Modifies the inner HTML on the element using {@link HTMLElement#innerHTML}. */
-    default B innerHtml(SafeHtml html) {
-        element().innerHTML = html.asString();
+    public SvgElementBuilder(E element) {
+        super(element);
+    }
+
+    @Override
+    public SvgElementBuilder<E> that() {
+        return this;
+    }
+
+    @Override
+    public E element() {
+        return element;
+    }
+
+    // ------------------------------------------------------ modify current element
+
+    /** Sets the CSS style of the element. */
+    public SvgElementBuilder<E> style(String style) {
+        element.style.cssText = style;
+        return that();
+    }
+
+    /**
+     * Adds a {@code data-} attribute to the element.
+     *
+     * @param name The name of the data attribute w/o the {@code data-} prefix. However, it won't be added if it's
+     *             already present.
+     */
+    public SvgElementBuilder<E> data(String name, String value) {
+        element.dataset.set(name.replaceFirst("^data-", ""), value);
         return that();
     }
 
     // ------------------------------------------------------ child element(s)
 
-    /** Adds the given text as a text node. */
-    default B add(String text) {
-        return add(element().ownerDocument.createTextNode(text));
-    }
-
     /** Adds the given node. */
-    default B add(Node element) {
-        element().appendChild(element);
+    public SvgElementBuilder<E> add(Node element) {
+        this.element.appendChild(element);
         return that();
     }
 
     /** Adds the given element by calling {@code element.element()}. */
-    default B add(IsElement<?> element) {
+    public SvgElementBuilder<E> add(IsElement<?> element) {
         if (element != null) {
             return add(element.element());
         }
@@ -56,7 +76,7 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
     }
 
     /** Adds all nodes. */
-    default B addAll(Node... nodes) {
+    public SvgElementBuilder<E> addAll(Node... nodes) {
         for (Node node : nodes) {
             add(node);
         }
@@ -64,23 +84,15 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
     }
 
     /** Adds all elements. */
-    default B addAll(Element... elements) {
+    public SvgElementBuilder<E> addAll(Element... elements) {
         for (Element element : elements) {
             add(element);
         }
         return that();
     }
 
-    /** Adds all HTML elements. */
-    default B addAll(HTMLElement... elements) {
-        for (HTMLElement element : elements) {
-            add(element);
-        }
-        return that();
-    }
-
     /** Adds all elements. */
-    default <F extends HTMLElement> B addAll(IsElement<?>... elements) {
+    public <F extends HTMLElement> SvgElementBuilder<E> addAll(IsElement<?>... elements) {
         for (IsElement<?> element : elements) {
             if (element != null) {
                 add(element.element());
@@ -90,7 +102,7 @@ public interface HtmlContent<E extends HTMLElement, B extends TypedBuilder<E, B>
     }
 
     /** Adds all elements. */
-    default B addAll(Iterable<?> elements) {
+    public SvgElementBuilder<E> addAll(Iterable<?> elements) {
         for (Object element : elements) {
             if (element instanceof Node) {
                 add(((Node) element));

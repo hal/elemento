@@ -18,7 +18,7 @@ package org.jboss.elemento;
 import elemental2.dom.HTMLInputElement;
 
 /** Builder for input elements. */
-public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, InputBuilder<E>> {
+public class InputBuilder<E extends HTMLInputElement> extends HtmlElementBuilder<E, InputBuilder<E>> {
 
     public InputBuilder(E element) {
         super(element);
@@ -31,49 +31,49 @@ public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, 
 
     /** Modifies the {@code autofocus} flag. */
     public InputBuilder<E> autofocus(boolean autofocus) {
-        element().autofocus = autofocus;
+        element.autofocus = autofocus;
         return that();
     }
 
     /** Modifies the {@code autocomplete} attribute. */
     public InputBuilder<E> autocomplete(String autocomplete) {
-        element().autocomplete = autocomplete;
+        element.autocomplete = autocomplete;
         return that();
     }
 
     /** Modifies the {@code checked} flag. */
     public InputBuilder<E> checked(boolean checked) {
-        element().checked = checked;
+        element.checked = checked;
         return that();
     }
 
     /** Modifies the {@code indeterminate} flag. */
     public InputBuilder<E> indeterminate(boolean indeterminate) {
-        element().indeterminate = indeterminate;
+        element.indeterminate = indeterminate;
         return that();
     }
 
     /** Modifies the {@code readOnly} flag. */
     public InputBuilder<E> readOnly(boolean readOnly) {
-        element().readOnly = readOnly;
+        element.readOnly = readOnly;
         return that();
     }
 
     /** Modifies the {@code disabled} flag. */
     public InputBuilder<E> disabled(boolean disabled) {
-        element().disabled = disabled;
+        element.disabled = disabled;
         return that();
     }
 
     /** Modifies the {@code required} flag. */
     public InputBuilder<E> required(boolean required) {
-        element().required = required;
+        element.required = required;
         return that();
     }
 
     /** Modifies the {@code name} attribute. */
     public InputBuilder<E> name(String name) {
-        element().name = name;
+        element.name = name;
         return that();
     }
 
@@ -84,7 +84,7 @@ public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, 
 
     /** Modifies the {@code min} attribute. */
     public InputBuilder<E> min(String min) {
-        element().min = min;
+        element.min = min;
         return that();
     }
 
@@ -95,31 +95,31 @@ public class InputBuilder<E extends HTMLInputElement> extends ElementBuilder<E, 
 
     /** Modifies the {@code max} attribute. */
     public InputBuilder<E> max(String max) {
-        element().max = max;
+        element.max = max;
         return that();
     }
 
     /** Modifies the {@code placeholder} text. */
     public InputBuilder<E> placeholder(String placeholder) {
-        element().placeholder = placeholder;
+        element.placeholder = placeholder;
         return that();
     }
 
     /** Modifies the {@code tabIndex} number. */
     public InputBuilder<E> tabIndex(int tabIndex) {
-        element().tabIndex = tabIndex;
+        element.tabIndex = tabIndex;
         return that();
     }
 
     /** Modifies the {@code multiple} attribute. */
     public InputBuilder<E> multiple(boolean multiple) {
-        element().multiple = multiple;
+        element.multiple = multiple;
         return that();
     }
 
     /** Modifies the {@code accept} attribute. */
     public InputBuilder<E> accept(String accept) {
-        element().accept = accept;
+        element.accept = accept;
         return that();
     }
 }
