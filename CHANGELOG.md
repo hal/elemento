@@ -6,15 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-## [1.1.0] - 2023-08-23
-
-### Added 
+### Added
 
 - Add support for basic SVG elements
 
 ### Changed
 
 - Rename `HtmlContent*` classes to `HtmlContainer*`
+
+## [1.1.0] - 2023-08-23
+
+Please don't use this release.
 
 ## [1.0.15] - 2023-08-20
 
