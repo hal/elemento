@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.1] - 2023-08-23
+
 ### Added
 
 - Add support for basic SVG elements
@@ -563,7 +565,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/hal/elemento/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/hal/elemento/compare/v1.0.15...v1.1.0
 [1.0.15]: https://github.com/hal/elemento/compare/v1.0.14...v1.0.15
 [1.0.14]: https://github.com/hal/elemento/compare/v1.0.13...v1.0.14
