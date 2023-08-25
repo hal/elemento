@@ -66,8 +66,8 @@ jobs:
           sed -i -f sed/pom.sed pom.xml
           sed -i -f sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
           sed -i -f sed/import.sed src/main/java/org/jboss/elemento/Elements.java
+          sed -i -f sed/import.sed src/main/java/org/jboss/elemento/ElementBuilder.java
           sed -i -f sed/import.sed src/main/java/org/jboss/elemento/EventType.java
-          sed -i -f sed/import.sed src/main/java/org/jboss/elemento/HtmlContainer.java
       - name: Set up JDK
         id: setup-jdk
         uses: actions/setup-java@v3
