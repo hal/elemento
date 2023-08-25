@@ -5,7 +5,6 @@ import org.jboss.elemento.By;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
 
-import static elemental2.dom.DomGlobal.document;
 import static java.util.stream.Collectors.toList;
 import static org.jboss.elemento.By.AttributeOperator.STARTS_WITH;
 import static org.jboss.elemento.Elements.a;

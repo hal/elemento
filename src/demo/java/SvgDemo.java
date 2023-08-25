@@ -1,8 +1,4 @@
-import org.jboss.elemento.By;
-
-import static org.jboss.elemento.By.AttributeOperator.STARTS_WITH;
 import static org.jboss.elemento.Elements.circle;
-import static org.jboss.elemento.Elements.g;
 import static org.jboss.elemento.Elements.svg;
 
 @SuppressWarnings("unused")
