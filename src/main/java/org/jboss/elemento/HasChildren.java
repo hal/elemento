@@ -15,31 +15,12 @@
  */
 package org.jboss.elemento;
 
-import org.gwtproject.safehtml.shared.SafeHtml;
-
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
-/**
- * Common methods for container-like HTML elements with inner HTML.
- * <p>
- * {@snippet class = HtmlContainerDemo region = addAll}
- */
-public interface HtmlContainer<E extends HTMLElement, B extends TypedBuilder<E, B>> extends TextContent<E, B> {
-
-    /** Modifies the inner HTML on the element using {@link HTMLElement#innerHTML}. */
-    default B innerHtml(SafeHtml html) {
-        element().innerHTML = html.asString();
-        return that();
-    }
-
-    // ------------------------------------------------------ child element(s)
-
-    /** Adds the given text as a text node. */
-    default B add(String text) {
-        return add(element().ownerDocument.createTextNode(text));
-    }
+/** Interface for elements with children */
+public interface HasChildren<E extends Element, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>, IsElement<E> {
 
     /** Adds the given node. */
     default B add(Node element) {
@@ -80,7 +61,7 @@ public interface HtmlContainer<E extends HTMLElement, B extends TypedBuilder<E, 
     }
 
     /** Adds all elements. */
-    default <F extends HTMLElement> B addAll(IsElement<?>... elements) {
+    default B addAll(IsElement<?>... elements) {
         for (IsElement<?> element : elements) {
             if (element != null) {
                 add(element.element());

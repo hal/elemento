@@ -13,19 +13,21 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento;
+package org.jboss.elemento.svg;
 
-import elemental2.dom.HTMLElement;
+import org.jboss.elemento.ElementBuilder;
+import org.jboss.elemento.HasChildren;
 
-/** Builder for empty HTML elements like <code>&lt;br/&gt;</code>, <code>&lt;hr/&gt;</code> or <code>&lt;img/&gt;</code>. */
-public class EmptyHtmlElementBuilder<E extends HTMLElement> extends HtmlElementBuilder<E, EmptyHtmlElementBuilder<E>> {
+/** Builder for container-like SVG elements. */
+public class SvgContainerBuilder<E extends SVGElement> extends ElementBuilder<E, SvgContainerBuilder<E>>
+        implements WithSvgElement<E, SvgContainerBuilder<E>>, HasChildren<E, SvgContainerBuilder<E>> {
 
-    public EmptyHtmlElementBuilder(E element) {
+    public SvgContainerBuilder(E element) {
         super(element);
     }
 
     @Override
-    public EmptyHtmlElementBuilder<E> that() {
+    public SvgContainerBuilder<E> that() {
         return this;
     }
 }

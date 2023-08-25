@@ -17,9 +17,10 @@ package org.jboss.elemento;
 
 import elemental2.dom.HTMLElement;
 
-/** Builder for container-like HTML elements with inner HTML. */
-public class HtmlContainerBuilder<E extends HTMLElement> extends HtmlElementBuilder<E, HtmlContainerBuilder<E>>
-        implements HtmlContainer<E, HtmlContainerBuilder<E>> {
+/** Builder for container-like HTML elements. */
+public class HtmlContainerBuilder<E extends HTMLElement>
+        extends ElementBuilder<E, HtmlContainerBuilder<E>>
+        implements WithHtmlElement<E, HtmlContainerBuilder<E>>, HasChildren<E, HtmlContainerBuilder<E>> {
 
     public HtmlContainerBuilder(E element) {
         super(element);

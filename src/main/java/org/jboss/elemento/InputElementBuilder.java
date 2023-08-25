@@ -18,107 +18,110 @@ package org.jboss.elemento;
 import elemental2.dom.HTMLInputElement;
 
 /** Builder for input elements. */
-public class InputBuilder<E extends HTMLInputElement> extends HtmlElementBuilder<E, InputBuilder<E>> {
+public class InputElementBuilder<E extends HTMLInputElement> extends ElementBuilder<E, InputElementBuilder<E>>
+        implements WithHtmlElement<E, InputElementBuilder<E>> {
 
-    public InputBuilder(E element) {
+    public InputElementBuilder(E element) {
         super(element);
     }
 
     @Override
-    public InputBuilder<E> that() {
+    public InputElementBuilder<E> that() {
         return this;
     }
 
+    // ------------------------------------------------------ input element specific
+
     /** Modifies the {@code autofocus} flag. */
-    public InputBuilder<E> autofocus(boolean autofocus) {
+    public InputElementBuilder<E> autofocus(boolean autofocus) {
         element.autofocus = autofocus;
         return that();
     }
 
     /** Modifies the {@code autocomplete} attribute. */
-    public InputBuilder<E> autocomplete(String autocomplete) {
+    public InputElementBuilder<E> autocomplete(String autocomplete) {
         element.autocomplete = autocomplete;
         return that();
     }
 
     /** Modifies the {@code checked} flag. */
-    public InputBuilder<E> checked(boolean checked) {
+    public InputElementBuilder<E> checked(boolean checked) {
         element.checked = checked;
         return that();
     }
 
     /** Modifies the {@code indeterminate} flag. */
-    public InputBuilder<E> indeterminate(boolean indeterminate) {
+    public InputElementBuilder<E> indeterminate(boolean indeterminate) {
         element.indeterminate = indeterminate;
         return that();
     }
 
     /** Modifies the {@code readOnly} flag. */
-    public InputBuilder<E> readOnly(boolean readOnly) {
+    public InputElementBuilder<E> readOnly(boolean readOnly) {
         element.readOnly = readOnly;
         return that();
     }
 
     /** Modifies the {@code disabled} flag. */
-    public InputBuilder<E> disabled(boolean disabled) {
+    public InputElementBuilder<E> disabled(boolean disabled) {
         element.disabled = disabled;
         return that();
     }
 
     /** Modifies the {@code required} flag. */
-    public InputBuilder<E> required(boolean required) {
+    public InputElementBuilder<E> required(boolean required) {
         element.required = required;
         return that();
     }
 
     /** Modifies the {@code name} attribute. */
-    public InputBuilder<E> name(String name) {
+    public InputElementBuilder<E> name(String name) {
         element.name = name;
         return that();
     }
 
     /** Modifies the {@code min} attribute. */
-    public InputBuilder<E> min(int min) {
+    public InputElementBuilder<E> min(int min) {
         return min(String.valueOf(min));
     }
 
     /** Modifies the {@code min} attribute. */
-    public InputBuilder<E> min(String min) {
+    public InputElementBuilder<E> min(String min) {
         element.min = min;
         return that();
     }
 
     /** Modifies the {@code max} attribute. */
-    public InputBuilder<E> max(int max) {
+    public InputElementBuilder<E> max(int max) {
         return max(String.valueOf(max));
     }
 
     /** Modifies the {@code max} attribute. */
-    public InputBuilder<E> max(String max) {
+    public InputElementBuilder<E> max(String max) {
         element.max = max;
         return that();
     }
 
     /** Modifies the {@code placeholder} text. */
-    public InputBuilder<E> placeholder(String placeholder) {
+    public InputElementBuilder<E> placeholder(String placeholder) {
         element.placeholder = placeholder;
         return that();
     }
 
     /** Modifies the {@code tabIndex} number. */
-    public InputBuilder<E> tabIndex(int tabIndex) {
+    public InputElementBuilder<E> tabIndex(int tabIndex) {
         element.tabIndex = tabIndex;
         return that();
     }
 
     /** Modifies the {@code multiple} attribute. */
-    public InputBuilder<E> multiple(boolean multiple) {
+    public InputElementBuilder<E> multiple(boolean multiple) {
         element.multiple = multiple;
         return that();
     }
 
     /** Modifies the {@code accept} attribute. */
-    public InputBuilder<E> accept(String accept) {
+    public InputElementBuilder<E> accept(String accept) {
         element.accept = accept;
         return that();
     }

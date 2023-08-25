@@ -17,5 +17,50 @@ package org.jboss.elemento;
 
 /** Known input types used in {@link Elements#input(InputType)}. */
 public enum InputType {
-    button, checkbox, color, date, datetime, email, file, hidden, image, month, number, password, radio, range, reset, search, select, tel, text, textarea, time, url, week
+
+    button,
+
+    checkbox,
+
+    color,
+
+    date,
+
+    datetime,
+
+    email,
+
+    file,
+
+    hidden,
+
+    image,
+
+    month,
+
+    number,
+
+    password,
+
+    radio,
+
+    range,
+
+    reset,
+
+    search,
+
+    select,
+
+    tel,
+
+    text,
+
+    textarea,
+
+    time,
+
+    url,
+
+    week
 }
