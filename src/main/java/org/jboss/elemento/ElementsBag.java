@@ -22,7 +22,7 @@ import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 
 /**
- * Class to collect {@link HTMLElement}s
+ * Class to collect {@link Element}s
  * <p>
  * {@snippet class = ElementsBagDemo region = bag}
  */
@@ -39,12 +39,12 @@ public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag>
         return this;
     }
 
-    // ------------------------------------------------------ mirror add() methods from HtmlContent
-
     /** @return the elements in this bag. */
     public Iterable<Element> elements() {
         return iterable;
     }
+
+    // ------------------------------------------------------ mirror add() methods from HasChildren
 
     /** Adds the given element. */
     public ElementsBag add(Element element) {
@@ -56,6 +56,14 @@ public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag>
     public ElementsBag add(IsElement<?> element) {
         if (element != null) {
             return add(element.element());
+        }
+        return that();
+    }
+
+    /** Adds all elements. */
+    public ElementsBag addAll(Element... elements) {
+        for (Element element : elements) {
+            add(element);
         }
         return that();
     }

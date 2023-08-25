@@ -18,7 +18,11 @@ package org.jboss.elemento.svg;
 import org.jboss.elemento.ElementBuilder;
 import org.jboss.elemento.HasChildren;
 
-/** Builder for container-like SVG elements. */
+/**
+ * Builder for container-like SVG elements.
+ * <p>
+ * {@snippet class = SvgDemo region = svg}
+ */
 public class SvgContainerBuilder<E extends SVGElement> extends ElementBuilder<E, SvgContainerBuilder<E>>
         implements WithSvgElement<E, SvgContainerBuilder<E>>, HasChildren<E, SvgContainerBuilder<E>> {
 

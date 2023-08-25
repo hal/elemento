@@ -22,6 +22,11 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
 
+/**
+ * All of the SVG DOM interfaces that correspond directly to elements in the SVG language derive from the SVGElement interface.
+ *
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGElement</a>
+ */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGElement extends Element {
 

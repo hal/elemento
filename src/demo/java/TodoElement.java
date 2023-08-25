@@ -33,7 +33,7 @@ public class TodoElement implements IsElement<HTMLElement>, Attachable {
     private HandlerRegistration handlerRegistration;
 
     TodoElement(Todo todo) {
-        this.root = li().data("item", todo.id)
+        root = li().data("item", todo.id)
                 .add(div().css("view")
                         .add(toggle = input(checkbox).css("toggle")
                                 .checked(todo.completed)
@@ -42,9 +42,9 @@ public class TodoElement implements IsElement<HTMLElement>, Attachable {
                         .add(destroy = button().css("destroy").element()))
                 .add(summary = input(text).css("edit").element())
                 .element();
-        this.root.classList.toggle("completed", todo.completed);
-        this.toggle.checked = todo.completed;
-        Attachable.register(this, this);
+        root.classList.toggle("completed", todo.completed);
+        toggle.checked = todo.completed;
+        Attachable.register(root, this);
     }
 
     @Override

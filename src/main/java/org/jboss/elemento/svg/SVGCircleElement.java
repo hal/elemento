@@ -18,6 +18,12 @@ package org.jboss.elemento.svg;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
+/**
+ * The SVGCircleElement interface is an interface for the {@code <circle>} element.
+ *
+ * @see <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/API/SVGCircleElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGCircleElement</a>
+ */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGCircleElement extends SVGElement {
 }

@@ -18,6 +18,13 @@ package org.jboss.elemento.svg;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
+/**
+ * The SVGLineElement interface provides access to the properties of {@code <line>} elements, as well as methods to
+ * manipulate them.
+ *
+ * @see <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/API/SVGLineElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGLineElement</a>
+ */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGLineElement extends SVGElement {
 }

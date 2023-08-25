@@ -18,6 +18,9 @@ package org.jboss.elemento.svg;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.TypedBuilder;
 
+/**
+ * Combines common methods for manipulating an SVG element.
+ */
 public interface WithSvgElement<E extends SVGElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 
@@ -30,8 +33,8 @@ public interface WithSvgElement<E extends SVGElement, B extends TypedBuilder<E, 
     /**
      * Adds a {@code data-} attribute to the element.
      *
-     * @param name The name of the data attribute w/o the {@code data-} prefix. However, it won't be added if it's already
-     *        present.
+     * @param name The name of the data attribute w/o the {@code data-} prefix. However, it won't be added if it's
+     *             already present.
      */
     default B data(String name, String value) {
         element().dataset.set(name.replaceFirst("^data-", ""), value);

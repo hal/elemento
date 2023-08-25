@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-### CHanged
+### Changed
 
 - Refactor builder classes for simple (empty) and container-like HTML and SVG elements
 
@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.1.0] - 2023-08-23
 
-Please don't use this release.
+Not an official release - please don't use!
 
 ## [1.0.15] - 2023-08-20
 
@@ -40,7 +40,7 @@ Please don't use this release.
 
 ## [1.0.14] - 2023-08-20
 
-Please don't use this release. 
+Not an official release - please don't use!
 
 ## [1.0.13] - 2023-08-03
 

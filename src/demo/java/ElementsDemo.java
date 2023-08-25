@@ -79,7 +79,7 @@ public class ElementsDemo {
 
     public void streamDemo() {
         // @start region = stream
-        HTMLElement parent = find(document.body, By.data("foo", "bar"));
+        HTMLElement parent = find(body(), By.data("foo", "bar"));
         if (parent != null) {
             List<HTMLElement> htmlElements = stream(parent)
                     .filter(htmlElements())

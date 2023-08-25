@@ -10,7 +10,7 @@ import static org.jboss.elemento.Elements.dd;
 import static org.jboss.elemento.Elements.dl;
 import static org.jboss.elemento.Elements.dt;
 
-@SuppressWarnings({"MismatchedQueryAndUpdateOfCollection", "RedundantOperationOnEmptyContainer", "unused"})
+@SuppressWarnings({"RedundantOperationOnEmptyContainer", "MismatchedQueryAndUpdateOfCollection"})
 public class ElementsBagDemo {
 
     public void bagDemo() {

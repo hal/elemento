@@ -18,6 +18,13 @@ package org.jboss.elemento.svg;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
+/**
+ * The SVGRectElement interface provides access to the properties of {@code <rect>} elements, as well as methods to
+ * manipulate them.
+ *
+ * @see <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/API/SVGRectElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGRectElement</a>
+ */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGRectElement extends SVGElement {
 }

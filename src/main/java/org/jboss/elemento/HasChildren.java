@@ -19,7 +19,11 @@ import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
-/** Interface for elements with children */
+/**
+ * Interface for elements with children
+ <p>
+ * {@snippet class = HasChildrenDemo region = addAll}
+ */
 public interface HasChildren<E extends Element, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>, IsElement<E> {
 
     /** Adds the given node. */

@@ -17,7 +17,11 @@ package org.jboss.elemento.svg;
 
 import org.jboss.elemento.ElementBuilder;
 
-/** Builder for simple SVG elements. */
+/**
+ * Builder for simple SVG elements.
+ * <p>
+ * {@snippet class = SvgDemo region = svg}
+ */
 public class SvgElementBuilder<E extends SVGElement> extends ElementBuilder<E, SvgElementBuilder<E>>
         implements WithSvgElement<E, SvgElementBuilder<E>> {
 

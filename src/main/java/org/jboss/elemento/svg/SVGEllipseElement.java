@@ -18,6 +18,12 @@ package org.jboss.elemento.svg;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
+/**
+ * The SVGEllipseElement interface provides access to the properties of {@code <ellipse>} elements.
+ *
+ * @see <a
+ * href="https://developer.mozilla.org/en-US/docs/Web/API/SVGEllipseElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGEllipseElement</a>
+ */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGEllipseElement extends SVGElement {
 }
