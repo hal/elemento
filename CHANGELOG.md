@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.3] - 2023-08-25
+
 ### Changed
 
 - Refactor builder classes for simple (empty) and container-like HTML and SVG elements
@@ -573,7 +575,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.1.3...HEAD
+[1.1.3]: https://github.com/hal/elemento/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/hal/elemento/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/hal/elemento/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/hal/elemento/compare/v1.0.15...v1.1.0

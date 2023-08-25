@@ -35,7 +35,7 @@ Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
 </dependency>
 ```
  
@@ -318,7 +318,7 @@ To use it replace
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
 </dependency>
 ```
 
@@ -328,7 +328,7 @@ with
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.1.2-gwtcom</version>
+    <version>1.1.3-gwtcom</version>
 </dependency>
 ```
 
