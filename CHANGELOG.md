@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.4] - 2023-08-28
+
 ### Changed
 
 - Refactor interfaces to better follow the [soc](https://en.wikipedia.org/wiki/Separation_of_concerns) design principle: 
@@ -586,7 +588,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.1.3...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.1.4...HEAD
+[1.1.4]: https://github.com/hal/elemento/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/hal/elemento/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/hal/elemento/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/hal/elemento/compare/v1.1.0...v1.1.1
