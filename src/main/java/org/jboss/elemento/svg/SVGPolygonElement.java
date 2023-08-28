@@ -22,8 +22,8 @@ import jsinterop.annotations.JsType;
  * The SVGPolygonElement interface provides access to the properties of {@code <polygon>} elements, as well as methods to
  * manipulate them.
  *
- * @see <a
- * href="https://developer.mozilla.org/en-US/docs/Web/API/SVGPolygonElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGPolygonElement</a>
+ * @see <a href=
+ *      "https://developer.mozilla.org/en-US/docs/Web/API/SVGPolygonElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGPolygonElement</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGPolygonElement extends SVGElement {

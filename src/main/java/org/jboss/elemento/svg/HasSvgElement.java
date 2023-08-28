@@ -13,18 +13,16 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento;
+package org.jboss.elemento.svg;
 
-import elemental2.dom.HTMLElement;
+import org.jboss.elemento.IsElement;
+import org.jboss.elemento.TypedBuilder;
 
-public interface WithHtmlElement<E extends HTMLElement, B extends TypedBuilder<E, B>>
+/**
+ * Provides methods and default implementations for modifying SVG elements.
+ */
+public interface HasSvgElement<E extends SVGElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
-
-    /** Sets the title on the element. */
-    default B title(String title) {
-        element().title = title;
-        return that();
-    }
 
     /** Sets the CSS style of the element. */
     default B style(String style) {
@@ -40,12 +38,6 @@ public interface WithHtmlElement<E extends HTMLElement, B extends TypedBuilder<E
      */
     default B data(String name, String value) {
         element().dataset.set(name.replaceFirst("^data-", ""), value);
-        return that();
-    }
-
-    /** Modifies the {@code hidden} flag. */
-    default B hidden(boolean hidden) {
-        element().hidden = hidden;
         return that();
     }
 }

@@ -17,17 +17,26 @@ package org.jboss.elemento;
 
 import elemental2.dom.HTMLElement;
 
+import static java.util.Objects.requireNonNull;
+
 /** Builder for container-like HTML elements. */
 public class HtmlContainerBuilder<E extends HTMLElement>
-        extends ElementBuilder<E, HtmlContainerBuilder<E>>
-        implements WithHtmlElement<E, HtmlContainerBuilder<E>>, HasChildren<E, HtmlContainerBuilder<E>> {
+        implements HasElement<E, HtmlContainerBuilder<E>>, HasHtmlElement<E, HtmlContainerBuilder<E>>, Finder<E>,
+        Container<E, HtmlContainerBuilder<E>> {
+
+    private final E element;
 
     public HtmlContainerBuilder(E element) {
-        super(element);
+        this.element = requireNonNull(element, "element required");
     }
 
     @Override
     public HtmlContainerBuilder<E> that() {
         return this;
+    }
+
+    @Override
+    public E element() {
+        return element;
     }
 }

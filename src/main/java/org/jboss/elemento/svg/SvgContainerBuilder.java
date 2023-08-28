@@ -15,23 +15,34 @@
  */
 package org.jboss.elemento.svg;
 
-import org.jboss.elemento.ElementBuilder;
-import org.jboss.elemento.HasChildren;
+import org.jboss.elemento.Container;
+import org.jboss.elemento.Finder;
+import org.jboss.elemento.HasElement;
+
+import static java.util.Objects.requireNonNull;
 
 /**
  * Builder for container-like SVG elements.
  * <p>
  * {@snippet class = SvgDemo region = svg}
  */
-public class SvgContainerBuilder<E extends SVGElement> extends ElementBuilder<E, SvgContainerBuilder<E>>
-        implements WithSvgElement<E, SvgContainerBuilder<E>>, HasChildren<E, SvgContainerBuilder<E>> {
+public class SvgContainerBuilder<E extends SVGElement>
+        implements HasElement<E, SvgContainerBuilder<E>>, HasSvgElement<E, SvgContainerBuilder<E>>, Finder<E>,
+        Container<E, SvgContainerBuilder<E>> {
+
+    private final E element;
 
     public SvgContainerBuilder(E element) {
-        super(element);
+        this.element = requireNonNull(element, "element required");
     }
 
     @Override
     public SvgContainerBuilder<E> that() {
         return this;
+    }
+
+    @Override
+    public E element() {
+        return element;
     }
 }

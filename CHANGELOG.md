@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- Refactor interfaces to better follow the [soc](https://en.wikipedia.org/wiki/Separation_of_concerns) design principle: 
+  - `HasElement`: Provides methods and default implementations for modifying elements.
+  - `HasHtmlElement`: Provides methods and default implementations for modifying HTML elements.
+  - `HasInputElement`: Provides methods and default implementations for modifying input elements. 
+  - `Container`: Provides methods and default implementations for adding elements.
+  - `Finder`: Provides methods and default implementations for finding elements.
+
+  This enables better composition of features for builders.  
+
 ## [1.1.3] - 2023-08-25
 
 ### Changed

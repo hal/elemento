@@ -6,8 +6,6 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
 
 import static java.util.stream.Collectors.toList;
-import static org.jboss.elemento.By.AttributeOperator.STARTS_WITH;
-import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.asHtmlElement;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.Elements.button;
@@ -65,15 +63,6 @@ public class ElementsDemo {
                                 .add(input(text).css("edit"))))
                 .element();
         // @end region = builder
-    }
-
-    public void findAllDemo() {
-        // @start region = findAll
-        By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "https://"));
-        for (HTMLElement element : body().findAll(selector)) {
-            a(element).css("external");
-        }
-        // @end region = findAll
     }
 
     public void streamDemo() {

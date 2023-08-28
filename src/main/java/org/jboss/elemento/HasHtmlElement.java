@@ -13,16 +13,21 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento.svg;
+package org.jboss.elemento;
 
-import org.jboss.elemento.IsElement;
-import org.jboss.elemento.TypedBuilder;
+import elemental2.dom.HTMLElement;
 
 /**
- * Combines common methods for manipulating an SVG element.
+ * Provides methods and default implementations for modifying HTML elements.
  */
-public interface WithSvgElement<E extends SVGElement, B extends TypedBuilder<E, B>>
+public interface HasHtmlElement<E extends HTMLElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
+
+    /** Sets the title on the element. */
+    default B title(String title) {
+        element().title = title;
+        return that();
+    }
 
     /** Sets the CSS style of the element. */
     default B style(String style) {
@@ -33,11 +38,17 @@ public interface WithSvgElement<E extends SVGElement, B extends TypedBuilder<E, 
     /**
      * Adds a {@code data-} attribute to the element.
      *
-     * @param name The name of the data attribute w/o the {@code data-} prefix. However, it won't be added if it's
-     *             already present.
+     * @param name The name of the data attribute w/o the {@code data-} prefix. However, it won't be added if it's already
+     *        present.
      */
     default B data(String name, String value) {
         element().dataset.set(name.replaceFirst("^data-", ""), value);
+        return that();
+    }
+
+    /** Modifies the {@code hidden} flag. */
+    default B hidden(boolean hidden) {
+        element().hidden = hidden;
         return that();
     }
 }

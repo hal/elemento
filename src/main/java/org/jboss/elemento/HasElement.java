@@ -24,55 +24,43 @@ import org.gwtproject.safehtml.shared.SafeHtml;
 
 import elemental2.dom.Element;
 import elemental2.dom.Event;
-import elemental2.dom.HTMLElement;
 
 import static java.util.Arrays.asList;
-import static java.util.Objects.requireNonNull;
 import static org.jboss.elemento.EventType.bind;
 
-/** Base builder for elements. */
-public abstract class ElementBuilder<E extends Element, B extends ElementBuilder<E, B>>
-        implements TypedBuilder<E, B>, IsElement<E> {
-
-    protected final E element;
-
-    /** Creates a new element builder to mutate the passed element. */
-    protected ElementBuilder(E element) {
-        this.element = requireNonNull(element, "element required");
-    }
-
-    @Override
-    public E element() {
-        return element;
-    }
+/**
+ * Provides methods and default implementations for modifying elements.
+ */
+public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
+        extends TypedBuilder<E, B>, IsElement<E> {
 
     // ------------------------------------------------------ id, text, HTML
 
     /** Generates and sets an unique id on the element. */
-    public B id() {
+    default B id() {
         return id(Id.unique());
     }
 
     /** Sets the id on the element. */
-    public B id(String id) {
+    default B id(String id) {
         element().id = id;
         return that();
     }
 
     /** Sets the inner text on the element using {@link Element#textContent}. */
-    public B textContent(String text) {
+    default B textContent(String text) {
         element().textContent = text;
         return that();
     }
 
     /** Adds the given text as a text node. */
-    public B add(String text) {
+    default B add(String text) {
         element().appendChild(element().ownerDocument.createTextNode(text));
         return that();
     }
 
     /** Modifies the inner HTML on the element using {@link Element#innerHTML}. */
-    public B innerHtml(SafeHtml html) {
+    default B innerHtml(SafeHtml html) {
         element().innerHTML = html.asString();
         return that();
     }
@@ -80,7 +68,7 @@ public abstract class ElementBuilder<E extends Element, B extends ElementBuilder
     // ------------------------------------------------------ CSS
 
     /** Adds the specified CSS classes to the class list of the element. */
-    public B css(String... classes) {
+    default B css(String... classes) {
         if (classes != null) {
             List<String> failSafeClasses = new ArrayList<>();
             for (String c : classes) {
@@ -100,19 +88,19 @@ public abstract class ElementBuilder<E extends Element, B extends ElementBuilder
     }
 
     /** Toggle the class value; i.e., if the class exists then remove it, if not, then add it. */
-    public B toggle(String className) {
+    default B toggle(String className) {
         element().classList.toggle(className);
         return that();
     }
 
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
-    public B toggle(String className, boolean force) {
+    default B toggle(String className, boolean force) {
         element().classList.toggle(className, force);
         return that();
     }
 
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
-    public B toggle(String className, Supplier<Boolean> force) {
+    default B toggle(String className, Supplier<Boolean> force) {
         element().classList.toggle(className, force.get());
         return that();
     }
@@ -120,19 +108,19 @@ public abstract class ElementBuilder<E extends Element, B extends ElementBuilder
     // ------------------------------------------------------ attributes
 
     /** Sets the specified attribute of the element. */
-    public B attr(String name, boolean value) {
+    default B attr(String name, boolean value) {
         element().setAttribute(name, value);
         return that();
     }
 
     /** Sets the specified attribute of the element. */
-    public B attr(String name, int value) {
+    default B attr(String name, int value) {
         element().setAttribute(name, value);
         return that();
     }
 
     /** Sets the specified attribute of the element. */
-    public B attr(String name, String value) {
+    default B attr(String name, String value) {
         element().setAttribute(name, value);
         return that();
     }
@@ -143,7 +131,7 @@ public abstract class ElementBuilder<E extends Element, B extends ElementBuilder
      * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
      *        present.
      */
-    public B aria(String name, boolean value) {
+    default B aria(String name, boolean value) {
         String safeName = name.startsWith("aria-") ? name : "aria-" + name;
         return attr(safeName, value);
     }
@@ -154,7 +142,7 @@ public abstract class ElementBuilder<E extends Element, B extends ElementBuilder
      * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
      *        present.
      */
-    public B aria(String name, int value) {
+    default B aria(String name, int value) {
         String safeName = name.startsWith("aria-") ? name : "aria-" + name;
         return attr(safeName, value);
     }
@@ -165,7 +153,7 @@ public abstract class ElementBuilder<E extends Element, B extends ElementBuilder
      * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
      *        present.
      */
-    public B aria(String name, String value) {
+    default B aria(String name, String value) {
         String safeName = name.startsWith("aria-") ? name : "aria-" + name;
         return attr(safeName, value);
     }
@@ -173,40 +161,20 @@ public abstract class ElementBuilder<E extends Element, B extends ElementBuilder
     // ------------------------------------------------------ consumer
 
     /** Provides a way to modify the element using the specified consumer. */
-    public B apply(Consumer<E> consumer) {
+    default B apply(Consumer<E> consumer) {
         consumer.accept(element());
         return that();
     }
 
     // ------------------------------------------------------ event handler
+
     /**
      * Adds the given callback to the element.
      * <p>
      * {@snippet class = ElementsDemo region = on}
      */
-    public <V extends Event> B on(EventType<V, ?> type, EventCallbackFn<V> callback) {
+    default <V extends Event> B on(EventType<V, ?> type, EventCallbackFn<V> callback) {
         bind(element(), type, callback);
         return that();
-    }
-
-    // ------------------------------------------------------ finder methods
-
-    /**
-     * Finds all HTML elements for the given selector.
-     * <p>
-     * {@snippet class = ElementsDemo region = findAll}
-     */
-    public Iterable<HTMLElement> findAll(By selector) {
-        return Elements.findAll(element(), selector);
-    }
-
-    /** Finds a single HTML element for the given selector. */
-    public <F extends HTMLElement> F find(By selector) {
-        return Elements.find(element(), selector);
-    }
-
-    /** Finds the closest HTML element for the given selector. */
-    public <F extends HTMLElement> F closest(By selector) {
-        return Elements.closest(element(), selector);
     }
 }

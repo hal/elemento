@@ -17,12 +17,17 @@ package org.jboss.elemento;
 
 import elemental2.dom.HTMLInputElement;
 
+import static java.util.Objects.requireNonNull;
+
 /** Builder for input elements. */
-public class InputElementBuilder<E extends HTMLInputElement> extends ElementBuilder<E, InputElementBuilder<E>>
-        implements WithHtmlElement<E, InputElementBuilder<E>> {
+public class InputElementBuilder<E extends HTMLInputElement>
+        implements HasElement<E, InputElementBuilder<E>>, HasHtmlElement<E, InputElementBuilder<E>>,
+        HasInputElement<E, InputElementBuilder<E>>, Finder<E> {
+
+    private final E element;
 
     public InputElementBuilder(E element) {
-        super(element);
+        this.element = requireNonNull(element, "element required");
     }
 
     @Override
@@ -30,99 +35,8 @@ public class InputElementBuilder<E extends HTMLInputElement> extends ElementBuil
         return this;
     }
 
-    // ------------------------------------------------------ input element specific
-
-    /** Modifies the {@code autofocus} flag. */
-    public InputElementBuilder<E> autofocus(boolean autofocus) {
-        element.autofocus = autofocus;
-        return that();
-    }
-
-    /** Modifies the {@code autocomplete} attribute. */
-    public InputElementBuilder<E> autocomplete(String autocomplete) {
-        element.autocomplete = autocomplete;
-        return that();
-    }
-
-    /** Modifies the {@code checked} flag. */
-    public InputElementBuilder<E> checked(boolean checked) {
-        element.checked = checked;
-        return that();
-    }
-
-    /** Modifies the {@code indeterminate} flag. */
-    public InputElementBuilder<E> indeterminate(boolean indeterminate) {
-        element.indeterminate = indeterminate;
-        return that();
-    }
-
-    /** Modifies the {@code readOnly} flag. */
-    public InputElementBuilder<E> readOnly(boolean readOnly) {
-        element.readOnly = readOnly;
-        return that();
-    }
-
-    /** Modifies the {@code disabled} flag. */
-    public InputElementBuilder<E> disabled(boolean disabled) {
-        element.disabled = disabled;
-        return that();
-    }
-
-    /** Modifies the {@code required} flag. */
-    public InputElementBuilder<E> required(boolean required) {
-        element.required = required;
-        return that();
-    }
-
-    /** Modifies the {@code name} attribute. */
-    public InputElementBuilder<E> name(String name) {
-        element.name = name;
-        return that();
-    }
-
-    /** Modifies the {@code min} attribute. */
-    public InputElementBuilder<E> min(int min) {
-        return min(String.valueOf(min));
-    }
-
-    /** Modifies the {@code min} attribute. */
-    public InputElementBuilder<E> min(String min) {
-        element.min = min;
-        return that();
-    }
-
-    /** Modifies the {@code max} attribute. */
-    public InputElementBuilder<E> max(int max) {
-        return max(String.valueOf(max));
-    }
-
-    /** Modifies the {@code max} attribute. */
-    public InputElementBuilder<E> max(String max) {
-        element.max = max;
-        return that();
-    }
-
-    /** Modifies the {@code placeholder} text. */
-    public InputElementBuilder<E> placeholder(String placeholder) {
-        element.placeholder = placeholder;
-        return that();
-    }
-
-    /** Modifies the {@code tabIndex} number. */
-    public InputElementBuilder<E> tabIndex(int tabIndex) {
-        element.tabIndex = tabIndex;
-        return that();
-    }
-
-    /** Modifies the {@code multiple} attribute. */
-    public InputElementBuilder<E> multiple(boolean multiple) {
-        element.multiple = multiple;
-        return that();
-    }
-
-    /** Modifies the {@code accept} attribute. */
-    public InputElementBuilder<E> accept(String accept) {
-        element.accept = accept;
-        return that();
+    @Override
+    public E element() {
+        return element;
     }
 }

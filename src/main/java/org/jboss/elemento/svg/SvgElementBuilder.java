@@ -15,22 +15,32 @@
  */
 package org.jboss.elemento.svg;
 
-import org.jboss.elemento.ElementBuilder;
+import org.jboss.elemento.Finder;
+import org.jboss.elemento.HasElement;
+
+import static java.util.Objects.requireNonNull;
 
 /**
  * Builder for simple SVG elements.
  * <p>
  * {@snippet class = SvgDemo region = svg}
  */
-public class SvgElementBuilder<E extends SVGElement> extends ElementBuilder<E, SvgElementBuilder<E>>
-        implements WithSvgElement<E, SvgElementBuilder<E>> {
+public class SvgElementBuilder<E extends SVGElement>
+        implements HasElement<E, SvgElementBuilder<E>>, HasSvgElement<E, SvgElementBuilder<E>>, Finder<E> {
+
+    private final E element;
 
     public SvgElementBuilder(E element) {
-        super(element);
+        this.element = requireNonNull(element, "element required");
     }
 
     @Override
     public SvgElementBuilder<E> that() {
         return this;
+    }
+
+    @Override
+    public E element() {
+        return element;
     }
 }

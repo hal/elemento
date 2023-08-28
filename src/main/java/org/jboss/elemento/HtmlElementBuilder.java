@@ -17,16 +17,25 @@ package org.jboss.elemento;
 
 import elemental2.dom.HTMLElement;
 
+import static java.util.Objects.requireNonNull;
+
 /** Builder for simple HTML elements. */
 public class HtmlElementBuilder<E extends HTMLElement>
-        extends ElementBuilder<E, HtmlElementBuilder<E>> implements WithHtmlElement<E, HtmlElementBuilder<E>> {
+        implements HasElement<E, HtmlElementBuilder<E>>, HasHtmlElement<E, HtmlElementBuilder<E>>, Finder<E> {
+
+    private final E element;
 
     public HtmlElementBuilder(E element) {
-        super(element);
+        this.element = requireNonNull(element, "element required");
     }
 
     @Override
     public HtmlElementBuilder<E> that() {
-        return null;
+        return this;
+    }
+
+    @Override
+    public E element() {
+        return element;
     }
 }

@@ -44,7 +44,7 @@ public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag>
         return iterable;
     }
 
-    // ------------------------------------------------------ mirror add() methods from HasChildren
+    // ------------------------------------------------------ mirror add() methods from Container
 
     /** Adds the given element. */
     public ElementsBag add(Element element) {

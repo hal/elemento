@@ -20,15 +20,15 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
 /**
- * Interface for elements with children
- <p>
- * {@snippet class = HasChildrenDemo region = addAll}
+ * Provides methods and default implementations for adding elements.
+ * <p>
+ * {@snippet class = ContainerDemo region = addAll}
  */
-public interface HasChildren<E extends Element, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>, IsElement<E> {
+public interface Container<E extends Element, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>, IsElement<E> {
 
     /** Adds the given node. */
-    default B add(Node element) {
-        element().appendChild(element);
+    default B add(Node node) {
+        element().appendChild(node);
         return that();
     }
 

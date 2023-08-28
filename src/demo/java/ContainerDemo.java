@@ -3,7 +3,7 @@ import elemental2.dom.HTMLUListElement;
 import static org.jboss.elemento.Elements.ul;
 
 @SuppressWarnings("unused")
-public class HasChildrenDemo {
+public class ContainerDemo {
 
     public void addAllDemo() {
         // @start region = addAll
