@@ -329,7 +329,7 @@ In your GWT module inherit from `org.jboss.elemento.SVG`:
 
 ```xml
 <module>
-    <inherits name="org.jboss.elemento.Core"/>
+    <inherits name="org.jboss.elemento.SVG"/>
 </module>
 ```
 
@@ -351,7 +351,7 @@ In your GWT module inherit from `org.jboss.elemento.MathML`:
 
 ```xml
 <module>
-    <inherits name="org.jboss.elemento.Core"/>
+    <inherits name="org.jboss.elemento.MathML"/>
 </module>
 ```
 
