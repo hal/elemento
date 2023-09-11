@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Split Elemento into three modules:
+  1. Core: `org.jboss.elemento:elemento-core`
+  2. SVG: `org.jboss.elemento:elemento-svg`
+  3. MathML: `org.jboss.elemento:elemento-mathml`
+
+### Changed
+
+- Rename classes: `*Html*` -> `*HTML*`
+
+### Removed
+
+- Remove support for GWT.com dependencies (`com.google.gwt`), only GWP project dependencies are supported in 1.2.x and above. If you still depend on GWT.com, please stick with Elemento 1.1.x   
+
 ## [1.1.4] - 2023-08-28
 
 ### Changed

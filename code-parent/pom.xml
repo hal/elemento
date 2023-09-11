@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     Copyright 2023 Red Hat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         https://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.elemento</groupId>
+        <artifactId>elemento-parent</artifactId>
+        <version>1.2.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>elemento-code-parent</artifactId>
+    <packaging>pom</packaging>
+    <name>Elemento Code Parent</name>
+    <description>Parent for modules with code. Contains dependencies and plugin management</description>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Elemento -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Elemental -->
+            <dependency>
+                <groupId>com.google.elemental2</groupId>
+                <artifactId>elemental2-core</artifactId>
+                <version>${version.elemental2}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.jsinterop</groupId>
+                        <artifactId>jsinterop-annotations</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.google.elemental2</groupId>
+                <artifactId>elemental2-dom</artifactId>
+                <version>${version.elemental2}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.elemental2</groupId>
+                <artifactId>elemental2-webstorage</artifactId>
+                <version>${version.elemental2}</version>
+            </dependency>
+
+            <!-- GWT -->
+            <dependency>
+                <groupId>org.gwtproject.event</groupId>
+                <artifactId>gwt-event</artifactId>
+                <version>${version.gwt.event}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.gwtproject.safehtml</groupId>
+                <artifactId>gwt-safehtml</artifactId>
+                <version>${version.gwt.safehtml}</version>
+            </dependency>
+
+            <!-- Test -->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${version.junit}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-webstorage</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.event</groupId>
+            <artifactId>gwt-event</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.safehtml</groupId>
+            <artifactId>gwt-safehtml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Ordered by artifactID -->
+                <plugin>
+                    <groupId>net.revelc.code.formatter</groupId>
+                    <artifactId>formatter-maven-plugin</artifactId>
+                    <configuration>
+                        <configFile>etc/eclipse-formatter-config.xml</configFile>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>elemento-build-config</artifactId>
+                            <version>${project.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <configuration>
+                        <licenseSets>
+                            <licenseSet>
+                                <header>etc/license.txt</header>
+                            </licenseSet>
+                        </licenseSets>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>elemento-build-config</artifactId>
+                            <version>${project.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <configuration>
+                        <suppressionsLocation>etc/checkstyle-suppressions.xml</suppressionsLocation>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>elemento-build-config</artifactId>
+                            <version>${project.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${version.javadoc.plugin}</version>
+                    <configuration combine.self="override">
+                        <additionalOptions>${javadoc.options}</additionalOptions>
+                        <detectLinks>true</detectLinks>
+                        <doclint>none</doclint>
+                        <failOnError>false</failOnError>
+                        <links>
+                            <link>https://www.gwtproject.org/javadoc/latest/</link>
+                            <link>https://javadoc.io/doc/org.gwtproject.event/gwt-event/${version.gwt.event}</link>
+                            <link>https://javadoc.io/doc/org.gwtproject.safehtml/gwt-safehtml/${version.gwt.safehtml}
+                            </link>
+                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-core/${version.elemental2}/
+                            </link>
+                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-dom/${version.elemental2}/
+                            </link>
+                            <link>
+                                https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/${version.elemental2}/
+                            </link>
+                        </links>
+                        <show>public</show>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <!-- Ordered by artifactID -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-demos</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/src/demo/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>formatter-format</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>formatter-check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.revelc.code</groupId>
+                <artifactId>impsort-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>impsort-sort</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>sort</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>impsort-check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>checkstyle-check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

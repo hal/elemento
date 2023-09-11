@@ -45,61 +45,9 @@ jobs:
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
-  deploy-gwtcom:
-    name: Deploy GWT.com Maven Artifacts
-    runs-on: ubuntu-latest
-    env:
-      MVN: ./mvnw --show-version --batch-mode
-    steps:
-      - name: Get Version
-        id: get-version
-        uses: battila7/get-version-action@v2.3.0
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v3
-      - name: Update Version
-        id: update-version
-        run: $MVN versions:set -DnewVersion="${{ steps.get-version.outputs.version-without-v }}-gwtcom"
-      - name: Replace Code
-        id: replace-code
-        run: |
-          sed -i -f sed/pom.sed pom.xml
-          sed -i -f sed/module.sed src/main/resources/org/jboss/elemento/Core.gwt.xml
-          sed -i -f sed/import.sed src/main/java/org/jboss/elemento/Elements.java
-          sed -i -f sed/import.sed src/main/java/org/jboss/elemento/EventType.java
-          sed -i -f sed/import.sed src/main/java/org/jboss/elemento/HasElement.java
-      - name: Set up JDK
-        id: setup-jdk
-        uses: actions/setup-java@v3
-        with:
-          java-version: 11
-          distribution: temurin
-          cache: maven
-      - name: Package
-        id: package
-        run: $MVN package
-      - name: Set up Maven Settings
-        id: setup-maven-settings
-        uses: actions/setup-java@v3
-        with: # running setup-java again overwrites the settings.xml
-          java-version: 11
-          distribution: temurin
-          server-id: ossrh
-          server-username: OSSRH_USERNAME
-          server-password: OSSRH_PASSWORD
-          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-          gpg-passphrase: MAVEN_GPG_PASSPHRASE
-      - name: Deploy
-        id: deploy
-        run: $MVN deploy -P release
-        env:
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-
   publish:
     name: Publish API documentation
-    needs: [deploy, deploy-gwtcom]
+    needs: deploy
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
@@ -122,12 +70,12 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
           branch: apidoc
-          folder: ./target/site/apidocs
+          folder: ./core/target/site/apidocs
           clean: true
 
   release:
     name: Create GitHub Release
-    needs: [deploy, deploy-gwtcom]
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Get Version

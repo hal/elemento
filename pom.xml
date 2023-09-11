@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-     Copyright 2022 Red Hat
+     Copyright 2023 Red Hat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -28,13 +28,13 @@
     </parent>
 
     <groupId>org.jboss.elemento</groupId>
-    <artifactId>elemento-core</artifactId>
-    <version>1.1.5-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <name>Elemento Core</name>
+    <artifactId>elemento-parent</artifactId>
+    <version>1.2.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Elemento Parent</name>
     <description>Builder API and other goodies for GWT Elemental</description>
     <url>http://github.com/hal/elemento</url>
-    <inceptionYear>2022</inceptionYear>
+    <inceptionYear>2023</inceptionYear>
 
     <licenses>
         <license>
@@ -122,72 +122,19 @@
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>${version.junit}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <modules>
+        <module>bom</module>
+        <module>build-config</module>
+        <module>code-parent</module>
+        <module>core</module>
+        <module>mathml</module>
+        <module>svg</module>
+    </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-core</artifactId>
-            <version>${version.elemental2}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.jsinterop</groupId>
-                    <artifactId>jsinterop-annotations</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-dom</artifactId>
-            <version>${version.elemental2}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.elemental2</groupId>
-            <artifactId>elemental2-webstorage</artifactId>
-            <version>${version.elemental2}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.gwtproject.event</groupId>
-            <artifactId>gwt-event</artifactId>
-            <version>${version.gwt.event}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.gwtproject.safehtml</groupId>
-            <artifactId>gwt-safehtml</artifactId>
-            <version>${version.gwt.safehtml}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-        </dependency>
-    </dependencies>
+    <!-- No dependencies! Dependencies are managed in core-parent -->
+    <dependencies/>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>org/jboss/elemento/**/*.java</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>org/jboss/elemento/Core.gwt.xml</include>
-                </includes>
-            </resource>
-        </resources>
-
         <pluginManagement>
             <plugins>
                 <!-- Ordered by artifactID -->
@@ -195,9 +142,6 @@
                     <groupId>net.revelc.code.formatter</groupId>
                     <artifactId>formatter-maven-plugin</artifactId>
                     <version>${version.formatter.plugin}</version>
-                    <configuration>
-                        <configFile>etc/eclipse-formatter-config.xml</configFile>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>net.revelc.code</groupId>
@@ -224,7 +168,7 @@
                         <useDefaultExcludes>true</useDefaultExcludes>
                         <licenseSets>
                             <licenseSet>
-                                <header>etc/license.txt</header>
+                                <header>build-config/src/main/resources/etc/license.txt</header>
                                 <excludes>
                                     <exclude>LICENSE</exclude>
                                     <exclude>sed/*.sed</exclude>
@@ -244,7 +188,6 @@
                         <failsOnError>true</failsOnError>
                         <includeTestSourceDirectory>true</includeTestSourceDirectory>
                         <excludes>**/*$logger.java,**/*$bundle.java</excludes>
-                        <suppressionsLocation>etc/checkstyle-suppressions.xml</suppressionsLocation>
                         <useFile/>
                     </configuration>
                     <dependencies>
@@ -287,54 +230,11 @@
                         </rules>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${version.javadoc.plugin}</version>
-                    <configuration combine.self="override">
-                        <additionalOptions>${javadoc.options}</additionalOptions>
-                        <detectLinks>true</detectLinks>
-                        <doclint>none</doclint>
-                        <failOnError>false</failOnError>
-                        <links>
-                            <link>https://www.gwtproject.org/javadoc/latest/</link>
-                            <link>https://javadoc.io/doc/org.gwtproject.event/gwt-event/${version.gwt.event}</link>
-                            <link>https://javadoc.io/doc/org.gwtproject.safehtml/gwt-safehtml/${version.gwt.safehtml}
-                            </link>
-                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-core/${version.elemental2}/
-                            </link>
-                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-dom/${version.elemental2}/
-                            </link>
-                            <link>
-                                https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/${version.elemental2}/
-                            </link>
-                        </links>
-                        <show>public</show>
-                    </configuration>
-                </plugin>
             </plugins>
         </pluginManagement>
 
         <plugins>
             <!-- Ordered by artifactID -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>add-demos</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>add-test-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>src/demo/java</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>net.revelc.code.formatter</groupId>
                 <artifactId>formatter-maven-plugin</artifactId>

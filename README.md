@@ -6,11 +6,10 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
 - [Helper methods](#goodies) to manipulate the DOM tree
-- Ready to be used with current and future GWT releases and J2CL
+- Ready to be used with GWT and J2CL
 - Minimal dependencies
   - Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
-  - GWT project (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`) *or*
-  - GWT.com (`com.google.gwt:gwt-user`)
+  - GWT project (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`) 
 
 **TOC**  
 * [Get Started](#get-started)
@@ -22,7 +21,6 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [Goodies](#goodies)
   * [Attach / Detach](#attach--detach)
   * [Iterators / Iterables / Streams](#iterators--iterables--streams)
-* [GWT.com](#gwtcom)
 * [Samples](#samples)
 * [Contributing](#contributing)
 * [Get Help](#get-help)
@@ -307,88 +305,6 @@ Elemento uses the [`MutationObserver`](https://developer.mozilla.org/docs/Web/AP
 Elemento provides several methods to iterate over node lists, child elements or elements returned by a selector. There are methods which return `Iterator`, `Iterable` and `Stream`.
 
 See the API documentation of [Elements](https://hal.github.io/elemento/org/jboss/elemento/Elements.html) for more details.
-
-# GWT.com
-
-Elemento depends on GWT project dependencies (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`). For those still relying on GWT.com (`com.google.gwt:gwt-user`) there are `-gwtcom` compatible versions available.  
-
-To use it replace
-
-```xml
-<dependency>
-    <groupId>org.jboss.elemento</groupId>
-    <artifactId>elemento-core</artifactId>
-    <version>1.1.4</version>
-</dependency>
-```
-
-with 
-
-```xml
-<dependency>
-    <groupId>org.jboss.elemento</groupId>
-    <artifactId>elemento-core</artifactId>
-    <version>1.1.4-gwtcom</version>
-</dependency>
-```
-
-The GWT.com compatible versions differ in the following points:
-
-## Dependencies
-
-### GWT Project
-
-```xml
-<dependency>
-    <groupId>org.gwtproject.event</groupId>
-    <artifactId>gwt-event</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.gwtproject.safehtml</groupId>
-    <artifactId>gwt-safehtml</artifactId>
-</dependency>
-```
-
-### GWT.com
-
-```xml
-<dependency>
-    <groupId>com.google.gwt</groupId>
-    <artifactId>gwt-user</artifactId>
-</dependency>
-```
-
-## GWT Module
-
-### GWT Project
-
-```xml
-<inherits name="org.gwtproject.event.Event"/>
-<inherits name="org.gwtproject.safehtml.SafeHtml"/>
-```
-
-### GWT.com
-
-```xml
-<inherits name="com.google.gwt.event.Event"/>
-<inherits name="com.google.gwt.safehtml.SafeHtml"/>
-```
-
-## Classes
-
-### GWT Project
-
-```java
-import org.gwtproject.safehtml.shared.SafeHtml;
-import org.gwtproject.event.shared.HandlerRegistration;
-```
-
-### GWT.com
-
-```java
-import com.google.gwt.safehtml.shared.SafeHtml;
-import com.google.web.bindery.event.shared.HandlerRegistration;
-```
 
 # Samples
 
