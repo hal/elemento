@@ -19,7 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Removed
 
-- Remove support for GWT.com dependencies (`com.google.gwt`), only GWP project dependencies are supported in 1.2.x and above. If you still depend on GWT.com, please stick with Elemento 1.1.x   
+- Remove support for GWT.com dependencies, only GWT project dependencies are supported in 1.2.x and above. If you still depend on GWT.com, please stick with Elemento 1.1.x   
 
 ## [1.1.4] - 2023-08-28
 

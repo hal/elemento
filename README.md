@@ -21,6 +21,9 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [Goodies](#goodies)
   * [Attach / Detach](#attach--detach)
   * [Iterators / Iterables / Streams](#iterators--iterables--streams)
+* [SVG & MathML](#svg--mathml)
+  * [SVG](#svg)
+  * [MathML](#mathml)
 * [Samples](#samples)
 * [Contributing](#contributing)
 * [Get Help](#get-help)
@@ -305,6 +308,54 @@ Elemento uses the [`MutationObserver`](https://developer.mozilla.org/docs/Web/AP
 Elemento provides several methods to iterate over node lists, child elements or elements returned by a selector. There are methods which return `Iterator`, `Iterable` and `Stream`.
 
 See the API documentation of [Elements](https://hal.github.io/elemento/org/jboss/elemento/Elements.html) for more details.
+
+# SVG & MathML
+
+Elemento comes with basic support for SVG and MathML. 
+
+## SVG
+
+To create SVG elements, add the following dependency to your POM:
+
+```xml
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-svg</artifactId>
+    <version>1.1.4</version>
+</dependency>
+```
+
+In your GWT module inherit from `org.jboss.elemento.SVG`:
+
+```xml
+<module>
+    <inherits name="org.jboss.elemento.Core"/>
+</module>
+```
+
+Finally, use the static methods in `org.jboss.elemento.svg.SVG` to create SVG elements.  
+
+## MathML
+
+To create MathML elements, add the following dependency to your POM:
+
+```xml
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-mathml</artifactId>
+    <version>1.1.4</version>
+</dependency>
+```
+
+In your GWT module inherit from `org.jboss.elemento.MathML`:
+
+```xml
+<module>
+    <inherits name="org.jboss.elemento.Core"/>
+</module>
+```
+
+Finally, use the static methods in `org.jboss.elemento.mathml.MathML` to create MathML elements.
 
 # Samples
 
