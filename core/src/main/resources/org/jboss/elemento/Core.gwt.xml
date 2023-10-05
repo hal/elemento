@@ -22,5 +22,4 @@
     <inherits name="elemental2.dom.Dom"/>
     <inherits name="elemental2.webstorage.WebStorage"/>
     <source path=""/>
-    <source path="svg"/>
 </module>
