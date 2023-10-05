@@ -15,8 +15,6 @@
  */
 package org.jboss.elemento;
 
-import org.gwtproject.event.shared.HandlerRegistration;
-
 import elemental2.dom.ClipboardEvent;
 import elemental2.dom.Document;
 import elemental2.dom.DragEvent;
@@ -38,6 +36,7 @@ import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
 import elemental2.webstorage.StorageEvent;
 import jsinterop.base.Js;
+import org.gwtproject.event.shared.HandlerRegistration;
 
 /**
  * Known event types used in {@link HTMLElementBuilder#on(EventType, EventCallbackFn)}.
@@ -232,13 +231,18 @@ public class EventType<T extends Event, V extends EventTarget> {
 
     // ------------------------------------------------------ instance
 
-    private final String name;
+    public final String name;
 
     private EventType(String name) {
         this.name = name;
     }
 
-    /** @return the name of the event type. */
+    /**
+     * @return the name of the event type.
+     *
+     * @deprecated Use public field {@link #name} instead
+     */
+    @Deprecated
     public String getName() {
         return name;
     }

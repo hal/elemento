@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- `HasInputElement.value()`: Method to set the value on input elements
+
+### Deprecated
+
+- `EventType.getName()`: Use the public field `name` instead
+
 ## [1.2.0] - 2023-09-11
 
 ### Added

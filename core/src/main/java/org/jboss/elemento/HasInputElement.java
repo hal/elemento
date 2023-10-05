@@ -23,6 +23,12 @@ import elemental2.dom.HTMLInputElement;
 public interface HasInputElement<E extends HTMLInputElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 
+    /** Modifies the {@code accept} attribute. */
+    default B accept(String accept) {
+        element().accept = accept;
+        return that();
+    }
+
     /** Modifies the {@code autofocus} flag. */
     default B autofocus(boolean autofocus) {
         element().autofocus = autofocus;
@@ -41,44 +47,15 @@ public interface HasInputElement<E extends HTMLInputElement, B extends TypedBuil
         return that();
     }
 
-    /** Modifies the {@code indeterminate} flag. */
-    default B indeterminate(boolean indeterminate) {
-        element().indeterminate = indeterminate;
-        return that();
-    }
-
-    /** Modifies the {@code readOnly} flag. */
-    default B readOnly(boolean readOnly) {
-        element().readOnly = readOnly;
-        return that();
-    }
-
     /** Modifies the {@code disabled} flag. */
     default B disabled(boolean disabled) {
         element().disabled = disabled;
         return that();
     }
 
-    /** Modifies the {@code required} flag. */
-    default B required(boolean required) {
-        element().required = required;
-        return that();
-    }
-
-    /** Modifies the {@code name} attribute. */
-    default B name(String name) {
-        element().name = name;
-        return that();
-    }
-
-    /** Modifies the {@code min} attribute. */
-    default B min(int min) {
-        return min(String.valueOf(min));
-    }
-
-    /** Modifies the {@code min} attribute. */
-    default B min(String min) {
-        element().min = min;
+    /** Modifies the {@code indeterminate} flag. */
+    default B indeterminate(boolean indeterminate) {
+        element().indeterminate = indeterminate;
         return that();
     }
 
@@ -93,15 +70,14 @@ public interface HasInputElement<E extends HTMLInputElement, B extends TypedBuil
         return that();
     }
 
-    /** Modifies the {@code placeholder} text. */
-    default B placeholder(String placeholder) {
-        element().placeholder = placeholder;
-        return that();
+    /** Modifies the {@code min} attribute. */
+    default B min(int min) {
+        return min(String.valueOf(min));
     }
 
-    /** Modifies the {@code tabIndex} number. */
-    default B tabIndex(int tabIndex) {
-        element().tabIndex = tabIndex;
+    /** Modifies the {@code min} attribute. */
+    default B min(String min) {
+        element().min = min;
         return that();
     }
 
@@ -111,9 +87,40 @@ public interface HasInputElement<E extends HTMLInputElement, B extends TypedBuil
         return that();
     }
 
-    /** Modifies the {@code accept} attribute. */
-    default B accept(String accept) {
-        element().accept = accept;
+    /** Modifies the {@code name} attribute. */
+    default B name(String name) {
+        element().name = name;
         return that();
     }
+
+    /** Modifies the {@code placeholder} text. */
+    default B placeholder(String placeholder) {
+        element().placeholder = placeholder;
+        return that();
+    }
+
+    /** Modifies the {@code readOnly} flag. */
+    default B readOnly(boolean readOnly) {
+        element().readOnly = readOnly;
+        return that();
+    }
+
+    /** Modifies the {@code required} flag. */
+    default B required(boolean required) {
+        element().required = required;
+        return that();
+    }
+
+    /** Modifies the {@code tabIndex} number. */
+    default B tabIndex(int tabIndex) {
+        element().tabIndex = tabIndex;
+        return that();
+    }
+
+    /** Modifies the {@code value}. */
+    default B value(String value) {
+        element().value = value;
+        return that();
+    }
+
 }
