@@ -20,12 +20,12 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import elemental2.dom.Node;
-import elemental2.dom.NodeList;
 import org.gwtproject.safehtml.shared.SafeHtml;
 
 import elemental2.dom.Element;
 import elemental2.dom.Event;
+import elemental2.dom.Node;
+import elemental2.dom.NodeList;
 
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.EventType.bind;
@@ -50,7 +50,8 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
     }
 
     /**
-     * Sets the inner text on the element using {@link Element#textContent}. If you want to preserve existing child elements and just want to change the text of the text node, use {@link #textNode(String)}.
+     * Sets the inner text on the element using {@link Element#textContent}. If you want to preserve existing child elements and
+     * just want to change the text of the text node, use {@link #textNode(String)}.
      */
     default B textContent(String text) {
         element().textContent = text;
@@ -58,7 +59,8 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
     }
 
     /**
-     * Changes the text of the first text node (if any) or adds the given text as a new text node. Use this method instead of {@link Element#textContent} if you want to preserve existing child elements.
+     * Changes the text of the first text node (if any) or adds the given text as a new text node. Use this method instead of
+     * {@link Element#textContent} if you want to preserve existing child elements.
      */
     default B textNode(String text) {
         boolean textNode = false;
