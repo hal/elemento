@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.2.2] - 2023-10-10
 
+## [1.2.2] - 2023-10-10
+
 ### Added
 
 - Add method `HasElement.textNode(String text)` to change the text of the first text node while preserving existing child elements.
@@ -626,6 +628,7 @@ Switch to Apache2 license
 -->
 
 [Unreleased]: https://github.com/hal/elemento/compare/v1.2.2...HEAD
+[1.2.2]: https://github.com/hal/elemento/compare/v1.2.2...v1.2.2
 [1.2.2]: https://github.com/hal/elemento/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/hal/elemento/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/hal/elemento/compare/v1.1.4...v1.2.0
