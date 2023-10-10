@@ -6,9 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Add method `HasElement.textNode(String text)` to change the text of the first text node while preserving existing child elements.
+
 ### Fixed 
 
-- Removed unused source path from `org.jboss.elemento.Core` GWT module definition
+- Remove unused source path from `org.jboss.elemento.Core` GWT module definition
 
 ## [1.2.1] - 2023-10-05
 

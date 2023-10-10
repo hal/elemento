@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import elemental2.dom.Node;
+import elemental2.dom.NodeList;
 import org.gwtproject.safehtml.shared.SafeHtml;
 
 import elemental2.dom.Element;
@@ -47,9 +49,30 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
         return that();
     }
 
-    /** Sets the inner text on the element using {@link Element#textContent}. */
+    /**
+     * Sets the inner text on the element using {@link Element#textContent}. If you want to preserve existing child elements and just want to change the text of the text node, use {@link #textNode(String)}.
+     */
     default B textContent(String text) {
         element().textContent = text;
+        return that();
+    }
+
+    /**
+     * Changes the text of the first text node (if any) or adds the given text as a new text node. Use this method instead of {@link Element#textContent} if you want to preserve existing child elements.
+     */
+    default B textNode(String text) {
+        boolean textNode = false;
+        NodeList<Node> nodes = element().childNodes;
+        for (int i = 0; i < nodes.length && !textNode; i++) {
+            Node node = nodes.getAt(i);
+            if (node.nodeType == Node.TEXT_NODE) {
+                node.nodeValue = text;
+                textNode = true;
+            }
+        }
+        if (!textNode) {
+            add(text);
+        }
         return that();
     }
 
