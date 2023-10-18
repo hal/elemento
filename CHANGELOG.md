@@ -19,8 +19,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Changed method `HasHTMLElement.style(String)` to append a style definition rather than to overwrite the existing styles. 
 
-## [1.2.2] - 2023-10-10
-
 ### Added
 
 - Add method `HasElement.textNode(String text)` to change the text of the first text node while preserving existing child elements.
