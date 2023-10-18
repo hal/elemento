@@ -29,9 +29,9 @@ public interface HasHTMLElement<E extends HTMLElement, B extends TypedBuilder<E,
         return that();
     }
 
-    /** Sets the CSS style of the element. */
+    /** Appends the given style to the existing styles of this element. */
     default B style(String style) {
-        element().style.cssText = style;
+        element().style.cssText += style;
         return that();
     }
 

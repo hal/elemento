@@ -1352,6 +1352,33 @@ public final class Elements {
     // ------------------------------------------------------ attach / detach
 
     /**
+     * Returns {@code true} if the element is connected by calling {@link Node#isConnected} on the element's
+     * {@link IsElement#element()}.
+     *
+     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
+     * @see <a href="https://dom.spec.whatwg.org/#dom-node-isconnected">https://dom.spec.whatwg.org/#dom-node-isconnected</a>
+     */
+    public static <E extends HTMLElement> boolean isAttached(IsElement<E> element) {
+        if (element != null) {
+            return isAttached(element.element());
+        }
+        return false;
+    }
+
+    /**
+     * Fail-safe shortcut for {@link Node#isConnected}
+     *
+     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
+     * @see <a href="https://dom.spec.whatwg.org/#dom-node-isconnected">https://dom.spec.whatwg.org/#dom-node-isconnected</a>
+     */
+    public static boolean isAttached(Node node) {
+        if (node != null) {
+            return node.isConnected;
+        }
+        return false;
+    }
+
+    /**
      * Registers a callback when an element is appended to the document body. Note that the callback will be called only once,
      * if the element is appended more than once a new callback should be registered.
      *

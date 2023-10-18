@@ -6,7 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-## [1.2.2] - 2023-10-10
+### Added
+
+- New methods
+
+  - `Elements.isAttached(IsElement<E>)` and
+  - `Elements.isAttached(Node)`
+  
+  to test if an element/node is attached to the DOM by using the [`Node.isConnected`](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) property. 
+
+### Changed
+
+- Changed method `HasHTMLElement.style(String)` to append a style definition rather than to overwrite the existing styles. 
 
 ## [1.2.2] - 2023-10-10
 
