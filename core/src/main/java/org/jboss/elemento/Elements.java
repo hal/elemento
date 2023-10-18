@@ -1355,7 +1355,8 @@ public final class Elements {
      * Returns {@code true} if the element is connected by calling {@link Node#isConnected} on the element's
      * {@link IsElement#element()}.
      *
-     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
+     * @see <a href=
+     *      "https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
      * @see <a href="https://dom.spec.whatwg.org/#dom-node-isconnected">https://dom.spec.whatwg.org/#dom-node-isconnected</a>
      */
     public static <E extends HTMLElement> boolean isAttached(IsElement<E> element) {
@@ -1368,7 +1369,8 @@ public final class Elements {
     /**
      * Fail-safe shortcut for {@link Node#isConnected}
      *
-     * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
+     * @see <a href=
+     *      "https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
      * @see <a href="https://dom.spec.whatwg.org/#dom-node-isconnected">https://dom.spec.whatwg.org/#dom-node-isconnected</a>
      */
     public static boolean isAttached(Node node) {
