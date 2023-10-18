@@ -6,8 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-## [1.2.3] - 2023-10-18
-
 ### Added
 
 - New methods
@@ -19,7 +17,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Changed method `HasHTMLElement.style(String)` to append a style definition rather than to overwrite the existing styles. 
+- Changed method `HasHTMLElement.style(String)` to append a style definition rather than overwrite the existing styles. 
+
+## [1.2.3] - 2023-10-18
+
+Not an official release - please don't use!
 
 ## [1.2.2] - 2023-10-10
 
@@ -27,7 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Add method `HasElement.textNode(String text)` to change the text of the first text node while preserving existing child elements.
 
-### Fixed 
+### Fixed
 
 - Remove unused source path from `org.jboss.elemento.Core` GWT module definition
 
@@ -149,7 +151,7 @@ Not an official release - please don't use!
 
 ## [1.0.9] - 2022-03-28
 
-### Added 
+### Added
 
 - Add documentation for GWT.com related release
 
