@@ -36,6 +36,16 @@ public interface Attachable {
         }
     }
 
+    /**
+     * Unregisters the specified element for both attach and detach.
+     */
+    static void unregister(HTMLElement element) {
+        if (element != null) {
+            element.removeAttribute(BodyObserver.ATTACH_UID_KEY);
+            element.removeAttribute(BodyObserver.DETACH_UID_KEY);
+        }
+    }
+
     /** Registers the specified element for both attach and detach. */
     static <E extends HTMLElement> void register(IsElement<E> element, Attachable attachable) {
         if (element != null) {

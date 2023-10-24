@@ -62,7 +62,7 @@ public interface HasHTMLElement<E extends HTMLElement, B extends TypedBuilder<E,
     /** Sets the given style on this element. */
     default B style(String property, String value, boolean important) {
         String priority = important ? "important" : "";
-        element().style.setProperty(property, value, property);
+        element().style.setProperty(property, value, priority);
         return that();
     }
 

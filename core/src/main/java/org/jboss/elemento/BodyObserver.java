@@ -33,8 +33,8 @@ import static org.jboss.elemento.Elements.stream;
 
 final class BodyObserver {
 
-    private static final String ATTACH_UID_KEY = "on-attach-uid";
-    private static final String DETACH_UID_KEY = "on-detach-uid";
+    static final String ATTACH_UID_KEY = "on-attach-uid";
+    static final String DETACH_UID_KEY = "on-detach-uid";
 
     private static final List<ElementObserver> detachObservers = new ArrayList<>();
     private static final List<ElementObserver> attachObservers = new ArrayList<>();
