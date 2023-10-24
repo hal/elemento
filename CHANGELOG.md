@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.2.6] - 2023-10-24
+
 ### Added
 
 - Add method `Attachable.unregister(HTMLElement)`
@@ -665,7 +667,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.2.5...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.2.6...HEAD
+[1.2.6]: https://github.com/hal/elemento/compare/v1.2.5...v1.2.6
 [1.2.5]: https://github.com/hal/elemento/compare/v1.2.4...v1.2.5
 [1.2.4]: https://github.com/hal/elemento/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/hal/elemento/compare/v1.2.2...v1.2.3
