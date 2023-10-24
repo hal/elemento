@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Add overloaded `style()` methods to `HasHTMLElement`:
+
+  - `style(String style)`: Appends the given style to the existing styles of an element.
+  - `style(String style, boolean append)`: Appends or sets the given style of an element.
+  - `style(String property, int value)`: Sets the given style property on an element. 
+  - `style(String property, String value)`: Sets the given style property on an element.
+  - `style(String property, int value, boolean important)`: Sets the given style property on an element.
+  - `style(String property, String value, boolean important)`: Sets the given style property on an element.
+
 ## [1.2.4] - 2023-10-18
 
 ### Added

@@ -31,7 +31,38 @@ public interface HasHTMLElement<E extends HTMLElement, B extends TypedBuilder<E,
 
     /** Appends the given style to the existing styles of this element. */
     default B style(String style) {
-        element().style.cssText += style;
+        return style(style, true);
+    }
+
+    /** Appends or sets the given style to the styles of this element. */
+    default B style(String style, boolean append) {
+        if (append) {
+            element().style.cssText += style;
+        } else {
+            element().style.cssText = style;
+        }
+        return that();
+    }
+
+    /** Sets the given style on this element. */
+    default B style(String property, int value) {
+        return style(property, String.valueOf(value), false);
+    }
+
+    /** Sets the given style on this element. */
+    default B style(String property, String value) {
+        return style(property, value, false);
+    }
+
+    /** Sets the given style on this element. */
+    default B style(String property, int value, boolean important) {
+        return style(property, String.valueOf(value), important);
+    }
+
+    /** Sets the given style on this element. */
+    default B style(String property, String value, boolean important) {
+        String priority = important ? "important" : "";
+        element().style.setProperty(property, value, property);
         return that();
     }
 
