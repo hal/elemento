@@ -85,6 +85,7 @@ import static java.util.Collections.emptyIterator;
 import static java.util.Collections.emptyList;
 import static java.util.Spliterators.spliteratorUnknownSize;
 import static jsinterop.base.Js.cast;
+import static org.jboss.elemento.BodyObserver.addAttachObserver;
 
 /**
  * Builder and helper methods for working with {@link elemental2.dom.HTMLElement}s and/or {@link IsElement}.
@@ -1389,7 +1390,7 @@ public final class Elements {
      */
     public static void onAttach(HTMLElement element, ObserverCallback callback) {
         if (element != null) {
-            BodyObserver.addAttachObserver(element, callback);
+            addAttachObserver(element, callback);
         }
     }
 

@@ -16,6 +16,7 @@
 package org.jboss.elemento;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import elemental2.dom.HTMLElement;
@@ -33,8 +34,8 @@ import static org.jboss.elemento.Elements.stream;
 
 final class BodyObserver {
 
-    static final String ATTACH_UID_KEY = "on-attach-uid";
-    static final String DETACH_UID_KEY = "on-detach-uid";
+    private static final String ATTACH_UID_KEY = "on-attach-uid";
+    private static final String DETACH_UID_KEY = "on-detach-uid";
 
     private static final List<ElementObserver> detachObservers = new ArrayList<>();
     private static final List<ElementObserver> attachObservers = new ArrayList<>();
@@ -43,10 +44,14 @@ final class BodyObserver {
     private static void startObserving() {
         MutationObserver mutationObserver = new MutationObserver((mutationRecords, observer) -> {
             MutationRecord[] records = Js.uncheckedCast(mutationRecords);
-            // noinspection DataFlowIssue,ForLoopReplaceableByForEach
-            for (int i = 0; i < records.length; i++) {
-                onElementsRemoved(records[i]);
-                onElementsAppended(records[i]);
+            // noinspection ConstantValue,DataFlowIssue
+            for (MutationRecord record : records) {
+                if (record.removedNodes.length != 0) {
+                    onElementsRemoved(record);
+                }
+                if (record.addedNodes.length != 0) {
+                    onElementsAppended(record);
+                }
             }
             return null;
         });
@@ -62,46 +67,50 @@ final class BodyObserver {
         }
     }
 
-    @SuppressWarnings("DuplicatedCode")
     private static void onElementsAppended(MutationRecord record) {
-        List<ElementObserver> observed = new ArrayList<>();
-        List<HTMLElement> addedElements = stream(record.addedNodes).filter(htmlElements()).map(asHtmlElement())
+        List<HTMLElement> elements = stream(record.addedNodes)
+                .filter(htmlElements())
+                .map(asHtmlElement())
                 .collect(toList());
 
-        for (ElementObserver elementObserver : attachObservers) {
-            if (elementObserver.observedElement() == null) {
-                observed.add(elementObserver);
-            } else {
-                if (addedElements.contains(elementObserver.observedElement())
-                        || isChildOfObservedElement(addedElements, ATTACH_UID_KEY, elementObserver.attachId())) {
-                    elementObserver.callback().onObserved(record);
-                    elementObserver.observedElement().removeAttribute(ATTACH_UID_KEY);
-                    observed.add(elementObserver);
+        if (!elements.isEmpty()) {
+            for (Iterator<ElementObserver> iterator = attachObservers.iterator(); iterator.hasNext();) {
+                ElementObserver elementObserver = iterator.next();
+                if (elementObserver.observedElement == null) {
+                    iterator.remove();
+                } else {
+                    if (elements.contains(elementObserver.observedElement)
+                            || isChildOfObservedElement(elements, ATTACH_UID_KEY, elementObserver.id)) {
+                        elementObserver.callback.onObserved(record);
+                        elementObserver.observedElement.removeAttribute(ATTACH_UID_KEY);
+                        iterator.remove();
+                    }
                 }
             }
         }
-        attachObservers.removeAll(observed);
     }
 
-    @SuppressWarnings("DuplicatedCode")
     private static void onElementsRemoved(MutationRecord record) {
-        List<ElementObserver> observed = new ArrayList<>();
-        List<HTMLElement> removedElements = stream(record.removedNodes).filter(htmlElements()).map(asHtmlElement())
+        List<HTMLElement> elements = stream(record.removedNodes)
+                .filter(htmlElements())
+                .map(asHtmlElement())
                 .collect(toList());
 
-        for (ElementObserver elementObserver : detachObservers) {
-            if (elementObserver.observedElement() == null) {
-                observed.add(elementObserver);
-            } else {
-                if (removedElements.contains(elementObserver.observedElement())
-                        || isChildOfObservedElement(removedElements, DETACH_UID_KEY, elementObserver.attachId())) {
-                    elementObserver.callback().onObserved(record);
-                    elementObserver.observedElement().removeAttribute(DETACH_UID_KEY);
-                    observed.add(elementObserver);
+        if (!elements.isEmpty()) {
+            for (Iterator<ElementObserver> iterator = detachObservers.iterator(); iterator.hasNext();) {
+                ElementObserver elementObserver = iterator.next();
+                if (elementObserver.observedElement == null) {
+                    iterator.remove();
+                } else {
+                    if (elements.contains(elementObserver.observedElement)
+                            || isChildOfObservedElement(elements, DETACH_UID_KEY, elementObserver.id)) {
+                        elementObserver.callback.onObserved(record);
+                        elementObserver.observedElement.removeAttribute(ATTACH_UID_KEY);
+                        iterator.remove();
+                    }
                 }
             }
         }
-        detachObservers.removeAll(observed);
     }
 
     private static boolean isChildOfObservedElement(List<HTMLElement> elements, String attribute, String attachId) {
@@ -114,8 +123,7 @@ final class BodyObserver {
     }
 
     /**
-     * Checks if the observer has already been started, if not it will start it. Then register and callback when the element is
-     * attached to the DOM.
+     * Registers the element and calls the callback when the element is attached to the DOM.
      */
     static void addAttachObserver(HTMLElement element, ObserverCallback callback) {
         if (!ready) {
@@ -124,9 +132,12 @@ final class BodyObserver {
         attachObservers.add(createObserver(element, callback, ATTACH_UID_KEY));
     }
 
+    static void removeAttachObserver(HTMLElement element) {
+        element.removeAttribute(ATTACH_UID_KEY);
+    }
+
     /**
-     * Checks if the observer has already been started, if not it will start it. Then register and callback when the element is
-     * removed from the DOM.
+     * Registers the element and calls the callback when the element is detached from the DOM.
      */
     static void addDetachObserver(HTMLElement element, ObserverCallback callback) {
         if (!ready) {
@@ -135,38 +146,32 @@ final class BodyObserver {
         detachObservers.add(createObserver(element, callback, DETACH_UID_KEY));
     }
 
+    static void removeDetachObserver(HTMLElement element) {
+        element.removeAttribute(DETACH_UID_KEY);
+    }
+
     private static ElementObserver createObserver(HTMLElement element, ObserverCallback callback, String attribute) {
-        String elementId = element.getAttribute(attribute);
-        if (elementId == null) {
-            element.setAttribute(attribute, Id.unique());
+        String id = element.getAttribute(attribute);
+        if (id == null) {
+            id = Id.unique();
+            element.setAttribute(attribute, id);
         }
-        return new ElementObserver() {
-            @Override
-            public String attachId() {
-                return element.getAttribute(attribute);
-            }
-
-            @Override
-            public HTMLElement observedElement() {
-                return element;
-            }
-
-            @Override
-            public ObserverCallback callback() {
-                return callback;
-            }
-        };
+        return new ElementObserver(id, element, callback);
     }
 
     private BodyObserver() {
     }
 
-    private interface ElementObserver {
+    private static final class ElementObserver {
 
-        String attachId();
+        private final String id;
+        private final HTMLElement observedElement;
+        private final ObserverCallback callback;
 
-        HTMLElement observedElement();
-
-        ObserverCallback callback();
+        private ElementObserver(String id, HTMLElement observedElement, ObserverCallback callback) {
+            this.id = id;
+            this.observedElement = observedElement;
+            this.callback = callback;
+        }
     }
 }

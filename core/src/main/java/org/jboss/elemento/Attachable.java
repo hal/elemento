@@ -18,8 +18,10 @@ package org.jboss.elemento;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.MutationRecord;
 
-import static org.jboss.elemento.Elements.onAttach;
-import static org.jboss.elemento.Elements.onDetach;
+import static org.jboss.elemento.BodyObserver.addAttachObserver;
+import static org.jboss.elemento.BodyObserver.addDetachObserver;
+import static org.jboss.elemento.BodyObserver.removeAttachObserver;
+import static org.jboss.elemento.BodyObserver.removeDetachObserver;
 
 /**
  * Interface to get notified when an element has been attached / detached from the DOM.
@@ -31,8 +33,8 @@ public interface Attachable {
     /** Registers the specified element for both attach and detach. */
     static void register(HTMLElement element, Attachable attachable) {
         if (element != null) {
-            onAttach(element, attachable::attach);
-            onDetach(element, attachable::detach);
+            addAttachObserver(element, attachable::attach);
+            addDetachObserver(element, attachable::attach);
         }
     }
 
@@ -41,8 +43,8 @@ public interface Attachable {
      */
     static void unregister(HTMLElement element) {
         if (element != null) {
-            element.removeAttribute(BodyObserver.ATTACH_UID_KEY);
-            element.removeAttribute(BodyObserver.DETACH_UID_KEY);
+            removeAttachObserver(element);
+            removeDetachObserver(element);
         }
     }
 
