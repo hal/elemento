@@ -136,7 +136,8 @@ done
 
 msg ""
 msg "Delete tag"
-git tag -d ${TAG} && git push --delete origin ${TAG}
+git tag --quiet -d ${TAG}
+git push --quiet --delete origin ${TAG}
 ./versionBump.sh ${SNAPSHOT_VERSION}
 msg "Push changes"
 git commit --quiet -am "Undo release ${TAG}"
