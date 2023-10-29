@@ -110,8 +110,7 @@ is_semver() {
 parse_params "$@"
 setup_colors
 
-FINAL_VERSION="${RELEASE_VERSION}"
-SNAPSHOT_VERSION="${NEXT_VERSION}-SNAPSHOT"
+SNAPSHOT_VERSION="${RELEASE_VERSION}-SNAPSHOT"
 TAG="v${RELEASE_VERSION}"
 
 is_semver "${RELEASE_VERSION}" || die "Release version is not a semantic version"
