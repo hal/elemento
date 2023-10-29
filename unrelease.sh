@@ -111,6 +111,7 @@ parse_params "$@"
 setup_colors
 
 FINAL_VERSION="${RELEASE_VERSION}"
+SNAPSHOT_VERSION="${NEXT_VERSION}-SNAPSHOT"
 TAG="v${RELEASE_VERSION}"
 
 is_semver "${RELEASE_VERSION}" || die "Release version is not a semantic version"
@@ -118,12 +119,12 @@ git diff-index --quiet HEAD || die "You have uncommitted changes"
 [[ $(git tag -l "${TAG}") ]] || die "Tag ${TAG} not found"
 
 msg ""
-msg "Codebase is ready to undo release."
+msg "Codebase is ready to undo release ${TAG}."
 msg ""
 msg "If you decide to continue, this script will "
 msg ""
-msg "   1. Delete the tag ${CYAN}${TAG}${NOFORMAT} ()local and remote)"
-msg "   2. Bump the version to ${CYAN}${RELEASE_VERSION}${NOFORMAT}"
+msg "   1. Delete the tag ${CYAN}${TAG}${NOFORMAT} (local and remote)"
+msg "   2. Bump the version to ${CYAN}${SNAPSHOT_VERSION}${NOFORMAT}"
 msg "   3. ${CYAN}Commit${NOFORMAT} and ${CYAN}push${NOFORMAT} to origin"
 msg ""
 echo "Do you wish to continue?"
@@ -134,15 +135,10 @@ select yn in "Yes" "No"; do
     esac
 done
 
-git tag -d v1.2.7 && git push --delete origin v1.2.7
-./versionBump.sh 1.2.7-SNAPSHOT
-git commit -am "Undo v1.2.7"
-git push origin main
-
 msg ""
 msg "Delete tag"
 git tag -d ${TAG} && git push --delete origin ${TAG}
-./versionBump.sh ${RELEASE_VERSION}
+./versionBump.sh ${SNAPSHOT_VERSION}
 msg "Push changes"
 git commit --quiet -am "Undo release ${TAG}"
 git push --quiet origin main &> /dev/null
