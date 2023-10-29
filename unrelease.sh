@@ -118,7 +118,7 @@ git diff-index --quiet HEAD || die "You have uncommitted changes"
 [[ $(git tag -l "${TAG}") ]] || die "Tag ${TAG} not found"
 
 msg ""
-msg "Codebase is ready to undo release ${TAG}."
+msg "Codebase is ready to undo release ${CYAN}${TAG}${NOFORMAT}."
 msg ""
 msg "If you decide to continue, this script will "
 msg ""
