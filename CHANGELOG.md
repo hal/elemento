@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.2.8] - 2023-11-28
+
 ### Added
 
 - Add overloaded `style()` methods to `HasSVGElement`:
@@ -689,7 +691,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.2.7...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.2.8...HEAD
+[1.2.8]: https://github.com/hal/elemento/compare/v1.2.7...v1.2.8
 [1.2.7]: https://github.com/hal/elemento/compare/v1.2.6...v1.2.7
 [1.2.6]: https://github.com/hal/elemento/compare/v1.2.5...v1.2.6
 [1.2.5]: https://github.com/hal/elemento/compare/v1.2.4...v1.2.5
