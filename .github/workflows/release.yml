@@ -67,7 +67,7 @@ jobs:
         run: $MVN javadoc:javadoc -P snippets
       - name: Publish
         id: publish
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: apidoc
           folder: ./core/target/site/apidocs
