@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Add overloaded `style()` methods to `HasSVGElement`:
+
+  - `style(String style)`: Appends the given style to the existing styles of an element.
+  - `style(String style, boolean append)`: Appends or sets the given style of an element.
+  - `style(String property, int value)`: Sets the given style property on an element.
+  - `style(String property, String value)`: Sets the given style property on an element.
+  - `style(String property, int value, boolean important)`: Sets the given style property on an element.
+  - `style(String property, String value, boolean important)`: Sets the given style property on an element.
+  
+- Add methods to debug elements. Both methods return a string representation of the given element with all attributes, but without the child elements (only the number of child elements is included).   
+
+  - `Elements.toString(IsElement<E>)`
+  - `Elements.toString(Element)`
+
 ## [1.2.7] - 2023-10-29
 
 ### Changed
