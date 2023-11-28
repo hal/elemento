@@ -1505,6 +1505,43 @@ public final class Elements {
         }
     }
 
+    // ------------------------------------------------------ debug
+
+    public static <E extends Element> String toString(IsElement<E> element) {
+        if (element != null) {
+            return toString(element.element());
+        }
+        return "";
+    }
+
+    public static String toString(Element element) {
+        if (element != null) {
+            String tag = element.tagName.toLowerCase();
+            StringBuilder builder = new StringBuilder("<").append(tag);
+            JsArray<String> names = element.getAttributeNames();
+            if (names != null) {
+                for (int i = 0; i < names.length; i++) {
+                    String name = names.getAt(i);
+                    String value = element.getAttribute(name);
+                    builder.append(" ").append(name).append("='").append(value).append("'");
+                }
+            }
+            if (element.childElementCount == 0) {
+                builder.append("/>");
+            } else {
+                builder.append(">[")
+                        .append(element.childElementCount)
+                        .append(" child element");
+                if (element.childElementCount > 1) {
+                    builder.append("s");
+                }
+                builder.append("]></").append(tag).append(">");
+            }
+            return builder.toString();
+        }
+        return "";
+    }
+
     // ------------------------------------------------------ deprecated
 
     /** @deprecated Replaced bv {@link Id#unique()} */
