@@ -34,7 +34,7 @@ public interface Attachable {
     static void register(HTMLElement element, Attachable attachable) {
         if (element != null) {
             addAttachObserver(element, attachable::attach);
-            addDetachObserver(element, attachable::attach);
+            addDetachObserver(element, attachable::detach);
         }
     }
 
