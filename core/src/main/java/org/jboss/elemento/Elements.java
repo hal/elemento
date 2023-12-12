@@ -23,6 +23,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtml;
 
 import elemental2.core.JsArray;
@@ -81,11 +82,16 @@ import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
 
 import static elemental2.dom.DomGlobal.document;
+import static elemental2.dom.DomGlobal.window;
 import static java.util.Collections.emptyIterator;
 import static java.util.Collections.emptyList;
 import static java.util.Spliterators.spliteratorUnknownSize;
 import static jsinterop.base.Js.cast;
+import static jsinterop.base.Js.isTripleEqual;
+import static jsinterop.base.Js.undefined;
 import static org.jboss.elemento.BodyObserver.addAttachObserver;
+import static org.jboss.elemento.EventType.bind;
+import static org.jboss.elemento.EventType.resize;
 
 /**
  * Builder and helper methods for working with {@link elemental2.dom.HTMLElement}s and/or {@link IsElement}.
@@ -1457,6 +1463,53 @@ public final class Elements {
         if (element != null) {
             setVisible(element.element(), visible);
         }
+    }
+
+    // ------------------------------------------------------ resize
+
+    /**
+     * Register a resize observer for the given element. The observer will call the provided callback whenever the size of the
+     * element changes.
+     * <p>
+     * Uses the native {@link ResizeObserver} if available. Falls back to {@code window.addEventListener("resize", callback)},
+     * otherwise.
+     *
+     * @param element The element to observe for size changes.
+     * @param callback The callback function to be called when the size of the element changes.
+     * @param <E> The type of element being observed, which must extend from HTMLElement.
+     * @return A cleanup function that can be used to unregister the observer.
+     */
+    public static <E extends HTMLElement> ResizeObserverCleanup resizeObserver(IsElement<E> element, ResizeCallback callback) {
+        return resizeObserver(element.element(), callback);
+    }
+
+    /**
+     * Register a resize observer for the given element. The observer will call the provided callback whenever the size of the
+     * element changes.
+     * <p>
+     * Uses the native {@link ResizeObserver} if available. Falls back to {@code window.addEventListener("resize", callback)},
+     * otherwise.
+     *
+     * @param element The element to observe for size changes.
+     * @param callback The callback function to be called when the size of the element changes.
+     * @param <E> The type of element being observed, which must extend from HTMLElement.
+     * @return A cleanup function that can be used to unregister the observer.
+     */
+    public static <E extends HTMLElement> ResizeObserverCleanup resizeObserver(E element, ResizeCallback callback) {
+        ResizeObserverCleanup cleanup;
+        if (isTripleEqual(Js.global().getAsAny("ResizeObserver"), undefined())) {
+            HandlerRegistration registration = bind(window, resize, e -> callback.onResize());
+            cleanup = registration::removeHandler;
+        } else {
+            ResizeObserver observer = new ResizeObserver((entries, obs) -> {
+                if (entries != null && entries.length != 0) {
+                    callback.onResize();
+                }
+            });
+            observer.observe(element);
+            cleanup = () -> observer.unobserve(element);
+        }
+        return cleanup;
     }
 
     // ------------------------------------------------------ CSS

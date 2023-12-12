@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Add clipboard support
+- Add method to generate UUIDs: `Id.uuid()`
+- Add methods to register a resize observer for elements:
+
+  - `Elements.resizeObserver(IsElement<E>, ResizeCallback)`
+  - `Elements.resizeObserver(HTMLElement, ResizeCallback)`
+
 ## [1.2.9] - 2023-11-30
 
 ### Fixed

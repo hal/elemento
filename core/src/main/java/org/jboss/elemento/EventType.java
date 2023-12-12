@@ -33,7 +33,6 @@ import elemental2.dom.MouseEvent;
 import elemental2.dom.PageTransitionEvent;
 import elemental2.dom.PopStateEvent;
 import elemental2.dom.TouchEvent;
-import elemental2.dom.UIEvent;
 import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
 import elemental2.webstorage.StorageEvent;
@@ -75,8 +74,8 @@ public class EventType<T extends Event, V extends EventTarget> {
     // View Events
     public static final EventType<Event, Document> fullscreenchange = of("fullscreenchange");
     public static final EventType<Event, Document> fullscreenerror = of("fullscreenerror");
-    public static final EventType<UIEvent, Window> resize = of("resize");
-    public static final EventType<UIEvent, EventTarget> scroll = of("scroll");
+    public static final EventType<Event, Window> resize = of("resize");
+    public static final EventType<Event, EventTarget> scroll = of("scroll");
 
     // Clipboard Events
     public static final EventType<ClipboardEvent, EventTarget> cut = of("cut");

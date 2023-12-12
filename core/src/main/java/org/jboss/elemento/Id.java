@@ -19,8 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import elemental2.dom.DomGlobal;
+
 import static elemental2.dom.DomGlobal.document;
 import static java.util.stream.Collectors.joining;
+import static org.jboss.elemento.DomGlobal.crypto;
 
 /** Helper methods for working with IDs. */
 public final class Id {
@@ -28,11 +31,44 @@ public final class Id {
     private static final String UNIQUE_ID = "id-";
     private static int counter = 0;
 
+    /**
+     * Generates a universally unique identifier (UUID). If the global {@code crypto} property is available,
+     * {@link Crypto#randomUUID()} is used to generate the UUID. Otherwise, a pseudo random UUID is generated as fallback.
+     *
+     * @see <a href=
+     *      "https://developer.mozilla.org/en-US/docs/Web/API/Crypto">https://developer.mozilla.org/en-US/docs/Web/API/Crypto</a>
+     */
+    public static String uuid() {
+        if (DomGlobal.isSecureContext) {
+            return crypto.randomUUID();
+        } else {
+            long msb = Math.abs((long) (Math.random() * Long.MAX_VALUE));
+            long lsb = Math.abs((long) (Math.random() * Long.MAX_VALUE));
+
+            // Convert to hexadecimal and pad with 0s if necessary
+            String msbHex = Long.toHexString(msb);
+            msbHex = ("0000000000000000" + msbHex).substring(msbHex.length());
+
+            String lsbHex = Long.toHexString(lsb);
+            lsbHex = ("0000000000000000" + lsbHex).substring(lsbHex.length());
+
+            // Format as 8-4-4-4-12 hexadecimal digits
+            return msbHex.substring(0, 8) + "-"
+                    + msbHex.substring(8, 12) + "-"
+                    + lsbHex.substring(0, 4) + "-"
+                    + lsbHex.substring(4, 8) + "-"
+                    + lsbHex.substring(8, 16);
+        }
+    }
+
     /** Creates an identifier guaranteed to be unique within this document. This is useful for allocating element IDs. */
     public static String unique() {
         String id;
         do {
             id = UNIQUE_ID + counter; // no Ids.build(ELEMENTO_UID, counter) for performance reasons
+            if (counter == Integer.MAX_VALUE) {
+                counter = 0;
+            }
             counter++;
         } while (document.getElementById(id) != null);
         return id;
