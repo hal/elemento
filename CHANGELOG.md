@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.2.10] - 2023-12-12
+
 ### Added
 
 - Add clipboard support
@@ -706,7 +708,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.2.9...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.2.10...HEAD
+[1.2.10]: https://github.com/hal/elemento/compare/v1.2.9...v1.2.10
 [1.2.9]: https://github.com/hal/elemento/compare/v1.2.8...v1.2.9
 [1.2.8]: https://github.com/hal/elemento/compare/v1.2.7...v1.2.8
 [1.2.7]: https://github.com/hal/elemento/compare/v1.2.6...v1.2.7
