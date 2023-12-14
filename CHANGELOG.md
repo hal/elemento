@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Add support for `<picture/>` element
+- Add `Scheduler` class with method `debounce(int timeout, Callback callback)`
+- Add `ClassList` class to add, remove, replace, toggle and iterate over CSS classes
+
 ## [1.2.10] - 2023-12-12
 
 ### Added

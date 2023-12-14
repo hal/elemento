@@ -60,6 +60,7 @@ import elemental2.dom.HTMLOptionElement;
 import elemental2.dom.HTMLOutputElement;
 import elemental2.dom.HTMLParagraphElement;
 import elemental2.dom.HTMLParamElement;
+import elemental2.dom.HTMLPictureElement;
 import elemental2.dom.HTMLPreElement;
 import elemental2.dom.HTMLProgressElement;
 import elemental2.dom.HTMLQuoteElement;
@@ -584,6 +585,14 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLMapElement> map(Element element) {
+        return wrapHtmlContainer(cast(element));
+    }
+
+    public static HTMLContainerBuilder<HTMLPictureElement> picture() {
+        return htmlContainer("picture", HTMLPictureElement.class);
+    }
+
+    public static HTMLContainerBuilder<HTMLPictureElement> picture(Element element) {
         return wrapHtmlContainer(cast(element));
     }
 

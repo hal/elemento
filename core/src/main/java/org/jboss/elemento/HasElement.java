@@ -15,8 +15,6 @@
  */
 package org.jboss.elemento;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -27,7 +25,6 @@ import elemental2.dom.Event;
 import elemental2.dom.Node;
 import elemental2.dom.NodeList;
 
-import static java.util.Arrays.asList;
 import static org.jboss.elemento.EventType.bind;
 
 /**
@@ -94,40 +91,35 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
 
     /** Adds the specified CSS classes to the class list of the element. */
     default B css(String... classes) {
-        if (classes != null) {
-            List<String> failSafeClasses = new ArrayList<>();
-            for (String c : classes) {
-                if (c != null) {
-                    if (c.contains(" ")) {
-                        failSafeClasses.addAll(asList(c.split(" ")));
-                    } else {
-                        failSafeClasses.add(c);
-                    }
-                }
-            }
-            for (String failSafeClass : failSafeClasses) {
-                element().classList.add(failSafeClass);
-            }
-        }
+        classList().add(classes);
         return that();
     }
 
     /** Toggle the class value; i.e., if the class exists then remove it, if not, then add it. */
     default B toggle(String className) {
-        element().classList.toggle(className);
+        classList().toggle(className);
         return that();
     }
 
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
     default B toggle(String className, boolean force) {
-        element().classList.toggle(className, force);
+        classList().toggle(className, force);
         return that();
     }
 
     /** Adds (force=true) or removes (force=false) the specified CSS class to the class list of the element. */
     default B toggle(String className, Supplier<Boolean> force) {
-        element().classList.toggle(className, force.get());
+        classList().toggle(className, force.get());
         return that();
+    }
+
+    default B classList(Consumer<ClassList<E>> classList) {
+        classList.accept(ClassList.classList(element()));
+        return that();
+    }
+
+    default ClassList<E> classList() {
+        return ClassList.classList(element());
     }
 
     // ------------------------------------------------------ attributes
