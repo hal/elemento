@@ -15,6 +15,8 @@
  */
 package org.jboss.elemento;
 
+import org.gwtproject.event.shared.HandlerRegistration;
+
 import elemental2.dom.AddEventListenerOptions;
 import elemental2.dom.ClipboardEvent;
 import elemental2.dom.Document;
@@ -22,7 +24,6 @@ import elemental2.dom.DragEvent;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventListener;
-import elemental2.dom.EventListenerOptions;
 import elemental2.dom.EventTarget;
 import elemental2.dom.FocusEvent;
 import elemental2.dom.HTMLElement;
@@ -37,7 +38,6 @@ import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
 import elemental2.webstorage.StorageEvent;
 import jsinterop.base.Js;
-import org.gwtproject.event.shared.HandlerRegistration;
 
 /**
  * Known event types used in {@link HTMLElementBuilder#on(EventType, EventCallbackFn)}.
