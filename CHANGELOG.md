@@ -2,9 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
+to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+### Added
+
+- Add support for `elemental2.dom.AddEventListenerOptions` in `EventType.bind()` methods
+- Add method `Elements.isElementInView(HTMLElement, HTMLElement, boolean)` to check if an element is (partially) visible
+  within the viewable area of its container
 
 ## [1.2.11] - 2023-12-14
 
@@ -22,8 +29,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Add method to generate UUIDs: `Id.uuid()`
 - Add methods to register a resize observer for elements:
 
-  - `Elements.resizeObserver(IsElement<E>, ResizeCallback)`
-  - `Elements.resizeObserver(HTMLElement, ResizeCallback)`
+    - `Elements.resizeObserver(IsElement<E>, ResizeCallback)`
+    - `Elements.resizeObserver(HTMLElement, ResizeCallback)`
 
 ## [1.2.9] - 2023-11-30
 
@@ -37,17 +44,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Add overloaded `style()` methods to `HasSVGElement`:
 
-  - `style(String style)`: Appends the given style to the existing styles of an element.
-  - `style(String style, boolean append)`: Appends or sets the given style of an element.
-  - `style(String property, int value)`: Sets the given style property on an element.
-  - `style(String property, String value)`: Sets the given style property on an element.
-  - `style(String property, int value, boolean important)`: Sets the given style property on an element.
-  - `style(String property, String value, boolean important)`: Sets the given style property on an element.
-  
-- Add methods to debug elements. Both methods return a string representation of the given element with all attributes, but without the child elements (only the number of child elements is included).   
+    - `style(String style)`: Appends the given style to the existing styles of an element.
+    - `style(String style, boolean append)`: Appends or sets the given style of an element.
+    - `style(String property, int value)`: Sets the given style property on an element.
+    - `style(String property, String value)`: Sets the given style property on an element.
+    - `style(String property, int value, boolean important)`: Sets the given style property on an element.
+    - `style(String property, String value, boolean important)`: Sets the given style property on an element.
 
-  - `Elements.toString(IsElement<E>)`
-  - `Elements.toString(Element)`
+- Add methods to debug elements. Both methods return a string representation of the given element with all attributes,
+  but without the child elements (only the number of child elements is included).
+
+    - `Elements.toString(IsElement<E>)`
+    - `Elements.toString(Element)`
 
 ## [1.2.7] - 2023-10-29
 
@@ -71,12 +79,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Add overloaded `style()` methods to `HasHTMLElement`:
 
-  - `style(String style)`: Appends the given style to the existing styles of an element.
-  - `style(String style, boolean append)`: Appends or sets the given style of an element.
-  - `style(String property, int value)`: Sets the given style property on an element. 
-  - `style(String property, String value)`: Sets the given style property on an element.
-  - `style(String property, int value, boolean important)`: Sets the given style property on an element.
-  - `style(String property, String value, boolean important)`: Sets the given style property on an element.
+    - `style(String style)`: Appends the given style to the existing styles of an element.
+    - `style(String style, boolean append)`: Appends or sets the given style of an element.
+    - `style(String property, int value)`: Sets the given style property on an element.
+    - `style(String property, String value)`: Sets the given style property on an element.
+    - `style(String property, int value, boolean important)`: Sets the given style property on an element.
+    - `style(String property, String value, boolean important)`: Sets the given style property on an element.
 
 ## [1.2.4] - 2023-10-18
 
@@ -84,14 +92,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - New methods
 
-  - `Elements.isAttached(IsElement<E>)` and
-  - `Elements.isAttached(Node)`
-  
-  to test if an element/node is attached to the DOM by using the [`Node.isConnected`](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) property. 
+    - `Elements.isAttached(IsElement<E>)` and
+    - `Elements.isAttached(Node)`
+
+  to test if an element/node is attached to the DOM by using
+  the [`Node.isConnected`](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) property.
 
 ### Changed
 
-- Changed method `HasHTMLElement.style(String)` to append a style definition rather than overwrite the existing styles. 
+- Changed method `HasHTMLElement.style(String)` to append a style definition rather than overwrite the existing styles.
 
 ## [1.2.3] - 2023-10-18
 
@@ -101,7 +110,8 @@ Not an official release - please don't use!
 
 ### Added
 
-- Add method `HasElement.textNode(String text)` to change the text of the first text node while preserving existing child elements.
+- Add method `HasElement.textNode(String text)` to change the text of the first text node while preserving existing
+  child elements.
 
 ### Fixed
 
@@ -122,9 +132,9 @@ Not an official release - please don't use!
 ### Added
 
 - Split Elemento into three modules:
-  1. Core: `org.jboss.elemento:elemento-core`
-  2. SVG: `org.jboss.elemento:elemento-svg`
-  3. MathML: `org.jboss.elemento:elemento-mathml`
+    1. Core: `org.jboss.elemento:elemento-core`
+    2. SVG: `org.jboss.elemento:elemento-svg`
+    3. MathML: `org.jboss.elemento:elemento-mathml`
 
 ### Changed
 
@@ -132,20 +142,21 @@ Not an official release - please don't use!
 
 ### Removed
 
-- Remove support for GWT.com dependencies, only GWT project dependencies are supported in 1.2.x and above. If you still depend on GWT.com, please stick with Elemento 1.1.x   
+- Remove support for GWT.com dependencies, only GWT project dependencies are supported in 1.2.x and above. If you still
+  depend on GWT.com, please stick with Elemento 1.1.x
 
 ## [1.1.4] - 2023-08-28
 
 ### Changed
 
-- Refactor interfaces to better follow the [soc](https://en.wikipedia.org/wiki/Separation_of_concerns) design principle: 
-  - `HasElement`: Provides methods and default implementations for modifying elements.
-  - `HasHtmlElement`: Provides methods and default implementations for modifying HTML elements.
-  - `HasInputElement`: Provides methods and default implementations for modifying input elements. 
-  - `Container`: Provides methods and default implementations for adding elements.
-  - `Finder`: Provides methods and default implementations for finding elements.
+- Refactor interfaces to better follow the [soc](https://en.wikipedia.org/wiki/Separation_of_concerns) design principle:
+    - `HasElement`: Provides methods and default implementations for modifying elements.
+    - `HasHtmlElement`: Provides methods and default implementations for modifying HTML elements.
+    - `HasInputElement`: Provides methods and default implementations for modifying input elements.
+    - `Container`: Provides methods and default implementations for adding elements.
+    - `Finder`: Provides methods and default implementations for finding elements.
 
-  This enables better composition of features for builders.  
+  This enables better composition of features for builders.
 
 ## [1.1.3] - 2023-08-25
 
@@ -176,10 +187,10 @@ Not an official release - please don't use!
 ### Added
 
 - Add methods to set `int` and `boolean` (aria) attributes:
-  - `ElementBuilder.attr(String, boolean)`
-  - `ElementBuilder.attr(String, int)`
-  - `ElementBuilder.aria(String, boolean)`
-  - `ElementBuilder.aria(String, int)`
+    - `ElementBuilder.attr(String, boolean)`
+    - `ElementBuilder.attr(String, int)`
+    - `ElementBuilder.aria(String, boolean)`
+    - `ElementBuilder.aria(String, int)`
 
 ### Changed
 
@@ -236,9 +247,11 @@ Not an official release - please don't use!
 
 ## [1.0.8] - 2022-03-25
 
-Starting with this release, Elemento comes with GWT.com compatible versions. The GWT.com compatible versions end with suffix `-gwtcom`. To use it replace
+Starting with this release, Elemento comes with GWT.com compatible versions. The GWT.com compatible versions end with
+suffix `-gwtcom`. To use it replace
 
 ```xml
+
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
@@ -249,6 +262,7 @@ Starting with this release, Elemento comes with GWT.com compatible versions. The
 with
 
 ```xml
+
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
@@ -263,19 +277,21 @@ The GWT.com compatible versions differ in the following points:
 #### GWT Project
 
 ```xml
+
 <dependency>
     <groupId>org.gwtproject.event</groupId>
     <artifactId>gwt-event</artifactId>
 </dependency>
 <dependency>
-    <groupId>org.gwtproject.safehtml</groupId>
-    <artifactId>gwt-safehtml</artifactId>
+<groupId>org.gwtproject.safehtml</groupId>
+<artifactId>gwt-safehtml</artifactId>
 </dependency>
 ```
 
 #### GWT.com
 
 ```xml
+
 <dependency>
     <groupId>com.google.gwt</groupId>
     <artifactId>gwt-user</artifactId>
@@ -287,6 +303,7 @@ The GWT.com compatible versions differ in the following points:
 #### GWT Project
 
 ```xml
+
 <inherits name="org.gwtproject.event.Event"/>
 <inherits name="org.gwtproject.safehtml.SafeHtml"/>
 ```
@@ -294,6 +311,7 @@ The GWT.com compatible versions differ in the following points:
 #### GWT.com
 
 ```xml
+
 <inherits name="com.google.gwt.event.Event"/>
 <inherits name="com.google.gwt.safehtml.SafeHtml"/>
 ```
@@ -364,6 +382,7 @@ The maven coordinates, GWT module and the packages have changed.
 Please use the following maven coordinates:
 
 ```xml
+
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
@@ -375,6 +394,7 @@ Please use the following maven coordinates:
 Inherit this GWT module:
 
 ```xml
+
 <module>
     <inherits name="org.jboss.elemento.Core"/>
 </module>
@@ -394,11 +414,14 @@ Elemento works with both J2CL and GWT. No classes from `com.google` are used. Th
 - `org.gwtproject.event:gwt-event` version 1.0.0-RC1 and
 - `org.gwtproject.safehtml:gwt-safehtml` version 1.0.0-RC1
 
-You can use Elemento with GWT 2.8, 2.9 or J2CL. See the [samples](https://github.com/hal/elemento-samples) for more details about how to setup your dependencies.
+You can use Elemento with GWT 2.8, 2.9 or J2CL. See the [samples](https://github.com/hal/elemento-samples) for more
+details about how to setup your dependencies.
 
 ### Templating
 
-The templating part has been moved to [crysknife](https://github.com/crysknife-io/crysknife). Crysknife is a CDI implementation for J2CL / GWT3. Crysknife already contains most of the templating code of Elemento, integrates nicely with CDI and offers some extra features like GSS support on top of that.
+The templating part has been moved to [crysknife](https://github.com/crysknife-io/crysknife). Crysknife is a CDI
+implementation for J2CL / GWT3. Crysknife already contains most of the templating code of Elemento, integrates nicely
+with CDI and offers some extra features like GSS support on top of that.
 
 The motivation behind this is that we don't want to have two very similar and competing template solutions.
 
@@ -421,7 +444,9 @@ All classes and methods marked as `@deprecated` have been removed:
 
 ### Backward Compatibility
 
-Support for GWT widgets as defined by `com.google.gwt:gwt-user` has been dropped. If you really need support for widgets, you have to stick with the [latest 0.9.x-gwt2 version](https://search.maven.org/artifact/org.jboss.gwt.elemento/elemento-core/0.9.6-gwt2/gwt-lib).
+Support for GWT widgets as defined by `com.google.gwt:gwt-user` has been dropped. If you really need support for
+widgets, you have to stick with
+the [latest 0.9.x-gwt2 version](https://search.maven.org/artifact/org.jboss.gwt.elemento/elemento-core/0.9.6-gwt2/gwt-lib).
 
 ## [0.9.6] - 2019-11-27
 
@@ -449,7 +474,8 @@ Support for GWT widgets as defined by `com.google.gwt:gwt-user` has been dropped
 
 ### Changed
 
-- Unified API: All classes which represent an element implement `IsElement<E extends HTMLElement>` and have a `E element()` method.
+- Unified API: All classes which represent an element implement `IsElement<E extends HTMLElement>` and have
+  a `E element()` method.
 
 ## [0.9.3] - 2019-10-17
 
@@ -480,7 +506,8 @@ Support for GWT widgets as defined by `com.google.gwt:gwt-user` has been dropped
 
 ## [0.9.0] - 2018-12-05
 
-This release adds one breaking change, some minor enhancements, and several deprecations. The main focus is to clean up the API for Elemento 1.0.
+This release adds one breaking change, some minor enhancements, and several deprecations. The main focus is to clean up
+the API for Elemento 1.0.
 
 ### Added
 
@@ -494,14 +521,17 @@ This release adds one breaking change, some minor enhancements, and several depr
 ### Deprecated
 
 - `HasElements`: Will be removed w/o replacement. Please use `Iterable<HTMLElement>` instead.
-- `ElementBuilder.asElement()` and `ElementBuilder.element()`: In order to cleanup the API and to avoid multiple methods which do (or return) the same thing, builders won't no longer implement `IsElement<E>`. Please use `get()` instead. A builder is a builder and not an element.
+- `ElementBuilder.asElement()` and `ElementBuilder.element()`: In order to cleanup the API and to avoid multiple methods
+  which do (or return) the same thing, builders won't no longer implement `IsElement<E>`. Please use `get()` instead. A
+  builder is a builder and not an element.
 - `LazyElement.asElement()`: Please use `LazyElement.element()` instead.
 - `ElementsBuilder.addAll(HasElements)`: Please use `ElementsBuilder.addAll(Iterable)` instead.
 - `HtmlContent.addAll(HasElements)`: Please use `HtmlContent.addAll(Iterable)` instead.
 - `Elements.elements()`: Please use `Elements.collect()` instead.
 - `Widgets.asElement(IsWidget)`: Please use `Widgets.element(IsWidget)` instead.
 - `Widgets.asElement(Widget)`: Please use `Widgets.element(Widget)` instead.
-- `Widgets.asElement(com.google.gwt.dom.client.Element)`: Please use `Widgets.element(com.google.gwt.dom.client.Element)` instead.
+- `Widgets.asElement(com.google.gwt.dom.client.Element)`: Please
+  use `Widgets.element(com.google.gwt.dom.client.Element)` instead.
 - `Widgets.asWidget(IsElement)`: Please use `Widgets.widget(IsElement)` instead.
 - `Widgets.asWidget(HTMLElement)`: Please use `Widgets.widget(HTMLElement)` instead.
 
@@ -529,7 +559,8 @@ This release adds one breaking change, some minor enhancements, and several depr
 
 ### Added
 
-- New methods in `org.jboss.gwt.elemento.core.Elements` to get notified when an element is added to and removed from the DOM
+- New methods in `org.jboss.gwt.elemento.core.Elements` to get notified when an element is added to and removed from the
+  DOM
 
 ## [0.8.4] - 2018-07-04
 
@@ -555,7 +586,8 @@ This release adds one breaking change, some minor enhancements, and several depr
 
 ## [0.8.1] - 2018-03-26
 
-No code changes compared to 0.8.0, but implements the new versions & branches as outlined in the [J2CL / GWT3 documentation](https://github.com/hal/elemento#j2cl--gwt3.
+No code changes compared to 0.8.0, but implements the new versions & branches as outlined in
+the [J2CL / GWT3 documentation](https://github.com/hal/elemento#j2cl--gwt3.
 
 ## [0.8.0] - 2018-03-22
 
@@ -612,7 +644,7 @@ No code changes compared to 0.8.0, but implements the new versions & branches as
 ### Changed
 
 - Close #31: Replace Handlebars like expressions `{{foo}}` with Freemarker like expressions `${foo}`
-Bugfixes
+  Bugfixes
 
 ### Fixed
 
@@ -664,8 +696,8 @@ Switch to Apache2 license
 ### Removed
 
 - Remove dependencies
-  - Guava 
-  - JetBrains annotations
+    - Guava
+    - JetBrains annotations
 
 ## [0.4.2] - 2017-06-26
 
@@ -717,56 +749,109 @@ Switch to Apache2 license
 -->
 
 [Unreleased]: https://github.com/hal/elemento/compare/v1.2.11...HEAD
+
 [1.2.11]: https://github.com/hal/elemento/compare/v1.2.10...v1.2.11
+
 [1.2.10]: https://github.com/hal/elemento/compare/v1.2.9...v1.2.10
+
 [1.2.9]: https://github.com/hal/elemento/compare/v1.2.8...v1.2.9
+
 [1.2.8]: https://github.com/hal/elemento/compare/v1.2.7...v1.2.8
+
 [1.2.7]: https://github.com/hal/elemento/compare/v1.2.6...v1.2.7
+
 [1.2.6]: https://github.com/hal/elemento/compare/v1.2.5...v1.2.6
+
 [1.2.5]: https://github.com/hal/elemento/compare/v1.2.4...v1.2.5
+
 [1.2.4]: https://github.com/hal/elemento/compare/v1.2.3...v1.2.4
+
 [1.2.3]: https://github.com/hal/elemento/compare/v1.2.2...v1.2.3
+
 [1.2.2]: https://github.com/hal/elemento/compare/v1.2.1...v1.2.2
+
 [1.2.1]: https://github.com/hal/elemento/compare/v1.2.0...v1.2.1
+
 [1.2.0]: https://github.com/hal/elemento/compare/v1.1.4...v1.2.0
+
 [1.1.4]: https://github.com/hal/elemento/compare/v1.1.3...v1.1.4
+
 [1.1.3]: https://github.com/hal/elemento/compare/v1.1.2...v1.1.3
+
 [1.1.2]: https://github.com/hal/elemento/compare/v1.1.1...v1.1.2
+
 [1.1.1]: https://github.com/hal/elemento/compare/v1.1.0...v1.1.1
+
 [1.1.0]: https://github.com/hal/elemento/compare/v1.0.15...v1.1.0
+
 [1.0.15]: https://github.com/hal/elemento/compare/v1.0.14...v1.0.15
+
 [1.0.14]: https://github.com/hal/elemento/compare/v1.0.13...v1.0.14
+
 [1.0.13]: https://github.com/hal/elemento/compare/v1.0.12...v1.0.13
+
 [1.0.12]: https://github.com/hal/elemento/compare/v1.0.11...v1.0.12
+
 [1.0.11]: https://github.com/hal/elemento/compare/v1.0.10...v1.0.11
+
 [1.0.10]: https://github.com/hal/elemento/compare/v1.0.9...v1.0.10
+
 [1.0.9]: https://github.com/hal/elemento/compare/v1.0.8...v1.0.9
+
 [1.0.8]: https://github.com/hal/elemento/compare/v1.0.7...v1.0.8
+
 [1.0.7]: https://github.com/hal/elemento/compare/v1.0.3...v1.0.7
+
 [1.0.3]: https://github.com/hal/elemento/compare/v1.0.2...v1.0.3
+
 [1.0.2]: https://github.com/hal/elemento/compare/v1.0.1...v1.0.2
+
 [1.0.1]: https://github.com/hal/elemento/compare/v1.0.0...v1.0.1
+
 [1.0.0]: https://github.com/hal/elemento/compare/v0.9.6...v1.0.0
+
 [0.9.6]: https://github.com/hal/elemento/compare/v0.9.5...v0.9.6
+
 [0.9.5]: https://github.com/hal/elemento/compare/v0.9.3...v0.9.5
+
 [0.9.3]: https://github.com/hal/elemento/compare/v0.9.2...v0.9.3
+
 [0.9.2]: https://github.com/hal/elemento/compare/v0.9.1...v0.9.2
+
 [0.9.1]: https://github.com/hal/elemento/compare/v0.9.0...v0.9.1
+
 [0.9.0]: https://github.com/hal/elemento/compare/v0.8.7...v0.9.0
+
 [0.8.7]: https://github.com/hal/elemento/compare/v0.8.6...v0.8.7
+
 [0.8.6]: https://github.com/hal/elemento/compare/v0.8.5...v0.8.6
+
 [0.8.5]: https://github.com/hal/elemento/compare/v0.8.4...v0.8.5
+
 [0.8.4]: https://github.com/hal/elemento/compare/v0.8.3...v0.8.4
+
 [0.8.3]: https://github.com/hal/elemento/compare/v0.8.2...v0.8.3
+
 [0.8.2]: https://github.com/hal/elemento/compare/v0.8.1...v0.8.2
+
 [0.8.1]: https://github.com/hal/elemento/compare/v0.8.0...v0.8.1
+
 [0.8.0]: https://github.com/hal/elemento/compare/v0.7.1...v0.8.0
+
 [0.7.1]: https://github.com/hal/elemento/compare/v0.7.0...v0.7.1
+
 [0.7.0]: https://github.com/hal/elemento/compare/v0.6.2...v0.7.0
+
 [0.6.2]: https://github.com/hal/elemento/compare/v0.6.1...v0.6.2
+
 [0.6.1]: https://github.com/hal/elemento/compare/v0.6.0...v0.6.1
+
 [0.6.0]: https://github.com/hal/elemento/compare/v0.5.2...v0.6.0
+
 [0.5.2]: https://github.com/hal/elemento/compare/v0.5.1...v0.5.2
+
 [0.5.1]: https://github.com/hal/elemento/compare/v0.5.0...v0.5.1
+
 [0.5.0]: https://github.com/hal/elemento/compare/v0.4.2...v0.5.0
+
 [0.4.2]: https://github.com/hal/elemento/compare/vTemplate...v0.4.2
