@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- `HasElement.run(Consumer<B>)` to executes code in the context of the builder
+
+### Changed
+
+- Deprecate `HasElement.id()` in favour of `HasElement.uniqueId()`
+
 ## [1.2.12] - 2024-01-15
 
 ### Added

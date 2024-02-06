@@ -13,12 +13,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import java.util.List;
-
-import org.jboss.elemento.By;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
+import org.jboss.elemento.By;
+
+import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static org.jboss.elemento.Elements.asHtmlElement;
@@ -62,20 +62,25 @@ public class ElementsDemo {
             </ul>
         </section>
          */
+        TodoRepository repository = new TodoRepository();
         HTMLElement section = section().css("main")
                 .add(input(checkbox).id("toggle-all").css("toggle-all"))
                 .add(label()
                         .apply(l -> l.htmlFor = "toggle-all")
                         .textContent("Mark all as complete"))
                 .add(ul().css("todo-list")
-                        .add(li()
-                                .add(div().css("view")
-                                        .add(input(checkbox)
-                                                .css("toggle")
-                                                .checked(true))
-                                        .add(label().textContent("Taste Elemento"))
-                                        .add(button().css("destroy")))
-                                .add(input(text).css("edit"))))
+                        .run(ul -> {
+                            for (Todo todo : repository.todos()) {
+                                ul.add(li()
+                                        .add(div().css("view")
+                                                .add(input(checkbox)
+                                                        .css("toggle")
+                                                        .checked(todo.completed))
+                                                .add(label().textContent(todo.text))
+                                                .add(button().css("destroy")))
+                                        .add(input(text).css("edit")));
+                            }
+                        }))
                 .element();
         // @end region = builder
     }

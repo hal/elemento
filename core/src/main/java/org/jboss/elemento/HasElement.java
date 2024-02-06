@@ -35,8 +35,17 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
 
     // ------------------------------------------------------ id, text, HTML
 
-    /** Generates and sets an unique id on the element. */
+    /**
+     * Generates and sets an unique id on the element.
+     * @deprecated Use {@link #uniqueId()} instead
+     */
+    @Deprecated
     default B id() {
+        return id(Id.unique());
+    }
+
+    /** Generates and sets an unique id on the element. */
+    default B uniqueId() {
         return id(Id.unique());
     }
 
@@ -175,11 +184,17 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
         return attr(safeName, value);
     }
 
-    // ------------------------------------------------------ consumer
+    // ------------------------------------------------------ functional
 
-    /** Provides a way to modify the element using the specified consumer. */
+    /** Provides a way to modify the wrapped element using the specified consumer. */
     default B apply(Consumer<E> consumer) {
         consumer.accept(element());
+        return that();
+    }
+
+    /** Executes code in the context of this builder. */
+    default B run(Consumer<B> consumer) {
+        consumer.accept(that());
         return that();
     }
 

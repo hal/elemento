@@ -19,6 +19,8 @@ import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
+import java.util.function.Supplier;
+
 /**
  * Provides methods and default implementations for adding elements.
  * <p>
@@ -37,6 +39,12 @@ public interface Container<E extends Element, B extends TypedBuilder<E, B>> exte
         if (element != null) {
             return add(element.element());
         }
+        return that();
+    }
+
+    /** Add the element returned by the supplier. */
+    default B add(Supplier<Node> supplier) {
+        element().appendChild(supplier.get());
         return that();
     }
 
@@ -84,6 +92,12 @@ public interface Container<E extends Element, B extends TypedBuilder<E, B>> exte
                 add(((IsElement) element).element());
             }
         }
+        return that();
+    }
+
+    /** Adds all elements returned by the supplier. */
+    default B addAll(Supplier<Iterable<?>> supplier) {
+        addAll(supplier.get());
         return that();
     }
 }
