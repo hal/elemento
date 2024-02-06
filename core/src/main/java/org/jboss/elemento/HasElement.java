@@ -37,6 +37,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
 
     /**
      * Generates and sets an unique id on the element.
+     *
      * @deprecated Use {@link #uniqueId()} instead
      */
     @Deprecated

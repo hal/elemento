@@ -15,11 +15,11 @@
  */
 package org.jboss.elemento;
 
+import java.util.function.Supplier;
+
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
-
-import java.util.function.Supplier;
 
 /**
  * Provides methods and default implementations for adding elements.
