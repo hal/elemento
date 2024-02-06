@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.2.13] - 2024-02-06
+
 ### Added
 
 - `HasElement.run(Consumer<B>)` to executes code in the context of the builder
@@ -811,7 +813,8 @@ Switch to Apache2 license
 
 
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.2.12...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.2.13...HEAD
+[1.2.13]: https://github.com/hal/elemento/compare/v1.2.12...v1.2.13
 [1.2.12]: https://github.com/hal/elemento/compare/v1.2.11...v1.2.12
 [1.2.11]: https://github.com/hal/elemento/compare/v1.2.10...v1.2.11
 [1.2.10]: https://github.com/hal/elemento/compare/v1.2.9...v1.2.10
