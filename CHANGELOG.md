@@ -7,6 +7,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+#### Router
+
+Elemento now contains a very basic place manager. The place manager is minimal invasive and built around a few simple concepts:
+
+- `Route`: Annotation that can be used to decorate pages. An annotation processor collects all classes annotated with `@Route` and generates an implementation of `Routes`. 
+- `Routes`: Provides a collection of places and their corresponding pages.
+- `Place`: Class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element.
+- `Page`: Interface that represents a collection of HTML elements.
+- `PlaceManager`: Class responsible for managing the routing and navigation within an application.
+
 ## [1.2.13] - 2024-02-06
 
 ### Added
