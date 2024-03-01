@@ -16,6 +16,7 @@
 import elemental2.dom.HTMLElement;
 import org.jboss.elemento.By;
 import org.jboss.elemento.router.Page;
+import org.jboss.elemento.router.Place;
 import org.jboss.elemento.router.PlaceManager;
 import org.jboss.elemento.router.Route;
 
@@ -42,12 +43,14 @@ public class PlaceManagerDemo {
         }
     }
 
-    public static class Application() {
+    public static class Application {
 
         public void entryPoint() {
             PlaceManager placeManager = new PlaceManager()
                     .root(By.id("main"))
-                    .register(RoutesImpl.INSTANCE.places());
+                    .register(new Place("/home"), HomePage::new);
+                    // could also be registered with
+                    // .register(RoutesImpl.INSTANCE.places());
             body().add(div().id("main"));
             placeManager.start();
         }
