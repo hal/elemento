@@ -69,6 +69,7 @@ public class PlaceManager {
     private final Map<Place, Supplier<Page>> places;
     private final List<BeforePlaceHandler> beforeHandlers;
     private final List<AfterPlaceHandler> afterHandlers;
+    private Base base;
     private Place current;
     private Supplier<HTMLElement> root;
     private Function<String, String> title;
@@ -80,6 +81,7 @@ public class PlaceManager {
         this.places = new HashMap<>();
         this.beforeHandlers = new ArrayList<>();
         this.afterHandlers = new ArrayList<>();
+        this.base = new Base("/");
         this.current = NOT_FOUND;
         this.root = () -> document.body;
         this.title = Function.identity();
@@ -88,6 +90,11 @@ public class PlaceManager {
     }
 
     // ------------------------------------------------------ builder
+
+    public PlaceManager base(String base) {
+        this.base = new Base(base);
+        return this;
+    }
 
     public PlaceManager root(String selector) {
         return root(() -> Elements.find(document, By.selector(selector)));
@@ -155,7 +162,10 @@ public class PlaceManager {
     }
 
     public Place place(String route) {
-        return routes.getOrDefault(route, NOT_FOUND);
+        String relative = base.relative(route);
+        // TODO Find not only exact matches, but also closest matches
+        // like /a/b/c -> /a/b
+        return routes.getOrDefault(relative, NOT_FOUND);
     }
 
     public void start() {
@@ -164,15 +174,19 @@ public class PlaceManager {
         Place place = place(location.pathname);
         if (place != null) {
             if (internalGoto(place)) {
-                history.replaceState(place.route, "", location.pathname);
+                updateHistory(place, false);
             }
         }
+    }
+
+    public void goTo(String route) {
+        goTo(place(route));
     }
 
     public void goTo(Place place) {
         if (place != null) {
             if (internalGoto(place)) {
-                history.pushState(place.route, "", place.route);
+                updateHistory(place, true);
             }
         }
     }
@@ -191,7 +205,7 @@ public class PlaceManager {
                             if (place != null) {
                                 e.preventDefault();
                                 if (internalGoto(place)) {
-                                    history.pushState(place.route, "", place.route);
+                                    updateHistory(place, true);
                                 }
                             }
                         }
@@ -258,8 +272,6 @@ public class PlaceManager {
                 Supplier<Page> supplier = places.get(place);
                 return supplier.get();
             } else {
-                // TODO Try to find an hierarchical match
-                // /a/b/c -> /a/b
                 return notFound(place);
             }
         } else {
@@ -275,6 +287,15 @@ public class PlaceManager {
         }
     }
 
+    private void updateHistory(Place place, boolean push) {
+        String absolute = base.absolute(place.route);
+        if (push) {
+            history.pushState(place.route, "", absolute);
+        } else {
+            history.replaceState(place.route, "", absolute);
+        }
+    }
+
     private static class DefaultNotFound implements Page {
 
         @Override
@@ -283,7 +304,7 @@ public class PlaceManager {
                     .add(div().style("width:50%;height:50%;")
                             .add(h(1, "Error 404").style("font-size:3rem;text-align:center"))
                             .add(p().style("font-size:1.5rem;text-align:center")
-                                    .add("You're lost. Try to take a step ")
+                                    .add("You're lost. Please take a step ")
                                     .add(a("javascript:history.back()").textContent("back"))
                                     .add(".")))
                     .element());
