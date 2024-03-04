@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.3.1] - 2024-03-04
+
 ## [1.3.0] - 2024-03-01
 
 ### Added
@@ -827,7 +829,8 @@ Switch to Apache2 license
 
 
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/hal/elemento/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/hal/elemento/compare/v1.2.13...v1.3.0
 [1.2.13]: https://github.com/hal/elemento/compare/v1.2.12...v1.2.13
 [1.2.12]: https://github.com/hal/elemento/compare/v1.2.11...v1.2.12
