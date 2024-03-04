@@ -9,6 +9,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.3.1] - 2024-03-04
 
+### Added
+
+- Add `PlaceManager.base(String)` to set a base URL for the place manager.
+
 ## [1.3.0] - 2024-03-01
 
 ### Added
