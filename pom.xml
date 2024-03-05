@@ -29,7 +29,7 @@
 
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-parent</artifactId>
-    <version>1.3.3</version>
+    <version>1.3.4-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Elemento Parent</name>
     <description>Builder API and other goodies for GWT Elemental</description>
