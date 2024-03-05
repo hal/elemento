@@ -74,7 +74,7 @@ public class PlaceManager {
     private Supplier<HTMLElement> root;
     private Function<String, String> title;
     private Function<Place, Page> notFound;
-    private By linkSelector;
+    private LinkSelector linkSelector;
     private String failedRoute;
 
     public PlaceManager() {
@@ -87,7 +87,7 @@ public class PlaceManager {
         this.root = () -> document.body;
         this.title = Function.identity();
         this.notFound = place -> new DefaultNotFound();
-        this.linkSelector = null;
+        this.linkSelector = new LinkSelector();
         this.failedRoute = null;
     }
 
@@ -136,11 +136,19 @@ public class PlaceManager {
     }
 
     public PlaceManager linkSelector(String selector) {
-        return linkSelector(By.selector(selector));
+        return linkSelector(By.selector(selector), false);
+    }
+
+    public PlaceManager linkSelector(String selector, boolean not) {
+        return linkSelector(By.selector(selector), not);
     }
 
     public PlaceManager linkSelector(By selector) {
-        this.linkSelector = selector;
+        return linkSelector(selector, false);
+    }
+
+    public PlaceManager linkSelector(By selector, boolean not) {
+        this.linkSelector = new LinkSelector(selector, not);
         return this;
     }
 
@@ -223,9 +231,7 @@ public class PlaceManager {
 
     private boolean shouldHandleLink(HTMLAnchorElement a, URL url) {
         if (url.origin.equals(location.origin) && url.hash.isEmpty()) { // only links of this origin w/o a hash
-            if (base.isRelative(url.pathname)) { // and the same base relative path
-                return linkSelector == null || a.matches(linkSelector.toString());
-            }
+            return linkSelector.matches(a);
         }
         return false;
     }

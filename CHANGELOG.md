@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Inverted link selector for place manager
+
 ## [1.3.2] - 2024-03-05
 
 ### Fixed
