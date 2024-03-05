@@ -25,6 +25,8 @@ import java.util.Set;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
+import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.tools.JavaFileObject;
@@ -33,14 +35,16 @@ import org.jboss.elemento.router.Route;
 
 import com.google.auto.common.BasicAnnotationProcessor;
 import com.google.auto.service.AutoService;
-import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableSetMultimap;
 
 import static com.google.auto.common.MoreElements.asType;
+import static com.google.common.base.Strings.emptyToNull;
 import static java.util.Collections.emptySet;
 
 @SuppressWarnings("unused")
-@AutoService({ Processor.class })
+@AutoService(Processor.class)
+@SupportedSourceVersion(SourceVersion.RELEASE_11)
+@SupportedAnnotationTypes({ "org.jboss.elemento.router.Route" })
 public class RouteProcessor extends BasicAnnotationProcessor {
 
     @Override
@@ -80,9 +84,9 @@ public class RouteProcessor extends BasicAnnotationProcessor {
                 Element element = entry.getValue();
                 Route route = element.getAnnotation(Route.class);
                 // noinspection UnstableApiUsage
-                routes.add(new RouteInfo(Strings.emptyToNull(route.value()),
-                        Strings.emptyToNull(route.title()),
-                        Strings.emptyToNull(route.selector()),
+                routes.add(new RouteInfo(emptyToNull(route.value()),
+                        emptyToNull(route.title()),
+                        emptyToNull(route.selector()),
                         asType(element).getQualifiedName().toString()));
             }
 

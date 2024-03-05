@@ -63,7 +63,7 @@ public class PlaceManager {
 
     // ------------------------------------------------------ instance
 
-    private static final Place NOT_FOUND = new Place("/404", "Not found");
+    private static final Place NOT_FOUND = new Place("org.jboss.elemento.router.notFound");
 
     private final Map<String, Place> routes;
     private final Map<Place, Supplier<Page>> places;
@@ -75,6 +75,7 @@ public class PlaceManager {
     private Function<String, String> title;
     private Function<Place, Page> notFound;
     private By linkSelector;
+    private String failedRoute;
 
     public PlaceManager() {
         this.routes = new HashMap<>();
@@ -87,6 +88,7 @@ public class PlaceManager {
         this.title = Function.identity();
         this.notFound = place -> new DefaultNotFound();
         this.linkSelector = null;
+        this.failedRoute = null;
     }
 
     // ------------------------------------------------------ builder
@@ -162,25 +164,21 @@ public class PlaceManager {
     }
 
     public Place place(String route) {
-        String relative = base.relative(route);
-        // TODO Find not only exact matches, but also closest matches
-        // like /a/b/c -> /a/b
-        return routes.getOrDefault(relative, NOT_FOUND);
+        Place place = findPlace(route);
+        return NOT_FOUND.equals(place) ? null : place;
     }
 
     public void start() {
         bindClickHandler();
         bindHistoryHandler();
-        Place place = place(location.pathname);
-        if (place != null) {
-            if (internalGoto(place)) {
-                updateHistory(place, false);
-            }
+        Place place = findPlace(location.pathname);
+        if (internalGoto(place)) {
+            updateHistory(place, false);
         }
     }
 
     public void goTo(String route) {
-        goTo(place(route));
+        goTo(findPlace(route));
     }
 
     public void goTo(Place place) {
@@ -198,17 +196,11 @@ public class PlaceManager {
             HTMLAnchorElement a = anchorElement(e);
             if (a != null) {
                 URL url = new URL(a.href, location.origin);
-                if (url.origin.equals(location.origin)) { // only links of this origin
-                    if (url.hash == null || url.hash.isEmpty()) { // no hash links
-                        if (linkSelector == null || a.matches(linkSelector.toString())) {
-                            Place place = place(url.pathname);
-                            if (place != null) {
-                                e.preventDefault();
-                                if (internalGoto(place)) {
-                                    updateHistory(place, true);
-                                }
-                            }
-                        }
+                if (shouldHandleLink(a, url)) {
+                    Place place = findPlace(url.pathname);
+                    e.preventDefault();
+                    if (internalGoto(place)) {
+                        updateHistory(place, true);
                     }
                 }
             }
@@ -229,16 +221,34 @@ public class PlaceManager {
         return anchorElement;
     }
 
+    private boolean shouldHandleLink(HTMLAnchorElement a, URL url) {
+        if (url.origin.equals(location.origin) && url.hash.isEmpty()) { // only links of this origin w/o a hash
+            if (base.isRelative(url.pathname)) { // and the same base relative path
+                return linkSelector == null || a.matches(linkSelector.toString());
+            }
+        }
+        return false;
+    }
+
     private void bindHistoryHandler() {
         bind(window, popstate, event -> {
             if (event.state != null) {
                 String route = String.valueOf(event.state);
-                Place place = place(route);
-                if (place != null) {
-                    internalGoto(place);
-                }
+                Place place = findPlace(route);
+                internalGoto(place);
             }
         });
+    }
+
+    private Place findPlace(String route) {
+        String relative = base.relative(route);
+        // TODO Find not only exact matches, but also closest matches
+        // like /a/b/c -> /a/b
+        Place place = routes.getOrDefault(relative, NOT_FOUND);
+        if (NOT_FOUND.equals(place)) {
+            failedRoute = route;
+        }
+        return place;
     }
 
     private boolean internalGoto(Place place) {
@@ -247,7 +257,7 @@ public class PlaceManager {
                 return false;
             }
         }
-        Page page = page(place);
+        Page page = findPage(place);
         if (place.title != null) {
             document.title = this.title.apply(place.title);
         }
@@ -259,29 +269,30 @@ public class PlaceManager {
         for (HTMLElement e : page.elements()) {
             rootElement.appendChild(e);
         }
-        current = place;
-        for (AfterPlaceHandler handler : afterHandlers) {
-            handler.afterPlace(this, place, page);
-        }
-        return true;
-    }
 
-    private Page page(Place place) {
-        if (place != null) {
-            if (places.containsKey(place)) {
-                Supplier<Page> supplier = places.get(place);
-                return supplier.get();
-            } else {
-                return notFound(place);
-            }
+        if (NOT_FOUND.equals(place)) {
+            return false;
         } else {
-            return notFound(NOT_FOUND);
+            current = place;
+            for (AfterPlaceHandler handler : afterHandlers) {
+                handler.afterPlace(this, place, page);
+            }
+            return true;
         }
     }
 
-    private Page notFound(Place place) {
+    private Page findPage(Place place) {
+        if (places.containsKey(place)) {
+            Supplier<Page> supplier = places.get(place);
+            return supplier.get();
+        } else {
+            return notFound();
+        }
+    }
+
+    private Page notFound() {
         if (notFound != null) {
-            return notFound.apply(place);
+            return notFound.apply(new Place(failedRoute, "Not found"));
         } else {
             return new DefaultNotFound();
         }

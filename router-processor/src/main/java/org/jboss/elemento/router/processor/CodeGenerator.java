@@ -23,7 +23,6 @@ import java.util.Map;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import freemarker.template.Version;
 
 /**
  * A code generator which generates code / resources from freemarker templates.
@@ -32,7 +31,6 @@ import freemarker.template.Version;
  */
 class CodeGenerator {
 
-    public static final Version VERSION = new Version(2, 3, 32);
     private final Configuration config;
 
     CodeGenerator(Class<?> resourceLoaderClass, String templates) {

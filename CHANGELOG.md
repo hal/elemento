@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix 404 handling in place manager
+
 ## [1.3.1] - 2024-03-04
 
 ### Added

@@ -35,6 +35,10 @@ final class Base {
         return path;
     }
 
+    boolean isRelative(String path) {
+        return empty || (path != null && path.startsWith(slashBase));
+    }
+
     String absolute(String path) {
         if (!empty && path != null) {
             String safePath = path.startsWith("/") ? path : "/" + path;
