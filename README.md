@@ -24,6 +24,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [SVG & MathML](#svg--mathml)
   * [SVG](#svg)
   * [MathML](#mathml)
+* [Router](#router)
 * [Samples](#samples)
 * [Contributing](#contributing)
 * [Get Help](#get-help)
@@ -356,6 +357,20 @@ In your GWT module inherit from `org.jboss.elemento.MathML`:
 ```
 
 Finally, use the static methods in `org.jboss.elemento.mathml.MathML` to create MathML elements.
+
+# Router
+
+Elemento offers a very basic router. The router is minimal invasive and built around a few simple concepts:
+
+- `Route`: Annotation that can be used to decorate pages. An annotation processor collects all classes annotated with `@Route` and generates an implementation of `Routes`.
+- `Routes`: Provides a map of places and their corresponding pages.
+- `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element.
+- `Page`: Interface that represents a collection of HTML elements.
+- `PlaceManager`: Class responsible for managing the routing and navigation within an application.
+
+## Place manager
+
+The place manager is the central part of the router module. It offers builder like methods to configure the place manager and a `start()` method to show the initial page.  
 
 # Samples
 
