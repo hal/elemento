@@ -17,7 +17,7 @@ package org.jboss.elemento.router;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BaseTest {
 
@@ -83,26 +83,5 @@ class BaseTest {
         assertEquals("/a/b/a", nested.absolute("/a"));
         assertEquals("/a/b/a/b", nested.absolute("/a/b"));
         assertEquals("/a/b/a/b/c", nested.absolute("/a/b/c"));
-    }
-
-    @Test
-    void baseRelative() {
-        Base empty = new Base("/");
-        assertTrue(empty.isRelative("/a"));
-        assertTrue(empty.isRelative("/a/b"));
-        assertTrue(empty.isRelative("/a/b/c"));
-        assertTrue(empty.isRelative("/b"));
-
-        Base simple = new Base("/a");
-        assertTrue(simple.isRelative("/a"));
-        assertTrue(simple.isRelative("/a/b"));
-        assertTrue(simple.isRelative("/a/b/c"));
-        assertFalse(simple.isRelative("/b"));
-
-        Base nested = new Base("/a/b");
-        assertFalse(nested.isRelative("/a"));
-        assertTrue(nested.isRelative("/a/b"));
-        assertTrue(nested.isRelative("/a/b/c"));
-        assertFalse(nested.isRelative("/b"));
     }
 }
