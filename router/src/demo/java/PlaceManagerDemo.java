@@ -13,6 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 import elemental2.dom.HTMLElement;
 import org.jboss.elemento.By;
 import org.jboss.elemento.router.Page;
@@ -46,13 +47,13 @@ public class PlaceManagerDemo {
     public static class Application {
 
         public void entryPoint() {
-            PlaceManager placeManager = new PlaceManager()
-                    .root(By.id("main"))
-                    .register(new Place("/home"), HomePage::new);
-                    // could also be registered with
-                    // .register(RoutesImpl.INSTANCE.places());
             body().add(div().id("main"));
-            placeManager.start();
+            new PlaceManager()
+                    .root(By.id("main"))
+                    .register(new Place("/home"), HomePage::new)
+                    // could also be registered with
+                    // .register(RoutesImpl.INSTANCE.places())
+                    .start();
         }
     }
     // @end region = placeManager

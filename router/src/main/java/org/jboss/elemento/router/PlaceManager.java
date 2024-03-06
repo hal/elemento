@@ -15,22 +15,21 @@
  */
 package org.jboss.elemento.router;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.function.Supplier;
-
-import org.jboss.elemento.By;
-import org.jboss.elemento.Elements;
-
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.URL;
+import org.jboss.elemento.By;
+import org.jboss.elemento.Elements;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 import static elemental2.dom.DomGlobal.document;
 import static elemental2.dom.DomGlobal.history;
@@ -47,17 +46,12 @@ import static org.jboss.elemento.EventType.click;
 import static org.jboss.elemento.EventType.popstate;
 
 /**
- * The PlaceManager class is responsible for managing the routing and navigation within an application. It keeps track of
- * registered places, handles navigation events, and updates the UI accordingly.
- * <p>
- * The place manager listens to clicks on links and uses {@link elemental2.dom.History#pushState(Object, String, String)} to
- * manage the browsers history. In addition, the place manager listens to the {@code popstate} event and manages back and
- * forward actions.
+ * The place manager is the central part of the router. It keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a {@link #start()} method to show the initial page.
  * <p>
  * {@snippet class = PlaceManagerDemo region = placeManager}
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API">https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API">https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API</a>
  */
 public class PlaceManager {
 

@@ -363,14 +363,37 @@ Finally, use the static methods in `org.jboss.elemento.mathml.MathML` to create 
 Elemento offers a very basic router. The router is minimal invasive and built around a few simple concepts:
 
 - `Route`: Annotation that can be used to decorate pages. An annotation processor collects all classes annotated with `@Route` and generates an implementation of `Routes`.
-- `Routes`: Provides a map of places and their corresponding pages.
-- `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element.
-- `Page`: Interface that represents a collection of HTML elements.
-- `PlaceManager`: Class responsible for managing the routing and navigation within an application.
+- `Routes`: Provides a map of places and their corresponding pages. This can be used to register all places in one go. 
+- `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. If present the children of the root element are replaced by the elements of the page.  
+- `Page`: Simple interface that represents a collection of HTML elements (`Iterable<HTMLElement> elements()`) 
+- `PlaceManager`: Class that keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
 
-## Place manager
+```java
+@Route("/")
+public class HomePage implements Page {
 
-The place manager is the central part of the router module. It offers builder like methods to configure the place manager and a `start()` method to show the initial page.  
+    @Override
+    public Iterable<HTMLElement> elements() {
+        return singletonList(div()
+                .add(h(1, "Welcome"))
+                .add(p().textContent("Hello world!"))
+                .element());
+    }
+}
+
+public class Application {
+
+    public void entryPoint() {
+        body().add(div().id("main"));
+        new PlaceManager()
+                .root(By.id("main"))
+                .register(new Place("/"), HomePage::new)
+                // could also be registered with
+                // .register(RoutesImpl.INSTANCE.places());
+                .start();
+    }
+}
+```
 
 # Samples
 
