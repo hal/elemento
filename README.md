@@ -365,7 +365,7 @@ Elemento offers a very basic router. The router is minimal invasive and built ar
 - `Route`: Annotation that can be used to decorate pages. An annotation processor collects all classes annotated with `@Route` and generates an implementation of `Routes`.
 - `Routes`: Provides a map of places and their corresponding pages. This can be used to register all places in one go. 
 - `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. If present the children of the root element are replaced by the elements of the page.  
-- `Page`: Simple interface that represents a collection of HTML elements (`Iterable<HTMLElement> elements()`) 
+- `Page`: Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements()` 
 - `PlaceManager`: Class that keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
 
 ```java
