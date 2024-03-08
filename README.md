@@ -9,9 +9,9 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 - Ready to be used with GWT and J2CL
 - Minimal dependencies
   - Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
-  - GWT project (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`) 
+  - GWT project (`org.gwtproject.event:gwt-event` and `org.gwtproject.safehtml:gwt-safehtml`)
 
-**TOC**  
+**TOC**
 * [Get Started](#get-started)
 * [Builder API](#builder-api)
   * [References](#references)
@@ -40,7 +40,7 @@ Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org
     <version>1.3.3</version>
 </dependency>
 ```
- 
+
 In your GWT module inherit from `org.jboss.elemento.Core`:
 
 ```xml
@@ -111,7 +111,7 @@ final HTMLElement footer = footer()
 
 # Event Handlers
 
-Elemento provides methods to easily register event handlers. There are [constants](https://hal.github.io/elemento/org/jboss/elemento/EventType.html) for most of the known event types. 
+Elemento provides methods to easily register event handlers. There are [constants](https://hal.github.io/elemento/org/jboss/elemento/EventType.html) for most of the known event types.
 
 You can either add event handlers when building the element hierarchy:
 
@@ -139,7 +139,7 @@ HTMLLIElement listItem = li()
         .element();
 ```
 
-or register them later using `EventType.bind()`: 
+or register them later using `EventType.bind()`:
 
 ```java
 import org.gwtproject.event.shared.HandlerRegistration;
@@ -213,7 +213,7 @@ Elemento makes it easy to create custom elements. As for Elemento custom element
 import static org.jboss.elemento.Elements.*;
 
 class TodoItemElement implements IsElement<HTMLElement> {
-    
+
     private final HTMLElement root;
     private final HTMLInputElement toggle;
     private final HTMLElement label;
@@ -231,12 +231,12 @@ class TodoItemElement implements IsElement<HTMLElement> {
                 .element();
         this.root.classList.toggle("completed", item.completed);
     }
-    
+
     @Override
     public HTMLElement element() {
         return root;
     }
-    
+
     // event handlers omitted
 }
 ```
@@ -251,13 +251,13 @@ TodoItemElement[] itemElements = repository.items().stream()
         .map(TodoItemElement::new)
         .toArray();
 ul().addAll(itemElements).element();
-``` 
+```
 
 # Goodies
 
 Besides the builder API, Elemento comes with a bunch of static helper methods that roughly fall into these categories:
 
-1. Get notified when an element is attached to and detached from the DOM tree. 
+1. Get notified when an element is attached to and detached from the DOM tree.
 1. Iterate over elements.
 1. Methods to manipulate the DOM tree (add, insert and remove elements).
 1. Methods to manipulate an element.
@@ -267,7 +267,7 @@ See the API documentation of [Elements](https://hal.github.io/elemento/org/jboss
 
 ## Attach / Detach
 
-Implement `Attachable` to get notified when an element is attached to and detached from the DOM tree. The attachable interface provides a static method to easily register the callbacks to `attach(MutationRecord)` and `detach(MutationRecord)`:   
+Implement `Attachable` to get notified when an element is attached to and detached from the DOM tree. The attachable interface provides a static method to easily register the callbacks to `attach(MutationRecord)` and `detach(MutationRecord)`:
 
 ```java
 import elemental2.dom.MutationRecord;
@@ -277,14 +277,14 @@ import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.li;
 
 class TodoItemElement implements IsElement<HTMLElement>, Attachable {
-    
+
     private final HTMLElement root;
 
     TodoItemElement(TodoItem item) {
         this.root = li().element();
         Attachable.register(root, this);
     }
-    
+
     @Override
     public HTMLElement element() {
         return root;
@@ -312,7 +312,7 @@ See the API documentation of [Elements](https://hal.github.io/elemento/org/jboss
 
 # SVG & MathML
 
-Elemento comes with basic support for SVG and MathML. 
+Elemento comes with basic support for SVG and MathML.
 
 ## SVG
 
@@ -334,7 +334,7 @@ In your GWT module inherit from `org.jboss.elemento.SVG`:
 </module>
 ```
 
-Finally, use the static methods in `org.jboss.elemento.svg.SVG` to create SVG elements.  
+Finally, use the static methods in `org.jboss.elemento.svg.SVG` to create SVG elements.
 
 ## MathML
 
@@ -363,9 +363,9 @@ Finally, use the static methods in `org.jboss.elemento.mathml.MathML` to create 
 Elemento offers a very basic router. The router is minimal invasive and built around a few simple concepts:
 
 - `Route`: Annotation that can be used to decorate pages. An annotation processor collects all classes annotated with `@Route` and generates an implementation of `Routes`.
-- `Routes`: Provides a map of places and their corresponding pages. This can be used to register all places in one go. 
-- `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. If present the children of the root element are replaced by the elements of the page.  
-- `Page`: Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements()` 
+- `Routes`: Provides a map of places and their corresponding pages. This can be used to register all places in one go.
+- `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. If present the children of the root element are replaced by the elements of the page.
+- `Page`: Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements()`
 - `PlaceManager`: Class that keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
 
 ```java
@@ -397,8 +397,8 @@ public class Application {
 
 # Samples
 
-Elemento comes with different [implementations](https://github.com/hal/elemento-samples) of the [TodoMVC](http://todomvc.com/) application using different frameworks: 
-                     
+Elemento comes with different [implementations](https://github.com/hal/elemento-samples) of the [TodoMVC](http://todomvc.com/) application using different frameworks:
+
 - [GWT](https://github.com/hal/elemento-samples/tree/main/gwtproject)
 - [J2CL](https://github.com/hal/elemento-samples/tree/main/j2cl)
 

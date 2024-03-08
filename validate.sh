@@ -22,7 +22,7 @@
 #   - maven-enforcer-plugin
 #   - maven-checkstyle-plugin
 #   - license-maven-plugin
-#   - formatter-maven-plugin
+#   - editorconfig-maven-plugin
 #   - impsort-maven-plugin
 #
 # --------------------------------------------------
@@ -97,9 +97,9 @@ parse_params() {
 
 parse_params "$@"
 setup_colors
-mvn \
+mvn -P samples \
   org.apache.maven.plugins:maven-enforcer-plugin:enforce \
   org.apache.maven.plugins:maven-checkstyle-plugin:check \
   com.mycila:license-maven-plugin:check \
-  net.revelc.code.formatter:formatter-maven-plugin:validate \
+  org.ec4j.maven:editorconfig-maven-plugin:check \
   net.revelc.code:impsort-maven-plugin:check

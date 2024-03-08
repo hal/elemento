@@ -1,0 +1,22 @@
+{
+  "name": "todo-sample-j2cl",
+  "private": true,
+  "parcelIgnore": [
+    "todo.j2cl.js"
+  ],
+  "source": "src/web/index.html",
+  "scripts": {
+    "watch": "parcel serve --dist-dir target/todo --open",
+    "dev": "parcel build --dist-dir target/todo --no-optimize",
+    "prod": "parcel build --dist-dir target/todo"
+  },
+  "devDependencies": {
+    "@parcel/reporter-cli": "^2.11.0",
+    "parcel": "^2.12.0",
+    "parcel-resolver-ignore": "^2.2.0"
+  },
+  "dependencies": {
+    "todomvc-app-css": "^2.4.3",
+    "todomvc-common": "^1.0.5"
+  }
+}

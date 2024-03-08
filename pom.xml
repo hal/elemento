@@ -103,6 +103,7 @@
 
         <!-- Plugin versions -->
         <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>
+        <version.editorconfig.plugin>0.1.3</version.editorconfig.plugin>
         <version.enforcer.plugin>3.3.0</version.enforcer.plugin>
         <version.formatter.plugin>2.23.0</version.formatter.plugin>
         <version.impsort.plugin>1.9.0</version.impsort.plugin>
@@ -128,6 +129,7 @@
         <module>build-config</module>
         <module>code-parent</module>
         <module>core</module>
+        <module>flow</module>
         <module>mathml</module>
         <module>router</module>
         <module>router-processor</module>
@@ -142,9 +144,16 @@
             <plugins>
                 <!-- Ordered by artifactID -->
                 <plugin>
-                    <groupId>net.revelc.code.formatter</groupId>
-                    <artifactId>formatter-maven-plugin</artifactId>
-                    <version>${version.formatter.plugin}</version>
+                    <groupId>org.ec4j.maven</groupId>
+                    <artifactId>editorconfig-maven-plugin</artifactId>
+                    <version>${version.editorconfig.plugin}</version>
+                    <configuration>
+                        <excludes>
+                            <exclude>**/.parcel-cache/**</exclude>
+                            <exclude>**/node/**</exclude>
+                            <exclude>**/node_modules/**</exclude>
+                        </excludes>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>net.revelc.code</groupId>
@@ -169,14 +178,21 @@
                         <aggregate>true</aggregate>
                         <strictCheck>true</strictCheck>
                         <useDefaultExcludes>true</useDefaultExcludes>
+                        <mapping>
+                            <parcelrc>DOUBLESLASH_STYLE</parcelrc>
+                        </mapping>
                         <licenseSets>
                             <licenseSet>
                                 <header>build-config/src/main/resources/etc/license.txt</header>
                                 <excludes>
                                     <exclude>LICENSE</exclude>
-                                    <exclude>sed/*.sed</exclude>
+                                    <exclude>README.md</exclude>
+                                    <exclude>**/*.ftl</exclude>
                                     <exclude>**/*license*.txt</exclude>
-                                    <exclude>src/demo/java/**</exclude>
+                                    <exclude>**/.parcel-cache/**</exclude>
+                                    <exclude>**/node/**</exclude>
+                                    <exclude>**/node_modules/**</exclude>
+                                    <exclude>**/src/demo/java/**</exclude>
                                 </excludes>
                             </licenseSet>
                         </licenseSets>
@@ -235,6 +251,30 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${version.javadoc.plugin}</version>
+                    <configuration combine.self="override">
+                        <additionalOptions>${javadoc.options}</additionalOptions>
+                        <detectLinks>true</detectLinks>
+                        <doclint>none</doclint>
+                        <sourceFileExcludes>
+                            <sourceFileExclude>**/ThirdPartyBundle*.java</sourceFileExclude>
+                        </sourceFileExcludes>
+                        <failOnError>false</failOnError>
+                        <links>
+                            <link>https://hal.github.io/elemento/</link>
+                            <link>https://www.gwtproject.org/javadoc/latest/</link>
+                            <link>https://javadoc.io/doc/org.gwtproject.event/gwt-event/${version.gwt.event}</link>
+                            <link>https://javadoc.io/doc/org.gwtproject.safehtml/gwt-safehtml/${version.gwt.safehtml}</link>
+                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-core/${version.elemental2}/</link>
+                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-dom/${version.elemental2}/</link>
+                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/${version.elemental2}/</link>
+                        </links>
+                        <show>public</show>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
                     <version>${version.shade.plugin}</version>
                 </plugin>
@@ -244,21 +284,52 @@
         <plugins>
             <!-- Ordered by artifactID -->
             <plugin>
-                <groupId>net.revelc.code.formatter</groupId>
-                <artifactId>formatter-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>formatter-format</id>
+                        <id>enforcer-enforce</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-demos</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/demo/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.ec4j.maven</groupId>
+                <artifactId>editorconfig-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>editorconfig-format</id>
                         <phase>process-sources</phase>
                         <goals>
                             <goal>format</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>formatter-check</id>
+                        <id>editorconfig-check</id>
                         <phase>verify</phase>
                         <goals>
-                            <goal>validate</goal>
+                            <goal>check</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -316,19 +387,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>enforcer-enforce</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
@@ -342,6 +400,12 @@
             <properties>
                 <javadoc.options>--snippet-path ${project.basedir}/src/demo/java</javadoc.options>
             </properties>
+        </profile>
+        <profile>
+            <id>samples</id>
+            <modules>
+                <module>samples</module>
+            </modules>
         </profile>
         <profile>
             <id>release</id>

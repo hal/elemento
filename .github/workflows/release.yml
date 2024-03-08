@@ -6,7 +6,6 @@ on:
       - 'v*'
 
 jobs:
-
   deploy:
     name: Deploy Maven Artifacts
     runs-on: ubuntu-latest
