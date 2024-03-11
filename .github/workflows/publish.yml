@@ -1,4 +1,4 @@
-name: Publish Samples
+name: Publish
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   publish-samples:
-    name: Publish
+    name: Publish Samples
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
@@ -25,7 +25,7 @@ jobs:
           cache: maven
       - name: Package
         id: package
-        run: $MVN -P samples,prod clean package --projects org.jboss.elemento:elemento-samples-dist --also-make
+        run: $MVN -P samples,prod install --projects org.jboss.elemento:elemento-samples-dist --also-make
       - name: Publish
         id: publish
         uses: JamesIves/github-pages-deploy-action@v4.5.0
@@ -36,7 +36,7 @@ jobs:
           clean: true
 
   publish-apidocs:
-    name: Publish
+    name: Publish API Documentation
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
