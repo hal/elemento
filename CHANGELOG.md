@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- New module `elemento-flow`
+- Samples are now part of Elemento
+
 ## [1.3.3] - 2024-03-05
 
 ### Added
