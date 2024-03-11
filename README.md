@@ -6,6 +6,8 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
 - [Helper methods](#goodies) to manipulate the DOM tree
+- Execute asynchronous tasks in parallel, in sequence or as long as a certain condition is met.
+- Simple, non-invasive, slash-based router (`/a/b/c`)
 - Ready to be used with GWT and J2CL
 - Minimal dependencies
   - Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
