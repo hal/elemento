@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Created-By: Maven Archiver 3.6.0
 Build-Jdk-Spec: 21
 Specification-Title: Elemento Todo Sample GWT
-Specification-Version: 1.3
+Specification-Version: 1.4
 Specification-Vendor: Red Hat
 Implementation-Title: Elemento Todo Sample GWT
-Implementation-Version: 1.3.4-SNAPSHOT
+Implementation-Version: 1.4.0
 Implementation-Vendor: Red Hat
 Implementation-URL: http://github.com/hal/elemento
 Java-Vendor: Eclipse Adoptium
@@ -14,6 +14,6 @@ Os-Arch: amd64
 Os-Name: Linux
 Os-Version: 6.5.0-1015-azure
 Scm-Connection: scm:git:git@github.com:hal/elemento.git
-Scm-Revision: 73f9c6c7b4c996d5f015ef3b6c48b735f348afea
+Scm-Revision: 66712a1163f7b1bcb2ca58952606ab9630041baf
 Scm-Url: https://github.com/hal/elemento
 
