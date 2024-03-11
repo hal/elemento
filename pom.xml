@@ -112,6 +112,7 @@
         <version.license.plugin>4.3</version.license.plugin>
         <version.nexus.staging.plugin>1.6.13</version.nexus.staging.plugin>
         <version.shade.plugin>3.5.2</version.shade.plugin>
+        <version.site.plugin>4.0.0-M13</version.site.plugin>
 
         <!-- Build related -->
         <encoding>UTF-8</encoding>
@@ -260,15 +261,17 @@
                         <sourceFileExcludes>
                             <sourceFileExclude>**/ThirdPartyBundle*.java</sourceFileExclude>
                         </sourceFileExcludes>
+                        <excludePackageNames>org.jboss.elemento.router.processor</excludePackageNames>
                         <failOnError>false</failOnError>
                         <links>
-                            <link>https://hal.github.io/elemento/</link>
+                            <link>https://hal.github.io/elemento/apidoc/</link>
                             <link>https://www.gwtproject.org/javadoc/latest/</link>
                             <link>https://javadoc.io/doc/org.gwtproject.event/gwt-event/${version.gwt.event}</link>
                             <link>https://javadoc.io/doc/org.gwtproject.safehtml/gwt-safehtml/${version.gwt.safehtml}</link>
                             <link>https://javadoc.io/doc/com.google.elemental2/elemental2-core/${version.elemental2}/</link>
                             <link>https://javadoc.io/doc/com.google.elemental2/elemental2-dom/${version.elemental2}/</link>
-                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/${version.elemental2}/</link>
+                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/${version.elemental2}/
+                            </link>
                         </links>
                         <show>public</show>
                     </configuration>
@@ -277,6 +280,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
                     <version>${version.shade.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${version.site.plugin}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
