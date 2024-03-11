@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  publish-samples:
-    name: Publish Samples
+  publish:
+    name: Publish
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
@@ -23,48 +23,28 @@ jobs:
           java-version: 11
           distribution: temurin
           cache: maven
-      - name: Install Modules
-        id: install-modules
-        run: $MVN -D quickly install
-      - name: Install Samples
-        id: install-samples
-        run: $MVN -P samples,prod install --projects org.jboss.elemento:elemento-samples-dist --also-make
-      - name: Publish
-        id: publish
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
-        with:
-          branch: gh-pages
-          folder: ./samples/dist/target/samples
-          target-folder: samples
-          clean: true
-
-  publish-apidocs:
-    name: Publish API Documentation
-    runs-on: ubuntu-latest
-    env:
-      MVN: ./mvnw --show-version --batch-mode
-    steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
-      - name: Set up JDK
-        id: setup-jdk
-        uses: actions/setup-java@v4
-        with:
-          java-version: 21
-          distribution: temurin
-          cache: maven
       - name: Install
         id: install
         run: $MVN -D quickly install
-      - name: API Documentation
-        id: api-docs
+      - name: Build API Documentation
+        id: build-api-docs
         run: ./javadoc.sh
-      - name: Publish
-        id: publish
+      - name: Publish API Documentation
+        id: publish-api-docs
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: gh-pages
           folder: ./target/site/apidocs
           target-folder: apidocs
+          clean: true
+      - name: Build Samples
+        id: build-samples
+        run: $MVN -P samples,prod install --projects org.jboss.elemento:elemento-samples-dist --also-make
+      - name: Publish Samples
+        id: publish-samples
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          branch: gh-pages
+          folder: ./samples/dist/target/samples
+          target-folder: samples
           clean: true
