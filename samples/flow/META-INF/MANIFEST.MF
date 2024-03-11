@@ -14,6 +14,6 @@ Os-Arch: amd64
 Os-Name: Linux
 Os-Version: 6.5.0-1015-azure
 Scm-Connection: scm:git:git@github.com:hal/elemento.git
-Scm-Revision: d9d193c643b798c647ce00267e38ad1b7ac827c5
+Scm-Revision: 8d8295d93a88f3a7f72b5c1a01cb8c25c6c80d90
 Scm-Url: https://github.com/hal/elemento
 
