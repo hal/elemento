@@ -424,6 +424,8 @@ Elemento offers a very basic router. The router is minimal invasive and built ar
 - `Page`: Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements()`
 - `PlaceManager`: Class that keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
 
+See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html) for more details.
+
 ```java
 @Route("/")
 public class HomePage implements Page {
@@ -453,7 +455,7 @@ public class Application {
 
 # Samples
 
-Elemento comes with different sample applications to to showcase and test the various modules. They're available at https://github.com/hal/elemento/samples/
+Elemento comes with different sample applications to to showcase and test the various modules. They're available at https://hal.github.io/elemento/samples/
 
 # Contributing
 
