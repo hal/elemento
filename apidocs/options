@@ -19,7 +19,7 @@
 'UTF-8'
 -Xdoclint:none
 -doctitle
-'Elemento Parent 1.3.4-SNAPSHOT API'
+'Elemento Parent 1.4.0 API'
 -link
 'https://hal.github.io/elemento/apidoc'
 -link
@@ -39,4 +39,4 @@
 -use
 -version
 -windowtitle
-'Elemento Parent 1.3.4-SNAPSHOT API'
+'Elemento Parent 1.4.0 API'
