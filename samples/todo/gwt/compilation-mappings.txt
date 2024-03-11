@@ -1,0 +1,22 @@
+2C7E0188C39EB171C5884287A89794E6.cache.js
+compiler.emulatedStack false
+compiler.predeclare.cross.fragment.references false
+compiler.stackMode native
+compiler.useSourceMaps false
+compiler.useSymbolMaps false
+gwt.logging.enabled FALSE
+gwt.logging.simpleConsoleHandler ENABLED
+gwt.uncaughtexceptionhandler.windowonerror REPORT_IF_NO_HANDLER
+jre.checkedMode DISABLED
+jre.checks.api AUTO
+jre.checks.bounds AUTO
+jre.checks.checkLevel NORMAL
+jre.checks.numeric AUTO
+jre.checks.type AUTO
+jre.debugMode DISABLED
+jre.logging.logLevel OFF
+jre.logging.simpleConsoleHandler ENABLED
+jsinterop.checks DISABLED
+superdevmode off
+
+Devmode:devmode.js
