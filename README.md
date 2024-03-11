@@ -24,6 +24,7 @@ Elemento simplifies working with GWT [Elemental2](https://github.com/google/elem
 * [SVG & MathML](#svg--mathml)
   * [SVG](#svg)
   * [MathML](#mathml)
+* [Flow](#flow)
 * [Router](#router)
 * [Samples](#samples)
 * [Contributing](#contributing)
@@ -357,6 +358,61 @@ In your GWT module inherit from `org.jboss.elemento.MathML`:
 ```
 
 Finally, use the static methods in `org.jboss.elemento.mathml.MathML` to create MathML elements.
+
+# Flow
+
+The module `elemento-flow` provides a way to execute a list of asynchronous tasks in parallel or sequentially, or to execute a single task repeatedly as long as certain conditions are met.
+
+See the API documentation of [Flow](https://hal.github.io/elemento/apidocs/org/jboss/elemento/flow/Flow.html) for more details.
+
+## Parallel
+
+```java
+// datetime format is "2022-03-31T11:03:39.348365+02:00"
+Task<FlowContext> currentTime = context -> fetch("https://worldtimeapi.org/api/timezone/Europe/Berlin")
+        .then(Response::json)
+        .then(json -> Promise.resolve(Js.<JsPropertyMap<String>>cast(json).get("datetime").substring(11, 23)))
+        .then(context::resolve);
+double ms = 500 + new Random().nextInt(2000);
+Task<FlowContext> delay = context -> new Promise<>((res, __) -> setTimeout(___ -> res.onInvoke(context), ms));
+
+// execute the two tasks in parallel
+Flow.parallel(new FlowContext(), List.of(currentTime, delay))
+        .subscribe(context -> console.log("Current time: " + context.pop("n/a")));
+```
+
+## Sequential
+
+```java
+// datetime format is "2022-03-31T11:03:39.348365+02:00"
+Task<FlowContext> currentTime = context -> fetch("https://worldtimeapi.org/api/timezone/Europe/Berlin")
+        .then(Response::json)
+        .then(json -> Promise.resolve(Js.<JsPropertyMap<String>>cast(json).get("datetime").substring(11, 23)))
+        .then(context::resolve);
+double ms = 500 + new Random().nextInt(2_000);
+Task<FlowContext> delay = context -> new Promise<>((res, __) -> setTimeout(___ -> res.onInvoke(context), ms));
+
+// execute the two tasks in sequence and cancel after 1_000 ms
+Flow.parallel(new FlowContext(), List.of(currentTime, delay))
+        .timeout(1_000)
+        .subscribe(context -> console.log("Current time: " + context.pop("n/a")));
+
+```
+
+## Repeated
+
+```java
+Task<FlowContext> currentTime = context -> fetch("https://worldtimeapi.org/api/timezone/Europe/Berlin")
+        .then(Response::json)
+        .then(json -> Promise.resolve(Js.<JsPropertyMap<String>>cast(json).get("datetime").substring(11, 23)))
+        .then(context::resolve);
+
+// fetch the current time until the milliseconds end with "0" and cancel after 5 iterations
+Flow.repeat(new FlowContext(), currentTime)
+        .while_(context -> !context.pop("").endsWith("0"))
+        .iterations(5)
+        .subscribe(context -> console.log("Current time: " + context.pop("n/a")));
+```
 
 # Router
 
