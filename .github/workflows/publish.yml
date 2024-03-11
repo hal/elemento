@@ -23,8 +23,8 @@ jobs:
           java-version: 11
           distribution: temurin
           cache: maven
-      - name: Package
-        id: package
+      - name: Install
+        id: install
         run: $MVN -P samples,prod install --projects org.jboss.elemento:elemento-samples-dist --also-make
       - name: Publish
         id: publish
@@ -51,6 +51,9 @@ jobs:
           java-version: 21
           distribution: temurin
           cache: maven
+      - name: Install
+        id: install
+        run: $MVN -D quickly install
       - name: API Documentation
         id: api-docs
         run: ./javadoc.sh

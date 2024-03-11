@@ -399,8 +399,27 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>quick-build</id>
+            <activation>
+                <property>
+                    <name>quickly</name>
+                </property>
+            </activation>
+            <properties>
+                <checkstyle.skip>true</checkstyle.skip>
+                <editorconfig.skip>true</editorconfig.skip>
+                <enforcer.skip>true</enforcer.skip>
+                <impsort.skip>true</impsort.skip>
+                <license.skip>true</license.skip>
+                <maven.javadoc.skip>true</maven.javadoc.skip>
+                <skip.gwt>true</skip.gwt>
+                <skipITs>true</skipITs>
+                <skipTests>true</skipTests>
+            </properties>
+        </profile>
         <!--
-            Profile to be used to generate Javadoc with code snippets. Requires Java 18!
+            Profile to be used to generate Javadoc with code snippets. Requires Java > 18!
             Used for building the online documentation published to GitHub pages
         -->
         <profile>
