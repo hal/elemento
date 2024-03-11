@@ -24,12 +24,12 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-code-parent</artifactId>
-        <version>1.3.4-SNAPSHOT</version>
+        <version>1.4.0</version>
         <relativePath>../code-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-router-processor</artifactId>
-    <version>1.3.4-SNAPSHOT</version>
+    <version>1.4.0</version>
     <packaging>jar</packaging>
     <name>Elemento Router Processor</name>
     <description>Elemento router annotation processor</description>
