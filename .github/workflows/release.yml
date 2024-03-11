@@ -45,8 +45,7 @@ jobs:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
   publish:
-    name: Publish API documentation
-    needs: deploy
+    name: Publish
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
@@ -58,18 +57,33 @@ jobs:
         id: setup-jdk
         uses: actions/setup-java@v4
         with:
-          java-version: 19
+          java-version: 21
           distribution: temurin
           cache: maven
-      - name: JavaDoc
-        id: javadoc
-        run: $MVN javadoc:javadoc -P snippets
-      - name: Publish
-        id: publish
+      - name: Install
+        id: install
+        run: $MVN -D quickly install
+      - name: Build API Documentation
+        id: build-api-docs
+        run: ./javadoc.sh
+      - name: Publish API Documentation
+        id: publish-api-docs
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
-          branch: apidoc
-          folder: ./core/target/site/apidocs
+          branch: gh-pages
+          folder: ./target/site/apidocs
+          target-folder: apidocs
+          clean: true
+      - name: Build Samples
+        id: build-samples
+        run: $MVN -P samples,prod install --projects org.jboss.elemento:elemento-samples-dist --also-make
+      - name: Publish Samples
+        id: publish-samples
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          branch: gh-pages
+          folder: ./samples/dist/target/samples
+          target-folder: samples
           clean: true
 
   release:
