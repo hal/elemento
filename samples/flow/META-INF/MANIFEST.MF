@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Created-By: Maven Archiver 3.6.0
-Build-Jdk-Spec: 11
+Build-Jdk-Spec: 21
 Specification-Title: Elemento Flow Sample
 Specification-Version: 1.3
 Specification-Vendor: Red Hat
@@ -14,6 +14,6 @@ Os-Arch: amd64
 Os-Name: Linux
 Os-Version: 6.5.0-1015-azure
 Scm-Connection: scm:git:git@github.com:hal/elemento.git
-Scm-Revision: 4857e4f64134591fc17052ed89eb5390224a3c22
+Scm-Revision: 029abcd30997a05d71e28cf11977b47311f311bb
 Scm-Url: https://github.com/hal/elemento
 
