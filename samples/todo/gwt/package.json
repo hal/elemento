@@ -8,7 +8,7 @@
   "scripts": {
     "watch": "parcel watch --dist-dir target/gwt/devmode/war/todo",
     "dev": "parcel build --dist-dir target/gwt/devmode/war/todo --no-optimize",
-    "prod": "parcel build --dist-dir target/todo"
+    "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/gwt/"
   },
   "devDependencies": {
     "@parcel/reporter-cli": "^2.12.0",
