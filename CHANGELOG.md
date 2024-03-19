@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Replace Freemarker with JavaPoet
+
 ## [1.4.0] - 2024-03-11
 
 ### Added
