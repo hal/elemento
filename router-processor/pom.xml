@@ -37,7 +37,7 @@
     <properties>
         <version.auto.common>1.2.2</version.auto.common>
         <version.auto.service>1.1.1</version.auto.service>
-        <version.freemarker>2.3.32</version.freemarker>
+        <version.javapoet>1.13.0</version.javapoet>
     </properties>
 
     <dependencies>
@@ -62,9 +62,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>${version.freemarker}</version>
+            <groupId>com.squareup</groupId>
+            <artifactId>javapoet</artifactId>
+            <version>${version.javapoet}</version>
         </dependency>
     </dependencies>
 

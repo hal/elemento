@@ -33,7 +33,7 @@
     <packaging>pom</packaging>
     <name>Elemento Parent</name>
     <description>Builder API and other goodies for GWT Elemental</description>
-    <url>http://github.com/hal/elemento</url>
+    <url>https://github.com/hal/elemento</url>
     <inceptionYear>2023</inceptionYear>
 
     <licenses>
@@ -73,23 +73,23 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:hal/elemento.git</connection>
-        <developerConnection>scm:git:git@github.com:hal/elemento.git</developerConnection>
-        <url>https://github.com/hal/elemento</url>
+        <connection>scm:git:git@github.com:${github.org}/${github.name}.git</connection>
+        <developerConnection>scm:git:git@github.com:${github.org}/${github.name}.git</developerConnection>
+        <url>https://github.com/${github.org}/${github.name}</url>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/hal/elemento/issues</url>
+        <url>https://github.com/${github.org}/${github.name}/issues</url>
     </issueManagement>
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <url>${sonatype.url}/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <url>${sonatype.url}/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 
@@ -105,17 +105,17 @@
         <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>
         <version.editorconfig.plugin>0.1.3</version.editorconfig.plugin>
         <version.enforcer.plugin>3.3.0</version.enforcer.plugin>
-        <version.formatter.plugin>2.23.0</version.formatter.plugin>
         <version.impsort.plugin>1.9.0</version.impsort.plugin>
         <version.javadoc.plugin>3.6.3</version.javadoc.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
         <version.license.plugin>4.3</version.license.plugin>
         <version.nexus.staging.plugin>1.6.13</version.nexus.staging.plugin>
         <version.shade.plugin>3.5.2</version.shade.plugin>
-        <version.site.plugin>4.0.0-M13</version.site.plugin>
 
         <!-- Build related -->
         <encoding>UTF-8</encoding>
+        <github.org>hal</github.org>
+        <github.name>elemento</github.name>
         <java.version>11</java.version>
         <javadoc.options/>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -123,6 +123,7 @@
         <maven.min.version>3.2.5</maven.min.version>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+        <sonatype.url>https://s01.oss.sonatype.org</sonatype.url>
     </properties>
 
     <modules>
@@ -281,11 +282,6 @@
                     <artifactId>maven-shade-plugin</artifactId>
                     <version>${version.shade.plugin}</version>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>${version.site.plugin}</version>
-                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -425,6 +421,7 @@
         <profile>
             <id>snippets</id>
             <properties>
+                <java.version>19</java.version>
                 <javadoc.options>--snippet-path ${project.basedir}/src/demo/java</javadoc.options>
             </properties>
         </profile>
@@ -501,7 +498,7 @@
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <nexusUrl>${sonatype.url}</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
@@ -509,17 +506,4 @@
             </build>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>jboss-nexus</id>
-            <url>https://repository.jboss.org/nexus/content/groups/public</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
 </project>

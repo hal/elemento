@@ -92,10 +92,6 @@
     </dependencyManagement>
 
     <build>
-        <!--
-            All plugins are declared and (partly) configured here.
-            Some of them are redefined in core-parent
-        -->
         <pluginManagement>
             <plugins>
                 <!-- Ordered by artifactID -->
@@ -119,6 +115,18 @@
         </pluginManagement>
     </build>
 
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <gwt.draftCompile>false</gwt.draftCompile>
+                <gwt.style>OBFUSCATED</gwt.style>
+                <j2cl.compilationLevel>ADVANCED_OPTIMIZATIONS</j2cl.compilationLevel>
+                <npm.script>prod</npm.script>
+            </properties>
+        </profile>
+    </profiles>
+
     <pluginRepositories>
         <pluginRepository>
             <id>j2cl-staging</id>
@@ -131,16 +139,4 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-
-    <profiles>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <gwt.draftCompile>false</gwt.draftCompile>
-                <gwt.style>OBFUSCATED</gwt.style>
-                <j2cl.compilationLevel>ADVANCED_OPTIMIZATIONS</j2cl.compilationLevel>
-                <npm.script>prod</npm.script>
-            </properties>
-        </profile>
-    </profiles>
 </project>

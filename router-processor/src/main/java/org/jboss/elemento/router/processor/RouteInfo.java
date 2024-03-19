@@ -16,33 +16,17 @@
 package org.jboss.elemento.router.processor;
 
 @SuppressWarnings("unused")
-public class RouteInfo {
+class RouteInfo {
 
-    private final String route;
-    private final String title;
-    private final String selector;
-    private final String pageClass;
+    final String route;
+    final String title;
+    final String selector;
+    final String pageClass;
 
-    public RouteInfo(String route, String title, String selector, String pageClass) {
+    RouteInfo(String route, String title, String selector, String pageClass) {
         this.route = route;
         this.title = title;
         this.selector = selector;
         this.pageClass = pageClass;
-    }
-
-    public String getRoute() {
-        return route;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getSelector() {
-        return selector;
-    }
-
-    public String getPageClass() {
-        return pageClass;
     }
 }

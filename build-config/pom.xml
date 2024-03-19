@@ -28,7 +28,7 @@
 
     <artifactId>elemento-build-config</artifactId>
     <name>Elemento Build Config</name>
-    <description>Build configuration for checkstyle, eclipse formatter and license check</description>
+    <description>Build configuration for checkstyle, editorconfig formatter and license check</description>
     <packaging>jar</packaging>
 
     <build>
