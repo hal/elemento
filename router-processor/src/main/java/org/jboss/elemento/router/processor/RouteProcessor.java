@@ -49,7 +49,12 @@ import static javax.lang.model.element.Modifier.PRIVATE;
 import static javax.lang.model.element.Modifier.PUBLIC;
 import static javax.lang.model.element.Modifier.STATIC;
 
-@SuppressWarnings("unused")
+/**
+ * This class is a processor that generates a Routes implementation based on the Route annotations in the codebase.
+ * It creates a RoutesImpl class that contains a map of Place to Suppliers of Page objects.
+ * The map is populated with entries for each Route annotation found, where the key is a Place object created from the Route value,
+ * and the value is a Supplier that creates a new instance of the corresponding Page class.
+ */
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_11)
 @SupportedAnnotationTypes({"org.jboss.elemento.router.Route"})

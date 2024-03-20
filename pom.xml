@@ -32,8 +32,8 @@
     <version>1.4.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Elemento Parent</name>
-    <description>Builder API and other goodies for GWT Elemental</description>
-    <url>https://github.com/hal/elemento</url>
+    <description>Elemental builder API and other goodies for GWT and J2CL</description>
+    <url>https://hal.github.io/elemento</url>
     <inceptionYear>2023</inceptionYear>
 
     <licenses>
@@ -259,16 +259,12 @@
                         <additionalOptions>${javadoc.options}</additionalOptions>
                         <detectLinks>true</detectLinks>
                         <doclint>none</doclint>
-                        <sourceFileExcludes>
-                            <sourceFileExclude>**/ThirdPartyBundle*.java</sourceFileExclude>
-                        </sourceFileExcludes>
-                        <excludePackageNames>org.jboss.elemento.router.processor</excludePackageNames>
                         <failOnError>false</failOnError>
                         <links>
-                            <link>https://hal.github.io/elemento/apidoc/</link>
+                            <link>https://hal.github.io/elemento/apidocs/</link>
                             <link>https://www.gwtproject.org/javadoc/latest/</link>
-                            <link>https://javadoc.io/doc/org.gwtproject.event/gwt-event/${version.gwt.event}</link>
-                            <link>https://javadoc.io/doc/org.gwtproject.safehtml/gwt-safehtml/${version.gwt.safehtml}</link>
+                            <link>https://javadoc.io/doc/org.gwtproject.event/gwt-event/${version.gwt.event}/</link>
+                            <link>https://javadoc.io/doc/org.gwtproject.safehtml/gwt-safehtml/${version.gwt.safehtml}/</link>
                             <link>https://javadoc.io/doc/com.google.elemental2/elemental2-core/${version.elemental2}/</link>
                             <link>https://javadoc.io/doc/com.google.elemental2/elemental2-dom/${version.elemental2}/</link>
                             <link>https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/${version.elemental2}/
