@@ -5,15 +5,15 @@ Specification-Title: Elemento Flow Sample
 Specification-Version: 1.4
 Specification-Vendor: Red Hat
 Implementation-Title: Elemento Flow Sample
-Implementation-Version: 1.4.1
+Implementation-Version: 1.4.2
 Implementation-Vendor: Red Hat
-Implementation-URL: https://github.com/hal/elemento
+Implementation-URL: https://hal.github.io/elemento
 Java-Vendor: Eclipse Adoptium
 Java-Version: 11
 Os-Arch: amd64
 Os-Name: Linux
 Os-Version: 6.5.0-1016-azure
 Scm-Connection: scm:git:git@github.com:hal/elemento.git
-Scm-Revision: 9996e1c6d4f63f0f3973f233a12622e5168750a0
+Scm-Revision: 3e9e869e6e105918e16c838b66166007f08f7b88
 Scm-Url: https://github.com/hal/elemento
 
