@@ -123,7 +123,7 @@
         <maven.min.version>3.2.5</maven.min.version>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
-        <sonatype.url>https://s01.oss.sonatype.org</sonatype.url>
+        <sonatype.url>https://oss.sonatype.org</sonatype.url>
     </properties>
 
     <modules>
