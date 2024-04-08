@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add parameter `routes.package` for the routes annotation processor to specify the package name of the generated `Routes` implementation. If not specified, the package name defaults to `org.jboss.elemento.router`.
+
 ## [1.4.2] - 2024-03-20
 
 ### Fixed

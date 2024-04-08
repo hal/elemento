@@ -24,6 +24,7 @@ import java.util.Set;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.annotation.processing.SupportedOptions;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -58,6 +59,7 @@ import static javax.lang.model.element.Modifier.STATIC;
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_11)
 @SupportedAnnotationTypes({"org.jboss.elemento.router.Route"})
+@SupportedOptions({"routes.package"})
 public class RouteProcessor extends BasicAnnotationProcessor {
 
     @Override
@@ -90,6 +92,7 @@ public class RouteProcessor extends BasicAnnotationProcessor {
         @Override
         public Set<? extends Element> process(ImmutableSetMultimap<String, Element> elementsByAnnotation) {
             List<RouteInfo> routes = new ArrayList<>();
+            String packageName = processingEnv.getOptions().getOrDefault("routes.package", PACKAGE);
             for (Map.Entry<String, Element> entry : elementsByAnnotation.entries()) {
                 Element element = entry.getValue();
                 Route route = element.getAnnotation(Route.class);
@@ -105,11 +108,10 @@ public class RouteProcessor extends BasicAnnotationProcessor {
                     ClassName mapClass = ClassName.get("java.util", "Map");
                     ClassName hashMapClass = ClassName.get("java.util", "HashMap");
                     ClassName supplierClass = ClassName.get("java.util.function", "Supplier");
-                    ClassName htmlElementClass = ClassName.get("elemental2.dom", "HTMLElement;");
                     ClassName pageClass = ClassName.get("org.jboss.elemento.router", "Page");
                     ClassName placeClass = ClassName.get("org.jboss.elemento.router", "Place");
                     ClassName routesClass = ClassName.get("org.jboss.elemento.router", "Routes");
-                    ClassName routesImplClass = ClassName.get("org.jboss.elemento.router", "RoutesImpl");
+                    ClassName routesImplClass = ClassName.get(packageName, "RoutesImpl");
 
                     FieldSpec instanceField = FieldSpec.builder(routesClass, "INSTANCE")
                             .addModifiers(PUBLIC, STATIC, FINAL)
@@ -156,7 +158,7 @@ public class RouteProcessor extends BasicAnnotationProcessor {
                             .addMethods(asList(constructor, placesMethod))
                             .build();
 
-                    JavaFile javaFile = JavaFile.builder(PACKAGE, routesImplType)
+                    JavaFile javaFile = JavaFile.builder(packageName, routesImplType)
                             .build();
                     StringBuilder builder = new StringBuilder();
                     javaFile.writeTo(builder);

@@ -7,7 +7,7 @@
   "source": "src/web/index.html",
   "scripts": {
     "watch": "parcel watch --dist-dir target/gwt/devmode/war/flow",
-    "dev": "parcel build --dist-dir target/gwt/devmode/war/flow --no-optimize",
+    "dev": "parcel build --dist-dir target/gwt/devmode/war/flow --no-optimize --public-url /flow",
     "prod": "parcel build --dist-dir target/flow --public-url /elemento/samples/flow/"
   },
   "devDependencies": {

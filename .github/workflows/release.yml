@@ -65,7 +65,11 @@ jobs:
         run: $MVN -D quickly install
       - name: Build API Documentation
         id: build-api-docs
-        run: ./javadoc.sh
+        run: |
+          $MVN -D quickly clean install
+          $MVN -P snippets javadoc:aggregate
+          $MVN -P snippets javadoc:javadoc
+          $MVN -P snippets org.apache.maven.plugins:maven-antrun-plugin:run@copy-apidocs
       - name: Publish API Documentation
         id: publish-api-docs
         uses: JamesIves/github-pages-deploy-action@v4.5.0
@@ -76,7 +80,7 @@ jobs:
           clean: true
       - name: Build Samples
         id: build-samples
-        run: $MVN -P samples,prod install --projects org.jboss.elemento:elemento-samples-dist --also-make
+        run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples,prod install
       - name: Publish Samples
         id: publish-samples
         uses: JamesIves/github-pages-deploy-action@v4.5.0
