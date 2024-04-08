@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.3] - 2024-04-08
+
 ### Added
 
 - Add parameter `routes.package` for the routes annotation processor to specify the package name of the generated `Routes` implementation. If not specified, the package name defaults to `org.jboss.elemento.router`.
@@ -813,7 +815,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.4.2...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.4.3...HEAD
+[1.4.3]: https://github.com/hal/elemento/compare/v1.4.2...v1.4.3
 [1.4.2]: https://github.com/hal/elemento/compare/v1.4.1...v1.4.2
 [1.4.1]: https://github.com/hal/elemento/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/hal/elemento/compare/v1.3.3...v1.4.0
