@@ -17,6 +17,5 @@
 
 -->
 <module>
-    <inherits name="org.jboss.elemento.Core"/>
     <source path="mathml"/>
 </module>

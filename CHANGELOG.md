@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Migrate from `jar` to `gwt-lib` packaging
+
 ## [1.4.3] - 2024-04-08
 
 ### Added

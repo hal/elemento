@@ -15,9 +15,3 @@
  */
 import "@patternfly/patternfly/patternfly.css";
 import "@patternfly/patternfly/patternfly-addons.css";
-import {createPopper} from "@popperjs/core";
-
-// Make Popper.createPopper available in GWT
-window.Popper = {
-    createPopper: createPopper
-};

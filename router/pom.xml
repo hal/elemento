@@ -30,7 +30,7 @@
 
     <artifactId>elemento-router</artifactId>
     <version>1.4.4-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>gwt-lib</packaging>
     <name>Elemento Router</name>
     <description>Elemento router and place manager</description>
 
@@ -42,39 +42,13 @@
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>org/jboss/elemento/**/*.java</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>org/jboss/elemento/Router.gwt.xml</include>
-                </includes>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>add-demos</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>add-test-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.basedir}/src/demo/java</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <moduleName>org.jboss.elemento.Router</moduleName>
+                </configuration>
             </plugin>
         </plugins>
     </build>

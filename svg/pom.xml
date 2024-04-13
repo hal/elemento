@@ -30,7 +30,7 @@
 
     <artifactId>elemento-svg</artifactId>
     <version>1.4.4-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>gwt-lib</packaging>
     <name>Elemento SVG</name>
     <description>Elemento SVG API</description>
 
@@ -42,19 +42,14 @@
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>org/jboss/elemento/**/*.java</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>org/jboss/elemento/SVG.gwt.xml</include>
-                </includes>
-            </resource>
-        </resources>
+        <plugins>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <moduleName>org.jboss.elemento.SVG</moduleName>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
