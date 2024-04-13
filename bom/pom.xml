@@ -48,31 +48,67 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-core</artifactId>
                 <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-core</artifactId>
+                <version>${project.version}</version>
+                <type>gwt-lib</type>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-flow</artifactId>
                 <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-flow</artifactId>
+                <version>${project.version}</version>
+                <type>gwt-lib</type>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-mathml</artifactId>
                 <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-mathml</artifactId>
+                <version>${project.version}</version>
+                <type>gwt-lib</type>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-router</artifactId>
                 <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-router</artifactId>
+                <version>${project.version}</version>
+                <type>gwt-lib</type>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-router-processor</artifactId>
                 <version>${project.version}</version>
+                <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-svg</artifactId>
                 <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-svg</artifactId>
+                <version>${project.version}</version>
+                <type>gwt-lib</type>
             </dependency>
         </dependencies>
     </dependencyManagement>

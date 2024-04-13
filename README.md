@@ -34,17 +34,42 @@ Elemento simplifies working with [Elemental2](https://github.com/google/elementa
 
 # Get Started
 
-Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org.jboss.elemento%20AND%20a:elemento-core). To use it add the following dependency to your POM:
+Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org.jboss.elemento%20AND%20a:elemento-core). The easiest way is to import its BOM
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-bom</artifactId>
+            <version>1.4.4</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+and add a dependency to either
 
 ```xml
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-core</artifactId>
-    <version>1.4.4</version>
+    <type>gwt-lib</type>
 </dependency>
 ```
 
-In your GWT module inherit from `org.jboss.elemento.Core`:
+or
+
+```xml
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-core</artifactId>
+</dependency>
+```
+
+depending on your stack. If you're using GWT, inherit from `org.jboss.elemento.Core`:
 
 ```xml
 <module>

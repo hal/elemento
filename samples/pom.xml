@@ -67,6 +67,13 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-todo-sample-common</artifactId>
                 <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-todo-sample-common</artifactId>
+                <version>${project.version}</version>
+                <type>gwt-lib</type>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>

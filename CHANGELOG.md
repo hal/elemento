@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Added missing dependency definitions for packaging `gwt-lib` in BOM
+
 ## [1.4.4] - 2024-04-13
 
 ### Changed
