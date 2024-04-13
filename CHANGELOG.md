@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.4] - 2024-04-13
+
 ### Changed
 
 - Migrate from `jar` to `gwt-lib` packaging
@@ -819,7 +821,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.4.3...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.4.4...HEAD
+[1.4.4]: https://github.com/hal/elemento/compare/v1.4.3...v1.4.4
 [1.4.3]: https://github.com/hal/elemento/compare/v1.4.2...v1.4.3
 [1.4.2]: https://github.com/hal/elemento/compare/v1.4.1...v1.4.2
 [1.4.1]: https://github.com/hal/elemento/compare/v1.4.0...v1.4.1
