@@ -2,7 +2,7 @@
 
 # Elemento
 
-Elemento simplifies working with GWT [Elemental2](https://github.com/google/elemental2). In a nutshell Elemento brings the following features to the table:
+Elemento simplifies working with [Elemental2](https://github.com/google/elemental2). In a nutshell Elemento brings the following features to the table:
 
 - Type safe [builders](#builder-api), [event handlers](#event-handlers) and [CSS selectors](#typesafe-css-selectors)
 - [Helper methods](#goodies) to manipulate the DOM tree
