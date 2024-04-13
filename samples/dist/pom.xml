@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>1.4.5</version>
+        <version>1.4.6-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-samples-dist</artifactId>
-    <version>1.4.5</version>
+    <version>1.4.6-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Elemento Samples Distribution</name>
 
