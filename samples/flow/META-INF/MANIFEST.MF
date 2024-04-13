@@ -1,19 +1,19 @@
 Manifest-Version: 1.0
-Created-By: Maven Archiver 3.6.0
+Created-By: Maven Archiver 3.6.1
 Build-Jdk-Spec: 21
 Specification-Title: Elemento Flow Sample
 Specification-Version: 1.4
 Specification-Vendor: Red Hat
 Implementation-Title: Elemento Flow Sample
-Implementation-Version: 1.4.2
+Implementation-Version: 1.4.4
 Implementation-Vendor: Red Hat
 Implementation-URL: https://hal.github.io/elemento
 Java-Vendor: Eclipse Adoptium
 Java-Version: 11
 Os-Arch: amd64
 Os-Name: Linux
-Os-Version: 6.5.0-1016-azure
+Os-Version: 6.5.0-1017-azure
 Scm-Connection: scm:git:git@github.com:hal/elemento.git
-Scm-Revision: 3e9e869e6e105918e16c838b66166007f08f7b88
+Scm-Revision: 46aa0cd90d237da870c472ac19b3ce50ea1457a8
 Scm-Url: https://github.com/hal/elemento
 
