@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.6] - 2024-04-14
+
 ### Added
 
 - Added `sources` classifier in BOM
@@ -831,7 +833,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.4.5...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.4.6...HEAD
+[1.4.6]: https://github.com/hal/elemento/compare/v1.4.5...v1.4.6
 [1.4.5]: https://github.com/hal/elemento/compare/v1.4.4...v1.4.5
 [1.4.4]: https://github.com/hal/elemento/compare/v1.4.3...v1.4.4
 [1.4.3]: https://github.com/hal/elemento/compare/v1.4.2...v1.4.3
