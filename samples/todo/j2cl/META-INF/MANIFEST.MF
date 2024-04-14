@@ -5,7 +5,7 @@ Specification-Title: Elemento Todo Sample J2CL
 Specification-Version: 1.4
 Specification-Vendor: Red Hat
 Implementation-Title: Elemento Todo Sample J2CL
-Implementation-Version: 1.4.5
+Implementation-Version: 1.4.6
 Implementation-Vendor: Red Hat
 Implementation-URL: https://hal.github.io/elemento
 Java-Vendor: Eclipse Adoptium
@@ -14,6 +14,6 @@ Os-Arch: amd64
 Os-Name: Linux
 Os-Version: 6.5.0-1017-azure
 Scm-Connection: scm:git:git@github.com:hal/elemento.git
-Scm-Revision: c283385d0c87de6f7f6dc557a77eb5f9a3f498f3
+Scm-Revision: 9e2a88e9315c7a9448be4f74409c8f1f8ab44bf6
 Scm-Url: https://github.com/hal/elemento
 
