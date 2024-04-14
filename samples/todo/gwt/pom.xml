@@ -37,7 +37,6 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>elemento-todo-sample-common</artifactId>
-            <type>gwt-lib</type>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>

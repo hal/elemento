@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Added `sources` classifier in BOM
+
 ## [1.4.5] - 2024-04-13
 
 ### Fixed
