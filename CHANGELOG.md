@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.8] - 2024-04-15
+
 ### Fixed
 
 - Widen `Elements.textNode()` methods to accept `Element`, instead of `HTMLElement`.
@@ -844,7 +846,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.4.7...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.4.8...HEAD
+[1.4.8]: https://github.com/hal/elemento/compare/v1.4.7...v1.4.8
 [1.4.7]: https://github.com/hal/elemento/compare/v1.4.6...v1.4.7
 [1.4.6]: https://github.com/hal/elemento/compare/v1.4.5...v1.4.6
 [1.4.5]: https://github.com/hal/elemento/compare/v1.4.4...v1.4.5
