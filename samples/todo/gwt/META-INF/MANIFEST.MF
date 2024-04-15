@@ -5,7 +5,7 @@ Specification-Title: Elemento Todo Sample GWT
 Specification-Version: 1.4
 Specification-Vendor: Red Hat
 Implementation-Title: Elemento Todo Sample GWT
-Implementation-Version: 1.4.7
+Implementation-Version: 1.4.8
 Implementation-Vendor: Red Hat
 Implementation-URL: https://hal.github.io/elemento
 Java-Vendor: Eclipse Adoptium
@@ -14,6 +14,6 @@ Os-Arch: amd64
 Os-Name: Linux
 Os-Version: 6.5.0-1017-azure
 Scm-Connection: scm:git:git@github.com:hal/elemento.git
-Scm-Revision: dedbd32fe5ff641d790fa955dd3f00cb5684aab6
+Scm-Revision: 0893c94e158a9a2fbde926df22b5f01402795abe
 Scm-Url: https://github.com/hal/elemento
 
