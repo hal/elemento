@@ -101,9 +101,9 @@ import static org.jboss.elemento.EventType.resize;
  * {@snippet class = ElementsDemo region = builder}
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a>
  */
-@SuppressWarnings({ "unused", "ConfusingMainMethod" })
+@SuppressWarnings({"unused", "ConfusingMainMethod"})
 public final class Elements {
 
     // ------------------------------------------------------ body
@@ -1046,7 +1046,7 @@ public final class Elements {
      * Finds the closest HTML elements for the given selector.
      *
      * @see <a href=
-     *      "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
+     * "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
      */
     public static <E extends HTMLElement> E closest(Element element, By selector) {
         return cast(element.closest(selector.selector()));
@@ -1056,7 +1056,7 @@ public final class Elements {
      * Finds the closest HTML elements for the given selector.
      *
      * @see <a href=
-     *      "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
+     * "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
      */
     public static <E extends HTMLElement, F extends HTMLElement> F closest(IsElement<E> element, By selector) {
         return cast(element.element().closest(selector.selector()));
@@ -1421,7 +1421,7 @@ public final class Elements {
      * {@link IsElement#element()}.
      *
      * @see <a href=
-     *      "https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
+     * "https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
      * @see <a href="https://dom.spec.whatwg.org/#dom-node-isconnected">https://dom.spec.whatwg.org/#dom-node-isconnected</a>
      */
     public static <E extends HTMLElement> boolean isAttached(IsElement<E> element) {
@@ -1435,7 +1435,7 @@ public final class Elements {
      * Fail-safe shortcut for {@link Node#isConnected}
      *
      * @see <a href=
-     *      "https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
+     * "https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected</a>
      * @see <a href="https://dom.spec.whatwg.org/#dom-node-isconnected">https://dom.spec.whatwg.org/#dom-node-isconnected</a>
      */
     public static boolean isAttached(Node node) {
@@ -1449,7 +1449,7 @@ public final class Elements {
      * Registers a callback when an element is appended to the document body. Note that the callback will be called only once,
      * if the element is appended more than once a new callback should be registered.
      *
-     * @param element the HTML element which is going to be added to the body
+     * @param element  the HTML element which is going to be added to the body
      * @param callback {@link ObserverCallback}
      */
     public static void onAttach(HTMLElement element, ObserverCallback callback) {
@@ -1462,7 +1462,7 @@ public final class Elements {
      * Registers a callback when an element is appended to the document body. Note that the callback will be called only once,
      * if the element is appended more than once a new callback should be registered.
      *
-     * @param element the element which is going to be added to the body
+     * @param element  the element which is going to be added to the body
      * @param callback {@link ObserverCallback}
      */
     public static <E extends HTMLElement> void onAttach(IsElement<E> element, ObserverCallback callback) {
@@ -1475,7 +1475,7 @@ public final class Elements {
      * Registers a callback when an element is removed from the document body. Note that the callback will be called only once,
      * if the element is removed and re-appended a new callback should be registered.
      *
-     * @param element the HTML element which is going to be removed from the body
+     * @param element  the HTML element which is going to be removed from the body
      * @param callback {@link ObserverCallback}
      */
     public static void onDetach(HTMLElement element, ObserverCallback callback) {
@@ -1488,7 +1488,7 @@ public final class Elements {
      * Registers a callback when an element is removed from the document body. Note that the callback will be called only once,
      * if the element is removed and re-appended a new callback should be registered.
      *
-     * @param element the element which is going to be removed from the body
+     * @param element  the element which is going to be removed from the body
      * @param callback {@link ObserverCallback}
      */
     public static <E extends HTMLElement> void onDetach(IsElement<E> element, ObserverCallback callback) {
@@ -1503,7 +1503,7 @@ public final class Elements {
      * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
      */
     public static boolean isVisible(HTMLElement element) {
-        return element != null && !"none".equals(element.style.display);
+        return element != null && !"none" .equals(element.style.display);
     }
 
     /**
@@ -1551,8 +1551,8 @@ public final class Elements {
      * function will return true even if only part of the element is in view.
      *
      * @param container The container to check if the element is in view of.
-     * @param element The element to check if it is view
-     * @param partial true if partial view is allowed
+     * @param element   The element to check if it is view
+     * @param partial   true if partial view is allowed
      * @return {@code true} if the component is in view.
      */
     public static boolean isElementInView(HTMLElement container, HTMLElement element, boolean partial) {
@@ -1582,9 +1582,9 @@ public final class Elements {
      * Uses the native {@link ResizeObserver} if available. Falls back to {@code window.addEventListener("resize", callback)},
      * otherwise.
      *
-     * @param element The element to observe for size changes.
+     * @param element  The element to observe for size changes.
      * @param callback The callback function to be called when the size of the element changes.
-     * @param <E> The type of element being observed, which must extend from HTMLElement.
+     * @param <E>      The type of element being observed, which must extend from HTMLElement.
      * @return A cleanup function that can be used to unregister the observer.
      */
     public static <E extends HTMLElement> ResizeObserverCleanup resizeObserver(IsElement<E> element, ResizeCallback callback) {
@@ -1598,9 +1598,9 @@ public final class Elements {
      * Uses the native {@link ResizeObserver} if available. Falls back to {@code window.addEventListener("resize", callback)},
      * otherwise.
      *
-     * @param element The element to observe for size changes.
+     * @param element  The element to observe for size changes.
      * @param callback The callback function to be called when the size of the element changes.
-     * @param <E> The type of element being observed, which must extend from HTMLElement.
+     * @param <E>      The type of element being observed, which must extend from HTMLElement.
      * @return A cleanup function that can be used to unregister the observer.
      */
     public static <E extends HTMLElement> ResizeObserverCleanup resizeObserver(E element, ResizeCallback callback) {
@@ -1682,10 +1682,10 @@ public final class Elements {
      * Returns the text content of the given HTMLElement.
      *
      * @param element The HTMLElement to retrieve the text content from.
-     * @return The text content of the HTMLElement. If there is a text node present, returns the value of the text node. If there is no text node, returns the text content of the
-     *  element.
+     * @return The text content of the HTMLElement. If there is a text node present, returns the value of the text node. If
+     * there is no text node, returns the text content of the element.
      */
-    public static String textNode(HTMLElement element) {
+    public static String textNode(Element element) {
         Node textNode = firstTextNode(element);
         if (textNode != null) {
             return textNode.nodeValue;
@@ -1698,10 +1698,10 @@ public final class Elements {
      * Returns the text content of the given element.
      *
      * @param element the element from which to extract the text content
-     * @param <E> the type constraint for the element
+     * @param <E>     the type constraint for the element
      * @return the text content of the element, or null if the element is null
      */
-    public static <E extends HTMLElement> String textNode(IsElement<E> element) {
+    public static <E extends Element> String textNode(IsElement<E> element) {
         if (element != null) {
             return textNode(element.element());
         }

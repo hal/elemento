@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Widen `Elements.textNode()` methods to accept `Element`, instead of `HTMLElement`.
+
 ## [1.4.7] - 2024-04-15
 
 ### Added
