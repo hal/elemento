@@ -23,7 +23,6 @@ import org.gwtproject.safehtml.shared.SafeHtml;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.Node;
-import elemental2.dom.NodeList;
 
 import static org.jboss.elemento.EventType.bind;
 
