@@ -194,6 +194,17 @@ public class PlaceManager {
         }
     }
 
+    public String href(String route) {
+        return href(findPlace(route));
+    }
+
+    public String href(Place place) {
+        if (place != null) {
+            return NOT_FOUND.equals(place) ? "#" : base.absolute(place.route);
+        }
+        return "#";
+    }
+
     // ------------------------------------------------------ internal
 
     private void bindClickHandler() {

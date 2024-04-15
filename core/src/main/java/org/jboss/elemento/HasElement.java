@@ -70,16 +70,10 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
      * {@link Element#textContent} if you want to preserve existing child elements.
      */
     default B textNode(String text) {
-        boolean textNode = false;
-        NodeList<Node> nodes = element().childNodes;
-        for (int i = 0; i < nodes.length && !textNode; i++) {
-            Node node = nodes.getAt(i);
-            if (node.nodeType == Node.TEXT_NODE) {
-                node.nodeValue = text;
-                textNode = true;
-            }
-        }
-        if (!textNode) {
+        Node textNode = Elements.firstTextNode(element());
+        if (textNode != null) {
+            textNode.nodeValue = text;
+        } else {
             add(text);
         }
         return that();

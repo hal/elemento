@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- `PlaceManager.href(String)` and `PlaceManager.href(Place)` to return the href for a route/place
+- `Elements.textNode(HTMLElement)` and `Elements.textNode(IsElement<E>)` to return the text of the first text node (if any) or the text content of the element.
+
 ## [1.4.6] - 2024-04-14
 
 ### Added

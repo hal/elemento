@@ -1658,7 +1658,7 @@ public final class Elements {
         }
     }
 
-    // ------------------------------------------------------ inner HTML
+    // ------------------------------------------------------ inner HTML, text
 
     /**
      * Convenience method to set the inner HTML of the given element.
@@ -1676,6 +1676,47 @@ public final class Elements {
         if (element != null) {
             innerHtml(element.element(), html);
         }
+    }
+
+    /**
+     * Returns the text content of the given HTMLElement.
+     *
+     * @param element The HTMLElement to retrieve the text content from.
+     * @return The text content of the HTMLElement. If there is a text node present, returns the value of the text node. If there is no text node, returns the text content of the
+     *  element.
+     */
+    public static String textNode(HTMLElement element) {
+        Node textNode = firstTextNode(element);
+        if (textNode != null) {
+            return textNode.nodeValue;
+        } else {
+            return element.textContent;
+        }
+    }
+
+    /**
+     * Returns the text content of the given element.
+     *
+     * @param element the element from which to extract the text content
+     * @param <E> the type constraint for the element
+     * @return the text content of the element, or null if the element is null
+     */
+    public static <E extends HTMLElement> String textNode(IsElement<E> element) {
+        if (element != null) {
+            return textNode(element.element());
+        }
+        return null;
+    }
+
+    static Node firstTextNode(Element element) {
+        NodeList<Node> nodes = element.childNodes;
+        for (int i = 0; i < nodes.length; i++) {
+            Node node = nodes.getAt(i);
+            if (node.nodeType == Node.TEXT_NODE) {
+                return node;
+            }
+        }
+        return null;
     }
 
     // ------------------------------------------------------ debug
