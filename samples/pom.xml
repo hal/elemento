@@ -23,12 +23,12 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-code-parent</artifactId>
-        <version>1.4.9</version>
+        <version>1.4.10-SNAPSHOT</version>
         <relativePath>../code-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-samples</artifactId>
-    <version>1.4.9</version>
+    <version>1.4.10-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Elemento Samples</name>
 
