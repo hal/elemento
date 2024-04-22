@@ -28,11 +28,11 @@
         <relativePath>../code-parent/pom.xml</relativePath>
     </parent>
 
-    <artifactId>elemento-router-processor</artifactId>
+    <artifactId>elemento-router-processor-cdi</artifactId>
     <version>1.4.9-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Elemento Router Processor</name>
-    <description>Elemento router annotation processor</description>
+    <name>Elemento Router Processor CDI</name>
+    <description>Elemento router annotation processor based on Crysknife CDI implementation</description>
 
     <properties>
         <version.auto.service>1.1.1</version.auto.service>

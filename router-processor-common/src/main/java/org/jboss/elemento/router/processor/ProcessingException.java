@@ -15,22 +15,9 @@
  */
 package org.jboss.elemento.router.processor;
 
-import javax.lang.model.element.Element;
-
 class ProcessingException extends RuntimeException {
 
-    private final Element element;
-
-    ProcessingException(final String msg) {
-        this(null, msg);
-    }
-
-    ProcessingException(final Element element, final String msg) {
+    ProcessingException(String msg) {
         super(msg);
-        this.element = element;
-    }
-
-    Element getElement() {
-        return element;
     }
 }

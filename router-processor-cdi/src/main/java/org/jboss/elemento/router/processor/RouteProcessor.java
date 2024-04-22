@@ -45,6 +45,6 @@ public class RouteProcessor extends BasicAnnotationProcessor {
 
     @Override
     protected Iterable<? extends Step> steps() {
-        return singletonList(new RoutesStep(processingEnv, new SimpleCodeGenerator()));
+        return singletonList(new RoutesStep(processingEnv, new CdiCodeGenerator()));
     }
 }

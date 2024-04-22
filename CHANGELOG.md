@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add router processor using Crysknife CDI
+
 ## [1.4.8] - 2024-04-15
 
 ### Fixed

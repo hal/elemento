@@ -51,7 +51,6 @@
     <modules>
         <module>dist</module>
         <module>flow</module>
-<!--        <module>router</module>-->
         <module>todo</module>
     </modules>
 

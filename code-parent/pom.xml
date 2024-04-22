@@ -42,6 +42,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- Only used internally - not part of the public BOM! -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-router-processor-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!-- Elemental -->
             <dependency>

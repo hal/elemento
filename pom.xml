@@ -136,6 +136,8 @@
         <module>mathml</module>
         <module>router</module>
         <module>router-processor</module>
+        <module>router-processor-cdi</module>
+        <module>router-processor-common</module>
         <module>svg</module>
     </modules>
 
