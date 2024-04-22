@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.9] - 2024-04-22
+
 ### Added
 
 - Add router processor using Crysknife CDI
@@ -850,7 +852,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.4.8...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.4.9...HEAD
+[1.4.9]: https://github.com/hal/elemento/compare/v1.4.8...v1.4.9
 [1.4.8]: https://github.com/hal/elemento/compare/v1.4.7...v1.4.8
 [1.4.7]: https://github.com/hal/elemento/compare/v1.4.6...v1.4.7
 [1.4.6]: https://github.com/hal/elemento/compare/v1.4.5...v1.4.6
