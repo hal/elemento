@@ -8,6 +8,7 @@ Elemento simplifies working with [Elemental2](https://github.com/google/elementa
 - [Helper methods](#goodies) to manipulate the DOM tree
 - Execute [asynchronous tasks](#flow) in parallel, in sequence or as long as a certain condition is met.
 - Simple, non-invasive, slash-based [router](#router) (`/a/b/c`)
+- Small [logging](#logger) wrapper around `console.log` using categories, log levels, and a predefined log format.
 - Ready to be used with GWT and J2CL
 - Minimal dependencies
   - Elemental2 1.1.0 (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
