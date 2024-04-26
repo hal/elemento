@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix logging methods to include variable arguments
+- Fix place manager to include the query part of the initial URL
+
 ## [1.4.10] - 2024-04-26
 
 ### Added
