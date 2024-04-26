@@ -28,6 +28,7 @@ Elemento simplifies working with [Elemental2](https://github.com/google/elementa
   * [MathML](#mathml)
 * [Flow](#flow)
 * [Router](#router)
+* [Logger](#logger)
 * [Samples](#samples)
 * [Contributing](#contributing)
 * [Get Help](#get-help)
@@ -480,9 +481,28 @@ public class Application {
 }
 ```
 
+# Logger
+
+Elemento contains a small wrapper around `console.log` that uses categories, log levels, and a predefined log format.
+
+The different log methods delegate to the corresponding methods in `console`:
+
+1. `Logger.error()` → [`console.error()`](https://developer.mozilla.org/en-US/docs/Web/API/console/error_static)
+2. `Logger.warn()` → [`console.warn()`](https://developer.mozilla.org/en-US/docs/Web/API/console/warn_static)
+3. `Logger.info()` → [`console.info()`](https://developer.mozilla.org/en-US/docs/Web/API/console/info_static)
+4. `Logger.debug()` → [`console.debug()`](https://developer.mozilla.org/en-US/docs/Web/API/console/debug_static)
+
+To get a logger use `Logger.getLogger(String)`. [String substitutions](https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions) are supported, and you can pass arbitrary parameters to the log methods. The log level is set globally for all categories using `Logger.setLevel(Level)`.
+
+The log format is predefined as
+
+```
+HH:mm:ss,SSS <level> [<category>] <message>
+```
+
 # Samples
 
-Elemento comes with different sample applications to to showcase and test the various modules. They're available at https://hal.github.io/elemento/samples/
+Elemento comes with different sample applications to showcase and test the various modules. They're available at https://hal.github.io/elemento/samples/
 
 # Contributing
 

@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Logger module with a small, opinionated wrapper around `console.log`.
+
 ## [1.4.9] - 2024-04-22
 
 ### Added
