@@ -18,6 +18,7 @@ package org.jboss.elemento.logger;
 import java.util.HashMap;
 import java.util.Map;
 
+import elemental2.core.JsArray;
 import elemental2.core.JsDate;
 
 import static elemental2.dom.DomGlobal.console;
@@ -79,44 +80,114 @@ public class Logger {
 
     public void debug(String message, Object... params) {
         if (level.ordinal() >= DEBUG.ordinal()) {
+            String formatted = format(DEBUG, message);
             if (params == null || params.length == 0) {
-                console.debug(format(DEBUG, message));
+                console.debug(formatted);
             } else {
-                console.debug(format(DEBUG, message), params);
+                // I wish there was another way to pass the variable arguments to console.log()
+                // But just passing 'params' does not work :-(
+                // @formatter:off
+                switch (params.length) {
+                    case 1: console.debug(formatted, params[0]); break;
+                    case 2: console.debug(formatted, params[0], params[1]); break;
+                    case 3: console.debug(formatted, params[0], params[1], params[2]); break;
+                    case 4: console.debug(formatted, params[0], params[1], params[2], params[3]); break;
+                    case 5: console.debug(formatted, params[0], params[1], params[2], params[3], params[4]); break;
+                    case 6: console.debug(formatted, params[0], params[1], params[2], params[3], params[4], params[5]); break;
+                    case 7: console.debug(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6]); break;
+                    case 8: console.debug(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7]); break;
+                    case 9: console.debug(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8]); break;
+                    case 10: console.debug(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8], params[9]); break;
+                    default: console.debug(formatted, asJsArray());
+                }
+                // @formatter:on
             }
         }
     }
 
     public void info(String message, Object... params) {
         if (level.ordinal() >= INFO.ordinal()) {
+            String formatted = format(INFO, message);
             if (params == null || params.length == 0) {
-                console.info(format(INFO, message));
+                console.info(formatted);
             } else {
-                console.info(format(INFO, message), params);
+                // @formatter:off
+                switch (params.length) {
+                    case 1: console.info(formatted, params[0]); break;
+                    case 2: console.info(formatted, params[0], params[1]); break;
+                    case 3: console.info(formatted, params[0], params[1], params[2]); break;
+                    case 4: console.info(formatted, params[0], params[1], params[2], params[3]); break;
+                    case 5: console.info(formatted, params[0], params[1], params[2], params[3], params[4]); break;
+                    case 6: console.info(formatted, params[0], params[1], params[2], params[3], params[4], params[5]); break;
+                    case 7: console.info(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6]); break;
+                    case 8: console.info(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7]); break;
+                    case 9: console.info(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8]); break;
+                    case 10: console.info(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8], params[9]); break;
+                    default: console.info(formatted, asJsArray());
+                }
+                // @formatter:on
             }
         }
     }
 
     public void warn(String message, Object... params) {
         if (level.ordinal() >= WARN.ordinal()) {
+            String formatted = format(WARN, message);
             if (params == null || params.length == 0) {
-                console.warn(format(WARN, message));
+                console.warn(formatted);
             } else {
-                console.warn(format(WARN, message), params);
+                // @formatter:off
+                switch (params.length) {
+                    case 1: console.warn(formatted, params[0]); break;
+                    case 2: console.warn(formatted, params[0], params[1]); break;
+                    case 3: console.warn(formatted, params[0], params[1], params[2]); break;
+                    case 4: console.warn(formatted, params[0], params[1], params[2], params[3]); break;
+                    case 5: console.warn(formatted, params[0], params[1], params[2], params[3], params[4]); break;
+                    case 6: console.warn(formatted, params[0], params[1], params[2], params[3], params[4], params[5]); break;
+                    case 7: console.warn(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6]); break;
+                    case 8: console.warn(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7]); break;
+                    case 9: console.warn(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8]); break;
+                    case 10: console.warn(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8], params[9]); break;
+                    default: console.warn(formatted, asJsArray());
+                }
+                // @formatter:on
             }
         }
     }
 
     public void error(String message, Object... params) {
+        String formatted = format(ERROR, message);
         if (params == null || params.length == 0) {
-            console.error(format(ERROR, message));
+            console.error(formatted);
         } else {
-            console.error(format(ERROR, message), params);
+            // @formatter:off
+            switch (params.length) {
+                case 1: console.error(formatted, params[0]); break;
+                case 2: console.error(formatted, params[0], params[1]); break;
+                case 3: console.error(formatted, params[0], params[1], params[2]); break;
+                case 4: console.error(formatted, params[0], params[1], params[2], params[3]); break;
+                case 5: console.error(formatted, params[0], params[1], params[2], params[3], params[4]); break;
+                case 6: console.error(formatted, params[0], params[1], params[2], params[3], params[4], params[5]); break;
+                case 7: console.error(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6]); break;
+                case 8: console.error(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7]); break;
+                case 9: console.error(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8]); break;
+                case 10: console.error(formatted, params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8], params[9]); break;
+                default: console.error(formatted, asJsArray());
+            }
+            // @formatter:on
         }
     }
 
     private String format(Level level, String message) {
         String iso = new JsDate().toISOString(); // 2011-10-05T14:48:00.000Z
         return iso.substring(11, 23) + " " + level.label + " [" + category + "] " + message;
+    }
+
+    private JsArray<Object> asJsArray(Object... params) {
+        JsArray<Object> array = new JsArray<>();
+        for (Object obj : params) {
+            array.push(obj);
+        }
+        return array;
     }
 }
