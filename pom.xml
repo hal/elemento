@@ -451,6 +451,10 @@
                                                 <exclude name="**/class-use/**"/>
                                                 <exclude name="package-*.html"/>
                                             </fileset>
+                                            <fileset dir="logger/target/site/apidocs/org/jboss/elemento">
+                                                <exclude name="**/class-use/**"/>
+                                                <exclude name="package-*.html"/>
+                                            </fileset>
                                             <fileset dir="mathml/target/site/apidocs/org/jboss/elemento">
                                                 <exclude name="**/class-use/**"/>
                                                 <exclude name="package-*.html"/>
