@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.11] - 2024-04-26
+
 ### Fixed
 
 - Fix logging methods to include variable arguments
@@ -863,7 +865,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.4.10...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.4.11...HEAD
+[1.4.11]: https://github.com/hal/elemento/compare/v1.4.10...v1.4.11
 [1.4.10]: https://github.com/hal/elemento/compare/v1.4.9...v1.4.10
 [1.4.9]: https://github.com/hal/elemento/compare/v1.4.8...v1.4.9
 [1.4.8]: https://github.com/hal/elemento/compare/v1.4.7...v1.4.8
