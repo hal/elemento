@@ -492,13 +492,16 @@ The different log methods delegate to the corresponding methods in `console`:
 3. `Logger.info()` → [`console.info()`](https://developer.mozilla.org/en-US/docs/Web/API/console/info_static)
 4. `Logger.debug()` → [`console.debug()`](https://developer.mozilla.org/en-US/docs/Web/API/console/debug_static)
 
-To get a logger use `Logger.getLogger(String)`. [String substitutions](https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions) are supported, and you can pass arbitrary parameters to the log methods. The log level is set globally for all categories using `Logger.setLevel(Level)`.
+To get a logger use `Logger.getLogger(String)`. You can use an arbitrary string as category. If you use a fully qualified class name as category the package names are shortened. In any case the category is trimmed, and right aligned. [String substitutions](https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions) are supported, and you can pass arbitrary parameters to the log methods.
+
+The log level is set globally for all categories using `Logger.setLevel(Level)`.
 
 The log format is predefined as
 
 ```
 HH:mm:ss,SSS <level> [<category>] <message>
 ```
+
 
 # Samples
 

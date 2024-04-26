@@ -27,7 +27,8 @@ import static org.jboss.elemento.logger.Level.INFO;
 import static org.jboss.elemento.logger.Level.WARN;
 
 /**
- * Small wrapper around <code>console.log</code> that uses categories, {@linkplain Level log levels}, and a predefined log format.
+ * Small wrapper around <code>console.log</code> that uses categories, {@linkplain Level log levels}, and a predefined log
+ * format.
  * <p>
  * The different log methods delegate to the corresponding methods in <code>console</code>:
  * <ol>
@@ -37,7 +38,9 @@ import static org.jboss.elemento.logger.Level.WARN;
  *     <li>{@link #debug(String, Object...)} → <a href="https://developer.mozilla.org/en-US/docs/Web/API/console/debug_static"><code>console.debug()</code></a></li>
  * </ol>
  * <p>
- * To get a logger use {@link Logger#getLogger(String)}. <a href="https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions">String substitutions</a> are supported, and you can pass arbitrary parameters to the log methods. The log level is set globally for all categories using {@link Logger#setLevel(Level)}.
+ * To get a logger use {@link Logger#getLogger(String)}. You can use an arbitrary string as category. If you use a fully qualified class name as category the package names are shortened. In any case the category is trimmed, and right aligned. <a href="https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions">String substitutions</a> are supported, and you can pass arbitrary parameters to the log methods.
+ * <p>
+ * The log level is set globally for all categories using {@link Logger#setLevel(Level)}.
  * <p>
  * The log format is predefined as
  * <pre>
@@ -49,14 +52,17 @@ import static org.jboss.elemento.logger.Level.WARN;
  */
 public class Logger {
 
-    private static Level level = INFO;
+    private static final int CATEGORY_LENGTH = 23;
+    private static final String ROOT_CATEGORY = "root";
     private static final Map<String, Logger> loggers = new HashMap<>();
+    private static Level level = INFO;
 
     public static Logger getLogger(String name) {
-        Logger logger = loggers.get(name);
+        String safeName = name == null || name.isEmpty() ? ROOT_CATEGORY : name;
+        Logger logger = loggers.get(safeName);
         if (logger == null) {
-            logger = new Logger(name);
-            loggers.put(name, logger);
+            logger = new Logger(safeName);
+            loggers.put(safeName, logger);
         }
         return logger;
     }
@@ -68,7 +74,7 @@ public class Logger {
     private final String category;
 
     private Logger(String category) {
-        this.category = Category.format(category, 23);
+        this.category = Category.format(category, CATEGORY_LENGTH);
     }
 
     public void debug(String message, Object... params) {
