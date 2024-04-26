@@ -313,11 +313,11 @@ public class PlaceManager {
     }
 
     private void updateHistory(Place place, boolean push) {
-        String absolute = base.absolute(place.route);
+        String url = base.absolute(place.route);
         if (push) {
-            history.pushState(place.route, "", absolute);
+            history.pushState(place.route, "", url);
         } else {
-            history.replaceState(place.route, "", absolute);
+            history.replaceState(place.route, "", url + location.search);
         }
     }
 
