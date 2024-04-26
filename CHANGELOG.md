@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.10] - 2024-04-26
+
 ### Added
 
 - Logger module with a small, opinionated wrapper around `console.log`.
@@ -856,7 +858,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.4.9...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.4.10...HEAD
+[1.4.10]: https://github.com/hal/elemento/compare/v1.4.9...v1.4.10
 [1.4.9]: https://github.com/hal/elemento/compare/v1.4.8...v1.4.9
 [1.4.8]: https://github.com/hal/elemento/compare/v1.4.7...v1.4.8
 [1.4.7]: https://github.com/hal/elemento/compare/v1.4.6...v1.4.7
