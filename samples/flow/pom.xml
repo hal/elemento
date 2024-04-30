@@ -24,12 +24,12 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-samples</artifactId>
-        <version>1.4.12</version>
+        <version>1.4.13-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-flow-sample</artifactId>
-    <version>1.4.12</version>
+    <version>1.4.13-SNAPSHOT</version>
     <packaging>gwt-app</packaging>
     <name>Elemento Flow Sample</name>
 
