@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedReference
+
 /*
  *  Copyright 2023 Red Hat
  *
@@ -13,17 +15,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento.logger;
-
-/** Log levels supported by {@link Logger} */
-public enum Level {
-
-    // keep this order!
-    OFF("OFF"), ERROR("ERROR"), WARN("WARN "), INFO("INFO "), DEBUG("DEBUG");
-
-    final String label;
-
-    Level(String label) {
-        this.label = label;
-    }
-}
+/**
+ * @fileoverview
+ * @suppress {missingProperties}
+ */
+goog.module('elemento.logger$exports');
+const l = goog.require('org.jboss.elemento.logger.Logger');
+goog.exportSymbol('org.jboss.elemento.logger.Logger.setLevel', l.setLevel);
+goog.exportSymbol('org.jboss.elemento.logger.Logger.resetLevel', l.resetLevel);

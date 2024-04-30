@@ -41,4 +41,15 @@ class CategoryTest {
         assertEquals("      a.b.c.Foo", Category.format("a.b.c.Foo", 15));
         assertEquals(".j.e.l.Category", Category.format("org.jboss.elemento.logger.Category", 15));
     }
+
+    @Test
+    void parent() {
+        assertEquals("", Category.parent(null));
+        assertEquals("", Category.parent(""));
+        assertEquals("", Category.parent("Foo"));
+        assertEquals("a", Category.parent("a."));
+        assertEquals("a.b.c", Category.parent("a.b.c.Foo"));
+        assertEquals("a.b", Category.parent("a.b.c"));
+        assertEquals("a", Category.parent("a.b"));
+    }
 }

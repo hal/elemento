@@ -7,6 +7,19 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add support for category based log levels
+- Export methods to JavaScript to control log levels (for instance from the browser dev tools)
+
+  - `org.jboss.elemento.logger.Logger.setLevel(String level)` - sets the global log level
+  - `org.jboss.elemento.logger.Logger.setLevel(String category, String level)` - overrides the log level for one category
+  - `org.jboss.elemento.logger.Logger.resetLevel(String category)` - resets the log level for the category to the global log level
+
+### Fixed
+
+- Fix logging of objects using `String.valueOf()`
+
 ## [1.4.11] - 2024-04-26
 
 ### Fixed

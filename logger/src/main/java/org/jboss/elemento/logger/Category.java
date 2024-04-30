@@ -23,6 +23,13 @@ class Category {
 
     private static final String NONE = "<none>";
 
+    static String parent(String category) {
+        if (category != null && category.contains(".")) {
+            return category.substring(0, category.lastIndexOf('.'));
+        }
+        return "";
+    }
+
     static String format(String category, int length) {
         if (category == null || category.trim().isEmpty()) {
             return rightPad(NONE, length);
