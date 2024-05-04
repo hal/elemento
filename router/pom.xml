@@ -39,6 +39,10 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>elemento-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>elemento-logger</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

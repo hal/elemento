@@ -47,9 +47,9 @@ import java.lang.annotation.Target;
  * The annotated class must implement the {@link Page} interface to be properly registered with the {@link PlaceManager}.
  * </p>
  */
+@Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
 public @interface Route {
 
     String value() default "";

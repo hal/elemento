@@ -15,8 +15,30 @@
  */
 package org.jboss.elemento.router;
 
-@FunctionalInterface
-public interface AfterPlaceHandler {
+public class LoaderData {
 
-    void afterPlace(PlaceManager placeManager, Place place);
+    public static final LoaderData NONE = new LoaderData(null);
+
+    private final Object data;
+
+    LoaderData(Object data) {
+        this.data = data;
+    }
+
+    public boolean isEmpty() {
+        return data != null;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> T get() {
+        return (T) data;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> T getOrDefault(T defaultValue) {
+        if (data == null) {
+            return defaultValue;
+        }
+        return (T) data;
+    }
 }

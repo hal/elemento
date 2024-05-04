@@ -23,6 +23,7 @@ import java.util.Set;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
+import javax.lang.model.element.TypeElement;
 
 import org.jboss.elemento.router.Route;
 
@@ -49,17 +50,19 @@ class RoutesStep implements BasicAnnotationProcessor.Step {
     }
 
     @Override
+    @SuppressWarnings("UnstableApiUsage")
     public Set<? extends Element> process(ImmutableSetMultimap<String, Element> elementsByAnnotation) {
         List<RouteInfo> routes = new ArrayList<>();
         String packageName = processingEnv.getOptions().getOrDefault("routes.package", Names.PACKAGE);
         for (Map.Entry<String, Element> entry : elementsByAnnotation.entries()) {
             Element element = entry.getValue();
+            TypeElement pageType = asType(element);
+
             Route route = element.getAnnotation(Route.class);
-            // noinspection UnstableApiUsage
             routes.add(new RouteInfo(emptyToNull(route.value()),
                     emptyToNull(route.title()),
                     emptyToNull(route.selector()),
-                    asType(element).getQualifiedName().toString()));
+                    pageType.getQualifiedName().toString()));
         }
 
         if (!routes.isEmpty()) {
@@ -71,5 +74,10 @@ class RoutesStep implements BasicAnnotationProcessor.Step {
             }
         }
         return emptySet();
+    }
+
+    private boolean isValid(TypeElement pageType) {
+
+        return true;
     }
 }

@@ -7,6 +7,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add support for routes with parameters: `/contacts/:contactId`
+- Add asynchronous loaders for places
+- Add place(s) builder API and nested places
+
+### Changed
+
+- Optimize logging implementation
+
 ## [1.4.12] - 2024-04-30
 
 ### Added

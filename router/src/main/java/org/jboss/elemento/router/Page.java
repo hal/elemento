@@ -15,9 +15,6 @@
  */
 package org.jboss.elemento.router;
 
-import java.util.Iterator;
-import java.util.function.Supplier;
-
 import elemental2.dom.HTMLElement;
 
 /**
@@ -25,13 +22,9 @@ import elemental2.dom.HTMLElement;
  * be cheap to create.
  * <p>
  * Pages can be annotated with {@link Route} and registered with the {@link PlaceManager} using
- * {@link PlaceManager#register(Place, Supplier)}.
+ * {@link PlaceManager#register(Place, PageFactory)}.
  */
-public interface Page extends Iterable<HTMLElement> {
+public interface Page {
 
-    default Iterator<HTMLElement> iterator() {
-        return elements().iterator();
-    }
-
-    Iterable<HTMLElement> elements();
+    Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data);
 }

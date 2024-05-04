@@ -20,7 +20,30 @@ import java.util.List;
 
 import javax.annotation.processing.Filer;
 
+import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.CodeBlock;
+import com.squareup.javapoet.MethodSpec;
+
 abstract class CodeGenerator {
 
+    private int counter = 0;
+
     abstract void generateCode(Filer filer, String packageName, List<RouteInfo> routes) throws IOException;
+
+    String placeStatement(MethodSpec.Builder constructorBuilder, ClassName placeClass, RouteInfo route) {
+        String placeName = "place" + counter;
+
+        CodeBlock.Builder builder = CodeBlock.builder();
+        builder.add("$T $N = $T.place($S)", placeClass, placeName, placeClass, route.route);
+        if (route.title != null) {
+            builder.add(".title($S)", route.title);
+        }
+        if (route.selector != null) {
+            builder.add(".root($S)", route.title);
+        }
+        constructorBuilder.addStatement(builder.build());
+
+        counter++;
+        return placeName;
+    }
 }

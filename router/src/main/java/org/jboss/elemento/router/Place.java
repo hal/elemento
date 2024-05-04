@@ -24,6 +24,8 @@ import org.jboss.elemento.Elements;
 import elemental2.dom.HTMLElement;
 
 import static elemental2.dom.DomGlobal.document;
+import static org.jboss.elemento.router.Parameter.hasParameter;
+import static org.jboss.elemento.router.Path.normalize;
 
 /**
  * Represents a place in an application. A place is identified by a route, and can have an optional title and a custom root
@@ -35,64 +37,95 @@ import static elemental2.dom.DomGlobal.document;
  */
 public class Place {
 
+    // ------------------------------------------------------ factory
+
+    public static Place place(String route) {
+        return new Place(route);
+    }
+
+    // ------------------------------------------------------ instance
+
     public final String route;
-    public final String title;
-    public final Supplier<HTMLElement> root;
+    public String title;
 
-    public Place(String route) {
-        this(route, null, (Supplier<HTMLElement>) null);
+    final boolean hasParameter;
+    Supplier<HTMLElement> root;
+    Loader<?> loader;
+
+    Place(String route) {
+        if (route == null || route.isEmpty() || route.isBlank()) {
+            throw new IllegalArgumentException("Route must not be null or empty!");
+        }
+        this.route = normalize(route);
+        this.hasParameter = hasParameter(route);
+        this.title = null;
+        this.root = null;
     }
 
-    public Place(String route, String title) {
-        this(route, title, (Supplier<HTMLElement>) null);
-    }
-
-    public Place(String route, String title, String selector) {
-        this(route, title, () -> Elements.find(document, By.selector(selector)));
-    }
-
-    public Place(String route, String title, By selector) {
-        this(route, title, () -> Elements.find(document, selector));
-    }
-
-    public Place(String route, String title, HTMLElement element) {
-        this(route, title, () -> element);
-    }
-
-    public Place(String route, String title, Supplier<HTMLElement> root) {
+    // copy constructor
+    Place(String route, Place other) {
         this.route = route;
-        this.title = title;
-        this.root = root;
+        this.title = other.title;
+        this.root = other.root;
+        this.hasParameter = other.hasParameter;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         Place place = (Place) o;
         return Objects.equals(route, place.route);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(route);
+        return Objects.hashCode(route);
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Place(").append(route);
+        builder.append("Place('").append(route).append("'");
         if (title != null) {
-            builder.append(", ").append(title);
+            builder.append(", '").append(title).append("'");
         }
         if (root != null) {
             builder.append(", custom root");
         }
+        if (loader != null) {
+            builder.append(", with loader");
+        }
         builder.append(')');
         return builder.toString();
+    }
+
+    // ------------------------------------------------------ builder
+
+    public Place title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public Place root(String selector) {
+        return root(() -> Elements.find(document, By.selector(selector)));
+    }
+
+    public Place root(By selector) {
+        return root(() -> Elements.find(document, selector));
+    }
+
+    public Place root(HTMLElement element) {
+        return root(() -> element);
+    }
+
+    public Place root(Supplier<HTMLElement> root) {
+        this.root = root;
+        return this;
+    }
+
+    public Place loader(Loader<?> loader) {
+        this.loader = loader;
+        return this;
     }
 }

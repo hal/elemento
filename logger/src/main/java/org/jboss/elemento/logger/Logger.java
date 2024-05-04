@@ -71,10 +71,10 @@ public class Logger {
     private static final int CATEGORY_LENGTH = 23;
     private static final String ROOT_CATEGORY = "root";
     private static final Logger ROOT_LOGGER = new Logger(ROOT_CATEGORY);
-    private static final Map<String, Logger> loggers = new HashMap<>();
 
-    // package local to enable unit tests
-    static final Map<String, Level> levels = new HashMap<>();
+    // package local because of unit tests
+    static final Map<String, Logger> loggers = new HashMap<>();
+    static final LevelOverrides levelOverrides = new LevelOverrides();
     static Level level = DEFAULT_LEVEL;
 
     static {
@@ -83,15 +83,16 @@ public class Logger {
 
     // ------------------------------------------------------ static API
 
-    public static Logger getLogger(String name) {
+    public static Logger getLogger(String category) {
         Logger logger;
-        if (name == null || name.isEmpty()) {
+        if (category == null || category.isEmpty()) {
             logger = ROOT_LOGGER;
         } else {
-            logger = loggers.get(name);
+            logger = loggers.get(category);
             if (logger == null) {
-                logger = new Logger(name);
-                loggers.put(name, logger);
+                logger = new Logger(category);
+                loggers.put(category, logger);
+                applyOverrides();
             }
         }
         return logger;
@@ -103,13 +104,15 @@ public class Logger {
     }
 
     public static void setLevel(String category, Level level) {
-        levels.put(category, level);
+        levelOverrides.addLevel(category, level);
+        applyOverrides();
         console.info("Set log level for %s to %s", category, level.name());
     }
 
     @JsMethod
     public static void resetLevel(String category) {
-        levels.remove(category);
+        levelOverrides.removeLevel(category);
+        applyOverrides();
         console.info("Log level for %s has been reset to global log level (%s)", category, Logger.level.name());
     }
 
@@ -132,14 +135,22 @@ public class Logger {
         }
     }
 
+    private static void applyOverrides() {
+        for (Map.Entry<String, Logger> entry : loggers.entrySet()) {
+            String category = entry.getKey();
+            Logger logger = entry.getValue();
+            logger.customLevel = levelOverrides.overriddenLevel(category);
+        }
+    }
+
     // ------------------------------------------------------ instance
 
-    private final String category;
     private final String formattedCategory;
+    private Level customLevel;
 
     private Logger(String category) {
-        this.category = category;
         this.formattedCategory = Category.format(category, CATEGORY_LENGTH);
+        this.customLevel = null;
     }
 
     // ------------------------------------------------------ log methods
@@ -253,19 +264,8 @@ public class Logger {
     // ------------------------------------------------------ internal
 
     boolean shouldLog(Level level) {
-        boolean global = Logger.level.ordinal() >= level.ordinal();
-        if (!Logger.levels.isEmpty()) {
-            String cc = category;
-            Level cLevel = Logger.levels.get(cc);
-            while (cLevel == null && !cc.isEmpty()) {
-                cc = Category.parent(cc);
-                cLevel = Logger.levels.get(cc);
-            }
-            if (cLevel != null) {
-                return cLevel.ordinal() >= level.ordinal();
-            }
-        }
-        return global;
+        Level effectiveLevel = customLevel != null ? customLevel : Logger.level;
+        return effectiveLevel.ordinal() >= level.ordinal();
     }
 
     private String format(Level level, String message) {

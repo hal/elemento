@@ -18,29 +18,10 @@ package org.jboss.elemento.logger;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CategoryTest {
-
-    @Test
-    void blank() {
-        assertEquals("    <none>", Category.format(null, 10));
-        assertEquals("    <none>", Category.format("", 10));
-        assertEquals("    <none>", Category.format("   ", 10));
-        assertEquals("    <none>", Category.format("             ", 10));
-    }
-
-    @Test
-    void simple() {
-        assertEquals("       foo", Category.format("foo", 10));
-        assertEquals("1234567890", Category.format("1234567890", 10));
-        assertEquals("characters", Category.format("more than 10 characters", 10));
-    }
-
-    @Test
-    void fqcn() {
-        assertEquals("      a.b.c.Foo", Category.format("a.b.c.Foo", 15));
-        assertEquals(".j.e.l.Category", Category.format("org.jboss.elemento.logger.Category", 15));
-    }
 
     @Test
     void parent() {
@@ -51,5 +32,53 @@ class CategoryTest {
         assertEquals("a.b.c", Category.parent("a.b.c.Foo"));
         assertEquals("a.b", Category.parent("a.b.c"));
         assertEquals("a", Category.parent("a.b"));
+    }
+
+    @Test
+    void isSubcategory() {
+        assertTrue(Category.isSubcategory("a.b.c", "a.b.c.Foo"));
+        assertTrue(Category.isSubcategory("a.b", "a.b.c.Foo"));
+        assertTrue(Category.isSubcategory(" .", " . "));
+
+        assertFalse(Category.isSubcategory(null, null));
+        assertFalse(Category.isSubcategory(null, ""));
+        assertFalse(Category.isSubcategory("", null));
+        assertFalse(Category.isSubcategory("", ""));
+        assertFalse(Category.isSubcategory("", ". "));
+        assertFalse(Category.isSubcategory(".", "."));
+        assertFalse(Category.isSubcategory(".", ".."));
+        assertFalse(Category.isSubcategory("a.", "a."));
+        assertFalse(Category.isSubcategory(".a", ".a"));
+        assertFalse(Category.isSubcategory(".a.", ".a."));
+        assertFalse(Category.isSubcategory("a.", "b."));
+        assertFalse(Category.isSubcategory(".a", ".b"));
+        assertFalse(Category.isSubcategory(".a.", ".b."));
+        assertFalse(Category.isSubcategory("Foo", "Bar"));
+        assertFalse(Category.isSubcategory("a.b.c", "Bar"));
+        assertFalse(Category.isSubcategory("a.b.c.Foo", "a.b.c"));
+        assertFalse(Category.isSubcategory("a.b.c.Foo", "a.b"));
+        assertFalse(Category.isSubcategory("a.b.c.Foo", "x.y.z.Bar"));
+        assertFalse(Category.isSubcategory("F.o.o", "B.a.r"));
+    }
+
+    @Test
+    void formatBlank() {
+        assertEquals("    <none>", Category.format(null, 10));
+        assertEquals("    <none>", Category.format("", 10));
+        assertEquals("    <none>", Category.format("   ", 10));
+        assertEquals("    <none>", Category.format("             ", 10));
+    }
+
+    @Test
+    void formatSimple() {
+        assertEquals("       foo", Category.format("foo", 10));
+        assertEquals("1234567890", Category.format("1234567890", 10));
+        assertEquals("characters", Category.format("more than 10 characters", 10));
+    }
+
+    @Test
+    void FormatNested() {
+        assertEquals("      a.b.c.Foo", Category.format("a.b.c.Foo", 15));
+        assertEquals(".j.e.l.Category", Category.format("org.jboss.elemento.logger.Category", 15));
     }
 }

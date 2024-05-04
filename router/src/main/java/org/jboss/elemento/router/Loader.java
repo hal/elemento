@@ -15,8 +15,10 @@
  */
 package org.jboss.elemento.router;
 
-@FunctionalInterface
-public interface AfterPlaceHandler {
+import elemental2.promise.Promise;
 
-    void afterPlace(PlaceManager placeManager, Place place);
+@FunctionalInterface
+public interface Loader<T> {
+
+    Promise<T> load(Place place, Parameter parameter);
 }

@@ -14,19 +14,23 @@
  *  limitations under the License.
  */
 
-import elemental2.dom.HTMLElement;
+import java.util.Collections;
+
 import org.jboss.elemento.By;
+import org.jboss.elemento.router.LoaderData;
 import org.jboss.elemento.router.Page;
+import org.jboss.elemento.router.Parameter;
 import org.jboss.elemento.router.Place;
 import org.jboss.elemento.router.PlaceManager;
 import org.jboss.elemento.router.Route;
 
-import java.util.Collections;
+import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.router.Place.place;
 
 @SuppressWarnings("unused")
 public class PlaceManagerDemo {
@@ -36,7 +40,7 @@ public class PlaceManagerDemo {
     public static class HomePage implements Page {
 
         @Override
-        public Iterable<HTMLElement> elements() {
+        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
             return Collections.singletonList(div()
                     .add(h(1, "Welcome"))
                     .add(p().textContent("Hello world!"))
@@ -50,7 +54,7 @@ public class PlaceManagerDemo {
             body().add(div().id("main"));
             new PlaceManager()
                     .root(By.id("main"))
-                    .register(new Place("/home"), HomePage::new)
+                    .register(place("/home"), HomePage::new)
                     // could also be registered with
                     // .register(RoutesImpl.INSTANCE.places())
                     .start();

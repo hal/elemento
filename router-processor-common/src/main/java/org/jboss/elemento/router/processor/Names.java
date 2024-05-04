@@ -18,6 +18,5 @@ package org.jboss.elemento.router.processor;
 interface Names {
 
     String PACKAGE = "org.jboss.elemento.router";
-    String CLASS = "RoutesImpl";
-    String PLACES = "places";
+    String CLASS = "GeneratedPlaces";
 }

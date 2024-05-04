@@ -34,7 +34,8 @@ class LoggerTest {
     @BeforeEach
     void beforeEach() {
         Logger.level = INFO;
-        Logger.levels.clear();
+        Logger.loggers.clear();
+        Logger.levelOverrides.levels.clear();
     }
 
     @Test
@@ -98,9 +99,9 @@ class LoggerTest {
     }
 
     @Test
-    void shouldLogRootInfoCategoryDebug() {
+    void shouldLogRootInfoOverriddenDebug() {
         Logger.level = INFO;
-        Logger.levels.put("x.y", DEBUG);
+        Logger.levelOverrides.addLevel("x.y", DEBUG);
 
         Logger foo = Logger.getLogger("a.b.c.Foo");
         assertTrue(foo.shouldLog(ERROR));
@@ -116,9 +117,9 @@ class LoggerTest {
     }
 
     @Test
-    void shouldLogRootDebugCategoryInfo() {
+    void shouldLogRootDebugOverriddenInfo() {
         Logger.level = DEBUG;
-        Logger.levels.put("x.y", INFO);
+        Logger.levelOverrides.addLevel("x.y", INFO);
 
         Logger foo = Logger.getLogger("a.b.c.Foo");
         assertTrue(foo.shouldLog(ERROR));
@@ -136,16 +137,22 @@ class LoggerTest {
     @Test
     void shouldLogMultipleOverrides() {
         Logger.level = WARN;
-        Logger.levels.put("a.b", INFO);
-        Logger.levels.put("a.b.c", DEBUG);
+        Logger.levelOverrides.addLevel("a.b", INFO);
+        Logger.levelOverrides.addLevel("a.b.c", DEBUG);
+        Logger normal = Logger.getLogger("a.Normal");
         Logger foo = Logger.getLogger("a.b.Foo");
-        Logger bar = Logger.getLogger("a.b.d.Foo");
-        Logger extra = Logger.getLogger("a.b.c.Foo");
+        Logger bar = Logger.getLogger("a.b.d.Bar");
+        Logger extra = Logger.getLogger("a.b.c.Extra");
+
+        assertFalse(normal.shouldLog(INFO));
+        assertFalse(normal.shouldLog(DEBUG));
 
         assertTrue(foo.shouldLog(INFO));
         assertFalse(foo.shouldLog(DEBUG));
+
         assertTrue(bar.shouldLog(INFO));
         assertFalse(bar.shouldLog(DEBUG));
+
         assertTrue(extra.shouldLog(DEBUG));
     }
 }

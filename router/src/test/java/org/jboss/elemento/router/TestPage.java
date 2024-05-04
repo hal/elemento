@@ -15,13 +15,14 @@
  */
 package org.jboss.elemento.router;
 
-import java.util.Map;
-import java.util.function.Supplier;
+import elemental2.dom.HTMLElement;
 
-/**
- * Provides a collection of places and their corresponding pages.
- */
-public interface Routes {
+import static java.util.Collections.emptyList;
 
-    Map<Place, Supplier<Page>> places();
+class TestPage implements Page {
+
+    @Override
+    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+        return emptyList();
+    }
 }

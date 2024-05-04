@@ -15,9 +15,8 @@
  */
 package org.jboss.elemento.logger;
 
-import java.util.Arrays;
-
 import static java.lang.Math.abs;
+import static java.util.Arrays.fill;
 
 class Category {
 
@@ -28,6 +27,23 @@ class Category {
             return category.substring(0, category.lastIndexOf('.'));
         }
         return "";
+    }
+
+    static boolean isSubcategory(String parent, String child) {
+        if (parent != null && child != null && !parent.isEmpty() && child.contains(".")) {
+            String[] parentParts = parent.split("\\.");
+            String[] childParts = child.split("\\.");
+            if (parentParts.length >= childParts.length) {
+                return false;
+            }
+            for (int i = 0; i < parentParts.length; i++) {
+                if (!parentParts[i].equals(childParts[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     static String format(String category, int length) {
@@ -53,7 +69,7 @@ class Category {
             return value.substring(diff);
         } else {
             byte[] bytes = new byte[abs(diff)];
-            Arrays.fill(bytes, (byte) ' ');
+            fill(bytes, (byte) ' ');
             return new String(bytes) + value;
         }
     }
