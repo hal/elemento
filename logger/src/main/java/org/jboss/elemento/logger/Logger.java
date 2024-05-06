@@ -83,6 +83,12 @@ public class Logger {
 
     // ------------------------------------------------------ static API
 
+    /**
+     * Retrieves or creates a logger with the specified category.
+     *
+     * @param category the category of the logger
+     * @return the logger instance
+     */
     public static Logger getLogger(String category) {
         Logger logger;
         if (category == null || category.isEmpty()) {
@@ -98,17 +104,33 @@ public class Logger {
         return logger;
     }
 
+    /**
+     * Sets the global log level.
+     *
+     * @param level the desired log level to be set
+     */
     public static void setLevel(Level level) {
         Logger.level = level;
         console.info("Set global log level to %s", level.name());
     }
 
+    /**
+     * Sets the log level for a given category.
+     *
+     * @param category the category for which to set the log level
+     * @param level the log level to be set
+     */
     public static void setLevel(String category, Level level) {
         levelOverrides.addLevel(category, level);
         applyOverrides();
         console.info("Set log level for %s to %s", category, level.name());
     }
 
+    /**
+     * Resets the log level for the specified category to the global log level.
+     *
+     * @param category the category for which the log level needs to be reset
+     */
     @JsMethod
     public static void resetLevel(String category) {
         levelOverrides.removeLevel(category);

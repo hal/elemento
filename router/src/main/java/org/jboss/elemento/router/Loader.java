@@ -17,8 +17,21 @@ package org.jboss.elemento.router;
 
 import elemental2.promise.Promise;
 
+/**
+ * Functional interface representing a loader function that loads data for a given place.
+ *
+ * @param <T> the type of data to be loaded
+ */
 @FunctionalInterface
 public interface Loader<T> {
 
+    /**
+     * Loads data for a given place using a specified parameter.
+     *
+     * @param place the place for which data needs to be loaded
+     * @param parameter the parameter used for loading data
+     * @param <T> the type of data to be loaded
+     * @return a Promise representing the asynchronous loading operation
+     */
     Promise<T> load(Place place, Parameter parameter);
 }

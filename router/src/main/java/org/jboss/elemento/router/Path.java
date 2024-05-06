@@ -28,7 +28,7 @@ class Path {
     }
 
     static String[] split(String path) {
-        if (path != null && !path.isEmpty() && !path.isBlank()) {
+        if (path != null && !path.trim().isEmpty()) {
             String normalizedNoSlash = normalize(path).substring(1);
             if (!normalizedNoSlash.isEmpty()) {
                 return normalizedNoSlash.split("/");

@@ -15,8 +15,17 @@
  */
 package org.jboss.elemento.router;
 
+/**
+ * An interface that represents a handler for performing actions after a place is changed.
+ */
 @FunctionalInterface
 public interface AfterPlaceHandler {
 
+    /**
+     * Executes the specified actions after a place is changed.
+     *
+     * @param placeManager the PlaceManager instance that manages the places
+     * @param place the new place that has been changed to
+     */
     void afterPlace(PlaceManager placeManager, Place place);
 }

@@ -390,9 +390,9 @@ Finally, use the static methods in `org.jboss.elemento.mathml.MathML` to create 
 
 # Flow
 
-The module `elemento-flow` provides a way to execute a list of asynchronous tasks in parallel or sequentially, or to execute a single task repeatedly as long as certain conditions are met.
+The class [Flow](https://hal.github.io/elemento/apidocs/org/jboss/elemento/flow/Flow.html) provides methods to execute a list of asynchronous tasks in parallel or sequentially, or to execute a single task repeatedly as long as certain conditions are met.
 
-See the API documentation of [Flow](https://hal.github.io/elemento/apidocs/org/jboss/elemento/flow/Flow.html) for more details.
+See the API documentation of [`org.jboss.elemento.flow`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/flow/package-summary.html) for more details.
 
 ## Parallel
 
@@ -447,20 +447,21 @@ Flow.repeat(new FlowContext(), currentTime)
 
 Elemento offers a very basic router. The router is minimal invasive and built around a few simple concepts:
 
-- `Route`: Annotation that can be used to decorate pages. An annotation processor collects all classes annotated with `@Route` and generates an implementation of `Routes`.
-- `Routes`: Provides a map of places and their corresponding pages. This can be used to register all places in one go.
+- `@Route`: Annotation to mark a page implementation as place. An annotation processor collects all pages annotated with `@Route` and generates an instance of `Places`. Routes can have parameters like in `/contacts/:contactId`.
 - `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. If present the children of the root element are replaced by the elements of the page.
-- `Page`: Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements()`
+- `Places`: Builder to set up places. Supports nested places and loaders.
+- `Page`: Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements(Place, Parameter, LoaderData)`.
 - `PlaceManager`: Class that keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
+- `Loader<T>`: Functional interface to asynchronously load data, before a page is added to the DOM. The loader function gets the place and parameters as input and returns a promise of the data to be loaded: `Promise<T> load(Place place, Parameter parameter)`.
 
 See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html) for more details.
 
 ```java
-@Route("/")
-public class HomePage implements Page {
+    @Route("/home")
+public static class HomePage implements Page {
 
     @Override
-    public Iterable<HTMLElement> elements() {
+    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
         return singletonList(div()
                 .add(h(1, "Welcome"))
                 .add(p().textContent("Hello world!"))
@@ -468,15 +469,15 @@ public class HomePage implements Page {
     }
 }
 
-public class Application {
+public static class Application {
 
     public void entryPoint() {
         body().add(div().id("main"));
         new PlaceManager()
                 .root(By.id("main"))
-                .register(new Place("/"), HomePage::new)
+                .register(place("/home"), HomePage::new)
                 // could also be registered with
-                // .register(RoutesImpl.INSTANCE.places());
+                // .register(new GeneratedPlaces())
                 .start();
     }
 }

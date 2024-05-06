@@ -44,6 +44,7 @@ import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.pre;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.click;
@@ -312,13 +313,15 @@ public class PlaceManager {
                 logger.debug("Load data for %s", pms.place);
                 return pms.place.loader.load(pms.place, pms.parameter)
                         .then(data -> {
-                            logger.debug("Create page for %s", pms.place);
+                            logger.debug("Data loaded successfully. Create page for %s", pms.place);
                             pms.data = new LoaderData(data);
                             pms.page = pageSupplier.get();
                             return gotoPage(pms);
                         })
                         .catch_(error -> {
-                            pms.data = new LoaderData(String.valueOf(error));
+                            String errorAsString = String.valueOf(error);
+                            logger.error("Unable to load page for %s: %s", pms.place, errorAsString);
+                            pms.data = new LoaderData(errorAsString);
                             pms.page = noData(pms.place);
                             return gotoPage(pms);
                         });
@@ -368,7 +371,7 @@ public class PlaceManager {
     private Page noData(Place place) {
         logger.debug("No data for %s", place);
         if (noData != null) {
-            return notFound.get();
+            return noData.get();
         } else {
             return new DefaultNoData();
         }
@@ -395,8 +398,9 @@ public class PlaceManager {
 
     private static final String ROOT_STYLE = "display:grid;place-items:center;height:100vh";
     private static final String CONTAINER_STYLE = "width:50%;height:50%;";
-    private static final String HEADER_STYLE = "font-size:3rem;text-align:center";
-    private static final String PARAGRAPH_STYLE = "font-size:1.5rem;text-align:center";
+    private static final String HEADER_STYLE = "font-size:3rem;text-align:center;margin-bottom:1rem";
+    private static final String PARAGRAPH_STYLE = "font-size:1.5rem;text-align:center;margin-bottom:1rem";
+    private static final String ERROR_STYLE = "font-size:1.2rem;text-align:center;text-wrap:wrap;";
 
     private static class DefaultNotFound implements Page {
 
@@ -422,7 +426,8 @@ public class PlaceManager {
                     .add(div().style(CONTAINER_STYLE)
                             .add(h(1, "No data").style(HEADER_STYLE))
                             .add(p().style(PARAGRAPH_STYLE)
-                                    .add("The data for page '" + place.route + "' could not be loaded: " + error)))
+                                    .add("The data for page '" + place.route + "' could not be loaded."))
+                            .add(pre().style(ERROR_STYLE).textContent(error)))
                     .element());
         }
     }

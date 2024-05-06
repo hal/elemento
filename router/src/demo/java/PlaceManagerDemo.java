@@ -56,7 +56,7 @@ public class PlaceManagerDemo {
                     .root(By.id("main"))
                     .register(place("/home"), HomePage::new)
                     // could also be registered with
-                    // .register(RoutesImpl.INSTANCE.places())
+                    // .register(new GeneratedPlaces())
                     .start();
         }
     }

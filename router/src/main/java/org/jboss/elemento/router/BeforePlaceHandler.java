@@ -15,6 +15,9 @@
  */
 package org.jboss.elemento.router;
 
+/**
+ * This functional interface represents a handler that is executed before a place transition occurs.
+ */
 @FunctionalInterface
 public interface BeforePlaceHandler {
 

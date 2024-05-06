@@ -28,8 +28,14 @@ import static org.jboss.elemento.router.Parameter.hasParameter;
 import static org.jboss.elemento.router.Path.normalize;
 
 /**
- * Represents a place in an application. A place is identified by a route, and can have an optional title and a custom root
- * element.
+ * Represents a place in an application. A place is identified by a route that can have parameters, an optional title, a custom
+ * root and an optional {@link Loader}. element.
+ * <p>
+ * If the route has parameters, the {@link PlaceManager} will collect it and pass it to the page when calling
+ * {@link Page#elements(Place, Parameter, LoaderData)}.
+ * <p>
+ * If the page has a {@link Loader}, the {@link PlaceManager} will call it and pass the loaded data as {@link LoaderData} to the
+ * page when calling {@link Page#elements(Place, Parameter, LoaderData)}.
  * <p>
  * If a title is given, the {@link PlaceManager} will change the document title accordingly. If a custom root selector or
  * element is given, the {@link PlaceManager} will replace the contents of that element with the {@link Page} registered for
@@ -53,7 +59,7 @@ public class Place {
     Loader<?> loader;
 
     Place(String route) {
-        if (route == null || route.isEmpty() || route.isBlank()) {
+        if (route == null || route.trim().isEmpty()) {
             throw new IllegalArgumentException("Route must not be null or empty!");
         }
         this.route = normalize(route);
@@ -94,7 +100,7 @@ public class Place {
             builder.append(", custom root");
         }
         if (loader != null) {
-            builder.append(", with loader");
+            builder.append(", <loader>");
         }
         builder.append(')');
         return builder.toString();
