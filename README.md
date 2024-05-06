@@ -457,14 +457,20 @@ Elemento offers a very basic router. The router is minimal invasive and built ar
 See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html) for more details.
 
 ```java
-    @Route("/home")
-public static class HomePage implements Page {
+@Route("/time/:area/:location")
+public static class TimePage implements Page {
 
     @Override
     public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+        String area = parameter.get("area");
+        String location = parameter.get("location");
+        String currentTime = data.get();
         return singletonList(div()
-                .add(h(1, "Welcome"))
-                .add(p().textContent("Hello world!"))
+                .add(h(1, "Current time"))
+                .add(p()
+                        .add("It's ")
+                        .add(span().textContent(currentTime))
+                        .add(" in " + area + "/" + location))
                 .element());
     }
 }
@@ -475,9 +481,14 @@ public static class Application {
         body().add(div().id("main"));
         new PlaceManager()
                 .root(By.id("main"))
-                .register(place("/home"), HomePage::new)
-                // could also be registered with
-                // .register(new GeneratedPlaces())
+                .register(place("/home")
+                        .loader((place, parameter) -> {
+                            String area = parameter.get("area");
+                            String location = parameter.get("location");
+                            return fetch("https://worldtimeapi.org/api/timezone/" + area + "/" + location)
+                                    .then(Response::json)
+                                    .then(json -> Promise.resolve(Js.<JsPropertyMap<String>>cast(json).get("datetime")));
+                        }), TimePage::new)
                 .start();
     }
 }

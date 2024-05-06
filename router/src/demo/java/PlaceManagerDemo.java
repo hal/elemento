@@ -14,8 +14,6 @@
  *  limitations under the License.
  */
 
-import java.util.Collections;
-
 import org.jboss.elemento.By;
 import org.jboss.elemento.router.LoaderData;
 import org.jboss.elemento.router.Page;
@@ -25,25 +23,38 @@ import org.jboss.elemento.router.PlaceManager;
 import org.jboss.elemento.router.Route;
 
 import elemental2.dom.HTMLElement;
+import elemental2.dom.Response;
+import elemental2.promise.Promise;
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 
+import static elemental2.dom.DomGlobal.fetch;
+import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.router.Place.place;
 
 @SuppressWarnings("unused")
 public class PlaceManagerDemo {
 
     // @start region = placeManager
-    @Route("/home")
-    public static class HomePage implements Page {
+    @Route("/time/:area/:location")
+    public static class TimePage implements Page {
 
         @Override
         public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
-            return Collections.singletonList(div()
-                    .add(h(1, "Welcome"))
-                    .add(p().textContent("Hello world!"))
+            String area = parameter.get("area");
+            String location = parameter.get("location");
+            String currentTime = data.get();
+            return singletonList(div()
+                    .add(h(1, "Current time"))
+                    .add(p()
+                            .add("It's ")
+                            .add(span().textContent(currentTime))
+                            .add(" in " + area + "/" + location))
                     .element());
         }
     }
@@ -54,9 +65,14 @@ public class PlaceManagerDemo {
             body().add(div().id("main"));
             new PlaceManager()
                     .root(By.id("main"))
-                    .register(place("/home"), HomePage::new)
-                    // could also be registered with
-                    // .register(new GeneratedPlaces())
+                    .register(place("/home")
+                            .loader((place, parameter) -> {
+                                String area = parameter.get("area");
+                                String location = parameter.get("location");
+                                return fetch("https://worldtimeapi.org/api/timezone/" + area + "/" + location)
+                                        .then(Response::json)
+                                        .then(json -> Promise.resolve(Js.<JsPropertyMap<String>>cast(json).get("datetime")));
+                            }), TimePage::new)
                     .start();
         }
     }
