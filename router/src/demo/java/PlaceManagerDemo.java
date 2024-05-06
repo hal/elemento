@@ -34,6 +34,7 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.span;
+import static org.jboss.elemento.router.Link.link;
 import static org.jboss.elemento.router.Place.place;
 
 @SuppressWarnings("unused")
@@ -60,8 +61,7 @@ public class PlaceManagerDemo {
     public static class Application {
 
         public void entryPoint() {
-            body().add(div().id("main"));
-            new PlaceManager()
+            PlaceManager placeManager = new PlaceManager()
                     .root(By.id("main"))
                     .register(place("/time/:area/:location")
                             .loader((place, parameter) -> {
@@ -74,8 +74,11 @@ public class PlaceManagerDemo {
                                             JsPropertyMap<String> map = Js.cast(json);
                                             return Promise.resolve(map.get("datetime"));
                                         });
-                            }), TimePage::new)
-                    .start();
+                            }), TimePage::new);
+            body().add(div().id("main")
+                    .add(link(placeManager, "/time/Europe/Berlin")
+                            .textNode("What time is it in Berlin?")));
+            placeManager.start();
         }
     }
     // @end region = placeManager

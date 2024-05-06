@@ -21,17 +21,28 @@ import elemental2.dom.HTMLAnchorElement;
 
 import static org.jboss.elemento.Elements.a;
 
+/**
+ * The Link class represents a hyperlink element that creates hyperlinks using the {@link PlaceManager}. It extends the
+ * HTMLContainerBuilder class, which is a builder for container-like HTML elements.
+ */
 public class Link extends HTMLContainerBuilder<HTMLAnchorElement> {
 
     // ------------------------------------------------------ factory
 
+    /**
+     * Creates a new Link instance based on the given PlaceManager and route.
+     *
+     * @param placeManager The PlaceManager used to resolve the route.
+     * @param route        The route of the hyperlink.
+     * @return The new Link instance.
+     */
     public static Link link(PlaceManager placeManager, String route) {
         return new Link(placeManager, route);
     }
 
     // ------------------------------------------------------ instance
 
-    public Link(PlaceManager placeManager, String route) {
+    Link(PlaceManager placeManager, String route) {
         super(a(placeManager.href(route)).element());
     }
 

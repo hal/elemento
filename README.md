@@ -477,8 +477,7 @@ public static class TimePage implements Page {
 public static class Application {
 
     public void entryPoint() {
-        body().add(div().id("main"));
-        new PlaceManager()
+        PlaceManager placeManager = new PlaceManager()
                 .root(By.id("main"))
                 .register(place("/time/:area/:location")
                         .loader((place, parameter) -> {
@@ -491,8 +490,11 @@ public static class Application {
                                         JsPropertyMap<String> map = Js.cast(json);
                                         return Promise.resolve(map.get("datetime"));
                                     });
-                        }), TimePage::new)
-                .start();
+                        }), TimePage::new);
+        body().add(div().id("main")
+                .add(link(placeManager, "/time/Europe/Berlin")
+                        .textNode("What time is it in Berlin?")));
+        placeManager.start();
     }
 }
 ```
