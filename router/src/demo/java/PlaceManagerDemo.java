@@ -20,7 +20,6 @@ import org.jboss.elemento.router.Page;
 import org.jboss.elemento.router.Parameter;
 import org.jboss.elemento.router.Place;
 import org.jboss.elemento.router.PlaceManager;
-import org.jboss.elemento.router.Route;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Response;
@@ -41,7 +40,6 @@ import static org.jboss.elemento.router.Place.place;
 public class PlaceManagerDemo {
 
     // @start region = placeManager
-    @Route("/time/:area/:location")
     public static class TimePage implements Page {
 
         @Override
@@ -65,13 +63,17 @@ public class PlaceManagerDemo {
             body().add(div().id("main"));
             new PlaceManager()
                     .root(By.id("main"))
-                    .register(place("/home")
+                    .register(place("/time/:area/:location")
                             .loader((place, parameter) -> {
                                 String area = parameter.get("area");
                                 String location = parameter.get("location");
-                                return fetch("https://worldtimeapi.org/api/timezone/" + area + "/" + location)
+                                String url = "https://worldtimeapi.org/api/timezone/" + area + "/" + location;
+                                return fetch(url)
                                         .then(Response::json)
-                                        .then(json -> Promise.resolve(Js.<JsPropertyMap<String>>cast(json).get("datetime")));
+                                        .then(json -> {
+                                            JsPropertyMap<String> map = Js.cast(json);
+                                            return Promise.resolve(map.get("datetime"));
+                                        });
                             }), TimePage::new)
                     .start();
         }

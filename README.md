@@ -457,7 +457,6 @@ Elemento offers a very basic router. The router is minimal invasive and built ar
 See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html) for more details.
 
 ```java
-@Route("/time/:area/:location")
 public static class TimePage implements Page {
 
     @Override
@@ -481,13 +480,17 @@ public static class Application {
         body().add(div().id("main"));
         new PlaceManager()
                 .root(By.id("main"))
-                .register(place("/home")
+                .register(place("/time/:area/:location")
                         .loader((place, parameter) -> {
                             String area = parameter.get("area");
                             String location = parameter.get("location");
-                            return fetch("https://worldtimeapi.org/api/timezone/" + area + "/" + location)
+                            String url = "https://worldtimeapi.org/api/timezone/" + area + "/" + location;
+                            return fetch(url)
                                     .then(Response::json)
-                                    .then(json -> Promise.resolve(Js.<JsPropertyMap<String>>cast(json).get("datetime")));
+                                    .then(json -> {
+                                        JsPropertyMap<String> map = Js.cast(json);
+                                        return Promise.resolve(map.get("datetime"));
+                                    });
                         }), TimePage::new)
                 .start();
     }

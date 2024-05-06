@@ -21,7 +21,7 @@ import java.util.Map;
 import static java.util.Collections.emptyMap;
 
 /**
- * The Parameter class is used to represent parameters in a route path. A parameter is a part of the path that starts with a
+ * The Parameter class is used to represent parameters and their values in a route path. A parameter is a part of the path that starts with a
  * colon (e.g. ":id"). Parameters are used to retrieve values from a path.
  */
 public class Parameter {
