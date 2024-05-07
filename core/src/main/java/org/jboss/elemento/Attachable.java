@@ -26,6 +26,12 @@ import static org.jboss.elemento.BodyObserver.removeDetachObserver;
 /**
  * Interface to get notified when an element has been attached / detached from the DOM.
  * <p>
+ * <strong>Important:</strong><br/>
+ * The {@link #attach(MutationRecord)} / {@link #detach(MutationRecord)} methods are only called <strong>once</strong> after the
+ * attachable implementation has been registered with {@link #register(HTMLElement, Attachable)}. If you hold a reference to the
+ * element, and the element is attached to the DOM again, the callbacks are not called again, unless the element has been
+ * registered again.
+ * <p>
  * {@snippet class = Greeting region = attach}
  */
 public interface Attachable {

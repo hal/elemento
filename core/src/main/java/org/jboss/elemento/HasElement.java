@@ -20,9 +20,9 @@ import java.util.function.Supplier;
 
 import org.gwtproject.safehtml.shared.SafeHtml;
 
+import elemental2.dom.AddEventListenerOptions;
 import elemental2.dom.Element;
 import elemental2.dom.Event;
-import elemental2.dom.Node;
 
 import static org.jboss.elemento.EventType.bind;
 
@@ -69,12 +69,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
      * {@link Element#textContent} if you want to preserve existing child elements.
      */
     default B textNode(String text) {
-        Node textNode = Elements.firstTextNode(element());
-        if (textNode != null) {
-            textNode.nodeValue = text;
-        } else {
-            add(text);
-        }
+        Elements.textNode(element(), text);
         return that();
     }
 
@@ -149,7 +144,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
      * Adds an {@code aria-} attribute to the element.
      *
      * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
-     *        present.
+     *             present.
      */
     default B aria(String name, boolean value) {
         String safeName = name.startsWith("aria-") ? name : "aria-" + name;
@@ -160,7 +155,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
      * Adds an {@code aria-} attribute to the element.
      *
      * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
-     *        present.
+     *             present.
      */
     default B aria(String name, int value) {
         String safeName = name.startsWith("aria-") ? name : "aria-" + name;
@@ -171,7 +166,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
      * Adds an {@code aria-} attribute to the element.
      *
      * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
-     *        present.
+     *             present.
      */
     default B aria(String name, String value) {
         String safeName = name.startsWith("aria-") ? name : "aria-" + name;
@@ -201,6 +196,16 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
      */
     default <V extends Event> B on(EventType<V, ?> type, EventCallbackFn<V> callback) {
         bind(element(), type, callback);
+        return that();
+    }
+
+    default <V extends Event> B on(EventType<V, ?> type, boolean useCapture, EventCallbackFn<V> callback) {
+        bind(element(), type, useCapture, callback);
+        return that();
+    }
+
+    default <V extends Event> B on(EventType<V, ?> type, AddEventListenerOptions options, EventCallbackFn<V> callback) {
+        bind(element(), type, options, callback);
         return that();
     }
 }

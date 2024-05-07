@@ -1503,7 +1503,7 @@ public final class Elements {
      * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
      */
     public static boolean isVisible(HTMLElement element) {
-        return element != null && !"none" .equals(element.style.display);
+        return element != null && !"none".equals(element.style.display);
     }
 
     /**
@@ -1708,7 +1708,37 @@ public final class Elements {
         return null;
     }
 
-    static Node firstTextNode(Element element) {
+    /**
+     * Changes the text of the first text node (if any) or adds the given text as a new text node. Use this method instead of
+     * {@link Element#textContent} if you want to preserve existing child elements.
+     *
+     * @param element The HTMLElement to retrieve the text content from.
+     * @param text    The text to set
+     */
+    public static void textNode(Element element, String text) {
+        Node textNode = firstTextNode(element);
+        if (textNode != null) {
+            textNode.nodeValue = text;
+        } else {
+            element.appendChild(element.ownerDocument.createTextNode(text));
+        }
+    }
+
+    /**
+     * Changes the text of the first text node (if any) or adds the given text as a new text node. Use this method instead of
+     * {@link Element#textContent} if you want to preserve existing child elements.
+     *
+     * @param element The HTMLElement to retrieve the text content from.
+     * @param text    The text to set
+     * @param <E>     the type constraint for the element
+     */
+    public static <E extends Element> void textNode(IsElement<E> element, String text) {
+        if (element != null) {
+            textNode(element.element(), text);
+        }
+    }
+
+    private static Node firstTextNode(Element element) {
         NodeList<Node> nodes = element.childNodes;
         for (int i = 0; i < nodes.length; i++) {
             Node node = nodes.getAt(i);

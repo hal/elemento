@@ -64,78 +64,78 @@ class LoggerTest {
     }
 
     @Test
-    void shouldLog() {
+    void isEnabled() {
         Logger logger = Logger.getLogger("foo");
 
         Logger.level = OFF;
-        assertFalse(logger.shouldLog(ERROR));
-        assertFalse(logger.shouldLog(WARN));
-        assertFalse(logger.shouldLog(INFO));
-        assertFalse(logger.shouldLog(DEBUG));
+        assertFalse(logger.isEnabled(ERROR));
+        assertFalse(logger.isEnabled(WARN));
+        assertFalse(logger.isEnabled(INFO));
+        assertFalse(logger.isEnabled(DEBUG));
 
         Logger.level = ERROR;
-        assertTrue(logger.shouldLog(ERROR));
-        assertFalse(logger.shouldLog(WARN));
-        assertFalse(logger.shouldLog(INFO));
-        assertFalse(logger.shouldLog(DEBUG));
+        assertTrue(logger.isEnabled(ERROR));
+        assertFalse(logger.isEnabled(WARN));
+        assertFalse(logger.isEnabled(INFO));
+        assertFalse(logger.isEnabled(DEBUG));
 
         Logger.level = WARN;
-        assertTrue(logger.shouldLog(ERROR));
-        assertTrue(logger.shouldLog(WARN));
-        assertFalse(logger.shouldLog(INFO));
-        assertFalse(logger.shouldLog(DEBUG));
+        assertTrue(logger.isEnabled(ERROR));
+        assertTrue(logger.isEnabled(WARN));
+        assertFalse(logger.isEnabled(INFO));
+        assertFalse(logger.isEnabled(DEBUG));
 
         Logger.level = INFO;
-        assertTrue(logger.shouldLog(ERROR));
-        assertTrue(logger.shouldLog(WARN));
-        assertTrue(logger.shouldLog(INFO));
-        assertFalse(logger.shouldLog(DEBUG));
+        assertTrue(logger.isEnabled(ERROR));
+        assertTrue(logger.isEnabled(WARN));
+        assertTrue(logger.isEnabled(INFO));
+        assertFalse(logger.isEnabled(DEBUG));
 
         Logger.level = DEBUG;
-        assertTrue(logger.shouldLog(ERROR));
-        assertTrue(logger.shouldLog(WARN));
-        assertTrue(logger.shouldLog(INFO));
-        assertTrue(logger.shouldLog(DEBUG));
+        assertTrue(logger.isEnabled(ERROR));
+        assertTrue(logger.isEnabled(WARN));
+        assertTrue(logger.isEnabled(INFO));
+        assertTrue(logger.isEnabled(DEBUG));
     }
 
     @Test
-    void shouldLogRootInfoOverriddenDebug() {
+    void isEnabledRootInfoOverriddenDebug() {
         Logger.level = INFO;
         Logger.levelOverrides.addLevel("x.y", DEBUG);
 
         Logger foo = Logger.getLogger("a.b.c.Foo");
-        assertTrue(foo.shouldLog(ERROR));
-        assertTrue(foo.shouldLog(WARN));
-        assertTrue(foo.shouldLog(INFO));
-        assertFalse(foo.shouldLog(DEBUG));
+        assertTrue(foo.isEnabled(ERROR));
+        assertTrue(foo.isEnabled(WARN));
+        assertTrue(foo.isEnabled(INFO));
+        assertFalse(foo.isEnabled(DEBUG));
 
         Logger bar = Logger.getLogger("x.y.z.Bar");
-        assertTrue(bar.shouldLog(ERROR));
-        assertTrue(bar.shouldLog(WARN));
-        assertTrue(bar.shouldLog(INFO));
-        assertTrue(bar.shouldLog(DEBUG));
+        assertTrue(bar.isEnabled(ERROR));
+        assertTrue(bar.isEnabled(WARN));
+        assertTrue(bar.isEnabled(INFO));
+        assertTrue(bar.isEnabled(DEBUG));
     }
 
     @Test
-    void shouldLogRootDebugOverriddenInfo() {
+    void isEnabledRootDebugOverriddenInfo() {
         Logger.level = DEBUG;
         Logger.levelOverrides.addLevel("x.y", INFO);
 
         Logger foo = Logger.getLogger("a.b.c.Foo");
-        assertTrue(foo.shouldLog(ERROR));
-        assertTrue(foo.shouldLog(WARN));
-        assertTrue(foo.shouldLog(INFO));
-        assertTrue(foo.shouldLog(DEBUG));
+        assertTrue(foo.isEnabled(ERROR));
+        assertTrue(foo.isEnabled(WARN));
+        assertTrue(foo.isEnabled(INFO));
+        assertTrue(foo.isEnabled(DEBUG));
 
         Logger bar = Logger.getLogger("x.y.z.Bar");
-        assertTrue(bar.shouldLog(ERROR));
-        assertTrue(bar.shouldLog(WARN));
-        assertTrue(bar.shouldLog(INFO));
-        assertFalse(bar.shouldLog(DEBUG));
+        assertTrue(bar.isEnabled(ERROR));
+        assertTrue(bar.isEnabled(WARN));
+        assertTrue(bar.isEnabled(INFO));
+        assertFalse(bar.isEnabled(DEBUG));
     }
 
     @Test
-    void shouldLogMultipleOverrides() {
+    void isEnabledMultipleOverrides() {
         Logger.level = WARN;
         Logger.levelOverrides.addLevel("a.b", INFO);
         Logger.levelOverrides.addLevel("a.b.c", DEBUG);
@@ -144,15 +144,15 @@ class LoggerTest {
         Logger bar = Logger.getLogger("a.b.d.Bar");
         Logger extra = Logger.getLogger("a.b.c.Extra");
 
-        assertFalse(normal.shouldLog(INFO));
-        assertFalse(normal.shouldLog(DEBUG));
+        assertFalse(normal.isEnabled(INFO));
+        assertFalse(normal.isEnabled(DEBUG));
 
-        assertTrue(foo.shouldLog(INFO));
-        assertFalse(foo.shouldLog(DEBUG));
+        assertTrue(foo.isEnabled(INFO));
+        assertFalse(foo.isEnabled(DEBUG));
 
-        assertTrue(bar.shouldLog(INFO));
-        assertFalse(bar.shouldLog(DEBUG));
+        assertTrue(bar.isEnabled(INFO));
+        assertFalse(bar.isEnabled(DEBUG));
 
-        assertTrue(extra.shouldLog(DEBUG));
+        assertTrue(extra.isEnabled(DEBUG));
     }
 }

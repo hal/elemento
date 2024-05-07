@@ -19,18 +19,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.jboss.elemento.logger.Logger;
+
+import elemental2.core.JsArray;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.MutationObserver;
 import elemental2.dom.MutationObserverInit;
 import elemental2.dom.MutationRecord;
 import jsinterop.base.Js;
 
-import static elemental2.dom.DomGlobal.console;
 import static elemental2.dom.DomGlobal.document;
 import static java.util.stream.Collectors.toList;
 import static org.jboss.elemento.Elements.asHtmlElement;
 import static org.jboss.elemento.Elements.htmlElements;
 import static org.jboss.elemento.Elements.stream;
+import static org.jboss.elemento.logger.Level.DEBUG;
 
 final class BodyObserver {
 
@@ -39,7 +42,48 @@ final class BodyObserver {
 
     private static final List<ElementObserver> detachObservers = new ArrayList<>();
     private static final List<ElementObserver> attachObservers = new ArrayList<>();
+    private static final Logger logger = Logger.getLogger(BodyObserver.class.getName());
     private static boolean ready = false;
+
+    // ------------------------------------------------------ api
+
+    /**
+     * Registers the element and calls the callback when the element is attached to the DOM.
+     */
+    static void addAttachObserver(HTMLElement element, ObserverCallback callback) {
+        if (!ready) {
+            startObserving();
+        }
+        String id = Id.unique();
+        attachObservers.add(createObserver(id, element, ATTACH_UID_KEY, callback));
+        if (logger.isEnabled(DEBUG)) {
+            logger.debug("Add attach observer %s for %o%s", id, element, count());
+        }
+    }
+
+    static void removeAttachObserver(HTMLElement element) {
+        element.removeAttribute(ATTACH_UID_KEY);
+    }
+
+    /**
+     * Registers the element and calls the callback when the element is detached from the DOM.
+     */
+    static void addDetachObserver(HTMLElement element, ObserverCallback callback) {
+        if (!ready) {
+            startObserving();
+        }
+        String id = Id.unique();
+        detachObservers.add(createObserver(id, element, DETACH_UID_KEY, callback));
+        if (logger.isEnabled(DEBUG)) {
+            logger.debug("Add detach observer %s for %o%s", id, element, count());
+        }
+    }
+
+    static void removeDetachObserver(HTMLElement element) {
+        element.removeAttribute(DETACH_UID_KEY);
+    }
+
+    // ------------------------------------------------------ internal
 
     private static void startObserving() {
         MutationObserver mutationObserver = new MutationObserver((mutationRecords, observer) -> {
@@ -60,8 +104,9 @@ final class BodyObserver {
         mutationObserverInit.setChildList(true);
         mutationObserverInit.setSubtree(true);
         if (document.body == null) {
-            console.error("Cannot start observing elements. Document is not ready yet!");
+            logger.error("Cannot start observing elements. Document is not ready yet!");
         } else {
+            logger.debug("Start observing elements");
             mutationObserver.observe(document.body, mutationObserverInit);
             ready = true;
         }
@@ -74,16 +119,25 @@ final class BodyObserver {
                 .collect(toList());
 
         if (!elements.isEmpty()) {
-            for (Iterator<ElementObserver> iterator = attachObservers.iterator(); iterator.hasNext();) {
-                ElementObserver elementObserver = iterator.next();
-                if (elementObserver.observedElement == null) {
+            for (Iterator<ElementObserver> iterator = attachObservers.iterator(); iterator.hasNext(); ) {
+                ElementObserver eo = iterator.next();
+                if (eo.element == null) {
                     iterator.remove();
+                    if (logger.isEnabled(DEBUG)) {
+                        logger.debug("Remove attach observer %s w/o element %s", eo.id, count());
+                    }
                 } else {
-                    if (elements.contains(elementObserver.observedElement)
-                            || isChildOfObservedElement(elements, ATTACH_UID_KEY, elementObserver.id)) {
-                        elementObserver.callback.onObserved(record);
-                        elementObserver.observedElement.removeAttribute(ATTACH_UID_KEY);
+                    if (elements.contains(eo.element)
+                            || isChildOfObservedElement(elements, ATTACH_UID_KEY, eo.id)) {
+                        if (logger.isEnabled(DEBUG)) {
+                            logger.debug("Call attach callback %s for %o", eo.id, eo.element);
+                        }
+                        eo.callback.onObserved(record);
+                        removeId(eo.element, ATTACH_UID_KEY, eo.id);
                         iterator.remove();
+                        if (logger.isEnabled(DEBUG)) {
+                            logger.debug("Remove attach observer %s for %o%s", eo.id, eo.element, count());
+                        }
                     }
                 }
             }
@@ -97,16 +151,25 @@ final class BodyObserver {
                 .collect(toList());
 
         if (!elements.isEmpty()) {
-            for (Iterator<ElementObserver> iterator = detachObservers.iterator(); iterator.hasNext();) {
-                ElementObserver elementObserver = iterator.next();
-                if (elementObserver.observedElement == null) {
+            for (Iterator<ElementObserver> iterator = detachObservers.iterator(); iterator.hasNext(); ) {
+                ElementObserver eo = iterator.next();
+                if (eo.element == null) {
                     iterator.remove();
+                    if (logger.isEnabled(DEBUG)) {
+                        logger.debug("Remove detach observer %s w/o element %s", eo.id, count());
+                    }
                 } else {
-                    if (elements.contains(elementObserver.observedElement)
-                            || isChildOfObservedElement(elements, DETACH_UID_KEY, elementObserver.id)) {
-                        elementObserver.callback.onObserved(record);
-                        elementObserver.observedElement.removeAttribute(ATTACH_UID_KEY);
+                    if (elements.contains(eo.element)
+                            || isChildOfObservedElement(elements, DETACH_UID_KEY, eo.id)) {
+                        if (logger.isEnabled(DEBUG)) {
+                            logger.debug("Call detach callback %s for %o", eo.id, eo.element);
+                        }
+                        eo.callback.onObserved(record);
+                        removeId(eo.element, DETACH_UID_KEY, eo.id);
                         iterator.remove();
+                        if (logger.isEnabled(DEBUG)) {
+                            logger.debug("Remove detach observer %s for %o%s", eo.id, eo.element, count());
+                        }
                     }
                 }
             }
@@ -122,55 +185,57 @@ final class BodyObserver {
         return false;
     }
 
-    /**
-     * Registers the element and calls the callback when the element is attached to the DOM.
-     */
-    static void addAttachObserver(HTMLElement element, ObserverCallback callback) {
-        if (!ready) {
-            startObserving();
-        }
-        attachObservers.add(createObserver(element, callback, ATTACH_UID_KEY));
-    }
-
-    static void removeAttachObserver(HTMLElement element) {
-        element.removeAttribute(ATTACH_UID_KEY);
-    }
-
-    /**
-     * Registers the element and calls the callback when the element is detached from the DOM.
-     */
-    static void addDetachObserver(HTMLElement element, ObserverCallback callback) {
-        if (!ready) {
-            startObserving();
-        }
-        detachObservers.add(createObserver(element, callback, DETACH_UID_KEY));
-    }
-
-    static void removeDetachObserver(HTMLElement element) {
-        element.removeAttribute(DETACH_UID_KEY);
-    }
-
-    private static ElementObserver createObserver(HTMLElement element, ObserverCallback callback, String attribute) {
-        String id = element.getAttribute(attribute);
-        if (id == null) {
-            id = Id.unique();
-            element.setAttribute(attribute, id);
-        }
+    private static ElementObserver createObserver(String id, HTMLElement element, String attribute, ObserverCallback callback) {
+        addId(element, attribute, id);
         return new ElementObserver(id, element, callback);
     }
 
-    private BodyObserver() {
+    private static void addId(HTMLElement element, String attribute, String id) {
+        JsArray<String> ids = ids(element, attribute);
+        ids.push(id);
+        element.setAttribute(attribute, ids.join(" "));
     }
+
+    private static void removeId(HTMLElement element, String attribute, String id) {
+        JsArray<String> ids = ids(element, attribute);
+        int index = ids.indexOf(id);
+        if (index != -1) {
+            ids.splice(index, 1);
+        }
+        if (ids.length == 0) {
+            element.removeAttribute(attribute);
+        } else {
+            element.setAttribute(attribute, ids.join(" "));
+        }
+    }
+
+    private static JsArray<String> ids(HTMLElement element, String attribute) {
+        JsArray<String> ids = new JsArray<>();
+        if (element.hasAttribute(attribute)) {
+            String value = element.getAttribute(attribute);
+            if (!value.trim().isEmpty()) {
+                for (String id : value.split(" ")) {
+                    ids.push(id);
+                }
+            }
+        }
+        return ids;
+    }
+
+    private static String count() {
+        return " (a:" + attachObservers.size() + "|d:" + detachObservers.size() + ")";
+    }
+
 
     private static final class ElementObserver {
 
         private final String id;
-        private final HTMLElement observedElement;
+        private final HTMLElement element;
         private final ObserverCallback callback;
 
-        private ElementObserver(String id, HTMLElement observedElement, ObserverCallback callback) {
+        private ElementObserver(String id, HTMLElement element, ObserverCallback callback) {
             this.id = id;
-            this.observedElement = observedElement;
+            this.element = element;
             this.callback = callback;
         }
     }

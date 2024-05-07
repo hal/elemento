@@ -34,6 +34,13 @@
     <name>Elemento Core</name>
     <description>Elemento Core API</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>elemento-logger</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

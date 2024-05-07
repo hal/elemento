@@ -178,7 +178,7 @@ public class Logger {
     // ------------------------------------------------------ log methods
 
     public void debug(String message, Object... params) {
-        if (shouldLog(DEBUG)) {
+        if (isEnabled(DEBUG)) {
             String formatted = format(DEBUG, message);
             if (params == null || params.length == 0) {
                 console.debug(formatted);
@@ -206,7 +206,7 @@ public class Logger {
     }
 
     public void info(String message, Object... params) {
-        if (shouldLog(INFO)) {
+        if (isEnabled(INFO)) {
             String formatted = format(INFO, message);
             if (params == null || params.length == 0) {
                 console.info(formatted);
@@ -232,7 +232,7 @@ public class Logger {
     }
 
     public void warn(String message, Object... params) {
-        if (shouldLog(WARN)) {
+        if (isEnabled(WARN)) {
             String formatted = format(WARN, message);
             if (params == null || params.length == 0) {
                 console.warn(formatted);
@@ -258,7 +258,7 @@ public class Logger {
     }
 
     public void error(String message, Object... params) {
-        if (shouldLog(ERROR)) {
+        if (isEnabled(ERROR)) {
             String formatted = format(ERROR, message);
             if (params == null || params.length == 0) {
                 console.error(formatted);
@@ -283,12 +283,12 @@ public class Logger {
         }
     }
 
-    // ------------------------------------------------------ internal
-
-    boolean shouldLog(Level level) {
+    public boolean isEnabled(Level level) {
         Level effectiveLevel = customLevel != null ? customLevel : Logger.level;
         return effectiveLevel.ordinal() >= level.ordinal();
     }
+
+    // ------------------------------------------------------ internal
 
     private String format(Level level, String message) {
         String iso = new JsDate().toISOString(); // 2011-10-05T14:48:00.000Z
