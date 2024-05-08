@@ -25,6 +25,8 @@ import static org.jboss.elemento.router.Path.normalize;
 /**
  * Represents a collection of places in an application. Each place is associated with a page supplier. Supports nested places
  * and loaders.
+ * <p>
+ * {@snippet class = PlacesDemo region = places}
  */
 public class Places implements Iterable<Map.Entry<Place, Supplier<Page>>> {
 
