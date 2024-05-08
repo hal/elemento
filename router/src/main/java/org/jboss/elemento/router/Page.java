@@ -15,14 +15,14 @@
  */
 package org.jboss.elemento.router;
 
+import java.util.function.Supplier;
+
 import elemental2.dom.HTMLElement;
 
 /**
- * A page interface represents a collection of HTML elements. Implementations must have an empty public constructor and should
- * be cheap to create.
+ * A page interface represents a collection of HTML elements. Implementations should be cheap to create.
  * <p>
- * Pages can be annotated with {@link Route} and registered with the {@link PlaceManager} using
- * {@link PlaceManager#register(Place, PageFactory)}.
+ * Pages can be annotated with {@link Route} and registered with the {@link PlaceManager} using {@link PlaceManager#register(Place, Supplier)} and {@link PlaceManager#register(Places)}.
  */
 public interface Page {
 

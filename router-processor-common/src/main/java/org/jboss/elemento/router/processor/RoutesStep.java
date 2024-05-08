@@ -53,7 +53,8 @@ class RoutesStep implements BasicAnnotationProcessor.Step {
     @SuppressWarnings("UnstableApiUsage")
     public Set<? extends Element> process(ImmutableSetMultimap<String, Element> elementsByAnnotation) {
         List<RouteInfo> routes = new ArrayList<>();
-        String packageName = processingEnv.getOptions().getOrDefault("routes.package", Names.PACKAGE);
+        String packageName = processingEnv.getOptions().getOrDefault("places.package", Names.PLACES_PACKAGE);
+        String className = processingEnv.getOptions().getOrDefault("places.class", Names.PLACES_CLASS);
         for (Map.Entry<String, Element> entry : elementsByAnnotation.entries()) {
             Element element = entry.getValue();
             TypeElement pageType = asType(element);
@@ -67,10 +68,10 @@ class RoutesStep implements BasicAnnotationProcessor.Step {
 
         if (!routes.isEmpty()) {
             try {
-                codeGenerator.generateCode(processingEnv.getFiler(), packageName, routes);
+                codeGenerator.generateCode(processingEnv.getFiler(), packageName, className, routes);
             } catch (IOException e) {
                 throw new ProcessingException(
-                        "Error writing code for " + packageName + "." + Names.CLASS + ": " + e.getMessage());
+                        "Error writing code for " + packageName + "." + Names.PLACES_CLASS + ": " + e.getMessage());
             }
         }
         return emptySet();

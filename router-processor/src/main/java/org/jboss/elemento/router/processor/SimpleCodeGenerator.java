@@ -15,41 +15,21 @@
  */
 package org.jboss.elemento.router.processor;
 
-import java.io.IOException;
-import java.util.List;
-
-import javax.annotation.processing.Filer;
-
-import com.squareup.javapoet.ClassName;
-import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.TypeSpec;
 
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 class SimpleCodeGenerator extends CodeGenerator {
 
-    void generateCode(Filer filer, String packageName, List<RouteInfo> routes) throws IOException {
-        ClassName placeClass = ClassName.get("org.jboss.elemento.router", "Place");
-        ClassName placesClass = ClassName.get("org.jboss.elemento.router", "Places");
-
-        MethodSpec.Builder constructorBuilder = MethodSpec.constructorBuilder()
+    @Override
+    MethodSpec.Builder buildConstructor() {
+        return MethodSpec.constructorBuilder()
                 .addModifiers(PUBLIC)
                 .addStatement("super()");
+    }
 
-        for (RouteInfo route : routes) {
-            String placeName = placeStatement(constructorBuilder, placeClass, route);
-            constructorBuilder.addStatement("add($N, () -> new $L())", placeName, route.pageClass);
-        }
-
-        TypeSpec implType = TypeSpec.classBuilder(Names.CLASS)
-                .superclass(placesClass)
-                .addModifiers(PUBLIC)
-                .addMethod(constructorBuilder.build())
-                .build();
-
-        JavaFile javaFile = JavaFile.builder(packageName, implType)
-                .build();
-        javaFile.writeTo(filer);
+    @Override
+    void addPlace(MethodSpec.Builder constructor, String placeName, RouteInfo route) {
+        constructor.addStatement("add($N, () -> new $L())", placeName, route.pageClass);
     }
 }

@@ -17,6 +17,6 @@ package org.jboss.elemento.router.processor;
 
 interface Names {
 
-    String PACKAGE = "org.jboss.elemento.router";
-    String CLASS = "GeneratedPlaces";
+    String PLACES_PACKAGE = "org.jboss.elemento.router";
+    String PLACES_CLASS = "AnnotatedPlaces";
 }

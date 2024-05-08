@@ -35,7 +35,7 @@ import static java.util.Collections.singletonList;
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_11)
 @SupportedAnnotationTypes({"org.jboss.elemento.router.Route"})
-@SupportedOptions({"routes.package"})
+@SupportedOptions({"places.package", "places.class"})
 public class RouteProcessor extends BasicAnnotationProcessor {
 
     @Override

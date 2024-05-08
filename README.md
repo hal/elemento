@@ -523,23 +523,30 @@ Flow.repeat(new FlowContext(),currentTime)
 
 Elemento offers a very basic router. The router is minimal invasive and built around a few simple concepts:
 
-- `@Route`<br/>
-Annotation to mark a page implementation as place. An annotation processor collects all pages annotated with `@Route` and generates an instance of `Places`. Routes can have parameters like in `/contacts/:contactId`.
-
 - `Place`<br/>
-Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. If present the children of the root element are replaced by the elements of the page.
+Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. Routes can have parameters like in `/contacts/:contactId`. Finally, a place can also have a loader assigned to it.
 
 - `Places`<br/>
-Builder to set up places. Supports nested places and loaders.
-
-- `Page`<br/>
-Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements(Place, Parameter, LoaderData)`.
-
-- `PlaceManager`<br/>
-Class that keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
+Builder to set up places. Supports nested places and allows to assign loaders to places.
 
 - `Loader<T>`<br/>
-Functional interface to asynchronously load data, before a page is added to the DOM. The loader function gets the place and parameters as input and returns a promise of the data to be loaded. It is defined as `Promise<T> load(Place place, Parameter parameter)`.
+  Functional interface to asynchronously load data, before a page is added to the DOM. The loader function gets the place and parameters as input and returns a promise of the data to be loaded. It is defined as `Promise<T> load(Place place, Parameter parameter)`.
+
+- `Page`<br/>
+Simple interface that represents a collection of HTML elements. Implementations should be cheap to create and need to implement a single method: `Iterable<HTMLElement> elements(Place, Parameter, LoaderData)`.
+
+- `@Route`<br/>
+Annotation to mark a page implementation as place. An annotation processor collects all pages annotated with `@Route` and generates an instance of `Places`.
+
+- `PlaceManager`<br/>
+Class that
+  - keeps track of registered places,
+  - handles navigation events,
+  - parses route parameters,
+  - loads data asynchronously,
+  - and updates the DOM accordingly.
+
+The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
 
 See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html) for more details.
 
@@ -564,6 +571,19 @@ public static class TimePage implements Page {
 public static class Application {
 
     public void entryPoint() {
+        Places places = places()
+                .add(place("/"), SomePage::new)
+                .add(place("/foo"), SomePage::new)
+                .add(place("/bar"), SomePage::new)
+                .children("/level1", places()
+                        .add(place("/"), SomePage::new)
+                        .add(places() // add siblings!
+                                .add(place("/foo"), SomePage::new)
+                                .add(place("/bar"), SomePage::new))
+                        .children("/level2", places()
+                                .add(place("/foo"), SomePage::new)
+                                .add(place("/bar"), SomePage::new)));
+
         PlaceManager placeManager = new PlaceManager()
                 .root(By.id("main"))
                 .register(place("/time/:area/:location")
@@ -577,7 +597,9 @@ public static class Application {
                                         JsPropertyMap<String> map = Js.cast(json);
                                         return Promise.resolve(map.get("datetime"));
                                     });
-                        }), TimePage::new);
+                        }), TimePage::new)
+                .register(places);
+
         body().add(div().id("main")
                 .add(link(placeManager, "/time/Europe/Berlin")
                         .textNode("What time is it in Berlin?")));

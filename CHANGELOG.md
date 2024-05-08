@@ -7,6 +7,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add options for router annotation processors:
+
+    - `places.package`: The package name of the generated class for the annotated places.
+    - `places.class`: The class name of the generated class for the annotated places.
+
+### Changed
+
+- Simplified router annotation processors
+
 ## [1.5.1] - 2024-05-08
 
 ### Added
