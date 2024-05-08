@@ -48,7 +48,7 @@ Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org
         <dependency>
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-bom</artifactId>
-            <version>1.5.0</version>
+            <version>1.5.1</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -426,7 +426,7 @@ To create SVG elements, add the following dependency to your POM:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-svg</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.1</version>
 </dependency>
 ```
 
@@ -450,7 +450,7 @@ To create MathML elements, add the following dependency to your POM:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-mathml</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.1</version>
 </dependency>
 ```
 
