@@ -523,23 +523,23 @@ Flow.repeat(new FlowContext(),currentTime)
 
 Elemento offers a very basic router. The router is minimal invasive and built around a few simple concepts:
 
-`@Route`
-: Annotation to mark a page implementation as place. An annotation processor collects all pages annotated with `@Route` and generates an instance of `Places`. Routes can have parameters like in `/contacts/:contactId`.
+- `@Route`<br/>
+Annotation to mark a page implementation as place. An annotation processor collects all pages annotated with `@Route` and generates an instance of `Places`. Routes can have parameters like in `/contacts/:contactId`.
 
-`Place`
-: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. If present the children of the root element are replaced by the elements of the page.
+- `Place`<br/>
+Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element. If present the children of the root element are replaced by the elements of the page.
 
-`Places`
-: Builder to set up places. Supports nested places and loaders.
+- `Places`<br/>
+Builder to set up places. Supports nested places and loaders.
 
-`Page`
-: Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements(Place, Parameter, LoaderData)`.
+- `Page`<br/>
+Simple interface that represents a collection of HTML elements. Implementations need to implement a single method: `Iterable<HTMLElement> elements(Place, Parameter, LoaderData)`.
 
-`PlaceManager`
-: Class that keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
+- `PlaceManager`<br/>
+Class that keeps track of registered places, handles navigation events, and updates the DOM accordingly. The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
 
-`Loader<T>`
-: Functional interface to asynchronously load data, before a page is added to the DOM. The loader function gets the place and parameters as input and returns a promise of the data to be loaded. It is defined as `Promise<T> load(Place place, Parameter parameter)`.
+- `Loader<T>`<br/>
+Functional interface to asynchronously load data, before a page is added to the DOM. The loader function gets the place and parameters as input and returns a promise of the data to be loaded. It is defined as `Promise<T> load(Place place, Parameter parameter)`.
 
 See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html) for more details.
 
@@ -629,20 +629,20 @@ and cannot be customized. If the category is a fully qualified class name, the p
 
 The logger module exports some methods with slightly adjusted signatures to JavaScript. You can use them for instance in the browser dev tools to control the global and category based log levels:
 
-`org.jboss.elemento.logger.Logger.setLevel(String level)`
-: Sets the global log level
+- `org.jboss.elemento.logger.Logger.setLevel(String level)`<br/>
+Sets the global log level
 
-`org.jboss.elemento.logger.Logger.setLevel(String category, String level)`
-: Overrides the log level for one category
+- `org.jboss.elemento.logger.Logger.setLevel(String category, String level)`<br/>
+Overrides the log level for one category
 
-`org.jboss.elemento.logger.Logger.resetLevel(String category)`
-: Resets the log level for the category to the global log level
+- `org.jboss.elemento.logger.Logger.resetLevel(String category)`<br/>
+Resets the log level for the category to the global log level
 
 Please use the fully qualified name!
 
 # Samples
 
-Elemento comes with different sample applications to showcase and test the various modules. They're available at https://hal.github.io/elemento/samples/
+Elemento comes with different sample applications to showcase and test the various modules. They're available at https://hal.github.io/elemento/samples/. The source code is available the [samples](https://github.com/hal/elemento/tree/main/samples) folder.
 
 # Contributing
 
