@@ -575,18 +575,7 @@ public static class Application {
                 .add(place("/"), SomePage::new)
                 .add(place("/foo"), SomePage::new)
                 .add(place("/bar"), SomePage::new)
-                .children("/level1", places()
-                        .add(place("/"), SomePage::new)
-                        .add(places() // add siblings!
-                                .add(place("/foo"), SomePage::new)
-                                .add(place("/bar"), SomePage::new))
-                        .children("/level2", places()
-                                .add(place("/foo"), SomePage::new)
-                                .add(place("/bar"), SomePage::new)));
-
-        PlaceManager placeManager = new PlaceManager()
-                .root(By.id("main"))
-                .register(place("/time/:area/:location")
+                .add(place("/time/:area/:location")
                         .loader((place, parameter) -> {
                             String area = parameter.get("area");
                             String location = parameter.get("location");
@@ -598,11 +587,23 @@ public static class Application {
                                         return Promise.resolve(map.get("datetime"));
                                     });
                         }), TimePage::new)
+                .children("/level1", places()
+                        .add(place("/"), SomePage::new)
+                        .add(places() // add siblings!
+                                .add(place("/foo"), SomePage::new)
+                                .add(place("/bar"), SomePage::new))
+                        .children("/level2", places()
+                                .add(place("/foo"), SomePage::new)
+                                .add(place("/bar"), SomePage::new)));
+
+        PlaceManager placeManager = new PlaceManager()
+                .root(By.id("main"))
                 .register(places);
 
         body().add(div().id("main")
                 .add(link(placeManager, "/time/Europe/Berlin")
                         .textNode("What time is it in Berlin?")));
+
         placeManager.start();
     }
 }
