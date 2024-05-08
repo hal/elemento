@@ -360,10 +360,10 @@ Elemento provides several methods to iterate over node lists, child elements or 
 
 ### Methods returning `java.util.Iterator`
 
-`Elements.iterator(JsArrayLike<E> nodes)`<br/>
+- `Elements.iterator(JsArrayLike<E> nodes)`<br/>
 Returns an iterator over the given array-like. The iterator does **not** support the `Iterator.remove()` operation.
 
-`Elements.iterator(Node parent)`<br/>
+- `Elements.iterator(Node parent)`<br/>
 Returns an iterator over the children of `parent`. The iterator **supports** the `Iterator.remove()` operation, which removes the current node from its parent.
 
 ### Methods returning `java.lang.Iterable`
