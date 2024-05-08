@@ -11,8 +11,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Add methods to modify the text node of an element:
 
-  - `Elements.textNode(elemental2.dom.Element, java.lang.String)`
-  - `Elements.textNode(org.jboss.elemento.IsElement<E>, java.lang.String)`
+  - `Elements.textNode(elemental2.dom.Element, String)`
+  - `Elements.textNode(IsElement<E>, String)`
 
 - Add overloaded methods to bind events in `HasElement`:
 
@@ -20,6 +20,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - `HasElement.on(EventType<V,?>, AddEventListenerOptions, EventCallbackFn<V>)`
 
 - Add `Logger.isEnabled(Level)` to check if a level is enabled for a logger.
+
+### Changed
+
+- Add debug log statements logger to attach/detach implementation
+
+### Fixed
+
+- Fix multiple attach/detach handlers for an element.
 
 ## [1.5.0] - 2024-05-06
 
