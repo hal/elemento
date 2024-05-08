@@ -326,11 +326,11 @@ element();
 
 Besides the builder API, Elemento comes with a bunch of static helper methods that roughly fall into these categories:
 
-1. Get notified when an element is attached to and detached from the DOM tree.
-1. Iterate over elements.
-1. Methods to manipulate the DOM tree (add, insert and remove elements).
-1. Methods to manipulate an element.
-1. Methods to generate safe IDs.
+1. Get notified when an element is [attached](#attach--detach) to and detached from the DOM tree.
+2. [Iterate](#iterators--iterables--streams) over elements.
+3. Methods to manipulate the [DOM tree](#manipulate-the-dom-tree) (add, insert and remove elements).
+4. Methods to manipulate an element.
+5. Methods to generate safe IDs.
 
 See the API documentation of [Elements](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Elements.html) for more
 details.
