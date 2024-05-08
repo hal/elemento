@@ -538,13 +538,13 @@ Simple interface that represents a collection of HTML elements. Implementations 
 - `@Route`<br/>
 Annotation to mark a page implementation as place. An annotation processor collects all pages annotated with `@Route` and generates an instance of `Places`.
 
-- `PlaceManager`<br/>
-Class that
-  - keeps track of registered places,
-  - handles navigation events,
-  - parses route parameters,
-  - loads data asynchronously,
-  - and updates the DOM accordingly.
+- `PlaceManager`
+
+  - Keeps track of registered places.
+  - Handles navigation events.
+  - Parses route parameters.
+  - Loads data asynchronously.
+  - Updates the DOM accordingly.
 
 The place manager can be customized using builder like methods and has a `start()` method to show the initial page.
 
