@@ -360,55 +360,55 @@ Elemento provides several methods to iterate over node lists, child elements or 
 
 ### Methods returning `java.util.Iterator`
 
-`Elements.iterator(JsArrayLike<E> nodes)`
+`Elements.iterator(JsArrayLike<E> nodes)`<br/>
 Returns an iterator over the given array-like. The iterator does **not** support the `Iterator.remove()` operation.
 
-`Elements.iterator(Node parent)`
+`Elements.iterator(Node parent)`<br/>
 Returns an iterator over the children of `parent`. The iterator **supports** the `Iterator.remove()` operation, which removes the current node from its parent.
 
 ### Methods returning `java.lang.Iterable`
 
-`Elements.elements(JsArrayLike<E> nodes)`
+`Elements.elements(JsArrayLike<E> nodes)`<br/>
 Returns an iterable for the nodes in the given array-like.
 
-`Elements.children(elemental2.dom.Node parent)`
+`Elements.children(elemental2.dom.Node parent)`<br/>
 Returns an iterable for the child nodes of `parent`.
 
 ### Methods returning `java.util.stream.Stream`
 
-`Elements.stream(JsArrayLike<E> nodes)`
+`Elements.stream(JsArrayLike<E> nodes)`<br/>
 Returns a stream for the nodes in the given array-like.
 
-`Elements.stream(elemental2.dom.Node parent)`
+`Elements.stream(elemental2.dom.Node parent)`<br/>
 Returns a stream for the child nodes of `parent`.
 
 ## Manipulate the DOM Tree
 
-`Elements.lazyAppend(Element parent, Element child)`
+`Elements.lazyAppend(Element parent, Element child)`<br/>
 Appends `child` to `parent`. If `parent` already contains `child`, this method does nothing.
 
-`Elements.insertAfter(Element newElement, Element after)`
+`Elements.insertAfter(Element newElement, Element after)`<br/>
 Inserts `newElement` into `after`'s parent after `after`.
 
-`Elements.lazyInsertAfter(Element newElement, Element after)`
+`Elements.lazyInsertAfter(Element newElement, Element after)`<br/>
 Inserts `newElement` into `after`'s parent after `after`. If `after`'s parent already contains `newElement`, this method does nothing.
 
-`Elements.insertBefore(Element newElement, Element before)`
+`Elements.insertBefore(Element newElement, Element before)`<br/>
 Inserts `newElement` into `before`'s parent before `before`.
 
-`Elements.lazyInsertBefore(Element new Element, Element before)`
+`Elements.lazyInsertBefore(Element new Element, Element before)`<br/>
 Inserts `newElement` into `before`'s parent before `before`. If `before`'s parent already contains `newElement`, this method does nothing.
 
-`Elements.insertFirst(Element parent, Element newElement)`
+`Elements.insertFirst(Element parent, Element newElement)`<br/>
 Inserts `newElement` as first element into `parent`.
 
-`Elements.removeChildrenFrom(Element element)`
+`Elements.removeChildrenFrom(Element element)`<br/>
 Removes all child elements from `element`
 
-`Elements.failSafeRemove(Node parent, Element child)`
+`Elements.failSafeRemove(Node parent, Element child)`<br/>
 Removes `child` from `parent`.
 
-`Elements.failSafeRemoveFromParent(Element element)`
+`Elements.failSafeRemoveFromParent(Element element)`<br/>
 Removes `element` from its parent.
 
 All methods are null-safe, check parent/child relationships, and are overloaded to accept an instance of `IsElement<Element>` instead of `Element`. See the API documentation of [Elements](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Elements.html) for more details.
