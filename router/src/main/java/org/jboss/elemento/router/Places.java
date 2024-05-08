@@ -85,7 +85,7 @@ public class Places implements Iterable<Map.Entry<Place, Supplier<Page>>> {
     /**
      * Assigns a given loader for a specific place.
      */
-    public Places loader(Place place, Loader<?> loader) {
+    public Places loader(Place place, LoadData<?> loader) {
         if (pages.containsKey(place)) {
             for (Place p : pages.keySet()) {
                 if (p.equals(place)) {

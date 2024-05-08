@@ -15,23 +15,42 @@
  */
 package org.jboss.elemento.router;
 
-import elemental2.promise.Promise;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * Functional interface representing a loader function that loads data for a given place.
+ * This class is an annotation that can be used to decorate classes with routing information. It is used in conjunction with the
+ * {@link PlaceManager} and {@link Page} interfaces to define routes within an application.
  *
- * @param <T> the type of data to be loaded
+ * <p>
+ * Usage example:
+ * </p>
+ * {@code
+ *
+ * @Route(value = "/home", title = "Home Page", selector = "#app-home") public class HomePage implements Page { //
+ * Implementation details... } }
+ *
+ * <p>
+ * The {@code Route} annotation has the following attributes:
+ * </p>
+ * <ul>
+ * <li>{@code value}: Specifies the URL that should match the route.</li>
+ * <li>{@code title}: Specifies the title of the page associated with the route.</li>
+ * <li>{@code selector}: Specifies the CSS selector that identifies the element whose child elements are replaced by the
+ * elements of the page.</li>
+ * </ul>
+ *
+ * <p>
+ * The annotated class must implement the {@link Page} interface to be properly registered with the {@link PlaceManager}.
+ * </p>
  */
-@FunctionalInterface
-public interface Loader<T> {
+@Documented
+@Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Loader {
 
-    /**
-     * Loads data for a given place using a specified parameter.
-     *
-     * @param place the place for which data needs to be loaded
-     * @param parameter the parameter used for loading data
-     * @param <T> the type of data to be loaded
-     * @return a Promise representing the asynchronous loading operation
-     */
-    Promise<T> load(Place place, Parameter parameter);
+    String value();
 }

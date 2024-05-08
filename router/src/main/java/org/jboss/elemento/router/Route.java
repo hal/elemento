@@ -57,4 +57,6 @@ public @interface Route {
     String title() default "";
 
     String selector() default "";
+
+    String loader() default "";
 }

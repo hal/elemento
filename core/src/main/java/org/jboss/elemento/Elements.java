@@ -801,6 +801,12 @@ public final class Elements {
         return htmlContainer("button", HTMLButtonElement.class);
     }
 
+    public static HTMLContainerBuilder<HTMLButtonElement> button(ButtonType type) {
+        HTMLButtonElement button = createHtmlElement("button", HTMLButtonElement.class);
+        button.type = type.name();
+        return new HTMLContainerBuilder<>(button);
+    }
+
     public static HTMLContainerBuilder<HTMLButtonElement> button(String text) {
         return button().textContent(text);
     }

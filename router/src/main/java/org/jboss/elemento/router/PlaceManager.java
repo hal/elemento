@@ -314,14 +314,14 @@ public class PlaceManager {
                 return pms.place.loader.load(pms.place, pms.parameter)
                         .then(data -> {
                             logger.debug("Data loaded successfully. Create page for %s", pms.place);
-                            pms.data = new LoaderData(data);
+                            pms.data = new LoadedData(data);
                             pms.page = pageSupplier.get();
                             return gotoPage(pms);
                         })
                         .catch_(error -> {
                             String errorAsString = String.valueOf(error);
                             logger.error("Unable to load page for %s: %s", pms.place, errorAsString);
-                            pms.data = new LoaderData(errorAsString);
+                            pms.data = new LoadedData(errorAsString);
                             pms.page = noData(pms.place);
                             return gotoPage(pms);
                         });
@@ -392,7 +392,7 @@ public class PlaceManager {
 
         private Place place;
         private Parameter parameter = Parameter.EMPTY;
-        private LoaderData data = LoaderData.NONE;
+        private LoadedData data = LoadedData.NONE;
         private Page page;
     }
 
@@ -405,7 +405,7 @@ public class PlaceManager {
     private static class DefaultNotFound implements Page {
 
         @Override
-        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
             return singletonList(div().style(ROOT_STYLE)
                     .add(div().style(CONTAINER_STYLE)
                             .add(h(1, "Error 404").style(HEADER_STYLE))
@@ -420,7 +420,7 @@ public class PlaceManager {
     private static class DefaultNoData implements Page {
 
         @Override
-        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
             String error = data.get();
             return singletonList(div().style(ROOT_STYLE)
                     .add(div().style(CONTAINER_STYLE)

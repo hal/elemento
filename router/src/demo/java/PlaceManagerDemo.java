@@ -15,11 +15,13 @@
  */
 
 import org.jboss.elemento.By;
-import org.jboss.elemento.router.LoaderData;
+import org.jboss.elemento.router.LoadData;
+import org.jboss.elemento.router.LoadedData;
 import org.jboss.elemento.router.Page;
 import org.jboss.elemento.router.Parameter;
 import org.jboss.elemento.router.Place;
 import org.jboss.elemento.router.PlaceManager;
+import org.jboss.elemento.router.Places;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.Response;
@@ -28,56 +30,79 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 import static elemental2.dom.DomGlobal.fetch;
-import static java.util.Collections.singletonList;
+import static java.util.Arrays.asList;
+import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.span;
-import static org.jboss.elemento.router.Link.link;
 import static org.jboss.elemento.router.Place.place;
 
 @SuppressWarnings("unused")
 public class PlaceManagerDemo {
 
     // @start region = placeManager
+    public static class TimeLoader implements LoadData<String> {
+
+        @Override
+        public Promise<String> load(Place place, Parameter parameter) {
+            String area = parameter.get("area");
+            String location = parameter.get("location");
+            String url = "https://worldtimeapi.org/api/timezone/" + area + "/" + location;
+            return fetch(url)
+                    .then(Response::json)
+                    .then(json -> {
+                        JsPropertyMap<String> map = Js.cast(json);
+                        return Promise.resolve(map.get("datetime"));
+                    });
+        }
+    }
+
     public static class TimePage implements Page {
 
         @Override
-        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
             String area = parameter.get("area");
             String location = parameter.get("location");
             String currentTime = data.get();
-            return singletonList(div()
-                    .add(h(1, "Current time"))
-                    .add(p()
+            return asList(
+                    h(1, "Current time").element(),
+                    p()
                             .add("It's ")
                             .add(span().textContent(currentTime))
-                            .add(" in " + area + "/" + location))
-                    .element());
+                            .add(" in " + area + "/" + location)
+                            .element());
+        }
+    }
+
+    public static class HomePage implements Page {
+
+        @Override
+        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
+            return asList(
+                    h(1, "Welcome").element(),
+                    p()
+                            .add("What time is it in ")
+                            .add(a("/time/Europe/Berlin").textNode("Berlin"))
+                            .add("?")
+                            .element());
         }
     }
 
     public static class Application {
 
         public void entryPoint() {
+            body().add(div().id("main"));
+
+            Places places = Places.places()
+                    .add(place("/"), HomePage::new)
+                    .add(place("/time/:area/:location")
+                            .loader(new TimeLoader()), HomePage::new);
+
             PlaceManager placeManager = new PlaceManager()
                     .root(By.id("main"))
-                    .register(place("/time/:area/:location")
-                            .loader((place, parameter) -> {
-                                String area = parameter.get("area");
-                                String location = parameter.get("location");
-                                String url = "https://worldtimeapi.org/api/timezone/" + area + "/" + location;
-                                return fetch(url)
-                                        .then(Response::json)
-                                        .then(json -> {
-                                            JsPropertyMap<String> map = Js.cast(json);
-                                            return Promise.resolve(map.get("datetime"));
-                                        });
-                            }), TimePage::new);
-            body().add(div().id("main")
-                    .add(link(placeManager, "/time/Europe/Berlin")
-                            .textNode("What time is it in Berlin?")));
+                    .register(places);
             placeManager.start();
         }
     }

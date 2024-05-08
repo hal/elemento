@@ -13,16 +13,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento.router;
+package org.jboss.elemento;
 
-import elemental2.dom.HTMLElement;
+public enum ButtonType {
 
-import static java.util.Collections.emptyList;
+    button,
 
-class TestPage implements Page {
+    submit,
 
-    @Override
-    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
-        return emptyList();
-    }
+    reset,
+
 }

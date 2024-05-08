@@ -26,5 +26,5 @@ import elemental2.dom.HTMLElement;
  */
 public interface Page {
 
-    Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data);
+    Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data);
 }

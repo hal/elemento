@@ -9,6 +9,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- Add `ButtonType` enum and `Elements.button(ButtonType)`
+- Add `@Loader` annotation and `loader` attribute for `@Route` annotation
 - Add options for router annotation processors:
 
     - `places.package`: The package name of the generated class for the annotated places.
@@ -16,7 +18,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Simplified router annotation processors
+- Rename loader classes:
+
+  - `Loader<T>` → `LoadData<T>`
+  - `LoadData` → `LoadedData`
+
+- Add support for loaders in router annotation processors
+- Change default name of the generated class for the annotated places `GeneratedPlaces` → `AnnotatedPlaces`
+- Simplify router annotation processors
 
 ## [1.5.1] - 2024-05-08
 
@@ -32,12 +41,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - `HasElement.on(EventType<V,?>, boolean, EventCallbackFn<V>)`
   - `HasElement.on(EventType<V,?>, AddEventListenerOptions, EventCallbackFn<V>)`
 
-- Add `Logger.isEnabled(Level)` to check if a level is enabled for a logger.
+- Add `Logger.isEnabled(Level)` to check if a level is enabled for a logger
 - Add debug log statements logger to attach/detach implementation
 
 ### Fixed
 
-- Fix multiple attach/detach handlers for an element.
+- Fix multiple attach/detach handlers for an element
 
 ## [1.5.0] - 2024-05-06
 
@@ -70,8 +79,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-- Fix logging methods to include variable arguments
-- Fix place manager to include the query part of the initial URL
+- Fix logging methods to include variable arguments.
+- Fix place manager to include the query part of the initial URL.
 
 ## [1.4.10] - 2024-04-26
 
@@ -83,7 +92,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- Add router processor using Crysknife CDI
+- Add router processor using Crysknife CDI.
 
 ## [1.4.8] - 2024-04-15
 
@@ -95,7 +104,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- `PlaceManager.href(String)` and `PlaceManager.href(Place)` to return the href for a route/place
+- `PlaceManager.href(String)` and `PlaceManager.href(Place)` to return the href for a route/place.
 - `Elements.textNode(HTMLElement)` and `Elements.textNode(IsElement<E>)` to return the text of the first text node (if any) or the text content of the element.
 
 ## [1.4.6] - 2024-04-14

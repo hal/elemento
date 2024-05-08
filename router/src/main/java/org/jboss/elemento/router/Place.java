@@ -29,13 +29,13 @@ import static org.jboss.elemento.router.Path.normalize;
 
 /**
  * Represents a place in an application. A place is identified by a route that can have parameters, an optional title, a custom
- * root and an optional {@link Loader}. element.
+ * root and an optional {@link LoadData}. element.
  * <p>
  * If the route has parameters, the {@link PlaceManager} will collect it and pass it to the page when calling
- * {@link Page#elements(Place, Parameter, LoaderData)}.
+ * {@link Page#elements(Place, Parameter, LoadedData)}.
  * <p>
- * If the page has a {@link Loader}, the {@link PlaceManager} will call it and pass the loaded data as {@link LoaderData} to the
- * page when calling {@link Page#elements(Place, Parameter, LoaderData)}.
+ * If the page has a {@link LoadData}, the {@link PlaceManager} will call it and pass the loaded data as {@link LoadedData} to the
+ * page when calling {@link Page#elements(Place, Parameter, LoadedData)}.
  * <p>
  * If a title is given, the {@link PlaceManager} will change the document title accordingly. If a custom root selector or
  * element is given, the {@link PlaceManager} will replace the contents of that element with the {@link Page} registered for
@@ -56,7 +56,7 @@ public class Place {
 
     final boolean hasParameter;
     Supplier<HTMLElement> root;
-    Loader<?> loader;
+    LoadData<?> loader;
 
     Place(String route) {
         if (route == null || route.trim().isEmpty()) {
@@ -130,7 +130,7 @@ public class Place {
         return this;
     }
 
-    public Place loader(Loader<?> loader) {
+    public Place loader(LoadData<?> loader) {
         this.loader = loader;
         return this;
     }

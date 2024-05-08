@@ -1,4 +1,4 @@
-import org.jboss.elemento.router.LoaderData;
+import org.jboss.elemento.router.LoadedData;
 import org.jboss.elemento.router.Page;
 import org.jboss.elemento.router.Parameter;
 import org.jboss.elemento.router.Place;
@@ -17,7 +17,7 @@ public class PlacesDemo {
     public static class EmptyPage implements Page {
 
         @Override
-        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
             return emptyList();
         }
     }
