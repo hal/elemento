@@ -253,16 +253,8 @@ import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.body;
 
 By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "http://"));
-for(
-HTMLElement element :
-
-body().
-
-findAll(selector)){
-
-a(element).
-
-css("external");
+for (HTMLElement element : body().findAll(selector)) {
+    a(element).css("external");
 }
 ```
 
