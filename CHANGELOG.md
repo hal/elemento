@@ -20,9 +20,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - `HasElement.on(EventType<V,?>, AddEventListenerOptions, EventCallbackFn<V>)`
 
 - Add `Logger.isEnabled(Level)` to check if a level is enabled for a logger.
-
-### Changed
-
 - Add debug log statements logger to attach/detach implementation
 
 ### Fixed

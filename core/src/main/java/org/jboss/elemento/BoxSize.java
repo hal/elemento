@@ -20,6 +20,7 @@ import jsinterop.annotations.JsType;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
 public class BoxSize {
+
     public double blockSize;
     public double inlineSize;
 }
