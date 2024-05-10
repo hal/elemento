@@ -530,13 +530,13 @@ Data class that represents a place in an application. A place is identified by a
 Builder to set up places. Supports nested places, combining places and allows to assign loaders to places.
 
 - `LoadData<T>`<br/>
-Functional interface to asynchronously load data before a page is added to the DOM. The function gets the place and parameters as input, returns a promise of the data to be loaded and is defined as `Promise<T> load(Place place, Parameter parameter)`.
+Functional interface to asynchronously load data before a page is created and added to the DOM. The function gets the place and parameters as input, returns a promise of the data to be loaded and is defined as `Promise<T> load(Place place, Parameter parameter)`.
 
 - `Page`<br/>
 Simple interface that represents a collection of HTML elements. Implementations should be cheap to create and need to implement a single method: `Iterable<HTMLElement> elements(Place, Parameter, LoadedData)`.
 
 - `PlaceManager`<br/>
-Main class of the router module. performs the following tasks, among others:
+Main class of the router module. Performs the following tasks, among others:
 
   - keeps track of registered places
   - handles navigation events
@@ -551,7 +551,7 @@ The place manager can be customized using builder like methods and has a `start(
 Creating a `Places` instance can be time-consuming (especially in large applications). This can be automated by using annotations, where an annotation processor takes over the tedious work of creating the `Places` instance. You can use the following annotations for this purpose:
 
 - `@Route`<br/>
-Annotation to mark a `Page` implementation as place. The annotation requires a route and can have an optional title, root selector and reference to a named loader. If the annotated page has **exactly one** public, static method that returns `LoadData<?>` and accepts no parameters, this is used as loader for the place. If a loader is specified using the `loader` attribute, there has to be a matching class or static method annotated with `@Loader`.
+Annotation to mark a `Page` implementation as a place. The annotation requires a route and can have an optional title, root selector and reference to a named loader. If the annotated page has **exactly one** public, static method that returns `LoadData<?>` and accepts no parameters, this is used as loader for the place. If a loader is specified using the `loader` attribute, there has to be a matching class or static method annotated with `@Loader`.
 
 - `@Loader`<br/>
 Annotation to mark a class or public static method as a named loader. If used on a class, the class has to implement `LoadData<T>`. If used on a static method, the method has to return `LoadData<?>` and must not accept any parameters.
