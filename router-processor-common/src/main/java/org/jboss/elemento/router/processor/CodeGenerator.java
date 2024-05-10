@@ -26,6 +26,7 @@ import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
 
+import static java.util.Comparator.comparing;
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 abstract class CodeGenerator {
@@ -37,6 +38,7 @@ abstract class CodeGenerator {
         ClassName placesClass = ClassName.get("org.jboss.elemento.router", "Places");
 
         MethodSpec.Builder constructor = buildConstructor();
+        routes.sort(comparing(routeInfo -> routeInfo.route)); // helps verify generated code
         for (RouteInfo route : routes) {
             String placeName = createPlace(constructor, placeClass, route);
             addPlace(constructor, placeName, route);
@@ -61,10 +63,17 @@ abstract class CodeGenerator {
         CodeBlock.Builder builder = CodeBlock.builder();
         builder.add("$T $N = $T.place($S)", placeClass, placeName, placeClass, route.route);
         if (route.title != null) {
-            builder.add(".title($S)", route.title);
+            builder.add("\n.title($S)", route.title);
         }
         if (route.selector != null) {
-            builder.add(".root($S)", route.title);
+            builder.add("\n.root($S)", route.selector);
+        }
+        if (route.loaderInfo != null) {
+            if (route.loaderInfo.loaderClass != null && route.loaderInfo.loaderMethod == null) {
+                builder.add("\n.loader(new $L())", route.loaderInfo.loaderClass);
+            } else {
+                builder.add("\n.loader($L.$L())", route.loaderInfo.loaderClass, route.loaderInfo.loaderMethod);
+            }
         }
         constructor.addStatement(builder.build());
 

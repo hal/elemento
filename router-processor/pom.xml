@@ -36,6 +36,8 @@
 
     <properties>
         <version.auto.service>1.1.1</version.auto.service>
+        <version.cute>1.7.0</version.cute>
+        <version.gwt>2.11.0</version.gwt>
     </properties>
 
     <dependencies>
@@ -48,6 +50,19 @@
             <artifactId>auto-service</artifactId>
             <version>${version.auto.service}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>io.toolisticon.cute</groupId>
+            <artifactId>cute</artifactId>
+            <version>${version.cute}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${version.gwt}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -205,6 +205,7 @@
                                     <exclude>**/node/**</exclude>
                                     <exclude>**/node_modules/**</exclude>
                                     <exclude>**/src/demo/java/**</exclude>
+                                    <exclude>**/src/test/resources/**/*.java</exclude>
                                 </excludes>
                             </licenseSet>
                         </licenseSets>

@@ -22,11 +22,13 @@ class RouteInfo {
     final String title;
     final String selector;
     final String pageClass;
+    LoaderInfo loaderInfo;
 
     RouteInfo(String route, String title, String selector, String pageClass) {
         this.route = route;
         this.title = title;
         this.selector = selector;
         this.pageClass = pageClass;
+        this.loaderInfo = null;
     }
 }

@@ -15,6 +15,8 @@
  */
 package org.jboss.elemento.router.processor;
 
+import java.util.List;
+
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedOptions;
@@ -24,8 +26,6 @@ import javax.lang.model.SourceVersion;
 import com.google.auto.common.BasicAnnotationProcessor;
 import com.google.auto.service.AutoService;
 
-import static java.util.Collections.singletonList;
-
 /**
  * This class is a processor that generates a Routes implementation based on the Route annotations in the codebase. It creates a
  * RoutesImpl class that contains a map of Place to Suppliers of Page objects. The map is populated with entries for each Route
@@ -34,7 +34,7 @@ import static java.util.Collections.singletonList;
  */
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_11)
-@SupportedAnnotationTypes({"org.jboss.elemento.router.Route"})
+@SupportedAnnotationTypes({"org.jboss.elemento.router.Loader", "org.jboss.elemento.router.Route"})
 @SupportedOptions({"places.package", "places.class"})
 public class RouteProcessor extends BasicAnnotationProcessor {
 
@@ -45,6 +45,6 @@ public class RouteProcessor extends BasicAnnotationProcessor {
 
     @Override
     protected Iterable<? extends Step> steps() {
-        return singletonList(new RoutesStep(processingEnv, new SimpleCodeGenerator()));
+        return List.of(new LoaderStep(processingEnv), new RouteStep(processingEnv, new SimpleCodeGenerator()));
     }
 }

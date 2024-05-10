@@ -551,10 +551,10 @@ The place manager can be customized using builder like methods and has a `start(
 Creating a `Places` instance can be time-consuming (especially in large applications). This can be automated by using annotations, where an annotation processor takes over the tedious work of creating the `Places` instance. You can use the following annotations for this purpose:
 
 - `@Route`<br/>
-Annotation to mark a `Page` implementation as place. The annotation requires a route and can have an optional title, root selector and reference to a named loader. If the page implementation has **exactly one** public, static method or field that returns `LoadData<?>`, this is used as loader for the place. If a loader is specified using the `loader` attribute, there has to be a matching class, static method or field annotated with `@Loader`.
+Annotation to mark a `Page` implementation as place. The annotation requires a route and can have an optional title, root selector and reference to a named loader. If the annotated page has **exactly one** public, static method that returns `LoadData<?>` and accepts no parameters, this is used as loader for the place. If a loader is specified using the `loader` attribute, there has to be a matching class or static method annotated with `@Loader`.
 
 - `@Loader`<br/>
-Annotation to mark a class, public static method or field as a named loader. If used on a class, the class has to implement `LoadData<T>`. If used on a static method, the method has to return `LoadData<?>`, and if used on a static field, the field's type has to be of `LoadData<?>`.
+Annotation to mark a class or public static method as a named loader. If used on a class, the class has to implement `LoadData<T>`. If used on a static method, the method has to return `LoadData<?>` and must not accept any parameters.
 
 You can also mix and match an own `Places` instance with the generated one (see below).
 

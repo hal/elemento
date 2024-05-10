@@ -13,18 +13,10 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento.router;
+package org.jboss.elemento.router.processor;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+interface RouteProcessorTest {
 
-@Documented
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Loader {
-
-    String value();
+    Class<RouteProcessor> PROCESSOR = RouteProcessor.class;
+    String GENERATED_PLACES = "org.jboss.elemento.router.AnnotatedPlaces";
 }

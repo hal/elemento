@@ -15,9 +15,9 @@
  */
 package org.jboss.elemento.router.processor;
 
-class ProcessingException extends RuntimeException {
+class ProcessingException extends Exception {
 
-    ProcessingException(String msg) {
-        super(msg);
+    ProcessingException(String message) {
+        super(message);
     }
 }
