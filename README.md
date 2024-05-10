@@ -564,7 +564,7 @@ Here's an example showing most of the concepts in action:
 @Route("/time/:area/:location")
 public class TimePage implements Page {
 
-    public static Loader<String> loadTime() {
+    public static LoadData<String> loadTime() {
         return (place, parameter) -> {
             String area = parameter.get("area");
             String location = parameter.get("location");
@@ -579,7 +579,7 @@ public class TimePage implements Page {
     }
 
     @Override
-    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
         String area = parameter.get("area");
         String location = parameter.get("location");
         String currentTime = data.get();
