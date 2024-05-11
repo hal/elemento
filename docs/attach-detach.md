@@ -1,7 +1,3 @@
----
-description: Get notified when an element is attached and detached from the DOM
----
-
 # Attach and detach handlers
 
 Implement `Attachable` to get notified when an element is attached to and detached from the DOM tree. The attachable interface provides a static method to register the callbacks easily  `attach(MutationRecord)` and `detach(MutationRecord)`:
