@@ -1,3 +1,5 @@
+# Get started
+
 Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org.jboss.elemento%20AND%20a:elemento-core). The easiest way is to import its BOM
 
 ```xml
