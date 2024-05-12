@@ -11,7 +11,7 @@ To create MathML elements, add the following dependency to your POM:
 </dependency>
 ```
 
-In your GWT module inherit from `org.jboss.elemento.MathML`:
+In your GWT module, inherit from `org.jboss.elemento.MathML`:
 
 ```xml
 
@@ -21,4 +21,3 @@ In your GWT module inherit from `org.jboss.elemento.MathML`:
 ```
 
 Finally, use the static methods in `org.jboss.elemento.mathml.MathML` to create MathML elements.
-

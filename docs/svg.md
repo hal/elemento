@@ -11,7 +11,7 @@ To create SVG elements, add the following dependency to your POM:
 </dependency>
 ```
 
-In your GWT module inherit from `org.jboss.elemento.SVG`:
+In your GWT module, inherit from `org.jboss.elemento.SVG`:
 
 ```xml
 
