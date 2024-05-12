@@ -15,16 +15,15 @@ Elemento simplifies working with [Elemental2](https://github.com/google/elementa
     - GWT ([`org.gwtproject.event:gwt-event`](https://github.com/gwtproject/gwt-event)
       and [`org.gwtproject.safehtml:gwt-safehtml`](https://github.com/gwtproject/gwt-safehtml))
 
-All features are described in detail here: https://hal-console.gitbook.io/elemento/
-
-# Contributing
-
-If you want to contribute to Elemento, please follow the steps in [contribution](CONTRIBUTING.md).
-
 # Get Help
 
 If you need help feel free to contact us at Gitter, browse the API documentation or file an issue.
 
+- [Documentation](https://hal-console.gitbook.io/elemento/)
 - [Gitter Channel](https://gitter.im/hal/elemento)
 - [API documentation](https://hal.github.io/elemento/apidocs/)
 - [Issues](https://github.com/hal/elemento/issues)
+
+# Contributing
+
+If you want to contribute to Elemento, please follow the steps in [contribution](CONTRIBUTING.md).
