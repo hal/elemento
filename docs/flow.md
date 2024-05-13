@@ -51,3 +51,25 @@ Flow.repeat(new FlowContext(),currentTime)
         .iterations(5)
         .subscribe(context -> console.log("Current time: " + context.pop("n/a")));
 ```
+
+## Dependency
+
+Add the following dependency to use `elemento-flow`:
+
+```xml
+
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-flow</artifactId>
+    <version>1.6.0</version>
+</dependency>
+```
+
+In your GWT module, inherit from `org.jboss.elemento.Flow`:
+
+```xml
+
+<module>
+    <inherits name="org.jboss.elemento.Logger"/>
+</module>
+```
