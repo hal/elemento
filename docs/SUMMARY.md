@@ -5,7 +5,7 @@
 * [Event Handlers](event-handlers.md)
 * [Typesafe CSS Selectors](selectors.md)
 * [Custom Elements](custom-elements.md)
-* [Attach and detach handlers](attach-detach.md)
+* [Attach and Detach Handlers](attach-detach.md)
 * [Iterators / Iterables / Streams](iterators.md)
 * [Manipulate the DOM Tree](dom.md)
 * [Router](router.md)

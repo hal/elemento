@@ -129,6 +129,6 @@ In your GWT module, inherit from `org.jboss.elemento.Router`:
 ```xml
 
 <module>
-    <inherits name="org.jboss.elemento.Logger"/>
+    <inherits name="org.jboss.elemento.Router"/>
 </module>
 ```

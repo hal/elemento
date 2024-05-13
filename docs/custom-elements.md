@@ -34,7 +34,7 @@ class TodoItemElement implements IsElement<HTMLElement> {
 }
 ```
 
-The builder API has support for `IsElement<E extends HTMLElement>` which makes it easy to use custom elements when building the element hierarchy:
+The builder API has support for `IsElement<E>` which makes it easy to use custom elements when building the element hierarchy:
 
 ```java
 import static org.jboss.elemento.Elements.ul;
