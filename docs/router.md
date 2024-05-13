@@ -72,7 +72,7 @@ public class TimePage implements Page {
 public class HomePage implements Page {
 
     @Override
-    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
         return asList(
                 h(1, "Welcome").element(),
                 p()
