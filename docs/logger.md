@@ -48,3 +48,25 @@ The logger module exports some methods with slightly adjusted signatures to Java
   Resets the log level for the category to the global log level
 
 Please use the fully qualified name!
+
+## Dependency
+
+Add the following dependency to use `elemento-logger`:
+
+```xml
+
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-logger</artifactId>
+    <version>1.6.0</version>
+</dependency>
+```
+
+In your GWT module, inherit from `org.jboss.elemento.Logger`:
+
+```xml
+
+<module>
+    <inherits name="org.jboss.elemento.Logger"/>
+</module>
+```

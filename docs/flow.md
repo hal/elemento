@@ -1,6 +1,6 @@
 # Flow
 
-The class [Flow](https://hal.github.io/elemento/apidocs/org/jboss/elemento/flow/Flow.html) provides methods for executing a list of asynchronous tasks in parallel or sequentially or to execute a single task repeatedly as long as certain conditions are met.
+The class [`Flow`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/flow/Flow.html) provides methods for executing a list of asynchronous tasks in parallel or sequentially or to execute a single task repeatedly as long as certain conditions are met.
 
 See the API documentation of [`org.jboss.elemento.flow`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/flow/package-summary.html) for more details.
 

@@ -1,5 +1,7 @@
 # Manipulate the DOM Tree
 
+Elemento has static helpers methods in [`Elements`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Elements.html) that help you to manipulate the DOM tree:
+
 - `Elements.lazyAppend(Element parent, Element child)`<br/>
   Appends `child` to `parent`. If `parent` already contains `child`, this method does nothing.
 
@@ -27,4 +29,4 @@
 - `Elements.failSafeRemoveFromParent(Element element)`<br/>
   Removes `element` from its parent.
 
-All methods are null-safe, check parent/child relationships, and are overloaded to accept an instance of `IsElement<Element>` instead of `Element`. See the API documentation of [Elements](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Elements.html) for more details.
+All methods are null-safe, check parent/child relationships, and are overloaded to accept an instance of `IsElement<Element>` instead of `Element`. See the API documentation of [`Elements`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Elements.html) for more details.

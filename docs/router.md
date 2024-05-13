@@ -31,6 +31,8 @@ Creating a `Places` instance can be time-consuming (especially in large applicat
 
 You can also mix and match your own `Places` instance with the generated one (see below).
 
+## Sample
+
 Here's an example showing most of the concepts in action:
 
 ```java
@@ -108,3 +110,25 @@ public class Application {
 ```
 
 See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html) for more details.
+
+## Dependency
+
+Add the following dependency to use `elemento-router`:
+
+```xml
+
+<dependency>
+    <groupId>org.jboss.elemento</groupId>
+    <artifactId>elemento-router</artifactId>
+    <version>1.6.0</version>
+</dependency>
+```
+
+In your GWT module, inherit from `org.jboss.elemento.Router`:
+
+```xml
+
+<module>
+    <inherits name="org.jboss.elemento.Logger"/>
+</module>
+```
