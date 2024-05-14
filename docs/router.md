@@ -39,6 +39,7 @@ Here's an example showing most of the concepts in action:
 @Route("/time/:area/:location")
 public class TimePage implements Page {
 
+    // This is used as the loader for the place
     public static LoadData<String> loadTime() {
         return (place, parameter) -> {
             String area = parameter.get("area");
