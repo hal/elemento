@@ -69,7 +69,7 @@ public class TimePage implements Page {
     }
 }
 
-@Route("/", "Home")
+@Route(value = "/", title = "Home")
 public class HomePage implements Page {
 
     @Override
