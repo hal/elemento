@@ -178,7 +178,7 @@ final class BodyObserver {
 
     private static boolean isChildOfObservedElement(List<HTMLElement> elements, String attribute, String attachId) {
         for (HTMLElement element : elements) {
-            if (element.querySelector("[" + attribute + "='" + attachId + "']") != null) {
+            if (element.querySelector("[" + attribute + "*='" + attachId + "']") != null) {
                 return true;
             }
         }

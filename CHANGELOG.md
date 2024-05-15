@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix bug in attach/detach observer
+
 ## [1.6.0] - 2024-05-10
 
 ### Added
