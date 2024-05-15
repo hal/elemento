@@ -27,7 +27,7 @@ Creating a `Places` instance can be time-consuming (especially in large applicat
 * `@Route`\
   Annotation to mark a `Page` implementation as a place. The annotation requires a route and can have an optional title, root selector, and reference to a named loader. If the annotated page has **exactly one** public, static method that returns `LoadData<?>` and accepts no parameters, this is used as a loader for the place. If a loader is specified using the `loader` attribute, there has to be a matching class or static method annotated with `@Loader`.
 * `@Loader`\
-  Annotation to mark a class or public static method as a named loader. If used on a class, the class has to implement `LoadData<T>`. If used on a static method, the method must return and not accept any parameters.
+  Annotation to mark a class or public static method as a named loader. If used on a class, the class has to implement `LoadData<T>`. If used on a static method, the method must return `LoadData<?>` and not accept any parameters.
 
 You can also mix and match your own `Places` instance with the generated one (see below).
 
@@ -39,6 +39,7 @@ Here's an example showing most of the concepts in action:
 @Route("/time/:area/:location")
 public class TimePage implements Page {
 
+    // This is used as the loader for the place
     public static LoadData<String> loadTime() {
         return (place, parameter) -> {
             String area = parameter.get("area");
@@ -68,11 +69,11 @@ public class TimePage implements Page {
     }
 }
 
-@Route("/", "Home")
+@Route(value = "/", title = "Home")
 public class HomePage implements Page {
 
     @Override
-    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoaderData data) {
+    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
         return asList(
                 h(1, "Welcome").element(),
                 p()
