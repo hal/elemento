@@ -121,7 +121,7 @@ Add the following dependency to use `elemento-router`:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-router</artifactId>
-    <version>1.6.0</version>
+    <version>1.6.1</version>
 </dependency>
 ```
 
