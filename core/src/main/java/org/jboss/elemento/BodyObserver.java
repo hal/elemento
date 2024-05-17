@@ -54,10 +54,10 @@ final class BodyObserver {
         if (!ready) {
             startObserving();
         }
-        String id = Id.unique();
+        String id = Id.unique("a");
         attachObservers.add(createObserver(id, element, ATTACH_UID_KEY, callback));
         if (logger.isEnabled(DEBUG)) {
-            logger.debug("Add attach observer %s for %o%s", id, element, count());
+            logger.debug("Add attach observer %s for %o %s", id, element, count());
         }
     }
 
@@ -72,10 +72,10 @@ final class BodyObserver {
         if (!ready) {
             startObserving();
         }
-        String id = Id.unique();
+        String id = Id.unique("d");
         detachObservers.add(createObserver(id, element, DETACH_UID_KEY, callback));
         if (logger.isEnabled(DEBUG)) {
-            logger.debug("Add detach observer %s for %o%s", id, element, count());
+            logger.debug("Add detach observer %s for %o %s", id, element, count());
         }
     }
 
@@ -136,7 +136,7 @@ final class BodyObserver {
                         removeId(eo.element, ATTACH_UID_KEY, eo.id);
                         iterator.remove();
                         if (logger.isEnabled(DEBUG)) {
-                            logger.debug("Remove attach observer %s for %o%s", eo.id, eo.element, count());
+                            logger.debug("Remove attach observer %s for %o %s", eo.id, eo.element, count());
                         }
                     }
                 }
@@ -168,7 +168,7 @@ final class BodyObserver {
                         removeId(eo.element, DETACH_UID_KEY, eo.id);
                         iterator.remove();
                         if (logger.isEnabled(DEBUG)) {
-                            logger.debug("Remove detach observer %s for %o%s", eo.id, eo.element, count());
+                            logger.debug("Remove detach observer %s for %o %s", eo.id, eo.element, count());
                         }
                     }
                 }
@@ -223,7 +223,7 @@ final class BodyObserver {
     }
 
     private static String count() {
-        return " (a:" + attachObservers.size() + "|d:" + detachObservers.size() + ")";
+        return "(a:" + attachObservers.size() + "|d:" + detachObservers.size() + ")";
     }
 
 
