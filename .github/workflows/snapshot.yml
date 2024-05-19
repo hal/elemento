@@ -26,3 +26,5 @@ jobs:
       - name: Deploy
         id: deploy
         run: $MVN deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

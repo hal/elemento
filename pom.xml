@@ -423,68 +423,6 @@
             </properties>
         </profile>
         <profile>
-            <id>snippets</id>
-            <properties>
-                <java.version>19</java.version>
-                <javadoc.options>--snippet-path ${project.basedir}/src/demo/java</javadoc.options>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <inherited>false</inherited>
-                        <executions>
-                            <execution>
-                                <id>copy-apidocs</id>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                                <configuration>
-                                    <target>
-                                        <copy todir="target/site/apidocs/org/jboss/elemento"
-                                              overwrite="true"
-                                              failonerror="false">
-                                            <fileset dir="core/target/site/apidocs/org/jboss/elemento">
-                                                <exclude name="**/class-use/**"/>
-                                                <exclude name="package-*.html"/>
-                                            </fileset>
-                                            <fileset dir="flow/target/site/apidocs/org/jboss/elemento">
-                                                <exclude name="**/class-use/**"/>
-                                                <exclude name="package-*.html"/>
-                                            </fileset>
-                                            <fileset dir="logger/target/site/apidocs/org/jboss/elemento">
-                                                <exclude name="**/class-use/**"/>
-                                                <exclude name="package-*.html"/>
-                                            </fileset>
-                                            <fileset dir="mathml/target/site/apidocs/org/jboss/elemento">
-                                                <exclude name="**/class-use/**"/>
-                                                <exclude name="package-*.html"/>
-                                            </fileset>
-                                            <fileset dir="router/target/site/apidocs/org/jboss/elemento">
-                                                <exclude name="**/class-use/**"/>
-                                                <exclude name="package-*.html"/>
-                                            </fileset>
-                                            <fileset dir="svg/target/site/apidocs/org/jboss/elemento">
-                                                <exclude name="**/class-use/**"/>
-                                                <exclude name="package-*.html"/>
-                                            </fileset>
-                                        </copy>
-                                    </target>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>samples</id>
-            <modules>
-                <module>samples</module>
-            </modules>
-        </profile>
-        <profile>
             <id>release</id>
             <build>
                 <plugins>
@@ -557,6 +495,68 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>snippets</id>
+            <properties>
+                <java.version>19</java.version>
+                <javadoc.options>--snippet-path ${project.basedir}/src/demo/java</javadoc.options>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <inherited>false</inherited>
+                        <executions>
+                            <execution>
+                                <id>copy-apidocs</id>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <copy todir="target/site/apidocs/org/jboss/elemento"
+                                              overwrite="true"
+                                              failonerror="false">
+                                            <fileset dir="core/target/site/apidocs/org/jboss/elemento">
+                                                <exclude name="**/class-use/**"/>
+                                                <exclude name="package-*.html"/>
+                                            </fileset>
+                                            <fileset dir="flow/target/site/apidocs/org/jboss/elemento">
+                                                <exclude name="**/class-use/**"/>
+                                                <exclude name="package-*.html"/>
+                                            </fileset>
+                                            <fileset dir="logger/target/site/apidocs/org/jboss/elemento">
+                                                <exclude name="**/class-use/**"/>
+                                                <exclude name="package-*.html"/>
+                                            </fileset>
+                                            <fileset dir="mathml/target/site/apidocs/org/jboss/elemento">
+                                                <exclude name="**/class-use/**"/>
+                                                <exclude name="package-*.html"/>
+                                            </fileset>
+                                            <fileset dir="router/target/site/apidocs/org/jboss/elemento">
+                                                <exclude name="**/class-use/**"/>
+                                                <exclude name="package-*.html"/>
+                                            </fileset>
+                                            <fileset dir="svg/target/site/apidocs/org/jboss/elemento">
+                                                <exclude name="**/class-use/**"/>
+                                                <exclude name="package-*.html"/>
+                                            </fileset>
+                                        </copy>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>samples</id>
+            <modules>
+                <module>samples</module>
+            </modules>
         </profile>
     </profiles>
 </project>
