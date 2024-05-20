@@ -85,8 +85,8 @@
     <distributionManagement>
         <snapshotRepository>
             <id>github</id>
-            <name>GitHub Elemento Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/hal/elemento</url>
+            <name>GitHub Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/${github.org}/${github.name}</url>
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
