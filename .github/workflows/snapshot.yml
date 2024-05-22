@@ -16,18 +16,15 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
-      - name: Set up Maven Settings
-        id: setup-maven-settings
+      - name: Set up JDK
+        id: setup-jdk
         uses: actions/setup-java@v4
-        with: # running setup-java again overwrites the settings.xml
+        with:
           java-version: 11
           distribution: temurin
-          server-id: ossrh
-          server-username: OSSRH_USERNAME
-          server-password: OSSRH_PASSWORD
+          cache: maven
       - name: Deploy
         id: deploy
         run: $MVN deploy
         env:
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
