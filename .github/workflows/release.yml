@@ -12,22 +12,14 @@ jobs:
     env:
       MVN: ./mvnw --show-version --batch-mode
     steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
-      - name: Set up JDK
-        id: setup-jdk
-        uses: actions/setup-java@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
         with:
           java-version: 11
           distribution: temurin
           cache: maven
-      - name: Package
-        id: package
-        run: $MVN package
-      - name: Set up Maven Settings
-        id: setup-maven-settings
-        uses: actions/setup-java@v4
+      - run: $MVN package
+      - uses: actions/setup-java@v4
         with: # running setup-java again overwrites the settings.xml
           java-version: 11
           distribution: temurin
@@ -36,9 +28,7 @@ jobs:
           server-password: OSSRH_PASSWORD
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-      - name: Deploy
-        id: deploy
-        run: $MVN deploy -P release
+      - run: $MVN deploy -P release
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
@@ -50,40 +40,26 @@ jobs:
     env:
       MVN: ./mvnw --show-version --batch-mode
     steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
-      - name: Set up JDK
-        id: setup-jdk
-        uses: actions/setup-java@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
         with:
           java-version: 21
           distribution: temurin
           cache: maven
-      - name: Install
-        id: install
-        run: $MVN -D quickly install
-      - name: Build API Documentation
-        id: build-api-docs
-        run: |
+      - run: $MVN -D quickly install
+      - run: |
           $MVN -D quickly clean install
           $MVN -P snippets javadoc:aggregate
           $MVN -P snippets javadoc:javadoc
           $MVN -P snippets org.apache.maven.plugins:maven-antrun-plugin:run@copy-apidocs
-      - name: Publish API Documentation
-        id: publish-api-docs
-        uses: JamesIves/github-pages-deploy-action@v4.6.0
+      - uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
           branch: gh-pages
           folder: ./target/site/apidocs
           target-folder: apidocs
           clean: true
-      - name: Build Samples
-        id: build-samples
-        run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples,prod install
-      - name: Publish Samples
-        id: publish-samples
-        uses: JamesIves/github-pages-deploy-action@v4.6.0
+      - run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples,prod install
+      - uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
           branch: gh-pages
           folder: ./samples/dist/target/samples
@@ -98,18 +74,14 @@ jobs:
       - name: Get Version
         id: get-version
         uses: battila7/get-version-action@v2.3.0
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Read Changelog
         id: read-changelog
         uses: mindsers/changelog-reader-action@v2
         with:
           path: ./CHANGELOG.md
           version: ${{ steps.get-version.outputs.version-without-v }}
-      - name: Create GitHub Release
-        id: create-gh-release
-        uses: actions/create-release@v1
+      - uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
