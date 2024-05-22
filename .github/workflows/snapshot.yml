@@ -1,15 +1,16 @@
-name: Verify Codebase
+name: Publish Snapshot
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["verify"]
+    types:
+      - completed
 
 jobs:
-  verify:
-    name: Verify Codebase
+  snapshot:
+    name: Publish Snapshot
     runs-on: ubuntu-latest
+    needs: verify
     env:
       MVN: ./mvnw --show-version --batch-mode
     steps:
@@ -19,4 +20,6 @@ jobs:
           java-version: 11
           distribution: temurin
           cache: maven
-      - run: $MVN verify
+      - run: $MVN deploy -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
