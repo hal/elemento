@@ -9,7 +9,6 @@ jobs:
   snapshot:
     name: Publish Snapshot
     runs-on: ubuntu-latest
-    needs: verify
     env:
       MVN: ./mvnw --show-version --batch-mode
     steps:
