@@ -84,8 +84,8 @@
     </issueManagement>
     <distributionManagement>
         <snapshotRepository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/${github.org}/${github.name}</url>
+            <id>ossrh</id>
+            <url>${sonatype.url}/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
@@ -558,4 +558,19 @@
             </modules>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>oss-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>oss-snapshots-01</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
 </project>
