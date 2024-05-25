@@ -3,7 +3,6 @@
 To create SVG elements, add the following dependency to your POM:
 
 ```xml
-
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-svg</artifactId>
@@ -14,7 +13,6 @@ To create SVG elements, add the following dependency to your POM:
 In your GWT module, inherit from `org.jboss.elemento.SVG`:
 
 ```xml
-
 <module>
     <inherits name="org.jboss.elemento.SVG"/>
 </module>
