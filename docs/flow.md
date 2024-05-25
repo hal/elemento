@@ -65,8 +65,8 @@ Add the following dependency to use `elemento-flow`:
 ```
 
 In your GWT module, inherit from `org.jboss.elemento.Flow`:
-```xml
 
+```xml
 <module>
     <inherits name="org.jboss.elemento.Logger"/>
 </module>
