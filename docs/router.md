@@ -117,7 +117,6 @@ See the API documentation of [PlaceManager](https://hal.github.io/elemento/apido
 Add the following dependency to use `elemento-router`:
 
 ```xml
-
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-router</artifactId>
@@ -128,7 +127,6 @@ Add the following dependency to use `elemento-router`:
 In your GWT module, inherit from `org.jboss.elemento.Router`:
 
 ```xml
-
 <module>
     <inherits name="org.jboss.elemento.Router"/>
 </module>
