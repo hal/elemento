@@ -57,7 +57,6 @@ Flow.repeat(new FlowContext(),currentTime)
 Add the following dependency to use `elemento-flow`:
 
 ```xml
-
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-flow</artifactId>
@@ -66,7 +65,6 @@ Add the following dependency to use `elemento-flow`:
 ```
 
 In your GWT module, inherit from `org.jboss.elemento.Flow`:
-
 ```xml
 
 <module>
