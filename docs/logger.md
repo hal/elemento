@@ -54,7 +54,6 @@ Please use the fully qualified name!
 Add the following dependency to use `elemento-logger`:
 
 ```xml
-
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-logger</artifactId>
@@ -65,7 +64,6 @@ Add the following dependency to use `elemento-logger`:
 In your GWT module, inherit from `org.jboss.elemento.Logger`:
 
 ```xml
-
 <module>
     <inherits name="org.jboss.elemento.Logger"/>
 </module>
