@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>45</version>
+        <version>46</version>
     </parent>
 
     <groupId>org.jboss.elemento</groupId>
@@ -107,7 +107,7 @@
         <version.enforcer.plugin>3.3.0</version.enforcer.plugin>
         <version.gwt.plugin>1.1.0</version.gwt.plugin>
         <version.impsort.plugin>1.10.0</version.impsort.plugin>
-        <version.javadoc.plugin>3.6.3</version.javadoc.plugin>
+        <version.javadoc.plugin>3.7.0</version.javadoc.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
         <version.license.plugin>4.5</version.license.plugin>
         <version.nexus.staging.plugin>1.7.0</version.nexus.staging.plugin>
