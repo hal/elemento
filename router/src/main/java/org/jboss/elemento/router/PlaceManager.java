@@ -73,7 +73,8 @@ public class PlaceManager {
     private final List<BeforePlaceHandler> beforeHandlers;
     private final List<AfterPlaceHandler> afterHandlers;
     private Base base;
-    private Place current;
+    private Place currentPlace;
+    private Page currentPage;
     private Supplier<HTMLElement> root;
     private Function<String, String> title;
     private Supplier<Page> notFound;
@@ -86,7 +87,8 @@ public class PlaceManager {
         this.beforeHandlers = new ArrayList<>();
         this.afterHandlers = new ArrayList<>();
         this.base = new Base("/");
-        this.current = NOT_FOUND;
+        this.currentPlace = null;
+        this.currentPage = null;
         this.root = () -> document.body;
         this.title = Function.identity();
         this.notFound = DefaultNotFound::new;
@@ -176,7 +178,7 @@ public class PlaceManager {
     // ------------------------------------------------------ api
 
     public Place current() {
-        return current;
+        return currentPlace;
     }
 
     public Place place(String path) {
@@ -343,14 +345,19 @@ public class PlaceManager {
             document.title = this.title.apply(pms.place.title);
         }
         removeChildrenFrom(rootElement);
+        if (currentPage != null) {
+            currentPage.detach();
+        }
         for (HTMLElement e : pms.page.elements(pms.place, pms.parameter, pms.data)) {
             rootElement.appendChild(e);
         }
+        currentPage = pms.page;
+        pms.page.attach();
 
         if (NOT_FOUND.equals(pms.place)) {
             return Promise.resolve(false);
         } else {
-            current = pms.place;
+            currentPlace = pms.place;
             for (AfterPlaceHandler handler : afterHandlers) {
                 handler.afterPlace(this, pms.place);
             }

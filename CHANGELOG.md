@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `Page.attach()`
+- Add `Page.detach()`
+
 ## [1.6.1] - 2024-05-15
 
 ### Fixed

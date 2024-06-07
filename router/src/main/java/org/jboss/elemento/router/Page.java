@@ -22,9 +22,24 @@ import elemental2.dom.HTMLElement;
 /**
  * A page interface represents a collection of HTML elements. Implementations should be cheap to create.
  * <p>
- * Pages can be annotated with {@link Route} and registered with the {@link PlaceManager} using {@link PlaceManager#register(Place, Supplier)} and {@link PlaceManager#register(Places)}.
+ * Pages can be annotated with {@link Route} and registered with the {@link PlaceManager} using
+ * {@link PlaceManager#register(Place, Supplier)} and {@link PlaceManager#register(Places)}.
  */
 public interface Page {
 
     Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data);
+
+    /**
+     * Called when the elements of this page have been attached. The default implementation does nothing.
+     */
+    default void attach() {
+        // noop;
+    }
+
+    /**
+     * Called when the elements of this page have been detached. The default implementation does nothing.
+     */
+    default void detach() {
+        // noop;
+    }
 }
