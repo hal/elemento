@@ -140,7 +140,6 @@ class ReleaseCommand : CliktCommand(name = "release") {
         step("Update to version ${release.releaseVersion}") {
             shellRun {
                 command("mvn", listOf("-DnewVersion=${release.releaseVersion}", "versions:set"))
-                command("mvn", listOf("--projects", "org.patternfly:patternfly-java-core", "--also-make", "generate-sources"))
             }
         }
 
