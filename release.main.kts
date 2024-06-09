@@ -145,14 +145,13 @@ class ReleaseCommand : CliktCommand(name = "release") {
 
         step("Update README & changelog") {
             shellRun {
-                val output = command("sed", listOf(
+                command("sed", listOf(
                         "-i",
                         "''",
                         "-E",
                         """s/<version>[0-9]+\.[0-9]+\.[0-9]+(.*)<\/version>/<version>${release.releaseVersion}\1<\/version>/""",
-                        "docs/*.md"
+                        "./docs/*.md"
                 ))
-                println(output)
                 command("mvn", listOf("-DskipModules", "keepachangelog:release"))
             }
         }
