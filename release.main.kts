@@ -150,7 +150,7 @@ class ReleaseCommand : CliktCommand(name = "release") {
                         "''",
                         "-E",
                         """s/<version>[0-9]+\.[0-9]+\.[0-9]+(.*)<\/version>/<version>${release.releaseVersion}\1<\/version>/""",
-                        """docs/*.md"""
+                        "docs/*.md"
                 ))
                 command("mvn", listOf("-DskipModules", "keepachangelog:release"))
             }
