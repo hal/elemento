@@ -29,6 +29,7 @@ import com.lordcodes.turtle.shellRun
 import io.github.z4kn4fein.semver.Version
 import io.github.z4kn4fein.semver.toVersionOrNull
 import java.lang.Thread.sleep
+import kotlin.io.path.*
 import kotlin.random.Random
 import kotlin.system.exitProcess
 
@@ -145,13 +146,15 @@ class ReleaseCommand : CliktCommand(name = "release") {
 
         step("Update README & changelog") {
             shellRun {
-                command("sed", listOf(
-                        "-i",
-                        "''",
-                        "-E",
-                        """s/<version>[0-9]+\.[0-9]+\.[0-9]+(.*)<\/version>/<version>${release.releaseVersion}\1<\/version>/""",
-                        "docs/*.md"
-                ))
+                Path("docs").listDirectoryEntries("*.md").forEach { file ->
+                    command("sed", listOf(
+                            "-i",
+                            "''",
+                            "-E",
+                            """s/<version>[0-9]+\.[0-9]+\.[0-9]+(.*)<\/version>/<version>${release.releaseVersion}\1<\/version>/""",
+                            file.absolutePathString()
+                    ))
+                }
                 command("mvn", listOf("-DskipModules", "keepachangelog:release"))
             }
         }
