@@ -9,8 +9,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.6.2] - 2024-06-09
 
-## [1.6.2] - 2024-06-09
-
 ### Added
 
 - Add `Page.attach()`
