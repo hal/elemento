@@ -9,6 +9,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.6.2] - 2024-06-09
 
+## [1.6.2] - 2024-06-09
+
 ### Added
 
 - Add `Page.attach()`
@@ -949,6 +951,7 @@ Switch to Apache2 license
 -->
 
 [Unreleased]: https://github.com/hal/elemento/compare/v1.6.2...HEAD
+[1.6.2]: https://github.com/hal/elemento/compare/v1.6.2...v1.6.2
 [1.6.2]: https://github.com/hal/elemento/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/hal/elemento/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/hal/elemento/compare/v1.5.1...v1.6.0
