@@ -34,7 +34,7 @@
     <name>Elemento Todo Sample J2CL</name>
 
     <properties>
-        <version.treblereel.j2cl.processors>0.6.4</version.treblereel.j2cl.processors>
+        <version.treblereel.j2cl.processors>0.7</version.treblereel.j2cl.processors>
     </properties>
 
     <dependencies>
