@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Return a unique label from `Logger.time` methods
+
 ## [1.6.5] - 2024-07-18
 
 ### Added

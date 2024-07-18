@@ -324,87 +324,85 @@ public class Logger {
 
     // ------------------------------------------------------ timers
 
-    public void timeDebug(String label) {
+    public String timeDebug() {
         if (isEnabled(DEBUG)) {
-            String formatted = format(DEBUG, label);
-            console.time(formatted);
+            String label = format(DEBUG, "");
+            console.time(label);
+            return label;
         }
+        return null;
     }
 
     public void timeDebugLog(String label) {
         if (isEnabled(DEBUG)) {
-            String formatted = format(DEBUG, label);
-            console.timeLog(formatted);
+            console.timeLog(label);
         }
     }
 
     public void timeDebugEnd(String label) {
         if (isEnabled(DEBUG)) {
-            String formatted = format(DEBUG, label);
-            console.timeEnd(formatted);
+            console.timeEnd(label);
         }
     }
 
-    public void timeInfo(String label) {
+    public String timeInfo() {
         if (isEnabled(INFO)) {
-            String formatted = format(INFO, label);
-            console.time(formatted);
+            String label = format(INFO, "");
+            console.time(label);
+            return label;
         }
+        return null;
     }
 
     public void timeInfoLog(String label) {
         if (isEnabled(INFO)) {
-            String formatted = format(INFO, label);
-            console.timeLog(formatted);
+            console.timeLog(label);
         }
     }
 
     public void timeInfoEnd(String label) {
         if (isEnabled(INFO)) {
-            String formatted = format(INFO, label);
-            console.timeEnd(formatted);
+            console.timeEnd(label);
         }
     }
 
-    public void timeWarn(String label) {
+    public String timeWarn() {
         if (isEnabled(WARN)) {
-            String formatted = format(WARN, label);
-            console.time(formatted);
+            String label = format(WARN, "");
+            console.time(label);
+            return label;
         }
     }
 
     public void timeWarnLog(String label) {
         if (isEnabled(WARN)) {
-            String formatted = format(WARN, label);
-            console.timeLog(formatted);
+            console.timeLog(label);
         }
     }
 
     public void timeWarnEnd(String label) {
         if (isEnabled(WARN)) {
-            String formatted = format(WARN, label);
-            console.timeEnd(formatted);
+            console.timeEnd(label);
         }
     }
 
-    public void timeError(String label) {
+    public String timeError() {
         if (isEnabled(ERROR)) {
-            String formatted = format(ERROR, label);
-            console.time(formatted);
+            String label = format(ERROR, "");
+            console.time(label);
+            return label;
         }
     }
 
     public void timeErrorLog(String label) {
         if (isEnabled(ERROR)) {
-            String formatted = format(ERROR, label);
-            console.timeLog(formatted);
+            console.timeLog(label);
         }
     }
 
     public void timeErrorEnd(String label) {
         if (isEnabled(ERROR)) {
-            String formatted = format(ERROR, label);
-            console.timeEnd(formatted);
+            console.timeEnd(label);
         }
     }
 
