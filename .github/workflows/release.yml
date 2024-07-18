@@ -34,8 +34,8 @@ jobs:
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
-  publish:
-    name: Publish
+  publish-apidoc:
+    name: Publish API Documentation
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
@@ -58,6 +58,19 @@ jobs:
           folder: ./target/site/apidocs
           target-folder: apidocs
           clean: true
+
+  publish-samples:
+    name: Publish Samples
+    runs-on: ubuntu-latest
+    env:
+      MVN: ./mvnw --show-version --batch-mode
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: maven
       - run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples,prod install
       - uses: JamesIves/github-pages-deploy-action@v4.6.3
         with:

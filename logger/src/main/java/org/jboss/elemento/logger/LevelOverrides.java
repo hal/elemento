@@ -23,7 +23,9 @@ class LevelOverrides {
     final Map<String, Level> levels;
 
     LevelOverrides() {
-        levels = new HashMap<>() {};
+        // J2CL compiler complains w/o typed arguments 🤔
+        //noinspection Convert2Diamond
+        levels = new HashMap<String, Level>() {};
     }
 
     void addLevel(String category, Level level) {
