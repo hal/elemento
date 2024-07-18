@@ -118,7 +118,7 @@ public class Logger {
      * Sets the log level for a given category.
      *
      * @param category the category for which to set the log level
-     * @param level the log level to be set
+     * @param level    the log level to be set
      */
     public static void setLevel(String category, Level level) {
         levelOverrides.addLevel(category, level);
@@ -286,6 +286,126 @@ public class Logger {
     public boolean isEnabled(Level level) {
         Level effectiveLevel = customLevel != null ? customLevel : Logger.level;
         return effectiveLevel.ordinal() >= level.ordinal();
+    }
+
+    // ------------------------------------------------------ grouping
+
+    public void groupDebug(String message) {
+        if (isEnabled(DEBUG)) {
+            String formatted = format(DEBUG, message);
+            console.group(formatted);
+        }
+    }
+
+    public void groupInfo(String message) {
+        if (isEnabled(INFO)) {
+            String formatted = format(INFO, message);
+            console.group(formatted);
+        }
+    }
+
+    public void groupWarn(String message) {
+        if (isEnabled(WARN)) {
+            String formatted = format(WARN, message);
+            console.group(formatted);
+        }
+    }
+
+    public void groupError(String message) {
+        if (isEnabled(ERROR)) {
+            String formatted = format(ERROR, message);
+            console.group(formatted);
+        }
+    }
+
+    public void groupEnd() {
+        console.groupEnd();
+    }
+
+    // ------------------------------------------------------ timers
+
+    public void timeDebug(String label) {
+        if (isEnabled(DEBUG)) {
+            String formatted = format(DEBUG, label);
+            console.time(formatted);
+        }
+    }
+
+    public void timeDebugLog(String label) {
+        if (isEnabled(DEBUG)) {
+            String formatted = format(DEBUG, label);
+            console.timeLog(formatted);
+        }
+    }
+
+    public void timeDebugEnd(String label) {
+        if (isEnabled(DEBUG)) {
+            String formatted = format(DEBUG, label);
+            console.timeEnd(formatted);
+        }
+    }
+
+    public void timeInfo(String label) {
+        if (isEnabled(INFO)) {
+            String formatted = format(INFO, label);
+            console.time(formatted);
+        }
+    }
+
+    public void timeInfoLog(String label) {
+        if (isEnabled(INFO)) {
+            String formatted = format(INFO, label);
+            console.timeLog(formatted);
+        }
+    }
+
+    public void timeInfoEnd(String label) {
+        if (isEnabled(INFO)) {
+            String formatted = format(INFO, label);
+            console.timeEnd(formatted);
+        }
+    }
+
+    public void timeWarn(String label) {
+        if (isEnabled(WARN)) {
+            String formatted = format(WARN, label);
+            console.time(formatted);
+        }
+    }
+
+    public void timeWarnLog(String label) {
+        if (isEnabled(WARN)) {
+            String formatted = format(WARN, label);
+            console.timeLog(formatted);
+        }
+    }
+
+    public void timeWarnEnd(String label) {
+        if (isEnabled(WARN)) {
+            String formatted = format(WARN, label);
+            console.timeEnd(formatted);
+        }
+    }
+
+    public void timeError(String label) {
+        if (isEnabled(ERROR)) {
+            String formatted = format(ERROR, label);
+            console.time(formatted);
+        }
+    }
+
+    public void timeErrorLog(String label) {
+        if (isEnabled(ERROR)) {
+            String formatted = format(ERROR, label);
+            console.timeLog(formatted);
+        }
+    }
+
+    public void timeErrorEnd(String label) {
+        if (isEnabled(ERROR)) {
+            String formatted = format(ERROR, label);
+            console.timeEnd(formatted);
+        }
     }
 
     // ------------------------------------------------------ internal
