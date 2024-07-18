@@ -7,6 +7,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Make `By.selector()` public
+
+### Upgrades
+
+- Bump J2CL processors to 0.7
+- Bump JUnit to 5.10.3
+
 ## [1.6.2] - 2024-06-09
 
 ### Added

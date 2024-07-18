@@ -237,7 +237,7 @@ public abstract class By {
 
     // ------------------------------------------------------ instance methods
 
-    abstract String selector();
+    public abstract String selector();
 
     @Override
     public int hashCode() {
@@ -276,7 +276,7 @@ public abstract class By {
         }
 
         @Override
-        String selector() {
+        public String selector() {
             StringBuilder builder = new StringBuilder();
             builder.append("[").append(name);
             if (value != null && value.length() != 0) {
@@ -328,7 +328,7 @@ public abstract class By {
         }
 
         @Override
-        String selector() {
+        public String selector() {
             return "." + String.join(".", classnames);
         }
     }
@@ -346,7 +346,7 @@ public abstract class By {
         }
 
         @Override
-        String selector() {
+        public String selector() {
             return by1.selector() + combinator.operator + by2.selector();
         }
     }
@@ -372,7 +372,7 @@ public abstract class By {
         }
 
         @Override
-        String selector() {
+        public String selector() {
             return element;
         }
     }
@@ -386,7 +386,7 @@ public abstract class By {
         }
 
         @Override
-        String selector() {
+        public String selector() {
             return stream(selectors).map(By::selector).collect(joining(", "));
         }
     }
@@ -400,7 +400,7 @@ public abstract class By {
         }
 
         @Override
-        String selector() {
+        public String selector() {
             return "#" + id;
         }
     }
@@ -414,7 +414,7 @@ public abstract class By {
         }
 
         @Override
-        String selector() {
+        public String selector() {
             return selector;
         }
     }
