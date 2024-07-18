@@ -7,11 +7,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [1.6.4] - 2024-07-18
-
 ### Added
 
 - Add `Logger.group` and `Logger.time` methods
+
+## [1.6.4] - 2024-07-18
+
+Not an official release - please don't use!
 
 ## [1.6.3] - 2024-07-18
 
