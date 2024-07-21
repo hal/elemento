@@ -372,6 +372,7 @@ public class Logger {
             console.time(label);
             return label;
         }
+        return null;
     }
 
     public void timeWarnLog(String label) {
@@ -392,6 +393,7 @@ public class Logger {
             console.time(label);
             return label;
         }
+        return null;
     }
 
     public void timeErrorLog(String label) {
