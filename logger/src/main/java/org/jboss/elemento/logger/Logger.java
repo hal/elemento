@@ -21,7 +21,9 @@ import java.util.Map;
 import elemental2.core.JsArray;
 import elemental2.core.JsDate;
 import elemental2.dom.Event;
+import elemental2.dom.Location;
 import elemental2.dom.Node;
+import elemental2.dom.URLSearchParams;
 import jsinterop.annotations.JsMethod;
 import jsinterop.base.Js;
 
@@ -68,6 +70,7 @@ import static org.jboss.elemento.logger.Level.WARN;
 public class Logger {
 
     public static final Level DEFAULT_LEVEL = INFO;
+    public static final String LOG_LEVEL_PARAMETER = "log-level";
     private static final int CATEGORY_LENGTH = 23;
     private static final String ROOT_CATEGORY = "root";
     private static final Logger ROOT_LOGGER = new Logger(ROOT_CATEGORY);
@@ -82,6 +85,33 @@ public class Logger {
     }
 
     // ------------------------------------------------------ static API
+
+    /**
+     * Sets the global log level from the {@value #LOG_LEVEL_PARAMETER} query parameter. If no query parameter was given, this
+     * method does nothing.
+     */
+    public static void initFrom(Location location) {
+        initFrom(location, LOG_LEVEL_PARAMETER);
+    }
+
+    /**
+     * Sets the global log level from the specified query parameter. If no query parameter was given, this method does nothing.
+     */
+    public static void initFrom(Location location, String queryParameter) {
+        if (!location.search.isEmpty()) {
+            URLSearchParams query = new URLSearchParams(location.search);
+            if (query.has(LOG_LEVEL_PARAMETER)) {
+                String logLevel = query.get(queryParameter);
+                try {
+                    Level level = Level.valueOf(logLevel.toUpperCase());
+                    Logger.setLevel(level);
+                } catch (IllegalArgumentException e) {
+                    console.error("Cannot init log level from query parameter '%s'. Invalid level: '%s'",
+                            queryParameter, level);
+                }
+            }
+        }
+    }
 
     /**
      * Retrieves or creates a logger with the specified category.

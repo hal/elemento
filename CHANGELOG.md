@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `Logger.initFrom(elemental2.dom.Location)`
+
 ## [1.6.6] - 2024-07-30
 
 ### Changed
