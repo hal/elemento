@@ -24,12 +24,12 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-code-parent</artifactId>
-        <version>1.6.6</version>
+        <version>1.6.7-SNAPSHOT</version>
         <relativePath>../code-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-logger</artifactId>
-    <version>1.6.6</version>
+    <version>1.6.7-SNAPSHOT</version>
     <packaging>gwt-lib</packaging>
     <name>Elemento Logger</name>
     <description>Elemento Logger API</description>
