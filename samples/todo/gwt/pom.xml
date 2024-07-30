@@ -24,12 +24,12 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-todo-sample</artifactId>
-        <version>1.6.7-SNAPSHOT</version>
+        <version>1.6.7</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-todo-sample-gwt</artifactId>
-    <version>1.6.7-SNAPSHOT</version>
+    <version>1.6.7</version>
     <packaging>gwt-app</packaging>
     <name>Elemento Todo Sample GWT</name>
 

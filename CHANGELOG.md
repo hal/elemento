@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.6.7] - 2024-07-30
+
 ### Added
 
 - Add `Logger.initFrom(elemental2.dom.Location)`
@@ -984,7 +986,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.6.6...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.6.7...HEAD
+[1.6.7]: https://github.com/hal/elemento/compare/v1.6.6...v1.6.7
 [1.6.6]: https://github.com/hal/elemento/compare/v1.6.5...v1.6.6
 [1.6.5]: https://github.com/hal/elemento/compare/v1.6.4...v1.6.5
 [1.6.4]: https://github.com/hal/elemento/compare/v1.6.3...v1.6.4
