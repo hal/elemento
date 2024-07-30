@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.6.6] - 2024-07-30
+
 ### Changed
 
 - Return a unique label from `Logger.time` methods
@@ -978,7 +980,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.6.5...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.6.6...HEAD
+[1.6.6]: https://github.com/hal/elemento/compare/v1.6.5...v1.6.6
 [1.6.5]: https://github.com/hal/elemento/compare/v1.6.4...v1.6.5
 [1.6.4]: https://github.com/hal/elemento/compare/v1.6.3...v1.6.4
 [1.6.3]: https://github.com/hal/elemento/compare/v1.6.2...v1.6.3
