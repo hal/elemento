@@ -11,6 +11,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Return a unique label from `Logger.time` methods
 
+### Removed
+
+- Remove deprecated methods:
+  - `HasElement.id()`
+
 ## [1.6.5] - 2024-07-18
 
 ### Added
@@ -19,7 +24,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.6.4] - 2024-07-18
 
-Not an official release - please don't use!
+Not an official release. Please don't use!
 
 ## [1.6.3] - 2024-07-18
 

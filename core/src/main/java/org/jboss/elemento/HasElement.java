@@ -34,16 +34,6 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
 
     // ------------------------------------------------------ id, text, HTML
 
-    /**
-     * Generates and sets an unique id on the element.
-     *
-     * @deprecated Use {@link #uniqueId()} instead
-     */
-    @Deprecated
-    default B id() {
-        return id(Id.unique());
-    }
-
     /** Generates and sets an unique id on the element. */
     default B uniqueId() {
         return id(Id.unique());

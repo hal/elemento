@@ -17,7 +17,6 @@
  */
 /**
  * @fileoverview
- * @suppress {missingProperties}
  */
 goog.module('elemento.logger$exports');
 const l = goog.require('org.jboss.elemento.logger.Logger');

@@ -324,9 +324,9 @@ public class Logger {
 
     // ------------------------------------------------------ timers
 
-    public String timeDebug() {
+    public String timeDebug(String message) {
         if (isEnabled(DEBUG)) {
-            String label = format(DEBUG, "");
+            String label = format(DEBUG, message);
             console.time(label);
             return label;
         }
@@ -345,9 +345,9 @@ public class Logger {
         }
     }
 
-    public String timeInfo() {
+    public String timeInfo(String message) {
         if (isEnabled(INFO)) {
-            String label = format(INFO, "");
+            String label = format(INFO, message);
             console.time(label);
             return label;
         }
@@ -366,9 +366,9 @@ public class Logger {
         }
     }
 
-    public String timeWarn() {
+    public String timeWarn(String message) {
         if (isEnabled(WARN)) {
-            String label = format(WARN, "");
+            String label = format(WARN, message);
             console.time(label);
             return label;
         }
@@ -387,9 +387,9 @@ public class Logger {
         }
     }
 
-    public String timeError() {
+    public String timeError(String message) {
         if (isEnabled(ERROR)) {
-            String label = format(ERROR, "");
+            String label = format(ERROR, message);
             console.time(label);
             return label;
         }
