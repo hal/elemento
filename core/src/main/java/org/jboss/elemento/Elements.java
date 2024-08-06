@@ -27,6 +27,7 @@ import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtml;
 
 import elemental2.core.JsArray;
+import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DOMRect;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;
@@ -1540,6 +1541,36 @@ public final class Elements {
     public static <E extends HTMLElement> boolean isElementInView(IsElement<E> container, HTMLElement element,
             boolean partial) {
         return isElementInView(container.element(), element, partial);
+    }
+
+    public static <E extends HTMLElement> boolean isElementInView(IsElement<E> element) {
+        return isElementInView(element.element());
+    }
+
+    public static boolean isElementInView(HTMLElement element) {
+        // implementation taken from
+        // https://gist.github.com/Marco-Prontera/6d9d1a9cead48f44e8dabd8ff5310ecf
+        CSSStyleDeclaration elementStyle = DomGlobal.window.getComputedStyle(element);
+        // Particular cases when the element is not visible at all
+        if (elementStyle.height.asDouble() == 0 ||
+                elementStyle.display.equals("none") ||
+                elementStyle.opacity.asDouble() == 0 ||
+                elementStyle.visibility.equals("hidden") ||
+                elementStyle.clipPath.equals("circle(0px at 50% 50%)") ||
+                elementStyle.transform.equals("scale(0)") ||
+                element.hasAttribute("hidden")) {
+            return false;
+        }
+
+        DOMRect rect = element.getBoundingClientRect();
+        int elementLeft = (int) Math.ceil(rect.left);
+        int elementRight = (int) Math.ceil(rect.right);
+        int elementTop = (int) Math.ceil(rect.top);
+        int elementBottom = (int) Math.ceil(rect.bottom);
+        return elementTop >= 0 &&
+                elementLeft >= 0 &&
+                elementBottom <= window.innerHeight &&
+                elementRight <= window.innerWidth;
     }
 
     public static <E extends HTMLElement> boolean isElementInView(HTMLElement container, IsElement<E> element,

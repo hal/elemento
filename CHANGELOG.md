@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `Elements.isElementInView(HTMLElement)` based on https://gist.github.com/Marco-Prontera/6d9d1a9cead48f44e8dabd8ff5310ecf
+
 ## [1.6.7] - 2024-07-30
 
 ### Added
