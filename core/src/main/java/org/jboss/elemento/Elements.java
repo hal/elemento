@@ -1552,9 +1552,9 @@ public final class Elements {
         // https://gist.github.com/Marco-Prontera/6d9d1a9cead48f44e8dabd8ff5310ecf
         CSSStyleDeclaration elementStyle = DomGlobal.window.getComputedStyle(element);
         // Particular cases when the element is not visible at all
-        if (elementStyle.height.asDouble() == 0 ||
+        if (elementStyle.height.asString().startsWith("0") ||
                 elementStyle.display.equals("none") ||
-                elementStyle.opacity.asDouble() == 0 ||
+                elementStyle.opacity.asString().equals("0") ||
                 elementStyle.visibility.equals("hidden") ||
                 elementStyle.clipPath.equals("circle(0px at 50% 50%)") ||
                 elementStyle.transform.equals("scale(0)") ||
