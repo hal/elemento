@@ -320,31 +320,31 @@ public class Logger {
 
     // ------------------------------------------------------ grouping
 
-    public void groupDebug(String message) {
+    public void groupDebug(String message, Object... params) {
         if (isEnabled(DEBUG)) {
             String formatted = format(DEBUG, message);
-            console.group(formatted);
+            group(formatted, params);
         }
     }
 
-    public void groupInfo(String message) {
+    public void groupInfo(String message, Object... params) {
         if (isEnabled(INFO)) {
             String formatted = format(INFO, message);
-            console.group(formatted);
+            group(formatted, params);
         }
     }
 
-    public void groupWarn(String message) {
+    public void groupWarn(String message, Object... params) {
         if (isEnabled(WARN)) {
             String formatted = format(WARN, message);
-            console.group(formatted);
+            group(formatted, params);
         }
     }
 
-    public void groupError(String message) {
+    public void groupError(String message, Object... params) {
         if (isEnabled(ERROR)) {
             String formatted = format(ERROR, message);
-            console.group(formatted);
+            group(formatted, params);
         }
     }
 
@@ -352,89 +352,119 @@ public class Logger {
         console.groupEnd();
     }
 
+    private void group(String formatted, Object... params) {
+        if (params == null || params.length == 0) {
+            console.group(formatted);
+        } else {
+            // I wish there was another way to pass the variable arguments to console.group()
+            // But 'console.group(formatted, params)' does not work as expected :-(
+            Object[] p = adjustParams(params);
+            switch (params.length) {
+                // @formatter:off
+                case  1: console.group(formatted, p[0]); break;
+                case  2: console.group(formatted, p[0], p[1]); break;
+                case  3: console.group(formatted, p[0], p[1], p[2]); break;
+                case  4: console.group(formatted, p[0], p[1], p[2], p[3]); break;
+                case  5: console.group(formatted, p[0], p[1], p[2], p[3], p[4]); break;
+                case  6: console.group(formatted, p[0], p[1], p[2], p[3], p[4], p[5]); break;
+                case  7: console.group(formatted, p[0], p[1], p[2], p[3], p[4], p[5], p[6]); break;
+                case  8: console.group(formatted, p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]); break;
+                case  9: console.group(formatted, p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8]); break;
+                case 10: console.group(formatted, p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9]); break;
+                default: console.group(formatted, asJsArray(p));
+                // @formatter:on
+            }
+        }
+    }
+
     // ------------------------------------------------------ timers
 
     public String timeDebug(String message) {
         if (isEnabled(DEBUG)) {
-            String label = format(DEBUG, message);
-            console.time(label);
-            return label;
+            String timer = format(DEBUG, message);
+            console.time(timer);
+            return timer;
         }
         return null;
     }
 
-    public void timeDebugLog(String label) {
+    public void timeDebugLog(String timer, Object... params) {
         if (isEnabled(DEBUG)) {
-            console.timeLog(label);
-        }
-    }
-
-    public void timeDebugEnd(String label) {
-        if (isEnabled(DEBUG)) {
-            console.timeEnd(label);
+            timeLog(timer, params);
         }
     }
 
     public String timeInfo(String message) {
         if (isEnabled(INFO)) {
-            String label = format(INFO, message);
-            console.time(label);
-            return label;
+            String timer = format(INFO, message);
+            console.time(timer);
+            return timer;
         }
         return null;
     }
 
-    public void timeInfoLog(String label) {
+    public void timeInfoLog(String timer, Object... params) {
         if (isEnabled(INFO)) {
-            console.timeLog(label);
-        }
-    }
-
-    public void timeInfoEnd(String label) {
-        if (isEnabled(INFO)) {
-            console.timeEnd(label);
+            timeLog(timer, params);
         }
     }
 
     public String timeWarn(String message) {
         if (isEnabled(WARN)) {
-            String label = format(WARN, message);
-            console.time(label);
-            return label;
+            String timer = format(WARN, message);
+            console.time(timer);
+            return timer;
         }
         return null;
     }
 
-    public void timeWarnLog(String label) {
+    public void timeWarnLog(String timer, Object... params) {
         if (isEnabled(WARN)) {
-            console.timeLog(label);
-        }
-    }
-
-    public void timeWarnEnd(String label) {
-        if (isEnabled(WARN)) {
-            console.timeEnd(label);
+            timeLog(timer, params);
         }
     }
 
     public String timeError(String message) {
         if (isEnabled(ERROR)) {
-            String label = format(ERROR, message);
-            console.time(label);
-            return label;
+            String timer = format(ERROR, message);
+            console.time(timer);
+            return timer;
         }
         return null;
     }
 
-    public void timeErrorLog(String label) {
+    public void timeErrorLog(String timer, Object... params) {
         if (isEnabled(ERROR)) {
-            console.timeLog(label);
+            timeLog(timer, params);
         }
     }
 
-    public void timeErrorEnd(String label) {
-        if (isEnabled(ERROR)) {
-            console.timeEnd(label);
+    public void timeEnd(String timer) {
+        console.timeEnd(timer);
+    }
+
+    private void timeLog(String timer, Object... params) {
+        if (params == null || params.length == 0) {
+            console.timeLog(timer);
+        } else {
+            // I wish there was another way to pass the variable arguments to console.timeLog()
+            // But 'console.timeLog(timer, params)' does not work as expected :-(
+            Object[] p = adjustParams(params);
+            switch (params.length) {
+                // @formatter:off
+                case  1: console.timeLog(timer, p[0]); break;
+                case  2: console.timeLog(timer, p[0], p[1]); break;
+                case  3: console.timeLog(timer, p[0], p[1], p[2]); break;
+                case  4: console.timeLog(timer, p[0], p[1], p[2], p[3]); break;
+                case  5: console.timeLog(timer, p[0], p[1], p[2], p[3], p[4]); break;
+                case  6: console.timeLog(timer, p[0], p[1], p[2], p[3], p[4], p[5]); break;
+                case  7: console.timeLog(timer, p[0], p[1], p[2], p[3], p[4], p[5], p[6]); break;
+                case  8: console.timeLog(timer, p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]); break;
+                case  9: console.timeLog(timer, p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8]); break;
+                case 10: console.timeLog(timer, p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9]); break;
+                default: console.timeLog(timer, asJsArray(p));
+                // @formatter:on
+            }
         }
     }
 
@@ -454,7 +484,7 @@ public class Logger {
                 try {
                     p[i] = String.valueOf(params[i]);
                 } catch (Throwable t) {
-                    p[i] = "error: " + t.getMessage();
+                    p[i] = "error calling String.valueOf() of parameter #" + i + ": " + t.getMessage();
                 }
             }
         }
@@ -462,7 +492,7 @@ public class Logger {
     }
 
     private boolean jsNative(Object object) {
-        // TODO Is there a better way to detect 'native' JS objects that should be logged as is in the console?
+        // TODO Is there a better way to detect 'native' JS objects that should be logged as-is in the console?
         return object == null || !Js.typeof(object).equals("object") ||
                 object instanceof JsArray ||
                 object instanceof Event ||
