@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.6.8] - 2024-08-21
+
 ### Added
 
 - Add `Elements.isElementInView(HTMLElement)` based on https://gist.github.com/Marco-Prontera/6d9d1a9cead48f44e8dabd8ff5310ecf
@@ -990,7 +992,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.6.7...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.6.8...HEAD
+[1.6.8]: https://github.com/hal/elemento/compare/v1.6.7...v1.6.8
 [1.6.7]: https://github.com/hal/elemento/compare/v1.6.6...v1.6.7
 [1.6.6]: https://github.com/hal/elemento/compare/v1.6.5...v1.6.6
 [1.6.5]: https://github.com/hal/elemento/compare/v1.6.4...v1.6.5
