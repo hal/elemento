@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.6.9] - 2024-09-13
+
 ### Fixed
 
 - Fix bug in `BodyObserver` removing wrong elements on detach due to a wrong CSS attribute selector. See also https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors
@@ -998,7 +1000,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.6.8...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.6.9...HEAD
+[1.6.9]: https://github.com/hal/elemento/compare/v1.6.8...v1.6.9
 [1.6.8]: https://github.com/hal/elemento/compare/v1.6.7...v1.6.8
 [1.6.7]: https://github.com/hal/elemento/compare/v1.6.6...v1.6.7
 [1.6.6]: https://github.com/hal/elemento/compare/v1.6.5...v1.6.6
