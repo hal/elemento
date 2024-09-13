@@ -9,9 +9,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-- Fix bug in `BodyObserver` removing wrong elements on detach due to a wrong CSS attribute selector
+- Fix bug in `BodyObserver` removing wrong elements on detach due to a wrong CSS attribute selector. See also https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors
   - Wrong selector: `<attribute>*=<id>`
-  - Correct selector: `<attribute>=<id>`
+  - Correct selector: `<attribute>~=<id>`
 
 ## [1.6.8] - 2024-08-21
 

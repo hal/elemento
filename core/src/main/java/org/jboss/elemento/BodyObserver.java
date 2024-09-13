@@ -178,7 +178,15 @@ final class BodyObserver {
 
     private static boolean isChildOfObservedElement(List<HTMLElement> elements, String attribute, String id) {
         for (HTMLElement element : elements) {
-            if (element.querySelector("[" + attribute + "='" + id + "']") != null) {
+            // The use of the right attribute selector is important here!
+            // Multiple attach/detach IDs can be present on an element.
+
+            // The selector "~=" matches elements whose value is exactly the value
+            // or contains the value in its (space-separated) list of values.
+
+            // The selector "*=" must not be used!
+            // It matches elements whose value contains the value anywhere within the string.
+            if (element.querySelector("[" + attribute + "~='" + id + "']") != null) {
                 return true;
             }
         }
