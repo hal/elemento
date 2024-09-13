@@ -34,7 +34,7 @@
     <name>Elemento Flow Sample</name>
 
     <properties>
-        <version.patternfly.java>0.2.8</version.patternfly.java>
+        <version.patternfly.java>0.2.9</version.patternfly.java>
     </properties>
 
     <dependencyManagement>
