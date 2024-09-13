@@ -7,6 +7,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix bug in `BodyObserver` removing wrong elements on detach due to a wrong CSS attribute selector
+  - Wrong selector: `<attribute>*=<id>`
+  - Correct selector: `<attribute>=<id>`
+
 ## [1.6.8] - 2024-08-21
 
 ### Added
