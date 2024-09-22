@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.6.10] - 2024-09-22
+
 - Make `Elements.insert*()` methods null-safe
 
 ## [1.6.9] - 2024-09-13
@@ -1002,7 +1004,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.6.9...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.6.10...HEAD
+[1.6.10]: https://github.com/hal/elemento/compare/v1.6.9...v1.6.10
 [1.6.9]: https://github.com/hal/elemento/compare/v1.6.8...v1.6.9
 [1.6.8]: https://github.com/hal/elemento/compare/v1.6.7...v1.6.8
 [1.6.7]: https://github.com/hal/elemento/compare/v1.6.6...v1.6.7
