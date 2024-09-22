@@ -1032,21 +1032,30 @@ public final class Elements {
      * Finds all HTML elements for the given selector.
      */
     public static <E extends HTMLElement> Iterable<HTMLElement> findAll(IsElement<E> element, By selector) {
-        return findAll(element.element(), selector);
+        if (element != null) {
+            return findAll(element.element(), selector);
+        }
+        return emptyList();
     }
 
     /**
      * Finds a single HTML elements for the given selector.
      */
     public static <E extends HTMLElement> E find(Node node, By selector) {
-        return cast(node.querySelector(selector.selector()));
+        if (node != null) {
+            return cast(node.querySelector(selector.selector()));
+        }
+        return null;
     }
 
     /**
      * Finds a single HTML elements for the given selector.
      */
     public static <E extends HTMLElement, F extends HTMLElement> F find(IsElement<E> element, By selector) {
-        return find(element.element(), selector);
+        if (element != null) {
+            return find(element.element(), selector);
+        }
+        return null;
     }
 
     /**
@@ -1056,7 +1065,10 @@ public final class Elements {
      * "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
      */
     public static <E extends HTMLElement> E closest(Element element, By selector) {
-        return cast(element.closest(selector.selector()));
+        if (element != null) {
+            return cast(element.closest(selector.selector()));
+        }
+        return null;
     }
 
     /**
@@ -1066,7 +1078,10 @@ public final class Elements {
      * "https://developer.mozilla.org/en-US/docs/Web/API/Element/closest">https://developer.mozilla.org/en-US/docs/Web/API/Element/closest</a>
      */
     public static <E extends HTMLElement, F extends HTMLElement> F closest(IsElement<E> element, By selector) {
-        return cast(element.element().closest(selector.selector()));
+        if (element != null) {
+            return cast(element.element().closest(selector.selector()));
+        }
+        return null;
     }
 
     // ------------------------------------------------------ iterator methods
@@ -1212,7 +1227,7 @@ public final class Elements {
      * method does nothing.
      */
     public static void lazyAppend(Element parent, Element child) {
-        if (!parent.contains(child)) {
+        if (parent != null && child != null && !parent.contains(child)) {
             parent.appendChild(child);
         }
     }
@@ -1222,7 +1237,7 @@ public final class Elements {
      * method does nothing.
      */
     public static <E extends HTMLElement> void lazyAppend(Element parent, IsElement<E> child) {
-        if (child != null) {
+        if (parent != null && child != null) {
             lazyAppend(parent, child.element());
         }
     }
@@ -1231,14 +1246,16 @@ public final class Elements {
      * Inserts element {@code newElement} into the parent after element {@code after}.
      */
     public static void insertAfter(Element newElement, Element after) {
-        after.parentNode.insertBefore(newElement, after.nextSibling);
+        if (newElement != null && after != null) {
+            after.parentNode.insertBefore(newElement, after.nextSibling);
+        }
     }
 
     /**
      * Inserts element {@code newElement} into the parent after element {@code after}.
      */
     public static <E extends HTMLElement> void insertAfter(IsElement<E> newElement, Element after) {
-        if (newElement != null) {
+        if (newElement != null && after != null) {
             insertAfter(newElement.element(), after);
         }
     }
@@ -1248,7 +1265,7 @@ public final class Elements {
      * contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertAfter(Element newElement, Element after) {
-        if (!after.parentNode.contains(newElement)) {
+        if (newElement != null && after != null && !after.parentNode.contains(newElement)) {
             after.parentNode.insertBefore(newElement, after.nextSibling);
         }
     }
@@ -1258,7 +1275,7 @@ public final class Elements {
      * contains {@code newElement}, this method does nothing.
      */
     public static <E extends HTMLElement> void lazyInsertAfter(IsElement<E> newElement, Element after) {
-        if (newElement != null) {
+        if (newElement != null && after != null) {
             lazyInsertAfter(newElement.element(), after);
         }
     }
@@ -1268,7 +1285,7 @@ public final class Elements {
      * contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertAfter(Element parent, Element newElement, Element after) {
-        if (!parent.contains(newElement)) {
+        if (parent != null && newElement != null && after != null && !parent.contains(newElement)) {
             parent.insertBefore(newElement, after.nextSibling);
         }
     }
@@ -1278,7 +1295,7 @@ public final class Elements {
      * contains {@code newElement}, this method does nothing.
      */
     public static <E extends HTMLElement> void lazyInsertAfter(Element parent, IsElement<E> newElement, Element after) {
-        if (newElement != null) {
+        if (parent != null && newElement != null && after != null) {
             lazyInsertAfter(parent, newElement.element(), after);
         }
     }
@@ -1287,14 +1304,16 @@ public final class Elements {
      * Inserts element {@code newElement} into the parent before element {@code before}.
      */
     public static void insertBefore(Element newElement, Element before) {
-        before.parentNode.insertBefore(newElement, before);
+        if (newElement != null && before != null) {
+            before.parentNode.insertBefore(newElement, before);
+        }
     }
 
     /**
      * Inserts element {@code newElement} into the parent before element {@code before}.
      */
     public static <E extends HTMLElement> void insertBefore(IsElement<E> newElement, Element before) {
-        if (newElement != null) {
+        if (newElement != null && before != null) {
             insertBefore(newElement.element(), before);
         }
     }
@@ -1304,7 +1323,7 @@ public final class Elements {
      * already contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertBefore(Element newElement, Element before) {
-        if (!before.parentNode.contains(newElement)) {
+        if (newElement != null && before != null && !before.parentNode.contains(newElement)) {
             before.parentNode.insertBefore(newElement, before);
         }
     }
@@ -1314,7 +1333,7 @@ public final class Elements {
      * already contains {@code newElement}, this method does nothing.
      */
     public static <E extends HTMLElement> void lazyInsertBefore(IsElement<E> newElement, Element before) {
-        if (newElement != null) {
+        if (newElement != null && before != null) {
             lazyInsertBefore(newElement.element(), before);
         }
     }
@@ -1324,7 +1343,7 @@ public final class Elements {
      * already contains {@code newElement}, this method does nothing.
      */
     public static void lazyInsertBefore(Element parent, Element newElement, Element before) {
-        if (!parent.contains(newElement)) {
+        if (parent != null && newElement != null && before != null && !parent.contains(newElement)) {
             parent.insertBefore(newElement, before);
         }
     }
@@ -1335,7 +1354,7 @@ public final class Elements {
      */
     public static <E extends HTMLElement> void lazyInsertBefore(Element parent, IsElement<E> newElement,
             Element before) {
-        if (newElement != null) {
+        if (parent != null && newElement != null && before != null) {
             lazyInsertBefore(parent, newElement.element(), before);
         }
     }
@@ -1344,14 +1363,16 @@ public final class Elements {
      * Inserts element {@code newElement} as first element into {@code parent}.
      */
     public static void insertFirst(Element parent, Element newElement) {
-        parent.insertBefore(newElement, parent.firstChild);
+        if (parent != null && newElement != null) {
+            parent.insertBefore(newElement, parent.firstChild);
+        }
     }
 
     /**
      * Inserts element {@code newElement} as first element into {@code parent}.
      */
     public static <E extends HTMLElement> void insertFirst(Element parent, IsElement<E> newElement) {
-        if (newElement != null) {
+        if (parent != null && newElement != null) {
             insertFirst(parent, newElement.element());
         }
     }

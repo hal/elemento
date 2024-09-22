@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+- Make `Elements.insert*()` methods null-safe
+
 ## [1.6.9] - 2024-09-13
 
 ### Fixed
