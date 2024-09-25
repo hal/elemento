@@ -109,7 +109,7 @@
         <version.impsort.plugin>1.12.0</version.impsort.plugin>
         <version.javadoc.plugin>3.10.0</version.javadoc.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
-        <version.license.plugin>4.5</version.license.plugin>
+        <version.license.plugin>4.6</version.license.plugin>
         <version.nexus.staging.plugin>1.7.0</version.nexus.staging.plugin>
         <version.shade.plugin>3.6.0</version.shade.plugin>
 
