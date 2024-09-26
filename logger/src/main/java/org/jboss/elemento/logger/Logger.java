@@ -169,7 +169,7 @@ public class Logger {
     }
 
     @JsMethod(name = "setLevel")
-    // String based variant for JavaScript only
+    // String-based variant for JavaScript only
     private static void jsSetLevel(String category, String level) {
         if (Js.typeof(level).equals("undefined")) {
             try {
