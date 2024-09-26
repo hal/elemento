@@ -38,7 +38,7 @@
         <version.node>v20.8.1</version.node>
 
         <!-- Plugin versions -->
-        <version.frontend.plugin>1.15.0</version.frontend.plugin>
+        <version.frontend.plugin>1.15.1</version.frontend.plugin>
         <version.j2cl.plugin>0.22.0</version.j2cl.plugin>
 
         <!-- Build related -->
