@@ -96,7 +96,7 @@
     <properties>
         <!-- Dependency versions -->
         <version.checkstyle.config>1.0.8.Final</version.checkstyle.config>
-        <version.elemental2>1.2.2</version.elemental2>
+        <version.elemental2>1.2.1</version.elemental2>
         <version.gwt.event>1.0.0-RC1</version.gwt.event>
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
         <version.junit>5.11.3</version.junit>
@@ -120,6 +120,7 @@
         <java.version>11</java.version>
         <javadoc.options/>
         <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.min.version>3.2.5</maven.min.version>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>

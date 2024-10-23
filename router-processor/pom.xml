@@ -87,6 +87,7 @@
                                     <exclude>com.google.jsinterop:*</exclude>
                                     <exclude>org.gwtproject.event:*</exclude>
                                     <exclude>org.gwtproject.safehtml:*</exclude>
+                                    <exclude>org.jspecify.annotations:*</exclude>
                                     <exclude>org.junit.jupiter:*</exclude>
                                     <exclude>org.junit.platform:*</exclude>
                                     <exclude>org.opentest4j:*</exclude>
