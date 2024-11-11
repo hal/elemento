@@ -52,7 +52,7 @@ jobs:
           $MVN -P snippets javadoc:aggregate
           $MVN -P snippets javadoc:javadoc
           $MVN -P snippets org.apache.maven.plugins:maven-antrun-plugin:run@copy-apidocs
-      - uses: JamesIves/github-pages-deploy-action@v4.6.8
+      - uses: JamesIves/github-pages-deploy-action@v4.6.9
         with:
           branch: gh-pages
           folder: ./target/site/apidocs
@@ -72,7 +72,7 @@ jobs:
           distribution: temurin
           cache: maven
       - run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples,prod install
-      - uses: JamesIves/github-pages-deploy-action@v4.6.8
+      - uses: JamesIves/github-pages-deploy-action@v4.6.9
         with:
           branch: gh-pages
           folder: ./samples/dist/target/samples
