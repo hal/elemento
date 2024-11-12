@@ -37,7 +37,7 @@
     <properties>
         <version.auto.service>1.1.1</version.auto.service>
         <version.cute>1.7.0</version.cute>
-        <version.gwt>2.12.0</version.gwt>
+        <version.gwt>2.12.1</version.gwt>
     </properties>
 
     <dependencies>
