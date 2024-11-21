@@ -26,8 +26,5 @@ public class DomGlobal {
     public static final Crypto crypto = DomGlobal__Constants.crypto;
 
     @JsOverlay
-    public static final Navigator navigator = DomGlobal__Constants.navigator;
-
-    @JsOverlay
     public static final Window window = DomGlobal__Constants.window;
 }

@@ -7,6 +7,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Upgrades
+
+- Bump Elemental to 1.2.3
+- Bump JUnit to 5.11.3
+
+### Removed
+
+- Remove custom clipboard support (`org.jboss.elemento.Clipboard`), which is now available in Elemental 1.2.3 as
+  `elemental2.dom.Navigator.clipboard`
+
 ## [1.6.10] - 2024-09-22
 
 - Make `Elements.insert*()` methods null-safe
@@ -15,9 +25,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-- Fix bug in `BodyObserver` removing wrong elements on detach due to a wrong CSS attribute selector. See also https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors
-  - Wrong selector: `<attribute>*=<id>`
-  - Correct selector: `<attribute>~=<id>`
+- Fix bug in `BodyObserver` removing wrong elements on detach due to a wrong CSS attribute selector. See
+  also https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors
+    - Wrong selector: `<attribute>*=<id>`
+    - Correct selector: `<attribute>~=<id>`
 
 ## [1.6.8] - 2024-08-21
 
@@ -40,7 +51,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Removed
 
 - Remove deprecated methods:
-  - `HasElement.id()`
+    - `HasElement.id()`
 
 ## [1.6.5] - 2024-07-18
 
@@ -91,8 +102,8 @@ Not an official release. Please don't use!
 
 - Rename loader classes:
 
-  - `Loader<T>` → `LoadData<T>`
-  - `LoadData` → `LoadedData`
+    - `Loader<T>` → `LoadData<T>`
+    - `LoadData` → `LoadedData`
 
 - Add support for loaders in router annotation processors
 - Change default name of the generated class for the annotated places `GeneratedPlaces` → `AnnotatedPlaces`
@@ -104,13 +115,13 @@ Not an official release. Please don't use!
 
 - Add methods to modify the text node of an element:
 
-  - `Elements.textNode(elemental2.dom.Element, String)`
-  - `Elements.textNode(IsElement<E>, String)`
+    - `Elements.textNode(elemental2.dom.Element, String)`
+    - `Elements.textNode(IsElement<E>, String)`
 
 - Add overloaded methods to bind events in `HasElement`:
 
-  - `HasElement.on(EventType<V,?>, boolean, EventCallbackFn<V>)`
-  - `HasElement.on(EventType<V,?>, AddEventListenerOptions, EventCallbackFn<V>)`
+    - `HasElement.on(EventType<V,?>, boolean, EventCallbackFn<V>)`
+    - `HasElement.on(EventType<V,?>, AddEventListenerOptions, EventCallbackFn<V>)`
 
 - Add `Logger.isEnabled(Level)` to check if a level is enabled for a logger
 - Add debug log statements logger to attach/detach implementation
@@ -138,9 +149,10 @@ Not an official release. Please don't use!
 - Add support for category based log levels
 - Export methods to JavaScript to control log levels (for instance from the browser dev tools)
 
-  - `org.jboss.elemento.logger.Logger.setLevel(String level)` - sets the global log level
-  - `org.jboss.elemento.logger.Logger.setLevel(String category, String level)` - overrides the log level for one category
-  - `org.jboss.elemento.logger.Logger.resetLevel(String category)` - resets the log level for the category to the global log level
+    - `org.jboss.elemento.logger.Logger.setLevel(String level)` - sets the global log level
+    - `org.jboss.elemento.logger.Logger.setLevel(String category, String level)` - overrides the log level for one category
+    - `org.jboss.elemento.logger.Logger.resetLevel(String category)` - resets the log level for the category to the global log
+      level
 
 ### Fixed
 
@@ -176,7 +188,8 @@ Not an official release. Please don't use!
 ### Added
 
 - `PlaceManager.href(String)` and `PlaceManager.href(Place)` to return the href for a route/place.
-- `Elements.textNode(HTMLElement)` and `Elements.textNode(IsElement<E>)` to return the text of the first text node (if any) or the text content of the element.
+- `Elements.textNode(HTMLElement)` and `Elements.textNode(IsElement<E>)` to return the text of the first text node (if any) or
+  the text content of the element.
 
 ## [1.4.6] - 2024-04-14
 
@@ -200,7 +213,8 @@ Not an official release. Please don't use!
 
 ### Added
 
-- Add parameter `routes.package` for the routes annotation processor to specify the package name of the generated `Routes` implementation. If not specified, the package name defaults to `org.jboss.elemento.router`.
+- Add parameter `routes.package` for the routes annotation processor to specify the package name of the generated `Routes`
+  implementation. If not specified, the package name defaults to `org.jboss.elemento.router`.
 
 ## [1.4.2] - 2024-03-20
 
@@ -245,9 +259,11 @@ Not an official release. Please don't use!
 
 Elemento now contains a very basic place manager. The place manager is minimal invasive and built around a few simple concepts:
 
-- `Route`: Annotation that can be used to decorate pages. An annotation processor collects all classes annotated with `@Route` and generates an implementation of `Routes`.
+- `Route`: Annotation that can be used to decorate pages. An annotation processor collects all classes annotated with `@Route`
+  and generates an implementation of `Routes`.
 - `Routes`: Provides a map of places and their corresponding pages.
-- `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional title and a custom root element.
+- `Place`: Data class that represents a place in an application. A place is identified by a route, and can have an optional
+  title and a custom root element.
 - `Page`: Interface that represents a collection of HTML elements.
 - `PlaceManager`: Class responsible for managing the routing and navigation within an application.
 
@@ -1005,88 +1021,173 @@ Switch to Apache2 license
 -->
 
 [Unreleased]: https://github.com/hal/elemento/compare/v1.6.10...HEAD
+
 [1.6.10]: https://github.com/hal/elemento/compare/v1.6.9...v1.6.10
+
 [1.6.9]: https://github.com/hal/elemento/compare/v1.6.8...v1.6.9
+
 [1.6.8]: https://github.com/hal/elemento/compare/v1.6.7...v1.6.8
+
 [1.6.7]: https://github.com/hal/elemento/compare/v1.6.6...v1.6.7
+
 [1.6.6]: https://github.com/hal/elemento/compare/v1.6.5...v1.6.6
+
 [1.6.5]: https://github.com/hal/elemento/compare/v1.6.4...v1.6.5
+
 [1.6.4]: https://github.com/hal/elemento/compare/v1.6.3...v1.6.4
+
 [1.6.3]: https://github.com/hal/elemento/compare/v1.6.2...v1.6.3
+
 [1.6.2]: https://github.com/hal/elemento/compare/v1.6.1...v1.6.2
+
 [1.6.1]: https://github.com/hal/elemento/compare/v1.6.0...v1.6.1
+
 [1.6.0]: https://github.com/hal/elemento/compare/v1.5.1...v1.6.0
+
 [1.5.1]: https://github.com/hal/elemento/compare/v1.5.0...v1.5.1
+
 [1.5.0]: https://github.com/hal/elemento/compare/v1.4.12...v1.5.0
+
 [1.4.12]: https://github.com/hal/elemento/compare/v1.4.11...v1.4.12
+
 [1.4.11]: https://github.com/hal/elemento/compare/v1.4.10...v1.4.11
+
 [1.4.10]: https://github.com/hal/elemento/compare/v1.4.9...v1.4.10
+
 [1.4.9]: https://github.com/hal/elemento/compare/v1.4.8...v1.4.9
+
 [1.4.8]: https://github.com/hal/elemento/compare/v1.4.7...v1.4.8
+
 [1.4.7]: https://github.com/hal/elemento/compare/v1.4.6...v1.4.7
+
 [1.4.6]: https://github.com/hal/elemento/compare/v1.4.5...v1.4.6
+
 [1.4.5]: https://github.com/hal/elemento/compare/v1.4.4...v1.4.5
+
 [1.4.4]: https://github.com/hal/elemento/compare/v1.4.3...v1.4.4
+
 [1.4.3]: https://github.com/hal/elemento/compare/v1.4.2...v1.4.3
+
 [1.4.2]: https://github.com/hal/elemento/compare/v1.4.1...v1.4.2
+
 [1.4.1]: https://github.com/hal/elemento/compare/v1.4.0...v1.4.1
+
 [1.4.0]: https://github.com/hal/elemento/compare/v1.3.3...v1.4.0
+
 [1.3.3]: https://github.com/hal/elemento/compare/v1.3.2...v1.3.3
+
 [1.3.2]: https://github.com/hal/elemento/compare/v1.3.1...v1.3.2
+
 [1.3.1]: https://github.com/hal/elemento/compare/v1.3.0...v1.3.1
+
 [1.3.0]: https://github.com/hal/elemento/compare/v1.2.13...v1.3.0
+
 [1.2.13]: https://github.com/hal/elemento/compare/v1.2.12...v1.2.13
+
 [1.2.12]: https://github.com/hal/elemento/compare/v1.2.11...v1.2.12
+
 [1.2.11]: https://github.com/hal/elemento/compare/v1.2.10...v1.2.11
+
 [1.2.10]: https://github.com/hal/elemento/compare/v1.2.9...v1.2.10
+
 [1.2.9]: https://github.com/hal/elemento/compare/v1.2.8...v1.2.9
+
 [1.2.8]: https://github.com/hal/elemento/compare/v1.2.7...v1.2.8
+
 [1.2.7]: https://github.com/hal/elemento/compare/v1.2.6...v1.2.7
+
 [1.2.6]: https://github.com/hal/elemento/compare/v1.2.5...v1.2.6
+
 [1.2.5]: https://github.com/hal/elemento/compare/v1.2.4...v1.2.5
+
 [1.2.4]: https://github.com/hal/elemento/compare/v1.2.3...v1.2.4
+
 [1.2.3]: https://github.com/hal/elemento/compare/v1.2.2...v1.2.3
+
 [1.2.2]: https://github.com/hal/elemento/compare/v1.2.1...v1.2.2
+
 [1.2.1]: https://github.com/hal/elemento/compare/v1.2.0...v1.2.1
+
 [1.2.0]: https://github.com/hal/elemento/compare/v1.1.4...v1.2.0
+
 [1.1.4]: https://github.com/hal/elemento/compare/v1.1.3...v1.1.4
+
 [1.1.3]: https://github.com/hal/elemento/compare/v1.1.2...v1.1.3
+
 [1.1.2]: https://github.com/hal/elemento/compare/v1.1.1...v1.1.2
+
 [1.1.1]: https://github.com/hal/elemento/compare/v1.1.0...v1.1.1
+
 [1.1.0]: https://github.com/hal/elemento/compare/v1.0.15...v1.1.0
+
 [1.0.15]: https://github.com/hal/elemento/compare/v1.0.14...v1.0.15
+
 [1.0.14]: https://github.com/hal/elemento/compare/v1.0.13...v1.0.14
+
 [1.0.13]: https://github.com/hal/elemento/compare/v1.0.12...v1.0.13
+
 [1.0.12]: https://github.com/hal/elemento/compare/v1.0.11...v1.0.12
+
 [1.0.11]: https://github.com/hal/elemento/compare/v1.0.10...v1.0.11
+
 [1.0.10]: https://github.com/hal/elemento/compare/v1.0.9...v1.0.10
+
 [1.0.9]: https://github.com/hal/elemento/compare/v1.0.8...v1.0.9
+
 [1.0.8]: https://github.com/hal/elemento/compare/v1.0.7...v1.0.8
+
 [1.0.7]: https://github.com/hal/elemento/compare/v1.0.3...v1.0.7
+
 [1.0.3]: https://github.com/hal/elemento/compare/v1.0.2...v1.0.3
+
 [1.0.2]: https://github.com/hal/elemento/compare/v1.0.1...v1.0.2
+
 [1.0.1]: https://github.com/hal/elemento/compare/v1.0.0...v1.0.1
+
 [1.0.0]: https://github.com/hal/elemento/compare/v0.9.6...v1.0.0
+
 [0.9.6]: https://github.com/hal/elemento/compare/v0.9.5...v0.9.6
+
 [0.9.5]: https://github.com/hal/elemento/compare/v0.9.3...v0.9.5
+
 [0.9.3]: https://github.com/hal/elemento/compare/v0.9.2...v0.9.3
+
 [0.9.2]: https://github.com/hal/elemento/compare/v0.9.1...v0.9.2
+
 [0.9.1]: https://github.com/hal/elemento/compare/v0.9.0...v0.9.1
+
 [0.9.0]: https://github.com/hal/elemento/compare/v0.8.7...v0.9.0
+
 [0.8.7]: https://github.com/hal/elemento/compare/v0.8.6...v0.8.7
+
 [0.8.6]: https://github.com/hal/elemento/compare/v0.8.5...v0.8.6
+
 [0.8.5]: https://github.com/hal/elemento/compare/v0.8.4...v0.8.5
+
 [0.8.4]: https://github.com/hal/elemento/compare/v0.8.3...v0.8.4
+
 [0.8.3]: https://github.com/hal/elemento/compare/v0.8.2...v0.8.3
+
 [0.8.2]: https://github.com/hal/elemento/compare/v0.8.1...v0.8.2
+
 [0.8.1]: https://github.com/hal/elemento/compare/v0.8.0...v0.8.1
+
 [0.8.0]: https://github.com/hal/elemento/compare/v0.7.1...v0.8.0
+
 [0.7.1]: https://github.com/hal/elemento/compare/v0.7.0...v0.7.1
+
 [0.7.0]: https://github.com/hal/elemento/compare/v0.6.2...v0.7.0
+
 [0.6.2]: https://github.com/hal/elemento/compare/v0.6.1...v0.6.2
+
 [0.6.1]: https://github.com/hal/elemento/compare/v0.6.0...v0.6.1
+
 [0.6.0]: https://github.com/hal/elemento/compare/v0.5.2...v0.6.0
+
 [0.5.2]: https://github.com/hal/elemento/compare/v0.5.1...v0.5.2
+
 [0.5.1]: https://github.com/hal/elemento/compare/v0.5.0...v0.5.1
+
 [0.5.0]: https://github.com/hal/elemento/compare/v0.4.2...v0.5.0
+
 [0.4.2]: https://github.com/hal/elemento/compare/vTemplate...v0.4.2

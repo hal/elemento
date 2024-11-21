@@ -23,7 +23,5 @@ class DomGlobal__Constants {
 
     static Crypto crypto;
 
-    static Navigator navigator;
-
     static Window window;
 }
