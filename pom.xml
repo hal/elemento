@@ -516,30 +516,30 @@
                                 </goals>
                                 <configuration>
                                     <target>
-                                        <copy todir="target/site/apidocs/org/jboss/elemento"
+                                        <copy todir="target/reports/apidocs/org/jboss/elemento"
                                               overwrite="true"
                                               failonerror="false">
-                                            <fileset dir="core/target/site/apidocs/org/jboss/elemento">
+                                            <fileset dir="core/target/reports/apidocs/org/jboss/elemento">
                                                 <exclude name="**/class-use/**"/>
                                                 <exclude name="package-*.html"/>
                                             </fileset>
-                                            <fileset dir="flow/target/site/apidocs/org/jboss/elemento">
+                                            <fileset dir="flow/target/reports/apidocs/org/jboss/elemento">
                                                 <exclude name="**/class-use/**"/>
                                                 <exclude name="package-*.html"/>
                                             </fileset>
-                                            <fileset dir="logger/target/site/apidocs/org/jboss/elemento">
+                                            <fileset dir="logger/target/reports/apidocs/org/jboss/elemento">
                                                 <exclude name="**/class-use/**"/>
                                                 <exclude name="package-*.html"/>
                                             </fileset>
-                                            <fileset dir="mathml/target/site/apidocs/org/jboss/elemento">
+                                            <fileset dir="mathml/target/reports/apidocs/org/jboss/elemento">
                                                 <exclude name="**/class-use/**"/>
                                                 <exclude name="package-*.html"/>
                                             </fileset>
-                                            <fileset dir="router/target/site/apidocs/org/jboss/elemento">
+                                            <fileset dir="router/target/reports/apidocs/org/jboss/elemento">
                                                 <exclude name="**/class-use/**"/>
                                                 <exclude name="package-*.html"/>
                                             </fileset>
-                                            <fileset dir="svg/target/site/apidocs/org/jboss/elemento">
+                                            <fileset dir="svg/target/reports/apidocs/org/jboss/elemento">
                                                 <exclude name="**/class-use/**"/>
                                                 <exclude name="package-*.html"/>
                                             </fileset>
