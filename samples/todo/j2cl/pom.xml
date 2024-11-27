@@ -98,7 +98,7 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>com.vertispan.j2cl</groupId>
+                <groupId>org.kie.j2cl.tools</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>
                 <configuration>
                     <initialScriptFilename>todo.j2cl.js</initialScriptFilename>

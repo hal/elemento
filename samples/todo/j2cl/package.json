@@ -11,8 +11,8 @@
     "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/j2cl/"
   },
   "devDependencies": {
-    "@parcel/reporter-cli": "^2.11.0",
-    "parcel": "^2.12.0",
+    "@parcel/reporter-cli": "^2.13.2",
+    "parcel": "^2.13.2",
     "parcel-resolver-ignore": "^2.2.0"
   },
   "dependencies": {

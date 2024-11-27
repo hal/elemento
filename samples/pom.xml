@@ -39,7 +39,7 @@
 
         <!-- Plugin versions -->
         <version.frontend.plugin>1.15.1</version.frontend.plugin>
-        <version.j2cl.plugin>0.22.0</version.j2cl.plugin>
+        <version.j2cl.plugin>0.23.2</version.j2cl.plugin>
 
         <!-- Build related -->
         <gwt.draftCompile>true</gwt.draftCompile>
@@ -99,7 +99,7 @@
                     <version>${version.frontend.plugin}</version>
                 </plugin>
                 <plugin>
-                    <groupId>com.vertispan.j2cl</groupId>
+                    <groupId>org.kie.j2cl.tools</groupId>
                     <artifactId>j2cl-maven-plugin</artifactId>
                     <version>${version.j2cl.plugin}</version>
                 </plugin>
