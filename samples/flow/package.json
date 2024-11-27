@@ -15,6 +15,6 @@
     "parcel-resolver-ignore": "^2.2.0"
   },
   "dependencies": {
-    "@patternfly/patternfly": "^5.2.1"
+    "@patternfly/patternfly": "^6.0.0"
   }
 }
