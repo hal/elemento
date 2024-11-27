@@ -15,11 +15,17 @@
  */
 package org.jboss.elemento;
 
-public enum ButtonType {
+import elemental2.dom.HTMLElement;
 
-    button,
+/**
+ * Provides methods and default implementations for modifying the visibility of an HTML element.
+ */
+public interface HTMLElementVisibilityMethods<E extends HTMLElement, B extends TypedBuilder<E, B>>
+        extends TypedBuilder<E, B>, IsElement<E> {
 
-    submit,
-
-    reset,
+    /** Modifies the {@code hidden} flag. */
+    default B hidden(boolean hidden) {
+        element().hidden = hidden;
+        return that();
+    }
 }

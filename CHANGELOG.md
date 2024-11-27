@@ -7,6 +7,70 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+> [!WARNING]
+> This release contains refactorings and deprecations that might break existing code.
+
+The refactoring should make the use case and scope of the builder-like classes, interfaces and methods more obvious. It
+introduces a common naming pattern for interfaces and classes:
+
+- Interface `[HTML|MathML|SVG]Element<Scope>Methods`: These interfaces contain default methods to work with a specific aspect
+  of an HTML, MathML or SVG element.
+
+  Examples are
+    - `ElementAttributeMethods`
+    - `HTMLElementDataMethods`
+    - `SVGElementStyleMethods`
+
+- Class `[HTML|MathML|SVG](Element|Container)Builder`: Concrete builders that encapsulate an HTML, MathML or SVG element. The builders implement the method interfaces to work with the element.
+
+  Examples are
+    - `HTMLElementBuilder`
+    - `HTMLInputElementBuilder`
+    - `SVGContainerBuilder`
+
+### Changed
+
+#### Core
+
+- `HasElement<E extends Element, B extends TypedBuilder<E, B>>` has been deprecated and is split into more specific interfaces:
+    - `ElementAttributeMethods<E, B>`
+    - `ElementClassListMethods<E, B>`
+    - `ElementConsumerMethods<E, B>`
+    - `ElementContainerMethods<E, B>`
+    - `ElementEventMethods<E, B>`
+    - `ElementIdMethods<E, B>`
+    - `ElementTextMethods<E, B>`
+
+- `HasHTMLElement<E extends Element, B extends TypedBuilder<E, B>>` has been deprecated and is split into more specific
+  interfaces:
+    - `HTMLElementAttributeMethods<E, B>`
+    - `HTMLElementDataMethods<E, B>`
+    - `HTMLElementStyleMethods<E, B>`
+    - `HTMLElementVisibilityMethods<E, B>`
+
+- `Container<E extends Element, B extends TypedBuilder<E, B>>` has been deprecated. It is replaced by
+  `ElementContainerMethods<E, B>`
+
+- `ElementsBag` has been deprecated. It can be replaced by using the normal collection API.
+
+- `Finder<E extends Element, B extends TypedBuilder<E, B>>` has been deprecated. It is replaced by `ElementQueryMethods<E, B>`
+
+- `HasInputElement<E extends HTMLInputElement, B extends TypedBuilder<E, B>>` and
+  `InputElementBuilder<E extends HTMLInputElement, B extends TypedBuilder<E, B>>` have been deprecated. They are replaced by
+  `HTMLInputElementBuilder<E, B>`.
+
+#### MathML
+
+- `HasMathMLElement<E extends MathMLElement, B extends TypedBuilder<E, B>>` has been deprecated and is replaced by
+  `MathMLElementStyleMethods<E, B>`:
+
+#### SVG
+
+- `HasSVGElement<E extends SVGElement, B extends TypedBuilder<E, B>>` has been deprecated and is replaced by more specific
+  interfaces:
+    - `SVGElementDataMethods<E, B>`
+    - `SVGElementStyleMethods<E, B>`
+
 ## [1.6.11] - 2024-11-21
 
 ### Upgrades
@@ -1023,174 +1087,176 @@ Switch to Apache2 license
 -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [Unreleased]: https://github.com/hal/elemento/compare/v1.6.11...HEAD
+
 [1.6.11]: https://github.com/hal/elemento/compare/v1.6.10...v1.6.11
+
 [1.6.10]: https://github.com/hal/elemento/compare/v1.6.9...v1.6.10
+
 [1.6.9]: https://github.com/hal/elemento/compare/v1.6.8...v1.6.9
+
 [1.6.8]: https://github.com/hal/elemento/compare/v1.6.7...v1.6.8
+
 [1.6.7]: https://github.com/hal/elemento/compare/v1.6.6...v1.6.7
+
 [1.6.6]: https://github.com/hal/elemento/compare/v1.6.5...v1.6.6
+
 [1.6.5]: https://github.com/hal/elemento/compare/v1.6.4...v1.6.5
+
 [1.6.4]: https://github.com/hal/elemento/compare/v1.6.3...v1.6.4
+
 [1.6.3]: https://github.com/hal/elemento/compare/v1.6.2...v1.6.3
+
 [1.6.2]: https://github.com/hal/elemento/compare/v1.6.1...v1.6.2
+
 [1.6.1]: https://github.com/hal/elemento/compare/v1.6.0...v1.6.1
+
 [1.6.0]: https://github.com/hal/elemento/compare/v1.5.1...v1.6.0
+
 [1.5.1]: https://github.com/hal/elemento/compare/v1.5.0...v1.5.1
+
 [1.5.0]: https://github.com/hal/elemento/compare/v1.4.12...v1.5.0
+
 [1.4.12]: https://github.com/hal/elemento/compare/v1.4.11...v1.4.12
+
 [1.4.11]: https://github.com/hal/elemento/compare/v1.4.10...v1.4.11
+
 [1.4.10]: https://github.com/hal/elemento/compare/v1.4.9...v1.4.10
+
 [1.4.9]: https://github.com/hal/elemento/compare/v1.4.8...v1.4.9
+
 [1.4.8]: https://github.com/hal/elemento/compare/v1.4.7...v1.4.8
+
 [1.4.7]: https://github.com/hal/elemento/compare/v1.4.6...v1.4.7
+
 [1.4.6]: https://github.com/hal/elemento/compare/v1.4.5...v1.4.6
+
 [1.4.5]: https://github.com/hal/elemento/compare/v1.4.4...v1.4.5
+
 [1.4.4]: https://github.com/hal/elemento/compare/v1.4.3...v1.4.4
+
 [1.4.3]: https://github.com/hal/elemento/compare/v1.4.2...v1.4.3
+
 [1.4.2]: https://github.com/hal/elemento/compare/v1.4.1...v1.4.2
+
 [1.4.1]: https://github.com/hal/elemento/compare/v1.4.0...v1.4.1
+
 [1.4.0]: https://github.com/hal/elemento/compare/v1.3.3...v1.4.0
+
 [1.3.3]: https://github.com/hal/elemento/compare/v1.3.2...v1.3.3
+
 [1.3.2]: https://github.com/hal/elemento/compare/v1.3.1...v1.3.2
+
 [1.3.1]: https://github.com/hal/elemento/compare/v1.3.0...v1.3.1
+
 [1.3.0]: https://github.com/hal/elemento/compare/v1.2.13...v1.3.0
+
 [1.2.13]: https://github.com/hal/elemento/compare/v1.2.12...v1.2.13
+
 [1.2.12]: https://github.com/hal/elemento/compare/v1.2.11...v1.2.12
+
 [1.2.11]: https://github.com/hal/elemento/compare/v1.2.10...v1.2.11
+
 [1.2.10]: https://github.com/hal/elemento/compare/v1.2.9...v1.2.10
+
 [1.2.9]: https://github.com/hal/elemento/compare/v1.2.8...v1.2.9
+
 [1.2.8]: https://github.com/hal/elemento/compare/v1.2.7...v1.2.8
+
 [1.2.7]: https://github.com/hal/elemento/compare/v1.2.6...v1.2.7
+
 [1.2.6]: https://github.com/hal/elemento/compare/v1.2.5...v1.2.6
+
 [1.2.5]: https://github.com/hal/elemento/compare/v1.2.4...v1.2.5
+
 [1.2.4]: https://github.com/hal/elemento/compare/v1.2.3...v1.2.4
+
 [1.2.3]: https://github.com/hal/elemento/compare/v1.2.2...v1.2.3
+
 [1.2.2]: https://github.com/hal/elemento/compare/v1.2.1...v1.2.2
+
 [1.2.1]: https://github.com/hal/elemento/compare/v1.2.0...v1.2.1
+
 [1.2.0]: https://github.com/hal/elemento/compare/v1.1.4...v1.2.0
+
 [1.1.4]: https://github.com/hal/elemento/compare/v1.1.3...v1.1.4
+
 [1.1.3]: https://github.com/hal/elemento/compare/v1.1.2...v1.1.3
+
 [1.1.2]: https://github.com/hal/elemento/compare/v1.1.1...v1.1.2
+
 [1.1.1]: https://github.com/hal/elemento/compare/v1.1.0...v1.1.1
+
 [1.1.0]: https://github.com/hal/elemento/compare/v1.0.15...v1.1.0
+
 [1.0.15]: https://github.com/hal/elemento/compare/v1.0.14...v1.0.15
+
 [1.0.14]: https://github.com/hal/elemento/compare/v1.0.13...v1.0.14
+
 [1.0.13]: https://github.com/hal/elemento/compare/v1.0.12...v1.0.13
+
 [1.0.12]: https://github.com/hal/elemento/compare/v1.0.11...v1.0.12
+
 [1.0.11]: https://github.com/hal/elemento/compare/v1.0.10...v1.0.11
+
 [1.0.10]: https://github.com/hal/elemento/compare/v1.0.9...v1.0.10
+
 [1.0.9]: https://github.com/hal/elemento/compare/v1.0.8...v1.0.9
+
 [1.0.8]: https://github.com/hal/elemento/compare/v1.0.7...v1.0.8
+
 [1.0.7]: https://github.com/hal/elemento/compare/v1.0.3...v1.0.7
+
 [1.0.3]: https://github.com/hal/elemento/compare/v1.0.2...v1.0.3
+
 [1.0.2]: https://github.com/hal/elemento/compare/v1.0.1...v1.0.2
+
 [1.0.1]: https://github.com/hal/elemento/compare/v1.0.0...v1.0.1
+
 [1.0.0]: https://github.com/hal/elemento/compare/v0.9.6...v1.0.0
+
 [0.9.6]: https://github.com/hal/elemento/compare/v0.9.5...v0.9.6
+
 [0.9.5]: https://github.com/hal/elemento/compare/v0.9.3...v0.9.5
+
 [0.9.3]: https://github.com/hal/elemento/compare/v0.9.2...v0.9.3
+
 [0.9.2]: https://github.com/hal/elemento/compare/v0.9.1...v0.9.2
+
 [0.9.1]: https://github.com/hal/elemento/compare/v0.9.0...v0.9.1
+
 [0.9.0]: https://github.com/hal/elemento/compare/v0.8.7...v0.9.0
+
 [0.8.7]: https://github.com/hal/elemento/compare/v0.8.6...v0.8.7
+
 [0.8.6]: https://github.com/hal/elemento/compare/v0.8.5...v0.8.6
+
 [0.8.5]: https://github.com/hal/elemento/compare/v0.8.4...v0.8.5
+
 [0.8.4]: https://github.com/hal/elemento/compare/v0.8.3...v0.8.4
+
 [0.8.3]: https://github.com/hal/elemento/compare/v0.8.2...v0.8.3
+
 [0.8.2]: https://github.com/hal/elemento/compare/v0.8.1...v0.8.2
+
 [0.8.1]: https://github.com/hal/elemento/compare/v0.8.0...v0.8.1
+
 [0.8.0]: https://github.com/hal/elemento/compare/v0.7.1...v0.8.0
+
 [0.7.1]: https://github.com/hal/elemento/compare/v0.7.0...v0.7.1
+
 [0.7.0]: https://github.com/hal/elemento/compare/v0.6.2...v0.7.0
+
 [0.6.2]: https://github.com/hal/elemento/compare/v0.6.1...v0.6.2
+
 [0.6.1]: https://github.com/hal/elemento/compare/v0.6.0...v0.6.1
+
 [0.6.0]: https://github.com/hal/elemento/compare/v0.5.2...v0.6.0
+
 [0.5.2]: https://github.com/hal/elemento/compare/v0.5.1...v0.5.2
+
 [0.5.1]: https://github.com/hal/elemento/compare/v0.5.0...v0.5.1
+
 [0.5.0]: https://github.com/hal/elemento/compare/v0.4.2...v0.5.0
+
 [0.4.2]: https://github.com/hal/elemento/compare/vTemplate...v0.4.2

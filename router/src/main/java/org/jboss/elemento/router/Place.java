@@ -19,11 +19,11 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 import org.jboss.elemento.By;
-import org.jboss.elemento.Elements;
 
 import elemental2.dom.HTMLElement;
 
 import static elemental2.dom.DomGlobal.document;
+import static org.jboss.elemento.Elements.querySelector;
 import static org.jboss.elemento.router.Parameter.hasParameter;
 import static org.jboss.elemento.router.Path.normalize;
 
@@ -114,11 +114,11 @@ public class Place {
     }
 
     public Place root(String selector) {
-        return root(() -> Elements.find(document, By.selector(selector)));
+        return root(() -> querySelector(document, By.selector(selector)));
     }
 
     public Place root(By selector) {
-        return root(() -> Elements.find(document, selector));
+        return root(() -> querySelector(document, selector));
     }
 
     public Place root(HTMLElement element) {

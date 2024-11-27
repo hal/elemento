@@ -13,22 +13,23 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import elemental2.dom.HTMLUListElement;
+import org.jboss.elemento.By;
 
-import static org.jboss.elemento.Elements.ul;
+import elemental2.dom.HTMLElement;
+
+import static org.jboss.elemento.By.AttributeOperator.STARTS_WITH;
+import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.body;
 
 @SuppressWarnings("unused")
-public class ContainerDemo {
+public class ElementQueryDemo {
 
-    public void addAllDemo() {
-        // @start region = addAll
-        TodoRepository repository = new TodoRepository();
-        TodoElement[] elements = repository.todos().stream()
-                .map(TodoElement::new)
-                .toArray(TodoElement[]::new);
-        HTMLUListElement ul = ul()
-                .addAll(elements)
-                .element();
-        // @end region = addAll
+    public void querySelectorAllDemo() {
+        // @start region = findAll
+        By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "https://"));
+        for (HTMLElement element : body().querySelectorAll(selector)) {
+            a(element).css("external");
+        }
+        // @end region = findAll
     }
 }

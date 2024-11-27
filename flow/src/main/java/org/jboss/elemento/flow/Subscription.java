@@ -20,8 +20,8 @@ package org.jboss.elemento.flow;
  * <p>
  * <b>Error Handling</b><br/>
  * When using the methods in this interface, errors in tasks are caught and are stored in the {@linkplain FlowContext context}.
- * The context provides methods to check if the execution was {@linkplain FlowContext#successful() successful}, ran into a
- * {@linkplain FlowContext#timeout() timeout} or {@linkplain FlowContext#failure() failed} with an
+ * The context provides methods to check if the execution was {@linkplain FlowContext#isSuccessful() successful}, ran into a
+ * {@linkplain FlowContext#isTimeout() timeout} or {@linkplain FlowContext#failure() failed} with an
  * {@linkplain FlowContext#failureReason() error}. This is different from the methods in {@link Promisable} that propagates
  * errors to the closest catch handler.
  *

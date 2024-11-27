@@ -15,11 +15,22 @@
  */
 package org.jboss.elemento;
 
-public enum ButtonType {
+import elemental2.dom.Element;
 
-    button,
+/**
+ * Provides methods and default implementations for modifying element IDs.
+ */
+public interface ElementIdMethods<E extends Element, B extends TypedBuilder<E, B>>
+        extends TypedBuilder<E, B>, IsElement<E> {
 
-    submit,
+    /** Generates and sets a unique id on the element. */
+    default B uniqueId() {
+        return id(Id.unique());
+    }
 
-    reset,
+    /** Sets the id on the element. */
+    default B id(String id) {
+        element().id = id;
+        return that();
+    }
 }

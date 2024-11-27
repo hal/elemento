@@ -22,10 +22,9 @@ import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 
 /**
- * Class to collect {@link Element}s
- * <p>
- * {@snippet class = ElementsBagDemo region = bag}
+ * @deprecated Should be replaced by using the collection API.
  */
+@Deprecated
 public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag> {
 
     private final IterableImpl iterable;
@@ -44,7 +43,7 @@ public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag>
         return iterable;
     }
 
-    // ------------------------------------------------------ mirror add() methods from Container
+    // ------------------------------------------------------ mirror add() methods from ElementContainerBuilder
 
     /** Adds the given element. */
     public ElementsBag add(Element element) {

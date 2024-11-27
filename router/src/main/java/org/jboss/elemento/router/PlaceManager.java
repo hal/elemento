@@ -45,6 +45,7 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.pre;
+import static org.jboss.elemento.Elements.querySelector;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.click;
@@ -104,11 +105,11 @@ public class PlaceManager {
     }
 
     public PlaceManager root(String selector) {
-        return root(() -> Elements.find(document, By.selector(selector)));
+        return root(() -> querySelector(document, By.selector(selector)));
     }
 
     public PlaceManager root(By selector) {
-        return root(() -> Elements.find(document, selector));
+        return root(() -> querySelector(document, selector));
     }
 
     public PlaceManager root(HTMLElement element) {

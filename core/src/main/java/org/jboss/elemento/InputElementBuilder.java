@@ -19,7 +19,10 @@ import elemental2.dom.HTMLInputElement;
 
 import static java.util.Objects.requireNonNull;
 
-/** Builder for input elements. */
+/**
+ * @deprecated Replaced by {@link HTMLInputElementBuilder}
+ */
+@Deprecated
 public class InputElementBuilder<E extends HTMLInputElement>
         implements HasElement<E, InputElementBuilder<E>>, HasHTMLElement<E, InputElementBuilder<E>>,
         HasInputElement<E, InputElementBuilder<E>>, Finder<E> {

@@ -40,7 +40,7 @@ HandlerRegistration handler = bind(listItem, click, event -> alert("Clicked"));
 
 The latter approach returns `org.gwtproject.event.shared.HandlerRegistration` which you can use to remove the handler again.
 
-In order to make it easier to work with keyboard events, Elemento provides an [enum](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Key.html) with the most common keyboard codes:
+To make it easier to work with keyboard events, Elemento provides an [enum](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Key.html) with the most common keyboard codes:
 
 ```java
 import elemental2.dom.KeyboardEvent;

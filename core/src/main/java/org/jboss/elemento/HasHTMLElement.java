@@ -18,8 +18,15 @@ package org.jboss.elemento;
 import elemental2.dom.HTMLElement;
 
 /**
- * Provides methods and default implementations for modifying HTML elements.
+ * @deprecated This interface is too broad. It is replaced with more specific interfaces:
+ * <ul>
+ *     <li>{@link HTMLElementAttributeMethods}</li>
+ *     <li>{@link HTMLElementDataMethods}</li>
+ *     <li>{@link HTMLElementStyleMethods}</li>
+ *     <li>{@link HTMLElementVisibilityMethods}</li>
+ * </ul>
  */
+@Deprecated
 public interface HasHTMLElement<E extends HTMLElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 
@@ -70,7 +77,7 @@ public interface HasHTMLElement<E extends HTMLElement, B extends TypedBuilder<E,
      * Adds a {@code data-} attribute to the element.
      *
      * @param name The name of the data attribute w/o the {@code data-} prefix. However, it won't be added if it's already
-     *        present.
+     *             present.
      */
     default B data(String name, String value) {
         element().dataset.set(name.replaceFirst("^data-", ""), value);

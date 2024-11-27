@@ -13,21 +13,27 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento.mathml;
+package org.jboss.elemento;
 
-import org.jboss.elemento.IsElement;
-import org.jboss.elemento.TypedBuilder;
+import java.util.function.Consumer;
+
+import elemental2.dom.Element;
 
 /**
- * @deprecated Replaced by {@link MathMLElementStyleMethods}
+ * Provides methods and default implementations for modifying the element using consumers.
  */
-@Deprecated
-public interface HasMathMLElement<E extends MathMLElement, B extends TypedBuilder<E, B>>
+public interface ElementConsumerMethods<E extends Element, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 
-    /** Sets the CSS style of the element. */
-    default B style(String style) {
-        element().style.cssText = style;
+    /** Provides a way to modify the wrapped element using the specified consumer. */
+    default B apply(Consumer<E> consumer) {
+        consumer.accept(element());
+        return that();
+    }
+
+    /** Executes code in the context of this builder. */
+    default B run(Consumer<B> consumer) {
+        consumer.accept(that());
         return that();
     }
 }

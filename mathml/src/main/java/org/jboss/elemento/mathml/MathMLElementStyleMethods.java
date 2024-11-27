@@ -13,23 +13,20 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import org.jboss.elemento.By;
+package org.jboss.elemento.mathml;
 
-import elemental2.dom.HTMLElement;
+import org.jboss.elemento.IsElement;
+import org.jboss.elemento.TypedBuilder;
 
-import static org.jboss.elemento.By.AttributeOperator.STARTS_WITH;
-import static org.jboss.elemento.Elements.a;
-import static org.jboss.elemento.Elements.body;
+/**
+ * Provides methods and default implementations for modifying MathML elements.
+ */
+public interface MathMLElementStyleMethods<E extends MathMLElement, B extends TypedBuilder<E, B>>
+        extends TypedBuilder<E, B>, IsElement<E> {
 
-@SuppressWarnings("unused")
-public class FinderDemo {
-
-    public void findAllDemo() {
-        // @start region = findAll
-        By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "https://"));
-        for (HTMLElement element : body().findAll(selector)) {
-            a(element).css("external");
-        }
-        // @end region = findAll
+    /** Sets the CSS style of the element. */
+    default B style(String style) {
+        element().style.cssText = style;
+        return that();
     }
 }

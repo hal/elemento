@@ -19,10 +19,9 @@ import org.jboss.elemento.IsElement;
 import org.jboss.elemento.TypedBuilder;
 
 /**
- * @deprecated Replaced by {@link SVGElementDataMethods} and {@link SVGElementStyleMethods}.
+ * Provides methods and default implementations for modifying the style of SVG elements.
  */
-@Deprecated
-public interface HasSVGElement<E extends SVGElement, B extends TypedBuilder<E, B>>
+public interface SVGElementStyleMethods<E extends SVGElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 
     /** Appends the given style to the existing styles of this element. */
@@ -59,17 +58,6 @@ public interface HasSVGElement<E extends SVGElement, B extends TypedBuilder<E, B
     default B style(String property, String value, boolean important) {
         String priority = important ? "important" : "";
         element().style.setProperty(property, value, priority);
-        return that();
-    }
-
-    /**
-     * Adds a {@code data-} attribute to the element.
-     *
-     * @param name The name of the data attributes w/o the {@code data-} prefix. However, it won't be added if it's already
-     *             present.
-     */
-    default B data(String name, String value) {
-        element().dataset.set(name.replaceFirst("^data-", ""), value);
         return that();
     }
 }

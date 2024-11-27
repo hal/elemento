@@ -33,7 +33,6 @@ import elemental2.dom.HTMLUListElement;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.button;
 import static org.jboss.elemento.Elements.children;
-import static org.jboss.elemento.Elements.find;
 import static org.jboss.elemento.Elements.footer;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.header;
@@ -42,6 +41,7 @@ import static org.jboss.elemento.Elements.input;
 import static org.jboss.elemento.Elements.iterator;
 import static org.jboss.elemento.Elements.label;
 import static org.jboss.elemento.Elements.li;
+import static org.jboss.elemento.Elements.querySelector;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.section;
 import static org.jboss.elemento.Elements.setVisible;
@@ -162,7 +162,7 @@ public class ApplicationElement implements IsElement<HTMLElement> {
     private void toggleAll() {
         for (HTMLElement li : children(list)) {
             toggle(li, "completed", toggleAll.checked);
-            HTMLInputElement cb = find(li, By.classname("toggle"));
+            HTMLInputElement cb = querySelector(li, By.classname("toggle"));
             if (cb != null) {
                 cb.checked = toggleAll.checked;
             }

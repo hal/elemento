@@ -22,10 +22,11 @@ import elemental2.dom.HTMLElement;
 import elemental2.dom.Node;
 
 /**
- * @deprecated Replaced by {@link ElementContainerMethods}
+ * Provides methods and default implementations for adding elements.
+ * <p>
+ * {@snippet class = ElementContainerDemo region = addAll}
  */
-@Deprecated
-public interface Container<E extends Element, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>, IsElement<E> {
+public interface ElementContainerMethods<E extends Element, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>, IsElement<E> {
 
     /** Adds the given node. */
     default B add(Node node) {

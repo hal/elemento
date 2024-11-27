@@ -20,8 +20,18 @@ import elemental2.dom.HTMLElement;
 import static java.util.Objects.requireNonNull;
 
 /** Builder for simple HTML elements. */
-public class HTMLElementBuilder<E extends HTMLElement>
-        implements HasElement<E, HTMLElementBuilder<E>>, HasHTMLElement<E, HTMLElementBuilder<E>>, Finder<E> {
+public class HTMLElementBuilder<E extends HTMLElement> implements
+        ElementAttributeMethods<E, HTMLElementBuilder<E>>,
+        ElementClassListMethods<E, HTMLElementBuilder<E>>,
+        ElementConsumerMethods<E, HTMLElementBuilder<E>>,
+        ElementEventMethods<E, HTMLElementBuilder<E>>,
+        ElementIdMethods<E, HTMLElementBuilder<E>>,
+        ElementQueryMethods<E>,
+        ElementTextMethods<E, HTMLElementBuilder<E>>,
+        HTMLElementAttributeMethods<E, HTMLElementBuilder<E>>,
+        HTMLElementDataMethods<E, HTMLElementBuilder<E>>,
+        HTMLElementStyleMethods<E, HTMLElementBuilder<E>>,
+        HTMLElementVisibilityMethods<E, HTMLElementBuilder<E>> {
 
     private final E element;
 

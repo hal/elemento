@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento.svg;
+package org.jboss.elemento.mathml;
 
 import org.jboss.elemento.ElementAttributeMethods;
 import org.jboss.elemento.ElementClassListMethods;
@@ -29,28 +29,27 @@ import static java.util.Objects.requireNonNull;
 /**
  * Builder for container-like SVG elements.
  * <p>
- * {@snippet class = SVGDemo region = svg}
+ * {@snippet class = MathMLDemo region = math}
  */
-public class SVGContainerBuilder<E extends SVGElement> implements
-        ElementAttributeMethods<E, SVGContainerBuilder<E>>,
-        ElementClassListMethods<E, SVGContainerBuilder<E>>,
-        ElementConsumerMethods<E, SVGContainerBuilder<E>>,
-        ElementContainerMethods<E, SVGContainerBuilder<E>>,
-        ElementEventMethods<E, SVGContainerBuilder<E>>,
-        ElementIdMethods<E, SVGContainerBuilder<E>>,
+public class MathMLContainerMethods<E extends MathMLElement> implements
+        ElementAttributeMethods<E, MathMLContainerMethods<E>>,
+        ElementClassListMethods<E, MathMLContainerMethods<E>>,
+        ElementConsumerMethods<E, MathMLContainerMethods<E>>,
+        ElementContainerMethods<E, MathMLContainerMethods<E>>,
+        ElementEventMethods<E, MathMLContainerMethods<E>>,
+        ElementIdMethods<E, MathMLContainerMethods<E>>,
         ElementQueryMethods<E>,
-        ElementTextMethods<E, SVGContainerBuilder<E>>,
-        SVGElementDataMethods<E, SVGContainerBuilder<E>>,
-        SVGElementStyleMethods<E, SVGContainerBuilder<E>> {
+        ElementTextMethods<E, MathMLContainerMethods<E>>,
+        MathMLElementStyleMethods<E, MathMLContainerMethods<E>> {
 
     private final E element;
 
-    public SVGContainerBuilder(E element) {
+    public MathMLContainerMethods(E element) {
         this.element = requireNonNull(element, "element required");
     }
 
     @Override
-    public SVGContainerBuilder<E> that() {
+    public MathMLContainerMethods<E> that() {
         return this;
     }
 

@@ -840,21 +840,21 @@ public final class Elements {
         return wrapHtmlContainer(cast(element));
     }
 
-    public static InputElementBuilder<HTMLInputElement> input(InputType type) {
+    public static HTMLInputElementBuilder<HTMLInputElement> input(InputType type) {
         return input(type.name());
     }
 
-    public static InputElementBuilder<HTMLInputElement> input(String type) {
+    public static HTMLInputElementBuilder<HTMLInputElement> input(String type) {
         return input(type, HTMLInputElement.class);
     }
 
-    public static <E extends HTMLInputElement> InputElementBuilder<E> input(String type, Class<E> jType) {
+    public static <E extends HTMLInputElement> HTMLInputElementBuilder<E> input(String type, Class<E> jType) {
         E el = createHtmlElement("input", jType);
         el.type = type;
-        return new InputElementBuilder<>(el);
+        return new HTMLInputElementBuilder<>(el);
     }
 
-    public static InputElementBuilder<HTMLInputElement> input(Element element) {
+    public static HTMLInputElementBuilder<HTMLInputElement> input(Element element) {
         return wrapInputElement(cast(element));
     }
 
@@ -949,15 +949,6 @@ public final class Elements {
     // ------------------------------------------------------ factories & wrappers
 
     /**
-     * Returns a builder to collect {@link HTMLElement}s.
-     * <p>
-     * {@snippet class = ElementsBagDemo region = bag}
-     */
-    public static ElementsBag bag() {
-        return new ElementsBag();
-    }
-
-    /**
      * Returns a builder for the specified HTML element.
      */
     public static <E extends HTMLElement> HTMLElementBuilder<E> htmlElement(String element, Class<E> type) {
@@ -974,17 +965,17 @@ public final class Elements {
     /**
      * Returns a builder for the specified input element.
      */
-    public static <E extends HTMLInputElement> InputElementBuilder<E> inputElement(String type, Class<E> jType) {
+    public static <E extends HTMLInputElement> HTMLInputElementBuilder<E> inputElement(String type, Class<E> jType) {
         E input = createHtmlElement("input", jType);
         input.type = type;
-        return new InputElementBuilder<>(input);
+        return new HTMLInputElementBuilder<>(input);
     }
 
     /**
      * Returns a builder for the existing input element.
      */
-    public static <E extends HTMLInputElement> InputElementBuilder<E> wrapInputElement(E element) {
-        return new InputElementBuilder<>(element);
+    public static <E extends HTMLInputElement> HTMLInputElementBuilder<E> wrapInputElement(E element) {
+        return new HTMLInputElementBuilder<>(element);
     }
 
     /**
@@ -1008,12 +999,12 @@ public final class Elements {
         return cast(document.createElement(element));
     }
 
-    // ------------------------------------------------------ finder methods
+    // ------------------------------------------------------ query methods
 
     /**
      * Finds all HTML elements for the given selector.
      */
-    public static Iterable<HTMLElement> findAll(Node node, By selector) {
+    public static Iterable<HTMLElement> querySelectorAll(Node node, By selector) {
         if (node != null) {
             NodeList<Element> nodes = node.querySelectorAll(selector.selector());
             JsArray<HTMLElement> htmlElements = new JsArray<>();
@@ -1031,17 +1022,17 @@ public final class Elements {
     /**
      * Finds all HTML elements for the given selector.
      */
-    public static <E extends HTMLElement> Iterable<HTMLElement> findAll(IsElement<E> element, By selector) {
+    public static <E extends HTMLElement> Iterable<HTMLElement> querySelectorAll(IsElement<E> element, By selector) {
         if (element != null) {
-            return findAll(element.element(), selector);
+            return querySelectorAll(element.element(), selector);
         }
         return emptyList();
     }
 
     /**
-     * Finds a single HTML elements for the given selector.
+     * Finds a single HTML element for the given selector.
      */
-    public static <E extends HTMLElement> E find(Node node, By selector) {
+    public static <E extends HTMLElement> E querySelector(Node node, By selector) {
         if (node != null) {
             return cast(node.querySelector(selector.selector()));
         }
@@ -1049,11 +1040,11 @@ public final class Elements {
     }
 
     /**
-     * Finds a single HTML elements for the given selector.
+     * Finds a single HTML element for the given selector.
      */
-    public static <E extends HTMLElement, F extends HTMLElement> F find(IsElement<E> element, By selector) {
+    public static <E extends HTMLElement, F extends HTMLElement> F querySelector(IsElement<E> element, By selector) {
         if (element != null) {
-            return find(element.element(), selector);
+            return querySelector(element.element(), selector);
         }
         return null;
     }
@@ -1121,28 +1112,28 @@ public final class Elements {
     // ------------------------------------------------------ iterable methods
 
     /**
-     * Returns an iterable for the elements in the given array-like.
+     * Returns an iterable interface for the elements in the given array-like.
      */
     public static <E> Iterable<E> elements(JsArrayLike<E> nodes) {
         return () -> iterator(nodes);
     }
 
     /**
-     * Returns an iterable for the child nodes of the given parent node.
+     * Returns an iterable interface for the child nodes of the given parent node.
      */
     public static Iterable<Node> children(Node parent) {
         return () -> iterator(parent);
     }
 
     /**
-     * Returns an iterable for the child elements of the given parent element.
+     * Returns an iterable interface for the child elements of the given parent element.
      */
     public static Iterable<HTMLElement> children(HTMLElement parent) {
         return () -> iterator(parent);
     }
 
     /**
-     * Returns an iterable for the child elements of the given parent element.
+     * Returns an iterable interface for the child elements of the given parent element.
      */
     public static <E extends HTMLElement> Iterable<HTMLElement> children(IsElement<E> parent) {
         return () -> iterator(parent);
@@ -1223,8 +1214,8 @@ public final class Elements {
     // ------------------------------------------------------ append, insert & remove methods
 
     /**
-     * Appends element {@code child} to element {@code parent} if not already present. If parent already contains child, this
-     * method does nothing.
+     * Appends element {@code child} to element {@code parent} if not already present. If a parent already contains a child,
+     * this method does nothing.
      */
     public static void lazyAppend(Element parent, Element child) {
         if (parent != null && child != null && !parent.contains(child)) {
@@ -1233,8 +1224,8 @@ public final class Elements {
     }
 
     /**
-     * Appends element {@code child} to element {@code parent} if not already present. If parent already contains child, this
-     * method does nothing.
+     * Appends element {@code child} to element {@code parent} if not already present. If a parent already contains a child,
+     * this method does nothing.
      */
     public static <E extends HTMLElement> void lazyAppend(Element parent, IsElement<E> child) {
         if (parent != null && child != null) {
@@ -1360,7 +1351,7 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} as first element into {@code parent}.
+     * Inserts element {@code newElement} as the first element into {@code parent}.
      */
     public static void insertFirst(Element parent, Element newElement) {
         if (parent != null && newElement != null) {
@@ -1369,7 +1360,7 @@ public final class Elements {
     }
 
     /**
-     * Inserts element {@code newElement} as first element into {@code parent}.
+     * Inserts element {@code newElement} as the first element into {@code parent}.
      */
     public static <E extends HTMLElement> void insertFirst(Element parent, IsElement<E> newElement) {
         if (parent != null && newElement != null) {
@@ -1475,7 +1466,7 @@ public final class Elements {
 
     /**
      * Registers a callback when an element is appended to the document body. Note that the callback will be called only once,
-     * if the element is appended more than once a new callback should be registered.
+     * if the element is appended more than once, a new callback should be registered.
      *
      * @param element  the HTML element which is going to be added to the body
      * @param callback {@link ObserverCallback}
@@ -1488,7 +1479,7 @@ public final class Elements {
 
     /**
      * Registers a callback when an element is appended to the document body. Note that the callback will be called only once,
-     * if the element is appended more than once a new callback should be registered.
+     * if the element is appended more than once, a new callback should be registered.
      *
      * @param element  the element which is going to be added to the body
      * @param callback {@link ObserverCallback}
@@ -1501,7 +1492,7 @@ public final class Elements {
 
     /**
      * Registers a callback when an element is removed from the document body. Note that the callback will be called only once,
-     * if the element is removed and re-appended a new callback should be registered.
+     * if the element is removed and re-appended, a new callback should be registered.
      *
      * @param element  the HTML element which is going to be removed from the body
      * @param callback {@link ObserverCallback}
@@ -1514,7 +1505,7 @@ public final class Elements {
 
     /**
      * Registers a callback when an element is removed from the document body. Note that the callback will be called only once,
-     * if the element is removed and re-appended a new callback should be registered.
+     * if the element is removed and re-appended, a new callback should be registered.
      *
      * @param element  the element which is going to be removed from the body
      * @param callback {@link ObserverCallback}
@@ -1609,8 +1600,8 @@ public final class Elements {
      * function will return true even if only part of the element is in view.
      *
      * @param container The container to check if the element is in view of.
-     * @param element   The element to check if it is view
-     * @param partial   true if partial view is allowed
+     * @param element   The element to check if it is in view
+     * @param partial   true if a partial view is allowed
      * @return {@code true} if the component is in view.
      */
     public static boolean isElementInView(HTMLElement container, HTMLElement element, boolean partial) {
@@ -1740,7 +1731,7 @@ public final class Elements {
      * Returns the text content of the given HTMLElement.
      *
      * @param element The HTMLElement to retrieve the text content from.
-     * @return The text content of the HTMLElement. If there is a text node present, returns the value of the text node. If
+     * @return The text content of the HTMLElement. If there is a text node present, it returns the value of the text node. If
      * there is no text node, returns the text content of the element.
      */
     public static String textNode(Element element) {
@@ -1846,6 +1837,11 @@ public final class Elements {
 
     // ------------------------------------------------------ deprecated
 
+    @Deprecated
+    public static ElementsBag bag() {
+        return new ElementsBag();
+    }
+
     /**
      * @deprecated Replaced bv {@link Id#unique()}
      */
@@ -1868,6 +1864,38 @@ public final class Elements {
     @Deprecated
     public static String buildId(String id, String... additionalIds) {
         return Id.build(id, additionalIds);
+    }
+
+    /**
+     * @deprecated Replaced by {@link #querySelectorAll(Node, By)}
+     */
+    @Deprecated
+    public static Iterable<HTMLElement> findAll(Node node, By selector) {
+        return querySelectorAll(node, selector);
+    }
+
+    /**
+     * @deprecated Replaced by {@link #querySelectorAll(IsElement, By)}
+     */
+    @Deprecated
+    public static <E extends HTMLElement> Iterable<HTMLElement> findAll(IsElement<E> element, By selector) {
+        return querySelectorAll(element.element(), selector);
+    }
+
+    /**
+     * @deprecated Replaced by {@link #querySelector(Node, By)}
+     */
+    @Deprecated
+    public static <E extends HTMLElement> E find(Node node, By selector) {
+        return querySelector(node, selector);
+    }
+
+    /**
+     * @deprecated Replaced by {@link #querySelector(IsElement, By)}
+     */
+    @Deprecated
+    public static <E extends HTMLElement, F extends HTMLElement> F find(IsElement<E> element, By selector) {
+        return querySelector(element.element(), selector);
     }
 
     // ------------------------------------------------------ instance
@@ -1953,7 +1981,7 @@ public final class Elements {
         }
     }
 
-    // This should be Iterator<Element>, but it was used frequently as HTMLElement, so to be more user-friendly the
+    // This should be Iterator<Element>, but it was used frequently as HTMLElement, so to be more user-friendly, the
     // cast is forced, not sure about the implication bc not sure what elements can be Element and no HTMLElement
     private static class JsArrayElementIterator implements Iterator<HTMLElement> {
 

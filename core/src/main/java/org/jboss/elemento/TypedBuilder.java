@@ -18,6 +18,6 @@ package org.jboss.elemento;
 /** Base interface for all typed builders. */
 public interface TypedBuilder<T, B extends TypedBuilder<T, B>> {
 
-    /** In order to make builders work with inheritance, sub-builders must return a reference to their instance. */
+    /** To make builders work with inheritance, sub-builders must return a reference to their instance. */
     B that();
 }

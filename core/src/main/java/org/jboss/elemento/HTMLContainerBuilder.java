@@ -20,9 +20,19 @@ import elemental2.dom.HTMLElement;
 import static java.util.Objects.requireNonNull;
 
 /** Builder for container-like HTML elements. */
-public class HTMLContainerBuilder<E extends HTMLElement>
-        implements HasElement<E, HTMLContainerBuilder<E>>, HasHTMLElement<E, HTMLContainerBuilder<E>>, Finder<E>,
-        Container<E, HTMLContainerBuilder<E>> {
+public class HTMLContainerBuilder<E extends HTMLElement> implements
+        ElementAttributeMethods<E, HTMLContainerBuilder<E>>,
+        ElementClassListMethods<E, HTMLContainerBuilder<E>>,
+        ElementContainerMethods<E, HTMLContainerBuilder<E>>,
+        ElementConsumerMethods<E, HTMLContainerBuilder<E>>,
+        ElementEventMethods<E, HTMLContainerBuilder<E>>,
+        ElementIdMethods<E, HTMLContainerBuilder<E>>,
+        ElementQueryMethods<E>,
+        ElementTextMethods<E, HTMLContainerBuilder<E>>,
+        HTMLElementAttributeMethods<E, HTMLContainerBuilder<E>>,
+        HTMLElementDataMethods<E, HTMLContainerBuilder<E>>,
+        HTMLElementStyleMethods<E, HTMLContainerBuilder<E>>,
+        HTMLElementVisibilityMethods<E, HTMLContainerBuilder<E>> {
 
     private final E element;
 

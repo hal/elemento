@@ -15,8 +15,13 @@
  */
 package org.jboss.elemento.svg;
 
-import org.jboss.elemento.Finder;
-import org.jboss.elemento.HasElement;
+import org.jboss.elemento.ElementAttributeMethods;
+import org.jboss.elemento.ElementClassListMethods;
+import org.jboss.elemento.ElementConsumerMethods;
+import org.jboss.elemento.ElementEventMethods;
+import org.jboss.elemento.ElementIdMethods;
+import org.jboss.elemento.ElementQueryMethods;
+import org.jboss.elemento.ElementTextMethods;
 
 import static java.util.Objects.requireNonNull;
 
@@ -25,8 +30,16 @@ import static java.util.Objects.requireNonNull;
  * <p>
  * {@snippet class = SVGDemo region = svg}
  */
-public class SVGElementBuilder<E extends SVGElement>
-        implements HasElement<E, SVGElementBuilder<E>>, HasSVGElement<E, SVGElementBuilder<E>>, Finder<E> {
+public class SVGElementBuilder<E extends SVGElement> implements
+        ElementAttributeMethods<E, SVGElementBuilder<E>>,
+        ElementClassListMethods<E, SVGElementBuilder<E>>,
+        ElementConsumerMethods<E, SVGElementBuilder<E>>,
+        ElementEventMethods<E, SVGElementBuilder<E>>,
+        ElementIdMethods<E, SVGElementBuilder<E>>,
+        ElementQueryMethods<E>,
+        ElementTextMethods<E, SVGElementBuilder<E>>,
+        SVGElementDataMethods<E, SVGElementBuilder<E>>,
+        SVGElementStyleMethods<E, SVGElementBuilder<E>> {
 
     private final E element;
 

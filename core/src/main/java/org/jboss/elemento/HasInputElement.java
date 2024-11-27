@@ -18,8 +18,9 @@ package org.jboss.elemento;
 import elemental2.dom.HTMLInputElement;
 
 /**
- * Provides methods and default implementations for modifying input elements.
+ * @deprecated Replaced by {@link HTMLInputElementBuilder}
  */
+@Deprecated
 public interface HasInputElement<E extends HTMLInputElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 

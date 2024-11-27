@@ -45,7 +45,7 @@ public abstract class LazyElement<E extends HTMLElement> implements IsElement<E>
     protected abstract E createElement();
 
     /** @return whether the element has already been created. */
-    protected boolean initialized() {
+    protected boolean isInitialized() {
         return element != null;
     }
 }

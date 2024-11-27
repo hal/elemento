@@ -18,24 +18,23 @@ package org.jboss.elemento;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 
-import static org.jboss.elemento.Elements.querySelector;
-
 /**
- * @deprecated Replaced by {@link ElementQueryMethods}.
+ * Provides methods and default implementations for finding elements.
+ * <p>
+ * {@snippet class = ElementQueryDemo region = querySelectorAllDemo}
  */
-@Deprecated
-public interface Finder<E extends Element> extends IsElement<E> {
+public interface ElementQueryMethods<E extends Element> extends IsElement<E> {
 
     /**
      * Finds all HTML elements for the given selector.
      */
-    default Iterable<HTMLElement> findAll(By selector) {
-        return Elements.findAll(element(), selector);
+    default Iterable<HTMLElement> querySelectorAll(By selector) {
+        return Elements.querySelectorAll(element(), selector);
     }
 
     /** Finds a single HTML element for the given selector. */
-    default <F extends HTMLElement> F find(By selector) {
-        return querySelector(element(), selector);
+    default <F extends HTMLElement> F querySelector(By selector) {
+        return Elements.querySelector(element(), selector);
     }
 
     /** Finds the closest HTML element for the given selector. */

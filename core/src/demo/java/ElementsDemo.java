@@ -14,22 +14,23 @@
  *  limitations under the License.
  */
 
-import elemental2.dom.HTMLElement;
-import elemental2.dom.HTMLLIElement;
+import java.util.List;
+
 import org.jboss.elemento.By;
 
-import java.util.List;
+import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLLIElement;
 
 import static java.util.stream.Collectors.toList;
 import static org.jboss.elemento.Elements.asHtmlElement;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.Elements.button;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.find;
 import static org.jboss.elemento.Elements.htmlElements;
 import static org.jboss.elemento.Elements.input;
 import static org.jboss.elemento.Elements.label;
 import static org.jboss.elemento.Elements.li;
+import static org.jboss.elemento.Elements.querySelector;
 import static org.jboss.elemento.Elements.section;
 import static org.jboss.elemento.Elements.stream;
 import static org.jboss.elemento.Elements.ul;
@@ -87,7 +88,7 @@ public class ElementsDemo {
 
     public void streamDemo() {
         // @start region = stream
-        HTMLElement parent = find(body(), By.data("foo", "bar"));
+        HTMLElement parent = querySelector(body(), By.data("foo", "bar"));
         if (parent != null) {
             List<HTMLElement> htmlElements = stream(parent)
                     .filter(htmlElements())

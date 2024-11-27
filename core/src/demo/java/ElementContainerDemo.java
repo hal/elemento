@@ -13,13 +13,22 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento;
+import elemental2.dom.HTMLUListElement;
 
-public enum ButtonType {
+import static org.jboss.elemento.Elements.ul;
 
-    button,
+@SuppressWarnings("unused")
+public class ElementContainerDemo {
 
-    submit,
-
-    reset,
+    public void addAllDemo() {
+        // @start region = addAll
+        TodoRepository repository = new TodoRepository();
+        TodoElement[] elements = repository.todos().stream()
+                .map(TodoElement::new)
+                .toArray(TodoElement[]::new);
+        HTMLUListElement ul = ul()
+                .addAll(elements)
+                .element();
+        // @end region = addAll
+    }
 }

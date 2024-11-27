@@ -15,8 +15,13 @@
  */
 package org.jboss.elemento.mathml;
 
-import org.jboss.elemento.Finder;
-import org.jboss.elemento.HasElement;
+import org.jboss.elemento.ElementAttributeMethods;
+import org.jboss.elemento.ElementClassListMethods;
+import org.jboss.elemento.ElementConsumerMethods;
+import org.jboss.elemento.ElementEventMethods;
+import org.jboss.elemento.ElementIdMethods;
+import org.jboss.elemento.ElementQueryMethods;
+import org.jboss.elemento.ElementTextMethods;
 
 import static java.util.Objects.requireNonNull;
 
@@ -25,8 +30,15 @@ import static java.util.Objects.requireNonNull;
  * <p>
  * {@snippet class = MathMLDemo region = math}
  */
-public class MathMLElementBuilder<E extends MathMLElement>
-        implements HasElement<E, MathMLElementBuilder<E>>, HasMathMLElement<E, MathMLElementBuilder<E>>, Finder<E> {
+public class MathMLElementBuilder<E extends MathMLElement> implements
+        ElementAttributeMethods<E, MathMLElementBuilder<E>>,
+        ElementClassListMethods<E, MathMLElementBuilder<E>>,
+        ElementConsumerMethods<E, MathMLElementBuilder<E>>,
+        ElementEventMethods<E, MathMLElementBuilder<E>>,
+        ElementIdMethods<E, MathMLElementBuilder<E>>,
+        ElementQueryMethods<E>,
+        ElementTextMethods<E, MathMLElementBuilder<E>>,
+        MathMLElementStyleMethods<E, MathMLElementBuilder<E>> {
 
     private final E element;
 

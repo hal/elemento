@@ -18,7 +18,7 @@ Elemento has static helpers methods in [`Elements`](https://hal.github.io/elemen
   Inserts `newElement` into `before`'s parent before `before`. If `before`'s parent already contains `newElement`, this method does nothing.
 
 - `Elements.insertFirst(Element parent, Element newElement)`<br/>
-  Inserts `newElement` as first element into `parent`.
+  Inserts `newElement` as the first element into `parent`.
 
 - `Elements.removeChildrenFrom(Element element)`<br/>
   Removes all child elements from `element`

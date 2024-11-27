@@ -13,21 +13,24 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.jboss.elemento.mathml;
+package org.jboss.elemento;
 
-import org.jboss.elemento.IsElement;
-import org.jboss.elemento.TypedBuilder;
+import elemental2.dom.HTMLElement;
 
 /**
- * @deprecated Replaced by {@link MathMLElementStyleMethods}
+ * Provides methods and default implementations for modifying the data attributes of an HTML element.
  */
-@Deprecated
-public interface HasMathMLElement<E extends MathMLElement, B extends TypedBuilder<E, B>>
+public interface HTMLElementDataMethods<E extends HTMLElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 
-    /** Sets the CSS style of the element. */
-    default B style(String style) {
-        element().style.cssText = style;
+    /**
+     * Adds a {@code data-} attribute to the element.
+     *
+     * @param name The name of the data attributes w/o the {@code data-} prefix. However, it won't be added if it's already
+     *             present.
+     */
+    default B data(String name, String value) {
+        element().dataset.set(name.replaceFirst("^data-", ""), value);
         return that();
     }
 }

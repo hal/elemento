@@ -27,14 +27,24 @@ import elemental2.dom.Event;
 import static org.jboss.elemento.EventType.bind;
 
 /**
- * Provides methods and default implementations for modifying elements.
+ * @deprecated This interface is too broad. It is replaced with more specific interfaces:
+ * <ul>
+ *     <li>{@link ElementAttributeMethods}</li>
+ *     <li>{@link ElementClassListMethods}</li>
+ *     <li>{@link ElementConsumerMethods}</li>
+ *     <li>{@link ElementContainerMethods}</li>
+ *     <li>{@link ElementEventMethods}</li>
+ *     <li>{@link ElementIdMethods}</li>
+ *     <li>{@link ElementTextMethods}</li>
+ * </ul>
  */
+@Deprecated
 public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 
     // ------------------------------------------------------ id, text, HTML
 
-    /** Generates and sets an unique id on the element. */
+    /** Generates and sets a unique id on the element. */
     default B uniqueId() {
         return id(Id.unique());
     }
@@ -83,7 +93,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
         return that();
     }
 
-    /** Toggle the class value; i.e., if the class exists then remove it, if not, then add it. */
+    /** Toggle the class value; i.e., if the class exists, then remove it, if not, then add it. */
     default B toggle(String className) {
         classList().toggle(className);
         return that();
@@ -133,7 +143,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
     /**
      * Adds an {@code aria-} attribute to the element.
      *
-     * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
+     * @param name The name of the aria attributes w/o the {@code aria-} prefix. However, it won't be added if it's already
      *             present.
      */
     default B aria(String name, boolean value) {
@@ -144,7 +154,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
     /**
      * Adds an {@code aria-} attribute to the element.
      *
-     * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
+     * @param name The name of the aria attributes w/o the {@code aria-} prefix. However, it won't be added if it's already
      *             present.
      */
     default B aria(String name, int value) {
@@ -155,7 +165,7 @@ public interface HasElement<E extends Element, B extends TypedBuilder<E, B>>
     /**
      * Adds an {@code aria-} attribute to the element.
      *
-     * @param name The name of the aria attribute w/o the {@code aria-} prefix. However it won't be added if it's already
+     * @param name The name of the aria attributes w/o the {@code aria-} prefix. However, it won't be added if it's already
      *             present.
      */
     default B aria(String name, String value) {

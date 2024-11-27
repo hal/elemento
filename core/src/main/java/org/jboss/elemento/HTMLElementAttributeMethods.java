@@ -15,11 +15,17 @@
  */
 package org.jboss.elemento;
 
-public enum ButtonType {
+import elemental2.dom.HTMLElement;
 
-    button,
+/**
+ * Provides methods and default implementations for modifying the attributes of an HTML element.
+ */
+public interface HTMLElementAttributeMethods<E extends HTMLElement, B extends TypedBuilder<E, B>>
+        extends TypedBuilder<E, B>, IsElement<E> {
 
-    submit,
-
-    reset,
+    /** Sets the title on the element. */
+    default B title(String title) {
+        element().title = title;
+        return that();
+    }
 }

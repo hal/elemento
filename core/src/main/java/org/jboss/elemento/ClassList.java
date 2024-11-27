@@ -62,7 +62,7 @@ public class ClassList<E extends Element> implements Iterable<String> {
         }
     }
 
-    /** Toggle the class value; i.e., if the class exists then remove it, if not, then add it. */
+    /** Toggle the class value; i.e., if the class exists, then remove it, if not, then add it. */
     public void toggle(String classname) {
         if (classname != null && !classname.isEmpty()) {
             element.classList.toggle(classname);

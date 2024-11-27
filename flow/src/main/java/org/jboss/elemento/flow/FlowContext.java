@@ -41,7 +41,7 @@ public class FlowContext {
     /**
      * Method to check if the error in a {@linkplain Promise.CatchOnRejectedCallbackFn catch} callback is due to a timeout.
      */
-    public static boolean timeout(Object error) {
+    public static boolean isTimeout(Object error) {
         return error.equals(FlowRunner.TIMEOUT_ERROR);
     }
 
@@ -135,13 +135,13 @@ public class FlowContext {
      */
     @SuppressWarnings("unchecked")
     public <T> T pop(T defaultValue) {
-        return emptyStack() ? defaultValue : (T) stack.pop();
+        return isStackEmpty() ? defaultValue : (T) stack.pop();
     }
 
     /**
      * @return {@code true} if the stack is empty, {@code false} otherwise.
      */
-    public boolean emptyStack() {
+    public boolean isStackEmpty() {
         return stack.empty();
     }
 
@@ -174,6 +174,15 @@ public class FlowContext {
         return data.keySet();
     }
 
+    /**
+     * Checks if the data is empty.
+     *
+     * @return {@code true} if the data is empty, {@code false} otherwise.
+     */
+    public boolean isEmpty() {
+        return data.isEmpty();
+    }
+
     // ------------------------------------------------------ info
 
     /**
@@ -193,14 +202,14 @@ public class FlowContext {
     /**
      * @return whether the execution was successful
      */
-    public boolean successful() {
+    public boolean isSuccessful() {
         return status == FlowStatus.SUCCESS;
     }
 
     /**
      * @return whether the execution ran into a timeout
      */
-    public boolean timeout() {
+    public boolean isTimeout() {
         return status == FlowStatus.TIMEOUT;
     }
 

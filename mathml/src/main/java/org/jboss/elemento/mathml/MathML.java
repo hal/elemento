@@ -22,7 +22,7 @@ public final class MathML {
 
     // ------------------------------------------------------ elements
 
-    public static MathMLContainerBuilder<MathMLElement> mathml() {
+    public static MathMLContainerMethods<MathMLElement> mathml() {
         return mathMLContainer("mathml", MathMLElement.class);
     }
 
@@ -39,13 +39,13 @@ public final class MathML {
     }
 
     /** Returns a builder for the specified SVG container. */
-    public static <E extends MathMLElement> MathMLContainerBuilder<E> mathMLContainer(String element, Class<E> type) {
-        return new MathMLContainerBuilder<>(createMathMLElement(element, type));
+    public static <E extends MathMLElement> MathMLContainerMethods<E> mathMLContainer(String element, Class<E> type) {
+        return new MathMLContainerMethods<>(createMathMLElement(element, type));
     }
 
     /** Returns a builder for the existing SVG container. */
-    public static <E extends MathMLElement> MathMLContainerBuilder<E> wrapMathMLContainer(E element) {
-        return new MathMLContainerBuilder<>(element);
+    public static <E extends MathMLElement> MathMLContainerMethods<E> wrapMathMLContainer(E element) {
+        return new MathMLContainerMethods<>(element);
     }
 
     /** Creates the specified SVG element. */
