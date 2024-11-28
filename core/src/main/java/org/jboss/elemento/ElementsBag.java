@@ -22,7 +22,7 @@ import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 
 /**
- * @deprecated Should be replaced by using the collection API.
+ * @deprecated Should be replaced by using the standard collection API.
  */
 @Deprecated
 public class ElementsBag implements TypedBuilder<Iterable<Element>, ElementsBag> {

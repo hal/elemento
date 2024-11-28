@@ -18,9 +18,9 @@ package org.jboss.elemento;
 import elemental2.dom.HTMLElement;
 
 /**
- * Convenience class to support lazy element creation. The bulk of a LazyElement is not instantiated until {@link #element()} is
- * called.
+ * @deprecated Should be replaced by using late initialization in {@link IsElement#element()}.
  */
+@Deprecated
 public abstract class LazyElement<E extends HTMLElement> implements IsElement<E> {
 
     private E element;

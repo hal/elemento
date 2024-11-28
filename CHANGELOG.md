@@ -13,17 +13,19 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 The refactoring should make the use case and scope of the builder-like classes, interfaces and methods more obvious. It
 introduces a common naming pattern for interfaces and classes:
 
-- Interface `[HTML|MathML|SVG]Element<Scope>Methods`: These interfaces contain default methods to work with a specific aspect
-  of an HTML, MathML or SVG element.
+- Interface `[HTML|MathML|SVG]Element<Scope>Methods`: These interfaces contain default methods to work with a specific aspect of
+  an HTML, MathML or SVG element.
 
-  Examples are
+  Some examples are
     - `ElementAttributeMethods`
     - `HTMLElementDataMethods`
+    - `HTMLInputElementMethods`
     - `SVGElementStyleMethods`
 
-- Class `[HTML|MathML|SVG](Element|Container)Builder`: Concrete builders that encapsulate an HTML, MathML or SVG element. The builders implement the method interfaces to work with the element.
+- Class `[HTML|MathML|SVG](Element|Container)Builder`: Concrete builders that encapsulate an HTML, MathML or SVG element. The
+  builders implement the method interfaces to work with the element.
 
-  Examples are
+  Some examples are
     - `HTMLElementBuilder`
     - `HTMLInputElementBuilder`
     - `SVGContainerBuilder`
@@ -51,13 +53,15 @@ introduces a common naming pattern for interfaces and classes:
 - `Container<E extends Element, B extends TypedBuilder<E, B>>` has been deprecated. It is replaced by
   `ElementContainerMethods<E, B>`
 
-- `ElementsBag` has been deprecated. It can be replaced by using the normal collection API.
+- `ElementsBag` has been deprecated. It should be replaced by using the standard collection API.
 
 - `Finder<E extends Element, B extends TypedBuilder<E, B>>` has been deprecated. It is replaced by `ElementQueryMethods<E, B>`
 
 - `HasInputElement<E extends HTMLInputElement, B extends TypedBuilder<E, B>>` and
   `InputElementBuilder<E extends HTMLInputElement, B extends TypedBuilder<E, B>>` have been deprecated. They are replaced by
-  `HTMLInputElementBuilder<E, B>`.
+  `HTMLInputElementMethods<E, B>` and `HTMLInputElementBuilder<E, B>`.
+
+- `LazyElement` has been deprecated. It should be replaced by using late initialization in `IsElement.element()`.
 
 #### MathML
 

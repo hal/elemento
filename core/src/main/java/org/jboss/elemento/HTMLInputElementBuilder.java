@@ -31,7 +31,8 @@ public class HTMLInputElementBuilder<E extends HTMLInputElement> implements
         HTMLElementAttributeMethods<E, HTMLInputElementBuilder<E>>,
         HTMLElementDataMethods<E, HTMLInputElementBuilder<E>>,
         HTMLElementStyleMethods<E, HTMLInputElementBuilder<E>>,
-        HTMLElementVisibilityMethods<E, HTMLInputElementBuilder<E>> {
+        HTMLElementVisibilityMethods<E, HTMLInputElementBuilder<E>>,
+        HTMLInputElementMethods<E, HTMLInputElementBuilder<E>> {
 
     private final E element;
 
@@ -47,105 +48,5 @@ public class HTMLInputElementBuilder<E extends HTMLInputElement> implements
     @Override
     public E element() {
         return element;
-    }
-
-    /** Modifies the {@code accept} attribute. */
-    public HTMLInputElementBuilder<E> accept(String accept) {
-        element().accept = accept;
-        return this;
-    }
-
-    /** Modifies the {@code autofocus} flag. */
-    public HTMLInputElementBuilder<E> autofocus(boolean autofocus) {
-        element().autofocus = autofocus;
-        return this;
-    }
-
-    /** Modifies the {@code autocomplete} attribute. */
-    public HTMLInputElementBuilder<E> autocomplete(String autocomplete) {
-        element().autocomplete = autocomplete;
-        return this;
-    }
-
-    /** Modifies the {@code checked} flag. */
-    public HTMLInputElementBuilder<E> checked(boolean checked) {
-        element().checked = checked;
-        return this;
-    }
-
-    /** Modifies the {@code disabled} flag. */
-    public HTMLInputElementBuilder<E> disabled(boolean disabled) {
-        element().disabled = disabled;
-        return this;
-    }
-
-    /** Modifies the {@code indeterminate} flag. */
-    public HTMLInputElementBuilder<E> indeterminate(boolean indeterminate) {
-        element().indeterminate = indeterminate;
-        return this;
-    }
-
-    /** Modifies the {@code max} attribute. */
-    public HTMLInputElementBuilder<E> max(int max) {
-        return max(String.valueOf(max));
-    }
-
-    /** Modifies the {@code max} attribute. */
-    public HTMLInputElementBuilder<E> max(String max) {
-        element().max = max;
-        return this;
-    }
-
-    /** Modifies the {@code min} attribute. */
-    public HTMLInputElementBuilder<E> min(int min) {
-        return min(String.valueOf(min));
-    }
-
-    /** Modifies the {@code min} attribute. */
-    public HTMLInputElementBuilder<E> min(String min) {
-        element().min = min;
-        return this;
-    }
-
-    /** Modifies the {@code multiple} attribute. */
-    public HTMLInputElementBuilder<E> multiple(boolean multiple) {
-        element().multiple = multiple;
-        return this;
-    }
-
-    /** Modifies the {@code name} attribute. */
-    public HTMLInputElementBuilder<E> name(String name) {
-        element().name = name;
-        return this;
-    }
-
-    /** Modifies the {@code placeholder} text. */
-    public HTMLInputElementBuilder<E> placeholder(String placeholder) {
-        element().placeholder = placeholder;
-        return this;
-    }
-
-    /** Modifies the {@code readOnly} flag. */
-    public HTMLInputElementBuilder<E> readOnly(boolean readOnly) {
-        element().readOnly = readOnly;
-        return this;
-    }
-
-    /** Modifies the {@code required} flag. */
-    public HTMLInputElementBuilder<E> required(boolean required) {
-        element().required = required;
-        return this;
-    }
-
-    /** Modifies the {@code tabIndex} number. */
-    public HTMLInputElementBuilder<E> tabIndex(int tabIndex) {
-        element().tabIndex = tabIndex;
-        return this;
-    }
-
-    /** Modifies the {@code value}. */
-    public HTMLInputElementBuilder<E> value(String value) {
-        element().value = value;
-        return this;
     }
 }
