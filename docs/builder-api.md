@@ -106,7 +106,7 @@ manipulate the encapsulated element in a specific way.
 
 The interface names follow the pattern `[HTML|MathML|SVG]Element<Scope>Methods`. Some examples are
 
-- [`ElementAttributeMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html)
+- [`ElementAttributeMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/ElementAttributeMethods.html)
 - [`HTMLElementDataMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementDataMethods.html)
 - [`HTMLInputElementMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementMethods.html)
 - [`SVGElementStyleMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/SVGElementStyleMethods.html)
