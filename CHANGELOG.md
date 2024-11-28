@@ -30,6 +30,8 @@ introduces a common naming pattern for interfaces and classes:
     - `HTMLInputElementBuilder`
     - `SVGContainerBuilder`
 
+See https://hal-console.gitbook.io/elemento/builder-api#classes-and-interfaces for more information.
+
 ### Changed
 
 #### Core

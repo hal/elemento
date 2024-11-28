@@ -65,7 +65,7 @@ final HTMLElement footer = footer()
 
 ## Classes and Interfaces
 
-The builders returned by the methods in `Elements` are of one of the following classes:
+The builders in Elemento are of one of the following classes:
 
 - `HTMLContainerBuilder<E extends HTMLElement>`
 - `HTMLElementBuilder<E extends HTMLElement>`
@@ -106,15 +106,15 @@ manipulate the encapsulated element in a specific way.
 
 The interface names follow the pattern `[HTML|MathML|SVG]Element<Scope>Methods`. Some examples are
 
-- `ElementAttributeMethods`
-- `HTMLElementDataMethods`
-- `HTMLInputElementMethods`
-- `SVGElementStyleMethods`
+- [`ElementAttributeMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html)
+- [`HTMLElementDataMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementDataMethods.html)
+- [`HTMLInputElementMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementMethods.html)
+- [`SVGElementStyleMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/SVGElementStyleMethods.html)
 
-If you only use Elemento to create a DOM tree quickly and easily, you will most likely hardly come into touch with the 'method'
+If you only use Elemento to create a DOM tree quickly and easily, you will most likely hardly come into touch with the _method_
 interfaces. However, if you want to create your own builders, these interfaces come in very handy. You can have very
 fine-grained control over which methods your builder should provide. And since these methods are defined as default methods in
 interfaces, you are free to mix and match the interfaces across different builders without worrying about multiple inheritance.
 
 The components in [PatternFly Java](https://patternfly-java.github.io/api-design) are a good example of this. They build upon
-Elemento's builders and implement specific 'method' interfaces to define their features.
+Elemento's builders and implement specific _method_ interfaces to define their features.
