@@ -20,6 +20,7 @@ jobs:
           distribution: temurin
           cache: maven
       - run: |
-          $MVN verify
           cd bom
+          $MVN verify
+          cd ..
           $MVN verify

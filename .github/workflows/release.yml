@@ -29,8 +29,9 @@ jobs:
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
       - run: |
-          $MVN deploy -P release
           cd bom
+          $MVN deploy -P release
+          cd ..
           $MVN deploy -P release
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
