@@ -101,5 +101,6 @@ parse_params "$@"
 setup_colors
 
 msg "Update version to ${CYAN}${NEW_VERSION}${NOFORMAT}"
+cd bom && mvn --quiet install &> /dev/null && cd .. # without installing the BOM first, maven will complain
 mvn --quiet versions:set -DnewVersion="${NEW_VERSION}" &> /dev/null
 sed -i '' -E "s/<version>[0-9]+\.[0-9]+\.[0-9]+.*<\/version>/<version>$NEW_VERSION<\/version>/" bom/pom.xml
