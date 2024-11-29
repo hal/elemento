@@ -7,8 +7,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [1.7.0] - 2024-11-29
-
 > [!WARNING]
 > This release contains refactorings and deprecations that might break existing code.
 
@@ -1095,95 +1093,7 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[Unreleased]: https://github.com/hal/elemento/compare/v1.7.0...HEAD
-[1.7.0]: https://github.com/hal/elemento/compare/v1.6.11...v1.7.0
+[Unreleased]: https://github.com/hal/elemento/compare/v1.6.11...HEAD
 [1.6.11]: https://github.com/hal/elemento/compare/v1.6.10...v1.6.11
 [1.6.10]: https://github.com/hal/elemento/compare/v1.6.9...v1.6.10
 [1.6.9]: https://github.com/hal/elemento/compare/v1.6.8...v1.6.9

@@ -21,11 +21,7 @@ jobs:
           server-id: ossrh
           server-username: OSSRH_USERNAME
           server-password: OSSRH_PASSWORD
-      - run: |
-          cd bom
-          $MVN deploy
-          cd ..
-          $MVN deploy -DskipTests
+      - run: $MVN deploy -DskipTests
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
