@@ -102,6 +102,3 @@ setup_colors
 
 msg "Update version to ${CYAN}${NEW_VERSION}${NOFORMAT}"
 mvn --quiet versions:set -DnewVersion="${NEW_VERSION}" &> /dev/null
-cd bom
-mvn --quiet versions:set -DnewVersion="${NEW_VERSION}" &> /dev/null
-cd ..
