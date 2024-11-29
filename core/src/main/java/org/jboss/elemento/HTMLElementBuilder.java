@@ -25,6 +25,7 @@ public class HTMLElementBuilder<E extends HTMLElement> implements
         ElementClassListMethods<E, HTMLElementBuilder<E>>,
         ElementConsumerMethods<E, HTMLElementBuilder<E>>,
         ElementEventMethods<E, HTMLElementBuilder<E>>,
+        ElementHTMLMethods<E, HTMLElementBuilder<E>>,
         ElementIdMethods<E, HTMLElementBuilder<E>>,
         ElementQueryMethods<E>,
         ElementTextMethods<E, HTMLElementBuilder<E>>,

@@ -26,7 +26,15 @@ import elemental2.dom.Node;
  * <p>
  * {@snippet class = ElementContainerDemo region = addAll}
  */
-public interface ElementContainerMethods<E extends Element, B extends TypedBuilder<E, B>> extends TypedBuilder<E, B>, IsElement<E> {
+public interface ElementContainerMethods<E extends Element, B extends TypedBuilder<E, B>>
+        extends TypedBuilder<E, B>, IsElement<E> {
+
+
+    /** Adds the given text as a text node. */
+    default B add(String text) {
+        element().appendChild(element().ownerDocument.createTextNode(text));
+        return that();
+    }
 
     /** Adds the given node. */
     default B add(Node node) {

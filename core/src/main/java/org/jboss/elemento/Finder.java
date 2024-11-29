@@ -19,6 +19,7 @@ import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.querySelector;
+import static org.jboss.elemento.Elements.querySelectorAll;
 
 /**
  * @deprecated Replaced by {@link ElementQueryMethods}.
@@ -30,7 +31,7 @@ public interface Finder<E extends Element> extends IsElement<E> {
      * Finds all HTML elements for the given selector.
      */
     default Iterable<HTMLElement> findAll(By selector) {
-        return Elements.findAll(element(), selector);
+        return querySelectorAll(element(), selector);
     }
 
     /** Finds a single HTML element for the given selector. */

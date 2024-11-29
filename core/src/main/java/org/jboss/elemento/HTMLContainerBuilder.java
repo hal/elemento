@@ -26,6 +26,7 @@ public class HTMLContainerBuilder<E extends HTMLElement> implements
         ElementContainerMethods<E, HTMLContainerBuilder<E>>,
         ElementConsumerMethods<E, HTMLContainerBuilder<E>>,
         ElementEventMethods<E, HTMLContainerBuilder<E>>,
+        ElementHTMLMethods<E, HTMLContainerBuilder<E>>,
         ElementIdMethods<E, HTMLContainerBuilder<E>>,
         ElementQueryMethods<E>,
         ElementTextMethods<E, HTMLContainerBuilder<E>>,

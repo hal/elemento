@@ -70,7 +70,7 @@ public class PlaceManagerDemo {
                     h(1, "Current time").element(),
                     p()
                             .add("It's ")
-                            .add(span().textContent(currentTime))
+                            .add(span().text(currentTime))
                             .add(" in " + area + "/" + location)
                             .element());
         }
@@ -84,7 +84,7 @@ public class PlaceManagerDemo {
                     h(1, "Welcome").element(),
                     p()
                             .add("What time is it in ")
-                            .add(a("/time/Europe/Berlin").textNode("Berlin"))
+                            .add(a("/time/Europe/Berlin").text("Berlin"))
                             .add("?")
                             .element());
         }

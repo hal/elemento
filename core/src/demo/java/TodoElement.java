@@ -53,7 +53,7 @@ public class TodoElement implements IsElement<HTMLElement>, Attachable {
                         .add(toggle = input(checkbox).css("toggle")
                                 .checked(todo.completed)
                                 .element())
-                        .add(label = label().textContent(todo.text).element())
+                        .add(label = label().text(todo.text).element())
                         .add(destroy = button().css("destroy").element()))
                 .add(summary = input(text).css("edit").element())
                 .element();

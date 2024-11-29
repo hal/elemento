@@ -30,7 +30,7 @@ public class Greeting implements IsElement<HTMLElement>, Attachable {
     private final HTMLElement root;
 
     Greeting(String name) {
-        root = div().textContent("Hello " + name).element();
+        root = div().text("Hello " + name).element();
         Attachable.register(root, this);
     }
 

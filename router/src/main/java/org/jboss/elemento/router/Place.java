@@ -34,8 +34,8 @@ import static org.jboss.elemento.router.Path.normalize;
  * If the route has parameters, the {@link PlaceManager} will collect it and pass it to the page when calling
  * {@link Page#elements(Place, Parameter, LoadedData)}.
  * <p>
- * If the page has a {@link LoadData}, the {@link PlaceManager} will call it and pass the loaded data as {@link LoadedData} to the
- * page when calling {@link Page#elements(Place, Parameter, LoadedData)}.
+ * If the page has a {@link LoadData}, the {@link PlaceManager} will call it and pass the loaded data as {@link LoadedData} to
+ * the page when calling {@link Page#elements(Place, Parameter, LoadedData)}.
  * <p>
  * If a title is given, the {@link PlaceManager} will change the document title accordingly. If a custom root selector or
  * element is given, the {@link PlaceManager} will replace the contents of that element with the {@link Page} registered for

@@ -15,43 +15,33 @@
  */
 package org.jboss.elemento;
 
-import org.gwtproject.safehtml.shared.SafeHtml;
-
 import elemental2.dom.Element;
 
 /**
- * Provides methods and default implementations for modifying the text and inner HTML of an element.
+ * Provides methods and default implementations for modifying the text of an element.
  */
 public interface ElementTextMethods<E extends Element, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
 
     /**
-     * Sets the inner text on the element using {@link Element#textContent}. If you want to preserve existing child elements and
-     * just want to change the text of the text node, use {@link #textNode(String)}.
+     * Sets the text content on the element using {@link Element#textContent}.
+     *
+     * @see <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent">https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent</a>
      */
-    default B textContent(String text) {
+    default B text(String text) {
         element().textContent = text;
         return that();
     }
 
     /**
-     * Changes the text of the first text node (if any) or adds the given text as a new text node. Use this method instead of
-     * {@link Element#textContent} if you want to preserve existing child elements.
+     * Retrieves the text content of the element.
+     *
+     * @return the text content of the element.
+     * @see <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent">https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent</a>
      */
-    default B textNode(String text) {
-        Elements.textNode(element(), text);
-        return that();
-    }
-
-    /** Adds the given text as a text node. */
-    default B add(String text) {
-        element().appendChild(element().ownerDocument.createTextNode(text));
-        return that();
-    }
-
-    /** Modifies the inner HTML on the element using {@link Element#innerHTML}. */
-    default B innerHtml(SafeHtml html) {
-        element().innerHTML = html.asString();
-        return that();
+    default String text() {
+        return element().textContent;
     }
 }

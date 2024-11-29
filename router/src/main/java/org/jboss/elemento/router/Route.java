@@ -41,6 +41,7 @@ import java.lang.annotation.Target;
  * <li>{@code title}: Specifies the title of the page associated with the route.</li>
  * <li>{@code selector}: Specifies the CSS selector that identifies the element whose child elements are replaced by the
  * elements of the page.</li>
+ * <li>{@code loader}: Specifies a reference to a named loader annotated with {@link Loader}</li>
  * </ul>
  *
  * <p>

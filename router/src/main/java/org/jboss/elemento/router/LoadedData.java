@@ -16,7 +16,7 @@
 package org.jboss.elemento.router;
 
 /**
- * The LoaderData class represents data loaded by a loader. It can be used to retrieve loaded data.
+ * The LoadedData class represents data loaded by a loader. It can be used to retrieve loaded data.
  */
 public class LoadedData {
 

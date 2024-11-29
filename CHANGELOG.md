@@ -43,6 +43,7 @@ See https://hal-console.gitbook.io/elemento/builder-api#classes-and-interfaces f
     - `ElementContainerMethods<E, B>`
     - `ElementEventMethods<E, B>`
     - `ElementIdMethods<E, B>`
+    - `ElementHTMLMethods<E, B>`
     - `ElementTextMethods<E, B>`
 
 - `HasHTMLElement<E extends Element, B extends TypedBuilder<E, B>>` has been deprecated and is split into more specific

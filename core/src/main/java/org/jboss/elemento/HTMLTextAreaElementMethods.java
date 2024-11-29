@@ -15,19 +15,13 @@
  */
 package org.jboss.elemento;
 
-import elemental2.dom.HTMLInputElement;
+import elemental2.dom.HTMLTextAreaElement;
 
 /**
- * Provides methods and default implementations for modifying the attributes of an HTML input element.
+ * Provides methods and default implementations for modifying the attributes of an HTML text area element.
  */
-public interface HTMLInputElementMethods<E extends HTMLInputElement, B extends TypedBuilder<E, B>>
+public interface HTMLTextAreaElementMethods<E extends HTMLTextAreaElement, B extends TypedBuilder<E, B>>
         extends TypedBuilder<E, B>, IsElement<E> {
-
-    /** Modifies the {@code accept} attribute. */
-    default B accept(String accept) {
-        element().accept = accept;
-        return that();
-    }
 
     /** Modifies the {@code autofocus} flag. */
     default B autofocus(boolean autofocus) {
@@ -35,21 +29,9 @@ public interface HTMLInputElementMethods<E extends HTMLInputElement, B extends T
         return that();
     }
 
-    /** Modifies the {@code autocomplete} attribute. */
-    default B autocomplete(String autocomplete) {
-        element().autocomplete = autocomplete;
-        return that();
-    }
-
-    /** Modifies the {@code checked} flag. */
-    default B checked(boolean checked) {
-        element().checked = checked;
-        return that();
-    }
-
-    /** Modifies the {@code disabled} flag. */
-    default B defaultValue(String defaultValue) {
-        element().defaultValue = defaultValue;
+    /** Modifies the {@code cols} attribute. */
+    default B cols(int cols) {
+        element().cols = cols;
         return that();
     }
 
@@ -59,37 +41,21 @@ public interface HTMLInputElementMethods<E extends HTMLInputElement, B extends T
         return that();
     }
 
-    /** Modifies the {@code indeterminate} flag. */
-    default B indeterminate(boolean indeterminate) {
-        element().indeterminate = indeterminate;
+    /** Modifies the {@code rows} flag. */
+    default B rows(int rows) {
+        element().rows = rows;
         return that();
     }
 
-    /** Modifies the {@code max} attribute. */
-    default B max(int max) {
-        return max(String.valueOf(max));
-    }
-
-    /** Modifies the {@code max} attribute. */
-    default B max(String max) {
-        element().max = max;
+    /** Modifies the {@code maxLength} attribute. */
+    default B maxLength(int maxLength) {
+        element().maxLength = maxLength;
         return that();
     }
 
-    /** Modifies the {@code min} attribute. */
-    default B min(int min) {
-        return min(String.valueOf(min));
-    }
-
-    /** Modifies the {@code min} attribute. */
-    default B min(String min) {
-        element().min = min;
-        return that();
-    }
-
-    /** Modifies the {@code multiple} attribute. */
-    default B multiple(boolean multiple) {
-        element().multiple = multiple;
+    /** Modifies the {@code minLength} attribute. */
+    default B minLength(int minLength) {
+        element().minLength = minLength;
         return that();
     }
 
@@ -108,12 +74,6 @@ public interface HTMLInputElementMethods<E extends HTMLInputElement, B extends T
     /** Modifies the {@code readOnly} flag. */
     default B readOnly(boolean readOnly) {
         element().readOnly = readOnly;
-        return that();
-    }
-
-    /** Modifies the {@code required} flag. */
-    default B required(boolean required) {
-        element().required = required;
         return that();
     }
 

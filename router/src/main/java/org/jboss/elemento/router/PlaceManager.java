@@ -419,7 +419,7 @@ public class PlaceManager {
                             .add(h(1, "Error 404").style(HEADER_STYLE))
                             .add(p().style(PARAGRAPH_STYLE)
                                     .add("You're lost! Page '" + place.route + "' was not found. Please take a step ")
-                                    .add(a("javascript:history.back()").textContent("back"))
+                                    .add(a("javascript:history.back()").text("back"))
                                     .add(".")))
                     .element());
         }
@@ -435,7 +435,7 @@ public class PlaceManager {
                             .add(h(1, "No data").style(HEADER_STYLE))
                             .add(p().style(PARAGRAPH_STYLE)
                                     .add("The data for page '" + place.route + "' could not be loaded."))
-                            .add(pre().style(ERROR_STYLE).textContent(error)))
+                            .add(pre().style(ERROR_STYLE).text(error)))
                     .element());
         }
     }

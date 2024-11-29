@@ -68,7 +68,7 @@ public class ElementsDemo {
                 .add(input(checkbox).id("toggle-all").css("toggle-all"))
                 .add(label()
                         .apply(l -> l.htmlFor = "toggle-all")
-                        .textContent("Mark all as complete"))
+                        .text("Mark all as complete"))
                 .add(ul().css("todo-list")
                         .run(ul -> {
                             for (Todo todo : repository.todos()) {
@@ -77,7 +77,7 @@ public class ElementsDemo {
                                                 .add(input(checkbox)
                                                         .css("toggle")
                                                         .checked(todo.completed))
-                                                .add(label().textContent(todo.text))
+                                                .add(label().text(todo.text))
                                                 .add(button().css("destroy")))
                                         .add(input(text).css("edit")));
                             }
@@ -106,7 +106,7 @@ public class ElementsDemo {
                                 .css("toggle")
                                 .on(change, event -> onDemo())) // @replace substring='onDemo()' replacement="..."
                         .add(label()
-                                .textContent("Taste Elemento")
+                                .text("Taste Elemento")
                                 .on(dblclick, event -> onDemo())) // @replace substring='onDemo()' replacement="..."
                         .add(button()
                                 .css("destroy")

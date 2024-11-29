@@ -25,6 +25,7 @@ public class HTMLInputElementBuilder<E extends HTMLInputElement> implements
         ElementClassListMethods<E, HTMLInputElementBuilder<E>>,
         ElementConsumerMethods<E, HTMLInputElementBuilder<E>>,
         ElementEventMethods<E, HTMLInputElementBuilder<E>>,
+        ElementHTMLMethods<E, HTMLInputElementBuilder<E>>,
         ElementIdMethods<E, HTMLInputElementBuilder<E>>,
         ElementQueryMethods<E>,
         ElementTextMethods<E, HTMLInputElementBuilder<E>>,

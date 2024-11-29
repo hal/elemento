@@ -155,7 +155,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLHeadingElement> h(int n, String text) {
-        return h(n).textContent(text);
+        return h(n).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLHeadingElement> h(Element element) {
@@ -331,7 +331,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> abbr(String text) {
-        return htmlContainer("abbr", HTMLElement.class).textContent(text);
+        return htmlContainer("abbr", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> abbr(Element element) {
@@ -343,7 +343,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> b(String text) {
-        return htmlContainer("b", HTMLElement.class).textContent(text);
+        return htmlContainer("b", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> b(Element element) {
@@ -363,7 +363,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> cite(String text) {
-        return htmlContainer("cite", HTMLElement.class).textContent(text);
+        return htmlContainer("cite", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> cite(Element element) {
@@ -375,7 +375,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> code(String text) {
-        return htmlContainer("code", HTMLElement.class).textContent(text);
+        return htmlContainer("code", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> code(Element element) {
@@ -387,7 +387,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> dfn(String text) {
-        return htmlContainer("dfn", HTMLElement.class).textContent(text);
+        return htmlContainer("dfn", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> dfn(Element element) {
@@ -399,7 +399,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> em(String text) {
-        return htmlContainer("em", HTMLElement.class).textContent(text);
+        return htmlContainer("em", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> em(Element element) {
@@ -411,7 +411,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> i(String text) {
-        return htmlContainer("i", HTMLElement.class).textContent(text);
+        return htmlContainer("i", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> i(Element element) {
@@ -423,7 +423,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> kbd(String text) {
-        return htmlContainer("kbd", HTMLElement.class).textContent(text);
+        return htmlContainer("kbd", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> kbd(Element element) {
@@ -435,7 +435,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> mark(String text) {
-        return htmlContainer("mark", HTMLElement.class).textContent(text);
+        return htmlContainer("mark", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> mark(Element element) {
@@ -447,7 +447,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLQuoteElement> q(String text) {
-        return htmlContainer("q", HTMLQuoteElement.class).textContent(text);
+        return htmlContainer("q", HTMLQuoteElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLQuoteElement> q(Element element) {
@@ -459,7 +459,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> small(String text) {
-        return htmlContainer("small", HTMLElement.class).textContent(text);
+        return htmlContainer("small", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> small(Element element) {
@@ -479,7 +479,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> strong(String text) {
-        return htmlContainer("strong", HTMLElement.class).textContent(text);
+        return htmlContainer("strong", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> strong(Element element) {
@@ -491,7 +491,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> sub(String text) {
-        return htmlContainer("sub", HTMLElement.class).textContent(text);
+        return htmlContainer("sub", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> sub(Element element) {
@@ -503,7 +503,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> sup(String text) {
-        return htmlContainer("sup", HTMLElement.class).textContent(text);
+        return htmlContainer("sup", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> sup(Element element) {
@@ -515,7 +515,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> time(String text) {
-        return htmlContainer("time", HTMLElement.class).textContent(text);
+        return htmlContainer("time", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> time(Element element) {
@@ -527,7 +527,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> u(String text) {
-        return htmlContainer("u", HTMLElement.class).textContent(text);
+        return htmlContainer("u", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> u(Element element) {
@@ -539,7 +539,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLElement> var(String text) {
-        return htmlContainer("var", HTMLElement.class).textContent(text);
+        return htmlContainer("var", HTMLElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLElement> var(Element element) {
@@ -695,7 +695,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLModElement> del(String text) {
-        return htmlContainer("del", HTMLModElement.class).textContent(text);
+        return htmlContainer("del", HTMLModElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLModElement> del(Element element) {
@@ -707,7 +707,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLModElement> ins(String text) {
-        return htmlContainer("ins", HTMLModElement.class).textContent(text);
+        return htmlContainer("ins", HTMLModElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLModElement> ins(Element element) {
@@ -809,7 +809,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLButtonElement> button(String text) {
-        return button().textContent(text);
+        return button().text(text);
     }
 
     public static HTMLContainerBuilder<HTMLButtonElement> button(Element element) {
@@ -863,7 +863,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLLabelElement> label(String text) {
-        return label().textContent(text);
+        return label().text(text);
     }
 
     public static HTMLContainerBuilder<HTMLLabelElement> label(Element element) {
@@ -883,7 +883,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLMeterElement> meter(String text) {
-        return htmlContainer("meter", HTMLMeterElement.class).textContent(text);
+        return htmlContainer("meter", HTMLMeterElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLMeterElement> meter(Element element) {
@@ -903,7 +903,7 @@ public final class Elements {
     }
 
     public static HTMLElementBuilder<HTMLOptionElement> option(String text) {
-        return option().textContent(text);
+        return option().text(text);
     }
 
     public static HTMLElementBuilder<HTMLOptionElement> option(Element element) {
@@ -915,7 +915,7 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLOutputElement> output(String text) {
-        return htmlContainer("output", HTMLOutputElement.class).textContent(text);
+        return htmlContainer("output", HTMLOutputElement.class).text(text);
     }
 
     public static HTMLContainerBuilder<HTMLOutputElement> output(Element element) {
@@ -938,13 +938,19 @@ public final class Elements {
         return wrapHtmlContainer(cast(element));
     }
 
-    public static HTMLElementBuilder<HTMLTextAreaElement> textarea() {
-        return htmlElement("textarea", HTMLTextAreaElement.class);
+    public static HTMLTextAreaElementBuilder<HTMLTextAreaElement> textarea() {
+        return textarea(HTMLTextAreaElement.class);
     }
 
-    public static HTMLElementBuilder<HTMLTextAreaElement> textarea(Element element) {
-        return wrapHtmlElement(cast(element));
+    public static <E extends HTMLTextAreaElement> HTMLTextAreaElementBuilder<E> textarea(Class<E> jType) {
+        E el = createHtmlElement("textarea", jType);
+        return new HTMLTextAreaElementBuilder<>(el);
     }
+
+    public static HTMLTextAreaElementBuilder<HTMLTextAreaElement> textarea(Element element) {
+        return wrapTextAreaElement(cast(element));
+    }
+
 
     // ------------------------------------------------------ factories & wrappers
 
@@ -976,6 +982,13 @@ public final class Elements {
      */
     public static <E extends HTMLInputElement> HTMLInputElementBuilder<E> wrapInputElement(E element) {
         return new HTMLInputElementBuilder<>(element);
+    }
+
+    /**
+     * Returns a builder for the existing text area element.
+     */
+    public static <E extends HTMLTextAreaElement> HTMLTextAreaElementBuilder<E> wrapTextAreaElement(E element) {
+        return new HTMLTextAreaElementBuilder<>(element);
     }
 
     /**
@@ -1711,8 +1724,11 @@ public final class Elements {
 
     /**
      * Convenience method to set the inner HTML of the given element.
+     *
+     * @see <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML</a>
      */
-    public static void innerHtml(HTMLElement element, SafeHtml html) {
+    public static void innerHtml(Element element, SafeHtml html) {
         if (element != null) {
             element.innerHTML = html.asString();
         }
@@ -1720,8 +1736,11 @@ public final class Elements {
 
     /**
      * Convenience method to set the inner HTML of the given element.
+     *
+     * @see <a
+     * href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML</a>
      */
-    public static <E extends HTMLElement> void innerHtml(IsElement<E> element, SafeHtml html) {
+    public static <E extends Element> void innerHtml(IsElement<E> element, SafeHtml html) {
         if (element != null) {
             innerHtml(element.element(), html);
         }
@@ -1767,7 +1786,7 @@ public final class Elements {
     public static void textNode(Element element, String text) {
         Node textNode = firstTextNode(element);
         if (textNode != null) {
-            textNode.nodeValue = text;
+            textNode.nodeValue = text == null ? "" : text;
         } else {
             element.appendChild(element.ownerDocument.createTextNode(text));
         }
