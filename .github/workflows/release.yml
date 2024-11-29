@@ -55,7 +55,7 @@ jobs:
       - uses: JamesIves/github-pages-deploy-action@v4.7.1
         with:
           branch: gh-pages
-          folder: ./target/site/apidocs
+          folder: ./target/reports/apidocs
           target-folder: apidocs
           clean: true
 
@@ -71,7 +71,7 @@ jobs:
           java-version: 17
           distribution: temurin
           cache: maven
-      - run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples,prod install
+      - run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples install
       - uses: JamesIves/github-pages-deploy-action@v4.7.1
         with:
           branch: gh-pages
