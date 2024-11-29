@@ -70,6 +70,7 @@ The builders in Elemento are of one of the following classes:
 - `HTMLContainerBuilder<E extends HTMLElement>`
 - `HTMLElementBuilder<E extends HTMLElement>`
 - `HTMLInputElementBuilder<E extends HTMLInputElement>`
+- `HTMLTextAreaElementBuilder<E extends HTMLInputElement>`
 
 For [MathML](mathml.md) and [SVG](svg.md), the builders are
 
