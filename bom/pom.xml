@@ -42,7 +42,7 @@
             <!--
               Declare all dependency versions. Do not declare <scope> or <optional>.
               Each module should declare its direct dependencies and possibly overwrite scope/optional.
-              Always declare the sources jar too and optionally the test-jar.
+              Always declare the source jar too and optionally the test-jar.
             -->
             <dependency>
                 <groupId>${project.groupId}</groupId>
