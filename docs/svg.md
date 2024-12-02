@@ -18,4 +18,4 @@ In your GWT module, inherit from `org.jboss.elemento.SVG`:
 </module>
 ```
 
-Finally, use the static methods in `org.jboss.elemento.svg.SVG` to create SVG elements.
+Finally, use the static methods in [`org.jboss.elemento.svg.SVG`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVG.html) to create SVG elements.

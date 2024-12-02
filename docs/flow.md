@@ -68,6 +68,6 @@ In your GWT module, inherit from `org.jboss.elemento.Flow`:
 
 ```xml
 <module>
-    <inherits name="org.jboss.elemento.Logger"/>
+    <inherits name="org.jboss.elemento.Flow"/>
 </module>
 ```
