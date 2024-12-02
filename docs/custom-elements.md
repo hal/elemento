@@ -18,7 +18,7 @@ class TodoItemElement implements IsElement<HTMLElement> {
                         .add(toggle = input(checkbox).css("toggle")
                                 .checked(item.completed)
                                 .element())
-                        .add(label = label().textContent(item.text).element())
+                        .add(label = label().text(item.text).element())
                         .add(destroy = button().css("destroy").element()))
                 .add(summary = input(text).css("edit").element())
                 .element();

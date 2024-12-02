@@ -1,6 +1,6 @@
 # Builder API
 
-Creating a hierarchy of elements is often awkward and cumbersome when working with GWT Elemental. Even simple structures like
+Creating a hierarchy of elements is often awkward and cumbersome when working with Elemental. Even simple structures like
 
 ```html
 
@@ -32,14 +32,14 @@ HTMLElement section = section().css("main")
         .add(input(checkbox).id("toggle-all").css("toggle-all"))
         .add(label()
                 .apply(l -> l.htmlFor = "toggle-all")
-                .textContent("Mark all as complete"))
+                .text("Mark all as complete"))
         .add(ul().css("todo-list")
                 .add(li()
                         .add(div().css("view")
                                 .add(input(checkbox)
                                         .css("toggle")
                                         .checked(true))
-                                .add(label().textContent("Taste Elemento"))
+                                .add(label().text("Taste Elemento"))
                                 .add(button().css("destroy")))
                         .add(input(text).css("edit"))))
         .element();
@@ -67,23 +67,16 @@ final HTMLElement footer = footer()
 
 The builders in Elemento are of one of the following classes:
 
-- [
-  `HTMLContainerBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html)
-- [
-  `HTMLElementBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementBuilder.html)
-- [
-  `HTMLInputElementBuilder<E extends HTMLInputElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementBuilder.html)
-- [
-  `HTMLTextAreaElementBuilder<E extends HTMLTextAreaElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLTextAreaElementBuilder.html)
+- [`HTMLContainerBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html)
+- [`HTMLElementBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementBuilder.html)
+- [`HTMLInputElementBuilder<E extends HTMLInputElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementBuilder.html)
+- [`HTMLTextAreaElementBuilder<E extends HTMLTextAreaElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLTextAreaElementBuilder.html)
 
 For [MathML](mathml.md) and [SVG](svg.md), the builders are
 
-- [
-  `MathMLElementBuilder<E extends MathMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/mathml/MathMLElementBuilder.html)
-- [
-  `SVGElementBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGElementBuilder.html)
-- [
-  `SVGContainerBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGContainerBuilder.html)
+- [`MathMLElementBuilder<E extends MathMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/mathml/MathMLElementBuilder.html)
+- [`SVGElementBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGElementBuilder.html)
+- [`SVGContainerBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGContainerBuilder.html)
 
 All builders encapsulate a given element and implement `TypedBuilder<T, B extends TypedBuilder<T, B>>` to make builders work
 with inheritance. Apart from that, all builders are kept very simple and don't define their own methods. For example, this is

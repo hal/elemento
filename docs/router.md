@@ -63,7 +63,7 @@ public class TimePage implements Page {
                 h(1, "Current time").element(),
                 p()
                         .add("It's ")
-                        .add(span().textContent(currentTime))
+                        .add(span().text(currentTime))
                         .add(" in " + area + "/" + location)
                         .element());
     }
