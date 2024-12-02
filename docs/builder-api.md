@@ -67,16 +67,23 @@ final HTMLElement footer = footer()
 
 The builders in Elemento are of one of the following classes:
 
-- [`HTMLContainerBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html)
-- [`HTMLElementBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementBuilder.html)
-- [`HTMLInputElementBuilder<E extends HTMLInputElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementBuilder.html)
-- [`HTMLTextAreaElementBuilder<E extends HTMLTextAreaElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLTextAreaElementBuilder.html)
+- [
+  `HTMLContainerBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html)
+- [
+  `HTMLElementBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementBuilder.html)
+- [
+  `HTMLInputElementBuilder<E extends HTMLInputElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementBuilder.html)
+- [
+  `HTMLTextAreaElementBuilder<E extends HTMLTextAreaElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLTextAreaElementBuilder.html)
 
 For [MathML](mathml.md) and [SVG](svg.md), the builders are
 
-- [`MathMLElementBuilder<E extends MathMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/mathml/MathMLElementBuilder.html)
-- [`SVGElementBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGElementBuilder.html)
-- [`SVGContainerBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGContainerBuilder.html)
+- [
+  `MathMLElementBuilder<E extends MathMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/mathml/MathMLElementBuilder.html)
+- [
+  `SVGElementBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGElementBuilder.html)
+- [
+  `SVGContainerBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGContainerBuilder.html)
 
 All builders encapsulate a given element and implement `TypedBuilder<T, B extends TypedBuilder<T, B>>` to make builders work
 with inheritance. Apart from that, all builders are kept very simple and don't define their own methods. For example, this is
@@ -113,8 +120,8 @@ The interface names follow the pattern `[HTML|MathML|SVG]Element<Scope>Methods`.
 - [`HTMLInputElementMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementMethods.html)
 - [`SVGElementStyleMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/SVGElementStyleMethods.html)
 
-If you only use Elemento to create a DOM tree quickly and easily, you will most likely hardly come into touch with the _method_
-interfaces. However, if you want to create your own builders, these interfaces come in very handy. You can have very
+If you only use Elemento to create a DOM tree quickly and easily, you won't most likely come into touch with these _method_
+interfaces. However, if you want to create your own builders, the interfaces come in very handy. You can have very
 fine-grained control over which methods your builder should provide. And since these methods are defined as default methods in
 interfaces, you are free to mix and match the interfaces across different builders without worrying about multiple inheritance.
 
