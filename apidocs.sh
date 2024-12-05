@@ -94,10 +94,7 @@ parse_params() {
 parse_params "$@"
 setup_colors
 
-MODULES=("flow" "mathml" "router" "svg")
-PACKAGE_DIR="org/jboss/elemento"
-SITE_API_DOCS="target/site/apidocs"
-
+./mvnw clean
 ./mvnw -D quickly clean install
 ./mvnw -P snippets javadoc:aggregate
 ./mvnw -P snippets javadoc:javadoc
