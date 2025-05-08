@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>47</version>
+        <version>49</version>
     </parent>
 
     <groupId>org.jboss.elemento</groupId>
@@ -82,16 +82,6 @@
         <system>GitHub</system>
         <url>https://github.com/${github.org}/${github.name}/issues</url>
     </issueManagement>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>${sonatype.url}/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>${sonatype.url}/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
     <properties>
         <!-- Dependency versions -->
@@ -102,6 +92,7 @@
         <version.junit>5.11.3</version.junit>
 
         <!-- Plugin versions -->
+        <version.central.publishing.plugin>0.7.0</version.central.publishing.plugin>
         <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>
         <version.editorconfig.plugin>0.1.3</version.editorconfig.plugin>
         <version.enforcer.plugin>3.3.0</version.enforcer.plugin>
@@ -110,7 +101,6 @@
         <version.javadoc.plugin>3.11.1</version.javadoc.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
         <version.license.plugin>4.6</version.license.plugin>
-        <version.nexus.staging.plugin>1.7.0</version.nexus.staging.plugin>
         <version.shade.plugin>3.6.0</version.shade.plugin>
 
         <!-- Build related -->
@@ -125,7 +115,6 @@
         <maven.min.version>3.2.5</maven.min.version>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
-        <sonatype.url>https://oss.sonatype.org</sonatype.url>
     </properties>
 
     <modules>
@@ -487,14 +476,14 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>${version.nexus.staging.plugin}</version>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>${version.central.publishing.plugin}</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>${sonatype.url}</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
+                            <waitUntil>published</waitUntil>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -563,27 +552,4 @@
             </modules>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>oss-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>oss-snapshots-01</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>
