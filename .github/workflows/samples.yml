@@ -1,0 +1,25 @@
+name: Publish Samples
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-samples:
+    name: Publish Samples
+    runs-on: ubuntu-latest
+    env:
+      MVN: ./mvnw --show-version --batch-mode
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: maven
+      - run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples install
+      - uses: JamesIves/github-pages-deploy-action@v4.7.3
+        with:
+          branch: gh-pages
+          folder: ./samples/dist/target/samples
+          target-folder: samples
+          clean: true
