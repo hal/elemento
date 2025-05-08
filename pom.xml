@@ -82,16 +82,6 @@
         <system>GitHub</system>
         <url>https://github.com/${github.org}/${github.name}/issues</url>
     </issueManagement>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>${sonatype.url}/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>${sonatype.url}/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
     <properties>
         <!-- Dependency versions -->
