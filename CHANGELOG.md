@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Maven 4: Separate BOM from the rest of the modules
+
 ## [1.7.1] - 2025-05-08
 
 ### Changed
