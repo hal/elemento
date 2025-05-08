@@ -24,12 +24,12 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-todo-sample</artifactId>
-        <version>1.7.5</version>
+        <version>1.7.6-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-todo-sample-j2cl</artifactId>
-    <version>1.7.5</version>
+    <version>1.7.6-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Elemento Todo Sample J2CL</name>
 
