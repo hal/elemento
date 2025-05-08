@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.7.2] - 2025-05-08
+
 ### Changed
 
 - Maven 4: Separate BOM from the rest of the modules
@@ -1109,7 +1111,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v1.7.1...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v1.7.2...HEAD
+[1.7.2]: https://github.com/hal/elemento/compare/v1.7.1...v1.7.2
 [1.7.1]: https://github.com/hal/elemento/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/hal/elemento/compare/v1.6.11...v1.7.0
 [1.6.11]: https://github.com/hal/elemento/compare/v1.6.10...v1.6.11
