@@ -82,6 +82,12 @@
         <system>GitHub</system>
         <url>https://github.com/${github.org}/${github.name}/issues</url>
     </issueManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>central</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <!-- Dependency versions -->
