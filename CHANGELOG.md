@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix GitHub workflows
+
 ## [1.7.3] - 2025-05-08
 
 ### Fixed
