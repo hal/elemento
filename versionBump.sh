@@ -102,7 +102,8 @@ setup_colors
 
 cd bom
 msg "Update BOM version to ${CYAN}${NEW_VERSION}${NOFORMAT}"
-mvn --quiet versions:set -DnewVersion="${NEW_VERSION}"
+mvn --quiet versions:set -DnewVersion="${NEW_VERSION}" &> /dev/null
+mvn --quiet install  &> /dev/null
 cd "${script_dir}"
-msg "Update version to ${CYAN}${NEW_VERSION}${NOFORMAT}"
-mvn --quiet versions:set -DnewVersion="${NEW_VERSION}"
+msg "Update version to ${CYAN}${NEW_VERSION}${NOFORMAT}" &> /dev/null
+mvn --quiet versions:set -DnewVersion="${NEW_VERSION}" &> /dev/null
