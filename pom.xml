@@ -122,11 +122,6 @@
     </properties>
 
     <modules>
-        <!--
-        TODO Separate BOM from reactor build.
-          Maven 4 will issue a warning: "BOM imports from within reactor should be avoided"
-        -->
-        <module>bom</module>
         <module>build-config</module>
         <module>code-parent</module>
         <module>core</module>

@@ -6,9 +6,40 @@ on:
       - 'v*'
 
 jobs:
-  deploy:
+  deploy-bom:
+    name: Deploy BOM
+    runs-on: ubuntu-latest
+    env:
+      MVN: ./mvnw --show-version --batch-mode --no-transfer-progress
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: maven
+      - run: $MVN package
+        working-directory: bom
+      - uses: actions/setup-java@v4
+        with: # running setup-java again overwrites the settings.xml
+          java-version: 17
+          distribution: temurin
+          server-id: central
+          server-username: CENTRAL_USERNAME
+          server-password: CENTRAL_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - run: $MVN deploy -P release
+        working-directory: bom
+        env:
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
+  deploy-elemento:
     name: Deploy Maven Artifacts
     runs-on: ubuntu-latest
+    needs: deploy-bom
     env:
       MVN: ./mvnw --show-version --batch-mode --no-transfer-progress
     steps:
@@ -61,8 +92,8 @@ jobs:
 
   release:
     name: Create GitHub Release
-    needs: deploy
     runs-on: ubuntu-latest
+    needs: deploy-elemento
     steps:
       - name: Get Version
         id: get-version
