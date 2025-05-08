@@ -10,7 +10,7 @@
 --snippet-path /home/runner/work/elemento/elemento/src/demo/java
 -author
 -bottom
-'Copyright &#169; 2023&#x2013;2024 <a href="https://developers.redhat.com/">Red Hat</a>. All rights reserved.'
+'Copyright &#169; 2023&#x2013;2025 <a href="https://developers.redhat.com/">Red Hat</a>. All rights reserved.'
 -charset
 'UTF-8'
 -d
@@ -19,7 +19,7 @@
 'UTF-8'
 -Xdoclint:none
 -doctitle
-'Elemento Parent 1.7.1-SNAPSHOT API'
+'Elemento Parent 1.7.1 API'
 -link
 'https://hal.github.io/elemento/apidocs'
 -link
@@ -37,4 +37,4 @@
 -use
 -version
 -windowtitle
-'Elemento Parent 1.7.1-SNAPSHOT API'
+'Elemento Parent 1.7.1 API'
