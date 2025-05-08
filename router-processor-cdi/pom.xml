@@ -24,12 +24,12 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-code-parent</artifactId>
-        <version>1.7.4</version>
+        <version>1.7.5-SNAPSHOT</version>
         <relativePath>../code-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>elemento-router-processor-cdi</artifactId>
-    <version>1.7.4</version>
+    <version>1.7.5-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Elemento Router Processor CDI</name>
     <description>Elemento router annotation processor based on Crysknife CDI implementation</description>
