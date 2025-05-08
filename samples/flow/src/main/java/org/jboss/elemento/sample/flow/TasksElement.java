@@ -82,14 +82,14 @@ class TasksElement implements IsElement<HTMLElement>, Logger {
     public void logStart(final String id, final String message) {
         div(body).add(pre().id(id)
                 .css(util("font-size-sm"), util("color-300"), util("text-truncate"))
-                .textContent(message));
+                .text(message));
     }
 
     @Override
     public void logEnd(final String id, final String message) {
         Element line = document.getElementById(id);
         if (line != null) {
-            pre(line).textContent(line.textContent + message);
+            pre(line).text(line.textContent + message);
         }
     }
 
@@ -98,7 +98,7 @@ class TasksElement implements IsElement<HTMLElement>, Logger {
         Element line = document.getElementById(id);
         if (line != null) {
             line.classList.remove("pf-u-color-300");
-            pre(line).css(util("danger-color-200")).textContent(line.textContent + message);
+            pre(line).css(util("danger-color-200")).text(line.textContent + message);
         }
     }
 

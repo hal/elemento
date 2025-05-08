@@ -29,7 +29,9 @@ import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.backtotop.BackToTop.backToTop;
 import static org.patternfly.component.button.Button.button;
+import static org.patternfly.component.content.Content.content;
 import static org.patternfly.component.list.ActionList.actionList;
+import static org.patternfly.component.list.ActionListGroup.actionListGroup;
 import static org.patternfly.component.list.ActionListItem.actionListItem;
 import static org.patternfly.component.list.List.list;
 import static org.patternfly.component.list.ListItem.listItem;
@@ -38,7 +40,6 @@ import static org.patternfly.component.page.PageMain.pageMain;
 import static org.patternfly.component.page.PageMainBody.pageMainBody;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.switch_.Switch.switch_;
-import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.layout.flex.Direction.column;
 import static org.patternfly.layout.flex.Flex.flex;
@@ -82,15 +83,15 @@ public class Main implements EntryPoint {
                 .addMain(pageMain("flow-main")
                         .addSection(pageMainSection().background(light).limitWidth()
                                 .addBody(pageMainBody()
-                                        .add(textContent()
+                                        .add(content()
                                                 .add(title(1, "Flow"))
                                                 .add(p().add(DESCRIPTION_0))
                                                 .add(list(ul())
                                                         .style(componentVar(component("list"), "li", "MarginTop").name,
                                                                 "0.1rem")
-                                                        .addItem(listItem().textContent(DESCRIPTION_1))
-                                                        .addItem(listItem().textContent(DESCRIPTION_2))
-                                                        .addItem(listItem().textContent(DESCRIPTION_3))))))
+                                                        .addItem(listItem().text(DESCRIPTION_1))
+                                                        .addItem(listItem().text(DESCRIPTION_2))
+                                                        .addItem(listItem().text(DESCRIPTION_3))))))
                         .addSection(pageMainSection().background(light).limitWidth().sticky(breakpoints(default_, top))
                                 .addBody(pageMainBody()
                                         .add(flex()
@@ -102,21 +103,22 @@ public class Main implements EntryPoint {
                                                                 .addItem(flexItem().add(failFast))))
                                                 .addItem(flexItem()
                                                         .add(actionList()
-                                                                .addItem(actionListItem()
-                                                                        .add(button("Parallel").primary()
-                                                                                .onClick((e, c) -> parallel())))
-                                                                .addItem(actionListItem()
-                                                                        .add(button("Sequential").primary()
-                                                                                .onClick((e, c) -> sequential())))
-                                                                .addItem(actionListItem()
-                                                                        .add(button("Repeat").primary()
-                                                                                .onClick((e, c) -> repeat())))
-                                                                .addItem(actionListItem()
-                                                                        .add(button("Nested").primary()
-                                                                                .onClick((e, c) -> nested())))
-                                                                .addItem(actionListItem()
-                                                                        .add(button("Clear").secondary()
-                                                                                .onClick((e, c) -> clear()))))))))
+                                                                .addGroup(actionListGroup()
+                                                                        .addItem(actionListItem()
+                                                                                .add(button("Parallel").primary()
+                                                                                        .onClick((e, c) -> parallel())))
+                                                                        .addItem(actionListItem()
+                                                                                .add(button("Sequential").primary()
+                                                                                        .onClick((e, c) -> sequential())))
+                                                                        .addItem(actionListItem()
+                                                                                .add(button("Repeat").primary()
+                                                                                        .onClick((e, c) -> repeat())))
+                                                                        .addItem(actionListItem()
+                                                                                .add(button("Nested").primary()
+                                                                                        .onClick((e, c) -> nested())))
+                                                                        .addItem(actionListItem()
+                                                                                .add(button("Clear").secondary()
+                                                                                        .onClick((e, c) -> clear())))))))))
                         .addSection(pageMainSection().limitWidth()
                                 .addBody(pageMainBody()
                                         .add(tasksContainer = gallery().gutter().element()))))

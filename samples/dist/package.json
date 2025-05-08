@@ -8,8 +8,8 @@
     "prod": "parcel build --dist-dir target/samples --public-url /elemento/samples/"
   },
   "devDependencies": {
-    "@parcel/reporter-cli": "^2.13.2",
-    "parcel": "^2.13.2"
+    "@parcel/reporter-cli": "^2.14.4",
+    "parcel": "^2.14.4"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"
