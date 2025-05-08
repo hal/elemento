@@ -16,6 +16,8 @@ jobs:
           java-version: 17
           distribution: temurin
           cache: maven
+      - run: $MVN install
+        working-directory: bom
       - run: $MVN --projects org.jboss.elemento:elemento-samples-dist --also-make -P samples install
       - uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:

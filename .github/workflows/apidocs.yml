@@ -16,6 +16,8 @@ jobs:
           java-version: 21
           distribution: temurin
           cache: maven
+      - run: $MVN install
+        working-directory: bom
       - run: $MVN -D quickly install
       - run: |
           $MVN -D quickly clean install
