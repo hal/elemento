@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Migrate to publishing via the Maven Central Portal
+
+### Upgrades
+
+- Bumped JBoss Parent to 49
+
 ## [1.7.0] - 2024-11-29
 
 > [!WARNING]
