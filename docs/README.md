@@ -8,7 +8,7 @@ Elemento is available in [Maven Central](https://search.maven.org/search?q=g:org
         <dependency>
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-bom</artifactId>
-            <version>1.7.0</version>
+            <version>1.7.1</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
