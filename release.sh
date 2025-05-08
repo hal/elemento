@@ -149,7 +149,6 @@ done
 
 msg ""
 ./versionBump.sh "${FINAL_VERSION}"
-cd "${script_dir}"
 msg "Update README & changelog"
 sed -i '' -E "s/<version>[0-9]+\.[0-9]+\.[0-9]+.*<\/version>/<version>$FINAL_VERSION<\/version>/" docs/*.md
 mvn --quiet -DskipModules keepachangelog:release &> /dev/null

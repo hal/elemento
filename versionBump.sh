@@ -100,8 +100,9 @@ parse_params() {
 parse_params "$@"
 setup_colors
 
-msg "Update version to ${CYAN}${NEW_VERSION}${NOFORMAT}"
 cd bom
-mvn --quiet versions:set -DnewVersion="${NEW_VERSION}" &> /dev/null
-cd ..
-mvn --quiet versions:set -DnewVersion="${NEW_VERSION}" &> /dev/null
+msg "Update BOM version to ${CYAN}${NEW_VERSION}${NOFORMAT}"
+mvn --quiet versions:set -DnewVersion="${NEW_VERSION}"
+cd "${script_dir}"
+msg "Update version to ${CYAN}${NEW_VERSION}${NOFORMAT}"
+mvn --quiet versions:set -DnewVersion="${NEW_VERSION}"
