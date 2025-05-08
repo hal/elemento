@@ -1,5 +1,5 @@
 --class-path
-'/home/runner/work/elemento/elemento/target/classes:/home/runner/work/elemento/elemento/bom/target/classes:/home/runner/work/elemento/elemento/build-config/target/classes:/home/runner/work/elemento/elemento/code-parent/target/classes:/home/runner/work/elemento/elemento/core/target/classes:/home/runner/work/elemento/elemento/flow/target/classes:/home/runner/work/elemento/elemento/logger/target/classes:/home/runner/work/elemento/elemento/mathml/target/classes:/home/runner/work/elemento/elemento/router/target/classes:/home/runner/work/elemento/elemento/router-processor/target/classes:/home/runner/work/elemento/elemento/router-processor-cdi/target/classes:/home/runner/work/elemento/elemento/router-processor-common/target/classes:/home/runner/work/elemento/elemento/svg/target/classes:/home/runner/.m2/repository/com/google/elemental2/elemental2-core/1.2.3/elemental2-core-1.2.3.jar:/home/runner/.m2/repository/com/google/jsinterop/jsinterop-annotations/2.0.2/jsinterop-annotations-2.0.2.jar:/home/runner/.m2/repository/com/google/jsinterop/base/1.0.1/base-1.0.1.jar:/home/runner/.m2/repository/com/google/elemental2/elemental2-promise/1.2.3/elemental2-promise-1.2.3.jar:/home/runner/.m2/repository/com/google/elemental2/elemental2-dom/1.2.3/elemental2-dom-1.2.3.jar:/home/runner/.m2/repository/com/google/elemental2/elemental2-webstorage/1.2.3/elemental2-webstorage-1.2.3.jar:/home/runner/.m2/repository/org/gwtproject/event/gwt-event/1.0.0-RC1/gwt-event-1.0.0-RC1.jar:/home/runner/.m2/repository/org/gwtproject/safehtml/gwt-safehtml/1.0.0-RC1/gwt-safehtml-1.0.0-RC1.jar:/home/runner/.m2/repository/com/google/auto/auto-common/1.2.2/auto-common-1.2.2.jar:/home/runner/.m2/repository/com/squareup/javapoet/1.13.0/javapoet-1.13.0.jar:/home/runner/.m2/repository/com/google/auto/service/auto-service/1.1.1/auto-service-1.1.1.jar:/home/runner/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/home/runner/.m2/repository/com/google/guava/guava/32.0.1-jre/guava-32.0.1-jre.jar:/home/runner/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/runner/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/runner/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/runner/.m2/repository/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar:/home/runner/.m2/repository/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar:/home/runner/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar'
+'/home/runner/work/elemento/elemento/target/classes:/home/runner/work/elemento/elemento/build-config/target/classes:/home/runner/work/elemento/elemento/code-parent/target/classes:/home/runner/work/elemento/elemento/core/target/classes:/home/runner/work/elemento/elemento/flow/target/classes:/home/runner/work/elemento/elemento/logger/target/classes:/home/runner/work/elemento/elemento/mathml/target/classes:/home/runner/work/elemento/elemento/router/target/classes:/home/runner/work/elemento/elemento/router-processor/target/classes:/home/runner/work/elemento/elemento/router-processor-cdi/target/classes:/home/runner/work/elemento/elemento/router-processor-common/target/classes:/home/runner/work/elemento/elemento/svg/target/classes:/home/runner/.m2/repository/com/google/elemental2/elemental2-core/1.2.3/elemental2-core-1.2.3.jar:/home/runner/.m2/repository/com/google/jsinterop/jsinterop-annotations/2.0.2/jsinterop-annotations-2.0.2.jar:/home/runner/.m2/repository/com/google/jsinterop/base/1.0.1/base-1.0.1.jar:/home/runner/.m2/repository/com/google/elemental2/elemental2-promise/1.2.3/elemental2-promise-1.2.3.jar:/home/runner/.m2/repository/com/google/elemental2/elemental2-dom/1.2.3/elemental2-dom-1.2.3.jar:/home/runner/.m2/repository/com/google/elemental2/elemental2-webstorage/1.2.3/elemental2-webstorage-1.2.3.jar:/home/runner/.m2/repository/org/gwtproject/event/gwt-event/1.0.0-RC1/gwt-event-1.0.0-RC1.jar:/home/runner/.m2/repository/org/gwtproject/safehtml/gwt-safehtml/1.0.0-RC1/gwt-safehtml-1.0.0-RC1.jar:/home/runner/.m2/repository/com/google/auto/auto-common/1.2.2/auto-common-1.2.2.jar:/home/runner/.m2/repository/com/squareup/javapoet/1.13.0/javapoet-1.13.0.jar:/home/runner/.m2/repository/com/google/auto/service/auto-service/1.1.1/auto-service-1.1.1.jar:/home/runner/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar:/home/runner/.m2/repository/com/google/guava/guava/32.0.1-jre/guava-32.0.1-jre.jar:/home/runner/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/runner/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/runner/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/runner/.m2/repository/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar:/home/runner/.m2/repository/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar:/home/runner/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar'
 -encoding
 'UTF-8'
 -public
@@ -10,7 +10,7 @@
 --snippet-path /home/runner/work/elemento/elemento/src/demo/java
 -author
 -bottom
-'Copyright &#169; 2023&#x2013;2025 <a href="https://developers.redhat.com/">Red Hat</a>. All rights reserved.'
+'Copyright &#169; 2023&#x2013;1980 <a href="https://developers.redhat.com/">Red Hat</a>. All rights reserved.'
 -charset
 'UTF-8'
 -d
@@ -19,7 +19,7 @@
 'UTF-8'
 -Xdoclint:none
 -doctitle
-'Elemento Parent 1.7.1 API'
+'Elemento Parent 1.7.5 API'
 -link
 'https://hal.github.io/elemento/apidocs'
 -link
@@ -34,7 +34,8 @@
 'https://javadoc.io/doc/com.google.elemental2/elemental2-dom/1.2.3'
 -link
 'https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/1.2.3'
+-notimestamp
 -use
 -version
 -windowtitle
-'Elemento Parent 1.7.1 API'
+'Elemento Parent 1.7.5 API'
