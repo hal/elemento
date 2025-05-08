@@ -6,7 +6,7 @@ To create MathML elements, add the following dependency to your POM:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-mathml</artifactId>
-    <version>1.7.2</version>
+    <version>1.7.3</version>
 </dependency>
 ```
 
