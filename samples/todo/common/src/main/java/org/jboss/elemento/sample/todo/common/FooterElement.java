@@ -30,11 +30,11 @@ public class FooterElement implements IsElement<HTMLElement> {
 
     public FooterElement() {
         root = footer().css("info")
-                .add(p().textContent("Double-click to edit a todo"))
-                .add(p().add(span().textContent("Created by" + " "))
-                        .add(a("https://github.com/hpehl/").textContent("Harald Pehl")))
-                .add(p().add(span().textContent("Part of" + " "))
-                        .add(a("https://todomvc.com").textContent("TodoMVC")))
+                .add(p().text("Double-click to edit a todo"))
+                .add(p().add(span().text("Created by" + " "))
+                        .add(a("https://github.com/hpehl/").text("Harald Pehl")))
+                .add(p().add(span().text("Part of" + " "))
+                        .add(a("https://todomvc.com").text("TodoMVC")))
                 .element();
     }
 

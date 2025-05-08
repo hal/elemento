@@ -63,7 +63,7 @@ public class TodoElement implements IsElement<HTMLElement>, Attachable {
         this.root = li().data("item", item.id)
                 .add(div().css("view")
                         .add(toggle = input(checkbox).css("toggle").element())
-                        .add(label = label().textContent(item.text).element())
+                        .add(label = label().text(item.text).element())
                         .add(destroy = button().css("destroy").element()))
                 .add(summary = input(text).css("edit").element()).element();
         this.root.classList.toggle("completed", item.completed);

@@ -34,8 +34,8 @@
 
     <properties>
         <!-- Dependency versions -->
-        <version.gwt>2.12.1</version.gwt>
-        <version.node>v20.8.1</version.node>
+        <version.gwt>2.12.2</version.gwt>
+        <version.node>v23.11.0</version.node>
 
         <!-- Plugin versions -->
         <version.frontend.plugin>1.15.1</version.frontend.plugin>

@@ -105,7 +105,7 @@
         <encoding>UTF-8</encoding>
         <github.org>hal</github.org>
         <github.name>elemento</github.name>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <javadoc.options/>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.release>${java.version}</maven.compiler.release>
