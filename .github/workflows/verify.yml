@@ -19,4 +19,6 @@ jobs:
           java-version: 17
           distribution: temurin
           cache: maven
+      - run: $MVN install
+        working-directory: bom
       - run: $MVN verify
