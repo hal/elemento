@@ -33,6 +33,61 @@
     <packaging>pom</packaging>
     <name>Elemento BOM</name>
     <description>Bill of materials</description>
+    <url>https://hal.github.io/elemento</url>
+    <inceptionYear>2023</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>Red Hat</name>
+        <url>https://developers.redhat.com/</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <name>Harald Pehl</name>
+            <id>hpehl</id>
+            <email>hpehl@redhat.com</email>
+            <organization>Red Hat</organization>
+            <timezone>+1</timezone>
+        </developer>
+        <developer>
+            <name>Claudio Miranda</name>
+            <id>claudio4j</id>
+            <email>claudio@redhat.com</email>
+            <organization>Red Hat</organization>
+            <timezone>-3</timezone>
+        </developer>
+        <developer>
+            <name>Ignacio Baca Moreno-Torres</name>
+            <id>ibaca</id>
+            <email>ignacio@bacamt.com</email>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:${github.org}/${github.name}.git</connection>
+        <developerConnection>scm:git:git@github.com:${github.org}/${github.name}.git</developerConnection>
+        <url>https://github.com/${github.org}/${github.name}</url>
+        <tag>HEAD</tag>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/${github.org}/${github.name}/issues</url>
+    </issueManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>central</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <version.central.publishing.plugin>0.7.0</version.central.publishing.plugin>
