@@ -29,7 +29,7 @@
 
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-bom</artifactId>
-    <version>1.7.2</version>
+    <version>1.7.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Elemento BOM</name>
     <description>Bill of materials</description>
