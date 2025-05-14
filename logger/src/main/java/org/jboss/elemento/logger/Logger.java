@@ -55,7 +55,7 @@ import static org.jboss.elemento.logger.Level.WARN;
  *     <li>{@link #debug(String, Object...)} → <a href="https://developer.mozilla.org/en-US/docs/Web/API/console/debug_static"><code>console.debug()</code></a></li>
  * </ol>
  * <p>
- * You can use an arbitrary string as category. By using a hierarchical category, you can override subcategories. <a href="https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions">String substitutions</a> are supported, and you can pass a variable list of parameters to the log methods.
+ * You can use an arbitrary string as a category. By using a hierarchical category, you can override subcategories. <a href="https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions">String substitutions</a> are supported, and you can pass a variable list of parameters to the log methods.
  * <p>
  * The log level is set globally for all categories using {@link Logger#setLevel(Level)}. You can override the level for one category using {@link Logger#setLevel(String, Level)}. To reset a category, use {@link Logger#resetLevel(String)}. If the category contains <code>.</code>, it is interpreted hierarchically. This means that if the category <code>org.jboss</code> is overridden, this is also applied to all subcategories (unless overridden otherwise).
  * <p>
