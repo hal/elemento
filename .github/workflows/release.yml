@@ -68,6 +68,7 @@ jobs:
   publish-apidoc:
     name: Publish API Documentation
     runs-on: ubuntu-latest
+    needs: deploy-elemento
     env:
       MVN: ./mvnw --show-version --batch-mode
     steps:

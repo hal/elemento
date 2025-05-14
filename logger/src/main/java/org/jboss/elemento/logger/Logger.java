@@ -20,10 +20,19 @@ import java.util.Map;
 
 import elemental2.core.JsArray;
 import elemental2.core.JsDate;
+import elemental2.core.JsMap;
+import elemental2.core.JsObject;
+import elemental2.core.JsRegExp;
+import elemental2.core.JsSet;
+import elemental2.core.JsWeakMap;
+import elemental2.core.JsWeakSet;
+import elemental2.dom.Document;
 import elemental2.dom.Event;
+import elemental2.dom.EventTarget;
 import elemental2.dom.Location;
 import elemental2.dom.Node;
 import elemental2.dom.URLSearchParams;
+import elemental2.dom.Window;
 import jsinterop.annotations.JsMethod;
 import jsinterop.base.Js;
 
@@ -495,7 +504,13 @@ public class Logger {
         // TODO Is there a better way to detect 'native' JS objects that should be logged as-is in the console?
         return object == null || !Js.typeof(object).equals("object") ||
                 object instanceof JsArray ||
+                object instanceof JsSet ||
+                object instanceof JsMap ||
+                object instanceof JsWeakSet ||
+                object instanceof JsWeakMap ||
+                object instanceof JsRegExp ||
+                object instanceof JsDate ||
                 object instanceof Event ||
-                object instanceof Node;
+                object instanceof EventTarget; // EventTarget is a base class for all DOM objects
     }
 }
