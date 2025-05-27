@@ -10,7 +10,7 @@
 --snippet-path /home/runner/work/elemento/elemento/src/demo/java
 -author
 -bottom
-'Copyright &#169; 2023&#x2013;1980 <a href="https://developers.redhat.com/">Red Hat</a>. All rights reserved.'
+'Copyright &#169; 2023&#x2013;2025 <a href="https://developers.redhat.com/">Red Hat</a>. All rights reserved.'
 -charset
 'UTF-8'
 -d
@@ -34,7 +34,6 @@
 'https://javadoc.io/doc/com.google.elemental2/elemental2-dom/1.2.3'
 -link
 'https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/1.2.3'
--notimestamp
 -use
 -version
 -windowtitle
