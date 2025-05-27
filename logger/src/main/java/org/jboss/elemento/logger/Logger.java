@@ -21,14 +21,11 @@ import java.util.Map;
 import elemental2.core.JsArray;
 import elemental2.core.JsDate;
 import elemental2.core.JsMap;
-import elemental2.core.JsObject;
 import elemental2.core.JsRegExp;
 import elemental2.core.JsSet;
 import elemental2.core.JsWeakMap;
 import elemental2.core.JsWeakSet;
-import elemental2.dom.Document;
 import elemental2.dom.Event;
-import elemental2.dom.EventTarget;
 import elemental2.dom.Location;
 import elemental2.dom.Node;
 import elemental2.dom.URLSearchParams;
@@ -55,17 +52,25 @@ import static org.jboss.elemento.logger.Level.WARN;
  *     <li>{@link #debug(String, Object...)} → <a href="https://developer.mozilla.org/en-US/docs/Web/API/console/debug_static"><code>console.debug()</code></a></li>
  * </ol>
  * <p>
- * You can use an arbitrary string as a category. By using a hierarchical category, you can override subcategories. <a href="https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions">String substitutions</a> are supported, and you can pass a variable list of parameters to the log methods.
+ * You can use an arbitrary string as a category. By using a hierarchical category, you can override subcategories.
+ * <a href="https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions">String substitutions</a>
+ * are supported, and you can pass a variable list of parameters to the log methods.
  * <p>
- * The log level is set globally for all categories using {@link Logger#setLevel(Level)}. You can override the level for one category using {@link Logger#setLevel(String, Level)}. To reset a category, use {@link Logger#resetLevel(String)}. If the category contains <code>.</code>, it is interpreted hierarchically. This means that if the category <code>org.jboss</code> is overridden, this is also applied to all subcategories (unless overridden otherwise).
+ * The log level is set globally for all categories using {@link Logger#setLevel(Level)}.
+ * You can override the level for one category using {@link Logger#setLevel(String, Level)}.
+ * To reset a category, use {@link Logger#resetLevel(String)}. If the category contains <code>.</code>,
+ * it is interpreted hierarchically. This means that if the category <code>org.jboss</code> is overridden,
+ * this is also applied to all subcategories (unless overridden otherwise).
  * <p>
  * The log format is predefined as
  * <pre>
  * HH:mm:ss.SSS &lt;level&gt; [&lt;category&gt;] &lt;message&gt;
  * </pre>
- * and cannot be customized. If the category is a fully qualified class name, the package names are shortened. In any case the category is trimmed, and right aligned.
+ * and cannot be customized. If the category is a fully qualified class name, the package names are shortened.
+ * In any case the category is trimmed and right-aligned.
  * <p>
- * The logger exports some methods with slightly adjusted signatures to JavaScript. You can use them for instance in the browser dev tools to control the global and category based log levels:
+ * The logger exports some methods with slightly adjusted signatures to JavaScript. You can use them, for instance,
+ * in the browser dev tools to control the global and category-based log levels:
  * <ul>
  *     <li><code>org.jboss.elemento.logger.Logger.setLevel(String level)</code> - sets the global log level</li>
  *     <li><code>org.jboss.elemento.logger.Logger.setLevel(String category, String level)</code> - overrides the log level for one category</li>
@@ -501,16 +506,41 @@ public class Logger {
     }
 
     private boolean jsNative(Object object) {
-        // TODO Is there a better way to detect 'native' JS objects that should be logged as-is in the console?
-        return object == null || !Js.typeof(object).equals("object") ||
-                object instanceof JsArray ||
-                object instanceof JsSet ||
-                object instanceof JsMap ||
-                object instanceof JsWeakSet ||
-                object instanceof JsWeakMap ||
-                object instanceof JsRegExp ||
-                object instanceof JsDate ||
-                object instanceof Event ||
-                object instanceof EventTarget; // EventTarget is a base class for all DOM objects
+        // Check for null, primitives, or known native JS types
+        if (object == null || !Js.typeof(object).equals("object")) {
+            return true;
+        }
+
+        // Use Object.prototype.toString.call(obj) to get the internal [[Class]] property
+        // This is a more reliable way to detect native JS objects
+        String objectType = getObjectType(object);
+        return objectType.startsWith("[object ") &&
+               !objectType.equals("[object Object]") &&
+               !objectType.equals("[object Array]"); // Regular JS objects and arrays should be stringified
+    }
+
+    @JsMethod(namespace = "Object.prototype.toString")
+    private static native String call(Object obj);
+
+    private String getObjectType(Object obj) {
+        try {
+            return call(obj);
+        } catch (Exception e) {
+            // Fallback to the instanceof checks if the above method fails
+            return isKnownNativeType(obj) ? "[object Native]" : "[object Object]";
+        }
+    }
+
+    private boolean isKnownNativeType(Object object) {
+        return object instanceof JsArray ||
+               object instanceof JsSet ||
+               object instanceof JsMap ||
+               object instanceof JsWeakSet ||
+               object instanceof JsWeakMap ||
+               object instanceof JsRegExp ||
+               object instanceof JsDate ||
+               object instanceof Event ||
+               object instanceof Window ||
+               object instanceof Node;
     }
 }
