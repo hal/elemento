@@ -276,14 +276,4 @@ public class EventType<T extends Event, V extends EventTarget> {
     private EventType(String name) {
         this.name = name;
     }
-
-    /**
-     * @return the name of the event type.
-     *
-     * @deprecated Use public field {@link #name} instead
-     */
-    @Deprecated
-    public String getName() {
-        return name;
-    }
 }

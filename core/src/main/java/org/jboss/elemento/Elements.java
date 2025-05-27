@@ -1854,69 +1854,6 @@ public final class Elements {
         return "";
     }
 
-    // ------------------------------------------------------ deprecated
-
-    @Deprecated
-    public static ElementsBag bag() {
-        return new ElementsBag();
-    }
-
-    /**
-     * @deprecated Replaced bv {@link Id#unique()}
-     */
-    @Deprecated
-    public static String uniqueId() {
-        return Id.unique();
-    }
-
-    /**
-     * @deprecated Replaced bv {@link Id#unique(String, String...)}
-     */
-    @Deprecated
-    public static String uniqueId(String id, String... additionalIds) {
-        return Id.unique(id, additionalIds);
-    }
-
-    /**
-     * @deprecated Replaced bv {@link Id#build(String, String...)}
-     */
-    @Deprecated
-    public static String buildId(String id, String... additionalIds) {
-        return Id.build(id, additionalIds);
-    }
-
-    /**
-     * @deprecated Replaced by {@link #querySelectorAll(Node, By)}
-     */
-    @Deprecated
-    public static Iterable<HTMLElement> findAll(Node node, By selector) {
-        return querySelectorAll(node, selector);
-    }
-
-    /**
-     * @deprecated Replaced by {@link #querySelectorAll(IsElement, By)}
-     */
-    @Deprecated
-    public static <E extends HTMLElement> Iterable<HTMLElement> findAll(IsElement<E> element, By selector) {
-        return querySelectorAll(element.element(), selector);
-    }
-
-    /**
-     * @deprecated Replaced by {@link #querySelector(Node, By)}
-     */
-    @Deprecated
-    public static <E extends HTMLElement> E find(Node node, By selector) {
-        return querySelector(node, selector);
-    }
-
-    /**
-     * @deprecated Replaced by {@link #querySelector(IsElement, By)}
-     */
-    @Deprecated
-    public static <E extends HTMLElement, F extends HTMLElement> F find(IsElement<E> element, By selector) {
-        return querySelector(element.element(), selector);
-    }
-
     // ------------------------------------------------------ instance
 
     // this is a static helper class, which must never be instantiated!
