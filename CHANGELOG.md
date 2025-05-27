@@ -7,8 +7,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [2.0.0] - 2025-05-27
-
 ### Changed
 
 - Improve detection of native JS objects in the logging module
@@ -1146,7 +1144,6 @@ Switch to Apache2 license
 -->
 
 [Unreleased]: https://github.com/hal/elemento/compare/v2.0.0...HEAD
-[2.0.0]: https://github.com/hal/elemento/compare/v1.7.6...v2.0.0
 [1.7.6]: https://github.com/hal/elemento/compare/v1.7.5...v1.7.6
 [1.7.5]: https://github.com/hal/elemento/compare/v1.7.4...v1.7.5
 [1.7.4]: https://github.com/hal/elemento/compare/v1.7.3...v1.7.4
