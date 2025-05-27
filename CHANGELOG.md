@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Improve detection of native JS objects in the logging module
+
+### Removed
+
+- Remove all deprecated classes and methods
+
 ## [1.7.6] - 2025-05-14
 
 ### Changed
