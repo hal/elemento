@@ -33,7 +33,7 @@
     <packaging>pom</packaging>
     <name>Elemento Parent</name>
     <description>Elemental builder API and other goodies for GWT and J2CL</description>
-    <url>https://hal.github.io/elemento</url>
+    <url>https://hal-console.gitbook.io/elemento</url>
     <inceptionYear>2023</inceptionYear>
 
     <licenses>
