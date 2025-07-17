@@ -27,7 +27,7 @@ import static org.jboss.elemento.BoxModel.contentBox;
  * The ResizeObserver interface reports changes to the dimensions of an Element's content or border box.
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver">https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver">https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class ResizeObserver {

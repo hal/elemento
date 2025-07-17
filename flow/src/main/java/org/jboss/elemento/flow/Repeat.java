@@ -18,8 +18,8 @@ package org.jboss.elemento.flow;
 import java.util.function.Predicate;
 
 /**
- * An interface to control the {@linkplain Flow#repeat(FlowContext, Task) repeated} execution of an {@linkplain Task
- * asynchronous task}.
+ * An interface to control the {@linkplain Flow#repeat(FlowContext, Task) repeated} execution of an
+ * {@linkplain Task asynchronous task}.
  *
  * @param <C> the type of the {@linkplain FlowContext context} shared between tasks
  */

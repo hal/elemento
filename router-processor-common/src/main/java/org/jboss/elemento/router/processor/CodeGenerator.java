@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.processing.Filer;
-
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.JavaFile;

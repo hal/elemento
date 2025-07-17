@@ -36,7 +36,7 @@ public final class Id {
      * {@link Crypto#randomUUID()} is used to generate the UUID. Otherwise, a pseudo random UUID is generated as fallback.
      *
      * @see <a href=
-     *      "https://developer.mozilla.org/en-US/docs/Web/API/Crypto">https://developer.mozilla.org/en-US/docs/Web/API/Crypto</a>
+     * "https://developer.mozilla.org/en-US/docs/Web/API/Crypto">https://developer.mozilla.org/en-US/docs/Web/API/Crypto</a>
      */
     public static String uuid() {
         if (DomGlobal.isSecureContext) {

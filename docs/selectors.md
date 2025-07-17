@@ -1,6 +1,7 @@
 # Typesafe CSS Selectors
 
-Elemento provides a typesafe selector API. It can be used to express simple CSS selector like `.class` or `#id` up to complex selectors like
+Elemento provides a typesafe selector API. It can be used to express simple CSS selector like `.class` or `#id` up to complex
+selectors like
 
 ```css
 #main [data-list-item|=foo] a[href^="http://"] > .fas.fa-check, .external[hidden]

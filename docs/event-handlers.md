@@ -1,6 +1,8 @@
 # Event Handlers
 
-Elemento provides methods to easily register event handlers. There are [constants](https://hal.github.io/elemento/apidocs/org/jboss/elemento/EventType.html) for most of the known event types. You can either add event handlers when building the element hierarchy:
+Elemento provides methods to easily register event handlers. There
+are [constants](https://hal.github.io/elemento/apidocs/org/jboss/elemento/EventType.html) for most of the known event types. You
+can either add event handlers when building the element hierarchy:
 
 ```java
 import static org.jboss.elemento.Elements.*;
@@ -40,7 +42,8 @@ HandlerRegistration handler = bind(listItem, click, event -> alert("Clicked"));
 
 The latter approach returns `org.gwtproject.event.shared.HandlerRegistration` which you can use to remove the handler again.
 
-To make it easier to work with keyboard events, Elemento provides an [enum](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Key.html) with the most common keyboard codes:
+To make it easier to work with keyboard events, Elemento provides
+an [enum](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Key.html) with the most common keyboard codes:
 
 ```java
 import elemental2.dom.KeyboardEvent;

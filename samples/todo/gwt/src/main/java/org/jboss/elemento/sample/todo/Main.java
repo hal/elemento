@@ -18,7 +18,6 @@ package org.jboss.elemento.sample.todo;
 import org.jboss.elemento.sample.todo.common.ApplicationElement;
 import org.jboss.elemento.sample.todo.common.FooterElement;
 import org.jboss.elemento.sample.todo.common.TodoRepository;
-
 import com.google.gwt.core.client.EntryPoint;
 
 import static elemental2.dom.DomGlobal.location;

@@ -1,13 +1,15 @@
 # Iterators / Iterables / Streams
 
-Elemento provides several methods to iterate over node lists, child elements, or elements returned by a selector. Some methods return `Iterator`, `Iterable` and `Stream`.
+Elemento provides several methods to iterate over node lists, child elements, or elements returned by a selector. Some methods
+return `Iterator`, `Iterable` and `Stream`.
 
 ## Methods returning `java.util.Iterator`
 
 * `Elements.iterator(JsArrayLike<E> nodes)`\
   Returns an iterator over the given array-like. The iterator does **not** support the `Iterator.remove()` operation.
 * `Elements.iterator(Node parent)`\
-  Returns an iterator over the children of `parent`. The iterator **supports** the `Iterator.remove()` operation, which removes the current node from its parent.
+  Returns an iterator over the children of `parent`. The iterator **supports** the `Iterator.remove()` operation, which removes
+  the current node from its parent.
 
 ## Methods returning `java.lang.Iterable`
 
@@ -23,4 +25,6 @@ Elemento provides several methods to iterate over node lists, child elements, or
 * `Elements.stream(elemental2.dom.Node parent)`\
   Returns a stream for the child nodes of `parent`.
 
-All methods are null-safe, check parent/child relationships, and are overloaded to accept an instance of `IsElement<Element>` instead of `Element`. See the API documentation of [Elements](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Elements.html) for more details.
+All methods are null-safe, check parent/child relationships, and are overloaded to accept an instance of `IsElement<Element>`
+instead of `Element`. See the API documentation
+of [Elements](https://hal.github.io/elemento/apidocs/org/jboss/elemento/Elements.html) for more details.

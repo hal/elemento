@@ -515,8 +515,8 @@ public class Logger {
         // This is a more reliable way to detect native JS objects
         String objectType = getObjectType(object);
         return objectType.startsWith("[object ") &&
-               !objectType.equals("[object Object]") &&
-               !objectType.equals("[object Array]"); // Regular JS objects and arrays should be stringified
+                !objectType.equals("[object Object]") &&
+                !objectType.equals("[object Array]"); // Regular JS objects and arrays should be stringified
     }
 
     @JsMethod(namespace = "Object.prototype.toString")
@@ -533,14 +533,14 @@ public class Logger {
 
     private boolean isKnownNativeType(Object object) {
         return object instanceof JsArray ||
-               object instanceof JsSet ||
-               object instanceof JsMap ||
-               object instanceof JsWeakSet ||
-               object instanceof JsWeakMap ||
-               object instanceof JsRegExp ||
-               object instanceof JsDate ||
-               object instanceof Event ||
-               object instanceof Window ||
-               object instanceof Node;
+                object instanceof JsSet ||
+                object instanceof JsMap ||
+                object instanceof JsWeakSet ||
+                object instanceof JsWeakMap ||
+                object instanceof JsRegExp ||
+                object instanceof JsDate ||
+                object instanceof Event ||
+                object instanceof Window ||
+                object instanceof Node;
     }
 }

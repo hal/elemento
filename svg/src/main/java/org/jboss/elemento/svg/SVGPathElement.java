@@ -22,7 +22,7 @@ import jsinterop.annotations.JsType;
  * The SVGPathElement interface corresponds to the {@code <path>} element.
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/SVGPathElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGPathElement</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/SVGPathElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGPathElement</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGPathElement extends SVGElement {

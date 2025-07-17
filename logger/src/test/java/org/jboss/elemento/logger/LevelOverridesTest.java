@@ -21,7 +21,8 @@ import org.junit.jupiter.api.Test;
 import static org.jboss.elemento.logger.Level.DEBUG;
 import static org.jboss.elemento.logger.Level.INFO;
 import static org.jboss.elemento.logger.Level.WARN;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class LevelOverridesTest {
 

@@ -26,7 +26,7 @@ import jsinterop.base.JsPropertyMap;
  * All the MAthML DOM interfaces that correspond directly to elements in the SVG language derive from the SVGElement interface.
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/MathMLElement">https://developer.mozilla.org/en-US/docs/Web/API/MathMLElement</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/MathMLElement">https://developer.mozilla.org/en-US/docs/Web/API/MathMLElement</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class MathMLElement extends Element {

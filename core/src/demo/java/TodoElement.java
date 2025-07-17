@@ -13,6 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.event.shared.HandlerRegistrations;
 import org.jboss.elemento.Attachable;

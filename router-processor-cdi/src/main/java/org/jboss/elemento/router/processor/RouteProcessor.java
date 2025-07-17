@@ -22,7 +22,6 @@ import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedOptions;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
-
 import com.google.auto.common.BasicAnnotationProcessor;
 import com.google.auto.service.AutoService;
 

@@ -23,7 +23,7 @@ import jsinterop.annotations.JsType;
  * manipulate them.
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/SVGPolygonElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGPolygonElement</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/SVGPolygonElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGPolygonElement</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGPolygonElement extends SVGElement {

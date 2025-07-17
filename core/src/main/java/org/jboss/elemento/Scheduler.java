@@ -24,7 +24,7 @@ public final class Scheduler {
      * Executes the given callback after a specified timeout. If this method is called multiple times within the specified
      * timeout period, the original callback will only be executed once at the end of the timeout.
      *
-     * @param timeout The timeout value in milliseconds.
+     * @param timeout  The timeout value in milliseconds.
      * @param callback The callback function to execute.
      * @return A new callback function that debounces the original callback.
      */

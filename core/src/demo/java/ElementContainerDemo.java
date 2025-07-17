@@ -13,6 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 import elemental2.dom.HTMLUListElement;
 
 import static org.jboss.elemento.Elements.ul;

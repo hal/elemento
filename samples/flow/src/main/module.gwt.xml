@@ -17,10 +17,10 @@
 
 -->
 <module>
-    <inherits name="org.jboss.elemento.Core" />
-    <inherits name="org.jboss.elemento.Flow" />
-    <inherits name="org.patternfly.PatternFly" />
-    <source path="flow" />
-    <collapse-all-properties />
-    <entry-point class="org.jboss.elemento.sample.flow.Main" />
+    <inherits name="org.jboss.elemento.Core"/>
+    <inherits name="org.jboss.elemento.Flow"/>
+    <inherits name="org.patternfly.PatternFly"/>
+    <source path="flow"/>
+    <collapse-all-properties/>
+    <entry-point class="org.jboss.elemento.sample.flow.Main"/>
 </module>

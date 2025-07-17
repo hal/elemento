@@ -22,7 +22,7 @@ import jsinterop.annotations.JsType;
  * The SVGGElement interface corresponds to the {@code <g>} element.
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/SVGGElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGGElement</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/SVGGElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGGElement</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGGElement extends SVGElement {

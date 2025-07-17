@@ -18,4 +18,6 @@ In your GWT module, inherit from `org.jboss.elemento.MathML`:
 </module>
 ```
 
-Finally, use the static methods in [`org.jboss.elemento.mathml.MathML`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/mathml/MathML.html) to create MathML elements.
+Finally, use the static methods in [
+`org.jboss.elemento.mathml.MathML`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/mathml/MathML.html) to create
+MathML elements.

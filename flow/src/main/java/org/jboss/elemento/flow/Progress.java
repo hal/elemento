@@ -47,7 +47,7 @@ public interface Progress {
      * Resets the progress indicator. The {@code max} parameter describes how many {@linkplain Task tasks} are going to be
      * executed.
      *
-     * @param max the number of tasks executed
+     * @param max   the number of tasks executed
      * @param label a description for the reset state
      */
     void reset(int max, String label);

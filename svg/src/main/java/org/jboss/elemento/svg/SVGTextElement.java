@@ -22,7 +22,7 @@ import jsinterop.annotations.JsType;
  * The SVGTextElement interface corresponds to the {@code <text>} elements.
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/SVGTextElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGTextElement</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/SVGTextElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGTextElement</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGTextElement extends SVGElement {

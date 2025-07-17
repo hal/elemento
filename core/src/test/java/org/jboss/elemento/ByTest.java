@@ -17,7 +17,11 @@ package org.jboss.elemento;
 
 import org.junit.jupiter.api.Test;
 
-import static org.jboss.elemento.By.AttributeOperator.*;
+import static org.jboss.elemento.By.AttributeOperator.CONTAINS;
+import static org.jboss.elemento.By.AttributeOperator.CONTAINS_TOKEN;
+import static org.jboss.elemento.By.AttributeOperator.CONTAINS_WORD;
+import static org.jboss.elemento.By.AttributeOperator.ENDS_WITH;
+import static org.jboss.elemento.By.AttributeOperator.STARTS_WITH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ByTest {
@@ -40,7 +44,7 @@ class ByTest {
     @Test
     void byClassname() {
         assertEquals(".single-class", By.classname("single-class").selector());
-        assertEquals(".fas.fa-check", By.classnames(new String[] { "fas", "fa-check" }).selector());
+        assertEquals(".fas.fa-check", By.classnames(new String[]{"fas", "fa-check"}).selector());
         assertEquals(".first.second.third", By.classnames("first", "second", "third").selector());
     }
 

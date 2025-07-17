@@ -13,6 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.EventType.keydown;
 import static org.jboss.elemento.Key.Escape;

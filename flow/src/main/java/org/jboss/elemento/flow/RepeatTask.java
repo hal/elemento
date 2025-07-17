@@ -48,11 +48,11 @@ public class RepeatTask<C extends FlowContext> implements Task<C> {
      * The task re-uses the {@linkplain FlowContext context} from the outer call to {@link Flow#parallel(FlowContext, List)},
      * {@link Flow#sequential(FlowContext, List)} or {@link Flow#repeat(FlowContext, Task)}.
      *
-     * @param task the task to execute while the predicate evaluates to {@code true}
+     * @param task      the task to execute while the predicate evaluates to {@code true}
      * @param predicate the predicate used to decide whether to continue or break the loop
-     * @param failFast whether the execution of the list should fail fast or fail last
-     * @param interval the interval between the iterations
-     * @param timeout the timeout for the while loop
+     * @param failFast  whether the execution of the list should fail fast or fail last
+     * @param interval  the interval between the iterations
+     * @param timeout   the timeout for the while loop
      */
     public RepeatTask(Task<C> task, Predicate<C> predicate,
             boolean failFast, long interval, long timeout) {
@@ -66,11 +66,11 @@ public class RepeatTask<C extends FlowContext> implements Task<C> {
      * The task re-uses the {@linkplain FlowContext context} from the outer call to {@link Flow#parallel(FlowContext, List)},
      * {@link Flow#sequential(FlowContext, List)} or {@link Flow#repeat(FlowContext, Task)}.
      *
-     * @param task the task to execute while the predicate evaluates to {@code true}
-     * @param predicate the predicate used to decide whether to continue or break the loop
-     * @param failFast whether the execution of the list should fail fast or fail last
-     * @param interval the interval between the iterations
-     * @param timeout the timeout for the while loop
+     * @param task       the task to execute while the predicate evaluates to {@code true}
+     * @param predicate  the predicate used to decide whether to continue or break the loop
+     * @param failFast   whether the execution of the list should fail fast or fail last
+     * @param interval   the interval between the iterations
+     * @param timeout    the timeout for the while loop
      * @param iterations the maximal iterations the loop
      */
     public RepeatTask(Task<C> task, Predicate<C> predicate,
@@ -84,12 +84,12 @@ public class RepeatTask<C extends FlowContext> implements Task<C> {
      * <p>
      * The task uses the given {@linkplain FlowContext context} for the execution of the {@linkplain Task task}.
      *
-     * @param context the context shared between the iterations
-     * @param task the task to execute while the predicate evaluates to {@code true}
-     * @param predicate the predicate used to decide whether to continue or break the loop
-     * @param failFast whether the execution of the list should fail fast or fail last
-     * @param interval the interval between the iterations
-     * @param timeout the timeout for the while loop
+     * @param context    the context shared between the iterations
+     * @param task       the task to execute while the predicate evaluates to {@code true}
+     * @param predicate  the predicate used to decide whether to continue or break the loop
+     * @param failFast   whether the execution of the list should fail fast or fail last
+     * @param interval   the interval between the iterations
+     * @param timeout    the timeout for the while loop
      * @param iterations the maximal iterations the loop
      */
     public RepeatTask(C context, Task<C> task, Predicate<C> predicate,
@@ -103,12 +103,12 @@ public class RepeatTask<C extends FlowContext> implements Task<C> {
      * <p>
      * The task uses the given {@linkplain FlowContext context} for the execution of the {@linkplain Task task}.
      *
-     * @param context the context shared between the iterations
-     * @param task the task to execute while the predicate evaluates to {@code true}
-     * @param predicate the predicate used to decide whether to continue or break the loop
-     * @param failFast whether the execution of the list should fail fast or fail last
-     * @param interval the interval between the iterations
-     * @param timeout the timeout for the while loop
+     * @param context    the context shared between the iterations
+     * @param task       the task to execute while the predicate evaluates to {@code true}
+     * @param predicate  the predicate used to decide whether to continue or break the loop
+     * @param failFast   whether the execution of the list should fail fast or fail last
+     * @param interval   the interval between the iterations
+     * @param timeout    the timeout for the while loop
      * @param iterations the maximal iterations the loop
      */
     public RepeatTask(C context, Task<C> task, Predicate<C> predicate,

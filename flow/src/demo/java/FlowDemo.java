@@ -13,16 +13,18 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 import java.util.List;
 import java.util.Random;
+
+import org.jboss.elemento.flow.Flow;
+import org.jboss.elemento.flow.FlowContext;
+import org.jboss.elemento.flow.Task;
 
 import elemental2.dom.Response;
 import elemental2.promise.Promise;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
-import org.jboss.elemento.flow.Flow;
-import org.jboss.elemento.flow.FlowContext;
-import org.jboss.elemento.flow.Task;
 
 import static elemental2.dom.DomGlobal.console;
 import static elemental2.dom.DomGlobal.fetch;

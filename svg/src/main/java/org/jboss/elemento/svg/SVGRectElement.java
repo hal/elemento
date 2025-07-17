@@ -23,7 +23,7 @@ import jsinterop.annotations.JsType;
  * them.
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/SVGRectElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGRectElement</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/SVGRectElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGRectElement</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGRectElement extends SVGElement {

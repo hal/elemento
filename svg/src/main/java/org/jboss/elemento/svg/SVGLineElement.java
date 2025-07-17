@@ -23,7 +23,7 @@ import jsinterop.annotations.JsType;
  * them.
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/SVGLineElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGLineElement</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/SVGLineElement">https://developer.mozilla.org/en-US/docs/Web/API/SVGLineElement</a>
  */
 @JsType(isNative = true, namespace = JsPackage.GLOBAL)
 public class SVGLineElement extends SVGElement {

@@ -61,7 +61,7 @@ public class SequentialTasks<C extends FlowContext> implements Task<C> {
      * The task re-uses the {@linkplain FlowContext context} from the outer call to {@link Flow#parallel(FlowContext, List)},
      * {@link Flow#sequential(FlowContext, List)} or {@link Flow#repeat(FlowContext, Task)}.
      *
-     * @param tasks The list of tasks to execute
+     * @param tasks    The list of tasks to execute
      * @param failFast whether the execution of the list should fail fast or fail last
      */
     public SequentialTasks(List<Task<C>> tasks, boolean failFast) {
@@ -76,9 +76,9 @@ public class SequentialTasks<C extends FlowContext> implements Task<C> {
      * {@link Flow#parallel(FlowContext, List)}, {@link Flow#sequential(FlowContext, List)} or
      * {@link Flow#repeat(FlowContext, Task)}.
      *
-     * @param tasks The list of tasks to execute
+     * @param tasks    The list of tasks to execute
      * @param failFast whether the execution of the list should fail fast or fail last
-     * @param timeout the timeout in milliseconds for the sequence
+     * @param timeout  the timeout in milliseconds for the sequence
      */
     public SequentialTasks(List<Task<C>> tasks, boolean failFast, long timeout) {
         this(null, tasks, failFast, timeout);
@@ -90,11 +90,11 @@ public class SequentialTasks<C extends FlowContext> implements Task<C> {
      * Creates a new task that executes the given list of {@linkplain Task asynchronous tasks} in
      * {@linkplain Flow#sequential(FlowContext, List) order} using a new {@linkplain FlowContext context}.
      * <p>
-     * The task fails fast and uses the given {@linkplain FlowContext context} for the execution of the {@linkplain Task
-     * asynchronous tasks}.
+     * The task fails fast and uses the given {@linkplain FlowContext context} for the execution of the
+     * {@linkplain Task asynchronous tasks}.
      *
      * @param context the context shared between tasks
-     * @param tasks The list of tasks to execute
+     * @param tasks   The list of tasks to execute
      */
     public SequentialTasks(C context, List<Task<C>> tasks) {
         this(context, tasks, Sequence.DEFAULT_FAIL_FAST, Sequence.DEFAULT_TIMEOUT);
@@ -106,8 +106,8 @@ public class SequentialTasks<C extends FlowContext> implements Task<C> {
      * <p>
      * The task uses the given {@linkplain FlowContext context} for the execution of the {@linkplain Task asynchronous tasks}.
      *
-     * @param context the context shared between tasks
-     * @param tasks The list of tasks to execute
+     * @param context  the context shared between tasks
+     * @param tasks    The list of tasks to execute
      * @param failFast whether the execution of the list should fail fast or fail last
      */
     public SequentialTasks(C context, List<Task<C>> tasks, boolean failFast) {
@@ -120,10 +120,10 @@ public class SequentialTasks<C extends FlowContext> implements Task<C> {
      * <p>
      * The task uses the given {@linkplain FlowContext context} for the execution of the {@linkplain Task asynchronous tasks}.
      *
-     * @param context the context shared between tasks
-     * @param tasks The list of tasks to execute
+     * @param context  the context shared between tasks
+     * @param tasks    The list of tasks to execute
      * @param failFast whether the execution of the list should fail fast or fail last
-     * @param timeout the timeout in milliseconds for the sequence
+     * @param timeout  the timeout in milliseconds for the sequence
      */
     public SequentialTasks(C context, List<Task<C>> tasks, boolean failFast, long timeout) {
         this.context = context;

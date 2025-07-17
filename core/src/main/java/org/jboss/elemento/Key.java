@@ -28,7 +28,7 @@ import elemental2.dom.KeyboardEvent;
  * {@snippet class = KeyDemo region = key}
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values</a>
  */
 public enum Key {
 

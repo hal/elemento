@@ -18,7 +18,6 @@ package org.jboss.elemento.router.processor;
 import org.jboss.elemento.router.LoadData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import io.toolisticon.cute.Cute;
 import io.toolisticon.cute.CuteApi;
 

@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `HTMLSelectElementBuilder<E extends HTMLSelectElement>`
+
+### Upgrades
+
+- Bump JUnit to 5.13.3
+
 ## [2.0.0] - 2025-05-27
 
 ### Changed

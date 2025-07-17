@@ -25,10 +25,8 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeMirror;
-
 import org.jboss.elemento.router.LoadData;
 import org.jboss.elemento.router.Loader;
-
 import com.google.auto.common.BasicAnnotationProcessor;
 import com.google.auto.common.MoreElements;
 import com.google.auto.common.MoreTypes;

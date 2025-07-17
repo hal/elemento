@@ -26,11 +26,10 @@ import static java.util.stream.Collectors.joining;
 /**
  * Typesafe CSS selector API.
  * <p>
- * Use the static methods in this class to create arbitrary complex CSS selectors:
- * {@snippet class = ByDemo region = group}
+ * Use the static methods in this class to create arbitrary complex CSS selectors: {@snippet class = ByDemo region = group}
  *
  * @see <a href=
- *      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors</a>
+ * "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors</a>
  */
 public abstract class By {
 
@@ -63,7 +62,7 @@ public abstract class By {
 
     /** Selects all elements that have the given class attribute. */
     public static By classname(String classname) {
-        return new ByClassname(new String[] { classname });
+        return new ByClassname(new String[]{classname});
     }
 
     /** Selects all elements that have all class attributes. */

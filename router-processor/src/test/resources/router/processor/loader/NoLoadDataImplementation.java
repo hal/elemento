@@ -1,6 +1,5 @@
 package router.processor;
 
-import org.jboss.elemento.router.LoadData;
 import org.jboss.elemento.router.LoadedData;
 import org.jboss.elemento.router.Loader;
 import org.jboss.elemento.router.Page;

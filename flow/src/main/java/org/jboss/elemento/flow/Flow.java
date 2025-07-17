@@ -34,8 +34,8 @@ public interface Flow {
      * {@snippet class = FlowDemo region = parallel}
      *
      * @param context the context shared between tasks
-     * @param tasks the list of tasks to execute in parallel
-     * @param <C> the type of the shared context
+     * @param tasks   the list of tasks to execute in parallel
+     * @param <C>     the type of the shared context
      * @return an interface to control whether the execution of the tasks should fail fast or fail last
      */
     static <C extends FlowContext> Sequence<C> parallel(C context, List<Task<C>> tasks) {
@@ -47,8 +47,8 @@ public interface Flow {
      * {@snippet class = FlowDemo region = sequential}
      *
      * @param context the context shared between tasks
-     * @param tasks the list of tasks to execute in order
-     * @param <C> the type of the shared context
+     * @param tasks   the list of tasks to execute in order
+     * @param <C>     the type of the shared context
      * @return an interface to control whether the execution of the tasks should fail fast or fail last
      */
     static <C extends FlowContext> Sequence<C> sequential(C context, List<Task<C>> tasks) {
@@ -60,8 +60,8 @@ public interface Flow {
      * {@snippet class = FlowDemo region = repeat}
      *
      * @param context the context shared between the iterations
-     * @param task the task to execute while the predicate evaluates to {@code true}
-     * @param <C> the type of the shared context
+     * @param task    the task to execute while the predicate evaluates to {@code true}
+     * @param <C>     the type of the shared context
      * @return an interface to control the interval, timeout and fail fast behaviour
      */
     static <C extends FlowContext> Repeat<C> repeat(C context, Task<C> task) {
