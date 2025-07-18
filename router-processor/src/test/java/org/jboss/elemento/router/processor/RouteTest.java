@@ -16,6 +16,7 @@
 package org.jboss.elemento.router.processor;
 
 import org.junit.jupiter.api.Test;
+
 import io.toolisticon.cute.Cute;
 
 import static io.toolisticon.cute.CuteApi.ExpectedFileObjectMatcherKind.TEXT_IGNORE_LINE_ENDINGS;

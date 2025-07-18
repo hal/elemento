@@ -15,23 +15,25 @@
  */
 package org.jboss.elemento.router.processor;
 
-import com.google.auto.common.BasicAnnotationProcessor;
-import com.google.auto.common.MoreTypes;
-import com.google.common.collect.ImmutableSetMultimap;
-import org.jboss.elemento.router.LoadData;
-import org.jboss.elemento.router.Route;
-import javax.annotation.processing.ProcessingEnvironment;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.TypeMirror;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.annotation.processing.ProcessingEnvironment;
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.TypeMirror;
+
+import org.jboss.elemento.router.LoadData;
+import org.jboss.elemento.router.Route;
+
+import com.google.auto.common.BasicAnnotationProcessor;
+import com.google.auto.common.MoreTypes;
+import com.google.common.collect.ImmutableSetMultimap;
 
 import static com.google.auto.common.MoreElements.asType;
 import static com.google.common.base.Strings.emptyToNull;

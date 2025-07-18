@@ -17,6 +17,7 @@ package org.jboss.elemento.sample.flow;
 
 import org.jboss.elemento.By;
 import org.patternfly.component.switch_.Switch;
+
 import com.google.gwt.core.client.EntryPoint;
 
 import elemental2.dom.HTMLElement;
@@ -102,7 +103,7 @@ public class Main implements EntryPoint {
                                                                 .addItem(flexItem().add(failFast))))
                                                 .addItem(flexItem()
                                                         .add(actionList()
-                                                                .addGroup(actionListGroup()
+                                                                .addItem(actionListGroup()
                                                                         .addItem(actionListItem()
                                                                                 .add(button("Parallel").primary()
                                                                                         .onClick((e, c) -> parallel())))

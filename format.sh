@@ -95,7 +95,7 @@ parse_params() {
 
 parse_params "$@"
 setup_colors
-mvn \
+mvn -P samples \
   com.mycila:license-maven-plugin:format \
   org.ec4j.maven:editorconfig-maven-plugin:format \
   net.revelc.code:impsort-maven-plugin:sort
