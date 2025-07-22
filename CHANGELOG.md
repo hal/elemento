@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.0.2] - 2025-07-22
+
 ### Added
 
 - Add missing methods for select elements to `Elements`
@@ -1162,7 +1164,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/hal/elemento/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/hal/elemento/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/hal/elemento/compare/v1.7.6...v2.0.0
 [1.7.6]: https://github.com/hal/elemento/compare/v1.7.5...v1.7.6
