@@ -9,7 +9,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- Add `HTMLSelectElementBuilder<E extends HTMLSelectElement>`
+- Add `ElementContainerDelegate<E extends Element, B extends TypedBuilder<E, B>>`
+- Add `ElementTextDelegate<E extends Element, B extends TypedBuilder<E, B>>`
+- Add `HTMLSelectElementBuilder<E extends HTMLSelectElement>` and
+  `HTMLSelectElementMethods<E extends HTMLSelectElement, B extends TypedBuilder<E, B>>`
 
 ### Upgrades
 

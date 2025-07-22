@@ -17,7 +17,6 @@ package org.jboss.elemento.router.processor;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.annotation.processing.Filer;
 
 import com.squareup.javapoet.ClassName;
