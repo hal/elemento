@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 
 import io.toolisticon.cute.Cute;
 import io.toolisticon.cute.CuteApi;
-
 import static io.toolisticon.cute.CuteApi.ExpectedFileObjectMatcherKind.TEXT_IGNORE_LINE_ENDINGS;
 import static io.toolisticon.cute.JavaFileObjectUtils.readFromResource;
 
@@ -112,7 +111,7 @@ class LoaderTest implements RouteProcessorTest {
                 .compilerMessage()
                 .ofKindError()
                 .atSource("/router/processor/loader/NoLoadDataImplementation.java")
-                .atLine(19).atColumn(19)
+                .atLine(18).atColumn(19)
                 .contains(String.format("does not implement %s<?>", LoadData.class.getSimpleName()))
                 .executeTest();
     }
@@ -187,7 +186,7 @@ class LoaderTest implements RouteProcessorTest {
                 .compilerMessage()
                 .ofKindError()
                 .atSource("/router/processor/loader/WrongReturnType.java")
-                .atLine(21).atColumn(30)
+                .atLine(19).atColumn(30)
                 .contains("is not a valid loader method")
                 .executeTest();
     }

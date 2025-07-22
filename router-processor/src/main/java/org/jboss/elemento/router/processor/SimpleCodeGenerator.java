@@ -16,7 +16,6 @@
 package org.jboss.elemento.router.processor;
 
 import com.squareup.javapoet.MethodSpec;
-
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 class SimpleCodeGenerator extends CodeGenerator {
