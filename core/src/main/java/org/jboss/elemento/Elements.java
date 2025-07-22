@@ -25,7 +25,6 @@ import java.util.stream.StreamSupport;
 
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtml;
-
 import elemental2.core.JsArray;
 import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DOMRect;
@@ -849,9 +848,9 @@ public final class Elements {
     }
 
     public static <E extends HTMLInputElement> HTMLInputElementBuilder<E> input(String type, Class<E> jType) {
-        E el = createHtmlElement("input", jType);
-        el.type = type;
-        return new HTMLInputElementBuilder<>(el);
+        E input = createHtmlElement("input", jType);
+        input.type = type;
+        return new HTMLInputElementBuilder<>(input);
     }
 
     public static HTMLInputElementBuilder<HTMLInputElement> input(Element element) {
@@ -930,20 +929,17 @@ public final class Elements {
         return wrapHtmlContainer(cast(element));
     }
 
-    public static HTMLContainerBuilder<HTMLSelectElement> select() {
-        return htmlContainer("select", HTMLSelectElement.class);
+    public static HTMLSelectElementBuilder<HTMLSelectElement> select() {
+        HTMLSelectElement el = createHtmlElement("select", HTMLSelectElement.class);
+        return new HTMLSelectElementBuilder<>(el);
     }
 
-    public static HTMLContainerBuilder<HTMLSelectElement> select(Element element) {
-        return wrapHtmlContainer(cast(element));
+    public static HTMLSelectElementBuilder<HTMLSelectElement> select(Element element) {
+        return wrapSelectElement(cast(element));
     }
 
     public static HTMLTextAreaElementBuilder<HTMLTextAreaElement> textarea() {
-        return textarea(HTMLTextAreaElement.class);
-    }
-
-    public static <E extends HTMLTextAreaElement> HTMLTextAreaElementBuilder<E> textarea(Class<E> jType) {
-        E el = createHtmlElement("textarea", jType);
+        HTMLTextAreaElement el = createHtmlElement("textarea", HTMLTextAreaElement.class);
         return new HTMLTextAreaElementBuilder<>(el);
     }
 
@@ -952,43 +948,13 @@ public final class Elements {
     }
 
 
-    // ------------------------------------------------------ factories & wrappers
+    // ------------------------------------------------------ factories
 
     /**
      * Returns a builder for the specified HTML element.
      */
     public static <E extends HTMLElement> HTMLElementBuilder<E> htmlElement(String element, Class<E> type) {
         return new HTMLElementBuilder<>(createHtmlElement(element, type));
-    }
-
-    /**
-     * Returns a builder for the existing HTML element.
-     */
-    public static <E extends HTMLElement> HTMLElementBuilder<E> wrapHtmlElement(E element) {
-        return new HTMLElementBuilder<>(element);
-    }
-
-    /**
-     * Returns a builder for the specified input element.
-     */
-    public static <E extends HTMLInputElement> HTMLInputElementBuilder<E> inputElement(String type, Class<E> jType) {
-        E input = createHtmlElement("input", jType);
-        input.type = type;
-        return new HTMLInputElementBuilder<>(input);
-    }
-
-    /**
-     * Returns a builder for the existing input element.
-     */
-    public static <E extends HTMLInputElement> HTMLInputElementBuilder<E> wrapInputElement(E element) {
-        return new HTMLInputElementBuilder<>(element);
-    }
-
-    /**
-     * Returns a builder for the existing text area element.
-     */
-    public static <E extends HTMLTextAreaElement> HTMLTextAreaElementBuilder<E> wrapTextAreaElement(E element) {
-        return new HTMLTextAreaElementBuilder<>(element);
     }
 
     /**
@@ -999,6 +965,22 @@ public final class Elements {
     }
 
     /**
+     * Creates the specified HTML element.
+     */
+    public static <E extends HTMLElement> E createHtmlElement(String element, Class<E> type) {
+        return cast(document.createElement(element));
+    }
+
+    // ------------------------------------------------------ wrappers
+
+    /**
+     * Returns a builder for the existing HTML element.
+     */
+    public static <E extends HTMLElement> HTMLElementBuilder<E> wrapHtmlElement(E element) {
+        return new HTMLElementBuilder<>(element);
+    }
+
+    /**
      * Returns a builder for the existing HTML element.
      */
     public static <E extends HTMLElement> HTMLContainerBuilder<E> wrapHtmlContainer(E element) {
@@ -1006,10 +988,24 @@ public final class Elements {
     }
 
     /**
-     * Creates the specified HTML element.
+     * Returns a builder for the existing input element.
      */
-    public static <E extends HTMLElement> E createHtmlElement(String element, Class<E> type) {
-        return cast(document.createElement(element));
+    public static <E extends HTMLInputElement> HTMLInputElementBuilder<E> wrapInputElement(E element) {
+        return new HTMLInputElementBuilder<>(element);
+    }
+
+    /**
+     * Returns a builder for the existing select element.
+     */
+    public static <E extends HTMLSelectElement> HTMLSelectElementBuilder<E> wrapSelectElement(E element) {
+        return new HTMLSelectElementBuilder<>(element);
+    }
+
+    /**
+     * Returns a builder for the existing text area element.
+     */
+    public static <E extends HTMLTextAreaElement> HTMLTextAreaElementBuilder<E> wrapTextAreaElement(E element) {
+        return new HTMLTextAreaElementBuilder<>(element);
     }
 
     // ------------------------------------------------------ query methods

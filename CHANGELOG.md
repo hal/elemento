@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add missing methods for select elements to `Elements`
+
 ## [2.0.1] - 2025-07-22
 
 ### Added
