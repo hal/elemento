@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 
 import io.toolisticon.cute.Cute;
 import io.toolisticon.cute.CuteApi;
+
 import static io.toolisticon.cute.CuteApi.ExpectedFileObjectMatcherKind.TEXT_IGNORE_LINE_ENDINGS;
 import static io.toolisticon.cute.JavaFileObjectUtils.readFromResource;
 
