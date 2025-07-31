@@ -25,6 +25,7 @@ import java.util.stream.StreamSupport;
 
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtml;
+
 import elemental2.core.JsArray;
 import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DOMRect;
