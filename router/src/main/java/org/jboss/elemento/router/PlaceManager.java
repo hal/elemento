@@ -182,8 +182,8 @@ public class PlaceManager {
     }
 
     public Place place(String path) {
-        Place place = findPlace(path).place;
-        return NOT_FOUND.equals(place) ? null : place;
+        PlaceManagerStruct pms = findPlace(path);
+        return pms.exists ? pms.place : null;
     }
 
     public void start() {
@@ -213,8 +213,8 @@ public class PlaceManager {
     }
 
     public String href(String path) {
-        Place place = findPlace(path).place;
-        return NOT_FOUND.equals(place) ? "#" : base.absolute(place.route);
+        PlaceManagerStruct pms = findPlace(path);
+        return pms.exists ? base.absolute(pms.place.route) : "#";
     }
 
     // ------------------------------------------------------ event handling
@@ -290,43 +290,51 @@ public class PlaceManager {
             }
         }
         if (pms.place == null) {
-            pms.place = NOT_FOUND;
+            logger.debug("No place found for '%s'.", path);
+            pms.place = place(path); // create a place anyway for proper 404 handling
+            pms.exists = false;
+        } else {
+            logger.debug("Found %s", pms.place);
+            pms.exists = true;
         }
-        logger.debug("Found %s", pms.place);
         return pms;
     }
 
     private Promise<Boolean> gotoPlace(PlaceManagerStruct pms) {
-        logger.debug("Goto %s", pms.place);
-        for (BeforePlaceHandler handler : beforeHandlers) {
-            if (!handler.shouldGoTo(this, pms.place)) {
-                logger.debug("Navigation canceled by before-handler for %s", pms.place);
-                return Promise.resolve(false);
-            }
-        }
-        logger.debug("Find page for %s", pms.place);
-        if (pages.containsKey(pms.place)) {
-            Supplier<Page> pageSupplier = pages.get(pms.place);
-            if (pms.place.loader == null) {
-                logger.debug("Create page for %s", pms.place);
-                pms.page = pageSupplier.get();
-                return gotoPage(pms);
+        if (pms.exists) {
+            if (pages.containsKey(pms.place)) {
+                logger.debug("Goto %s", pms.place);
+                for (BeforePlaceHandler handler : beforeHandlers) {
+                    if (!handler.shouldGoTo(this, pms.place)) {
+                        logger.debug("Navigation canceled by before-handler for %s", pms.place);
+                        return Promise.resolve(false);
+                    }
+                }
+                Supplier<Page> pageSupplier = pages.get(pms.place);
+                if (pms.place.loader == null) {
+                    logger.debug("Create page for %s", pms.place);
+                    pms.page = pageSupplier.get();
+                    return gotoPage(pms);
+                } else {
+                    logger.debug("Load data for %s", pms.place);
+                    return pms.place.loader.load(pms.place, pms.parameter)
+                            .then(data -> {
+                                logger.debug("Data loaded successfully. Create page for %s", pms.place);
+                                pms.data = new LoadedData(data);
+                                pms.page = pageSupplier.get();
+                                return gotoPage(pms);
+                            })
+                            .catch_(error -> {
+                                String errorAsString = String.valueOf(error);
+                                logger.error("Unable to load page for %s: %s", pms.place, errorAsString);
+                                pms.data = new LoadedData(errorAsString);
+                                pms.page = noData(pms.place);
+                                return gotoPage(pms);
+                            });
+                }
             } else {
-                logger.debug("Load data for %s", pms.place);
-                return pms.place.loader.load(pms.place, pms.parameter)
-                        .then(data -> {
-                            logger.debug("Data loaded successfully. Create page for %s", pms.place);
-                            pms.data = new LoadedData(data);
-                            pms.page = pageSupplier.get();
-                            return gotoPage(pms);
-                        })
-                        .catch_(error -> {
-                            String errorAsString = String.valueOf(error);
-                            logger.error("Unable to load page for %s: %s", pms.place, errorAsString);
-                            pms.data = new LoadedData(errorAsString);
-                            pms.page = noData(pms.place);
-                            return gotoPage(pms);
-                        });
+                pms.page = notFound(pms.place);
+                return gotoPage(pms);
             }
         } else {
             pms.page = notFound(pms.place);
@@ -398,6 +406,7 @@ public class PlaceManager {
     private static class PlaceManagerStruct {
 
         private Place place;
+        private boolean exists;
         private Parameter parameter = Parameter.EMPTY;
         private LoadedData data = LoadedData.NONE;
         private Page page;

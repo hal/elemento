@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix place manager page-not-found handling
+
 ## [2.0.3] - 2025-07-31
 
 ### Changed
