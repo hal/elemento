@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Changed `PlaceManager.notFound(Supplier<Page>)` to `PlaceManager.notFound(Function<Place,Page>)`: The function gets the missing place and returns the page to show in that case.
+
 ## [2.0.2] - 2025-07-22
 
 ### Added

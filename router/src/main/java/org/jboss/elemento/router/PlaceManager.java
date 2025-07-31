@@ -26,7 +26,6 @@ import java.util.function.Supplier;
 import org.jboss.elemento.By;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.logger.Logger;
-
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
@@ -78,7 +77,7 @@ public class PlaceManager {
     private Page currentPage;
     private Supplier<HTMLElement> root;
     private Function<String, String> title;
-    private Supplier<Page> notFound;
+    private Function<Place, Page> notFound;
     private Supplier<Page> noData;
     private LinkSelector linkSelector;
 
@@ -126,7 +125,7 @@ public class PlaceManager {
         return this;
     }
 
-    public PlaceManager notFound(Supplier<Page> notFound) {
+    public PlaceManager notFound(Function<Place, Page> notFound) {
         this.notFound = notFound;
         return this;
     }
@@ -370,9 +369,9 @@ public class PlaceManager {
     private Page notFound(Place place) {
         logger.debug("No page found for %s", place);
         if (notFound != null) {
-            return notFound.get();
+            return notFound.apply(place);
         } else {
-            return new DefaultNotFound();
+            return new DefaultNotFound(place);
         }
     }
 
@@ -412,13 +411,19 @@ public class PlaceManager {
 
     private static class DefaultNotFound implements Page {
 
+        private final Place notFound;
+
+        private DefaultNotFound(Place notFound) {
+            this.notFound = notFound;
+        }
+
         @Override
         public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
             return singletonList(div().style(ROOT_STYLE)
                     .add(div().style(CONTAINER_STYLE)
                             .add(h(1, "Error 404").style(HEADER_STYLE))
                             .add(p().style(PARAGRAPH_STYLE)
-                                    .add("You're lost! Page '" + place.route + "' was not found. Please take a step ")
+                                    .add("You're lost! Page '" + notFound.route + "' was not found. Please take a step ")
                                     .add(a("javascript:history.back()").text("back"))
                                     .add(".")))
                     .element());
