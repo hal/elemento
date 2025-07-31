@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.0.3] - 2025-07-31
+
 ### Changed
 
 - Changed `PlaceManager.notFound(Supplier<Page>)` to `PlaceManager.notFound(Function<Place,Page>)`: The function gets the missing place and returns the page to show in that case.
@@ -1168,7 +1170,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.0.3...HEAD
+[2.0.3]: https://github.com/hal/elemento/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/hal/elemento/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/hal/elemento/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/hal/elemento/compare/v1.7.6...v2.0.0
