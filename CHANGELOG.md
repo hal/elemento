@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed place manager tests
+
 ## [2.0.4] - 2025-07-31
 
 ### Fixed

@@ -291,7 +291,7 @@ public class PlaceManager {
         }
         if (pms.place == null) {
             logger.debug("No place found for '%s'.", path);
-            pms.place = place(path); // create a place anyway for proper 404 handling
+            pms.place = new Place(path == null || path.trim().isEmpty() ? "/": path); // create a place anyway for proper 404 handling
             pms.exists = false;
         } else {
             logger.debug("Found %s", pms.place);
