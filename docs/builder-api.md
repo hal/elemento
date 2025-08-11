@@ -83,7 +83,8 @@ All builders encapsulate a given element and implement `TypedBuilder<T, B extend
 with inheritance. Apart from that, all builders are kept very simple and don't define their own methods. For example, this is
 the definition of the [`HTMLContainerBuilder`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html):
 
-{% embed url="github:hal/elemento/main/core/src/main/java/org/jboss/elemento/HTMLContainerBuilder.java" %}
+{% embed
+url="https://github.com/hal/elemento/blob/main/core/src/main/java/org/jboss/elemento/HTMLContainerBuilder.java" %}
 
 The builders get their features solely by implementing specific interfaces. These interfaces contain default methods to
 manipulate the encapsulated element in a specific way.
