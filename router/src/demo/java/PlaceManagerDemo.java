@@ -98,7 +98,7 @@ public class PlaceManagerDemo {
             Places places = Places.places()
                     .add(place("/"), HomePage::new)
                     .add(place("/time/:area/:location")
-                            .loader(new TimeLoader()), HomePage::new);
+                            .loader(new TimeLoader()), TimePage::new);
 
             PlaceManager placeManager = new PlaceManager()
                     .root(By.id("main"))
