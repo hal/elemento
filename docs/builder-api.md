@@ -83,8 +83,45 @@ All builders encapsulate a given element and implement `TypedBuilder<T, B extend
 with inheritance. Apart from that, all builders are kept very simple and don't define their own methods. For example, this is
 the definition of the [`HTMLContainerBuilder`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html):
 
-{% embed
-url="https://github.com/hal/elemento/blob/main/core/src/main/java/org/jboss/elemento/HTMLContainerBuilder.java" %}
+```java
+package org.jboss.elemento;
+
+import elemental2.dom.HTMLSelectElement;
+import static java.util.Objects.requireNonNull;
+
+/** Builder for container-like HTML elements. */
+public class HTMLContainerBuilder<E extends HTMLElement> implements
+        ElementAttributeMethods<E, HTMLContainerBuilder<E>>,
+        ElementClassListMethods<E, HTMLContainerBuilder<E>>,
+        ElementContainerMethods<E, HTMLContainerBuilder<E>>,
+        ElementConsumerMethods<E, HTMLContainerBuilder<E>>,
+        ElementEventMethods<E, HTMLContainerBuilder<E>>,
+        ElementHTMLMethods<E, HTMLContainerBuilder<E>>,
+        ElementIdMethods<E, HTMLContainerBuilder<E>>,
+        ElementQueryMethods<E>,
+        ElementTextMethods<E, HTMLContainerBuilder<E>>,
+        HTMLElementAttributeMethods<E, HTMLContainerBuilder<E>>,
+        HTMLElementDataMethods<E, HTMLContainerBuilder<E>>,
+        HTMLElementStyleMethods<E, HTMLContainerBuilder<E>>,
+        HTMLElementVisibilityMethods<E, HTMLContainerBuilder<E>> {
+
+    private final E element;
+
+    public HTMLContainerBuilder(E element) {
+        this.element = requireNonNull(element, "element required");
+    }
+
+    @Override
+    public HTMLContainerBuilder<E> that() {
+        return this;
+    }
+
+    @Override
+    public E element() {
+        return element;
+    }
+}
+```
 
 The builders get their features solely by implementing specific interfaces. These interfaces contain default methods to
 manipulate the encapsulated element in a specific way.
