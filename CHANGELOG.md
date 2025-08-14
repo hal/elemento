@@ -7,11 +7,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Upgrades
+
+- Bump JBoss Parent to 50
+
 ## [2.0.5] - 2025-07-31
 
 ### Fixed
 
-- Fixed place manager tests
+- Fix place manager tests
 
 ## [2.0.4] - 2025-07-31
 
