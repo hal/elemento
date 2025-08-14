@@ -18,7 +18,7 @@ package org.jboss.elemento.sample.todo;
 import org.jboss.elemento.sample.todo.common.ApplicationElement;
 import org.jboss.elemento.sample.todo.common.FooterElement;
 import org.jboss.elemento.sample.todo.common.TodoRepository;
-import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
+import org.kie.j2cl.tools.processors.annotations.GWT3EntryPoint;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;

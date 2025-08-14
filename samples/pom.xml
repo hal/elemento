@@ -34,6 +34,7 @@
     <properties>
         <!-- Dependency versions -->
         <version.gwt>2.12.2</version.gwt>
+        <version.kie.j2cl.bom>0.4</version.kie.j2cl.bom>
         <version.node>v23.11.0</version.node>
 
         <!-- Plugin versions -->
@@ -42,6 +43,7 @@
 
         <!-- Build related -->
         <gwt.draftCompile>true</gwt.draftCompile>
+        <gwt.sourceLevel>17</gwt.sourceLevel>
         <gwt.style>DETAILED</gwt.style>
         <j2cl.compilationLevel>BUNDLE</j2cl.compilationLevel>
         <npm.script>dev</npm.script>
@@ -77,6 +79,13 @@
                 <artifactId>elemento-todo-sample-j2cl</artifactId>
                 <version>${project.version}</version>
                 <classifier>resources</classifier>
+            </dependency>
+            <dependency>
+                <groupId>org.kie.j2cl.tools</groupId>
+                <artifactId>bom</artifactId>
+                <version>${version.kie.j2cl.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.gwtproject</groupId>

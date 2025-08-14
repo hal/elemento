@@ -99,7 +99,7 @@
                     <draftCompile>${gwt.draftCompile}</draftCompile>
                     <moduleName>org.jboss.elemento.sample.gwt.Todo</moduleName>
                     <moduleShortName>todo</moduleShortName>
-                    <sourceLevel>${java.version}</sourceLevel>
+                    <sourceLevel>${gwt.sourceLevel}</sourceLevel>
                     <style>${gwt.style}</style>
                 </configuration>
             </plugin>

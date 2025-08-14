@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>49</version>
+        <version>50</version>
     </parent>
 
     <groupId>org.jboss.elemento</groupId>
@@ -116,7 +116,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven.min.version>3.2.5</maven.min.version>
+        <maven.min.version>3.9.10</maven.min.version>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
     </properties>

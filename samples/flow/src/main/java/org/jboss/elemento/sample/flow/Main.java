@@ -37,8 +37,7 @@ import static org.patternfly.component.list.List.list;
 import static org.patternfly.component.list.ListItem.listItem;
 import static org.patternfly.component.page.Page.page;
 import static org.patternfly.component.page.PageMain.pageMain;
-import static org.patternfly.component.page.PageMainBody.pageMainBody;
-import static org.patternfly.component.page.PageMainSection.pageMainSection;
+import static org.patternfly.component.page.PageSection.pageSection;
 import static org.patternfly.component.switch_.Switch.switch_;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.layout.flex.Direction.column;
@@ -48,7 +47,6 @@ import static org.patternfly.layout.flex.Gap.xl;
 import static org.patternfly.layout.gallery.Gallery.gallery;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
-import static org.patternfly.style.Brightness.light;
 import static org.patternfly.style.Classes.component;
 import static org.patternfly.style.Sticky.top;
 import static org.patternfly.style.Variable.componentVar;
@@ -74,54 +72,51 @@ public class Main implements EntryPoint {
     @Override
     public void onModuleLoad() {
         randomFailure = switch_("random-failures", "random-failures", true)
-                .label("Produce random failures", "Produce no failures");
+                .label("Produce random failures");
         failFast = switch_("fail-fast", "fail-fast", true)
-                .label("Fail fast", "Fail last");
+                .label("Fail fast");
         randomFailure.onChange((event, component, value) -> failFast.disabled(!component.value()));
 
         body().add(page()
                 .addMain(pageMain("flow-main")
-                        .addSection(pageMainSection().background(light).limitWidth()
-                                .addBody(pageMainBody()
-                                        .add(content()
-                                                .add(title(1, "Flow"))
-                                                .add(p().add(DESCRIPTION_0))
-                                                .add(list(ul())
-                                                        .style(componentVar(component("list"), "li", "MarginTop").name,
-                                                                "0.1rem")
-                                                        .addItem(listItem().text(DESCRIPTION_1))
-                                                        .addItem(listItem().text(DESCRIPTION_2))
-                                                        .addItem(listItem().text(DESCRIPTION_3))))))
-                        .addSection(pageMainSection().background(light).limitWidth().sticky(breakpoints(default_, top))
-                                .addBody(pageMainBody()
-                                        .add(flex()
-                                                .direction(breakpoints(default_, column))
-                                                .gap(breakpoints(default_, xl))
-                                                .addItem(flexItem()
-                                                        .add(flex().direction(breakpoints(default_, column))
-                                                                .addItem(flexItem().add(randomFailure))
-                                                                .addItem(flexItem().add(failFast))))
-                                                .addItem(flexItem()
-                                                        .add(actionList()
-                                                                .addItem(actionListGroup()
-                                                                        .addItem(actionListItem()
-                                                                                .add(button("Parallel").primary()
-                                                                                        .onClick((e, c) -> parallel())))
-                                                                        .addItem(actionListItem()
-                                                                                .add(button("Sequential").primary()
-                                                                                        .onClick((e, c) -> sequential())))
-                                                                        .addItem(actionListItem()
-                                                                                .add(button("Repeat").primary()
-                                                                                        .onClick((e, c) -> repeat())))
-                                                                        .addItem(actionListItem()
-                                                                                .add(button("Nested").primary()
-                                                                                        .onClick((e, c) -> nested())))
-                                                                        .addItem(actionListItem()
-                                                                                .add(button("Clear").secondary()
-                                                                                        .onClick((e, c) -> clear())))))))))
-                        .addSection(pageMainSection().limitWidth()
-                                .addBody(pageMainBody()
-                                        .add(tasksContainer = gallery().gutter().element()))))
+                        .addSection(pageSection().secondary().limitWidth()
+                                .add(content()
+                                        .add(title(1, "Flow"))
+                                        .add(p().add(DESCRIPTION_0))
+                                        .add(list(ul())
+                                                .style(componentVar(component("list"), "li", "MarginTop").name,
+                                                        "0.1rem")
+                                                .addItem(listItem().text(DESCRIPTION_1))
+                                                .addItem(listItem().text(DESCRIPTION_2))
+                                                .addItem(listItem().text(DESCRIPTION_3)))))
+                        .addSection(pageSection().secondary().limitWidth().sticky(breakpoints(default_, top))
+                                .add(flex()
+                                        .direction(breakpoints(default_, column))
+                                        .gap(breakpoints(default_, xl))
+                                        .addItem(flexItem()
+                                                .add(flex().direction(breakpoints(default_, column))
+                                                        .addItem(flexItem().add(randomFailure))
+                                                        .addItem(flexItem().add(failFast))))
+                                        .addItem(flexItem()
+                                                .add(actionList()
+                                                        .addItem(actionListGroup()
+                                                                .addItem(actionListItem()
+                                                                        .add(button("Parallel").primary()
+                                                                                .onClick((e, c) -> parallel())))
+                                                                .addItem(actionListItem()
+                                                                        .add(button("Sequential").primary()
+                                                                                .onClick((e, c) -> sequential())))
+                                                                .addItem(actionListItem()
+                                                                        .add(button("Repeat").primary()
+                                                                                .onClick((e, c) -> repeat())))
+                                                                .addItem(actionListItem()
+                                                                        .add(button("Nested").primary()
+                                                                                .onClick((e, c) -> nested())))
+                                                                .addItem(actionListItem()
+                                                                        .add(button("Clear").secondary()
+                                                                                .onClick((e, c) -> clear()))))))))
+                        .addSection(pageSection().limitWidth()
+                                .add(tasksContainer = gallery().gutter().element())))
                 .add(backToTop()
                         .scrollableSelector(By.id(MAIN_ID))));
     }

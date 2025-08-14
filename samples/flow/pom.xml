@@ -130,7 +130,7 @@
                     <draftCompile>${gwt.draftCompile}</draftCompile>
                     <moduleName>org.jboss.elemento.sample.Flow</moduleName>
                     <moduleShortName>flow</moduleShortName>
-                    <sourceLevel>${java.version}</sourceLevel>
+                    <sourceLevel>${gwt.sourceLevel}</sourceLevel>
                     <style>${gwt.style}</style>
                 </configuration>
             </plugin>
