@@ -92,7 +92,7 @@
     <properties>
         <!-- Dependency versions -->
         <version.checkstyle.config>1.0.8.Final</version.checkstyle.config>
-        <version.elemental2>1.2.3</version.elemental2>
+        <version.elemental2>1.3.1</version.elemental2>
         <version.gwt.event>1.0.0-RC1</version.gwt.event>
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
         <version.junit>5.13.4</version.junit>
