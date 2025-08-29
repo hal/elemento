@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Elemento requires Java 17 now
+- Use JavaScript implementation to detect native JS objects in the logging module
+
 ### Upgrades
 
 - Bump JBoss Parent to 50

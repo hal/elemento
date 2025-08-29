@@ -18,18 +18,9 @@ package org.jboss.elemento.logger;
 import java.util.HashMap;
 import java.util.Map;
 
-import elemental2.core.JsArray;
 import elemental2.core.JsDate;
-import elemental2.core.JsMap;
-import elemental2.core.JsRegExp;
-import elemental2.core.JsSet;
-import elemental2.core.JsWeakMap;
-import elemental2.core.JsWeakSet;
-import elemental2.dom.Event;
 import elemental2.dom.Location;
-import elemental2.dom.Node;
 import elemental2.dom.URLSearchParams;
-import elemental2.dom.Window;
 import jsinterop.annotations.JsMethod;
 import jsinterop.base.Js;
 
@@ -513,34 +504,12 @@ public class Logger {
 
         // Use Object.prototype.toString.call(obj) to get the internal [[Class]] property
         // This is a more reliable way to detect native JS objects
-        String objectType = getObjectType(object);
+        String objectType = objectType(object);
         return objectType.startsWith("[object ") &&
                 !objectType.equals("[object Object]") &&
                 !objectType.equals("[object Array]"); // Regular JS objects and arrays should be stringified
     }
 
-    @JsMethod(namespace = "Object.prototype.toString")
-    private static native String call(Object obj);
-
-    private String getObjectType(Object obj) {
-        try {
-            return call(obj);
-        } catch (Exception e) {
-            // Fallback to the instanceof checks if the above method fails
-            return isKnownNativeType(obj) ? "[object Native]" : "[object Object]";
-        }
-    }
-
-    private boolean isKnownNativeType(Object object) {
-        return object instanceof JsArray ||
-                object instanceof JsSet ||
-                object instanceof JsMap ||
-                object instanceof JsWeakSet ||
-                object instanceof JsWeakMap ||
-                object instanceof JsRegExp ||
-                object instanceof JsDate ||
-                object instanceof Event ||
-                object instanceof Window ||
-                object instanceof Node;
-    }
+    @JsMethod
+    private static native String objectType(Object obj);
 }
