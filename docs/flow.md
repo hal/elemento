@@ -64,7 +64,7 @@ Add the following dependency to use `elemento-flow`:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-flow</artifactId>
-    <version>2.0.5</version>
+    <version>2.1.0</version>
 </dependency>
 ```
 
