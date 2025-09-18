@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix `Logger.objectType(Object)` (#203)
+- Fix samples
+
 ## [2.1.0] - 2025-08-29
 
 ### Changed

@@ -161,9 +161,9 @@ class Tasks {
     }
 
     private Promise<String> fetchTime() {
-        // datetime format is "2022-03-31T11:03:39.348365+02:00"
-        return fetch("https://worldtimeapi.org/api/timezone/Europe/Berlin")
+        // The response format is `{"time":1758129487}`
+        return fetch("https://digidates.de/api/v1/unixtime")
                 .then(Response::json)
-                .then(json -> Promise.resolve(Js.<JsPropertyMap<String>>cast(json).get("datetime").substring(11, 23)));
+                .then(json -> Promise.resolve(String.valueOf((double) Js.<JsPropertyMap<Double>>cast(json).get("time"))));
     }
 }

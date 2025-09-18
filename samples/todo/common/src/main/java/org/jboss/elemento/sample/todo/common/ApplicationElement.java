@@ -23,6 +23,7 @@ import org.jboss.elemento.By;
 import org.jboss.elemento.HTMLContainerBuilder;
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.Key;
+import org.jboss.elemento.logger.Logger;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
@@ -59,6 +60,8 @@ import static org.jboss.elemento.sample.todo.common.Filter.COMPLETED;
 
 public class ApplicationElement implements IsElement<HTMLElement> {
 
+    private static final Logger logger = Logger.getLogger(ApplicationElement.class.getName());
+
     private final TodoRepository repository;
     private Filter filter;
 
@@ -75,6 +78,7 @@ public class ApplicationElement implements IsElement<HTMLElement> {
     private final HTMLButtonElement clearCompleted;
 
     public ApplicationElement(TodoRepository repository) {
+        logger.info("Start todo sample");
         this.repository = repository;
         this.root = section().css("todoapp")
                 .add(header().css("header")
@@ -155,6 +159,7 @@ public class ApplicationElement implements IsElement<HTMLElement> {
                 list.add(new TodoElement(this, repository, item));
                 newTodo.value = "";
                 update();
+                logger.info("New todo %o", item);
             }
         }
     }
@@ -208,5 +213,6 @@ public class ApplicationElement implements IsElement<HTMLElement> {
         toggleAll.checked = (size == completedCount);
         innerHtml(count, Messages.items(activeCount));
         setVisible(clearCompleted, completedCount != 0);
+        logger.info("Update todos (all/active/completed): %d/%d/%d", size, activeCount, completedCount);
     }
 }

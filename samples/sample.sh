@@ -94,7 +94,7 @@ parse_params() {
   done
 
   ARGS=("$@")
-  [[ ${#ARGS[@]} -eq 1 ]] || die "Missing sample. 'f', flow', 'tg', todo-gwt', 'tj' or 'todo-j2cl'"
+  [[ ${#ARGS[@]} -eq 1 ]] || die "Missing sample. Please use one of 'f', flow', 'tg', todo-gwt', 'tj' or 'todo-j2cl'"
   MODE=${ARGS[0]}
   [[ "${MODE}" =~ ^(f|flow|tg|todo-gwt|tj|todo-j2cl)$ ]] || die "Wrong mode. Please use one of 'f', flow', 'tg', todo-gwt', 'tj' or 'todo-j2cl'"
   return 0
@@ -106,19 +106,26 @@ setup_colors
 
 case "${MODE}" in
   "f"|"flow")
+    msg ""
     msg "Run ${YELLOW}Flow${NOFORMAT} sample..."
-#     mvn -D quickly --projects org.patternfly:patternfly-java-showcase-common --also-make -P showcase ${CLEAN} install
-#     cd showcase/gwt
-#     msg "Start ${YELLOW}GWT${NOFORMAT} development mode..."
-#     mvn gwt:devmode
+    msg ""
+    cd flow
+    mvn ${CLEAN} gwt:devmode
     ;;
   "tg"|"todo-gwt")
+    msg ""
     msg "Run ${YELLOW}Todo GWT${NOFORMAT} sample..."
-#     msg "Start ${YELLOW}GWT${NOFORMAT} development mode..."
-#     mvn -D quickly --projects org.patternfly:patternfly-java-todo-gwt --also-make ${CLEAN} gwt:devmode
+    msg ""
+    cd todo/gwt
+    mvn ${CLEAN} gwt:devmode
     ;;
   "tj"|"todo-j2cl")
+    msg ""
     msg "Run ${YELLOW}Todo J2CL${NOFORMAT} sample..."
-#     mvn -D quickly --projects org.patternfly:patternfly-java-showcase-j2cl --also-make -P showcase ${CLEAN} compile j2cl:watch
+    msg "Run ${YELLOW}npm run watch${NOFORMAT} in ${YELLOW}todo/j2cl${NOFORMAT} when j2cl:watch is ready"
+    msg ""
+    sleep 1
+    cd todo/j2cl
+    mvn ${CLEAN} j2cl:watch
     ;;
 esac

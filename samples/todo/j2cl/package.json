@@ -6,13 +6,13 @@
   ],
   "source": "src/web/index.html",
   "scripts": {
-    "watch": "parcel serve --dist-dir target/todo --open",
+    "watch": "parcel serve --dist-dir target/todo --open chrome",
     "dev": "parcel build --dist-dir target/todo --no-optimize",
-    "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/j2cl/"
+    "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/j2cl"
   },
   "devDependencies": {
-    "@parcel/reporter-cli": "^2.14.4",
-    "parcel": "^2.14.4",
+    "@parcel/reporter-cli": "^2.15.4",
+    "parcel": "^2.15.4",
     "parcel-resolver-ignore": "^2.2.0"
   },
   "dependencies": {

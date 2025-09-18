@@ -22,6 +22,7 @@ import elemental2.core.JsDate;
 import elemental2.dom.Location;
 import elemental2.dom.URLSearchParams;
 import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
 import jsinterop.base.Js;
 
 import static elemental2.core.JsArray.asJsArray;
@@ -489,7 +490,7 @@ public class Logger {
                 try {
                     p[i] = String.valueOf(params[i]);
                 } catch (Throwable t) {
-                    p[i] = "error calling String.valueOf() of parameter #" + i + ": " + t.getMessage();
+                    p[i] = "error calling String.valueOf() for parameter #" + i + ": " + t.getMessage();
                 }
             }
         }
@@ -510,6 +511,7 @@ public class Logger {
                 !objectType.equals("[object Array]"); // Regular JS objects and arrays should be stringified
     }
 
-    @JsMethod
-    private static native String objectType(Object obj);
+    // This binds directly to Object.prototype.toString.call(obj)
+    @JsMethod(namespace = JsPackage.GLOBAL, name = "Object.prototype.toString.call")
+    private static native String objectType(Object o);
 }

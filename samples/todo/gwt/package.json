@@ -6,9 +6,9 @@
   ],
   "source": "src/web/index.html",
   "scripts": {
-    "watch": "parcel watch --dist-dir target/gwt/devmode/war/todo",
-    "dev": "parcel build --dist-dir target/gwt/devmode/war/todo --no-optimize",
-    "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/gwt/"
+    "watch": "parcel watch --dist-dir target/gwt/devmode/war/todo --public-url /todo",
+    "dev": "parcel build --dist-dir target/gwt/devmode/war/todo --no-optimize  --public-url /todo",
+    "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/gwt"
   },
   "devDependencies": {
     "@parcel/reporter-cli": "^2.14.4",

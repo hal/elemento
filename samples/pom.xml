@@ -45,7 +45,9 @@
         <gwt.draftCompile>true</gwt.draftCompile>
         <gwt.sourceLevel>17</gwt.sourceLevel>
         <gwt.style>DETAILED</gwt.style>
-        <j2cl.compilationLevel>BUNDLE</j2cl.compilationLevel>
+        <j2cl.compilationLevel>BUNDLE_JAR</j2cl.compilationLevel>
+        <j2cl.incremental>true</j2cl.incremental>
+        <j2cl.sourcemaps>true</j2cl.sourcemaps>
         <npm.script>dev</npm.script>
     </properties>
 
@@ -110,6 +112,10 @@
                     <groupId>org.kie.j2cl.tools</groupId>
                     <artifactId>j2cl-maven-plugin</artifactId>
                     <version>${version.j2cl.plugin}</version>
+                    <configuration>
+                        <webappDirectory>${project.build.directory}/todo</webappDirectory>
+                        <workerThreadCount>4</workerThreadCount>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -122,6 +128,8 @@
                 <gwt.draftCompile>false</gwt.draftCompile>
                 <gwt.style>OBFUSCATED</gwt.style>
                 <j2cl.compilationLevel>ADVANCED_OPTIMIZATIONS</j2cl.compilationLevel>
+                <j2cl.incremental>false</j2cl.incremental>
+                <j2cl.sourcemaps>false</j2cl.sourcemaps>
                 <npm.script>prod</npm.script>
             </properties>
         </profile>
