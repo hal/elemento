@@ -1,0 +1,1343 @@
+{
+  "the-red-hot-chili-peppers" : {
+    "id": "the-red-hot-chili-peppers",
+    "title" : "The Red Hot Chili Peppers",
+    "released" : "Released: August 10, 1984",
+    "year" : 1984,
+    "url" : "https://en.wikipedia.org/wiki/The_Red_Hot_Chili_Peppers_(album)",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/5/5e/Rhcp1.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "True Men Don't Kill Coyotes",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Martinez",
+          "Jack"
+        ],
+        "length" : "3:40"
+      },
+      {
+        "track" : 2,
+        "title" : "Baby Appeal",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Martinez",
+          "Sherman"
+        ],
+        "length" : "3:41"
+      },
+      {
+        "track" : 3,
+        "title" : "Buckle Down",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Martinez",
+          "Sherman"
+        ],
+        "length" : "3:24"
+      },
+      {
+        "track" : 4,
+        "title" : "Get Up and Jump",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Irons"
+        ],
+        "length" : "2:53"
+      },
+      {
+        "track" : 5,
+        "title" : "Why Don't You Love Me",
+        "writer" : [
+          "Hank"
+        ],
+        "length" : "3:27"
+      },
+      {
+        "track" : 6,
+        "title" : "Green Heaven",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Irons"
+        ],
+        "length" : "3:59"
+      },
+      {
+        "track" : 7,
+        "title" : "Mommy, Where's Daddy?",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Martinez",
+          "Sherman"
+        ],
+        "length" : "3:31"
+      },
+      {
+        "track" : 8,
+        "title" : "Out in L.A.",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Irons"
+        ],
+        "length" : "2:01"
+      },
+      {
+        "track" : 9,
+        "title" : "Police Helicopter",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Irons"
+        ],
+        "length" : "1:16"
+      },
+      {
+        "track" : 10,
+        "title" : "You Always Sing the Same",
+        "writer" : [
+          "Kiedis",
+          "Flea"
+        ],
+        "length" : "0:19"
+      },
+      {
+        "track" : 11,
+        "title" : "Grand Pappy Du Plenty",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Martinez",
+          "Sherman",
+          "Gill"
+        ],
+        "length" : "4:15"
+      }
+    ]
+  },
+  "freaky-styley" : {
+    "id" : "freaky-styley",
+    "title" : "Freaky Styley",
+    "released" : "August 16, 1985",
+    "year" : 1985,
+    "url" : "https://en.wikipedia.org/wiki/Freaky_Styley",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/5/5b/Freakystyleyalbumcover.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "Jungle Man",
+        "length" : "4:09"
+      },
+      {
+        "track" : 2,
+        "title" : "Hollywood (Africa)",
+        "writer" : [
+          "Ziggy Modeliste",
+          "Art Neville",
+          "Leo Nocentelli",
+          "George Porter, Jr."
+        ],
+        "length" : "5:03"
+      },
+      {
+        "track" : 3,
+        "title" : "American Ghost Dance",
+        "length" : "3:44"
+      },
+      {
+        "track" : 4,
+        "title" : "If You Want Me to Stay",
+        "writer" : [
+          "Sylvester Stewart"
+        ],
+        "length" : "4:07"
+      },
+      {
+        "track" : 5,
+        "title" : "Nevermind",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Irons"
+        ],
+        "length" : "2:48"
+      },
+      {
+        "track" : 6,
+        "title" : "Freaky Styley",
+        "length" : "3:39"
+      },
+      {
+        "track" : 7,
+        "title" : "Blackeyed Blonde",
+        "length" : "2:39"
+      },
+      {
+        "track" : 8,
+        "title" : "The Brothers Cup",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Irons"
+        ],
+        "length" : "3:27"
+      },
+      {
+        "track" : 9,
+        "title" : "Battleship",
+        "length" : "1:53"
+      },
+      {
+        "track" : 10,
+        "title" : "Lovin' and Touchin'",
+        "length" : "0:36"
+      },
+      {
+        "track" : 11,
+        "title" : "Catholic School Girls Rule",
+        "length" : "1:55"
+      },
+      {
+        "track" : 12,
+        "title" : "Sex Rap",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Irons"
+        ],
+        "length" : "1:54"
+      },
+      {
+        "track" : 13,
+        "title" : "Thirty Dirty Birds",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Martinez"
+        ],
+        "length" : "0:14"
+      },
+      {
+        "track" : 14,
+        "title" : "Yertle the Turtle",
+        "writer" : [
+          "Dr. Seuss"
+        ],
+        "length" : "3:38"
+      }
+    ]
+  },
+  "the-uplift-mofo-party-plan" : {
+    "id": "the-uplift-mofo-party-plan",
+    "title" : "The Uplift Mofo Party Plan",
+    "released" : "September 29, 1987",
+    "year" : 1987,
+    "url" : "https://en.wikipedia.org/wiki/The_Uplift_Mofo_Party_Plan",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/a/a2/UpliftMofoCover.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "Fight Like a Brave",
+        "length" : "3:52"
+      },
+      {
+        "track" : 2,
+        "title" : "Funky Crime",
+        "length" : "2:59"
+      },
+      {
+        "track" : 3,
+        "title" : "Me and My Friends",
+        "length" : "3:07"
+      },
+      {
+        "track" : 4,
+        "title" : "Backwoods",
+        "length" : "3:06"
+      },
+      {
+        "track" : 5,
+        "title" : "Skinny Sweaty Man",
+        "length" : "1:15"
+      },
+      {
+        "track" : 6,
+        "title" : "Behind the Sun",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Slovak",
+          "Irons",
+          "Michael Beinhorn"
+        ],
+        "length" : "4:39"
+      },
+      {
+        "track" : 7,
+        "title" : "Subterranean Homesick Blues",
+        "writer" : [
+          "Bob Dylan"
+        ],
+        "length" : "2:32"
+      },
+      {
+        "track" : 8,
+        "title" : "Party on Your Pussy",
+        "length" : "3:14"
+      },
+      {
+        "track" : 9,
+        "title" : "No Chump Love Sucker",
+        "length" : "2:40"
+      },
+      {
+        "track" : 10,
+        "title" : "Walkin' on Down the Road",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Cliff Martinez",
+          "Slovak"
+        ],
+        "length" : "3:48"
+      },
+      {
+        "track" : 11,
+        "title" : "Love Trilogy",
+        "length" : "2:39"
+      },
+      {
+        "track" : 12,
+        "title" : "Organic Anti-Beat Box Band",
+        "length" : "4:03"
+      }
+    ]
+  },
+  "mothers-milk" : {
+    "id": "mothers-milk",
+    "title" : "Mother's Milk",
+    "released" : "August 16, 1989",
+    "year" : 1989,
+    "url" : "https://en.wikipedia.org/wiki/Mother%27s_Milk",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/9/98/Mother%27sMilkAlbumcover.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "Good Time Boys",
+        "length" : "5:02"
+      },
+      {
+        "track" : 2,
+        "title" : "Higher Ground",
+        "writer" : [
+          "Stevie Wonder"
+        ],
+        "length" : "3:23"
+      },
+      {
+        "track" : 3,
+        "title" : "Subway to Venus",
+        "length" : "4:25"
+      },
+      {
+        "track" : 4,
+        "title" : "Magic Johnson",
+        "length" : "2:57"
+      },
+      {
+        "track" : 5,
+        "title" : "Nobody Weird Like Me",
+        "length" : "3:50"
+      },
+      {
+        "track" : 6,
+        "title" : "Knock Me Down",
+        "length" : "3:45"
+      },
+      {
+        "track" : 7,
+        "title" : "Taste the Pain",
+        "writer" : [
+          "Kiedis",
+          "Frusciante",
+          "Flea",
+          "D.H. Peligro"
+        ],
+        "length" : "4:32"
+      },
+      {
+        "track" : 8,
+        "title" : "Stone Cold Bush",
+        "writer" : [
+          "Kiedis",
+          "Frusciante",
+          "Flea",
+          "Peligro"
+        ],
+        "length" : "3:06"
+      },
+      {
+        "track" : 9,
+        "title" : "Fire",
+        "writer" : [
+          "Jimi Hendrix"
+        ],
+        "length" : "2:03"
+      },
+      {
+        "track" : 10,
+        "title" : "Pretty Little Ditty",
+        "writer" : [
+          "Frusciante",
+          "Flea"
+        ],
+        "length" : "1:35"
+      },
+      {
+        "track" : 11,
+        "title" : "Punk Rock Classic",
+        "length" : "1:47"
+      },
+      {
+        "track" : 12,
+        "title" : "Sexy Mexican Maid",
+        "writer" : [
+          "Kiedis",
+          "Frusciante",
+          "Flea",
+          "Peligro"
+        ],
+        "length" : "3:23"
+      },
+      {
+        "track" : 13,
+        "title" : "Johnny, Kick a Hole in the Sky",
+        "length" : "5:12"
+      }
+    ]
+  },
+  "blood-sugar-sex-magik" : {
+    "id": "blood-sugar-sex-magik",
+    "title" : "Blood Sugar Sex Magik",
+    "released" : "September 24, 1991",
+    "year" : 1991,
+    "url" : "https://en.wikipedia.org/wiki/Blood_Sugar_Sex_Magik",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/5/5e/RHCP-BSSM.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "The Power of Equality",
+        "length" : "4:03"
+      },
+      {
+        "track" : 2,
+        "title" : "If You Have to Ask",
+        "length" : "3:37"
+      },
+      {
+        "track" : 3,
+        "title" : "Breaking the Girl",
+        "length" : "4:55"
+      },
+      {
+        "track" : 4,
+        "title" : "Funky Monks",
+        "length" : "5:23"
+      },
+      {
+        "track" : 5,
+        "title" : "Suck My Kiss",
+        "length" : "3:37"
+      },
+      {
+        "track" : 6,
+        "title" : "I Could Have Lied",
+        "length" : "4:04"
+      },
+      {
+        "track" : 7,
+        "title" : "Mellowship Slinky in B Major",
+        "length" : "4:00"
+      },
+      {
+        "track" : 8,
+        "title" : "The Righteous & the Wicked",
+        "length" : "4:08"
+      },
+      {
+        "track" : 9,
+        "title" : "Give It Away",
+        "length" : "4:43"
+      },
+      {
+        "track" : 10,
+        "title" : "Blood Sugar Sex Magik",
+        "length" : "4:31"
+      },
+      {
+        "track" : 11,
+        "title" : "Under the Bridge",
+        "length" : "4:24"
+      },
+      {
+        "track" : 12,
+        "title" : "Naked in the Rain",
+        "length" : "4:26"
+      },
+      {
+        "track" : 13,
+        "title" : "Apache Rose Peacock",
+        "length" : "4:42"
+      },
+      {
+        "track" : 14,
+        "title" : "The Greeting Song",
+        "length" : "3:13"
+      },
+      {
+        "track" : 15,
+        "title" : "My Lovely Man",
+        "length" : "4:39"
+      },
+      {
+        "track" : 16,
+        "title" : "Sir Psycho Sexy",
+        "length" : "8:17"
+      },
+      {
+        "track" : 17,
+        "title" : "They're Red Hot",
+        "length" : "1:12"
+      }
+    ]
+  },
+  "one-hot-minute" : {
+    "id": "one-hot-minute",
+    "title" : "One Hot Minute",
+    "released" : "September 12, 1995",
+    "year" : 1995,
+    "url" : "https://en.wikipedia.org/wiki/One_Hot_Minute",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/8/8a/Rhcp7.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "Warped",
+        "length" : "5:04"
+      },
+      {
+        "track" : 2,
+        "title" : "Aeroplane",
+        "length" : "4:45"
+      },
+      {
+        "track" : 3,
+        "title" : "Deep Kick",
+        "length" : "6:33"
+      },
+      {
+        "track" : 4,
+        "title" : "My Friends",
+        "length" : "4:02"
+      },
+      {
+        "track" : 5,
+        "title" : "Coffee Shop",
+        "length" : "3:08"
+      },
+      {
+        "track" : 6,
+        "title" : "Pea",
+        "length" : "1:47"
+      },
+      {
+        "track" : 7,
+        "title" : "One Big Mob",
+        "length" : "6:02"
+      },
+      {
+        "track" : 8,
+        "title" : "Walkabout",
+        "length" : "5:07"
+      },
+      {
+        "track" : 9,
+        "title" : "Tearjerker",
+        "length" : "4:19"
+      },
+      {
+        "track" : 10,
+        "title" : "One Hot Minute",
+        "length" : "6:23"
+      },
+      {
+        "track" : 11,
+        "title" : "Falling into Grace",
+        "length" : "3:48"
+      },
+      {
+        "track" : 12,
+        "title" : "Shallow Be Thy Game",
+        "length" : "4:33"
+      },
+      {
+        "track" : 13,
+        "title" : "Transcending",
+        "length" : "5:46"
+      }
+    ]
+  },
+  "californication" : {
+    "id": "californication",
+    "title" : "Californication",
+    "released" : "June 8, 1999",
+    "year" : 1999,
+    "url" : "https://en.wikipedia.org/wiki/Californication_(album)",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/d/df/RedHotChiliPeppersCalifornication.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "Around the World",
+        "length" : "3:58"
+      },
+      {
+        "track" : 2,
+        "title" : "Parallel Universe",
+        "length" : "4:30"
+      },
+      {
+        "track" : 3,
+        "title" : "Scar Tissue",
+        "length" : "3:37"
+      },
+      {
+        "track" : 4,
+        "title" : "Otherside",
+        "length" : "4:15"
+      },
+      {
+        "track" : 5,
+        "title" : "Get on Top",
+        "length" : "3:18"
+      },
+      {
+        "track" : 6,
+        "title" : "Californication",
+        "length" : "5:21"
+      },
+      {
+        "track" : 7,
+        "title" : "Easily",
+        "length" : "3:51"
+      },
+      {
+        "track" : 8,
+        "title" : "Porcelain",
+        "length" : "2:43"
+      },
+      {
+        "track" : 9,
+        "title" : "Emit Remmus",
+        "length" : "4:00"
+      },
+      {
+        "track" : 10,
+        "title" : "I Like Dirt",
+        "length" : "2:37"
+      },
+      {
+        "track" : 11,
+        "title" : "This Velvet Glove",
+        "length" : "3:45"
+      },
+      {
+        "track" : 12,
+        "title" : "Savior",
+        "length" : "4:52"
+      },
+      {
+        "track" : 13,
+        "title" : "Purple Stain",
+        "length" : "4:13"
+      },
+      {
+        "track" : 14,
+        "title" : "Right on Time",
+        "length" : "1:52"
+      },
+      {
+        "track" : 15,
+        "title" : "Road Trippin'",
+        "length" : "3:25"
+      }
+    ]
+  },
+  "by-the-way" : {
+    "id": "by-the-way",
+    "title" : "By the Way",
+    "released" : "July 9, 2002",
+    "year" : 2002,
+    "url" : "https://en.wikipedia.org/wiki/By_the_Way",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/2/23/Rhcp9.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "By the Way",
+        "length" : "3:37"
+      },
+      {
+        "track" : 2,
+        "title" : "Universally Speaking",
+        "length" : "4:19"
+      },
+      {
+        "track" : 3,
+        "title" : "This Is the Place",
+        "length" : "4:17"
+      },
+      {
+        "track" : 4,
+        "title" : "Dosed",
+        "length" : "5:12"
+      },
+      {
+        "track" : 5,
+        "title" : "Don't Forget Me",
+        "length" : "4:37"
+      },
+      {
+        "track" : 6,
+        "title" : "The Zephyr Song",
+        "length" : "3:52"
+      },
+      {
+        "track" : 7,
+        "title" : "Can't Stop",
+        "length" : "4:29"
+      },
+      {
+        "track" : 8,
+        "title" : "I Could Die for You",
+        "length" : "3:13"
+      },
+      {
+        "track" : 9,
+        "title" : "Midnight",
+        "length" : "4:55"
+      },
+      {
+        "track" : 10,
+        "title" : "Throw Away Your Television",
+        "length" : "3:44"
+      },
+      {
+        "track" : 11,
+        "title" : "Cabron",
+        "length" : "3:38"
+      },
+      {
+        "track" : 12,
+        "title" : "Tear",
+        "length" : "5:17"
+      },
+      {
+        "track" : 13,
+        "title" : "On Mercury",
+        "length" : "3:28"
+      },
+      {
+        "track" : 14,
+        "title" : "Minor Thing",
+        "length" : "3:37"
+      },
+      {
+        "track" : 15,
+        "title" : "Warm Tape",
+        "length" : "4:16"
+      },
+      {
+        "track" : 16,
+        "title" : "Venice Queen",
+        "length" : "6:07"
+      }
+    ]
+  },
+  "stadium-arcadium" : {
+    "id": "stadium-arcadium",
+    "title" : "Stadium Arcadium",
+    "released" : "May 9, 2006",
+    "year" : 2006,
+    "url" : "https://en.wikipedia.org/wiki/Stadium_Arcadium",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/e/e6/Stadiumarcadium.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "Dani California",
+        "length" : "4:42"
+      },
+      {
+        "track" : 2,
+        "title" : "Snow (Hey Oh)",
+        "length" : "5:34"
+      },
+      {
+        "track" : 3,
+        "title" : "Charlie",
+        "length" : "4:37"
+      },
+      {
+        "track" : 4,
+        "title" : "Stadium Arcadium",
+        "length" : "5:15"
+      },
+      {
+        "track" : 5,
+        "title" : "Hump de Bump",
+        "length" : "3:33"
+      },
+      {
+        "track" : 6,
+        "title" : "She's Only 18",
+        "length" : "3:25"
+      },
+      {
+        "track" : 7,
+        "title" : "Slow Cheetah",
+        "length" : "5:19"
+      },
+      {
+        "track" : 8,
+        "title" : "Torture Me",
+        "length" : "3:44"
+      },
+      {
+        "track" : 9,
+        "title" : "Strip My Mind",
+        "length" : "4:19"
+      },
+      {
+        "track" : 10,
+        "title" : "Especially in Michigan",
+        "length" : "4:00"
+      },
+      {
+        "track" : 11,
+        "title" : "Warlocks",
+        "length" : "3:25"
+      },
+      {
+        "track" : 12,
+        "title" : "C'mon Girl",
+        "length" : "3:48"
+      },
+      {
+        "track" : 13,
+        "title" : "Wet Sand",
+        "length" : "5:09"
+      },
+      {
+        "track" : 14,
+        "title" : "Hey",
+        "length" : "5:39"
+      },
+      {
+        "track" : 15,
+        "title" : "Desecration Smile",
+        "length" : "5:02"
+      },
+      {
+        "track" : 16,
+        "title" : "Tell Me Baby",
+        "length" : "4:07"
+      },
+      {
+        "track" : 17,
+        "title" : "Hard to Concentrate",
+        "length" : "4:02"
+      },
+      {
+        "track" : 18,
+        "title" : "21st Century",
+        "length" : "4:22"
+      },
+      {
+        "track" : 19,
+        "title" : "She Looks to Me",
+        "length" : "4:06"
+      },
+      {
+        "track" : 20,
+        "title" : "Readymade",
+        "length" : "4:30"
+      },
+      {
+        "track" : 21,
+        "title" : "If",
+        "length" : "2:53"
+      },
+      {
+        "track" : 22,
+        "title" : "Make You Feel Better",
+        "length" : "3:52"
+      },
+      {
+        "track" : 23,
+        "title" : "Animal Bar",
+        "length" : "5:26"
+      },
+      {
+        "track" : 24,
+        "title" : "So Much I",
+        "length" : "3:44"
+      },
+      {
+        "track" : 25,
+        "title" : "Storm in a Teacup",
+        "length" : "3:45"
+      },
+      {
+        "track" : 26,
+        "title" : "We Believe",
+        "length" : "3:36"
+      },
+      {
+        "track" : 27,
+        "title" : "Turn It Again",
+        "length" : "6:06"
+      },
+      {
+        "track" : 28,
+        "title" : "Death of a Martian",
+        "length" : "4:24"
+      }
+    ]
+  },
+  "im-with-you" : {
+    "id": "im-with-you",
+    "title" : "I'm with You",
+    "released" : "August 29, 2011",
+    "year" : 2011,
+    "url" : "https://en.wikipedia.org/wiki/I%27m_with_You_(album)",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/7/74/RHCP_I%27m_With_You_Cover.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "Monarchy of Roses",
+        "length" : "4:12"
+      },
+      {
+        "track" : 2,
+        "title" : "Factory of Faith",
+        "length" : "4:21"
+      },
+      {
+        "track" : 3,
+        "title" : "Brendan's Death Song",
+        "length" : "5:39"
+      },
+      {
+        "track" : 4,
+        "title" : "Ethiopia",
+        "length" : "3:50"
+      },
+      {
+        "track" : 5,
+        "title" : "Annie Wants a Baby",
+        "length" : "3:40"
+      },
+      {
+        "track" : 6,
+        "title" : "Look Around",
+        "length" : "3:27"
+      },
+      {
+        "track" : 7,
+        "title" : "The Adventures of Rain Dance Maggie",
+        "length" : "4:43"
+      },
+      {
+        "track" : 8,
+        "title" : "Did I Let You Know",
+        "length" : "4:21"
+      },
+      {
+        "track" : 9,
+        "title" : "Goodbye Hooray",
+        "length" : "3:52"
+      },
+      {
+        "track" : 10,
+        "title" : "Happiness Loves Company",
+        "length" : "3:33"
+      },
+      {
+        "track" : 11,
+        "title" : "Police Station",
+        "length" : "5:35"
+      },
+      {
+        "track" : 12,
+        "title" : "Even You Brutus?",
+        "length" : "4:01"
+      },
+      {
+        "track" : 13,
+        "title" : "Meet Me at the Corner",
+        "length" : "4:22"
+      },
+      {
+        "track" : 14,
+        "title" : "Dance, Dance, Dance",
+        "length" : "3:45"
+      }
+    ]
+  },
+  "the-getaway" : {
+    "id": "the-getaway",
+    "title" : "The Getaway",
+    "released" : "June 17, 2016",
+    "year" : 2016,
+    "url" : "https://en.wikipedia.org/wiki/The_Getaway_(Red_Hot_Chili_Peppers_album)",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/a/ae/Thegetawayalbum.jpg",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "The Getaway",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Klinghoffer",
+          "Smith",
+          "Burton"
+        ],
+        "length" : "4:10"
+      },
+      {
+        "track" : 2,
+        "title" : "Dark Necessities",
+        "writer" : [
+          " Kiedis",
+          "Flea",
+          "Klinghoffer",
+          "Smith",
+          "Burton"
+        ],
+        "length" : "5:02"
+      },
+      {
+        "track" : 3,
+        "title" : "We Turn Red",
+        "writer" : [
+          " Kiedis",
+          "Flea",
+          "Klinghoffer",
+          "Smith",
+          "Burton"
+        ],
+        "length" : "3:20"
+      },
+      {
+        "track" : 4,
+        "title" : "The Longest Wave",
+        "length" : "3:32"
+      },
+      {
+        "track" : 5,
+        "title" : "Goodbye Angels",
+        "length" : "4:29"
+      },
+      {
+        "track" : 6,
+        "title" : "Sick Love",
+        "writer" : [
+          " Kiedis",
+          "Flea",
+          "Klinghoffer",
+          "Smith",
+          "Elton John",
+          "Bernie Taupin"
+        ],
+        "length" : "3:41"
+      },
+      {
+        "track" : 7,
+        "title" : "Go Robot",
+        "length" : "4:24"
+      },
+      {
+        "track" : 8,
+        "title" : "Feasting on the Flowers",
+        "writer" : [
+          " Kiedis",
+          "Flea",
+          "Klinghoffer",
+          "Smith",
+          "Burton"
+        ],
+        "length" : "3:23"
+      },
+      {
+        "track" : 9,
+        "title" : "Detroit",
+        "length" : "3:47"
+      },
+      {
+        "track" : 10,
+        "title" : "This Ticonderoga",
+        "length" : "3:35"
+      },
+      {
+        "track" : 11,
+        "title" : "Encore",
+        "length" : "4:15"
+      },
+      {
+        "track" : 12,
+        "title" : "The Hunter",
+        "writer" : [
+          " Kiedis",
+          "Flea",
+          "Klinghoffer",
+          "Smith",
+          "Burton"
+        ],
+        "length" : "4:00"
+      },
+      {
+        "track" : 13,
+        "title" : "Dreams of a Samurai",
+        "length" : "6:09"
+      }
+    ]
+  },
+  "unlimited-love" : {
+    "id": "unlimited-love",
+    "title" : "Unlimited Love",
+    "released" : "April 1, 2022",
+    "year" : 2022,
+    "url" : "https://en.wikipedia.org/wiki/Unlimited_Love",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/1/1f/Red_Hot_Chili_Peppers_-_Unlimited_Love.png",
+    "tracks" : [
+      {
+        "track" : 1,
+        "title" : "Black Summer",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Frusciante",
+          "Smith"
+        ],
+        "length" : "3:52"
+      },
+      {
+        "track" : 2,
+        "title" : "Here Ever After",
+        "length" : "3:50"
+      },
+      {
+        "track" : 3,
+        "title" : "Aquatic Mouth Dance",
+        "length" : "4:20"
+      },
+      {
+        "track" : 4,
+        "title" : "Not the One",
+        "length" : "4:26"
+      },
+      {
+        "track" : 5,
+        "title" : "Poster Child",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Frusciante",
+          "Smith"
+        ],
+        "length" : "5:16"
+      },
+      {
+        "track" : 6,
+        "title" : "The Great Apes",
+        "length" : "5:03"
+      },
+      {
+        "track" : 7,
+        "title" : "It's Only Natural",
+        "length" : "5:34"
+      },
+      {
+        "track" : 8,
+        "title" : "She's a Lover",
+        "length" : "3:41"
+      },
+      {
+        "track" : 9,
+        "title" : "These Are the Ways",
+        "writer" : [
+          " Kiedis",
+          "Flea",
+          "Klinghoffer",
+          "Smith",
+          "Burton"
+        ],
+        "length" : "3:56"
+      },
+      {
+        "track" : 10,
+        "title" : "Whatchu Thinkin'",
+        "length" : "3:40"
+      },
+      {
+        "track" : 11,
+        "title" : "Bastards of Light",
+        "length" : "3:38"
+      },
+      {
+        "track" : 12,
+        "title" : "White Braids & Pillow Chair",
+        "length" : "3:40"
+      },
+      {
+        "track" : 13,
+        "title" : "One Way Traffic",
+        "length" : "4:10"
+      },
+      {
+        "track" : 14,
+        "title" : "Veronica",
+        "length" : "4:28"
+      },
+      {
+        "track" : 15,
+        "title" : "Let 'Em Cry",
+        "length" : "4:23"
+      },
+      {
+        "track" : 16,
+        "title" : "The Heavy Wing",
+        "length" : "5:31"
+      },
+      {
+        "track" : 17,
+        "title" : "Tangelo",
+        "length" : "3:27"
+      }
+    ]
+  },
+  "return-of-the-dream-canteen": {
+    "id": "return-of-the-dream-canteen",
+    "title" : "Return of the Dream Canteen",
+    "released" : "October 14, 2022",
+    "year" : 2022,
+    "url" : "https://en.wikipedia.org/wiki/Return_of_the_Dream_Canteen",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/0/09/Return_of_the_Dream_Canteen.webp",
+    "tracks" : [
+      {
+        "track": 1,
+        "title" : "Tippa My Tongue",
+        "writer" : [
+          "Kiedis",
+          "Flea",
+          "Frusciante",
+          "Smith"
+        ],
+        "length" : "4:20"
+      },
+      {
+        "track": 2,
+        "title": "Peace and Love",
+        "length" : "4:03"
+      },
+      {
+        "track": 3,
+        "title": "Reach Out",
+        "length" : "4:11"
+      },
+      {
+        "track": 4,
+        "title": "Eddie",
+        "length" : "5:42"
+      },
+      {
+        "track": 5,
+        "title": "Fake as Fu@K",
+        "length" : "4:22"
+      },
+      {
+        "track": 6,
+        "title": "Bella",
+        "length" : "4:51"
+      },
+      {
+        "track": 7,
+        "title": "Roulette",
+        "length" : "4:57"
+      },
+      {
+        "track": 8,
+        "title": "My cigarette",
+        "length" : "4:24"
+      },
+      {
+        "track": 9,
+        "title": "Afterlife",
+        "length" : "4:14"
+      },
+      {
+        "track": 10,
+        "title": "Shoot Me a Smile",
+        "length" : "3:42"
+      },
+      {
+        "track": 11,
+        "title": "Handful",
+        "length" : "4:00"
+      },
+      {
+        "track": 12,
+        "title": "The Drummer",
+        "length" : "3:22"
+      },
+      {
+        "track": 13,
+        "title": "Bag of Grins",
+        "length" : "5:06"
+      },
+      {
+        "track": 14,
+        "title": "La La La La La La La La",
+        "length" : "3:57"
+      },
+      {
+        "track": 15,
+        "title": "Copperbelly",
+        "length" : "3:45"
+      },
+      {
+        "track": 16,
+        "title": "Carry Me Home",
+        "length" : "4:13"
+      },
+      {
+        "track": 17,
+        "title": "In the Snow",
+        "length" : "6:05"
+      }
+    ]
+  }
+}

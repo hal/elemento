@@ -66,8 +66,10 @@ public class Parameter {
 
     public static final Parameter EMPTY = new Parameter(null, null);
     private final Map<String, String> params;
+    private final String path;
 
     Parameter(String route, String path) {
+        this.path = path;
         if (match(route, path)) {
             params = new HashMap<>();
             String[] routeParts = Path.split(route);
@@ -96,5 +98,9 @@ public class Parameter {
 
     public String getOrDefault(String name, String defaultValue) {
         return params.getOrDefault(name, defaultValue);
+    }
+
+    public String path() {
+        return path;
     }
 }

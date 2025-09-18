@@ -9,7 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-- Fix `Logger.objectType(Object)` (#203)
+- Fix `Logger.objectType(Object)` (#203, thanks @jamalromero for reporting)
 - Fix samples
 
 ## [2.1.0] - 2025-08-29

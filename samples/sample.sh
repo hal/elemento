@@ -45,7 +45,7 @@ FLAGS:
     --no-color          Uses plain text output
 
 ARGS:
-    <sample>              One of 'f', flow', 'tg', todo-gwt', 'tj' or 'todo-j2cl'
+    <sample>              One of 'f', flow', 'm', or 'music', 'tg', todo-gwt', 'tj' or 'todo-j2cl'
 EOF
   exit
 }
@@ -94,9 +94,9 @@ parse_params() {
   done
 
   ARGS=("$@")
-  [[ ${#ARGS[@]} -eq 1 ]] || die "Missing sample. Please use one of 'f', flow', 'tg', todo-gwt', 'tj' or 'todo-j2cl'"
+  [[ ${#ARGS[@]} -eq 1 ]] || die "Missing sample. Please use one of 'f', flow', 'm', or 'music', 'tg', todo-gwt', 'tj', 'todo-j2cl'"
   MODE=${ARGS[0]}
-  [[ "${MODE}" =~ ^(f|flow|tg|todo-gwt|tj|todo-j2cl)$ ]] || die "Wrong mode. Please use one of 'f', flow', 'tg', todo-gwt', 'tj' or 'todo-j2cl'"
+  [[ "${MODE}" =~ ^(f|flow|m|music|tg|todo-gwt|tj|todo-j2cl)$ ]] || die "Wrong mode. Please use one of 'f', flow', 'm', or 'music', 'tg', todo-gwt', 'tj', 'todo-j2cl'"
   return 0
 }
 
@@ -111,6 +111,15 @@ case "${MODE}" in
     msg ""
     cd flow
     mvn ${CLEAN} gwt:devmode
+    ;;
+  "m"|"music")
+    msg ""
+    msg "Run ${YELLOW}Music${NOFORMAT} sample..."
+    msg "Run ${YELLOW}npm run watch${NOFORMAT} in ${YELLOW}music${NOFORMAT} when j2cl:watch is ready"
+    msg ""
+    sleep 1
+    cd music
+    mvn ${CLEAN} j2cl:watch
     ;;
   "tg"|"todo-gwt")
     msg ""

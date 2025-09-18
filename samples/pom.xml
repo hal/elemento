@@ -36,6 +36,7 @@
         <version.gwt>2.12.2</version.gwt>
         <version.kie.j2cl.bom>0.4</version.kie.j2cl.bom>
         <version.node>v23.11.0</version.node>
+        <version.treblereel.j2cl.processors>0.8</version.treblereel.j2cl.processors>
 
         <!-- Plugin versions -->
         <version.frontend.plugin>1.15.1</version.frontend.plugin>
@@ -54,6 +55,7 @@
     <modules>
         <module>dist</module>
         <module>flow</module>
+        <module>music</module>
         <module>todo</module>
     </modules>
 
@@ -79,6 +81,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-todo-sample-j2cl</artifactId>
+                <version>${project.version}</version>
+                <classifier>resources</classifier>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-weather-sample</artifactId>
                 <version>${project.version}</version>
                 <classifier>resources</classifier>
             </dependency>
@@ -112,10 +120,6 @@
                     <groupId>org.kie.j2cl.tools</groupId>
                     <artifactId>j2cl-maven-plugin</artifactId>
                     <version>${version.j2cl.plugin}</version>
-                    <configuration>
-                        <webappDirectory>${project.build.directory}/todo</webappDirectory>
-                        <workerThreadCount>4</workerThreadCount>
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

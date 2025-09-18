@@ -22,23 +22,36 @@
 
     <parent>
         <groupId>org.jboss.elemento</groupId>
-        <artifactId>elemento-todo-sample</artifactId>
+        <artifactId>elemento-samples</artifactId>
         <version>2.1.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>elemento-todo-sample-j2cl</artifactId>
+    <artifactId>elemento-music-sample</artifactId>
     <packaging>jar</packaging>
-    <name>Elemento Todo Sample J2CL</name>
+    <name>Elemento Music Sample</name>
+
+    <properties>
+        <environment.base>/</environment.base>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>elemento-todo-sample-common</artifactId>
+            <artifactId>elemento-core</artifactId>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>elemento-core</artifactId>
+            <artifactId>elemento-logger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>elemento-router</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>elemento-router-processor</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.kie.j2cl.tools.processors</groupId>
@@ -53,6 +66,17 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>.parcel-cache</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
@@ -94,10 +118,13 @@
                 <artifactId>j2cl-maven-plugin</artifactId>
                 <configuration>
                     <compilationLevel>${j2cl.compilationLevel}</compilationLevel>
+                    <defines>
+                        <environment.base>${environment.base}</environment.base>
+                    </defines>
                     <enableSourcemaps>${j2cl.sourcemaps}</enableSourcemaps>
                     <incrementalEnabled>${j2cl.incremental}</incrementalEnabled>
-                    <initialScriptFilename>todo.j2cl.js</initialScriptFilename>
-                    <webappDirectory>${project.build.directory}/todo</webappDirectory>
+                    <initialScriptFilename>music.js</initialScriptFilename>
+                    <webappDirectory>${project.build.directory}/music</webappDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -124,17 +151,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>.parcel-cache</directory>
-                        </fileset>
-                    </filesets>
-                </configuration>
             </plugin>
         </plugins>
     </build>

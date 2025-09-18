@@ -193,7 +193,7 @@ public class PlaceManager {
         PlaceManagerStruct pms = findPlace(location.pathname);
         gotoPlace(pms).then(success -> {
             if (success) {
-                updateHistory(pms.place, false);
+                updateHistory(pms, false);
             } else {
                 logger.error("Unable to start place manager with " + pms.place);
             }
@@ -205,7 +205,7 @@ public class PlaceManager {
         PlaceManagerStruct pms = findPlace(path);
         gotoPlace(pms).then(success -> {
             if (success) {
-                updateHistory(pms.place, true);
+                updateHistory(pms, true);
             } else {
                 logger.error("Unable to go to " + pms.place);
             }
@@ -230,7 +230,7 @@ public class PlaceManager {
                     e.preventDefault();
                     gotoPlace(pms).then(success -> {
                         if (success) {
-                            updateHistory(pms.place, true);
+                            updateHistory(pms, true);
                         } else {
                             logger.error("Unable to go to " + pms.place);
                         }
@@ -393,12 +393,12 @@ public class PlaceManager {
         }
     }
 
-    private void updateHistory(Place place, boolean push) {
-        String url = base.absolute(place.route);
+    private void updateHistory(PlaceManagerStruct pms, boolean push) {
+        String url = base.absolute(pms.parameter.isEmpty() ? pms.place.route : pms.parameter.path());
         if (push) {
-            history.pushState(place.route, "", url);
+            history.pushState(url, "", url);
         } else {
-            history.replaceState(place.route, "", url + location.search);
+            history.replaceState(url, "", url + location.search);
         }
     }
 
@@ -444,7 +444,7 @@ public class PlaceManager {
 
         @Override
         public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
-            String error = data.get();
+            String error = data.getOrDefault("Undefined error");
             return singletonList(div().style(ROOT_STYLE)
                     .add(div().style(CONTAINER_STYLE)
                             .add(h(1, "No data").style(HEADER_STYLE))
