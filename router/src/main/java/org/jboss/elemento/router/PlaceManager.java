@@ -307,8 +307,10 @@ public class PlaceManager {
                 logger.debug("Goto %s", pms.place);
                 for (BeforePlaceHandler handler : beforeHandlers) {
                     if (!handler.shouldGoTo(this, pms.place)) {
-                        logger.debug("Navigation canceled by before-handler for %s", pms.place);
+                        logger.debug("Navigation canceled by before handler for %s", pms.place);
                         return Promise.resolve(false);
+                    } else {
+                        handler.beforePlace(this, pms.place);
                     }
                 }
                 Supplier<Page> pageSupplier = pages.get(pms.place);
@@ -367,10 +369,10 @@ public class PlaceManager {
             return Promise.resolve(false);
         } else {
             currentPlace = pms.place;
+            logger.info("Navigation to %s", pms.place);
             for (AfterPlaceHandler handler : afterHandlers) {
                 handler.afterPlace(this, pms.place);
             }
-            logger.info("Navigation to %s", pms.place);
             return Promise.resolve(true);
         }
     }
