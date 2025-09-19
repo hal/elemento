@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.2.0] - 2025-09-19
+
 ### Added
 
 - Add `Role` enum and `ElementAttributeMethods.role(Role)` and `ElementAttributeMethods.role(String)` methods
@@ -1204,7 +1206,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/hal/elemento/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/hal/elemento/compare/v2.0.5...v2.1.0
 [2.0.5]: https://github.com/hal/elemento/compare/v2.0.4...v2.0.5
 [2.0.4]: https://github.com/hal/elemento/compare/v2.0.3...v2.0.4
