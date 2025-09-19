@@ -17,28 +17,29 @@ package org.jboss.elemento.sample.music;
 
 import java.util.List;
 
-import org.jboss.elemento.logger.Logger;
 import org.jboss.elemento.router.LoadData;
 import org.jboss.elemento.router.LoadedData;
 import org.jboss.elemento.router.Page;
 import org.jboss.elemento.router.Parameter;
 import org.jboss.elemento.router.Place;
 import org.jboss.elemento.router.Route;
-import elemental2.core.JsArray;
 import elemental2.dom.HTMLElement;
 import elemental2.promise.Promise;
 
-import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.article;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.footer;
 import static org.jboss.elemento.Elements.h;
-import static org.jboss.elemento.Elements.li;
-import static org.jboss.elemento.Elements.ul;
+import static org.jboss.elemento.Elements.header;
+import static org.jboss.elemento.Elements.img;
+import static org.jboss.elemento.Elements.section;
+import static org.jboss.elemento.sample.music.Breadcrumb.breadcrumb;
 import static org.jboss.elemento.sample.music.Discography.records;
 
 @Route("/records/:from/:to")
 public class RecordsPage implements Page {
-
-    private static final Logger logger = Logger.getLogger(RecordsPage.class.getName());
 
     public static LoadData<List<Record>> loadRecord() {
         return (place, parameter) -> {
@@ -75,13 +76,17 @@ public class RecordsPage implements Page {
     @Override
     public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
         List<Record> records = data.get();
-        logger.info("Loaded %d records: %o", records.size(), JsArray.of(records.toArray(new Record[0])));
-        return asList(
-                h(1, parameter.get("from") + " - " + parameter.get("to")).element(),
-                ul()
-                        .run(ul ->
-                                records.forEach(record ->
-                                        ul.add(li().add(a("/record/" + record.id).text(record.title)))))
-                        .element());
+        return singletonList(section()
+                .add(h(1, "Records from " + parameter.get("from") + " - " + parameter.get("to")))
+                .add(breadcrumb()
+                        .add("/", "Home")
+                        .add("/decades", "Decades"))
+                .add(div().css("records")
+                        .run(div -> records.forEach(record ->
+                                div.add(article()
+                                        .add(header().add(a("/record/" + record.id).text(record.title)))
+                                        .add(img(record.cover).attr("alt", "Cover of " + record.title))
+                                        .add(footer().text("Released " + record.released))))))
+                .element());
     }
 }

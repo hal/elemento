@@ -17,7 +17,7 @@ package org.jboss.elemento.sample.music;
 
 import java.util.List;
 
-import org.jboss.elemento.logger.Logger;
+import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 import org.jboss.elemento.router.LoadData;
 import org.jboss.elemento.router.LoadedData;
 import org.jboss.elemento.router.Page;
@@ -25,20 +25,26 @@ import org.jboss.elemento.router.Parameter;
 import org.jboss.elemento.router.Place;
 import org.jboss.elemento.router.Route;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.HTMLTableCellElement;
 import elemental2.promise.Promise;
 
-import static elemental2.dom.DomGlobal.console;
-import static java.util.Arrays.asList;
-import static org.jboss.elemento.Elements.dd;
-import static org.jboss.elemento.Elements.dl;
-import static org.jboss.elemento.Elements.dt;
+import static java.util.Collections.singletonList;
+import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
+import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.section;
+import static org.jboss.elemento.Elements.table;
+import static org.jboss.elemento.Elements.tbody;
+import static org.jboss.elemento.Elements.td;
+import static org.jboss.elemento.Elements.th;
+import static org.jboss.elemento.Elements.thead;
+import static org.jboss.elemento.Elements.tr;
+import static org.jboss.elemento.sample.music.Breadcrumb.breadcrumb;
 import static org.jboss.elemento.sample.music.Discography.records;
 
 @Route("/record/:id")
 public class RecordPage implements Page {
-
-    private static final Logger logger = Logger.getLogger(RecordPage.class.getName());
 
     public static LoadData<Record> loadRecord() {
         return (place, parameter) -> {
@@ -60,14 +66,52 @@ public class RecordPage implements Page {
     @Override
     public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
         Record record = data.get();
-        console.log("Loaded record: %s" + record);
-        return asList(
-                h(1, record.title).element(),
-                dl()
-                        .add(dt().text("Title"))
-                        .add(dd().text(record.title))
-                        .add(dt().text("Released"))
-                        .add(dd().text(record.released))
-                        .element());
+        int[] decade = calculateDecade(record.year);
+        return singletonList(section()
+                .add(h(1, record.title))
+                .add(breadcrumb()
+                        .add("/", "Home")
+                        .add("/decades", "Decades")
+                        .add("/records/" + decade[0] + "/" + decade[1], decade[0] + " - " + decade[1]))
+                .add(div().css("record")
+                        .add(p()
+                                .add(record.title + " was released on " + record.released + ". It contains " + record.tracks.length + " tracks.")
+                                .add(" For more information see ")
+                                .add(a(record.url, "wikipedia").text(record.url))
+                                .add("."))
+                        .add(table().css("tracks")
+                                .add(thead()
+                                        .add(tr()
+                                                .add(th().attr("scope", "col").text("Track"))
+                                                .add(th().attr("scope", "col").text("Title"))
+                                                .add(th().attr("scope", "col").text("Length"))
+                                                .add(th().attr("scope", "col").text("Writer"))))
+                                .add(tbody().run(tbody ->
+                                        record.tracks.forEach((track, index) ->
+                                                tbody.add(tr()
+                                                        .add(td().attr("scope", "col").text(String.valueOf(track.track)))
+                                                        .add(titleTd(track))
+                                                        .add(td().text(track.length))
+                                                        .add(td().run(td -> {
+                                                            if (track.writer().isEmpty()) {
+                                                                td.html(SafeHtmlUtils.fromSafeConstant("&nbsp;"));
+                                                            } else {
+                                                                td.text(String.join(", ", track.writer()));
+                                                            }
+                                                        }))))))))
+                .element());
+    }
+
+    private int[] calculateDecade(int year) {
+        int start = year - (year % 10);
+        int end = start + 9;
+        return new int[]{start, end};
+    }
+
+    private HTMLTableCellElement titleTd(Track track) {
+        if ("Under the Bridge".equals(track.title)) {
+            return td().add(a("https://youtu.be/GLvohMXgcBo", "youtube").text(track.title)).element();
+        }
+        return td().text(track.title).element();
     }
 }

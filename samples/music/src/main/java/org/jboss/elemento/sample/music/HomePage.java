@@ -20,13 +20,15 @@ import org.jboss.elemento.router.Page;
 import org.jboss.elemento.router.Parameter;
 import org.jboss.elemento.router.Place;
 import org.jboss.elemento.router.Route;
-
 import elemental2.dom.HTMLElement;
 
-import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.code;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.li;
+import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.section;
 import static org.jboss.elemento.Elements.ul;
 
 @Route("/")
@@ -34,15 +36,24 @@ public class HomePage implements Page {
 
     @Override
     public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
-        return asList(
-                h(1).text("Red Hot Chilli Peppers Discography").element(),
-                ul()
-                        .add(li().add(a("/records/1970/1979").text("1970 - 1979")))
-                        .add(li().add(a("/records/1980/1989").text("1980 - 1989")))
-                        .add(li().add(a("/records/1990/1999").text("1990 - 1999")))
-                        .add(li().add(a("/records/2000/2009").text("2000 - 2009")))
-                        .add(li().add(a("/records/2010/2019").text("2010 - 2019")))
-                        .add(li().add(a("/records/2020/2029").text("2020 - 2029")))
-                        .element());
+        return singletonList(section()
+                .add(h(1).text("Red Hot Chilli Peppers Discography"))
+                .add(p().add("This example demonstrates how to use Elemento's ")
+                        .add(a("/https://hal-console.gitbook.io/elemento/router", "documentation").text("router"))
+                        .add(". Therefore the discography of the Red Hot Chili Peppers is used (obviously one of the developers is a big RHCP fan 🤘). Have fun browsing through the albums (and don't forget to look under the bridge)."))
+                .add(p().add(
+                        "Since this is a router demo you can click on the links to browse through the albums, but also use the browser's back and forward buttons. The demo defines these routes:"))
+                .add(ul().css("plain-list")
+                        .add(li().add(code("/")))
+                        .add(li().add(code("/decades")))
+                        .add(li().add(code("/records/:from/:to")))
+                        .add(li().add(code("/record/:id"))))
+                .add(p().add("Take a look at the ")
+                        .add(a("https://github.com/hal/elemento/tree/main/samples/music/src/main/java/org/jboss/elemento/sample/music",
+                                "documentation")
+                                .text("source code"))
+                        .add(" for more information."))
+                .add(a("/decades").text("Start browsing").role("button"))
+                .element());
     }
 }

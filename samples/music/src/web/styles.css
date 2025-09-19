@@ -1,0 +1,42 @@
+ul.plain-list {
+    padding: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+.decade {
+    font-size: xx-large;
+    text-align: center;
+}
+
+.breadcrumb {
+    display: flex;
+    padding: 0;
+
+    li {
+        list-style: none;
+        padding-right: 0;
+    }
+
+    li + li::before {
+        content: "»";
+        margin-right: 0.5rem;
+    }
+}
+
+.records {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--pico-spacing);
+
+    article > header, article > footer {
+        text-align: center;
+    }
+
+    article > footer {
+        font-size: smaller;
+    }
+}

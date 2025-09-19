@@ -2,10 +2,10 @@
   "the-red-hot-chili-peppers" : {
     "id": "the-red-hot-chili-peppers",
     "title" : "The Red Hot Chili Peppers",
-    "released" : "Released: August 10, 1984",
+    "released" : "August 10, 1984",
     "year" : 1984,
     "url" : "https://en.wikipedia.org/wiki/The_Red_Hot_Chili_Peppers_(album)",
-    "cover" : "https://upload.wikimedia.org/wikipedia/en/5/5e/Rhcp1.jpg",
+    "cover" : "https://upload.wikimedia.org/wikipedia/en/5/5f/The_Red_Hot_Chili_Peppers_%28album_cover%29.jpg",
     "tracks" : [
       {
         "track" : 1,
