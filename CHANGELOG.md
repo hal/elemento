@@ -7,8 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `Role` enum and `ElementAttributeMethods.role(Role)` and `ElementAttributeMethods.role(String)` methods
+- Add a [sample](https://hal.github.io/elemento/samples/flow/) application to showcase the router
+
 ### Fixed
 
+- Add missing calls to `BeforePlaceHandler.beforePlace(PlaceManager, Place)` (#204, thanks @jamalromero for reporting)
 - Fix `Logger.objectType(Object)` (#203, thanks @jamalromero for reporting)
 - Fix samples
 
