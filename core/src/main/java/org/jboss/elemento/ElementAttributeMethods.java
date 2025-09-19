@@ -73,4 +73,18 @@ public interface ElementAttributeMethods<E extends Element, B extends TypedBuild
         String safeName = name.startsWith("aria-") ? name : "aria-" + name;
         return attr(safeName, value);
     }
+
+    /**
+     * Sets the specified role of the element.
+     */
+    default B role(Role role) {
+        return attr("role", role.name);
+    }
+
+    /**
+     * Sets the specified role of the element.
+     */
+    default B role(String role) {
+        return attr("role", role);
+    }
 }
