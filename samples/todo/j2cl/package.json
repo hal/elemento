@@ -10,13 +10,13 @@
     "dev": "parcel build --dist-dir target/todo --no-optimize",
     "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/j2cl"
   },
-  "devDependencies": {
-    "@parcel/reporter-cli": "^2.15.4",
-    "parcel": "^2.15.4",
-    "parcel-resolver-ignore": "^2.2.0"
-  },
   "dependencies": {
     "todomvc-app-css": "^2.4.3",
     "todomvc-common": "^1.0.5"
+  },
+  "devDependencies": {
+    "@parcel/reporter-cli": "^2.16.0",
+    "parcel": "^2.16.0",
+    "parcel-resolver-ignore": "^2.2.0"
   }
 }

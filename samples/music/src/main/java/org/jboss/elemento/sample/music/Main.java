@@ -30,6 +30,7 @@ import static org.jboss.elemento.sample.music.Environment.env;
 public class Main {
 
     private static final String MAIN_ID = "main";
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     @GWT3EntryPoint
     public void main() {
@@ -38,6 +39,8 @@ public class Main {
                 .base(env().base())
                 .root(By.id(MAIN_ID))
                 .title(title -> "Elemento Music Sample • " + title)
+                .beforePlace((pm, place) -> logger.info("Before place %s", place.route))
+                .afterPlace((pm, place) -> logger.info("After place %s", place.route))
                 .register(new AnnotatedPlaces());
         body().add(Elements.main().id(MAIN_ID).css("container"));
         placeManager.start();

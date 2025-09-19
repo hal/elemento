@@ -16,5 +16,5 @@
 
 {
   "extends": "@parcel/config-default",
-  "resolvers": ["parcel-resolver-ignore", "..."]
+  "resolvers": ["@parcel/resolver-glob", "parcel-resolver-ignore", "..."]
 }

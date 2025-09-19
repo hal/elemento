@@ -6,16 +6,28 @@
   ],
   "source": "src/web/index.html",
   "scripts": {
-    "watch": "parcel serve --dist-dir target/music --open chrome",
-    "dev": "parcel build --dist-dir target/music --no-optimize",
-    "prod": "parcel build --dist-dir target/music --public-url /elemento/samples/music"
-  },
-  "devDependencies": {
-    "@parcel/reporter-cli": "^2.15.4",
-    "parcel": "^2.15.4",
-    "parcel-resolver-ignore": "^2.2.0"
+    "start:parcel": "parcel watch src/web/index.html --dist-dir target/music --port 1234",
+    "start:server": "node server.js 8234 1234",
+    "open:browser": "wait-on http://localhost:8234 && open http://localhost:8234",
+    "dev": "concurrently \"npm run start:parcel\" \"npm run start:server\" \"npm run open:browser\"",
+    "prod": "parcel build src/web/index.html --dist-dir target/music --public-url /elemento/samples/music",
+    "http-server": "http-server target/music --ssl --cert cert.pem"
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1"
+  },
+  "devDependencies": {
+    "@parcel/core": "^2.16.0",
+    "@parcel/reporter-cli": "^2.16.0",
+    "@parcel/resolver-glob": "^2.16.0",
+    "concurrently": "^9.2.1",
+    "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5",
+    "http-server": "^14.1.1",
+    "open": "^10.2.0",
+    "parcel": "^2.16.0",
+    "parcel-resolver-ignore": "^2.2.0",
+    "wait-on": "^9.0.0"
   }
+
 }

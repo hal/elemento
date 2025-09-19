@@ -39,6 +39,11 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>elemento-music-sample</artifactId>
+            <classifier>resources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>elemento-todo-sample-gwt</artifactId>
             <classifier>resources</classifier>
         </dependency>
@@ -118,6 +123,15 @@
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${project.build.directory}/samples/flow</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>elemento-music-sample</artifactId>
+                                    <classifier>resources</classifier>
+                                    <version>${project.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/samples/music</outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>${project.groupId}</groupId>

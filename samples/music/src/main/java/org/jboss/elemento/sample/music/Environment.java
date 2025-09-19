@@ -36,6 +36,6 @@ public class Environment {
     }
 
     public String base() {
-        return System.getProperty("settings.base", "/");
+        return System.getProperty("environment.base", "/");
     }
 }

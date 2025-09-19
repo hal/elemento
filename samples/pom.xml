@@ -74,6 +74,12 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-music-sample</artifactId>
+                <version>${project.version}</version>
+                <classifier>resources</classifier>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-todo-sample-gwt</artifactId>
                 <version>${project.version}</version>
                 <classifier>resources</classifier>
@@ -81,12 +87,6 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-todo-sample-j2cl</artifactId>
-                <version>${project.version}</version>
-                <classifier>resources</classifier>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>elemento-weather-sample</artifactId>
                 <version>${project.version}</version>
                 <classifier>resources</classifier>
             </dependency>

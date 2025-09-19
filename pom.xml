@@ -193,6 +193,7 @@
                                     <exclude>LICENSE</exclude>
                                     <exclude>README.md</exclude>
                                     <exclude>**/*.ftl</exclude>
+                                    <exclude>**/*.pem</exclude>
                                     <exclude>**/*license*.txt</exclude>
                                     <exclude>**/.parcel-cache/**</exclude>
                                     <exclude>**/node/**</exclude>
