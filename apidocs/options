@@ -19,7 +19,7 @@
 'UTF-8'
 -Xdoclint:none
 -doctitle
-'Elemento Parent 2.1.0 API'
+'Elemento Parent 2.2.0 API'
 -link
 'https://hal.github.io/elemento/apidocs'
 -link
@@ -37,4 +37,4 @@
 -use
 -version
 -windowtitle
-'Elemento Parent 2.1.0 API'
+'Elemento Parent 2.2.0 API'
