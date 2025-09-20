@@ -18,7 +18,7 @@ jobs:
           cache: maven
       - run: $MVN install
         working-directory: bom
-      - run: $MVN -Denvironment.base=/elemento/samples/music -P prod install
+      - run: mvn -Denvironment.base=/elemento/samples/music -P prod install
         working-directory: samples
       - uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
