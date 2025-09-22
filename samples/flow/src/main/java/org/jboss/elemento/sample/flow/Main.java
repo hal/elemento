@@ -48,6 +48,7 @@ import static org.patternfly.layout.gallery.Gallery.gallery;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Sticky.top;
 import static org.patternfly.style.Variable.componentVar;
 
@@ -77,7 +78,7 @@ public class Main implements EntryPoint {
                 .label("Fail fast");
         randomFailure.onChange((event, component, value) -> failFast.disabled(!component.value()));
 
-        body().add(page()
+        body().add(page().css(modifier("no-sidebar"))
                 .addMain(pageMain("flow-main")
                         .addSection(pageSection().secondary().limitWidth()
                                 .add(content()

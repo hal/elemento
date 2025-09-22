@@ -6,8 +6,7 @@
   ],
   "source": "src/web/index.html",
   "scripts": {
-    "watch": "parcel serve --dist-dir target/todo --open chrome",
-    "dev": "parcel build --dist-dir target/todo --no-optimize",
+    "dev": "parcel serve --dist-dir target/todo --open chrome",
     "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/j2cl"
   },
   "dependencies": {
