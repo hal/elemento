@@ -26,6 +26,7 @@ import java.util.function.Supplier;
 import org.jboss.elemento.By;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.logger.Logger;
+
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
