@@ -32,6 +32,7 @@
     <name>Elemento Flow Sample</name>
 
     <properties>
+        <npm.skip>false</npm.skip>
         <version.patternfly.java>0.2.12-SNAPSHOT</version.patternfly.java>
     </properties>
 
@@ -86,6 +87,9 @@
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
+                <configuration>
+                    <skip>${npm.skip}</skip>
+                </configuration>
                 <executions>
                     <execution>
                         <id>install-node-and-npm</id>
@@ -114,7 +118,7 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <arguments>run ${npm.script}</arguments>
+                            <arguments>run dev</arguments>
                         </configuration>
                     </execution>
                 </executions>

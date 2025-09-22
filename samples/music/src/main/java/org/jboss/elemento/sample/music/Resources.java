@@ -17,11 +17,13 @@ package org.jboss.elemento.sample.music;
 
 import org.kie.j2cl.tools.processors.annotations.GWT3Resource;
 import org.kie.j2cl.tools.processors.common.resources.ClientBundle;
+import org.kie.j2cl.tools.processors.common.resources.DataResource.MimeType;
 import org.kie.j2cl.tools.processors.common.resources.TextResource;
 
 @GWT3Resource
 public interface Resources extends ClientBundle {
 
     @Source("rhcp.json")
+    @MimeType("application/json")
     TextResource rhcp();
 }

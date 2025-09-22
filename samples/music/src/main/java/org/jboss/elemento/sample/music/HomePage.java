@@ -40,7 +40,7 @@ public class HomePage implements Page {
         return singletonList(section()
                 .add(h(1).text("Red Hot Chilli Peppers Discography"))
                 .add(p().add("This example demonstrates how to use Elemento's ")
-                        .add(a("/https://hal-console.gitbook.io/elemento/router", "documentation").text("router"))
+                        .add(a("https://hal-console.gitbook.io/elemento/router", "documentation").text("router"))
                         .add(". Therefore the discography of the Red Hot Chili Peppers is used (obviously one of the developers is a big RHCP fan 🤘). Have fun browsing through the albums (and don't forget to look under the bridge)."))
                 .add(p().add(
                         "Since this is a router demo you can click on the links to browse through the albums, but also use the browser's back and forward buttons. The demo defines these routes:"))

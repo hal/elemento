@@ -35,7 +35,7 @@
         <!-- Dependency versions -->
         <version.gwt>2.12.2</version.gwt>
         <version.kie.j2cl.bom>0.4</version.kie.j2cl.bom>
-        <version.node>v23.11.0</version.node>
+        <version.node>v24.8.0</version.node>
         <version.treblereel.j2cl.processors>0.8</version.treblereel.j2cl.processors>
 
         <!-- Plugin versions -->
@@ -43,13 +43,8 @@
         <version.j2cl.plugin>0.23.3</version.j2cl.plugin>
 
         <!-- Build related -->
-        <gwt.draftCompile>true</gwt.draftCompile>
         <gwt.sourceLevel>17</gwt.sourceLevel>
-        <gwt.style>DETAILED</gwt.style>
-        <j2cl.compilationLevel>BUNDLE_JAR</j2cl.compilationLevel>
-        <j2cl.incremental>true</j2cl.incremental>
-        <j2cl.sourcemaps>true</j2cl.sourcemaps>
-        <npm.script>dev</npm.script>
+        <npm.skip>true</npm.skip>
     </properties>
 
     <modules>
@@ -127,6 +122,59 @@
 
     <profiles>
         <profile>
+            <id>dev</id>
+            <properties>
+                <gwt.draftCompile>true</gwt.draftCompile>
+                <gwt.style>DETAILED</gwt.style>
+                <j2cl.compilationLevel>BUNDLE_JAR</j2cl.compilationLevel>
+                <j2cl.incremental>true</j2cl.incremental>
+                <j2cl.sourcemaps>true</j2cl.sourcemaps>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <configuration>
+                            <skip>${npm.skip}</skip>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>install-node-and-npm</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                                <configuration>
+                                    <nodeVersion>${version.node}</nodeVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm-install</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>install</arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm-parcel</id>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run dev</arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>prod</id>
             <properties>
                 <gwt.draftCompile>false</gwt.draftCompile>
@@ -134,21 +182,50 @@
                 <j2cl.compilationLevel>ADVANCED_OPTIMIZATIONS</j2cl.compilationLevel>
                 <j2cl.incremental>false</j2cl.incremental>
                 <j2cl.sourcemaps>false</j2cl.sourcemaps>
-                <npm.script>prod</npm.script>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <configuration>
+                            <skip>${npm.skip}</skip>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>install-node-and-npm</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                                <configuration>
+                                    <nodeVersion>${version.node}</nodeVersion>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm-install</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>install</arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm-parcel</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run prod</arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>j2cl-staging</id>
-            <url>https://oss.sonatype.org/content/repositories/comvertispan-1082</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

@@ -110,12 +110,12 @@ case "${MODE}" in
     msg "Run ${YELLOW}Flow${NOFORMAT} sample..."
     msg ""
     cd flow
-    mvn ${CLEAN} gwt:devmode
+    mvn ${CLEAN} gwt:devmode -P dev
     ;;
   "m"|"music")
     msg ""
     msg "Run ${YELLOW}Music${NOFORMAT} sample..."
-    msg "Run ${YELLOW}npm run watch${NOFORMAT} in ${YELLOW}music${NOFORMAT} when j2cl:watch is ready"
+    msg "Run ${YELLOW}npm run watch${NOFORMAT} in ${YELLOW}music${NOFORMAT} when j2cl:dev is ready"
     msg ""
     sleep 1
     cd music
@@ -126,12 +126,12 @@ case "${MODE}" in
     msg "Run ${YELLOW}Todo GWT${NOFORMAT} sample..."
     msg ""
     cd todo/gwt
-    mvn ${CLEAN} gwt:devmode
+    mvn ${CLEAN} gwt:devmode -P dev
     ;;
   "tj"|"todo-j2cl")
     msg ""
     msg "Run ${YELLOW}Todo J2CL${NOFORMAT} sample..."
-    msg "Run ${YELLOW}npm run watch${NOFORMAT} in ${YELLOW}todo/j2cl${NOFORMAT} when j2cl:watch is ready"
+    msg "Run ${YELLOW}npm run watch${NOFORMAT} in ${YELLOW}todo/j2cl${NOFORMAT} when j2cl:dev is ready"
     msg ""
     sleep 1
     cd todo/j2cl

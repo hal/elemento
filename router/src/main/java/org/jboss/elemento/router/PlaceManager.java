@@ -26,7 +26,6 @@ import java.util.function.Supplier;
 import org.jboss.elemento.By;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.logger.Logger;
-
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
@@ -99,76 +98,172 @@ public class PlaceManager {
 
     // ------------------------------------------------------ builder
 
+    /**
+     * The base URL for all locations. If your app is served from a subdirectory on your server, you’ll want to set this to the
+     * subdirectory. A properly formatted basename should have a leading slash but no trailing slash.
+     */
     public PlaceManager base(String base) {
         this.base = new Base(base);
         return this;
     }
 
+    /**
+     * Sets the root HTMLElement for the application's UI using a CSS selector.
+     *
+     * @param selector a CSS selector string used to identify the root element
+     */
     public PlaceManager root(String selector) {
         return root(() -> querySelector(document, By.selector(selector)));
     }
 
+    /**
+     * Sets the root HTMLElement for the application's UI using a {@link By} selector.
+     *
+     * @param selector a {@link By} selector used to identify the root element
+     */
     public PlaceManager root(By selector) {
         return root(() -> querySelector(document, selector));
     }
 
+    /**
+     * Sets the root HTMLElement for the application's UI.
+     *
+     * @param element the HTMLElement to be used as the root of the application's UI
+     */
     public PlaceManager root(HTMLElement element) {
         return root(() -> element);
     }
 
+    /**
+     * Sets the root HTMLElement for the application's UI using a supplier. The supplier provides an instance of the HTMLElement
+     * that serves as the root container for the UI. This method allows dynamic determination of the root element at runtime.
+     *
+     * @param root a Supplier that provides an HTMLElement to be used as the root of the application's UI
+     */
     public PlaceManager root(Supplier<HTMLElement> root) {
         this.root = root;
         return this;
     }
 
+    /**
+     * Sets the function to resolve or modify the title for the current place or page. This function can be used to dynamically
+     * determine the title based on the input.
+     *
+     * @param title a {@link Function} that takes a {@link String} and returns a {@link String}, representing the dynamic
+     *              resolution or modification of the title.
+     */
     public PlaceManager title(Function<String, String> title) {
         this.title = title;
         return this;
     }
 
+    /**
+     * Sets the callback function to handle cases where no matching place is found.
+     *
+     * @param notFound a {@link Function} that takes a {@link Place} as input and returns a {@link Page}. This function will be
+     *                 called to provide a fallback page when a requested place doesn't match any registered routes.
+     */
     public PlaceManager notFound(Function<Place, Page> notFound) {
         this.notFound = notFound;
         return this;
     }
 
+    /**
+     * Sets the callback function to handle cases where no data is available for a given place. This function is invoked to
+     * provide a fallback {@link Page} when there is an absence of data.
+     *
+     * @param noData a {@link Supplier} that provides a fallback {@link Page} in scenarios where no data is available.
+     */
     public PlaceManager noData(Supplier<Page> noData) {
         this.noData = noData;
         return this;
     }
 
+    /**
+     * Registers a handler that is executed before a place transition occurs. The provided {@link BeforePlaceHandler} can
+     * perform pre-processing, validation, or cancellation of the transition based on its implementation.
+     *
+     * @param beforePlace the {@link BeforePlaceHandler} to be executed before the place transition
+     */
     public PlaceManager beforePlace(BeforePlaceHandler beforePlace) {
         beforeHandlers.add(beforePlace);
         return this;
     }
 
+    /**
+     * Registers a handler to be executed after a place transition occurs. The provided {@link AfterPlaceHandler} can perform
+     * post-processing or additional actions based on the new place state.
+     *
+     * @param afterPlace the {@link AfterPlaceHandler} to be executed after the place transition
+     * @return the current {@link PlaceManager} instance for method chaining
+     */
     public PlaceManager afterPlace(AfterPlaceHandler afterPlace) {
         afterHandlers.add(afterPlace);
         return this;
     }
 
+    /**
+     * Sets the link selector for selecting links that should be monitored by this place manager. This method uses a CSS
+     * selector string to define the selector.
+     *
+     * @param selector a CSS selector string used to identify links
+     */
     public PlaceManager linkSelector(String selector) {
         return linkSelector(By.selector(selector), false);
     }
 
+    /**
+     * Sets the link selector for selecting links that should be monitored by this place manager. This method uses a {@link By}
+     * selector to define the selector and allows specifying whether the selection should be negated.
+     *
+     * @param selector a {@link By} selector used to identify links
+     * @param not      a boolean flag indicating whether the selector should be negated
+     */
     public PlaceManager linkSelector(String selector, boolean not) {
         return linkSelector(By.selector(selector), not);
     }
 
+    /**
+     * Sets the link selector for links that should be monitored by this place manager. This method uses a {@link By} selector
+     * to define the links to be selected.
+     *
+     * @param selector a {@link By} selector used to identify links
+     */
     public PlaceManager linkSelector(By selector) {
         return linkSelector(selector, false);
     }
 
+    /**
+     * Sets the link selector for links that should be monitored by this place manager. This method uses a {@link By} selector
+     * to define the links to be selected and allows specifying whether the selection should be negated.
+     *
+     * @param selector a {@link By} selector used to identify links
+     * @param not      a boolean flag indicating whether the selector should be negated
+     */
     public PlaceManager linkSelector(By selector, boolean not) {
         this.linkSelector = new LinkSelector(selector, not);
         return this;
     }
 
+    /**
+     * Registers a new place and its associated page supplier with the place manager.
+     *
+     * @param place the {@link Place} object representing a specific location in the application
+     * @param page  a {@link Supplier} that provides the {@link Page} associated with the given place
+     */
     public PlaceManager register(Place place, Supplier<Page> page) {
         places.put(place.route, place);
         pages.put(place, page);
         return this;
     }
 
+    /**
+     * Registers a collection of places and their associated page suppliers with the PlaceManager.
+     *
+     * @param places a {@link Places} object containing a collection of {@link Place} objects and their corresponding
+     *               {@link Supplier} for {@link Page}. Each entry in the collection represents a mapping between a place and a
+     *               page supplier.
+     */
     public PlaceManager register(Places places) {
         for (Map.Entry<Place, Supplier<Page>> entry : places) {
             register(entry.getKey(), entry.getValue());
@@ -178,6 +273,11 @@ public class PlaceManager {
 
     // ------------------------------------------------------ api
 
+    /**
+     * Returns the current {@link Place} instance being managed by the PlaceManager.
+     *
+     * @return the current {@link Place} instance
+     */
     public Place current() {
         return currentPlace;
     }
@@ -187,6 +287,20 @@ public class PlaceManager {
         return pms.exists ? pms.place : null;
     }
 
+    /**
+     * Initializes the PlaceManager by setting up necessary event bindings and navigating to the place that corresponds to the
+     * current URL.
+     * <p>
+     * This method performs the following steps:
+     * <ol>
+     * <li>Calls {@code bindClickHandler()} to set up click event handling for links, enabling SPA navigation by preventing
+     * default link behavior.</li>
+     * <li>Calls {@code bindHistoryHandler()} to set up handling for browser's history state changes.</li>
+     * <li>Determines the initial place to navigate to based on the current location's path by invoking {@code findPlace()}.</li>
+     * <li>Calls {@code gotoPlace()} to transition to the identified place. If successful, updates browser history using
+     * {@code updateHistory()}. If unsuccessful, logs an error indicating the inability to start with the resolved place.</li>
+     * </ol>
+     */
     public void start() {
         bindClickHandler();
         bindHistoryHandler();
@@ -201,6 +315,12 @@ public class PlaceManager {
         });
     }
 
+    /**
+     * Navigates to a specific path within the application. The method resolves the corresponding place to the given path,
+     * attempts to move to the associated page, and logs an error if the navigation fails.
+     *
+     * @param path the string representation of the target path to navigate to
+     */
     public void goTo(String path) {
         PlaceManagerStruct pms = findPlace(path);
         gotoPlace(pms).then(success -> {
@@ -213,6 +333,15 @@ public class PlaceManager {
         });
     }
 
+    /**
+     * Generates an absolute URL for the given path based on the application's base URL and routing configuration. If the
+     * specified path corresponds to an existing place, the method returns the absolute URL for that place. If the path does not
+     * correspond to an existing place, the method returns a fallback URL (e.g., "#").
+     *
+     * @param path the path for which the URL is to be generated; typically represents a route within the application
+     * @return the absolute URL as a String for the corresponding place if found, or a fallback URL ("#") if the place does not
+     * exist
+     */
     public String href(String path) {
         PlaceManagerStruct pms = findPlace(path);
         return pms.exists ? base.absolute(pms.place.route) : "#";
@@ -292,7 +421,8 @@ public class PlaceManager {
         }
         if (pms.place == null) {
             logger.debug("No place found for '%s'.", path);
-            pms.place = new Place(path == null || path.trim().isEmpty() ? "/": path); // create a place anyway for proper 404 handling
+            pms.place = new Place(
+                    path == null || path.trim().isEmpty() ? "/" : path); // create a place anyway for proper 404 handling
             pms.exists = false;
         } else {
             logger.debug("Found %s", pms.place);
