@@ -132,7 +132,7 @@ Add the following dependency to use `elemento-router`:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-router</artifactId>
-    <version>2.2.0</version>
+    <version>2.2.1</version>
 </dependency>
 ```
 
