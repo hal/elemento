@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -67,7 +68,6 @@ public class PlaceManager {
     // ------------------------------------------------------ instance
 
     private static final Logger logger = Logger.getLogger(PlaceManager.class.getName());
-    private static final Place NOT_FOUND = new Place("org.jboss.elemento.router.notFound");
 
     private final Map<String, Place> places;
     private final Map<Place, Supplier<Page>> pages;
@@ -80,6 +80,7 @@ public class PlaceManager {
     private Function<String, String> title;
     private Function<Place, Page> notFound;
     private Supplier<Page> noData;
+    private BiFunction<Place, String, Page> errorPage;
     private LinkSelector linkSelector;
 
     public PlaceManager() {
@@ -94,6 +95,7 @@ public class PlaceManager {
         this.title = Function.identity();
         this.notFound = DefaultNotFound::new;
         this.noData = DefaultNoData::new;
+        this.errorPage = DefaultErrorPage::new;
         this.linkSelector = new LinkSelector();
     }
 
@@ -177,6 +179,19 @@ public class PlaceManager {
      */
     public PlaceManager noData(Supplier<Page> noData) {
         this.noData = noData;
+        return this;
+    }
+
+    /**
+     * Sets the callback function to handle error scenarios. This function is invoked to provide a fallback {@link Page} when an
+     * error occurs during navigation or page rendering.
+     *
+     * @param errorPage a {@link BiFunction} that takes a {@link Place} and a {@link String} (representing the error message) as
+     *                  input and returns a {@link Page} to be used as the fallback error page.
+     * @return the current {@link PlaceManager} instance for method chaining.
+     */
+    public PlaceManager errorPage(BiFunction<Place, String, Page> errorPage) {
+        this.errorPage = errorPage;
         return this;
     }
 
@@ -285,7 +300,7 @@ public class PlaceManager {
 
     public Place place(String path) {
         PlaceManagerStruct pms = findPlace(path);
-        return pms.exists ? pms.place : null;
+        return pms.ok() ? pms.place : null;
     }
 
     /**
@@ -345,7 +360,7 @@ public class PlaceManager {
      */
     public String href(String path) {
         PlaceManagerStruct pms = findPlace(path);
-        return pms.exists ? base.absolute(pms.place.route) : "#";
+        return pms.ok() ? base.absolute(pms.place.route) : "#";
     }
 
     // ------------------------------------------------------ event handling
@@ -422,32 +437,40 @@ public class PlaceManager {
         }
         if (pms.place == null) {
             logger.debug("No place found for '%s'.", path);
+            pms.errorType = ErrorType.NOT_FOUND;
             pms.place = new Place(
                     path == null || path.trim().isEmpty() ? "/" : path); // create a place anyway for proper 404 handling
-            pms.exists = false;
         } else {
             logger.debug("Found %s", pms.place);
-            pms.exists = true;
         }
         return pms;
     }
 
     private Promise<Boolean> gotoPlace(PlaceManagerStruct pms) {
-        if (pms.exists) {
+        if (pms.ok()) {
             if (pages.containsKey(pms.place)) {
                 logger.debug("Goto %s", pms.place);
-                for (BeforePlaceHandler handler : beforeHandlers) {
-                    if (!handler.shouldGoTo(this, pms.place)) {
-                        logger.debug("Navigation canceled by before handler for %s", pms.place);
-                        return Promise.resolve(false);
-                    } else {
-                        handler.beforePlace(this, pms.place);
+                try {
+                    for (BeforePlaceHandler handler : beforeHandlers) {
+                        if (!handler.shouldGoTo(this, pms.place)) {
+                            logger.debug("Navigation canceled by before handler for %s", pms.place);
+                            return Promise.resolve(false);
+                        } else {
+                            handler.beforePlace(this, pms.place);
+                        }
                     }
+                } catch (Throwable t) {
+                    pms.page = errorPage(pms.place, "Error in place before handler: " + t.getMessage());
+                    return gotoPage(pms);
                 }
                 Supplier<Page> pageSupplier = pages.get(pms.place);
                 if (pms.place.loader == null) {
                     logger.debug("Create page for %s", pms.place);
-                    pms.page = pageSupplier.get();
+                    try {
+                        pms.page = pageSupplier.get();
+                    } catch (Throwable t) {
+                        pms.page = errorPage(pms.place, "Error when creating page: " + t.getMessage());
+                    }
                     return gotoPage(pms);
                 } else {
                     logger.debug("Load data for %s", pms.place);
@@ -461,17 +484,25 @@ public class PlaceManager {
                             .catch_(error -> {
                                 String errorAsString = String.valueOf(error);
                                 logger.error("Unable to load page for %s: %s", pms.place, errorAsString);
+                                pms.errorType = ErrorType.NO_DATA;
                                 pms.data = new LoadedData(errorAsString);
                                 pms.page = noData(pms.place);
                                 return gotoPage(pms);
                             });
                 }
             } else {
+                pms.errorType = ErrorType.NOT_FOUND;
                 pms.page = notFound(pms.place);
                 return gotoPage(pms);
             }
         } else {
-            pms.page = notFound(pms.place);
+            if (pms.errorType == ErrorType.NOT_FOUND) {
+                pms.page = notFound(pms.place);
+            } else if (pms.errorType == ErrorType.NO_DATA) {
+                pms.page = noData(pms.place);
+            } else if (pms.errorType == ErrorType.UNDEFINED) {
+                pms.page = errorPage(pms.place, "Undefined error");
+            }
             return gotoPage(pms);
         }
     }
@@ -496,15 +527,15 @@ public class PlaceManager {
         currentPage = pms.page;
         pms.page.attach();
 
-        if (NOT_FOUND.equals(pms.place)) {
-            return Promise.resolve(false);
-        } else {
+        if (pms.ok()) {
             currentPlace = pms.place;
             logger.info("Navigation to %s", pms.place);
             for (AfterPlaceHandler handler : afterHandlers) {
                 handler.afterPlace(this, pms.place);
             }
             return Promise.resolve(true);
+        } else {
+            return Promise.resolve(false);
         }
     }
 
@@ -526,6 +557,15 @@ public class PlaceManager {
         }
     }
 
+    private Page errorPage(Place place, String error) {
+        logger.debug("Error while going to %s", place);
+        if (errorPage != null) {
+            return errorPage.apply(place, error);
+        } else {
+            return new DefaultErrorPage(place, error);
+        }
+    }
+
     private void updateHistory(PlaceManagerStruct pms, boolean push) {
         String url = base.absolute(pms.parameter.isEmpty() ? pms.place.route : pms.parameter.path());
         if (push) {
@@ -537,13 +577,27 @@ public class PlaceManager {
 
     // ------------------------------------------------------ internal classes
 
+    private enum ErrorType {
+        NO_ERROR, NOT_FOUND, NO_DATA, UNDEFINED
+    }
+
     private static class PlaceManagerStruct {
 
         private Place place;
-        private boolean exists;
-        private Parameter parameter = Parameter.EMPTY;
-        private LoadedData data = LoadedData.NONE;
+        private Parameter parameter;
+        private LoadedData data;
         private Page page;
+        private ErrorType errorType;
+
+        PlaceManagerStruct() {
+            this.parameter = Parameter.EMPTY;
+            this.data = LoadedData.NONE;
+            this.errorType = ErrorType.NO_ERROR;
+        }
+
+        boolean ok() {
+            return errorType == ErrorType.NO_ERROR;
+        }
     }
 
     private static final String ROOT_STYLE = "display:grid;place-items:center;height:100vh";
@@ -552,6 +606,7 @@ public class PlaceManager {
     private static final String PARAGRAPH_STYLE = "font-size:1.5rem;text-align:center;margin-bottom:1rem";
     private static final String ERROR_STYLE = "font-size:1.2rem;text-align:center;text-wrap:wrap;";
 
+    @SuppressWarnings("ClassCanBeRecord")
     private static class DefaultNotFound implements Page {
 
         private final Place notFound;
@@ -583,6 +638,26 @@ public class PlaceManager {
                             .add(h(1, "No data").style(HEADER_STYLE))
                             .add(p().style(PARAGRAPH_STYLE)
                                     .add("The data for page '" + place.route + "' could not be loaded."))
+                            .add(pre().style(ERROR_STYLE).text(error)))
+                    .element());
+        }
+    }
+
+    private static class DefaultErrorPage implements Page {
+
+        private final String error;
+
+        DefaultErrorPage(Place place, String error) {
+            this.error = error;
+        }
+
+        @Override
+        public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
+            return singletonList(div().style(ROOT_STYLE)
+                    .add(div().style(CONTAINER_STYLE)
+                            .add(h(1, "Error").style(HEADER_STYLE))
+                            .add(p().style(PARAGRAPH_STYLE)
+                                    .add("An error occurred while loading the page '" + place.route + "'."))
                             .add(pre().style(ERROR_STYLE).text(error)))
                     .element());
         }
