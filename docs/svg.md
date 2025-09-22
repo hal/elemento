@@ -6,7 +6,7 @@ To create SVG elements, add the following dependency to your POM:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-svg</artifactId>
-    <version>2.2.1</version>
+    <version>2.2.2</version>
 </dependency>
 ```
 
