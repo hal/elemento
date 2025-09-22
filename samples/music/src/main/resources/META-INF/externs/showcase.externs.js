@@ -43,6 +43,9 @@ Record.prototype.url
 /** @type {string} */
 Record.prototype.cover
 
+/** @type {Array<Track>} */
+Record.prototype.tracks
+
 /** @constructor */
 function Track() {
 }
