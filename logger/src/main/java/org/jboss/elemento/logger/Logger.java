@@ -498,20 +498,12 @@ public class Logger {
     }
 
     private boolean jsNative(Object object) {
-        // Check for null, primitives, or known native JS types
         if (object == null || !Js.typeof(object).equals("object")) {
             return true;
         }
-
-        // Use Object.prototype.toString.call(obj) to get the internal [[Class]] property
-        // This is a more reliable way to detect native JS objects
-        String objectType = objectType(object);
-        return objectType.startsWith("[object ") &&
-                !objectType.equals("[object Object]") &&
-                !objectType.equals("[object Array]"); // Regular JS objects and arrays should be stringified
+        return objectType(object).startsWith("[object ");
     }
 
-    // This binds directly to Object.prototype.toString.call(obj)
     @JsMethod(namespace = JsPackage.GLOBAL, name = "Object.prototype.toString.call")
     private static native String objectType(Object o);
 }

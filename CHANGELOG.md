@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix native JS object detection in the logging module
+- Fix router sample
+
 ## [2.2.0] - 2025-09-19
 
 ### Added
