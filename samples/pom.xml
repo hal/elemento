@@ -44,6 +44,11 @@
 
         <!-- Build related -->
         <gwt.sourceLevel>17</gwt.sourceLevel>
+        <gwt.draftCompile>true</gwt.draftCompile>
+        <gwt.style>DETAILED</gwt.style>
+        <j2cl.compilationLevel>BUNDLE_JAR</j2cl.compilationLevel>
+        <j2cl.incremental>true</j2cl.incremental>
+        <j2cl.sourcemaps>true</j2cl.sourcemaps>
         <npm.skip>true</npm.skip>
     </properties>
 
@@ -123,13 +128,6 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <properties>
-                <gwt.draftCompile>true</gwt.draftCompile>
-                <gwt.style>DETAILED</gwt.style>
-                <j2cl.compilationLevel>BUNDLE_JAR</j2cl.compilationLevel>
-                <j2cl.incremental>true</j2cl.incremental>
-                <j2cl.sourcemaps>true</j2cl.sourcemaps>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
