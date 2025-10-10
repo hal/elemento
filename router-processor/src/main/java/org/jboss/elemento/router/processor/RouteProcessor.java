@@ -33,15 +33,10 @@ import com.google.auto.service.AutoService;
  * new instance of the corresponding Page class.
  */
 @AutoService(Processor.class)
-@SupportedSourceVersion(SourceVersion.RELEASE_11)
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
 @SupportedAnnotationTypes({"org.jboss.elemento.router.Loader", "org.jboss.elemento.router.Route"})
 @SupportedOptions({"places.package", "places.class"})
 public class RouteProcessor extends BasicAnnotationProcessor {
-
-    @Override
-    public SourceVersion getSupportedSourceVersion() {
-        return SourceVersion.RELEASE_17;
-    }
 
     @Override
     protected Iterable<? extends Step> steps() {
