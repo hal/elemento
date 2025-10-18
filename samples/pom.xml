@@ -34,13 +34,11 @@
     <properties>
         <!-- Dependency versions -->
         <version.gwt>2.12.2</version.gwt>
-        <version.kie.j2cl.bom>0.4</version.kie.j2cl.bom>
-        <version.node>v24.8.0</version.node>
-        <version.treblereel.j2cl.processors>0.8</version.treblereel.j2cl.processors>
+        <version.node>v24.10.0</version.node>
+        <version.j2cl.platform.bom>20251001-1</version.j2cl.platform.bom>
 
         <!-- Plugin versions -->
         <version.frontend.plugin>1.15.4</version.frontend.plugin>
-        <version.j2cl.plugin>0.23.3</version.j2cl.plugin>
 
         <!-- Build related -->
         <gwt.sourceLevel>17</gwt.sourceLevel>
@@ -91,9 +89,9 @@
                 <classifier>resources</classifier>
             </dependency>
             <dependency>
-                <groupId>org.kie.j2cl.tools</groupId>
+                <groupId>org.treblereel.j2cl.platform</groupId>
                 <artifactId>bom</artifactId>
-                <version>${version.kie.j2cl.bom}</version>
+                <version>${version.j2cl.platform.bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -115,11 +113,6 @@
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${version.frontend.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.kie.j2cl.tools</groupId>
-                    <artifactId>j2cl-maven-plugin</artifactId>
-                    <version>${version.j2cl.plugin}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
