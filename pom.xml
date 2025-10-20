@@ -505,7 +505,6 @@
         <profile>
             <id>snippets</id>
             <properties>
-                <java.version>19</java.version>
                 <javadoc.options>--snippet-path ${project.basedir}/src/demo/java</javadoc.options>
             </properties>
             <build>
