@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Upgrades
+
 - Bump Elemental2 to 1.3.2
 
 ## [2.2.2] - 2025-09-22
