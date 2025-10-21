@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Elemento now requires Java 21.\
+  GWT applications can still be used with Elemento: If you use the [GWT Maven plugin](https://tbroyer.github.io/gwt-maven-plugin/index.html), set the `sourceLevel` to the according language level. See the [flow sample](https://github.com/hal/elemento/blob/main/samples/flow/pom.xml#L98) for an example.
+
 ### Upgrades
 
 - Bump Elemental2 to 1.3.2
