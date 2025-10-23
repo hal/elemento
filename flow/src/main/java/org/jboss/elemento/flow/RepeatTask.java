@@ -90,7 +90,6 @@ public class RepeatTask<C extends FlowContext> implements Task<C> {
      * @param failFast   whether the execution of the list should fail fast or fail last
      * @param interval   the interval between the iterations
      * @param timeout    the timeout for the while loop
-     * @param iterations the maximal iterations the loop
      */
     public RepeatTask(C context, Task<C> task, Predicate<C> predicate,
             boolean failFast, long interval, long timeout) {

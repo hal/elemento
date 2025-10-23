@@ -102,7 +102,6 @@
         <version.editorconfig.plugin>0.1.3</version.editorconfig.plugin>
         <version.gwt.plugin>1.2.0</version.gwt.plugin>
         <version.impsort.plugin>1.12.0</version.impsort.plugin>
-        <version.javadoc.plugin>3.12.0</version.javadoc.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
         <version.license.plugin>5.0.0</version.license.plugin>
         <version.shade.plugin>3.6.1</version.shade.plugin>
@@ -112,7 +111,6 @@
         <github.org>hal</github.org>
         <github.name>elemento</github.name>
         <java.version>21</java.version>
-        <javadoc.options/>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -259,9 +257,8 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${version.javadoc.plugin}</version>
-                    <configuration combine.self="override">
-                        <additionalOptions>${javadoc.options}</additionalOptions>
+                    <configuration>
+                        <additionalOptions>--snippet-path ${project.basedir}/src/demo/java</additionalOptions>
                         <detectLinks>true</detectLinks>
                         <doclint>none</doclint>
                         <failOnError>false</failOnError>
@@ -272,6 +269,7 @@
                             <link>https://javadoc.io/doc/org.gwtproject.safehtml/gwt-safehtml/${version.gwt.safehtml}/</link>
                             <link>https://javadoc.io/doc/com.google.elemental2/elemental2-core/${version.elemental2}/</link>
                             <link>https://javadoc.io/doc/com.google.elemental2/elemental2-dom/${version.elemental2}/</link>
+                            <link>https://javadoc.io/doc/com.google.elemental2/elemental2-promise/${version.elemental2}/</link>
                             <link>https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/${version.elemental2}/
                             </link>
                         </links>
@@ -504,9 +502,6 @@
         </profile>
         <profile>
             <id>snippets</id>
-            <properties>
-                <javadoc.options>--snippet-path ${project.basedir}/src/demo/java</javadoc.options>
-            </properties>
             <build>
                 <plugins>
                     <plugin>

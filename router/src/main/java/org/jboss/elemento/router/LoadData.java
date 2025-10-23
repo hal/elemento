@@ -30,7 +30,6 @@ public interface LoadData<T> {
      *
      * @param place     the place for which data needs to be loaded
      * @param parameter the parameter used for loading data
-     * @param <T>       the type of data to be loaded
      * @return a Promise representing the asynchronous loading operation
      */
     Promise<T> load(Place place, Parameter parameter);
