@@ -95,7 +95,7 @@ parse_params "$@"
 setup_colors
 
 ./mvnw clean
-./mvnw -D quickly clean install
+./mvnw -Dquickly clean install
 ./mvnw -P snippets javadoc:aggregate
 ./mvnw -P snippets javadoc:javadoc
 ./mvnw -P snippets org.apache.maven.plugins:maven-antrun-plugin:run@copy-apidocs
