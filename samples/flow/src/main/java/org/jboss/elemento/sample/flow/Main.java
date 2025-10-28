@@ -16,10 +16,9 @@
 package org.jboss.elemento.sample.flow;
 
 import org.jboss.elemento.By;
+import org.patternfly.component.content.ContentType;
 import org.patternfly.component.switch_.Switch;
-
 import com.google.gwt.core.client.EntryPoint;
-
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.body;
@@ -30,6 +29,8 @@ import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.backtotop.BackToTop.backToTop;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.content.Content.content;
+import static org.patternfly.component.content.ContentType.h1;
+import static org.patternfly.component.content.ContentType.p;
 import static org.patternfly.component.list.ActionList.actionList;
 import static org.patternfly.component.list.ActionListGroup.actionListGroup;
 import static org.patternfly.component.list.ActionListItem.actionListItem;
@@ -49,6 +50,7 @@ import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.component;
 import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.Sticky.top;
 import static org.patternfly.style.Variable.componentVar;
 
@@ -58,11 +60,11 @@ public class Main implements EntryPoint {
     private static final String DESCRIPTION_0 = "This page tests parallel, sequential, repeated and nested execution " +
             "of asynchronous tasks.";
     private static final String DESCRIPTION_1 = "The parallel and sequential tests execute seven tasks (four tasks " +
-            "fetch the current time from worldtimeapi.org, three tasks wait for a random time) and cancel after a " +
-            "timeout of " + (Tasks.SEQUENCE_TIMEOUT / 1000) + " seconds.";
-    private static final String DESCRIPTION_2 = "The repeated test fetches the current time from worldtimeapi.org " +
-            "every " + Tasks.INTERVAL + " ms as long as the time doesn't end in " + Tasks.GOOD_TIME + " and cancels after a " +
-            "timeout of " + (Tasks.REPEAT_TIMEOUT / 1000) + " seconds.";
+            "fetch the current time from https://digidates.de/api/v1/unixtime, three tasks wait for a random time) and " +
+            "cancel after a timeout of " + (Tasks.SEQUENCE_TIMEOUT / 1000) + " seconds.";
+    private static final String DESCRIPTION_2 = "The repeated test fetches the current time from " +
+            "https://digidates.de/api/v1/unixtime every " + Tasks.INTERVAL + " ms as long as the time doesn't end in " +
+            Tasks.GOOD_TIME + " and cancels after a timeout of " + (Tasks.REPEAT_TIMEOUT / 1000) + " seconds.";
     private static final String DESCRIPTION_3 = "The nested test executes the seven tasks in parallel, " +
             "then in sequence and finally executes the repeated test.";
 
@@ -79,9 +81,9 @@ public class Main implements EntryPoint {
         randomFailure.onChange((event, component, value) -> failFast.disabled(!component.value()));
 
         body().add(page().css(modifier("no-sidebar"))
-                .addMain(pageMain("flow-main")
-                        .addSection(pageSection().secondary().limitWidth()
-                                .add(content()
+                .addMain(pageMain("flow-main").css(util("mt-lg"))
+                        .addSection(pageSection().centerAligned()
+                                .add(content().editorial()
                                         .add(title(1, "Flow"))
                                         .add(p().add(DESCRIPTION_0))
                                         .add(list(ul())
@@ -90,7 +92,7 @@ public class Main implements EntryPoint {
                                                 .addItem(listItem().text(DESCRIPTION_1))
                                                 .addItem(listItem().text(DESCRIPTION_2))
                                                 .addItem(listItem().text(DESCRIPTION_3)))))
-                        .addSection(pageSection().secondary().limitWidth().sticky(breakpoints(default_, top))
+                        .addSection(pageSection().centerAligned().sticky(breakpoints(default_, top))
                                 .add(flex()
                                         .direction(breakpoints(default_, column))
                                         .gap(breakpoints(default_, xl))
@@ -116,7 +118,7 @@ public class Main implements EntryPoint {
                                                                 .addItem(actionListItem()
                                                                         .add(button("Clear").secondary()
                                                                                 .onClick((e, c) -> clear()))))))))
-                        .addSection(pageSection().limitWidth()
+                        .addSection(pageSection().centerAligned()
                                 .add(tasksContainer = gallery().gutter().element())))
                 .add(backToTop()
                         .scrollableSelector(By.id(MAIN_ID))));
