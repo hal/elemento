@@ -6,9 +6,9 @@
   ],
   "source": "src/web/index.html",
   "scripts": {
-    "start:parcel": "parcel watch src/web/index.html --dist-dir target/music --port 1234",
-    "start:server": "node server.js 8234 1234",
-    "open:browser": "wait-on http://localhost:8234 && open http://localhost:8234",
+    "start:parcel": "parcel watch src/web/index.html --dist-dir target/music --port 1235",
+    "start:server": "node server.js 1234 1235",
+    "open:browser": "wait-on http://localhost:1234 && open http://localhost:1234",
     "dev": "concurrently \"npm run start:parcel\" \"npm run start:server\" \"npm run open:browser\"",
     "prod": "parcel build src/web/index.html --dist-dir target/music --public-url /elemento/samples/music",
     "http-server": "http-server target/music --ssl --cert cert.pem"

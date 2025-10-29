@@ -18,8 +18,8 @@ const {createProxyMiddleware} = require('http-proxy-middleware');
 const path = require('path');
 
 const app = express();
-const port = process.argv[2] || 8234;
-const parcelPort = process.argv[3] || 1234;
+const port = process.argv[2] || 1234;
+const parcelPort = process.argv[3] || 1235;
 
 // 1. Proxy Parcel's dev server
 app.use(

@@ -41,6 +41,7 @@
 
         <!-- Plugin versions -->
         <version.frontend.plugin>1.15.4</version.frontend.plugin>
+        <version.j2cl.plugin>0.23.5</version.j2cl.plugin>
 
         <!-- Build related -->
         <gwt.sourceLevel>17</gwt.sourceLevel>
@@ -122,6 +123,11 @@
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${version.frontend.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.kie.j2cl.tools</groupId>
+                    <artifactId>j2cl-maven-plugin</artifactId>
+                    <version>${version.j2cl.plugin}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
