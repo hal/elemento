@@ -501,7 +501,12 @@ public class Logger {
         if (object == null || !Js.typeof(object).equals("object")) {
             return true;
         }
-        return objectType(object).startsWith("[object ");
+        try {
+            String objectType = objectType(object);
+            return objectType != null && objectType.startsWith("[object ");
+        } catch (Throwable t) {
+            return false;
+        }
     }
 
     @JsMethod(namespace = JsPackage.GLOBAL, name = "Object.prototype.toString.call")

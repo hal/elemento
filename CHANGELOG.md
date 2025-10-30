@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix native object detection in the logging module
+
 ## [2.3.0] - 2025-10-21
 
 ### Changed
