@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Change `Elements.removeChildrenFrom(IsElement<E> element)` to take into account if the element also implements `ElementContainerDelegate<E, B>`. In that case the children are removed from the container delegate instead of the element.
+
 ## [2.3.1] - 2025-10-30
 
 ### Fixed

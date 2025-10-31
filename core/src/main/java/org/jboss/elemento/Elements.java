@@ -1390,11 +1390,18 @@ public final class Elements {
     }
 
     /**
-     * Removes all child elements from {@code element}
+     * Removes all child elements from {@code element}.
+     * <p>
+     * If the element implements {@link ElementContainerDelegate} the child elements are removed from the container delegate. If
+     * you don't want that, explicitly call {@code removeChildrenFrom(element.element())}.
      */
     public static <E extends HTMLElement> void removeChildrenFrom(IsElement<E> element) {
         if (element != null) {
-            removeChildrenFrom(element.element());
+            if (element instanceof ElementContainerDelegate<?, ?> ecd) {
+                removeChildrenFrom(ecd.containerDelegate());
+            } else {
+                removeChildrenFrom(element.element());
+            }
         }
     }
 
@@ -1420,7 +1427,7 @@ public final class Elements {
     }
 
     /**
-     * Removes the child from parent if both parent and child are not null and parent contains child.
+     * Removes the child from the parent if both parent and child are not null and the parent contains the child.
      *
      * @return {@code true} if the element has been removed from its parent, {@code false} otherwise.
      */
@@ -1432,7 +1439,7 @@ public final class Elements {
     }
 
     /**
-     * Removes the child from parent if both parent and child are not null and parent contains child.
+     * Removes the child from the parent if both parent and child are not null and the parent contains the child.
      *
      * @return {@code true} if the element has been removed from its parent, {@code false} otherwise.
      */
