@@ -34,7 +34,7 @@
     <properties>
         <!-- Dependency versions -->
         <version.gwt>2.12.2</version.gwt>
-        <version.kie.j2cl.bom>0.4</version.kie.j2cl.bom>
+        <version.kie.j2cl.bom>0.5</version.kie.j2cl.bom>
         <version.node>v24.10.0</version.node>
         <version.j2cl.platform.bom>20251001-1</version.j2cl.platform.bom>
         <version.treblereel.j2cl.processors>0.8</version.treblereel.j2cl.processors>
