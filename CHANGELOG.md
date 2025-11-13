@@ -9,7 +9,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- Intl module with mappings of the [`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) API.
+- New module `elemento-intl` with support of the [`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) JavaScript API
+  - [Getting started](https://hal.github.io/elemento/docs/intl)
+  - [API documentation](https://hal.github.io/elemento/apidocs/org/jboss/elemento/intl/package-summary.html)
 
 ## [2.3.2] - 2025-10-31
 
