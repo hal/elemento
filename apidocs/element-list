@@ -1,5 +1,6 @@
 org.jboss.elemento
 org.jboss.elemento.flow
+org.jboss.elemento.intl
 org.jboss.elemento.logger
 org.jboss.elemento.mathml
 org.jboss.elemento.router
