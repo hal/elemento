@@ -25,10 +25,9 @@ public class NumberFormatDemo {
         // Expected output: "￥123,457"
 
         // Limit to three significant digits
-        // console.log(new NumberFormat("en-IN", NumberFormatOptions.create()
-        //                 .style() {
-        //             maximumSignificantDigits:3
-        //         }).format(number));
+        console.log(new NumberFormat("en-IN", NumberFormatOptions.create()
+                .maximumSignificantDigits(3))
+                .format(number));
         // Expected output: "1,23,000"
         // @end region = generalUsage
     }
