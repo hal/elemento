@@ -122,6 +122,7 @@
         <module>code-parent</module>
         <module>core</module>
         <module>flow</module>
+        <module>intl</module>
         <module>logger</module>
         <module>mathml</module>
         <module>router</module>

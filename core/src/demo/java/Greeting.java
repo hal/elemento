@@ -15,8 +15,7 @@
  */
 
 import org.jboss.elemento.Attachable;
-import org.jboss.elemento.IsElement;
-
+import org.jboss.elemento.AttachableElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.MutationRecord;
 
@@ -26,13 +25,13 @@ import static org.jboss.elemento.Elements.div;
 
 @SuppressWarnings("unused")
 // @start region = attach
-public class Greeting implements IsElement<HTMLElement>, Attachable {
+public class Greeting implements AttachableElement<HTMLElement> {
 
     private final HTMLElement root;
 
     Greeting(String name) {
         root = div().text("Hello " + name).element();
-        Attachable.register(root, this);
+        Attachable.register(this);
     }
 
     @Override

@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>49</version>
+        <version>51</version>
         <relativePath/>
     </parent>
 
@@ -90,6 +90,8 @@
     </distributionManagement>
 
     <properties>
+        <github.org>hal</github.org>
+        <github.name>elemento</github.name>
         <version.central.publishing.plugin>0.7.0</version.central.publishing.plugin>
     </properties>
 
@@ -124,6 +126,17 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-flow</artifactId>
+                <version>${project.version}</version>
+                <classifier>sources</classifier>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-intl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-intl</artifactId>
                 <version>${project.version}</version>
                 <classifier>sources</classifier>
             </dependency>

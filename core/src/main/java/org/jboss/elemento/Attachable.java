@@ -44,6 +44,20 @@ public interface Attachable {
         }
     }
 
+    /** Registers the specified element for both attach and detach. */
+    static <E extends HTMLElement> void register(IsElement<E> element, Attachable attachable) {
+        if (element != null) {
+            register(element.element(), attachable);
+        }
+    }
+
+    /** Registers the specified element for both attach and detach. */
+    static <E extends HTMLElement> void register(AttachableElement<E> attachableElement) {
+        if (attachableElement != null) {
+            register(attachableElement.element(), attachableElement);
+        }
+    }
+
     /**
      * Unregisters the specified element for both attach and detach.
      */
@@ -51,13 +65,6 @@ public interface Attachable {
         if (element != null) {
             removeAttachObserver(element);
             removeDetachObserver(element);
-        }
-    }
-
-    /** Registers the specified element for both attach and detach. */
-    static <E extends HTMLElement> void register(IsElement<E> element, Attachable attachable) {
-        if (element != null) {
-            register(element.element(), attachable);
         }
     }
 
