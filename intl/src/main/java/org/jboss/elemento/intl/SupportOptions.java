@@ -23,7 +23,8 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
 /**
- * Mapping for getting supported locales of the various format classes.
+ * Mapping for the options to get supported locales of the various format classes like
+ * {@link DateTimeFormat#supportedLocalesOf(String, SupportOptions)}
  * <p>
  * In addition to the actual mappings, this class implements the builder pattern using enums to create the options easily and in
  * a type-safe manner. Some enums are shared with other format option builders of the <code>Intl</code> module and may contain

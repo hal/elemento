@@ -15,19 +15,19 @@
  */
 package org.jboss.elemento.intl;
 
-public enum TimeZoneName {
+public enum CurrencyDisplay {
 
-    long_("long"),
-    longGeneric("longGeneric"),
-    longOffset("longOffset"),
-    short_("short"),
-    shortGeneric("shortGeneric"),
-    shortOffset("shortOffset"),
+    accounting("accounting"),
+    code("code"),
+    symbol("symbol"),
+    narrowSymbol("narrowSymbol"),
+    name("name"),
+    standard("standard"),
     ;
 
     public final String value;
 
-    TimeZoneName(String value) {
+    CurrencyDisplay(String value) {
         this.value = value;
     }
 }

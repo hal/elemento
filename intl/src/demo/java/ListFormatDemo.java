@@ -1,4 +1,3 @@
-import org.jboss.elemento.intl.DurationFormat;
 import org.jboss.elemento.intl.ListFormat;
 import org.jboss.elemento.intl.ListFormatOptions;
 import elemental2.core.JsArray;

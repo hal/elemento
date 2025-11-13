@@ -78,6 +78,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions daysDisplay(When daysDisplay) {
         setDaysDisplay(daysDisplay.value);
@@ -88,7 +89,7 @@ public interface DurationFormatOptions {
      * Number of how many fractional second digits to display in the output. Possible values are from 0 to 9.
      */
     @JsOverlay
-    default DurationFormatOptions fractionDigits(double fractionDigits) {
+    default DurationFormatOptions fractionDigits(int fractionDigits) {
         setFractionDigits(fractionDigits);
         return this;
     }
@@ -103,6 +104,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions hoursDisplay(When hoursDisplay) {
         setHoursDisplay(hoursDisplay.value);
@@ -127,6 +129,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions microSecondsDisplay(When microSecondsDisplay) {
         setMicroSecondsDisplay(microSecondsDisplay.value);
@@ -144,6 +147,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions milliSecondsDisplay(When milliSecondsDisplay) {
         setMilliSecondsDisplay(milliSecondsDisplay.value);
@@ -162,6 +166,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions minutesDisplay(When minutesDisplay) {
         setMinutesDisplay(minutesDisplay.value);
@@ -175,6 +180,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions monthsDisplay(When monthsDisplay) {
         setMonthsDisplay(monthsDisplay.value);
@@ -192,6 +198,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions nanoSecondsDisplay(When nanoSecondsDisplay) {
         setNanoSecondsDisplay(nanoSecondsDisplay.value);
@@ -220,6 +227,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions secondsDisplay(When secondsDisplay) {
         setSecondsDisplay(secondsDisplay.value);
@@ -240,6 +248,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions weeksDisplay(When weeksDisplay) {
         setWeeksDisplay(weeksDisplay.value);
@@ -253,6 +262,7 @@ public interface DurationFormatOptions {
         return this;
     }
 
+    /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions yearsDisplay(When yearsDisplay) {
         setYearsDisplay(yearsDisplay.value);

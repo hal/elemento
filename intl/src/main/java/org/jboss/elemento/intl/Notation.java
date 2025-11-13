@@ -15,19 +15,17 @@
  */
 package org.jboss.elemento.intl;
 
-public enum TimeZoneName {
+public enum Notation {
 
-    long_("long"),
-    longGeneric("longGeneric"),
-    longOffset("longOffset"),
-    short_("short"),
-    shortGeneric("shortGeneric"),
-    shortOffset("shortOffset"),
+    standard("standard"),
+    scientific("scientific"),
+    engineering("engineering"),
+    compact("compact"),
     ;
 
     public final String value;
 
-    TimeZoneName(String value) {
+    Notation(String value) {
         this.value = value;
     }
 }

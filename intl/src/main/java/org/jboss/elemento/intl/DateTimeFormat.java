@@ -34,33 +34,23 @@ import jsinterop.base.JsPropertyMap;
 @JsType(isNative = true, namespace = "Intl")
 public class DateTimeFormat {
 
+    // @formatter:off
     public static native JsArray<String> supportedLocalesOf(String locale);
-
     public static native JsArray<String> supportedLocalesOf(String locale, SupportOptions options);
-
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales);
-
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales, SupportOptions options);
 
     public DateTimeFormat() {}
-
     public DateTimeFormat(String locale) {}
-
     public DateTimeFormat(JsArrayLike<String> locales) {}
-
     public DateTimeFormat(DateTimeFormatOptions options) {}
-
     public DateTimeFormat(String locale, DateTimeFormatOptions options) {}
-
     public DateTimeFormat(JsArrayLike<String> locales, DateTimeFormatOptions options) {}
 
     public native String format(JsDate date);
-
     public native JsArray<JsPropertyMap<String>> formatToParts(JsDate date);
-
     public native String formatRange(JsDate start, JsDate end);
-
     public native JsArray<JsPropertyMap<String>> formatRangeToParts(JsDate start, JsDate end);
-
     public native JsPropertyMap<String> resolvedOptions();
+    // @formatter:on
 }

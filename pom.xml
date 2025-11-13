@@ -210,7 +210,12 @@
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>true</failsOnError>
                         <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                        <excludes>**/*$logger.java,**/*$bundle.java</excludes>
+                        <excludes>
+                            **/*$logger.java,
+                            **/*$bundle.java,
+                            org/jboss/elemento/intl/*Format.java,
+                            org/jboss/elemento/intl/*Options.java,
+                        </excludes>
                         <useFile/>
                     </configuration>
                     <dependencies>

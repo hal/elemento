@@ -33,29 +33,21 @@ import jsinterop.base.JsPropertyMap;
 @JsType(isNative = true, namespace = "Intl")
 public class DurationFormat {
 
+    // @formatter:off
     public static native JsArray<String> supportedLocalesOf(String locale);
-
     public static native JsArray<String> supportedLocalesOf(String locale, SupportOptions options);
-
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales);
-
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales, SupportOptions options);
 
     public DurationFormat() {}
-
     public DurationFormat(String locale) {}
-
     public DurationFormat(JsArrayLike<String> locales) {}
-
     public DurationFormat(DurationFormatOptions options) {}
-
     public DurationFormat(String locale, DurationFormatOptions options) {}
-
     public DurationFormat(JsArrayLike<String> locales, DurationFormatOptions options) {}
 
     public native String format(Duration duration);
-
     public native JsArray<JsPropertyMap<String>> formatToParts(Duration duration);
-
     public native JsPropertyMap<String> resolvedOptions();
+    // @formatter:on
 }

@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import elemental2.core.JsDate;
+import jsinterop.base.JsArrayLike;
 
 import static org.jboss.elemento.intl.Unit.day;
 import static org.jboss.elemento.intl.Unit.hour;
@@ -59,12 +60,20 @@ public class RelativeTime {
         this.rtf = new RelativeTimeFormat(locale);
     }
 
+    public RelativeTime(JsArrayLike<String> locales) {
+        this.rtf = new RelativeTimeFormat(locales);
+    }
+
     public RelativeTime(RelativeTimeFormatOptions options) {
         this.rtf = new RelativeTimeFormat(options);
     }
 
     public RelativeTime(String locale, RelativeTimeFormatOptions options) {
         this.rtf = new RelativeTimeFormat(locale, options);
+    }
+
+    public RelativeTime(JsArrayLike<String> locales, RelativeTimeFormatOptions options) {
+        this.rtf = new RelativeTimeFormat(locales, options);
     }
 
     public final String from(JsDate date) {
@@ -93,9 +102,9 @@ public class RelativeTime {
             Unit unit = entry.getKey();
             long value = entry.getValue();
             if (Math.abs(elapsed) > value) {
-                return rtf.format(Math.round(elapsed / (double) value), unit.value);
+                return rtf.format(elapsed / value, unit);
             }
         }
-        return rtf.format(Math.round(elapsed / 1000.0), second.value);
+        return rtf.format(elapsed / 1000, second);
     }
 }

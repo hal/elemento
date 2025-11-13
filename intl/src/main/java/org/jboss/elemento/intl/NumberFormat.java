@@ -22,16 +22,16 @@ import jsinterop.base.JsPropertyMap;
 
 /**
  * Mapping for <a
- * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat"><code>Intl.ListFormat</code></a>.
+ * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat"><code>Intl.NumberFormat</code></a>.
  * <p>
- * {@snippet class = ListFormatDemo region = generalUsage}
+ * {@snippet class = NumberFormatDemo region = generalUsage}
  *
  * @see <a
- * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat</a>
+ * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat</a>
  */
 @SuppressWarnings("unused")
 @JsType(isNative = true, namespace = "Intl")
-public class ListFormat {
+public class NumberFormat {
 
     // @formatter:off
     public static native JsArray<String> supportedLocalesOf(String locale);
@@ -39,15 +39,17 @@ public class ListFormat {
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales, SupportOptions options);
 
-    public ListFormat() {}
-    public ListFormat(String locale) {}
-    public ListFormat(JsArrayLike<String> locales) {}
-    public ListFormat(ListFormatOptions options) {}
-    public ListFormat(String locale, ListFormatOptions options) {}
-    public ListFormat(JsArrayLike<String> locales, ListFormatOptions options) {}
+    public NumberFormat() {}
+    public NumberFormat(String locale) {}
+    public NumberFormat(JsArrayLike<String> locales) {}
+    public NumberFormat(NumberFormatOptions options) {}
+    public NumberFormat(String locale, NumberFormatOptions options) {}
+    public NumberFormat(JsArrayLike<String> locales, NumberFormatOptions options) {}
 
-    public native String format(JsArray<String> list);
-    public native JsArray<JsPropertyMap<String>> formatToParts(JsArray<String> list);
+    public native String format(double number);
+    public native JsArray<JsPropertyMap<String>> formatToParts(double number);
+    public native String formatRange(double start, double end);
+    public native JsArray<JsPropertyMap<String>> formatRangeToParts(double start, double end);
     public native JsPropertyMap<String> resolvedOptions();
     // @formatter:on
 }

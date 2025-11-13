@@ -15,19 +15,25 @@
  */
 package org.jboss.elemento.intl;
 
-public enum TimeZoneName {
+public enum Rounding {
 
-    long_("long"),
-    longGeneric("longGeneric"),
-    longOffset("longOffset"),
-    short_("short"),
-    shortGeneric("shortGeneric"),
-    shortOffset("shortOffset"),
+    auto("auto"),
+    ceil("ceil"),
+    expand("expand"),
+    floor("floor"),
+    halfCeil("halfCeil"),
+    halfEven("halfEven"),
+    halfExpand("halfExpand"),
+    halfFloor("halfFloor"),
+    halfTrunc("halfTrunc"),
+    lessPrecision("lessPrecision"),
+    morePrecision("morePrecision"),
+    trunc("trunc"),
     ;
 
     public final String value;
 
-    TimeZoneName(String value) {
+    Rounding(String value) {
         this.value = value;
     }
 }
