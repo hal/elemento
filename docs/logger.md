@@ -68,7 +68,7 @@ Add the following dependency to use `elemento-logger`:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-logger</artifactId>
-    <version>2.3.2</version>
+    <version>2.4.0</version>
 </dependency>
 ```
 
