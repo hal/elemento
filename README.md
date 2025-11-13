@@ -9,7 +9,7 @@ Elemento simplifies working with [Elemental2](https://github.com/google/elementa
 - Simple, non-invasive, slash-based [router](https://hal-console.gitbook.io/elemento/router) with support for parameters and asynchronous loaders (`/a/:b/c`)
 - Execute [asynchronous tasks](https://hal-console.gitbook.io/elemento/flow) in parallel, in sequence, or as long as a certain condition is met.
 - Thin [logging](https://hal-console.gitbook.io/elemento/logger) wrapper around `console.log` using categories, log levels, and a predefined log format.
-- Support of the [`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+- Support of the [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
   JavaScript API
 - Ready to be used with [GWT](https://www.gwtproject.org/) and [J2CL](https://github.com/google/j2cl)
 - Minimal dependencies

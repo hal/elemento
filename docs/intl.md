@@ -1,7 +1,7 @@
 # Internationalization
 
 Elemento supports most of the classes from the [
-`Intl`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) JavaScript API.
+Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) JavaScript API.
 
 In addition to the actual mappings, Elemento implements the builder pattern using enums to create the options easily and in a
 type-safe manner. Here are some examples:
