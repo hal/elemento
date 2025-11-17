@@ -3,8 +3,9 @@
 Elemento supports most of the classes from the [
 Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) JavaScript API.
 
-In addition to the actual mappings, Elemento implements the builder pattern using enums to create the options easily and in a
-type-safe manner. Here are some examples:
+In addition to the actual mappings, Elemento introduces enums, implements the builder pattern, and a fluent 
+API to create the options in a type-safe manner. Here are some examples (most of them following the MDN 
+examples):
 
 ## Date and Time Formatting
 
@@ -12,7 +13,7 @@ type-safe manner. Here are some examples:
 var date = new JsDate(2020, 11, 20, 3, 23, 16, 738);
 
 // Specify default date formatting for language (locale)
-console.log(new DateTimeFormat("en-US").format(new JsDate()));
+console.log(new DateTimeFormat("en-US").format(date));
 // Expected output: "12/20/2020"
 
 // Specify date and time format using "style" options (i.e. full, long, medium, short)
