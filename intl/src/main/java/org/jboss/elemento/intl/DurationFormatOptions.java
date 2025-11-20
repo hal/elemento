@@ -16,11 +16,12 @@
 package org.jboss.elemento.intl;
 
 import jsinterop.annotations.JsOverlay;
-import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
+
+import static jsinterop.annotations.JsPackage.GLOBAL;
 
 /**
  * Mapping for <a
@@ -38,7 +39,7 @@ import jsinterop.base.JsPropertyMap;
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#options">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/DurationFormat#options</a>
  */
 @SuppressWarnings("unused")
-@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+@JsType(isNative = true, namespace = GLOBAL)
 public interface DurationFormatOptions {
 
     // @formatter:off

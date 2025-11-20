@@ -16,11 +16,12 @@
 package org.jboss.elemento.intl;
 
 import jsinterop.annotations.JsOverlay;
-import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
+
+import static jsinterop.annotations.JsPackage.GLOBAL;
 
 /**
  * Mapping for <a
@@ -33,7 +34,7 @@ import jsinterop.base.JsPropertyMap;
  * @see <a
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/Duration</a>
  */
-@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+@JsType(isNative = true, namespace = GLOBAL)
 public interface Duration {
 
     // @formatter:off

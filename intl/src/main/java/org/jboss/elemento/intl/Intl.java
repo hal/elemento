@@ -19,6 +19,8 @@ import elemental2.core.JsArray;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 
+import static jsinterop.annotations.JsPackage.GLOBAL;
+
 /**
  * Mapping for <a
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl"><code>Intl</code></a>.
@@ -26,7 +28,7 @@ import jsinterop.annotations.JsType;
  * @see <a
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl</a>
  */
-@JsType(isNative = true, namespace = "Intl")
+@JsType(isNative = true, namespace = GLOBAL, name = "Intl.Intl")
 public class Intl {
 
     public static native JsArray<String> getCanonicalLocales(String locale);

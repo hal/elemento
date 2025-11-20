@@ -16,11 +16,12 @@
 package org.jboss.elemento.intl;
 
 import jsinterop.annotations.JsOverlay;
-import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
+
+import static jsinterop.annotations.JsPackage.GLOBAL;
 
 /**
  * Mapping for the options to get supported locales of the various format classes like
@@ -32,7 +33,7 @@ import jsinterop.base.JsPropertyMap;
  * all enum values are applicable.
  */
 @SuppressWarnings("unused")
-@JsType(isNative = true, namespace = JsPackage.GLOBAL)
+@JsType(isNative = true, namespace = GLOBAL)
 public interface SupportOptions {
 
     // @formatter:off

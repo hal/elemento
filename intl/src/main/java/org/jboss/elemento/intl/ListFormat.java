@@ -20,6 +20,8 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
 
+import static jsinterop.annotations.JsPackage.GLOBAL;
+
 /**
  * Mapping for <a
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat"><code>Intl.ListFormat</code></a>.
@@ -30,7 +32,7 @@ import jsinterop.base.JsPropertyMap;
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat</a>
  */
 @SuppressWarnings("unused")
-@JsType(isNative = true, namespace = "Intl")
+@JsType(isNative = true, namespace = GLOBAL, name = "Intl.ListFormat")
 public class ListFormat {
 
     // @formatter:off

@@ -20,6 +20,8 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 
+import static jsinterop.annotations.JsPackage.GLOBAL;
+
 /**
  * Mapping for <a
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat"><code>Intl.RelativeTimeFormat</code></a>.
@@ -30,7 +32,7 @@ import jsinterop.base.JsArrayLike;
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat</a>
  */
 @SuppressWarnings("unused")
-@JsType(isNative = true, namespace = "Intl")
+@JsType(isNative = true, namespace = GLOBAL, name = "Intl.RelativeTimeFormat")
 public class RelativeTimeFormat {
 
     // @formatter:off
