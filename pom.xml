@@ -99,7 +99,7 @@
 
         <!-- Plugin versions -->
         <version.central.publishing.plugin>0.9.0</version.central.publishing.plugin>
-        <version.editorconfig.plugin>0.1.16</version.editorconfig.plugin>
+        <version.editorconfig.plugin>0.1.17</version.editorconfig.plugin>
         <version.gwt.plugin>1.2.0</version.gwt.plugin>
         <version.impsort.plugin>1.12.0</version.impsort.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
