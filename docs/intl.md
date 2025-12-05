@@ -3,8 +3,8 @@
 Elemento supports most of the classes from the [
 Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) JavaScript API.
 
-In addition to the actual mappings, Elemento introduces enums, implements the builder pattern, and a fluent 
-API to create the options in a type-safe manner. Here are some examples (most of them following the MDN 
+In addition to the actual mappings, Elemento introduces enums, implements the builder pattern, and a fluent
+API to create the options in a type-safe manner. Here are some examples (most of them following the MDN
 examples):
 
 ## Date and Time Formatting
