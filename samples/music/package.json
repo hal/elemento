@@ -21,7 +21,7 @@
     "@parcel/reporter-cli": "^2.16.0",
     "@parcel/resolver-glob": "^2.16.0",
     "concurrently": "^9.2.1",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "http-proxy-middleware": "^3.0.5",
     "http-server": "^14.1.1",
     "open": "^10.2.0",
