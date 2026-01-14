@@ -4,14 +4,14 @@ digraph "elemento-parent" {
   edge [fontsize="10",fontname="Helvetica"]
 
   // Node Definitions:
-  "org.jboss.elemento:elemento-logger:compile"[shape="box",style="filled,bold,rounded",fillcolor="#E7F1FA",fontname="Red Hat Display",fontsize="14",label=<<font point-size="10">org.jboss.elemento</font><br/>elemento-logger>]
   "com.google.elemental2:elemental2-core:compile"[shape="box",style="rounded",color="darkslateblue",fontname="Red Hat Display",fontsize="14",fontcolor="darkslateblue",label=<<font point-size="10">com.google.elemental2</font><br/>elemental2-core>]
-  "com.google.elemental2:elemental2-dom:compile"[shape="box",style="rounded",color="darkslateblue",fontname="Red Hat Display",fontsize="14",fontcolor="darkslateblue",label=<<font point-size="10">com.google.elemental2</font><br/>elemental2-dom>]
   "com.google.elemental2:elemental2-promise:compile"[shape="box",style="rounded",color="darkslateblue",fontname="Red Hat Display",fontsize="14",fontcolor="darkslateblue",label=<<font point-size="10">com.google.elemental2</font><br/>elemental2-promise>]
+  "org.jboss.elemento:elemento-logger:compile"[shape="box",style="filled,bold,rounded",fillcolor="#E7F1FA",fontname="Red Hat Display",fontsize="14",label=<<font point-size="10">org.jboss.elemento</font><br/>elemento-logger>]
+  "com.google.elemental2:elemental2-dom:compile"[shape="box",style="rounded",color="darkslateblue",fontname="Red Hat Display",fontsize="14",fontcolor="darkslateblue",label=<<font point-size="10">com.google.elemental2</font><br/>elemental2-dom>]
+  "org.jboss.elemento:elemento-core:compile"[shape="box",style="filled,bold,rounded",fillcolor="#E7F1FA",fontname="Red Hat Display",fontsize="14",label=<<font point-size="10">org.jboss.elemento</font><br/>elemento-core>]
   "com.google.elemental2:elemental2-webstorage:compile"[shape="box",style="rounded",color="darkslateblue",fontname="Red Hat Display",fontsize="14",fontcolor="darkslateblue",label=<<font point-size="10">com.google.elemental2</font><br/>elemental2-webstorage>]
   "org.gwtproject.event:gwt-event:compile"[shape="box",style="rounded",color="darkred",fontname="Red Hat Display",fontsize="14",fontcolor="darkred",label=<<font point-size="10">org.gwtproject.event</font><br/>gwt-event>]
   "org.gwtproject.safehtml:gwt-safehtml:compile"[shape="box",style="rounded",color="darkred",fontname="Red Hat Display",fontsize="14",fontcolor="darkred",label=<<font point-size="10">org.gwtproject.safehtml</font><br/>gwt-safehtml>]
-  "org.jboss.elemento:elemento-core:compile"[shape="box",style="filled,bold,rounded",fillcolor="#E7F1FA",fontname="Red Hat Display",fontsize="14",label=<<font point-size="10">org.jboss.elemento</font><br/>elemento-core>]
   "org.jboss.elemento:elemento-flow:compile"[shape="box",style="filled,bold,rounded",fillcolor="#E7F1FA",fontname="Red Hat Display",fontsize="14",label=<<font point-size="10">org.jboss.elemento</font><br/>elemento-flow>]
   "org.jboss.elemento:elemento-intl:compile"[shape="box",style="filled,bold,rounded",fillcolor="#E7F1FA",fontname="Red Hat Display",fontsize="14",label=<<font point-size="10">org.jboss.elemento</font><br/>elemento-intl>]
   "org.jboss.elemento:elemento-mathml:compile"[shape="box",style="filled,bold,rounded",fillcolor="#E7F1FA",fontname="Red Hat Display",fontsize="14",label=<<font point-size="10">org.jboss.elemento</font><br/>elemento-mathml>]
@@ -19,25 +19,16 @@ digraph "elemento-parent" {
   "org.jboss.elemento:elemento-svg:compile"[shape="box",style="filled,bold,rounded",fillcolor="#E7F1FA",fontname="Red Hat Display",fontsize="14",label=<<font point-size="10">org.jboss.elemento</font><br/>elemento-svg>]
 
   // Edge Definitions:
+  "com.google.elemental2:elemental2-core:compile" -> "com.google.elemental2:elemental2-promise:compile"
   "org.jboss.elemento:elemento-logger:compile" -> "com.google.elemental2:elemental2-core:compile"
   "org.jboss.elemento:elemento-logger:compile" -> "com.google.elemental2:elemental2-dom:compile"
-  "org.jboss.elemento:elemento-logger:compile" -> "com.google.elemental2:elemental2-promise:compile"
-  "org.jboss.elemento:elemento-logger:compile" -> "com.google.elemental2:elemental2-webstorage:compile"
-  "org.jboss.elemento:elemento-logger:compile" -> "org.gwtproject.event:gwt-event:compile"
-  "org.jboss.elemento:elemento-logger:compile" -> "org.gwtproject.safehtml:gwt-safehtml:compile"
   "org.jboss.elemento:elemento-core:compile" -> "org.jboss.elemento:elemento-logger:compile"
-  "org.jboss.elemento:elemento-flow:compile" -> "com.google.elemental2:elemental2-core:compile"
+  "org.jboss.elemento:elemento-core:compile" -> "com.google.elemental2:elemental2-webstorage:compile"
+  "org.jboss.elemento:elemento-core:compile" -> "org.gwtproject.event:gwt-event:compile"
+  "org.jboss.elemento:elemento-core:compile" -> "org.gwtproject.safehtml:gwt-safehtml:compile"
+  "com.google.elemental2:elemental2-dom:compile" -> "com.google.elemental2:elemental2-core:compile"
   "org.jboss.elemento:elemento-flow:compile" -> "com.google.elemental2:elemental2-dom:compile"
-  "org.jboss.elemento:elemento-flow:compile" -> "com.google.elemental2:elemental2-promise:compile"
-  "org.jboss.elemento:elemento-flow:compile" -> "com.google.elemental2:elemental2-webstorage:compile"
-  "org.jboss.elemento:elemento-flow:compile" -> "org.gwtproject.event:gwt-event:compile"
-  "org.jboss.elemento:elemento-flow:compile" -> "org.gwtproject.safehtml:gwt-safehtml:compile"
   "org.jboss.elemento:elemento-intl:compile" -> "com.google.elemental2:elemental2-core:compile"
-  "org.jboss.elemento:elemento-intl:compile" -> "com.google.elemental2:elemental2-dom:compile"
-  "org.jboss.elemento:elemento-intl:compile" -> "com.google.elemental2:elemental2-promise:compile"
-  "org.jboss.elemento:elemento-intl:compile" -> "com.google.elemental2:elemental2-webstorage:compile"
-  "org.jboss.elemento:elemento-intl:compile" -> "org.gwtproject.event:gwt-event:compile"
-  "org.jboss.elemento:elemento-intl:compile" -> "org.gwtproject.safehtml:gwt-safehtml:compile"
   "org.jboss.elemento:elemento-mathml:compile" -> "org.jboss.elemento:elemento-core:compile"
   "org.jboss.elemento:elemento-router:compile" -> "org.jboss.elemento:elemento-core:compile"
   "org.jboss.elemento:elemento-svg:compile" -> "org.jboss.elemento:elemento-core:compile"

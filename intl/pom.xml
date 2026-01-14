@@ -32,6 +32,13 @@
     <name>Elemento Intl</name>
     <description>Support for the Intl standard built-in objects</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-core</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

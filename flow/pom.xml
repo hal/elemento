@@ -32,6 +32,17 @@
     <name>Elemento Flow</name>
     <description>Parallel, sequential, repeated and nested execution of asynchronous tasks using promises.</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-promise</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

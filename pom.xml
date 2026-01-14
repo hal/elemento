@@ -141,6 +141,11 @@
             <plugins>
                 <!-- Ordered by artifactID -->
                 <plugin>
+                    <groupId>com.github.ferstl</groupId>
+                    <artifactId>depgraph-maven-plugin</artifactId>
+                    <version>${version.degraph.plugin}</version>
+                </plugin>
+                <plugin>
                     <groupId>org.ec4j.maven</groupId>
                     <artifactId>editorconfig-maven-plugin</artifactId>
                     <version>${version.editorconfig.plugin}</version>
@@ -263,9 +268,13 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <configuration>
-                        <additionalOptions>--snippet-path ${project.basedir}/src/demo/java</additionalOptions>
+                        <additionalOptions>--snippet-path=${project.basedir}/src/demo/java</additionalOptions>
+                        <debug>true</debug>
                         <detectLinks>true</detectLinks>
                         <doclint>none</doclint>
+                        <sourceFileExcludes>
+                            <exclude>**/*Demo.java</exclude>
+                        </sourceFileExcludes>
                         <failOnError>false</failOnError>
                         <links>
                             <link>https://hal.github.io/elemento/apidocs/</link>
@@ -292,19 +301,6 @@
         <plugins>
             <!-- Ordered by artifactID -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>enforcer-enforce</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <executions>
@@ -323,6 +319,31 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>com.github.ferstl</groupId>
+                <artifactId>depgraph-maven-plugin</artifactId>
+                <configuration>
+                    <classpathScope>compile</classpathScope>
+                    <createImage>true</createImage>
+                    <customStyleConfiguration>degraph-style.json</customStyleConfiguration>
+                    <includes>
+                        <include>${project.groupId}:elemento-core</include>
+                        <include>${project.groupId}:elemento-flow</include>
+                        <include>${project.groupId}:elemento-intl</include>
+                        <include>${project.groupId}:elemento-logger</include>
+                        <include>${project.groupId}:elemento-mathml</include>
+                        <include>${project.groupId}:elemento-router</include>
+                        <include>${project.groupId}:elemento-svg</include>
+                        <include>com.google.elemental2:*</include>
+                        <include>org.gwtproject.event:gwt-event</include>
+                        <include>org.gwtproject.safehtml:gwt-safehtml</include>
+                    </includes>
+                    <mergeTypes>true</mergeTypes>
+                    <mergeClassifiers>true</mergeClassifiers>
+                    <outputDirectory>${project.basedir}</outputDirectory>
+                    <showDuplicates>false</showDuplicates>
+                    <showGroupIds>true</showGroupIds>
+                </configuration>
+            </plugin>            <plugin>
                 <groupId>org.ec4j.maven</groupId>
                 <artifactId>editorconfig-maven-plugin</artifactId>
                 <executions>
@@ -391,6 +412,19 @@
                         <phase>verify</phase>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforcer-enforce</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>enforce</goal>
                         </goals>
                     </execution>
                 </executions>
