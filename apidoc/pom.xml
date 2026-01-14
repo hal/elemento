@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     Copyright 2023 Red Hat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         https://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.elemento</groupId>
+        <artifactId>elemento-code-parent</artifactId>
+        <version>2.4.2-SNAPSHOT</version>
+        <relativePath>../code-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>elemento-apidoc</artifactId>
+    <packaging>jar</packaging>
+    <name>Elemento</name>
+    <description>Artificial module containing all sources to build the aggregate Elemento API documentation.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-flow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-intl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-logger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-mathml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-router</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.elemento</groupId>
+            <artifactId>elemento-svg</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>src</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>copy-sources</id>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy todir="src/main/java/org/jboss/elemento" overwrite="true" failonerror="false">
+                                    <fileset dir="../core/src/main/java/org/jboss/elemento/">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../flow/src/main/java/org/jboss/elemento/">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../intl/src/main/java/org/jboss/elemento/">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../logger/src/main/java/org/jboss/elemento/">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../mathml/src/main/java/org/jboss/elemento/">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../router/src/main/java/org/jboss/elemento/">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../svg/src/main/java/org/jboss/elemento/">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                </copy>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-demos</id>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy todir="src/demo/java" overwrite="true" failonerror="false">
+                                    <fileset dir="../core/src/demo/java">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../flow/src/demo/java">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../intl/src/demo/java">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../flow/src/demo/java">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../mathml/src/demo/java">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../router/src/demo/java">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                    <fileset dir="../svg/src/demo/java">
+                                        <include name="**/*.java"/>
+                                    </fileset>
+                                </copy>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <additionalOptions>--snippet-path=${project.basedir}/src/demo/java</additionalOptions>
+                    <debug>true</debug>
+                    <detectLinks>true</detectLinks>
+                    <doclint>none</doclint>
+                    <sourceFileExcludes>
+                        <exclude>**/*Demo.java</exclude>
+                    </sourceFileExcludes>
+                    <failOnError>false</failOnError>
+                    <links>
+                        <link>https://hal.github.io/elemento/apidocs/</link>
+                        <link>https://www.gwtproject.org/javadoc/latest/</link>
+                        <link>https://javadoc.io/doc/org.gwtproject.event/gwt-event/${version.gwt.event}/</link>
+                        <link>https://javadoc.io/doc/org.gwtproject.safehtml/gwt-safehtml/${version.gwt.safehtml}/</link>
+                        <link>https://javadoc.io/doc/com.google.elemental2/elemental2-core/${version.elemental2}/</link>
+                        <link>https://javadoc.io/doc/com.google.elemental2/elemental2-dom/${version.elemental2}/</link>
+                        <link>https://javadoc.io/doc/com.google.elemental2/elemental2-promise/${version.elemental2}/</link>
+                        <link>https://javadoc.io/doc/com.google.elemental2/elemental2-webstorage/${version.elemental2}/
+                        </link>
+                    </links>
+                    <show>public</show>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

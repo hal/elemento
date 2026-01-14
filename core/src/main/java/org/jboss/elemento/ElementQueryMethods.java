@@ -21,7 +21,7 @@ import elemental2.dom.HTMLElement;
 /**
  * Provides methods and default implementations for finding elements.
  * <p>
- * {@snippet class = ElementQueryDemo region = querySelectorAllDemo}
+ * {@snippet class = ElementQueryDemo region = querySelectorAll}
  */
 public interface ElementQueryMethods<E extends Element> extends IsElement<E> {
 

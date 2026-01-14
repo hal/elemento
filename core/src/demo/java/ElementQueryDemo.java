@@ -26,11 +26,11 @@ import static org.jboss.elemento.Elements.body;
 public class ElementQueryDemo {
 
     public void querySelectorAllDemo() {
-        // @start region = findAll
+        // @start region = querySelectorAll
         By selector = By.element("a").and(By.attribute("href", STARTS_WITH, "https://"));
         for (HTMLElement element : body().querySelectorAll(selector)) {
             a(element).css("external");
         }
-        // @end region = findAll
+        // @end region = querySelectorAll
     }
 }

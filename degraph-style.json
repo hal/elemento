@@ -1,0 +1,58 @@
+{
+  "graph": {
+    "rankdir": "TB"
+  },
+  "node-styles": {
+    "org.jboss.elemento": {
+      "type": "box",
+      "style": "filled,bold,rounded",
+      "fill-color": "#E7F1FA",
+      "default-font": {
+        "size": 14,
+        "name": "Red Hat Display"
+      },
+      "group-id-font": {
+        "size": 10
+      }
+    },
+    "com.google.elemental2": {
+      "type": "box",
+      "style": "rounded",
+      "color": "darkslateblue",
+      "default-font": {
+        "size": 14,
+        "name": "Red Hat Display",
+        "color": "darkslateblue"
+      },
+      "group-id-font": {
+        "size": 10
+      }
+    },
+    "org.gwtproject.event": {
+      "type": "box",
+      "style": "rounded",
+      "color": "darkred",
+      "default-font": {
+        "size": 14,
+        "name": "Red Hat Display",
+        "color": "darkred"
+      },
+      "group-id-font": {
+        "size": 10
+      }
+    },
+    "org.gwtproject.safehtml": {
+      "type": "box",
+      "style": "rounded",
+      "color": "darkred",
+      "default-font": {
+        "size": 14,
+        "name": "Red Hat Display",
+        "color": "darkred"
+      },
+      "group-id-font": {
+        "size": 10
+      }
+    }
+  }
+}

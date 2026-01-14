@@ -18,9 +18,8 @@
 
 # --------------------------------------------------
 #
-# Generating aggregate javadoc with code snippets is PITA!
-# As a workaround this script generates javadoc for each
-# module and manually aggregates the documentation
+# Generates the dependency graph by calling
+# mvn depgraph:aggregate
 #
 # --------------------------------------------------
 
@@ -88,18 +87,12 @@ parse_params() {
     esac
     shift
   done
+
   return 0
 }
 
 parse_params "$@"
 setup_colors
 
-cd apidoc
-./mvnw clean
-./mvnw org.apache.maven.plugins:maven-antrun-plugin:run@copy-sources
-./mvnw org.apache.maven.plugins:maven-antrun-plugin:run@copy-demos
-./mvnw javadoc:javadoc
-
-cd $script_dir
-msg ""
-msg "API documentation generated in ${CYAN}apidoc/target/reports/apidocs${NOFORMAT}"
+[ -x dot ] && die "Graphviz / dot not available. See https://graphviz.org/"
+mvn depgraph:aggregate
