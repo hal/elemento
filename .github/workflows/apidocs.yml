@@ -11,6 +11,8 @@ jobs:
       MVN: ./mvnw --show-version --batch-mode --no-transfer-progress
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - uses: actions/setup-java@v5
         with:
           java-version: 21
@@ -18,7 +20,7 @@ jobs:
           cache: maven
       - run: $MVN install
         working-directory: bom
-      - run: $MVN -Dquickly install
+      - run: $MVN install -Dquickly
       - run: |
           mvn org.apache.maven.plugins:maven-antrun-plugin:run@copy-sources
           mvn org.apache.maven.plugins:maven-antrun-plugin:run@copy-demos
