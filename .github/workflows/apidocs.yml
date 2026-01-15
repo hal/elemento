@@ -25,9 +25,9 @@ jobs:
         working-directory: bom
       - run: $MVN install -Dquickly
       - run: |
-          mvn org.apache.maven.plugins:maven-antrun-plugin:run@copy-sources
-          mvn org.apache.maven.plugins:maven-antrun-plugin:run@copy-demos
-          mvn javadoc:javadoc
+          $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-sources
+          $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-demos
+          $MVN javadoc:javadoc
         working-directory: apidoc
       - uses: JamesIves/github-pages-deploy-action@v4.8.0
         with:
