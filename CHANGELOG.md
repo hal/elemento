@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.4.2] - 2026-01-15
+
 ### Added
 
 - Add `org.jboss.elemento.intl.Locale`
@@ -1268,7 +1270,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.4.1...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.4.2...HEAD
+[2.4.2]: https://github.com/hal/elemento/compare/v2.4.1...v2.4.2
 [2.4.1]: https://github.com/hal/elemento/compare/v2.4.0...v2.4.1
 [2.4.0]: https://github.com/hal/elemento/compare/v2.3.2...v2.4.0
 [2.3.2]: https://github.com/hal/elemento/compare/v2.3.1...v2.3.2
