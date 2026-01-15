@@ -38,7 +38,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public interface Duration {
 
     // @formatter:off
-    @JsOverlay static Duration create() {
+    @JsOverlay static Duration duration() {
         return Js.uncheckedCast(JsPropertyMap.of());
     }
     @JsProperty void setYears(int years);
@@ -54,6 +54,21 @@ public interface Duration {
     // @formatter:on
 
     // ------------------------------------------------------ builder
+
+    @JsOverlay
+    default Duration from(int years, int months, int weeks, int days, int hours, int minutes, int seconds, int milliSeconds, int microSeconds, int nanoSeconds) {
+        setYears(years);
+        setMonths(months);
+        setWeeks(weeks);
+        setDays(days);
+        setHours(hours);
+        setMinutes(minutes);
+        setSeconds(seconds);
+        setMilliSeconds(milliSeconds);
+        setMicroSeconds(microSeconds);
+        setNanoSeconds(nanoSeconds);
+        return this;
+    }
 
     @JsOverlay
     default Duration years(int years) {

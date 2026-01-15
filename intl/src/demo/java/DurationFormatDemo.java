@@ -11,7 +11,7 @@ public class DurationFormatDemo {
 
     public void generalUsage() {
         // @start region = generalUsage
-        var duration = Duration.create()
+        var duration = Duration.duration()
                 .hours(1)
                 .minutes(46)
                 .seconds(40);
