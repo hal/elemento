@@ -3,6 +3,9 @@ name: Publish API Documentation
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   publish-apidocs:
     name: Publish API Documentation
