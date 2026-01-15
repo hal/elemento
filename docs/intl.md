@@ -10,13 +10,18 @@ examples):
 ## Date and Time Formatting
 
 ```java
+import static elemental2.dom.DomGlobal.console;
+import static org.jboss.elemento.intl.DateTimeFormat.dateTimeFormat;
+import static org.jboss.elemento.intl.DateTimeFormatOptions.dateTimeFormatOptions;
+import static org.jboss.elemento.intl.Format.full;
+
 var date = new JsDate(2020, 11, 20, 3, 23, 16, 738);
 
 // Specify default date formatting for language (locale)
-console.log(dateTimeFormat("en-US").format(date));
+console.log(dateTimeFormat("en-US").format(new JsDate()));
 // Expected output: "12/20/2020"
 
-// Specify date and time format using "style" options (i.e. full, long, medium, short)
+// Specify a date and time format using "style" options (i.e. full, long, medium, short)
 console.log(dateTimeFormat("en-GB", dateTimeFormatOptions()
         .dateStyle(full)
         .timeStyle(full)
@@ -27,7 +32,13 @@ console.log(dateTimeFormat("en-GB", dateTimeFormatOptions()
 ## Duration Formatting
 
 ```java
-var duration = duration()
+import static org.jboss.elemento.intl.DurationFormat.durationFormat;
+import static org.jboss.elemento.intl.DurationFormatOptions.durationFormatOptions;
+import static org.jboss.elemento.intl.Format.long_;
+import static org.jboss.elemento.intl.Format.narrow;
+import static org.jboss.elemento.intl.Format.short_;
+
+var duration = Duration.duration()
         .hours(1)
         .minutes(46)
         .seconds(40);
@@ -43,12 +54,21 @@ durationFormat("en", durationFormatOptions().style(short_)).format(duration);
 // With style set to "narrow" and locale "pt"
 durationFormat("pt", durationFormatOptions().style(narrow)).format(duration);
 // "1 h 46 min 40 s"
-
 ```
 
 ## List Formatting
 
 ```java
+import static elemental2.dom.DomGlobal.console;
+import static org.jboss.elemento.intl.Format.long_;
+import static org.jboss.elemento.intl.Format.narrow;
+import static org.jboss.elemento.intl.Format.short_;
+import static org.jboss.elemento.intl.Grouping.conjunction;
+import static org.jboss.elemento.intl.Grouping.disjunction;
+import static org.jboss.elemento.intl.Grouping.unit;
+import static org.jboss.elemento.intl.ListFormat.listFormat;
+import static org.jboss.elemento.intl.ListFormatOptions.listFormatOptions;
+
 var vehicles = JsArray.of("Motorcycle", "Bus", "Car");
 
 var formatter = listFormat("en", listFormatOptions()
@@ -67,11 +87,17 @@ var formatter3 = listFormat("en", listFormatOptions()
         .style(narrow)
         .type(unit));
 console.log(formatter3.format(vehicles));
+// Expected output: "Motorcycle Bus Car"
 ```
 
 ## Number Formatting
 
 ```java
+import static elemental2.dom.DomGlobal.console;
+import static org.jboss.elemento.intl.Format.currency;
+import static org.jboss.elemento.intl.NumberFormat.numberFormat;
+import static org.jboss.elemento.intl.NumberFormatOptions.numberFormatOptions;
+
 double number = 123456.789;
 
 console.log(numberFormat("de-DE", numberFormatOptions()
@@ -97,8 +123,13 @@ console.log(numberFormat("en-IN", numberFormatOptions()
 ## Relative Time Formatting
 
 ```java
-var rtf1 = relativeTimeFormat("en", relativeTimeFormatOptions()
-        .style(short_));
+import static elemental2.dom.DomGlobal.console;
+import static org.jboss.elemento.intl.Format.short_;
+import static org.jboss.elemento.intl.RelativeTimeFormat.relativeTimeFormat;
+import static org.jboss.elemento.intl.RelativeTimeFormatOptions.relativeTimeFormatOptions;
+import static org.jboss.elemento.intl.When.auto;
+
+var rtf1 = relativeTimeFormat("en", relativeTimeFormatOptions().style(short_));
 
 console.log(rtf1.format(3, "quarter"));
 // Expected output: "in 3 qtrs."
@@ -106,8 +137,7 @@ console.log(rtf1.format(3, "quarter"));
 console.log(rtf1.format(-1, "day"));
 // Expected output: "1 day ago"
 
-var rtf2 = relativeTimeFormat("es", relativeTimeFormatOptions()
-        .numeric(auto));
+var rtf2 = relativeTimeFormat("es", relativeTimeFormatOptions().numeric(auto));
 
 console.log(rtf2.format(2, "day"));
 // Expected output: "pasado mañana"
