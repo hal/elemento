@@ -23,6 +23,7 @@ jobs:
           mvn org.apache.maven.plugins:maven-antrun-plugin:run@copy-sources
           mvn org.apache.maven.plugins:maven-antrun-plugin:run@copy-demos
           mvn javadoc:javadoc
+        working-directory: apidoc
       - uses: JamesIves/github-pages-deploy-action@v4.8.0
         with:
           branch: gh-pages
