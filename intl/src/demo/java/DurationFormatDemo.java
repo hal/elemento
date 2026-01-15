@@ -1,5 +1,6 @@
 import org.jboss.elemento.intl.Duration;
 
+import static org.jboss.elemento.intl.Duration.duration;
 import static org.jboss.elemento.intl.DurationFormat.durationFormat;
 import static org.jboss.elemento.intl.DurationFormatOptions.durationFormatOptions;
 import static org.jboss.elemento.intl.Format.long_;
@@ -11,7 +12,7 @@ public class DurationFormatDemo {
 
     public void generalUsage() {
         // @start region = generalUsage
-        var duration = Duration.duration()
+        var duration = duration()
                 .hours(1)
                 .minutes(46)
                 .seconds(40);

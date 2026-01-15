@@ -32,13 +32,14 @@ console.log(dateTimeFormat("en-GB", dateTimeFormatOptions()
 ## Duration Formatting
 
 ```java
+import static org.jboss.elemento.intl.Duration.duration;
 import static org.jboss.elemento.intl.DurationFormat.durationFormat;
 import static org.jboss.elemento.intl.DurationFormatOptions.durationFormatOptions;
 import static org.jboss.elemento.intl.Format.long_;
 import static org.jboss.elemento.intl.Format.narrow;
 import static org.jboss.elemento.intl.Format.short_;
 
-var duration = Duration.duration()
+var duration = duration()
         .hours(1)
         .minutes(46)
         .seconds(40);
