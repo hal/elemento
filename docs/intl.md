@@ -13,11 +13,11 @@ examples):
 var date = new JsDate(2020, 11, 20, 3, 23, 16, 738);
 
 // Specify default date formatting for language (locale)
-console.log(new DateTimeFormat("en-US").format(date));
+console.log(dateTimeFormat("en-US").format(date));
 // Expected output: "12/20/2020"
 
 // Specify date and time format using "style" options (i.e. full, long, medium, short)
-console.log(new DateTimeFormat("en-GB", DateTimeFormatOptions.create()
+console.log(dateTimeFormat("en-GB", dateTimeFormatOptions()
         .dateStyle(full)
         .timeStyle(full)
         .timeZone("Australia/Sydney")).format(date));
@@ -27,21 +27,21 @@ console.log(new DateTimeFormat("en-GB", DateTimeFormatOptions.create()
 ## Duration Formatting
 
 ```java
-var duration = Duration.create()
+var duration = duration()
         .hours(1)
         .minutes(46)
         .seconds(40);
 
 // With style set to "long" and locale "fr-FR"
-new DurationFormat("fr-FR", DurationFormatOptions.create().style(long_)).format(duration);
+durationFormat("fr-FR", durationFormatOptions().style(long_)).format(duration);
 // "1 heure, 46 minutes et 40 secondes"
 
 // With style set to "short" and locale "en"
-new DurationFormat("en", DurationFormatOptions.create().style(short_)).format(duration);
+durationFormat("en", durationFormatOptions().style(short_)).format(duration);
 // "1 hr, 46 min and 40 sec"
 
 // With style set to "narrow" and locale "pt"
-new DurationFormat("pt", DurationFormatOptions.create().style(narrow)).format(duration);
+durationFormat("pt", durationFormatOptions().style(narrow)).format(duration);
 // "1 h 46 min 40 s"
 
 ```
@@ -51,19 +51,19 @@ new DurationFormat("pt", DurationFormatOptions.create().style(narrow)).format(du
 ```java
 var vehicles = JsArray.of("Motorcycle", "Bus", "Car");
 
-var formatter = new ListFormat("en", ListFormatOptions.create()
+var formatter = listFormat("en", listFormatOptions()
         .style(long_)
         .type(conjunction));
 console.log(formatter.format(vehicles));
 // Expected output: "Motorcycle, Bus, and Car"
 
-var formatter2 = new ListFormat("de", ListFormatOptions.create()
+var formatter2 = listFormat("de", listFormatOptions()
         .style(short_)
         .type(disjunction));
 console.log(formatter2.format(vehicles));
 // Expected output: "Motorcycle, Bus oder Car"
 
-var formatter3 = new ListFormat("en", ListFormatOptions.create()
+var formatter3 = listFormat("en", listFormatOptions()
         .style(narrow)
         .type(unit));
 console.log(formatter3.format(vehicles));
@@ -74,21 +74,21 @@ console.log(formatter3.format(vehicles));
 ```java
 double number = 123456.789;
 
-console.log(new NumberFormat("de-DE", NumberFormatOptions.create()
+console.log(numberFormat("de-DE", numberFormatOptions()
         .style(currency)
         .currency("EUR"))
         .format(number));
 // Expected output: "123.456,79 €"
 
 // The Japanese yen doesn't use a minor unit
-console.log(new NumberFormat("ja-JP", NumberFormatOptions.create()
+console.log(numberFormat("ja-JP", numberFormatOptions()
         .style(currency)
         .currency("JPY"))
         .format(number));
 // Expected output: "￥123,457"
 
 // Limit to three significant digits
-console.log(new NumberFormat("en-IN", NumberFormatOptions.create()
+console.log(numberFormat("en-IN", numberFormatOptions()
         .maximumSignificantDigits(3))
         .format(number));
 // Expected output: "1,23,000"
@@ -97,7 +97,7 @@ console.log(new NumberFormat("en-IN", NumberFormatOptions.create()
 ## Relative Time Formatting
 
 ```java
-var rtf1 = new RelativeTimeFormat("en", RelativeTimeFormatOptions.create()
+var rtf1 = relativeTimeFormat("en", relativeTimeFormatOptions()
         .style(short_));
 
 console.log(rtf1.format(3, "quarter"));
@@ -106,7 +106,7 @@ console.log(rtf1.format(3, "quarter"));
 console.log(rtf1.format(-1, "day"));
 // Expected output: "1 day ago"
 
-var rtf2 = new RelativeTimeFormat("es", RelativeTimeFormatOptions.create()
+var rtf2 = relativeTimeFormat("es", relativeTimeFormatOptions()
         .numeric(auto));
 
 console.log(rtf2.format(2, "day"));
