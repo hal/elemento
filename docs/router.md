@@ -27,8 +27,8 @@ The place manager can be customized using builder-like methods and has a `start(
 
 ## Annotations
 
-Creating a `Places` instance can be time-consuming (especially in large applications). This can be automated by using
-annotations, where an annotation processor takes over the tedious work of creating the `Places` instance. You can use the
+Creating a `Place` instance can be time-consuming (especially in large applications). This can be automated by using
+annotations, where an annotation processor takes over the tedious work of creating the `Place` instances. You can use the
 following annotations for this purpose:
 
 * `@Route`\
