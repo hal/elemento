@@ -15,16 +15,23 @@
  */
 package org.jboss.elemento.intl;
 
-public enum CaseFirst {
+public enum Collation {
 
-    false_("false"),
-    lower("lower"),
-    upper("upper"),
+    compat("compat"),
+    emoji("emoji"),
+    eor("eor"),
+    phonebk("phonebk"),
+    pinyin("pinyin"),
+    searchjl("searchjl"),
+    stroke("stroke"),
+    trad("trad"),
+    unihan("unihan"),
+    zhuyin("zhuyin")
     ;
 
     public final String value;
 
-    CaseFirst(String value) {
+    Collation(String value) {
         this.value = value;
     }
 }

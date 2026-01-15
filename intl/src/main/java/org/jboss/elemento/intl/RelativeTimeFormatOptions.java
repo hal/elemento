@@ -43,7 +43,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public interface RelativeTimeFormatOptions {
 
     // @formatter:off
-    @JsOverlay static RelativeTimeFormatOptions create() { return Js.uncheckedCast(JsPropertyMap.of()); }
+    @JsOverlay static RelativeTimeFormatOptions relativeTimeFormatOptions() { return Js.uncheckedCast(JsPropertyMap.of()); }
     @JsProperty void setLocaleMatcher(String localeMatcher);
     @JsProperty void setNumberingSystem(String numberingSystem);
     @JsProperty void setNumeric(String numeric);
@@ -64,8 +64,8 @@ public interface RelativeTimeFormatOptions {
      * numbering system types, see {@link Intl#supportedValuesOf(Category)}.
      */
     @JsOverlay
-    default RelativeTimeFormatOptions numberingSystem(String numberingSystem) {
-        setNumberingSystem(numberingSystem);
+    default RelativeTimeFormatOptions numberingSystem(NumberingSystem numberingSystem) {
+        setNumberingSystem(numberingSystem.value);
         return this;
     }
 

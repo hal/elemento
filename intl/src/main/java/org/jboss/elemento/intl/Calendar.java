@@ -15,16 +15,31 @@
  */
 package org.jboss.elemento.intl;
 
-public enum CaseFirst {
+public enum Calendar {
 
-    false_("false"),
-    lower("lower"),
-    upper("upper"),
+    buddhist("buddhist"),
+    chinese("chinese"),
+    coptic("coptic"),
+    dangi("dangi"),
+    ethioaa("ethioaa"),
+    ethiopic("ethiopic"),
+    gregory("gregory"),
+    hebrew("hebrew"),
+    indian("indian"),
+    islamic("islamic"),
+    islamicCivil("islamic-civil"),
+    islamicRgsa("islamic-rgsa"),
+    islamicTbla("islamic-tbla"),
+    islamicUmalqura("islamic-umalqura"),
+    iso8601("iso8601"),
+    japanese("japanese"),
+    persian("persian"),
+    roc("roc"),
     ;
 
     public final String value;
 
-    CaseFirst(String value) {
+    Calendar(String value) {
         this.value = value;
     }
 }

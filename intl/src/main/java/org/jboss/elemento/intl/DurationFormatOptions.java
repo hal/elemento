@@ -43,7 +43,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public interface DurationFormatOptions {
 
     // @formatter:off
-    @JsOverlay static DurationFormatOptions create() { return Js.uncheckedCast(JsPropertyMap.of()); }
+    @JsOverlay static DurationFormatOptions durationFormatOptions() { return Js.uncheckedCast(JsPropertyMap.of()); }
     @JsProperty void setDays(String days);
     @JsProperty void setDaysDisplay(String daysDisplay);
     @JsProperty void setFractionDigits(double fractionDigits);
@@ -211,8 +211,8 @@ public interface DurationFormatOptions {
      * numbering system types, see {@link Intl#supportedValuesOf(Category)}.
      */
     @JsOverlay
-    default DurationFormatOptions numberingSystem(String numberingSystem) {
-        setNumberingSystem(numberingSystem);
+    default DurationFormatOptions numberingSystem(NumberingSystem numberingSystem) {
+        setNumberingSystem(numberingSystem.value);
         return this;
     }
 

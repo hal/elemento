@@ -20,8 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import elemental2.core.JsDate;
-import jsinterop.base.JsArrayLike;
 
+import static org.jboss.elemento.intl.RelativeTimeFormat.relativeTimeFormat;
 import static org.jboss.elemento.intl.Unit.day;
 import static org.jboss.elemento.intl.Unit.hour;
 import static org.jboss.elemento.intl.Unit.minute;
@@ -38,6 +38,50 @@ import static org.jboss.elemento.intl.Unit.year;
  */
 public class RelativeTime {
 
+    // ------------------------------------------------------ factory
+
+    public static RelativeTime relativeTime() {
+        return new RelativeTime(relativeTimeFormat());
+    }
+
+    public static RelativeTime relativeTime(String locale) {
+        return new RelativeTime(relativeTimeFormat(locale));
+    }
+
+    public static RelativeTime relativeTime(Locale locale) {
+        return new RelativeTime(relativeTimeFormat(locale));
+    }
+
+    public static RelativeTime relativeTime(String[] locales) {
+        return new RelativeTime(relativeTimeFormat(locales));
+    }
+
+    public static RelativeTime relativeTime(Locale[] locales) {
+        return new RelativeTime(relativeTimeFormat(locales));
+    }
+
+    public static RelativeTime relativeTime(RelativeTimeFormatOptions options) {
+        return new RelativeTime(relativeTimeFormat(options));
+    }
+
+    public static RelativeTime relativeTime(String locale, RelativeTimeFormatOptions options) {
+        return new RelativeTime(relativeTimeFormat(locale, options));
+    }
+
+    public static RelativeTime relativeTime(Locale locale, RelativeTimeFormatOptions options) {
+        return new RelativeTime(relativeTimeFormat(locale, options));
+    }
+
+    public static RelativeTime relativeTime(String[] locales, RelativeTimeFormatOptions options) {
+        return new RelativeTime(relativeTimeFormat(locales, options));
+    }
+
+    public static RelativeTime relativeTime(Locale[] locales, RelativeTimeFormatOptions options) {
+        return new RelativeTime(relativeTimeFormat(locales, options));
+    }
+
+    // ------------------------------------------------------ instance
+
     static final Map<Unit, Long> UNITS = new HashMap<>();
 
     static {
@@ -52,28 +96,8 @@ public class RelativeTime {
 
     private final RelativeTimeFormat rtf;
 
-    public RelativeTime() {
-        this.rtf = new RelativeTimeFormat();
-    }
-
-    public RelativeTime(String locale) {
-        this.rtf = new RelativeTimeFormat(locale);
-    }
-
-    public RelativeTime(JsArrayLike<String> locales) {
-        this.rtf = new RelativeTimeFormat(locales);
-    }
-
-    public RelativeTime(RelativeTimeFormatOptions options) {
-        this.rtf = new RelativeTimeFormat(options);
-    }
-
-    public RelativeTime(String locale, RelativeTimeFormatOptions options) {
-        this.rtf = new RelativeTimeFormat(locale, options);
-    }
-
-    public RelativeTime(JsArrayLike<String> locales, RelativeTimeFormatOptions options) {
-        this.rtf = new RelativeTimeFormat(locales, options);
+    RelativeTime(RelativeTimeFormat rtf) {
+        this.rtf = relativeTimeFormat();
     }
 
     public final String from(JsDate date) {

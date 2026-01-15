@@ -16,11 +16,14 @@
 package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
+import static jsinterop.base.Js.undefined;
+import static org.jboss.elemento.intl.ListFormatOptions.listFormatOptions;
 
 /**
  * Mapping for <a
@@ -35,19 +38,69 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 @JsType(isNative = true, namespace = GLOBAL, name = "Intl.ListFormat")
 public class ListFormat {
 
+    // ------------------------------------------------------ factory
+
+    @JsOverlay
+    public static ListFormat listFormat() {
+        return new ListFormat(undefined(), listFormatOptions());
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(String locale) {
+        return new ListFormat(locale, listFormatOptions());
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(Locale locale) {
+        return new ListFormat(locale, listFormatOptions());
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(String[] locales) {
+        return new ListFormat(new JsArray<>(locales), listFormatOptions());
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(Locale[] locales) {
+        return new ListFormat(new JsArray<>(locales), listFormatOptions());
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(ListFormatOptions options) {
+        return new ListFormat(undefined(), options);
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(String locale, ListFormatOptions options) {
+        return new ListFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(Locale locale, ListFormatOptions options) {
+        return new ListFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(String[] locales, ListFormatOptions options) {
+        return new ListFormat(new JsArray<>(locales), options);
+    }
+
+    @JsOverlay
+    public static ListFormat listFormat(Locale[] locales, ListFormatOptions options) {
+        return new ListFormat(new JsArray<>(locales), options);
+    }
+
+    // ------------------------------------------------------ static
+
     // @formatter:off
     public static native JsArray<String> supportedLocalesOf(String locale);
     public static native JsArray<String> supportedLocalesOf(String locale, SupportOptions options);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales, SupportOptions options);
 
-    public ListFormat() {}
-    public ListFormat(String locale) {}
-    public ListFormat(JsArrayLike<String> locales) {}
-    public ListFormat(ListFormatOptions options) {}
-    public ListFormat(String locale, ListFormatOptions options) {}
-    public ListFormat(JsArrayLike<String> locales, ListFormatOptions options) {}
+    // ------------------------------------------------------ instance
 
+    ListFormat(Object locale, ListFormatOptions options) {}
     public native String format(JsArray<String> list);
     public native JsArray<JsPropertyMap<String>> formatToParts(JsArray<String> list);
     public native JsPropertyMap<String> resolvedOptions();

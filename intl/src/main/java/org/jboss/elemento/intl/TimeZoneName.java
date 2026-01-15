@@ -17,12 +17,12 @@ package org.jboss.elemento.intl;
 
 public enum TimeZoneName {
 
-    long_("long"),
     longGeneric("longGeneric"),
     longOffset("longOffset"),
-    short_("short"),
+    long_("long"),
     shortGeneric("shortGeneric"),
     shortOffset("shortOffset"),
+    short_("short"),
     ;
 
     public final String value;

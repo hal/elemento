@@ -17,11 +17,13 @@ package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
 import elemental2.core.JsDate;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
+import static jsinterop.base.Js.undefined;
 
 /**
  * Mapping for <a
@@ -36,19 +38,69 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 @JsType(isNative = true, namespace = GLOBAL, name = "Intl.DateTimeFormat")
 public class DateTimeFormat {
 
+    // ------------------------------------------------------ factory
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat() {
+        return new DateTimeFormat(undefined(), DateTimeFormatOptions.dateTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(String locale) {
+        return new DateTimeFormat(locale, DateTimeFormatOptions.dateTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(Locale locale) {
+        return new DateTimeFormat(locale, DateTimeFormatOptions.dateTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(String[] locales) {
+        return new DateTimeFormat(new JsArray<>(locales), DateTimeFormatOptions.dateTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(Locale[] locales) {
+        return new DateTimeFormat(new JsArray<>(locales), DateTimeFormatOptions.dateTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(DateTimeFormatOptions options) {
+        return new DateTimeFormat(undefined(), options);
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(String locale, DateTimeFormatOptions options) {
+        return new DateTimeFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(Locale locale, DateTimeFormatOptions options) {
+        return new DateTimeFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(String[] locales, DateTimeFormatOptions options) {
+        return new DateTimeFormat(new JsArray<>(locales), options);
+    }
+
+    @JsOverlay
+    public static DateTimeFormat dateTimeFormat(Locale[] locales, DateTimeFormatOptions options) {
+        return new DateTimeFormat(new JsArray<>(locales), options);
+    }
+
+    // ------------------------------------------------------ static
+
     // @formatter:off
     public static native JsArray<String> supportedLocalesOf(String locale);
     public static native JsArray<String> supportedLocalesOf(String locale, SupportOptions options);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales, SupportOptions options);
 
-    public DateTimeFormat() {}
-    public DateTimeFormat(String locale) {}
-    public DateTimeFormat(JsArrayLike<String> locales) {}
-    public DateTimeFormat(DateTimeFormatOptions options) {}
-    public DateTimeFormat(String locale, DateTimeFormatOptions options) {}
-    public DateTimeFormat(JsArrayLike<String> locales, DateTimeFormatOptions options) {}
+    // ------------------------------------------------------ instance
 
+    DateTimeFormat(Object locale, DateTimeFormatOptions options) {}
     public native String format(JsDate date);
     public native JsArray<JsPropertyMap<String>> formatToParts(JsDate date);
     public native String formatRange(JsDate start, JsDate end);

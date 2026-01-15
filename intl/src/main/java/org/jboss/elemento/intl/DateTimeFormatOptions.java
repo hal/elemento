@@ -43,7 +43,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public interface DateTimeFormatOptions {
 
     // @formatter:off
-    @JsOverlay static DateTimeFormatOptions create() { return Js.uncheckedCast(JsPropertyMap.of()); }
+    @JsOverlay static DateTimeFormatOptions dateTimeFormatOptions() { return Js.uncheckedCast(JsPropertyMap.of()); }
     @JsProperty void setCalendar(String calendar);
     @JsProperty void setDateStyle(String dateStyle);
     @JsProperty void setDay(String day);
@@ -73,8 +73,8 @@ public interface DateTimeFormatOptions {
      * {@link Intl#supportedValuesOf(Category)}.
      */
     @JsOverlay
-    default DateTimeFormatOptions calendar(String calendar) {
-        setCalendar(calendar);
+    default DateTimeFormatOptions calendar(Calendar calendar) {
+        setCalendar(calendar.value);
         return this;
     }
 

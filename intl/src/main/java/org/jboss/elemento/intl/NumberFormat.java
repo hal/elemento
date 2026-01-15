@@ -16,11 +16,14 @@
 package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
+import static jsinterop.base.Js.undefined;
+import static org.jboss.elemento.intl.NumberFormatOptions.numberFormatOptions;
 
 /**
  * Mapping for <a
@@ -35,19 +38,69 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 @JsType(isNative = true, namespace = GLOBAL, name = "Intl.NumberFormat")
 public class NumberFormat {
 
+    // ------------------------------------------------------ factory
+
+    @JsOverlay
+    public static NumberFormat numberFormat() {
+        return new NumberFormat(undefined(), numberFormatOptions());
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(String locale) {
+        return new NumberFormat(locale, numberFormatOptions());
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(Locale locale) {
+        return new NumberFormat(locale, numberFormatOptions());
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(String[] locales) {
+        return new NumberFormat(new JsArray<>(locales), numberFormatOptions());
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(Locale[] locales) {
+        return new NumberFormat(new JsArray<>(locales), numberFormatOptions());
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(NumberFormatOptions options) {
+        return new NumberFormat(undefined(), options);
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(String locale, NumberFormatOptions options) {
+        return new NumberFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(Locale locale, NumberFormatOptions options) {
+        return new NumberFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(String[] locales, NumberFormatOptions options) {
+        return new NumberFormat(new JsArray<>(locales), options);
+    }
+
+    @JsOverlay
+    public static NumberFormat numberFormat(Locale[] locales, NumberFormatOptions options) {
+        return new NumberFormat(new JsArray<>(locales), options);
+    }
+
+    // ------------------------------------------------------ static
+
     // @formatter:off
     public static native JsArray<String> supportedLocalesOf(String locale);
     public static native JsArray<String> supportedLocalesOf(String locale, SupportOptions options);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales, SupportOptions options);
 
-    public NumberFormat() {}
-    public NumberFormat(String locale) {}
-    public NumberFormat(JsArrayLike<String> locales) {}
-    public NumberFormat(NumberFormatOptions options) {}
-    public NumberFormat(String locale, NumberFormatOptions options) {}
-    public NumberFormat(JsArrayLike<String> locales, NumberFormatOptions options) {}
+    // ------------------------------------------------------ instance
 
+    NumberFormat(Object locale, NumberFormatOptions options) {}
     public native String format(double number);
     public native JsArray<JsPropertyMap<String>> formatToParts(double number);
     public native String formatRange(double start, double end);

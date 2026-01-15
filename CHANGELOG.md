@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `org.jboss.elemento.intl.Locale`
+
+### Changed
+
+- Replace constructors with static factory methods in `elemento-intl` module
+
 ### Fixed
 
 - Fix Javadoc generation

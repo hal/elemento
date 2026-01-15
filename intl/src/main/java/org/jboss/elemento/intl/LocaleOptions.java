@@ -32,6 +32,8 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
  * a type-safe manner. Some enums are shared with other format option builders of the <code>Intl</code> module and may contain
  * more values than intended for the given method. In that case the allowed values are listed on the method. In all other cases
  * all enum values are applicable.
+ * <p>
+ * {@snippet class = LocaleDemo region = generalUsage}
  *
  * @see <a
  * href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#options">https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#options</a>
@@ -41,7 +43,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public interface LocaleOptions {
 
     // @formatter:off
-    @JsOverlay static LocaleOptions create() { return Js.uncheckedCast(JsPropertyMap.of()); }
+    @JsOverlay static LocaleOptions localeOptions() { return Js.uncheckedCast(JsPropertyMap.of()); }
     @JsProperty void setLanguage(String language);
     @JsProperty void setScript(String script);
     @JsProperty void setRegion(String region);
@@ -81,20 +83,20 @@ public interface LocaleOptions {
     }
 
     @JsOverlay
-    default LocaleOptions calendar(String calendar) {
-        setCalendar(calendar);
+    default LocaleOptions calendar(Calendar calendar) {
+        setCalendar(calendar.value);
         return this;
     }
 
     @JsOverlay
-    default LocaleOptions collation(String collation) {
-        setCollation(collation);
+    default LocaleOptions collation(Collation collation) {
+        setCollation(collation.value);
         return this;
     }
 
     @JsOverlay
-    default LocaleOptions numberingSystem(String numberingSystem) {
-        setNumberingSystem(numberingSystem);
+    default LocaleOptions numberingSystem(NumberingSystem numberingSystem) {
+        setNumberingSystem(numberingSystem.value);
         return this;
     }
 

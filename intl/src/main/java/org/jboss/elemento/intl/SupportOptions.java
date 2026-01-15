@@ -37,7 +37,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public interface SupportOptions {
 
     // @formatter:off
-    @JsOverlay static SupportOptions create() { return Js.uncheckedCast(JsPropertyMap.of()); }
+    @JsOverlay static SupportOptions supportOptions() { return Js.uncheckedCast(JsPropertyMap.of()); }
     @JsProperty void setLocaleMatcher(String localeMatcher);
     // @formatter:on
 

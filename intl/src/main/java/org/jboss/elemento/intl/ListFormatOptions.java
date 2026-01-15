@@ -43,7 +43,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public interface ListFormatOptions {
 
     // @formatter:off
-    @JsOverlay static ListFormatOptions create() { return Js.uncheckedCast(JsPropertyMap.of()); }
+    @JsOverlay static ListFormatOptions listFormatOptions() { return Js.uncheckedCast(JsPropertyMap.of()); }
     @JsProperty void setLocaleMatcher(String localeMatcher);
     @JsProperty void setStyle(String style);
     @JsProperty void setType(String type);

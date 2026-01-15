@@ -17,13 +17,14 @@ package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsPropertyMap;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
 /**
  * Mapping for <a
  * href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale"><code>Intl.Locale</code></a>.
+ * <p>
+ * {@snippet class = LocaleDemo region = generalUsage}
  *
  * @see <a
  * href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale">https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale</a>
@@ -33,12 +34,20 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public class Locale {
 
     // @formatter:off
+    public String baseName;
+    public String calendar;
+    public String caseFirst;
+    public String collation;
+    public String hourCycle;
+    public String language;
+    public String numberingSystem;
+    public boolean numeric;
+    public String region;
+    public String script;
+    public String variants;
+
     public Locale(String locale) {}
     public Locale(String locale, LocaleOptions options) {}
-
-    public native String format(JsArray<String> list);
-    public native JsArray<JsPropertyMap<String>> formatToParts(JsArray<String> list);
-    public native JsPropertyMap<String> resolvedOptions();
 
     public native JsArray<String> getCalendars();
     public native JsArray<String> getCollations();

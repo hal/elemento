@@ -193,6 +193,8 @@
                             <licenseSet>
                                 <header>build-config/src/main/resources/etc/license.txt</header>
                                 <excludes>
+                                    <exclude>degraph-style.json</exclude>
+                                    <exclude>dependency-graph.dot</exclude>
                                     <exclude>LICENSE</exclude>
                                     <exclude>README.md</exclude>
                                     <exclude>**/*.ftl</exclude>

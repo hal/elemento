@@ -16,11 +16,14 @@
 package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 import jsinterop.base.JsPropertyMap;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
+import static jsinterop.base.Js.undefined;
+import static org.jboss.elemento.intl.DurationFormatOptions.durationFormatOptions;
 
 /**
  * Mapping for <a
@@ -35,19 +38,69 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 @JsType(isNative = true, namespace = GLOBAL, name = "Intl.DurationFormat")
 public class DurationFormat {
 
+    // ------------------------------------------------------ factory
+
+    @JsOverlay
+    public static DurationFormat durationFormat() {
+        return new DurationFormat(undefined(), durationFormatOptions());
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(String locale) {
+        return new DurationFormat(locale, durationFormatOptions());
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(Locale locale) {
+        return new DurationFormat(locale, durationFormatOptions());
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(String[] locales) {
+        return new DurationFormat(new JsArray<>(locales), durationFormatOptions());
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(Locale[] locales) {
+        return new DurationFormat(new JsArray<>(locales), durationFormatOptions());
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(DurationFormatOptions options) {
+        return new DurationFormat(undefined(), options);
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(String locale, DurationFormatOptions options) {
+        return new DurationFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(Locale locale, DurationFormatOptions options) {
+        return new DurationFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(String[] locales, DurationFormatOptions options) {
+        return new DurationFormat(new JsArray<>(locales), options);
+    }
+
+    @JsOverlay
+    public static DurationFormat durationFormat(Locale[] locales, DurationFormatOptions options) {
+        return new DurationFormat(new JsArray<>(locales), options);
+    }
+
+    // ------------------------------------------------------ static
+
     // @formatter:off
     public static native JsArray<String> supportedLocalesOf(String locale);
     public static native JsArray<String> supportedLocalesOf(String locale, SupportOptions options);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales, SupportOptions options);
 
-    public DurationFormat() {}
-    public DurationFormat(String locale) {}
-    public DurationFormat(JsArrayLike<String> locales) {}
-    public DurationFormat(DurationFormatOptions options) {}
-    public DurationFormat(String locale, DurationFormatOptions options) {}
-    public DurationFormat(JsArrayLike<String> locales, DurationFormatOptions options) {}
+    // ------------------------------------------------------ instance
 
+    DurationFormat(Object locale, DurationFormatOptions options) {}
     public native String format(Duration duration);
     public native JsArray<JsPropertyMap<String>> formatToParts(Duration duration);
     public native JsPropertyMap<String> resolvedOptions();

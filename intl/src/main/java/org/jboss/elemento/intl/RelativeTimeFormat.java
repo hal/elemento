@@ -21,6 +21,8 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
+import static jsinterop.base.Js.undefined;
+import static org.jboss.elemento.intl.RelativeTimeFormatOptions.relativeTimeFormatOptions;
 
 /**
  * Mapping for <a
@@ -35,19 +37,69 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 @JsType(isNative = true, namespace = GLOBAL, name = "Intl.RelativeTimeFormat")
 public class RelativeTimeFormat {
 
+    // ------------------------------------------------------ factory
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat() {
+        return new RelativeTimeFormat(undefined(), relativeTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(String locale) {
+        return new RelativeTimeFormat(locale, relativeTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(Locale locale) {
+        return new RelativeTimeFormat(locale, relativeTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(String[] locales) {
+        return new RelativeTimeFormat(new JsArray<>(locales), relativeTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(Locale[] locales) {
+        return new RelativeTimeFormat(new JsArray<>(locales), relativeTimeFormatOptions());
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(RelativeTimeFormatOptions options) {
+        return new RelativeTimeFormat(undefined(), options);
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(String locale, RelativeTimeFormatOptions options) {
+        return new RelativeTimeFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(Locale locale, RelativeTimeFormatOptions options) {
+        return new RelativeTimeFormat(locale, options);
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(String[] locales, RelativeTimeFormatOptions options) {
+        return new RelativeTimeFormat(new JsArray<>(locales), options);
+    }
+
+    @JsOverlay
+    public static RelativeTimeFormat relativeTimeFormat(Locale[] locales, RelativeTimeFormatOptions options) {
+        return new RelativeTimeFormat(new JsArray<>(locales), options);
+    }
+
+    // ------------------------------------------------------ static
+
     // @formatter:off
     public static native JsArray<String> supportedLocalesOf(String locale);
     public static native JsArray<String> supportedLocalesOf(String locale, SupportOptions options);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales);
     public static native JsArray<String> supportedLocalesOf(JsArrayLike<String> locales, SupportOptions options);
 
-    public RelativeTimeFormat() {}
-    public RelativeTimeFormat(String locale) {}
-    public RelativeTimeFormat(JsArrayLike<String> locales) {}
-    public RelativeTimeFormat(RelativeTimeFormatOptions options) {}
-    public RelativeTimeFormat(String locale, RelativeTimeFormatOptions options) {}
-    public RelativeTimeFormat(JsArrayLike<String> locales, RelativeTimeFormatOptions options) {}
+    // ------------------------------------------------------ instance
 
+    RelativeTimeFormat(Object locale, RelativeTimeFormatOptions options) {}
     public native String format(double value, String unit);
     // @formatter:off
 

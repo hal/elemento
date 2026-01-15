@@ -43,7 +43,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 public interface NumberFormatOptions {
 
     // @formatter:off
-    @JsOverlay static NumberFormatOptions create() { return Js.uncheckedCast(JsPropertyMap.of()); }
+    @JsOverlay static NumberFormatOptions numberFormatOptions() { return Js.uncheckedCast(JsPropertyMap.of()); }
     @JsProperty void setCompactDisplay(String display);
     @JsProperty void setCurrency(String currency);
     @JsProperty void setCurrencyDisplay(String currencyDisplay);
@@ -153,8 +153,8 @@ public interface NumberFormatOptions {
      * numbering system types, see {@link Intl#supportedValuesOf(Category)}.
      */
     @JsOverlay
-    default NumberFormatOptions numberingSystem(String numberingSystem) {
-        setNumberingSystem(numberingSystem);
+    default NumberFormatOptions numberingSystem(NumberingSystem numberingSystem) {
+        setNumberingSystem(numberingSystem.value);
         return this;
     }
 
@@ -203,6 +203,17 @@ public interface NumberFormatOptions {
     @JsOverlay
     default NumberFormatOptions trailingZeroDisplay(When display) {
         setTrailingZeroDisplay(display.value);
+        return this;
+    }
+
+    /**
+     * The unit to use in unit formatting, Possible values are listed in {@link Intl#supportedValuesOf(Category)}. Pairs of
+     * simple units can be concatenated with "-per-" to make a compound unit. There is no default value; if the
+     * {@link #style(Format)} is {@link Format#unit}, the unit property must be provided.
+     */
+    @JsOverlay
+    default NumberFormatOptions unit(Unit unit) {
+        setUnit(unit.value);
         return this;
     }
 

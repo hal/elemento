@@ -17,10 +17,10 @@ package org.jboss.elemento.intl;
 
 public enum Notation {
 
-    standard("standard"),
-    scientific("scientific"),
-    engineering("engineering"),
     compact("compact"),
+    engineering("engineering"),
+    scientific("scientific"),
+    standard("standard"),
     ;
 
     public final String value;

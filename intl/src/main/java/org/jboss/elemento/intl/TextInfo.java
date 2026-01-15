@@ -15,11 +15,7 @@
  */
 package org.jboss.elemento.intl;
 
-import elemental2.core.JsArray;
-import elemental2.core.JsDate;
 import jsinterop.annotations.JsType;
-import jsinterop.base.JsArrayLike;
-import jsinterop.base.JsPropertyMap;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
