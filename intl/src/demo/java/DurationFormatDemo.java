@@ -1,5 +1,3 @@
-import org.jboss.elemento.intl.Duration;
-
 import static org.jboss.elemento.intl.Duration.duration;
 import static org.jboss.elemento.intl.DurationFormat.durationFormat;
 import static org.jboss.elemento.intl.DurationFormatOptions.durationFormatOptions;
