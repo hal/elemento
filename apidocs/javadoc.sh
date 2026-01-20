@@ -1,1 +1,1 @@
-/usr/lib/jvm/temurin-21-jdk-amd64/bin/javadoc -J-Duser.language= -J-Duser.country= @options @argfile
+/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/24.0.2-12/x64/bin/javadoc -J-Duser.language= -J-Duser.country= @options @argfile
