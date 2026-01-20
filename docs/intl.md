@@ -156,7 +156,7 @@ Add the following dependency to use `elemento-intl`:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-intl</artifactId>
-    <version>2.4.4</version>
+    <version>2.4.5</version>
 </dependency>
 ```
 

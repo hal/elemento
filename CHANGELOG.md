@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.4.5] - 2026-01-20
+
 ### Fixed
 
 - Fix annotation processing for Java 24+
@@ -1286,7 +1288,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.4.4...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.4.5...HEAD
+[2.4.5]: https://github.com/hal/elemento/compare/v2.4.4...v2.4.5
 [2.4.4]: https://github.com/hal/elemento/compare/v2.4.3...v2.4.4
 [2.4.3]: https://github.com/hal/elemento/compare/v2.4.2...v2.4.3
 [2.4.2]: https://github.com/hal/elemento/compare/v2.4.1...v2.4.2
