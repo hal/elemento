@@ -22,20 +22,22 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 
 class CdiCodeGenerator extends CodeGenerator {
 
-    private static final String BEAN_MANAGER = "beanManager";
+    private static final String BEAN_MANAGER_PACKAGE = "org.kie.j2cl.tools.di.core";
+    private static final String BEAN_MANAGER_CLASS = "BeanManager";
+    private static final String BEAN_MANAGER_NAME = "beanManager";
 
     @Override
     MethodSpec.Builder buildConstructor() {
-        ClassName beanManagerClass = ClassName.get("org.kie.j2cl.tools.di.core", "BeanManager");
+        ClassName beanManagerClass = ClassName.get(BEAN_MANAGER_PACKAGE, BEAN_MANAGER_CLASS);
         return MethodSpec.constructorBuilder()
                 .addModifiers(PUBLIC)
-                .addParameter(beanManagerClass, BEAN_MANAGER)
+                .addParameter(beanManagerClass, BEAN_MANAGER_NAME)
                 .addStatement("super()");
     }
 
     @Override
     void addPlace(MethodSpec.Builder constructor, String placeName, RouteInfo route) {
         constructor.addStatement("add($N, () -> $N.lookupBean($L.class).getInstance())",
-                placeName, BEAN_MANAGER, route.pageClass);
+                placeName, BEAN_MANAGER_NAME, route.pageClass);
     }
 }

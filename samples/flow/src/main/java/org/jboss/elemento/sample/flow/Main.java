@@ -16,9 +16,10 @@
 package org.jboss.elemento.sample.flow;
 
 import org.jboss.elemento.By;
-import org.patternfly.component.content.ContentType;
 import org.patternfly.component.switch_.Switch;
+
 import com.google.gwt.core.client.EntryPoint;
+
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.body;
@@ -29,7 +30,6 @@ import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.backtotop.BackToTop.backToTop;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.content.Content.content;
-import static org.patternfly.component.content.ContentType.h1;
 import static org.patternfly.component.content.ContentType.p;
 import static org.patternfly.component.list.ActionList.actionList;
 import static org.patternfly.component.list.ActionListGroup.actionListGroup;

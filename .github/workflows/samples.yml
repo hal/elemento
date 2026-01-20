@@ -19,7 +19,7 @@ jobs:
       - run: $MVN install
         working-directory: bom
       - run: $MVN install
-      - run: mvn -Denvironment.base=/elemento/samples/music -P prod install
+      - run: $MVN -Denvironment.base=/elemento/samples/music -P prod install
         working-directory: samples
       - uses: JamesIves/github-pages-deploy-action@v4.8.0
         with:
