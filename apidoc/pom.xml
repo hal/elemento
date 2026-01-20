@@ -173,9 +173,6 @@
                     <detectLinks>true</detectLinks>
                     <doclint>none</doclint>
                     <docfilessubdirs>true</docfilessubdirs>
-                    <sourceFileExcludes>
-                        <exclude>**/*Demo.java</exclude>
-                    </sourceFileExcludes>
                     <failOnError>false</failOnError>
                     <links>
                         <link>https://hal.github.io/elemento/apidocs/</link>
@@ -189,6 +186,9 @@
                         </link>
                     </links>
                     <show>public</show>
+                    <sourceFileExcludes>
+                        <exclude>**/*Demo.java</exclude>
+                    </sourceFileExcludes>
                 </configuration>
             </plugin>
         </plugins>
