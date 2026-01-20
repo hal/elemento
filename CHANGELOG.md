@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix annotation processing for Java 24+
+
 ## [2.4.4] - 2026-01-15
 
 ### Fixed
