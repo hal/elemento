@@ -18,13 +18,15 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-java@v5
         with:
-          java-version: 21
+          java-version: 24
           distribution: temurin
           cache: maven
       - run: $MVN install
         working-directory: bom
       - run: $MVN install -Dquickly
+      - run: $MVN depgraph:aggregate
       - run: |
+          $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-doc-files
           $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-sources
           $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-demos
           $MVN javadoc:javadoc

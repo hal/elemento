@@ -28,7 +28,7 @@ digraph "elemento-parent" {
   "org.jboss.elemento:elemento-core:compile" -> "org.gwtproject.safehtml:gwt-safehtml:compile"
   "com.google.elemental2:elemental2-dom:compile" -> "com.google.elemental2:elemental2-core:compile"
   "org.jboss.elemento:elemento-flow:compile" -> "com.google.elemental2:elemental2-dom:compile"
-  "org.jboss.elemento:elemento-intl:compile" -> "com.google.elemental2:elemental2-core:compile"
+  "org.jboss.elemento:elemento-intl:compile" -> "com.google.elemental2:elemental2-dom:compile"
   "org.jboss.elemento:elemento-mathml:compile" -> "org.jboss.elemento:elemento-core:compile"
   "org.jboss.elemento:elemento-router:compile" -> "org.jboss.elemento:elemento-core:compile"
   "org.jboss.elemento:elemento-svg:compile" -> "org.jboss.elemento:elemento-core:compile"

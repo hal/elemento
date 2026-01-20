@@ -345,7 +345,8 @@
                     <showDuplicates>false</showDuplicates>
                     <showGroupIds>true</showGroupIds>
                 </configuration>
-            </plugin>            <plugin>
+            </plugin>
+            <plugin>
                 <groupId>org.ec4j.maven</groupId>
                 <artifactId>editorconfig-maven-plugin</artifactId>
                 <executions>
@@ -541,6 +542,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
+                            <waitMaxTime>86400</waitMaxTime>
                             <waitUntil>published</waitUntil>
                         </configuration>
                     </plugin>
