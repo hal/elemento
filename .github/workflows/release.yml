@@ -71,6 +71,7 @@ jobs:
     env:
       MVN: ./mvnw --show-version --batch-mode --no-transfer-progress
     steps:
+      - uses: ts-graphviz/setup-graphviz@v2
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
