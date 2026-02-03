@@ -14,8 +14,8 @@
     "todomvc-common": "^1.0.5"
   },
   "devDependencies": {
-    "@parcel/reporter-cli": "^2.16.0",
-    "parcel": "^2.16.0",
-    "parcel-resolver-ignore": "^2.2.0"
+    "@parcel/reporter-cli": "^2.16.4",
+    "parcel": "^2.16.4",
+    "parcel-resolver-ignore": "^2.2.1"
   }
 }
