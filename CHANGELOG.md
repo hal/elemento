@@ -7,6 +7,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `FlowContext.peek()` method to retrieve the object at the top of the stack without removing it.
+
+### Changed
+
+- Change `Repeat.DEFAULT_INTERVAL` to 0
+
+### Fixed
+
+- Fix `Flow.repeat()` for tasks that start own promises.
+
 ## [2.4.6] - 2026-01-20
 
 ### Fixed

@@ -21,15 +21,14 @@ import elemental2.promise.Promise;
 import elemental2.promise.Promise.PromiseExecutorCallbackFn.RejectCallbackFn;
 import elemental2.promise.Promise.PromiseExecutorCallbackFn.ResolveCallbackFn;
 
-import static elemental2.dom.DomGlobal.clearInterval;
 import static elemental2.dom.DomGlobal.clearTimeout;
-import static elemental2.dom.DomGlobal.setInterval;
 import static elemental2.dom.DomGlobal.setTimeout;
 
 class RepeatImpl<C extends FlowContext> extends FlowRunner<C> implements Repeat<C> {
 
     private final Task<C> task;
     private Predicate<C> predicate;
+    private boolean finished;
     private boolean failFast;
     private long interval;
     private long timeout;
@@ -43,6 +42,7 @@ class RepeatImpl<C extends FlowContext> extends FlowRunner<C> implements Repeat<
         super(context, 1);
         this.task = task;
         this.predicate = __ -> true;
+        this.finished = false;
         this.failFast = DEFAULT_FAIL_FAST;
         this.interval = DEFAULT_INTERVAL;
         this.timeout = DEFAULT_TIMEOUT;
@@ -99,7 +99,7 @@ class RepeatImpl<C extends FlowContext> extends FlowRunner<C> implements Repeat<
     }
 
     private void until(ResolveCallbackFn<C> resolve, RejectCallbackFn reject) {
-        intervalHandle = setInterval(__ -> {
+        if (!finished) {
             if (failFast && lastFailure != null) {
                 cancel(reject, lastFailure);
             } else {
@@ -109,6 +109,11 @@ class RepeatImpl<C extends FlowContext> extends FlowRunner<C> implements Repeat<
                             c.progress.tick();
                             if (areWeDone(c)) {
                                 finish(resolve, c);
+                            }
+                            if (interval != 0) {
+                                intervalHandle = setTimeout(__ -> until(resolve, reject), interval);
+                            } else {
+                                until(resolve, reject);
                             }
                             return null;
                         })
@@ -120,7 +125,7 @@ class RepeatImpl<C extends FlowContext> extends FlowRunner<C> implements Repeat<
                             return null;
                         });
             }
-        }, interval);
+        }
     }
 
     // ------------------------------------------------------ helper methods
@@ -134,6 +139,7 @@ class RepeatImpl<C extends FlowContext> extends FlowRunner<C> implements Repeat<
     }
 
     private void finish(ResolveCallbackFn<C> resolve, C context) {
+        finished = true;
         cleanup();
         context.progress.finish();
         resolve.onInvoke(context);
@@ -145,7 +151,7 @@ class RepeatImpl<C extends FlowContext> extends FlowRunner<C> implements Repeat<
     }
 
     private void cleanup() {
-        clearInterval(intervalHandle);
+        clearTimeout(intervalHandle);
         clearTimeout(timeoutHandle);
     }
 }

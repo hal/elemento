@@ -31,9 +31,9 @@ public interface Repeat<C extends FlowContext> extends Promisable<C>, Subscripti
     boolean DEFAULT_FAIL_FAST = true;
 
     /**
-     * By default, the interval between the iterations is 1 second.
+     * By default, no interval is used between the iterations.
      */
-    long DEFAULT_INTERVAL = 1_000;
+    long DEFAULT_INTERVAL = 0;
 
     /**
      * By default, the timeout for the loop is 10 seconds.
@@ -41,7 +41,7 @@ public interface Repeat<C extends FlowContext> extends Promisable<C>, Subscripti
     long DEFAULT_TIMEOUT = 10_000;
 
     /**
-     * By default, the number of iterations are infinite.
+     * By default, the number of iterations is infinite.
      */
     int DEFAULT_ITERATIONS = -1;
 

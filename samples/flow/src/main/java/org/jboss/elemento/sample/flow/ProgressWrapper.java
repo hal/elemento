@@ -17,7 +17,6 @@ package org.jboss.elemento.sample.flow;
 
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.flow.FlowStatus;
-import org.patternfly.component.help.HelperText;
 import org.patternfly.component.tooltip.Tooltip;
 
 import elemental2.dom.HTMLElement;
@@ -76,10 +75,7 @@ class ProgressWrapper implements org.jboss.elemento.flow.Progress, IsElement<HTM
 
     public void status(FlowStatus status) {
         switch (status) {
-            case NOT_STARTED:
-                progress.status(info);
-                break;
-            case IN_PROGRESS:
+            case NOT_STARTED, IN_PROGRESS:
                 progress.status(info);
                 break;
             case SUCCESS:
@@ -95,9 +91,5 @@ class ProgressWrapper implements org.jboss.elemento.flow.Progress, IsElement<HTM
                 tooltip(element(), "Failure").appendToBody();
                 break;
         }
-    }
-
-    public void addHelperText(HelperText helperText) {
-        progress.addHelperText(helperText);
     }
 }

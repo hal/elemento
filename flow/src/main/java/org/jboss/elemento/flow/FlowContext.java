@@ -118,6 +118,18 @@ public class FlowContext {
     }
 
     /**
+     * Retrieves the object at the top of the stack without removing it.
+     *
+     * @param <T> The type of the object on top of the stack.
+     * @return The object at the top of the stack.
+     * @throws EmptyStackException if the stack is empty.
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T peek() {
+        return (T) stack.peek();
+    }
+
+    /**
      * Removes the object at the top of the stack and returns that object.
      *
      * @return The object at the top of the stack.
