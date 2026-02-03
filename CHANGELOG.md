@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.4.7] - 2026-02-03
+
 ### Added
 
 - Add `FlowContext.peek()` method to retrieve the object at the top of the stack without removing it.
@@ -1305,7 +1307,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.4.6...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.4.7...HEAD
+[2.4.7]: https://github.com/hal/elemento/compare/v2.4.6...v2.4.7
 [2.4.6]: https://github.com/hal/elemento/compare/v2.4.5...v2.4.6
 [2.4.5]: https://github.com/hal/elemento/compare/v2.4.4...v2.4.5
 [2.4.4]: https://github.com/hal/elemento/compare/v2.4.3...v2.4.4
