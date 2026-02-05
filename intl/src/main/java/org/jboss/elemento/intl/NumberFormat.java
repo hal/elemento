@@ -16,6 +16,7 @@
 package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
+import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
@@ -100,7 +101,7 @@ public class NumberFormat {
 
     // ------------------------------------------------------ instance
 
-    NumberFormat(Object locale, NumberFormatOptions options) {}
+    @JsConstructor NumberFormat(Object locale, NumberFormatOptions options) {}
     public native String format(double number);
     public native JsArray<JsPropertyMap<String>> formatToParts(double number);
     public native String formatRange(double start, double end);

@@ -17,6 +17,7 @@ package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
 import elemental2.core.JsDate;
+import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
@@ -100,7 +101,7 @@ public class DateTimeFormat {
 
     // ------------------------------------------------------ instance
 
-    DateTimeFormat(Object locale, DateTimeFormatOptions options) {}
+    @JsConstructor DateTimeFormat(Object locale, DateTimeFormatOptions options) {}
     public native String format(JsDate date);
     public native JsArray<JsPropertyMap<String>> formatToParts(JsDate date);
     public native String formatRange(JsDate start, JsDate end);

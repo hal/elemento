@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Added missing externs for `DurationFormat` and `DurationFormatOptions` not yet in https://github.com/google/closure-compiler/blob/master/externs/browser/intl.js
+
 ## [2.4.7] - 2026-02-03
 
 ### Added

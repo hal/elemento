@@ -16,6 +16,7 @@
 package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
+import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
@@ -100,7 +101,7 @@ public class DurationFormat {
 
     // ------------------------------------------------------ instance
 
-    DurationFormat(Object locale, DurationFormatOptions options) {}
+    @JsConstructor DurationFormat(Object locale, DurationFormatOptions options) {}
     public native String format(Duration duration);
     public native JsArray<JsPropertyMap<String>> formatToParts(Duration duration);
     public native JsPropertyMap<String> resolvedOptions();

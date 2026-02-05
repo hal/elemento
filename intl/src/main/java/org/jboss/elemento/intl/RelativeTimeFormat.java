@@ -16,6 +16,7 @@
 package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
+import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
@@ -99,7 +100,7 @@ public class RelativeTimeFormat {
 
     // ------------------------------------------------------ instance
 
-    RelativeTimeFormat(Object locale, RelativeTimeFormatOptions options) {}
+    @JsConstructor RelativeTimeFormat(Object locale, RelativeTimeFormatOptions options) {}
     public native String format(double value, String unit);
     // @formatter:off
 

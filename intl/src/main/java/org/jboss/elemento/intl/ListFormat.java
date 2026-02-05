@@ -16,6 +16,7 @@
 package org.jboss.elemento.intl;
 
 import elemental2.core.JsArray;
+import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsArrayLike;
@@ -100,7 +101,7 @@ public class ListFormat {
 
     // ------------------------------------------------------ instance
 
-    ListFormat(Object locale, ListFormatOptions options) {}
+    @JsConstructor ListFormat(Object locale, ListFormatOptions options) {}
     public native String format(JsArray<String> list);
     public native JsArray<JsPropertyMap<String>> formatToParts(JsArray<String> list);
     public native JsPropertyMap<String> resolvedOptions();
