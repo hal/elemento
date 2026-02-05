@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.4.8] - 2026-02-05
+
 ### Fixed
 
 - Added missing externs for `DurationFormat` and `DurationFormatOptions` not yet in https://github.com/google/closure-compiler/blob/master/externs/browser/intl.js
@@ -1311,7 +1313,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.4.7...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.4.8...HEAD
+[2.4.8]: https://github.com/hal/elemento/compare/v2.4.7...v2.4.8
 [2.4.7]: https://github.com/hal/elemento/compare/v2.4.6...v2.4.7
 [2.4.6]: https://github.com/hal/elemento/compare/v2.4.5...v2.4.6
 [2.4.5]: https://github.com/hal/elemento/compare/v2.4.4...v2.4.5
