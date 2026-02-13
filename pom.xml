@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>51</version>
+        <version>52</version>
     </parent>
 
     <groupId>org.jboss.elemento</groupId>
@@ -111,7 +111,7 @@
         <encoding>UTF-8</encoding>
         <github.org>hal</github.org>
         <github.name>elemento</github.name>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.min.version>3.9.9</maven.min.version>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
