@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.jboss.elemento</groupId>
         <artifactId>elemento-code-parent</artifactId>
-        <version>2.4.9-SNAPSHOT</version>
+        <version>2.4.9</version>
         <relativePath>../code-parent/pom.xml</relativePath>
     </parent>
 
