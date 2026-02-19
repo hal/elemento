@@ -7,6 +7,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `ClassList.contains(String classname)`
+- Add `HTMLElementDataMethods.data(String name)`
+
+### Upgrades
+
+- Bump JBoss Parent to 52
+
 ## [2.4.8] - 2026-02-05
 
 ### Fixed
