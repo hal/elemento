@@ -12,6 +12,9 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
     devDependencies:
+      '@parcel/config-default':
+        specifier: ^2.16.4
+        version: 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.19))(@swc/helpers@0.5.19)
       '@parcel/core':
         specifier: ^2.16.4
         version: 2.16.4(@swc/helpers@0.5.19)

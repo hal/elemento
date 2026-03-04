@@ -13,7 +13,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-goog.provide('environment');
+
+goog.module('environment');
+const jre = goog.require('jre');
+
+const environment = {};
 
 /** @define {string} */
 environment.base = goog.define('environment.base', '/');
+jre.addSystemPropertyFromGoogDefine('environment.base', '/');

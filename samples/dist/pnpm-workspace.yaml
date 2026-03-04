@@ -15,9 +15,9 @@
 #
 
 ignoredBuiltDependencies:
-  - '@swc/core'
-  - lmdb
-  - msgpackr-extract
+  - '@swc/core@1.15.18(@swc/helpers@0.5.19)'
+  - lmdb@2.8.5
+  - msgpackr-extract@3.0.3
 
 onlyBuiltDependencies:
-  - '@parcel/watcher'
+  - '@parcel/watcher@2.5.6'

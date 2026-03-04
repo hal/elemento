@@ -17,6 +17,7 @@
     "@picocss/pico": "^2.1.1"
   },
   "devDependencies": {
+    "@parcel/config-default": "^2.16.4",
     "@parcel/core": "^2.16.4",
     "@parcel/reporter-cli": "^2.16.4",
     "@parcel/resolver-glob": "^2.16.4",

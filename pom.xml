@@ -195,16 +195,27 @@
                                 <excludes>
                                     <exclude>degraph-style.json</exclude>
                                     <exclude>dependency-graph.dot</exclude>
+                                    <exclude>CODEOWNERS</exclude>
                                     <exclude>LICENSE</exclude>
                                     <exclude>README.md</exclude>
                                     <exclude>**/*.ftl</exclude>
+                                    <exclude>**/*.mp4</exclude>
                                     <exclude>**/*.pem</exclude>
+                                    <exclude>**/*.png</exclude>
                                     <exclude>**/*license*.txt</exclude>
+                                    <exclude>**/.dockerignore</exclude>
                                     <exclude>**/.parcel-cache/**</exclude>
+                                    <exclude>**/banner.txt</exclude>
+                                    <exclude>**/cert.pem</exclude>
+                                    <exclude>**/Dockerfile*</exclude>
+                                    <exclude>**/js-cookie.js</exclude>
+                                    <exclude>**/key.pem</exclude>
                                     <exclude>**/node/**</exclude>
                                     <exclude>**/node_modules/**</exclude>
+                                    <exclude>**/pnpm-lock.yaml</exclude>
                                     <exclude>**/src/demo/java/**</exclude>
                                     <exclude>**/src/test/resources/**/*.java</exclude>
+                                    <exclude>**/yarn.lock</exclude>
                                 </excludes>
                             </licenseSet>
                         </licenseSets>

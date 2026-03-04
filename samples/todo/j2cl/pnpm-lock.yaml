@@ -15,6 +15,9 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5
     devDependencies:
+      '@parcel/config-default':
+        specifier: ^2.16.4
+        version: 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.19))(@swc/helpers@0.5.19)
       '@parcel/reporter-cli':
         specifier: ^2.16.4
         version: 2.16.4(@parcel/core@2.16.4(@swc/helpers@0.5.19))
