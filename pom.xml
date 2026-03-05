@@ -105,7 +105,7 @@
         <version.impsort.plugin>1.13.0</version.impsort.plugin>
         <version.keepachangelog>2.1.1</version.keepachangelog>
         <version.license.plugin>5.0.0</version.license.plugin>
-        <version.shade.plugin>3.6.1</version.shade.plugin>
+        <version.shade.plugin>3.6.2</version.shade.plugin>
 
         <!-- Build related -->
         <encoding>UTF-8</encoding>
