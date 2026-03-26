@@ -10,7 +10,8 @@
     "prod": "parcel build --dist-dir target/flow --public-url /elemento/samples/flow"
   },
   "dependencies": {
-    "@patternfly/patternfly": "^6.4.0"
+    "@patternfly/patternfly": "^6.4.0",
+    "@patternfly-java/core": "^0.6.15"
   },
   "devDependencies": {
     "@parcel/config-default": "^2.16.4",
