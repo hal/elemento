@@ -553,8 +553,8 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
-                            <waitMaxTime>86400</waitMaxTime>
-                            <waitUntil>published</waitUntil>
+                            <waitMaxTime>86400</waitMaxTime> <!-- 24h -->
+                            <waitUntil>validated</waitUntil>
                         </configuration>
                     </plugin>
                 </plugins>

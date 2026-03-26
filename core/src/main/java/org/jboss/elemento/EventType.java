@@ -51,8 +51,14 @@ public class EventType<T extends Event, V extends EventTarget> {
     public static final EventType<Event, Window> offline = of("offline");
 
     // Focus Events
+    // The focusin event fires when an element has received focus, after the focus event.
+    // The two events differ in that focusin bubbles, while focus does not.
     public static final EventType<FocusEvent, Element> focus = of("focus");
+    public static final EventType<FocusEvent, Element> focusin = of("focusin");
+    // The focusout event fires when an element has lost focus, after the blur event.
+    // The two events differ in that focusout bubbles, while blur does not.
     public static final EventType<FocusEvent, Element> blur = of("blur");
+    public static final EventType<FocusEvent, Element> focusout = of("focusout");
 
     // Session History Events
     public static final EventType<PageTransitionEvent, Document> pagehide = of("pagehide");

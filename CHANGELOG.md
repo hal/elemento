@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add support for [`focusin`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusin_event) and [
+  `focusout`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusout_event) events.
+
 ## [2.4.9] - 2026-02-19
 
 ### Added
