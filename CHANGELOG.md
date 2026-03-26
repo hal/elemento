@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.4.10] - 2026-03-26
+
 ### Added
 
 - Add support for [`focusin`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusin_event) and [
@@ -1333,7 +1335,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.4.9...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.4.10...HEAD
+[2.4.10]: https://github.com/hal/elemento/compare/v2.4.9...v2.4.10
 [2.4.9]: https://github.com/hal/elemento/compare/v2.4.8...v2.4.9
 [2.4.8]: https://github.com/hal/elemento/compare/v2.4.7...v2.4.8
 [2.4.7]: https://github.com/hal/elemento/compare/v2.4.6...v2.4.7
