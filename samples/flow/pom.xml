@@ -33,7 +33,7 @@
 
     <properties>
         <npm.skip>false</npm.skip>
-        <version.patternfly.java>0.6.15</version.patternfly.java>
+        <version.patternfly.java>0.6.16</version.patternfly.java>
     </properties>
 
     <dependencyManagement>
