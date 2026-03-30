@@ -7,12 +7,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add support for [`beforetoggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforetoggle_event) and [`toggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event) events.
+
 ## [2.4.10] - 2026-03-26
 
 ### Added
 
-- Add support for [`focusin`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusin_event) and [
-  `focusout`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusout_event) events.
+- Add support for [`focusin`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusin_event) and [`focusout`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusout_event) events.
 
 ### Changed
 

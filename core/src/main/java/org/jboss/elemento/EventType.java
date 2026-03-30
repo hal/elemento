@@ -33,6 +33,7 @@ import elemental2.dom.MessageEvent;
 import elemental2.dom.MouseEvent;
 import elemental2.dom.PageTransitionEvent;
 import elemental2.dom.PopStateEvent;
+import elemental2.dom.ToggleEvent;
 import elemental2.dom.TouchEvent;
 import elemental2.dom.WheelEvent;
 import elemental2.dom.Window;
@@ -77,6 +78,10 @@ public class EventType<T extends Event, V extends EventTarget> {
     public static final EventType<TouchEvent, Element> compositionstart = of("compositionstart");
     public static final EventType<TouchEvent, Element> compositionupdate = of("compositionupdate");
     public static final EventType<TouchEvent, Element> compositionend = of("compositionend");
+
+    // Popover Events
+    public static final EventType<ToggleEvent, Element> beforetoggle = of("beforetoggle");
+    public static final EventType<ToggleEvent, Element> toggle = of("toggle");
 
     // View Events
     public static final EventType<Event, Document> fullscreenchange = of("fullscreenchange");
