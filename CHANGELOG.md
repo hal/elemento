@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.4.11] - 2026-03-30
+
 ### Added
 
 - Add support for [`beforetoggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforetoggle_event) and [`toggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event) events.
@@ -1338,7 +1340,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.4.10...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.4.11...HEAD
+[2.4.11]: https://github.com/hal/elemento/compare/v2.4.10...v2.4.11
 [2.4.10]: https://github.com/hal/elemento/compare/v2.4.9...v2.4.10
 [2.4.9]: https://github.com/hal/elemento/compare/v2.4.8...v2.4.9
 [2.4.8]: https://github.com/hal/elemento/compare/v2.4.7...v2.4.8
