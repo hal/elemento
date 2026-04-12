@@ -17,11 +17,9 @@ package org.jboss.elemento.sample.flow;
 
 import org.jboss.elemento.IsElement;
 import org.jboss.elemento.flow.FlowStatus;
-import org.patternfly.component.tooltip.Tooltip;
 
 import elemental2.dom.HTMLElement;
 
-import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.patternfly.component.progress.MeasureLocation.none;
 import static org.patternfly.component.progress.Progress.progress;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
@@ -36,7 +34,6 @@ class ProgressWrapper implements org.jboss.elemento.flow.Progress, IsElement<HTM
     private final org.patternfly.component.progress.Progress progress;
     private int value;
     private int total;
-    private Tooltip tooltip;
 
     ProgressWrapper() {
         progress = progress().size(sm).measureLocation(none);
@@ -57,7 +54,6 @@ class ProgressWrapper implements org.jboss.elemento.flow.Progress, IsElement<HTM
         value = 0;
         total = max;
         progress.range(0, max);
-        failSafeRemoveFromParent(tooltip);
     }
 
     @Override
@@ -73,22 +69,22 @@ class ProgressWrapper implements org.jboss.elemento.flow.Progress, IsElement<HTM
         progress.value(total);
     }
 
-    public void status(FlowStatus status) {
+    public void status(FlowStatus status, HTMLElement taskElement) {
         switch (status) {
             case NOT_STARTED, IN_PROGRESS:
                 progress.status(info);
                 break;
             case SUCCESS:
                 progress.status(success);
-                tooltip(element(), "Finished").appendToBody();
+                taskElement.appendChild(tooltip(element(), "Finished").element());
                 break;
             case TIMEOUT:
                 progress.status(warning);
-                tooltip(element(), "Timeout").appendToBody();
+                taskElement.appendChild(tooltip(element(), "Timeout").element());
                 break;
             case FAILURE:
                 progress.status(danger);
-                tooltip(element(), "Failure").appendToBody();
+                taskElement.appendChild(tooltip(element(), "Failure").element());
                 break;
         }
     }

@@ -104,7 +104,7 @@ class TasksElement implements IsElement<HTMLElement>, Logger {
 
     @Override
     public Promise<Void> finish(final FlowStatus status) {
-        progress.status(status);
+        progress.status(status, element());
         return Promise.resolve((Void) null);
     }
 }

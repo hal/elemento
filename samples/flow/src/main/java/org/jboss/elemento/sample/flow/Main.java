@@ -30,7 +30,6 @@ import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.backtotop.BackToTop.backToTop;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.content.Content.content;
-import static org.patternfly.component.content.ContentType.p;
 import static org.patternfly.component.list.ActionList.actionList;
 import static org.patternfly.component.list.ActionListGroup.actionListGroup;
 import static org.patternfly.component.list.ActionListItem.actionListItem;
