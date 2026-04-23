@@ -20,6 +20,8 @@ To get a logger, use `Logger.getLogger(String category)`.
 ```java
 package org.acme;
 
+import org.jboss.elemento.logger.Logger;
+
 public class Foo {
 
     private static final Logger logger = Logger.getLogger(Foo.class.getName());
