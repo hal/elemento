@@ -42,6 +42,113 @@ following annotations for this purpose:
 
 You can also mix and match your own `Places` instance with the generated one (see below).
 
+## URL Encoding
+
+Route parameter values that contain special URL characters (`/`, `?`, `#`, `&`, `=`, spaces) are handled transparently by the router.
+
+### Automatic Encoding
+
+Use the overloaded `goTo()`, `href()`, and `Link.link()` methods that accept a route template and parameter values. Pass raw/decoded values — encoding is handled internally:
+
+```java
+// Navigate with encoded parameters
+placeManager.goTo("/resource/:name", "my/file");
+placeManager.goTo("/time/:area/:location", "America", "New_York");
+
+// Generate href with encoded parameters
+String url = placeManager.href("/resource/:name", "my/file");
+
+// Create a link with encoded parameters
+Link.link(placeManager, "/resource/:name", "my/file");
+```
+
+### Manual Encoding
+
+When building paths yourself for use with `goTo(String path)` or `href(String path)`, use the encoding utilities:
+
+```java
+// Build an encoded path from a template
+String path = Parameter.encodePath("/resource/:name", "my/file");
+// → "/resource/my%2Ffile"
+placeManager.goTo(path);
+
+// Encode a single value
+String encoded = Parameter.encode("my/file"); // → "my%2Ffile"
+```
+
+### Reading Parameters
+
+`Parameter.get()` always returns **decoded** values. Use `Parameter.getRaw()` for the raw/encoded form:
+
+```java
+parameter.get("name")    // → "my/file" (decoded)
+parameter.getRaw("name") // → "my%2Ffile" (encoded)
+```
+
+### Encoding Behavior by Method
+
+| Method | Encoding behavior |
+|--------|------------------|
+| `Parameter.encode(value)` | Encodes a raw value → URL-safe |
+| `Parameter.decode(value)` | Decodes a URL-encoded value → raw |
+| `Parameter.encodePath(route, values...)` | Encodes values automatically |
+| `Parameter.get(name)` | Returns **decoded** value |
+| `Parameter.getRaw(name)` | Returns **encoded** value |
+| `Parameter.getOrDefault(name, default)` | Returns **decoded** value |
+| `PlaceManager.goTo(route, values...)` | Encodes values automatically |
+| `PlaceManager.goTo(path)` | No encoding — path used as-is |
+| `PlaceManager.href(route, values...)` | Encodes values automatically |
+| `PlaceManager.href(path)` | No encoding — path used as-is |
+| `Link.link(pm, route, values...)` | Encodes values automatically |
+| `Link.link(pm, route)` | No encoding — route used as-is |
+
+## Optional Parameters
+
+Routes can have optional parameters using the `:param?` syntax (trailing `?`). Optional parameters must be at the end of the route. A route like `/users/:id?` matches both `/users` and `/users/123`.
+
+### Rules
+
+- Optional parameters use the `:name?` syntax
+- Optional parameters must be trailing — `/users/:id?/edit` is **invalid**
+- Multiple trailing optional parameters are allowed: `/a/:b?/:c?`
+- Required parameters can precede optional ones: `/a/:b/:c?`
+
+### Example
+
+```java
+@Route("/users/:id?")
+public class UsersPage implements Page {
+
+    @Override
+    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
+        if (parameter.has("id")) {
+            // show single user
+            String id = parameter.get("id");
+            return asList(h(1, "User " + id).element());
+        } else {
+            // show user list
+            return asList(h(1, "All Users").element());
+        }
+    }
+}
+```
+
+### Navigation
+
+```java
+// Navigate to the user list (optional param omitted)
+placeManager.goTo("/users");
+
+// Navigate to a specific user (optional param provided)
+placeManager.goTo("/users/:id?", "123");
+
+// Build paths with optional params
+Parameter.encodePath("/users/:id?");         // → "/users"
+Parameter.encodePath("/users/:id?", "123");  // → "/users/123"
+Parameter.encodePath("/a/:b/:c?", "1");      // → "/a/1"
+Parameter.encodePath("/a/:b/:c?", "1", "2"); // → "/a/1/2"
+```
+
 ## Sample
 
 Here's an example showing most of the concepts in action:
@@ -124,113 +231,6 @@ public class Application {
 See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html)
 for more details.
 
-## Optional Parameters
-
-Routes can have optional parameters using the `:param?` syntax (trailing `?`). Optional parameters must be at the end of the route. A route like `/users/:id?` matches both `/users` and `/users/123`.
-
-### Rules
-
-- Optional parameters use the `:name?` syntax
-- Optional parameters must be trailing — `/users/:id?/edit` is **invalid**
-- Multiple trailing optional parameters are allowed: `/a/:b?/:c?`
-- Required parameters can precede optional ones: `/a/:b/:c?`
-
-### Example
-
-```java
-@Route("/users/:id?")
-public class UsersPage implements Page {
-
-    @Override
-    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
-        if (parameter.has("id")) {
-            // show single user
-            String id = parameter.get("id");
-            return asList(h(1, "User " + id).element());
-        } else {
-            // show user list
-            return asList(h(1, "All Users").element());
-        }
-    }
-}
-```
-
-### Navigation
-
-```java
-// Navigate to the user list (optional param omitted)
-placeManager.goTo("/users");
-
-// Navigate to a specific user (optional param provided)
-placeManager.goTo("/users/:id?", "123");
-
-// Build paths with optional params
-Parameter.encodePath("/users/:id?");         // → "/users"
-Parameter.encodePath("/users/:id?", "123");  // → "/users/123"
-Parameter.encodePath("/a/:b/:c?", "1");      // → "/a/1"
-Parameter.encodePath("/a/:b/:c?", "1", "2"); // → "/a/1/2"
-```
-
-## URL Encoding
-
-Route parameter values that contain special URL characters (`/`, `?`, `#`, `&`, `=`, spaces) are handled transparently by the router.
-
-### Automatic Encoding
-
-Use the overloaded `goTo()`, `href()`, and `Link.link()` methods that accept a route template and parameter values. Pass raw/decoded values — encoding is handled internally:
-
-```java
-// Navigate with encoded parameters
-placeManager.goTo("/resource/:name", "my/file");
-placeManager.goTo("/time/:area/:location", "America", "New_York");
-
-// Generate href with encoded parameters
-String url = placeManager.href("/resource/:name", "my/file");
-
-// Create a link with encoded parameters
-Link.link(placeManager, "/resource/:name", "my/file");
-```
-
-### Manual Encoding
-
-When building paths yourself for use with `goTo(String path)` or `href(String path)`, use the encoding utilities:
-
-```java
-// Build an encoded path from a template
-String path = Parameter.encodePath("/resource/:name", "my/file");
-// → "/resource/my%2Ffile"
-placeManager.goTo(path);
-
-// Encode a single value
-String encoded = Parameter.encode("my/file"); // → "my%2Ffile"
-```
-
-### Reading Parameters
-
-`Parameter.get()` always returns **decoded** values. Use `Parameter.getRaw()` for the raw/encoded form:
-
-```java
-parameter.get("name")    // → "my/file" (decoded)
-parameter.getRaw("name") // → "my%2Ffile" (encoded)
-```
-
-### Encoding Behavior by Method
-
-| Method | Encoding behavior |
-|--------|------------------|
-| `Parameter.encode(value)` | Encodes a raw value → URL-safe |
-| `Parameter.decode(value)` | Decodes a URL-encoded value → raw |
-| `Parameter.encodePath(route, values...)` | Encodes values automatically |
-| `Parameter.get(name)` | Returns **decoded** value |
-| `Parameter.getRaw(name)` | Returns **encoded** value |
-| `Parameter.getOrDefault(name, default)` | Returns **decoded** value |
-| `PlaceManager.goTo(route, values...)` | Encodes values automatically |
-| `PlaceManager.goTo(path)` | No encoding — path used as-is |
-| `PlaceManager.href(route, values...)` | Encodes values automatically |
-| `PlaceManager.href(path)` | No encoding — path used as-is |
-| `Link.link(pm, route, values...)` | Encodes values automatically |
-| `Link.link(pm, route)` | No encoding — route used as-is |
-
 ## Dependency
 
 Add the following dependency to use `elemento-router`:
@@ -250,3 +250,4 @@ In your GWT module, inherit from `org.jboss.elemento.Router`:
     <inherits name="org.jboss.elemento.Router"/>
 </module>
 ```
+
