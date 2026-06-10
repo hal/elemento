@@ -1,34 +1,19 @@
 {
-  "name": "todo-sample-j2cl",
+  "name": "music-sample",
   "private": true,
-  "parcelIgnore": [
-    "music.js"
-  ],
-  "source": "src/web/index.html",
+  "type": "module",
   "scripts": {
-    "start:parcel": "parcel watch src/web/index.html --dist-dir target/music --port 1235",
-    "start:server": "node server.js 1234 1235",
-    "open:browser": "wait-on http://localhost:1234 && open http://localhost:1234",
-    "dev": "concurrently \"npm run start:parcel\" \"npm run start:server\" \"npm run open:browser\"",
-    "prod": "parcel build src/web/index.html --dist-dir target/music --public-url /elemento/samples/music",
+    "watch": "vite",
+    "dev": "vite build --mode development",
+    "prod": "vite build",
     "http-server": "http-server target/music --ssl --cert cert.pem"
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.16.4",
-    "@parcel/core": "^2.16.4",
-    "@parcel/reporter-cli": "^2.16.4",
-    "@parcel/resolver-glob": "^2.16.4",
-    "concurrently": "^9.2.1",
-    "express": "^5.2.1",
-    "http-proxy-middleware": "^3.0.5",
     "http-server": "^14.1.1",
-    "open": "^11.0.0",
-    "parcel": "^2.16.4",
-    "parcel-resolver-ignore": "^2.2.1",
-    "wait-on": "^9.0.5"
+    "vite": "^8.0.16"
   },
-  "packageManager": "pnpm@11.0.9"
+  "packageManager": "pnpm@11.5.2"
 }

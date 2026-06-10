@@ -1,18 +1,16 @@
 {
-  "name": "flow-sample",
+  "name": "elemento-samples-dist",
   "private": true,
-  "source": "src/web/index.html",
+  "type": "module",
   "scripts": {
-    "watch": "parcel serve --dist-dir target/samples --open",
-    "dev": "parcel build --dist-dir target/samples --no-optimize",
-    "prod": "parcel build --dist-dir target/samples --public-url /elemento/samples/"
+    "dev": "vite build --mode development",
+    "prod": "vite build"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"
   },
   "devDependencies": {
-    "@parcel/reporter-cli": "^2.16.0",
-    "parcel": "^2.16.0"
+    "vite": "^8.0.16"
   },
-  "packageManager": "pnpm@11.0.0-dev.1005+sha512.91f84a392eea348ea4852a182912d2520273a4336f933b78cc44bc931eb999923c097e9433a9b355adc1f725725ea99082fc9f032a559df832632e764c92c798"
+  "packageManager": "pnpm@11.5.2"
 }

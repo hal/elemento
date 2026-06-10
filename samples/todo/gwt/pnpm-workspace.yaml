@@ -14,10 +14,4 @@
 #  limitations under the License.
 #
 
-ignoredBuiltDependencies:
-  - '@swc/core'
-  - lmdb
-  - msgpackr-extract
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
+#

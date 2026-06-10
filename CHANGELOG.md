@@ -17,6 +17,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Migrate all samples from Parcel to Vite 8. Remove `.parcelrc` files, Parcel resolver plugins, `parcelIgnore` workarounds, and Parcel-specific `pnpm-workspace.yaml` native dependency allowances. Replace the music sample's custom Express proxy server (`server.js`) with Vite's built-in dev server.
 - `Parameter.get(String)` now returns the **decoded** parameter value. Previously returned the raw URL segment, which is identical for unencoded values (backward compatible for existing usage).
 
 ## [2.4.11] - 2026-03-30

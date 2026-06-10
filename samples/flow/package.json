@@ -1,23 +1,17 @@
 {
   "name": "flow-sample",
   "private": true,
-  "parcelIgnore": [
-    "flow.nocache.js"
-  ],
-  "source": "src/web/index.html",
+  "type": "module",
   "scripts": {
-    "dev": "parcel build --dist-dir target/gwt/devmode/war/flow --no-optimize --public-url /flow",
-    "prod": "parcel build --dist-dir target/flow --public-url /elemento/samples/flow"
+    "dev": "vite build --mode development",
+    "prod": "vite build"
   },
   "dependencies": {
     "@patternfly-java/core": "^0.6.16",
-    "@patternfly/patternfly": "^6.4.0"
+    "@patternfly/patternfly": "^6.5.2"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.16.4",
-    "@parcel/reporter-cli": "^2.16.4",
-    "parcel": "^2.16.4",
-    "parcel-resolver-ignore": "^2.2.1"
+    "vite": "^8.0.16"
   },
-  "packageManager": "pnpm@11.0.0-dev.1005+sha512.91f84a392eea348ea4852a182912d2520273a4336f933b78cc44bc931eb999923c097e9433a9b355adc1f725725ea99082fc9f032a559df832632e764c92c798"
+  "packageManager": "pnpm@11.5.2"
 }
