@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.0] - 2026-06-10
+
 ### Added
 
 - Add transparent URL encoding/decoding for route parameters. Parameter values containing special URL characters (`/`, `?`, `#`, `&`, `=`, spaces) are now handled automatically.
@@ -1366,7 +1368,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.4.11...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.0...HEAD
+[2.5.0]: https://github.com/hal/elemento/compare/v2.4.11...v2.5.0
 [2.4.11]: https://github.com/hal/elemento/compare/v2.4.10...v2.4.11
 [2.4.10]: https://github.com/hal/elemento/compare/v2.4.9...v2.4.10
 [2.4.9]: https://github.com/hal/elemento/compare/v2.4.8...v2.4.9
