@@ -7,6 +7,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add transparent URL encoding/decoding for route parameters. Parameter values containing special URL characters (`/`, `?`, `#`, `&`, `=`, spaces) are now handled automatically.
+  - Add `PlaceManager.goTo(String route, String... values)` and `PlaceManager.href(String route, String... values)` overloads that encode parameter values automatically
+  - Add `Link.link(PlaceManager, String route, String... values)` factory for creating links with encoded parameters
+  - Add `Parameter.encode(String)`, `Parameter.decode(String)`, and `Parameter.encodePath(String, String...)` encoding utilities
+  - Add `Parameter.getRaw(String)` to access the raw/encoded parameter value
+
+### Changed
+
+- `Parameter.get(String)` now returns the **decoded** parameter value. Previously returned the raw URL segment, which is identical for unencoded values (backward compatible for existing usage).
+
 ## [2.4.11] - 2026-03-30
 
 ### Added
