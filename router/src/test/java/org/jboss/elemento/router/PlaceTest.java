@@ -30,6 +30,20 @@ class PlaceTest {
     }
 
     @Test
+    void optionalParameterValidation() {
+        // valid routes with optional params
+        new Place("/a/:b?");
+        new Place("/a/:b/:c?");
+        new Place("/a/:b?/:c?");
+        new Place("/:a?");
+
+        // invalid: non-optional after optional
+        assertThrows(IllegalArgumentException.class, () -> new Place("/a/:b?/c"));
+        assertThrows(IllegalArgumentException.class, () -> new Place("/a/:b?/:c"));
+        assertThrows(IllegalArgumentException.class, () -> new Place("/:a?/b"));
+    }
+
+    @Test
     void normalize() {
         assertEquals("/", new Place("/").route);
         assertEquals("/a", new Place("a").route);

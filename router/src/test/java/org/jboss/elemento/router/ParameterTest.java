@@ -55,6 +55,24 @@ class ParameterTest {
 
         assertTrue(Parameter.isParameter(":a"));
         assertTrue(Parameter.isParameter(":a:b"));
+        assertTrue(Parameter.isParameter(":a?"));
+        assertTrue(Parameter.isParameter(":abc?"));
+    }
+
+    // ------------------------------------------------------ isOptionalParameter
+
+    @Test
+    void isOptionalParameters() {
+        assertFalse(Parameter.isOptionalParameter(null));
+        assertFalse(Parameter.isOptionalParameter(""));
+        assertFalse(Parameter.isOptionalParameter(":a"));
+        assertFalse(Parameter.isOptionalParameter("a?"));
+        assertFalse(Parameter.isOptionalParameter(":?"));
+        assertFalse(Parameter.isOptionalParameter("?"));
+
+        assertTrue(Parameter.isOptionalParameter(":a?"));
+        assertTrue(Parameter.isOptionalParameter(":abc?"));
+        assertTrue(Parameter.isOptionalParameter(":a:b?"));
     }
 
     // ------------------------------------------------------ hasParameter
@@ -87,6 +105,42 @@ class ParameterTest {
         assertTrue(Parameter.hasParameter("/:a/:b/:c"));
     }
 
+    // ------------------------------------------------------ hasOptionalParameter
+
+    @Test
+    void hasOptionalParameters() {
+        assertFalse(Parameter.hasOptionalParameter(null));
+        assertFalse(Parameter.hasOptionalParameter(""));
+        assertFalse(Parameter.hasOptionalParameter("/a/b/c"));
+        assertFalse(Parameter.hasOptionalParameter("/a/:b/c"));
+
+        assertTrue(Parameter.hasOptionalParameter(":a?"));
+        assertTrue(Parameter.hasOptionalParameter("/:a?"));
+        assertTrue(Parameter.hasOptionalParameter("/a/:b?"));
+        assertTrue(Parameter.hasOptionalParameter("/a/:b/:c?"));
+        assertTrue(Parameter.hasOptionalParameter("/a/:b?/:c?"));
+    }
+
+    // ------------------------------------------------------ validateOptionalParameters
+
+    @Test
+    void validateOptionalParameters() {
+        // valid: optional params are trailing
+        Parameter.validateOptionalParameters("/a/:b?");
+        Parameter.validateOptionalParameters("/a/:b/:c?");
+        Parameter.validateOptionalParameters("/a/:b?/:c?");
+        Parameter.validateOptionalParameters("/:a?");
+        Parameter.validateOptionalParameters("/a/b");
+
+        // invalid: non-optional segment after optional
+        assertThrows(IllegalArgumentException.class,
+                () -> Parameter.validateOptionalParameters("/a/:b?/c"));
+        assertThrows(IllegalArgumentException.class,
+                () -> Parameter.validateOptionalParameters("/a/:b?/:c"));
+        assertThrows(IllegalArgumentException.class,
+                () -> Parameter.validateOptionalParameters("/:a?/b"));
+    }
+
     // ------------------------------------------------------ match
 
     @Test
@@ -101,12 +155,107 @@ class ParameterTest {
         assertTrue(Parameter.match("/:a/b/:c", "/value0/b/value1"));
     }
 
+    // ------------------------------------------------------ match with optional parameters
+
+    @Test
+    void matchOptional() {
+        // single optional param
+        assertTrue(Parameter.match("/users/:id?", "/users"));
+        assertTrue(Parameter.match("/users/:id?", "/users/123"));
+        assertFalse(Parameter.match("/users/:id?", "/users/123/edit"));
+
+        // required then optional
+        assertTrue(Parameter.match("/a/:b/:c?", "/a/1"));
+        assertTrue(Parameter.match("/a/:b/:c?", "/a/1/2"));
+        assertFalse(Parameter.match("/a/:b/:c?", "/a"));
+        assertFalse(Parameter.match("/a/:b/:c?", "/a/1/2/3"));
+
+        // multiple optional
+        assertTrue(Parameter.match("/a/:b?/:c?", "/a"));
+        assertTrue(Parameter.match("/a/:b?/:c?", "/a/1"));
+        assertTrue(Parameter.match("/a/:b?/:c?", "/a/1/2"));
+        assertFalse(Parameter.match("/a/:b?/:c?", "/a/1/2/3"));
+
+        // static segments with optional
+        assertTrue(Parameter.match("/api/users/:id?", "/api/users"));
+        assertTrue(Parameter.match("/api/users/:id?", "/api/users/42"));
+        assertFalse(Parameter.match("/api/users/:id?", "/api/other"));
+    }
+
     // ------------------------------------------------------ parameter extraction (existing)
 
     @Test
     void parameter() {
         new Parameter(":a", "/value0");
         new Parameter("/:a/b/:c", "/value0/b/value1");
+    }
+
+    // ------------------------------------------------------ optional parameter extraction
+
+    @Nested
+    class OptionalParameterExtraction {
+
+        @Test
+        void optionalParamPresent() {
+            Parameter param = new Parameter("/users/:id?", "/users/123");
+            assertTrue(param.has("id"));
+            assertEquals("123", param.get("id"));
+        }
+
+        @Test
+        void optionalParamAbsent() {
+            Parameter param = new Parameter("/users/:id?", "/users");
+            assertFalse(param.has("id"));
+            assertNull(param.get("id"));
+        }
+
+        @Test
+        void optionalParamAbsentGetOrDefault() {
+            Parameter param = new Parameter("/users/:id?", "/users");
+            assertEquals("default", param.getOrDefault("id", "default"));
+        }
+
+        @Test
+        void requiredThenOptionalBothPresent() {
+            Parameter param = new Parameter("/a/:b/:c?", "/a/1/2");
+            assertEquals("1", param.get("b"));
+            assertEquals("2", param.get("c"));
+        }
+
+        @Test
+        void requiredThenOptionalOnlyRequired() {
+            Parameter param = new Parameter("/a/:b/:c?", "/a/1");
+            assertEquals("1", param.get("b"));
+            assertFalse(param.has("c"));
+        }
+
+        @Test
+        void multipleOptionalAllPresent() {
+            Parameter param = new Parameter("/a/:b?/:c?", "/a/1/2");
+            assertEquals("1", param.get("b"));
+            assertEquals("2", param.get("c"));
+        }
+
+        @Test
+        void multipleOptionalFirstOnly() {
+            Parameter param = new Parameter("/a/:b?/:c?", "/a/1");
+            assertEquals("1", param.get("b"));
+            assertFalse(param.has("c"));
+        }
+
+        @Test
+        void multipleOptionalNonePresent() {
+            Parameter param = new Parameter("/a/:b?/:c?", "/a");
+            assertFalse(param.has("b"));
+            assertFalse(param.has("c"));
+        }
+
+        @Test
+        void optionalParamWithEncodedValue() {
+            Parameter param = new Parameter("/r/:name?", "/r/my%2Ffile");
+            assertEquals("my/file", param.get("name"));
+            assertEquals("my%2Ffile", param.getRaw("name"));
+        }
     }
 
     // ------------------------------------------------------ encoding
@@ -297,6 +446,53 @@ class ParameterTest {
         void mixedStaticAndParams() {
             assertEquals("/api/users/john%2Fdoe/posts",
                     Parameter.encodePath("/api/users/:name/posts", "john/doe"));
+        }
+
+        @Test
+        void optionalParamOmitted() {
+            assertEquals("/users", Parameter.encodePath("/users/:id?"));
+        }
+
+        @Test
+        void optionalParamProvided() {
+            assertEquals("/users/123", Parameter.encodePath("/users/:id?", "123"));
+        }
+
+        @Test
+        void requiredThenOptionalOmitted() {
+            assertEquals("/a/1", Parameter.encodePath("/a/:b/:c?", "1"));
+        }
+
+        @Test
+        void requiredThenOptionalProvided() {
+            assertEquals("/a/1/2", Parameter.encodePath("/a/:b/:c?", "1", "2"));
+        }
+
+        @Test
+        void multipleOptionalNoneProvided() {
+            assertEquals("/a", Parameter.encodePath("/a/:b?/:c?"));
+        }
+
+        @Test
+        void multipleOptionalOneProvided() {
+            assertEquals("/a/1", Parameter.encodePath("/a/:b?/:c?", "1"));
+        }
+
+        @Test
+        void multipleOptionalAllProvided() {
+            assertEquals("/a/1/2", Parameter.encodePath("/a/:b?/:c?", "1", "2"));
+        }
+
+        @Test
+        void optionalTooManyValues() {
+            assertThrows(IllegalArgumentException.class,
+                    () -> Parameter.encodePath("/users/:id?", "1", "2"));
+        }
+
+        @Test
+        void requiredMissing() {
+            assertThrows(IllegalArgumentException.class,
+                    () -> Parameter.encodePath("/a/:b/:c?"));
         }
     }
 

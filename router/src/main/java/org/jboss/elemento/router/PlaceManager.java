@@ -404,7 +404,11 @@ public class PlaceManager {
      */
     public String href(String path) {
         PlaceManagerStruct pms = findPlace(path);
-        return pms.ok() ? base.absolute(pms.place.route) : "#";
+        if (pms.ok()) {
+            String relativePath = base.relative(path);
+            return base.absolute(relativePath != null ? relativePath : pms.place.route);
+        }
+        return "#";
     }
 
     // ------------------------------------------------------ event handling

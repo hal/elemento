@@ -124,6 +124,53 @@ public class Application {
 See the API documentation of [PlaceManager](https://hal.github.io/elemento/apidocs/org/jboss/elemento/router/PlaceManager.html)
 for more details.
 
+## Optional Parameters
+
+Routes can have optional parameters using the `:param?` syntax (trailing `?`). Optional parameters must be at the end of the route. A route like `/users/:id?` matches both `/users` and `/users/123`.
+
+### Rules
+
+- Optional parameters use the `:name?` syntax
+- Optional parameters must be trailing — `/users/:id?/edit` is **invalid**
+- Multiple trailing optional parameters are allowed: `/a/:b?/:c?`
+- Required parameters can precede optional ones: `/a/:b/:c?`
+
+### Example
+
+```java
+@Route("/users/:id?")
+public class UsersPage implements Page {
+
+    @Override
+    public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
+        if (parameter.has("id")) {
+            // show single user
+            String id = parameter.get("id");
+            return asList(h(1, "User " + id).element());
+        } else {
+            // show user list
+            return asList(h(1, "All Users").element());
+        }
+    }
+}
+```
+
+### Navigation
+
+```java
+// Navigate to the user list (optional param omitted)
+placeManager.goTo("/users");
+
+// Navigate to a specific user (optional param provided)
+placeManager.goTo("/users/:id?", "123");
+
+// Build paths with optional params
+Parameter.encodePath("/users/:id?");         // → "/users"
+Parameter.encodePath("/users/:id?", "123");  // → "/users/123"
+Parameter.encodePath("/a/:b/:c?", "1");      // → "/a/1"
+Parameter.encodePath("/a/:b/:c?", "1", "2"); // → "/a/1/2"
+```
+
 ## URL Encoding
 
 Route parameter values that contain special URL characters (`/`, `?`, `#`, `&`, `=`, spaces) are handled transparently by the router.

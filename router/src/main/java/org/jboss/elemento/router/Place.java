@@ -24,7 +24,9 @@ import elemental2.dom.HTMLElement;
 
 import static elemental2.dom.DomGlobal.document;
 import static org.jboss.elemento.Elements.querySelector;
+import static org.jboss.elemento.router.Parameter.hasOptionalParameter;
 import static org.jboss.elemento.router.Parameter.hasParameter;
+import static org.jboss.elemento.router.Parameter.validateOptionalParameters;
 import static org.jboss.elemento.router.Path.normalize;
 
 /**
@@ -32,7 +34,8 @@ import static org.jboss.elemento.router.Path.normalize;
  * root and an optional {@link LoadData}. element.
  * <p>
  * If the route has parameters, the {@link PlaceManager} will collect it and pass it to the page when calling
- * {@link Page#elements(Place, Parameter, LoadedData)}.
+ * {@link Page#elements(Place, Parameter, LoadedData)}. Routes support both required parameters (e.g. {@code ":id"}) and optional
+ * parameters (e.g. {@code ":id?"}). Optional parameters must be trailing — they can only appear at the end of the route.
  * <p>
  * If the page has a {@link LoadData}, the {@link PlaceManager} will call it and pass the loaded data as {@link LoadedData} to
  * the page when calling {@link Page#elements(Place, Parameter, LoadedData)}.
@@ -55,6 +58,7 @@ public class Place {
     public String title;
 
     final boolean hasParameter;
+    final boolean hasOptionalParameter;
     Supplier<HTMLElement> root;
     LoadData<?> loader;
 
@@ -62,8 +66,10 @@ public class Place {
         if (route == null || route.trim().isEmpty()) {
             throw new IllegalArgumentException("Route must not be null or empty!");
         }
+        validateOptionalParameters(route);
         this.route = normalize(route);
         this.hasParameter = hasParameter(route);
+        this.hasOptionalParameter = hasOptionalParameter(route);
         this.title = null;
         this.root = null;
     }
@@ -74,6 +80,7 @@ public class Place {
         this.title = other.title;
         this.root = other.root;
         this.hasParameter = other.hasParameter;
+        this.hasOptionalParameter = other.hasOptionalParameter;
     }
 
     @Override

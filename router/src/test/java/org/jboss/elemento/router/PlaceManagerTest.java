@@ -15,6 +15,8 @@
  */
 package org.jboss.elemento.router;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.jboss.elemento.router.Place.place;
@@ -22,6 +24,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class PlaceManagerTest {
+
+    @BeforeEach
+    void setUp() {
+        Parameter.encoder = new JavaUrlEncoder();
+    }
+
+    @AfterEach
+    void tearDown() {
+        Parameter.encoder = new JsUrlEncoder();
+    }
 
     @Test
     void places() {
@@ -32,6 +44,21 @@ public class PlaceManagerTest {
         assertNull(placeManager.place(""));
         assertNull(placeManager.place("foo"));
         assertEquals("/foo", placeManager.place("/foo").route);
+    }
+
+    @Test
+    void optionalParameterPlaces() {
+        PlaceManager placeManager = new PlaceManager()
+                .register(place("/users/:id?"), TestPage::new);
+
+        // matches with optional param present
+        assertEquals("/users/:id?", placeManager.place("/users/123").route);
+
+        // matches with optional param absent
+        assertEquals("/users/:id?", placeManager.place("/users").route);
+
+        // no match for extra segments
+        assertNull(placeManager.place("/users/123/edit"));
     }
 
     @Test

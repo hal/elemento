@@ -25,8 +25,10 @@
  * <p>
  * A data class that represents a place in an application. A place is identified by a route (e.g., {@code "/home"} or
  * {@code "/contacts/:contactId"}) and can have an optional title and a custom root element. Routes can have parameters such as
- * {@code /contacts/:contactId}, which will be parsed and made available to the page. A place can also have a loader assigned to it
- * for asynchronously loading data before the page is displayed.
+ * {@code /contacts/:contactId}, which will be parsed and made available to the page. Routes also support optional parameters using
+ * the {@code :param?} syntax — for example, {@code /users/:id?} matches both {@code /users} and {@code /users/123}. Optional
+ * parameters must be trailing. A place can also have a loader assigned to it for asynchronously loading data before the page is
+ * displayed.
  *
  * <h3>{@link org.jboss.elemento.router.Places}</h3>
  * <p>
@@ -59,6 +61,36 @@
  * </ul>
  * The place manager can be customized using builder-like methods and has a {@code start()} method to initialize routing and show
  * the initial page.
+ *
+ * <h2>Optional Parameters</h2>
+ * <p>
+ * Routes can have optional parameters using the {@code :param?} syntax (trailing {@code ?}). Optional parameters must be at the
+ * end of the route. A route like {@code /users/:id?} matches both {@code /users} and {@code /users/123}.
+ * <ul>
+ * <li>Optional parameters use the {@code :name?} syntax</li>
+ * <li>Optional parameters must be trailing — {@code /users/:id?/edit} is invalid</li>
+ * <li>Multiple trailing optional parameters are allowed: {@code /a/:b?/:c?}</li>
+ * <li>Required parameters can precede optional ones: {@code /a/:b/:c?}</li>
+ * </ul>
+ * <p>
+ * When an optional parameter is not present in the URL, {@link org.jboss.elemento.router.Parameter#get(String)} returns
+ * {@code null} and {@link org.jboss.elemento.router.Parameter#has(String)} returns {@code false}. Use
+ * {@link org.jboss.elemento.router.Parameter#getOrDefault(String, String)} for a fallback value.
+ *
+ * {@snippet :
+ * @Route("/users/:id?")
+ * public class UsersPage implements Page {
+ *     @Override
+ *     public Iterable<HTMLElement> elements(Place place, Parameter parameter, LoadedData data) {
+ *         if (parameter.has("id")) {
+ *             String id = parameter.get("id");
+ *             return asList(h(1, "User " + id).element());
+ *         } else {
+ *             return asList(h(1, "All Users").element());
+ *         }
+ *     }
+ * }
+ * }
  *
  * <h2>URL Encoding</h2>
  * <p>
