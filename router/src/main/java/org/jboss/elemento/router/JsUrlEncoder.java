@@ -15,20 +15,14 @@
  */
 package org.jboss.elemento.router;
 
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsPackage;
+import static elemental2.core.Global.decodeURIComponent;
+import static elemental2.core.Global.encodeURIComponent;
 
 /**
  * Default URL encoder using JavaScript's {@code encodeURIComponent()} and {@code decodeURIComponent()} via JsInterop. This
  * implementation is used at browser runtime.
  */
 class JsUrlEncoder implements UrlEncoder {
-
-    @JsMethod(namespace = JsPackage.GLOBAL)
-    private static native String encodeURIComponent(String value);
-
-    @JsMethod(namespace = JsPackage.GLOBAL)
-    private static native String decodeURIComponent(String value);
 
     @Override
     public String encode(String value) {
