@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add optional route parameter support using the `:param?` syntax. Optional parameters must be trailing and match both with and without the segment present (e.g., `/users/:id?` matches `/users` and `/users/123`). Multiple trailing optional parameters and mixed required/optional parameters are supported.
+  - Add `Parameter.isOptionalParameter(String)` and `Parameter.hasOptionalParameter(String)` detection methods
+  - Update `Parameter.match()` to support variable-length matching for optional parameters
+  - Update `Parameter.encodePath()` to allow omitting trailing optional parameter values
+  - Add validation that optional parameters are trailing-only (throws `IllegalArgumentException` otherwise)
+
 ## [2.5.0] - 2026-06-10
 
 ### Added
