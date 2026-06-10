@@ -60,6 +60,53 @@
  * The place manager can be customized using builder-like methods and has a {@code start()} method to initialize routing and show
  * the initial page.
  *
+ * <h2>URL Encoding</h2>
+ * <p>
+ * Route parameter values that contain special URL characters ({@code /}, {@code ?}, {@code #}, {@code &}, {@code =}, spaces)
+ * are handled transparently by the router. There are two ways to work with encoded parameters:
+ *
+ * <h3>Automatic encoding</h3>
+ * <p>
+ * Use the overloaded {@link org.jboss.elemento.router.PlaceManager#goTo(String, String...)},
+ * {@link org.jboss.elemento.router.PlaceManager#href(String, String...)}, and
+ * {@link org.jboss.elemento.router.Link#link(PlaceManager, String, String...)} methods. Pass raw/decoded values — encoding is
+ * handled internally:
+ *
+ * {@snippet :
+ * // Navigate with encoded parameters
+ * placeManager.goTo("/resource/:name", "my/file");
+ *
+ * // Generate href with encoded parameters
+ * String url = placeManager.href("/resource/:name", "my/file");
+ *
+ * // Create a link with encoded parameters
+ * Link.link(placeManager, "/resource/:name", "my/file");
+ * }
+ *
+ * <h3>Manual encoding</h3>
+ * <p>
+ * When building paths yourself for use with {@link org.jboss.elemento.router.PlaceManager#goTo(String)} or
+ * {@link org.jboss.elemento.router.PlaceManager#href(String)}, use the encoding utilities:
+ *
+ * {@snippet :
+ * // Build an encoded path from a template
+ * String path = Parameter.encodePath("/resource/:name", "my/file");
+ * placeManager.goTo(path);
+ *
+ * // Encode a single value
+ * String encoded = Parameter.encode("my/file"); // → "my%2Ffile"
+ * }
+ *
+ * <h3>Reading parameters</h3>
+ * <p>
+ * {@link org.jboss.elemento.router.Parameter#get(String)} always returns <strong>decoded</strong> values. Use
+ * {@link org.jboss.elemento.router.Parameter#getRaw(String)} for the raw/encoded form:
+ *
+ * {@snippet :
+ * parameter.get("name")    // → "my/file" (decoded)
+ * parameter.getRaw("name") // → "my%2Ffile" (encoded)
+ * }
+ *
  * <h2>Annotations</h2>
  * <p>
  * To simplify the creation of {@link org.jboss.elemento.router.Place} instances in large applications, the router module provides

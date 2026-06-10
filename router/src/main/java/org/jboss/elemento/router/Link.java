@@ -30,7 +30,29 @@ public class Link extends HTMLContainerBuilder<HTMLAnchorElement> {
     // ------------------------------------------------------ factory
 
     /**
+     * Creates a new Link instance for a route with parameter values. Values are <strong>encoded automatically</strong> — pass
+     * raw/decoded values.
+     * <p>
+     * Example:
+     * <pre>
+     * Link.link(placeManager, "/resource/:name", "my/file");
+     * </pre>
+     *
+     * @param placeManager The PlaceManager used to resolve the route.
+     * @param route        The route template with {@code :param} placeholders.
+     * @param values       The raw parameter values in the order they appear in the route.
+     * @return The new Link instance.
+     * @throws IllegalArgumentException if the number of values doesn't match the number of parameters
+     * @see Parameter#encodePath(String, String...)
+     */
+    public static Link link(PlaceManager placeManager, String route, String... values) {
+        return new Link(placeManager, Parameter.encodePath(route, values));
+    }
+
+    /**
      * Creates a new Link instance based on the given PlaceManager and route.
+     * <p>
+     * <strong>No encoding</strong> is applied — the route is used as-is.
      *
      * @param placeManager The PlaceManager used to resolve the route.
      * @param route        The route of the hyperlink.

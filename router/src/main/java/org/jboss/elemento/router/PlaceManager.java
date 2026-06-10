@@ -332,8 +332,29 @@ public class PlaceManager {
     }
 
     /**
+     * Navigates to a route with parameter values. Values are <strong>encoded automatically</strong> — pass raw/decoded values.
+     * <p>
+     * Example:
+     * <pre>
+     * placeManager.goTo("/resource/:name", "my/file");
+     * placeManager.goTo("/time/:area/:location", "America", "New_York");
+     * </pre>
+     *
+     * @param route  the route template with {@code :param} placeholders
+     * @param values the raw parameter values in the order they appear in the route
+     * @throws IllegalArgumentException if the number of values doesn't match the number of parameters
+     * @see Parameter#encodePath(String, String...)
+     */
+    public void goTo(String route, String... values) {
+        goTo(Parameter.encodePath(route, values));
+    }
+
+    /**
      * Navigates to a specific path within the application. The method resolves the corresponding place to the given path,
      * attempts to move to the associated page, and logs an error if the navigation fails.
+     * <p>
+     * <strong>No encoding</strong> is applied — the path is used as-is. If the path contains parameter values with special
+     * characters, encode them first using {@link Parameter#encodePath(String, String...)} or {@link Parameter#encode(String)}.
      *
      * @param path the string representation of the target path to navigate to
      */
@@ -350,9 +371,32 @@ public class PlaceManager {
     }
 
     /**
+     * Generates an absolute URL for a route with parameter values. Values are <strong>encoded automatically</strong> — pass
+     * raw/decoded values.
+     * <p>
+     * Example:
+     * <pre>
+     * String url = placeManager.href("/resource/:name", "my/file");
+     * // returns the absolute URL with "my%2Ffile" in the path
+     * </pre>
+     *
+     * @param route  the route template with {@code :param} placeholders
+     * @param values the raw parameter values in the order they appear in the route
+     * @return the absolute URL for the corresponding place, or "#" if not found
+     * @throws IllegalArgumentException if the number of values doesn't match the number of parameters
+     * @see Parameter#encodePath(String, String...)
+     */
+    public String href(String route, String... values) {
+        return href(Parameter.encodePath(route, values));
+    }
+
+    /**
      * Generates an absolute URL for the given path based on the application's base URL and routing configuration. If the
      * specified path corresponds to an existing place, the method returns the absolute URL for that place. If the path does not
      * correspond to an existing place, the method returns a fallback URL (e.g., "#").
+     * <p>
+     * <strong>No encoding</strong> is applied — the path is used as-is. If the path contains parameter values with special
+     * characters, encode them first using {@link Parameter#encodePath(String, String...)} or {@link Parameter#encode(String)}.
      *
      * @param path the path for which the URL is to be generated; typically represents a route within the application
      * @return the absolute URL as a String for the corresponding place if found, or a fallback URL ("#") if the place does not
