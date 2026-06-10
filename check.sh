@@ -18,12 +18,9 @@
 
 # --------------------------------------------------
 #
-# Validates the source code by applying
-#   - maven-enforcer-plugin
-#   - maven-checkstyle-plugin
-#   - license-maven-plugin
-#   - editorconfig-maven-plugin
-#   - impsort-maven-plugin
+# Checks the source code using the 'check' Maven
+# profile (enforcer, checkstyle, license headers,
+# editorconfig, import sorting).
 #
 # --------------------------------------------------
 
@@ -97,9 +94,4 @@ parse_params() {
 
 parse_params "$@"
 setup_colors
-mvn -P samples \
-  org.apache.maven.plugins:maven-enforcer-plugin:enforce \
-  org.apache.maven.plugins:maven-checkstyle-plugin:check \
-  com.mycila:license-maven-plugin:check \
-  org.ec4j.maven:editorconfig-maven-plugin:check \
-  net.revelc.code:impsort-maven-plugin:check
+mvn process-sources -P check,samples

@@ -18,10 +18,9 @@
 
 # --------------------------------------------------
 #
-# Formats the source code by applying
-#   - license-maven-plugin
-#   - editorconfig-maven-plugin
-#   - impsort-maven-plugin
+# Formats the source code using the 'format' Maven
+# profile (license headers, editorconfig, import
+# sorting).
 #
 # --------------------------------------------------
 
@@ -95,7 +94,4 @@ parse_params() {
 
 parse_params "$@"
 setup_colors
-mvn -P samples \
-  com.mycila:license-maven-plugin:format \
-  org.ec4j.maven:editorconfig-maven-plugin:format \
-  net.revelc.code:impsort-maven-plugin:sort
+mvn process-sources -P format,samples
