@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.1] - 2026-06-10
+
 ### Added
 
 - Add optional route parameter support using the `:param?` syntax. Optional parameters must be trailing and match both with and without the segment present (e.g., `/users/:id?` matches `/users` and `/users/123`). Multiple trailing optional parameters and mixed required/optional parameters are supported.
@@ -1376,7 +1378,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.0...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.1...HEAD
+[2.5.1]: https://github.com/hal/elemento/compare/v2.5.0...v2.5.1
 [2.5.0]: https://github.com/hal/elemento/compare/v2.4.11...v2.5.0
 [2.4.11]: https://github.com/hal/elemento/compare/v2.4.10...v2.4.11
 [2.4.10]: https://github.com/hal/elemento/compare/v2.4.9...v2.4.10
