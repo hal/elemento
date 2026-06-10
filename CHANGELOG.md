@@ -20,6 +20,19 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Migrate all samples from Parcel to Vite 8. Remove `.parcelrc` files, Parcel resolver plugins, `parcelIgnore` workarounds, and Parcel-specific `pnpm-workspace.yaml` native dependency allowances. Replace the music sample's custom Express proxy server (`server.js`) with Vite's built-in dev server.
 - `Parameter.get(String)` now returns the **decoded** parameter value. Previously returned the raw URL segment, which is identical for unencoded values (backward compatible for existing usage).
 
+### Fixed
+
+- Fix J2CL production build failure caused by `JavaUrlEncoder` using `java.net.URLEncoder`/`URLDecoder` (not available in J2CL's JRE emulation)
+
+### Upgrades
+
+- Bump j2cl-maven-plugin from 0.23.6 to 0.23.8
+- Bump gwt-maven-plugin from 1.2.0 to 1.3.0
+- Bump patternfly-java-bom from 0.6.16 to 0.9.1
+- Bump junit-bom from 6.0.3 to 6.1.0
+- Bump jboss-parent from 52 to 53
+- Bump j2cl platform bom to 20260527-1
+
 ## [2.4.11] - 2026-03-30
 
 ### Added
