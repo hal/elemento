@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.2] - 2026-06-10
+
 ### Added
 
 - Add `Place.path()` method that returns the route with optional parameter segments removed — the shortest concrete URL that matches the route. For routes without optional parameters, `path()` returns the same value as `route()`.
@@ -1388,7 +1390,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.1...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.2...HEAD
+[2.5.2]: https://github.com/hal/elemento/compare/v2.5.1...v2.5.2
 [2.5.1]: https://github.com/hal/elemento/compare/v2.5.0...v2.5.1
 [2.5.0]: https://github.com/hal/elemento/compare/v2.4.11...v2.5.0
 [2.4.11]: https://github.com/hal/elemento/compare/v2.4.10...v2.4.11
