@@ -246,7 +246,8 @@ public class Parameter {
                 sb.append('/').append(part);
             }
         }
-        return sb.isEmpty() ? "/" : sb.toString();
+        //noinspection SizeReplaceableByIsEmpty
+        return sb.length() == 0 ? "/" : sb.toString();
     }
 
     static boolean match(String route, String path) {
