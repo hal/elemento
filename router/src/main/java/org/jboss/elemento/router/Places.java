@@ -100,6 +100,6 @@ public class Places implements Iterable<Map.Entry<Place, Supplier<Page>>> {
     // ------------------------------------------------------ internal
 
     private String failSafeRoute(String parent, Place child) {
-        return normalize(normalize(parent) + child.route);
+        return normalize(normalize(parent) + child.route());
     }
 }

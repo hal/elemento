@@ -26,16 +26,24 @@ import static elemental2.dom.DomGlobal.document;
 import static org.jboss.elemento.Elements.querySelector;
 import static org.jboss.elemento.router.Parameter.hasOptionalParameter;
 import static org.jboss.elemento.router.Parameter.hasParameter;
+import static org.jboss.elemento.router.Parameter.stripOptionalParameters;
 import static org.jboss.elemento.router.Parameter.validateOptionalParameters;
 import static org.jboss.elemento.router.Path.normalize;
 
 /**
- * Represents a place in an application. A place is identified by a route that can have parameters, an optional title, a custom
- * root and an optional {@link LoadData}. element.
+ * Represents a place in an application. A place is identified by a route, an optional title, a custom root element and an
+ * optional {@link LoadData}.
  * <p>
- * If the route has parameters, the {@link PlaceManager} will collect it and pass it to the page when calling
- * {@link Page#elements(Place, Parameter, LoadedData)}. Routes support both required parameters (e.g. {@code ":id"}) and optional
- * parameters (e.g. {@code ":id?"}). Optional parameters must be trailing — they can only appear at the end of the route.
+ * The <em>route</em> is the full pattern including parameter placeholders (e.g. {@code "/users/:id"} or
+ * {@code "/configuration/:item?"}). The <em>path</em> is the route with optional parameter segments removed — it represents the
+ * shortest concrete URL that matches the route. For routes without optional parameters, {@link #route()} and {@link #path()}
+ * return the same value.
+ * <p>
+ * Routes support both required parameters (e.g. {@code ":id"}) and optional parameters (e.g. {@code ":id?"}). Optional
+ * parameters must be trailing — they can only appear at the end of the route.
+ * <p>
+ * If the route has parameters, the {@link PlaceManager} will collect them and pass them to the page when calling
+ * {@link Page#elements(Place, Parameter, LoadedData)}.
  * <p>
  * If the page has a {@link LoadData}, the {@link PlaceManager} will call it and pass the loaded data as {@link LoadedData} to
  * the page when calling {@link Page#elements(Place, Parameter, LoadedData)}.
@@ -54,8 +62,9 @@ public class Place {
 
     // ------------------------------------------------------ instance
 
-    public final String route;
-    public String title;
+    private final String route;
+    private final String path;
+    private String title;
 
     final boolean hasParameter;
     final boolean hasOptionalParameter;
@@ -68,6 +77,7 @@ public class Place {
         }
         validateOptionalParameters(route);
         this.route = normalize(route);
+        this.path = stripOptionalParameters(this.route);
         this.hasParameter = hasParameter(route);
         this.hasOptionalParameter = hasOptionalParameter(route);
         this.title = null;
@@ -77,6 +87,7 @@ public class Place {
     // copy constructor
     Place(String route, Place other) {
         this.route = route;
+        this.path = stripOptionalParameters(route);
         this.title = other.title;
         this.root = other.root;
         this.hasParameter = other.hasParameter;
@@ -140,5 +151,28 @@ public class Place {
     public Place loader(LoadData<?> loader) {
         this.loader = loader;
         return this;
+    }
+
+    // ------------------------------------------------------ getters
+
+    /**
+     * Returns the full route pattern including parameter placeholders (e.g. {@code "/users/:id"} or
+     * {@code "/configuration/:path?"}).
+     */
+    public String route() {
+        return route;
+    }
+
+    /**
+     * Returns the route with optional parameter segments removed. This is the shortest concrete URL that matches the route. For
+     * routes without optional parameters, this returns the same value as {@link #route()}.
+     */
+    public String path() {
+        return path;
+    }
+
+    /** Returns the title, or {@code null} if none was set. */
+    public String title() {
+        return title;
     }
 }

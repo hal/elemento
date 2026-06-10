@@ -238,6 +238,17 @@ public class Parameter {
         }
     }
 
+    static String stripOptionalParameters(String route) {
+        String[] parts = Path.split(route);
+        StringBuilder sb = new StringBuilder();
+        for (String part : parts) {
+            if (!Parameter.isOptionalParameter(part)) {
+                sb.append('/').append(part);
+            }
+        }
+        return sb.isEmpty() ? "/" : sb.toString();
+    }
+
     static boolean match(String route, String path) {
         if (route != null && path != null) {
             String[] routeParts = Path.split(route);

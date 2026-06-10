@@ -7,6 +7,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `Place.path()` method that returns the route with optional parameter segments removed — the shortest concrete URL that matches the route. For routes without optional parameters, `path()` returns the same value as `route()`.
+- Add `Parameter.stripOptionalParameters(String)` utility method
+
+### Changed
+
+- Encapsulate `Place` fields: `route`, `path`, and `title` are now private with getter methods `route()`, `path()`, and `title()`
+- `PlaceManager` now uses `Place.path()` instead of `Place.route()` for user-facing URLs (history updates, error pages, href generation)
+
 ## [2.5.1] - 2026-06-10
 
 ### Added

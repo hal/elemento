@@ -268,7 +268,7 @@ public class PlaceManager {
      * @param page  a {@link Supplier} that provides the {@link Page} associated with the given place
      */
     public PlaceManager register(Place place, Supplier<Page> page) {
-        places.put(place.route, place);
+        places.put(place.route(), place);
         pages.put(place, page);
         return this;
     }
@@ -406,7 +406,7 @@ public class PlaceManager {
         PlaceManagerStruct pms = findPlace(path);
         if (pms.ok()) {
             String relativePath = base.relative(path);
-            return base.absolute(relativePath != null ? relativePath : pms.place.route);
+            return base.absolute(relativePath != null ? relativePath : pms.place.path());
         }
         return "#";
     }
@@ -476,9 +476,9 @@ public class PlaceManager {
                 logger.debug("No direct match for '%s'. Looking for parameterized place.", path);
                 for (Iterator<Place> iterator = places.values().iterator(); iterator.hasNext() && pms.place == null; ) {
                     Place possiblePlace = iterator.next();
-                    if (possiblePlace.hasParameter && match(possiblePlace.route, relativePath)) {
+                    if (possiblePlace.hasParameter && match(possiblePlace.route(), relativePath)) {
                         pms.place = possiblePlace;
-                        pms.parameter = new Parameter(pms.place.route, relativePath);
+                        pms.parameter = new Parameter(pms.place.route(), relativePath);
                     }
                 }
             }
@@ -562,8 +562,8 @@ public class PlaceManager {
             return Promise.resolve(false);
         }
 
-        if (pms.place.title != null) {
-            document.title = this.title.apply(pms.place.title);
+        if (pms.place.title() != null) {
+            document.title = this.title.apply(pms.place.title());
         }
         removeChildrenFrom(rootElement);
         if (currentPage != null) {
@@ -615,7 +615,7 @@ public class PlaceManager {
     }
 
     private void updateHistory(PlaceManagerStruct pms, boolean push) {
-        String url = base.absolute(pms.parameter.isEmpty() ? pms.place.route : pms.parameter.path());
+        String url = base.absolute(pms.parameter.isEmpty() ? pms.place.path() : pms.parameter.path());
         if (push) {
             history.pushState(url, "", url);
         } else {
@@ -669,7 +669,7 @@ public class PlaceManager {
                     .add(div().style(CONTAINER_STYLE)
                             .add(h(1, "Error 404").style(HEADER_STYLE))
                             .add(p().style(PARAGRAPH_STYLE)
-                                    .add("You're lost! Page '" + notFound.route + "' was not found. Please take a step ")
+                                    .add("You're lost! Page '" + notFound.path() + "' was not found. Please take a step ")
                                     .add(a("javascript:history.back()").text("back"))
                                     .add(".")))
                     .element());
@@ -685,7 +685,7 @@ public class PlaceManager {
                     .add(div().style(CONTAINER_STYLE)
                             .add(h(1, "No data").style(HEADER_STYLE))
                             .add(p().style(PARAGRAPH_STYLE)
-                                    .add("The data for page '" + place.route + "' could not be loaded."))
+                                    .add("The data for page '" + place.path() + "' could not be loaded."))
                             .add(pre().style(ERROR_STYLE).text(error)))
                     .element());
         }
@@ -705,7 +705,7 @@ public class PlaceManager {
                     .add(div().style(CONTAINER_STYLE)
                             .add(h(1, "Error").style(HEADER_STYLE))
                             .add(p().style(PARAGRAPH_STYLE)
-                                    .add("An error occurred while loading the page '" + place.route + "'."))
+                                    .add("An error occurred while loading the page '" + place.path() + "'."))
                             .add(pre().style(ERROR_STYLE).text(error)))
                     .element());
         }

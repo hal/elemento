@@ -43,7 +43,7 @@ public class PlaceManagerTest {
         assertNull(placeManager.place(null));
         assertNull(placeManager.place(""));
         assertNull(placeManager.place("foo"));
-        assertEquals("/foo", placeManager.place("/foo").route);
+        assertEquals("/foo", placeManager.place("/foo").route());
     }
 
     @Test
@@ -52,10 +52,10 @@ public class PlaceManagerTest {
                 .register(place("/users/:id?"), TestPage::new);
 
         // matches with optional param present
-        assertEquals("/users/:id?", placeManager.place("/users/123").route);
+        assertEquals("/users/:id?", placeManager.place("/users/123").route());
 
         // matches with optional param absent
-        assertEquals("/users/:id?", placeManager.place("/users").route);
+        assertEquals("/users/:id?", placeManager.place("/users").route());
 
         // no match for extra segments
         assertNull(placeManager.place("/users/123/edit"));
@@ -67,7 +67,7 @@ public class PlaceManagerTest {
                 .register(place("/foo"), TestPage::new);
 
         Place place = placeManager.place("/foo");
-        assertEquals("/foo", place.route);
+        assertEquals("/foo", place.route());
         assertEquals("/base/foo", placeManager.href("/foo"));
     }
 }
