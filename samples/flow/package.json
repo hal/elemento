@@ -7,7 +7,7 @@
     "prod": "vite build"
   },
   "dependencies": {
-    "@patternfly-java/core": "^0.6.16",
+    "@patternfly-java/core": "^0.9.2",
     "@patternfly/patternfly": "^6.5.2"
   },
   "devDependencies": {
