@@ -34,7 +34,7 @@
     <properties>
         <!-- Dependency versions -->
         <version.corepack>v0.34.6</version.corepack>
-        <version.gwt>2.13.0</version.gwt>
+        <version.gwt>2.13.1</version.gwt>
         <version.kie.j2cl.bom>0.6</version.kie.j2cl.bom>
         <version.node>26.3.1</version.node>
         <version.j2cl.platform.bom>20260527-1</version.j2cl.platform.bom>
