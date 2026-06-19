@@ -1,7 +1,7 @@
 name: depup
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -14,3 +14,5 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: hpehl/depup@v1
+        with:
+          stable: true
