@@ -17,6 +17,6 @@ jobs:
         with:
           node-version: "lts/*"
       - uses: pnpm/action-setup@v6
-      - uses: hpehl/depup@v1
+      - uses: hpehl/depup@v2
         with:
           stable: true
