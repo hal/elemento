@@ -13,10 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
-        with:
-          node-version: "lts/*"
-      - uses: pnpm/action-setup@v6
-      - uses: hpehl/depup@v2
+      - uses: hpehl/depup@v3
         with:
           stable: true
