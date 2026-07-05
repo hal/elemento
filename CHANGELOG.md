@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.3] - 2026-07-05
+
 ### Upgrades
 
 - Bump J2CL tools BOM from 0.5 to 0.6
@@ -1402,7 +1404,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.2...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.3...HEAD
+[2.5.3]: https://github.com/hal/elemento/compare/v2.5.2...v2.5.3
 [2.5.2]: https://github.com/hal/elemento/compare/v2.5.1...v2.5.2
 [2.5.1]: https://github.com/hal/elemento/compare/v2.5.0...v2.5.1
 [2.5.0]: https://github.com/hal/elemento/compare/v2.4.11...v2.5.0
