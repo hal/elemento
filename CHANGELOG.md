@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Upgrades
+
+- Bump J2CL tools BOM from 0.5 to 0.6
+- Bump GWT from 2.13.0 to 2.13.1
+- Bump PatternFly Java BOM from 0.9.1 to 0.9.2
+- Bump frontend-maven-plugin to latest
+- Bump central-publishing-plugin to 0.11.0
+
 ## [2.5.2] - 2026-06-10
 
 ### Added
