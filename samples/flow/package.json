@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@patternfly-java/core": "^0.9.2",
-    "@patternfly/patternfly": "^6.5.2"
+    "@patternfly/patternfly": "^6.6.0"
   },
   "devDependencies": {
     "vite": "^8.1.0"

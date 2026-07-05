@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@patternfly-java/core':
         specifier: ^0.9.2
-        version: 0.9.2(@patternfly/patternfly@6.5.2)
+        version: 0.9.2(@patternfly/patternfly@6.6.0)
       '@patternfly/patternfly':
-        specifier: ^6.5.2
-        version: 6.5.2
+        specifier: ^6.6.0
+        version: 6.6.0
     devDependencies:
       vite:
         specifier: ^8.1.0
@@ -44,8 +44,8 @@ packages:
     peerDependencies:
       '@patternfly/patternfly': ^6.5.2
 
-  '@patternfly/patternfly@6.5.2':
-    resolution: {integrity: sha512-yZ71+1gt1VGzUN5amjDNd9NvttTnSOm9M0JeBL0YX1KaWXW1bmDPzTWEM+vQXuC4LVK0msHmR5hKB7KVpamAkA==}
+  '@patternfly/patternfly@6.6.0':
+    resolution: {integrity: sha512-drZ4wYFQdhYY+VxLIl8PqbYnJoEa0UrNhiUkMCKkgMVNPxmCfNa1d2eEA97tnp2aYew15jQp+MaZcQIQIG8wVg==}
 
   '@rolldown/binding-android-arm64@1.1.2':
     resolution: {integrity: sha512-2cZ+7xRS+DBcuJBJKnfzsbleumJhBqSlJVpuzHC0nTqfd3QQ7Vx2/x5YR/D7cBamKSeWplwo82Fn9lqYUDEMfA==}
@@ -342,11 +342,11 @@ snapshots:
 
   '@oxc-project/types@0.137.0': {}
 
-  '@patternfly-java/core@0.9.2(@patternfly/patternfly@6.5.2)':
+  '@patternfly-java/core@0.9.2(@patternfly/patternfly@6.6.0)':
     dependencies:
-      '@patternfly/patternfly': 6.5.2
+      '@patternfly/patternfly': 6.6.0
 
-  '@patternfly/patternfly@6.5.2': {}
+  '@patternfly/patternfly@6.6.0': {}
 
   '@rolldown/binding-android-arm64@1.1.2':
     optional: true
