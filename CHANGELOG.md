@@ -7,8 +7,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [2.5.3] - 2026-07-05
-
 ### Upgrades
 
 - Bump J2CL tools BOM from 0.5 to 0.6
@@ -21,6 +19,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Fix BOM release by updating central-publishing-maven-plugin from 0.7.0 to 0.11.0 and jboss-parent from 51 to 53
 
+## [2.5.3] - 2026-07-05
+
+> [!WARNING]
+> Not an official release. Please don't use!
 ## [2.5.2] - 2026-06-10
 
 ### Added
