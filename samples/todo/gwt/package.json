@@ -7,7 +7,7 @@
     "vite": "^8.1.0"
   },
   "name": "todo-sample-gwt",
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@11.10.0",
   "private": true,
   "scripts": {
     "dev": "vite build --mode development",
