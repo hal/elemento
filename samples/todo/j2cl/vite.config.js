@@ -17,7 +17,7 @@ import {defineConfig} from 'vite';
 import {resolve} from 'path';
 import {existsSync, createReadStream} from 'fs';
 
-const j2clDir = resolve(__dirname, 'target/todo');
+const j2clDir = resolve(import.meta.dirname, 'target/todo');
 
 function serveJ2cl() {
     return {
@@ -42,7 +42,7 @@ export default defineConfig({
     root: 'src/web',
     plugins: [serveJ2cl()],
     build: {
-        outDir: resolve(__dirname, 'target/todo'),
+        outDir: resolve(import.meta.dirname, 'target/todo'),
         emptyOutDir: false,
     }
 });

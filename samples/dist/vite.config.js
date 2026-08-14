@@ -19,7 +19,7 @@ import {resolve} from 'path';
 export default defineConfig({
     root: 'src/web',
     build: {
-        outDir: resolve(__dirname, 'target/samples'),
+        outDir: resolve(import.meta.dirname, 'target/samples'),
         emptyOutDir: false,
     }
 });

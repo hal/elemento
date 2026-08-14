@@ -17,7 +17,7 @@ import {defineConfig} from 'vite';
 import {resolve} from 'path';
 import {existsSync, createReadStream} from 'fs';
 
-const gwtDir = resolve(__dirname, 'target/todo');
+const gwtDir = resolve(import.meta.dirname, 'target/todo');
 
 function serveGwt() {
     return {
@@ -42,7 +42,7 @@ export default defineConfig({
     root: 'src/web',
     plugins: [serveGwt()],
     build: {
-        outDir: resolve(__dirname, 'target/todo'),
+        outDir: resolve(import.meta.dirname, 'target/todo'),
         emptyOutDir: false,
     }
 });

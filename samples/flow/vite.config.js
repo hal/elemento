@@ -17,7 +17,7 @@ import {defineConfig} from 'vite';
 import {resolve} from 'path';
 import {existsSync, createReadStream} from 'fs';
 
-const gwtDir = resolve(__dirname, 'target/flow');
+const gwtDir = resolve(import.meta.dirname, 'target/flow');
 
 function serveGwt() {
     return {
@@ -41,8 +41,12 @@ function serveGwt() {
 export default defineConfig({
     root: 'src/web',
     plugins: [serveGwt()],
+    css: {
+        transformer: 'postcss',
+    },
     build: {
-        outDir: resolve(__dirname, 'target/flow'),
+        outDir: resolve(import.meta.dirname, 'target/flow'),
         emptyOutDir: false,
+        cssMinify: 'esbuild',
     }
 });

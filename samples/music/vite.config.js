@@ -17,7 +17,7 @@ import {defineConfig} from 'vite';
 import {resolve} from 'path';
 import {existsSync, createReadStream} from 'fs';
 
-const j2clDir = resolve(__dirname, 'target/music');
+const j2clDir = resolve(import.meta.dirname, 'target/music');
 
 function serveJ2cl() {
     return {
@@ -45,7 +45,7 @@ export default defineConfig({
         port: 1234,
     },
     build: {
-        outDir: resolve(__dirname, 'target/music'),
+        outDir: resolve(import.meta.dirname, 'target/music'),
         emptyOutDir: false,
     }
 });
