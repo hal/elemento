@@ -11,5 +11,7 @@ gwt-unitCache
 hs_err*
 node
 node_modules
+docs/.vitepress/cache
+docs/.vitepress/dist
 out
 target

@@ -15,8 +15,6 @@ jobs:
     steps:
       - uses: ts-graphviz/setup-graphviz@v2
       - uses: actions/checkout@v7
-        with:
-          persist-credentials: false
       - uses: actions/setup-java@v5
         with:
           java-version: 25
@@ -32,9 +30,11 @@ jobs:
           $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-demos
           $MVN javadoc:javadoc
         working-directory: apidoc
-      - uses: JamesIves/github-pages-deploy-action@v4.9.0
-        with:
-          branch: gh-pages
-          folder: ./apidoc/target/reports/apidocs
-          target-folder: apidocs
-          clean: true
+      - name: Package and upload apidocs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd apidoc/target/reports/apidocs
+          zip -rq /tmp/apidocs.zip .
+          LATEST_TAG=$(gh release list --limit 1 --json tagName --jq '.[0].tagName')
+          gh release upload "$LATEST_TAG" /tmp/apidocs.zip --clobber
