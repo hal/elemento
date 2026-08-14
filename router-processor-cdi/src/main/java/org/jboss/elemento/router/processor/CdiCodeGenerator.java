@@ -22,7 +22,7 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 
 class CdiCodeGenerator extends CodeGenerator {
 
-    private static final String BEAN_MANAGER_PACKAGE = "io.crysknife.client";
+    private static final String BEAN_MANAGER_PACKAGE = "org.kie.j2cl.tools.di.core"; // "io.crysknife.client";
     private static final String BEAN_MANAGER_CLASS = "BeanManager";
     private static final String BEAN_MANAGER_NAME = "beanManager";
 
