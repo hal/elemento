@@ -40,6 +40,7 @@ function serveJ2cl() {
 
 export default defineConfig({
     root: 'src/web',
+    base: '/elemento/samples/music/',
     plugins: [serveJ2cl()],
     server: {
         port: 1234,

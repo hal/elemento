@@ -40,6 +40,7 @@ function serveJ2cl() {
 
 export default defineConfig({
     root: 'src/web',
+    base: '/elemento/samples/todo/j2cl/',
     plugins: [serveJ2cl()],
     build: {
         outDir: resolve(import.meta.dirname, 'target/todo'),

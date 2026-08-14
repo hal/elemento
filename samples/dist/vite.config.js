@@ -18,6 +18,7 @@ import {resolve} from 'path';
 
 export default defineConfig({
     root: 'src/web',
+    base: '/elemento/samples/',
     build: {
         outDir: resolve(import.meta.dirname, 'target/samples'),
         emptyOutDir: false,

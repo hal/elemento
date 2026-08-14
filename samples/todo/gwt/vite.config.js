@@ -40,6 +40,7 @@ function serveGwt() {
 
 export default defineConfig({
     root: 'src/web',
+    base: '/elemento/samples/todo/gwt/',
     plugins: [serveGwt()],
     build: {
         outDir: resolve(import.meta.dirname, 'target/todo'),

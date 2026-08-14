@@ -40,6 +40,7 @@ function serveGwt() {
 
 export default defineConfig({
     root: 'src/web',
+    base: '/elemento/samples/flow/',
     plugins: [serveGwt()],
     css: {
         transformer: 'postcss',
