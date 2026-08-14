@@ -1,7 +1,10 @@
 # Samples
 
-Elemento comes with different sample applications to showcase and test the various modules. They're available
-at https://hal.github.io/elemento/samples/. The source code is available in
-the [samples](https://github.com/hal/elemento/tree/main/samples) folder.
+Elemento comes with different sample applications to showcase and test the various modules. The source code is available in the [samples](https://github.com/hal/elemento/tree/main/samples) folder.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Todo (GWT)</td><td>An GWT implementation of the <a href="https://todomvc.com/">TodoMVC</a> application to showcase and test the module <code>elemento-core</code></td><td></td><td><a href="https://hal.github.io/elemento/samples/todo/gwt/">https://hal.github.io/elemento/samples/todo/gwt/</a></td></tr><tr><td>Todo (J2CL)</td><td>An GWT implementation of the <a href="https://todomvc.com/">TodoMVC</a> application to showcase and test the module <code>elemento-core</code></td><td></td><td><a href="https://hal.github.io/elemento/samples/todo/j2cl/">https://hal.github.io/elemento/samples/todo/j2cl/</a></td></tr><tr><td>Flow</td><td>An application to showcase and test the module <code>elemento-flow</code></td><td></td><td><a href="https://hal.github.io/elemento/samples/flow/">https://hal.github.io/elemento/samples/flow/</a></td></tr><tr><td>Router</td><td>An application to showcase and test the module <code>elemento-router</code></td><td></td><td><a href="https://hal.github.io/elemento/samples/music/">https://hal.github.io/elemento/samples/music/</a></td></tr></tbody></table>
+| Sample | Description |
+| --- | --- |
+| [Todo (GWT)](https://hal.github.io/elemento/samples/todo/gwt/) | A GWT implementation of the [TodoMVC](https://todomvc.com/) application to showcase and test the module `elemento-core` |
+| [Todo (J2CL)](https://hal.github.io/elemento/samples/todo/j2cl/) | A J2CL implementation of the [TodoMVC](https://todomvc.com/) application to showcase and test the module `elemento-core` |
+| [Flow](https://hal.github.io/elemento/samples/flow/) | An application to showcase and test the module `elemento-flow` |
+| [Router](https://hal.github.io/elemento/samples/music/) | An application to showcase and test the module `elemento-router` |
