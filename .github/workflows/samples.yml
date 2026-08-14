@@ -10,18 +10,18 @@ jobs:
     env:
       MVN: ./mvnw --show-version --batch-mode
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-java@v5
         with:
-          java-version: 21
+          java-version: 25
           distribution: temurin
           cache: maven
       - run: $MVN install
         working-directory: bom
       - run: $MVN install
-      - run: mvn -Denvironment.base=/elemento/samples/music -P prod install
+      - run: $MVN -Denvironment.base=/elemento/samples/music -P prod install
         working-directory: samples
-      - uses: JamesIves/github-pages-deploy-action@v4.7.3
+      - uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: gh-pages
           folder: ./samples/dist/target/samples

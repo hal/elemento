@@ -30,15 +30,43 @@ class PlaceTest {
     }
 
     @Test
+    void optionalParameterValidation() {
+        // valid routes with optional params
+        new Place("/a/:b?");
+        new Place("/a/:b/:c?");
+        new Place("/a/:b?/:c?");
+        new Place("/:a?");
+
+        // invalid: non-optional after optional
+        assertThrows(IllegalArgumentException.class, () -> new Place("/a/:b?/c"));
+        assertThrows(IllegalArgumentException.class, () -> new Place("/a/:b?/:c"));
+        assertThrows(IllegalArgumentException.class, () -> new Place("/:a?/b"));
+    }
+
+    @Test
     void normalize() {
-        assertEquals("/", new Place("/").route);
-        assertEquals("/a", new Place("a").route);
-        assertEquals("/a", new Place("a/").route);
-        assertEquals("/a", new Place("/a").route);
-        assertEquals("/a", new Place("/a/").route);
-        assertEquals("/a/b", new Place("a/b").route);
-        assertEquals("/a/b", new Place("a/b/").route);
-        assertEquals("/a/b", new Place("/a/b").route);
-        assertEquals("/a/b", new Place("/a/b/").route);
+        assertEquals("/", new Place("/").route());
+        assertEquals("/a", new Place("a").route());
+        assertEquals("/a", new Place("a/").route());
+        assertEquals("/a", new Place("/a").route());
+        assertEquals("/a", new Place("/a/").route());
+        assertEquals("/a/b", new Place("a/b").route());
+        assertEquals("/a/b", new Place("a/b/").route());
+        assertEquals("/a/b", new Place("/a/b").route());
+        assertEquals("/a/b", new Place("/a/b/").route());
+    }
+
+    @Test
+    void path() {
+        // without optional parameters, path() equals route()
+        assertEquals("/", new Place("/").path());
+        assertEquals("/a", new Place("/a").path());
+        assertEquals("/a/b", new Place("/a/b").path());
+
+        // with optional parameters, path() strips them
+        assertEquals("/a", new Place("/a/:b?").path());
+        assertEquals("/a/:b", new Place("/a/:b/:c?").path());
+        assertEquals("/a", new Place("/a/:b?/:c?").path());
+        assertEquals("/", new Place("/:a?").path());
     }
 }

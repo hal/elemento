@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+
+     Copyright 2023 Red Hat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         https://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+Elemento is a modern, type-safe Java library for building web user interfaces using
+<a href="https://www.gwtproject.org/">GWT</a> and <a href="https://github.com/google/j2cl">J2CL</a>.
+It provides a fluent builder API that makes creating and manipulating DOM elements natural and intuitive,
+eliminating the verbosity of traditional DOM manipulation.
+
+<h2>Overview</h2>
+
+<p>Elemento simplifies web development by offering:</p>
+<ul>
+    <li><b>Fluent Builder API</b>: Create complex DOM hierarchies with clean, readable code</li>
+    <li><b>Type Safety</b>: Leverage Java's type system to catch errors at compile time</li>
+    <li><b>Modular Architecture</b>: Choose only the modules you need for your application</li>
+    <li><b>Modern Web Standards</b>: Support for Custom Elements, SVG, MathML, and more</li>
+    <li><b>Developer Friendly</b>: Intuitive APIs that reduce boilerplate and improve productivity</li>
+</ul>
+
+<h2>Modules</h2>
+
+<p><img src="doc-files/dependency-graph.png" alt="Elemento Module Dependencies"/></p>
+
+<p>Elemento is structured as a set of modules with <b>elemento-core</b> at the foundation. The core module provides
+    the essential builder API for creating and manipulating HTML elements, event handling, type-safe CSS selectors,
+    and utilities for DOM traversal and manipulation.</p>
+
+<p>Additional optional modules build on top of the core: <b>elemento-router</b> for single-page application routing,
+    <b>elemento-flow</b> for asynchronous task control flow, <b>elemento-logger</b> for lightweight logging,
+    <b>elemento-intl</b> for internationalization support, <b>elemento-svg</b> for SVG element creation,
+    and <b>elemento-mathml</b> for mathematical notation. Each module can be used independently based on your
+    application's needs.</p>
+
+</body>
+</html>

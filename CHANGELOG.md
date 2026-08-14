@@ -7,6 +7,184 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.4] - 2026-07-05
+
+### Upgrades
+
+- Bump J2CL tools BOM from 0.5 to 0.6
+- Bump GWT from 2.13.0 to 2.13.1
+- Bump PatternFly Java BOM from 0.9.1 to 0.9.2
+- Bump frontend-maven-plugin to latest
+- Bump central-publishing-plugin to 0.11.0
+
+### Fixed
+
+- Fix BOM release by updating central-publishing-maven-plugin from 0.7.0 to 0.11.0 and jboss-parent from 51 to 53
+
+## [2.5.3] - 2026-07-05
+
+> [!WARNING]
+> Not an official release. Please don't use!
+## [2.5.2] - 2026-06-10
+
+### Added
+
+- Add `Place.path()` method that returns the route with optional parameter segments removed — the shortest concrete URL that matches the route. For routes without optional parameters, `path()` returns the same value as `route()`.
+- Add `Parameter.stripOptionalParameters(String)` utility method
+
+### Changed
+
+- Encapsulate `Place` fields: `route`, `path`, and `title` are now private with getter methods `route()`, `path()`, and `title()`
+- `PlaceManager` now uses `Place.path()` instead of `Place.route()` for user-facing URLs (history updates, error pages, href generation)
+
+## [2.5.1] - 2026-06-10
+
+### Added
+
+- Add optional route parameter support using the `:param?` syntax. Optional parameters must be trailing and match both with and without the segment present (e.g., `/users/:id?` matches `/users` and `/users/123`). Multiple trailing optional parameters and mixed required/optional parameters are supported.
+  - Add `Parameter.isOptionalParameter(String)` and `Parameter.hasOptionalParameter(String)` detection methods
+  - Update `Parameter.match()` to support variable-length matching for optional parameters
+  - Update `Parameter.encodePath()` to allow omitting trailing optional parameter values
+  - Add validation that optional parameters are trailing-only (throws `IllegalArgumentException` otherwise)
+
+## [2.5.0] - 2026-06-10
+
+### Added
+
+- Add transparent URL encoding/decoding for route parameters. Parameter values containing special URL characters (`/`, `?`, `#`, `&`, `=`, spaces) are now handled automatically.
+  - Add `PlaceManager.goTo(String route, String... values)` and `PlaceManager.href(String route, String... values)` overloads that encode parameter values automatically
+  - Add `Link.link(PlaceManager, String route, String... values)` factory for creating links with encoded parameters
+  - Add `Parameter.encode(String)`, `Parameter.decode(String)`, and `Parameter.encodePath(String, String...)` encoding utilities
+  - Add `Parameter.getRaw(String)` to access the raw/encoded parameter value
+
+### Changed
+
+- Migrate all samples from Parcel to Vite 8. Remove `.parcelrc` files, Parcel resolver plugins, `parcelIgnore` workarounds, and Parcel-specific `pnpm-workspace.yaml` native dependency allowances. Replace the music sample's custom Express proxy server (`server.js`) with Vite's built-in dev server.
+- `Parameter.get(String)` now returns the **decoded** parameter value. Previously returned the raw URL segment, which is identical for unencoded values (backward compatible for existing usage).
+
+### Fixed
+
+- Fix J2CL production build failure caused by `JavaUrlEncoder` using `java.net.URLEncoder`/`URLDecoder` (not available in J2CL's JRE emulation)
+
+### Upgrades
+
+- Bump j2cl-maven-plugin from 0.23.6 to 0.23.8
+- Bump gwt-maven-plugin from 1.2.0 to 1.3.0
+- Bump patternfly-java-bom from 0.6.16 to 0.9.1
+- Bump junit-bom from 6.0.3 to 6.1.0
+- Bump jboss-parent from 52 to 53
+- Bump j2cl platform bom to 20260527-1
+
+## [2.4.11] - 2026-03-30
+
+### Added
+
+- Add support for [`beforetoggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforetoggle_event) and [`toggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/toggle_event) events.
+
+## [2.4.10] - 2026-03-26
+
+### Added
+
+- Add support for [`focusin`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusin_event) and [`focusout`](https://developer.mozilla.org/en-US/docs/Web/API/Element/focusout_event) events.
+
+### Changed
+
+- Switch to corepack and pnpm
+
+## [2.4.9] - 2026-02-19
+
+### Added
+
+- Add `ClassList.contains(String classname)`
+- Add `HTMLElementDataMethods.data(String name)`
+
+### Upgrades
+
+- Bump JBoss Parent to 52
+
+## [2.4.8] - 2026-02-05
+
+### Fixed
+
+- Added missing externs for `DurationFormat` and `DurationFormatOptions` not yet in https://github.com/google/closure-compiler/blob/master/externs/browser/intl.js
+
+## [2.4.7] - 2026-02-03
+
+### Added
+
+- Add `FlowContext.peek()` method to retrieve the object at the top of the stack without removing it.
+
+### Changed
+
+- Change `Repeat.DEFAULT_INTERVAL` to 0
+
+### Fixed
+
+- Fix `Flow.repeat()` for tasks that start own promises.
+
+## [2.4.6] - 2026-01-20
+
+### Fixed
+
+- Fix annotation processing for Java 24+
+
+## [2.4.5] - 2026-01-20
+
+> [!WARNING]
+> Not an official release. Please don't use!
+
+## [2.4.4] - 2026-01-15
+
+### Fixed
+
+- Fix Javadoc generation
+
+## [2.4.3] - 2026-01-15
+
+### Fixed
+
+- Fix Javadoc generation
+
+## [2.4.2] - 2026-01-15
+
+### Added
+
+- Add `org.jboss.elemento.intl.Locale`
+
+### Changed
+
+- Replace constructors with static factory methods in `elemento-intl` module
+
+### Fixed
+
+- Fix Javadoc generation
+
+## [2.4.1] - 2025-11-20
+
+### Fixed
+
+- Fix namespace declarations for the `Intl` classes.
+
+## [2.4.0] - 2025-11-13
+
+### Added
+
+- New module `elemento-intl` with support of the [Intl](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) JavaScript API
+  - [Getting started](https://hal-console.gitbook.io/elemento/intl)
+  - [API documentation](https://hal.github.io/elemento/apidocs/org/jboss/elemento/intl/package-summary.html)
+
+## [2.3.2] - 2025-10-31
+
+### Changed
+
+- Change `Elements.removeChildrenFrom(IsElement<E> element)` to take into account if the element also implements `ElementContainerDelegate<E, B>`. In that case the children are removed from the container delegate instead of the element.
+
+## [2.3.1] - 2025-10-30
+
+### Fixed
+
+- Fix native object detection in the logging module
+
 ## [2.3.0] - 2025-10-21
 
 ### Changed
@@ -1230,7 +1408,26 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.3.0...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.4...HEAD
+[2.5.4]: https://github.com/hal/elemento/compare/v2.5.3...v2.5.4
+[2.5.3]: https://github.com/hal/elemento/compare/v2.5.2...v2.5.3
+[2.5.2]: https://github.com/hal/elemento/compare/v2.5.1...v2.5.2
+[2.5.1]: https://github.com/hal/elemento/compare/v2.5.0...v2.5.1
+[2.5.0]: https://github.com/hal/elemento/compare/v2.4.11...v2.5.0
+[2.4.11]: https://github.com/hal/elemento/compare/v2.4.10...v2.4.11
+[2.4.10]: https://github.com/hal/elemento/compare/v2.4.9...v2.4.10
+[2.4.9]: https://github.com/hal/elemento/compare/v2.4.8...v2.4.9
+[2.4.8]: https://github.com/hal/elemento/compare/v2.4.7...v2.4.8
+[2.4.7]: https://github.com/hal/elemento/compare/v2.4.6...v2.4.7
+[2.4.6]: https://github.com/hal/elemento/compare/v2.4.5...v2.4.6
+[2.4.5]: https://github.com/hal/elemento/compare/v2.4.4...v2.4.5
+[2.4.4]: https://github.com/hal/elemento/compare/v2.4.3...v2.4.4
+[2.4.3]: https://github.com/hal/elemento/compare/v2.4.2...v2.4.3
+[2.4.2]: https://github.com/hal/elemento/compare/v2.4.1...v2.4.2
+[2.4.1]: https://github.com/hal/elemento/compare/v2.4.0...v2.4.1
+[2.4.0]: https://github.com/hal/elemento/compare/v2.3.2...v2.4.0
+[2.3.2]: https://github.com/hal/elemento/compare/v2.3.1...v2.3.2
+[2.3.1]: https://github.com/hal/elemento/compare/v2.3.0...v2.3.1
 [2.3.0]: https://github.com/hal/elemento/compare/v2.2.2...v2.3.0
 [2.2.2]: https://github.com/hal/elemento/compare/v2.2.1...v2.2.2
 [2.2.1]: https://github.com/hal/elemento/compare/v2.2.0...v2.2.1

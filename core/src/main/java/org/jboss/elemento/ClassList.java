@@ -85,6 +85,16 @@ public class ClassList<E extends Element> implements Iterable<String> {
         }
     }
 
+    /**
+     * Checks if the specified class name exists in the class list of the element.
+     *
+     * @param classname the class name to check for; must not be null or empty
+     * @return true if the class name exists in the element's class list, false otherwise
+     */
+    public boolean contains(String classname) {
+        return element.classList.contains(classname);
+    }
+
     @Override
     public Iterator<String> iterator() {
         return element.classList.asList().iterator();

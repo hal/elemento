@@ -25,12 +25,14 @@ import static org.jboss.elemento.flow.SequenceImpl.Mode.SEQUENTIAL;
  * {@linkplain Task task} {@linkplain #repeat(FlowContext, Task) repeatedly} as long as certain conditions are met.
  * <p>
  * The {@linkplain Task tasks} share a {@linkplain FlowContext context} that can be used to store data in a map or on a stack.
+ * <p>
  * {@snippet class = FlowDemo region = sequential}
  */
 public interface Flow {
 
     /**
      * Executes a list of {@linkplain Task asynchronous tasks} in parallel (all at once).
+     * <p>
      * {@snippet class = FlowDemo region = parallel}
      *
      * @param context the context shared between tasks
@@ -44,6 +46,7 @@ public interface Flow {
 
     /**
      * Executes a list of {@linkplain Task asynchronous tasks} in sequence (one after the other).
+     * <p>
      * {@snippet class = FlowDemo region = sequential}
      *
      * @param context the context shared between tasks
@@ -57,6 +60,7 @@ public interface Flow {
 
     /**
      * Executes the given {@linkplain Task task} repeatedly as long as the conditions defined by {@link Repeat} are met.
+     * <p>
      * {@snippet class = FlowDemo region = repeat}
      *
      * @param context the context shared between the iterations

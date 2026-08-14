@@ -29,6 +29,18 @@ public interface HTMLElementDataMethods<E extends HTMLElement, B extends TypedBu
      * @param name The name of the data attributes w/o the {@code data-} prefix. However, it won't be added if it's already
      *             present.
      */
+    default B data(String name) {
+        element().dataset.set(name.replaceFirst("^data-", ""), "");
+        return that();
+    }
+
+    /**
+     * Adds a {@code data-} attribute to the element.
+     *
+     * @param name  The name of the data attributes w/o the {@code data-} prefix. However, it won't be added if it's already
+     *              present.
+     * @param value The value of the data attribute.
+     */
     default B data(String name, String value) {
         element().dataset.set(name.replaceFirst("^data-", ""), value);
         return that();

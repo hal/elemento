@@ -56,13 +56,20 @@ git checkout -b my_cool_feature
 
 ## Make the changes
 
-Make whatever code changes, including new tests to verify your change, are necessary and ensure that the build and tests pass. Make sure your code changes apply to the checkstyle rules:
+Make whatever code changes, including new tests to verify your change, are necessary and ensure that the build and tests pass:
 
 ```bash
+# Format code (license headers, editorconfig, import sorting)
+./format.sh
+
+# Check code (enforcer, checkstyle, license headers, editorconfig, import sorting)
+./check.sh
+
+# Build and run tests
 mvn clean verify
 ```
 
-> If you're making non code changes, the above step is not required.
+> If you're making non code changes, the above steps are not required.
 
 ## Commit changes
 

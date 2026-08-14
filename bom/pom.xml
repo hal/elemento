@@ -23,13 +23,13 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>49</version>
+        <version>53</version>
         <relativePath/>
     </parent>
 
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-bom</artifactId>
-    <version>2.3.1-SNAPSHOT</version>
+    <version>2.5.5-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Elemento BOM</name>
     <description>Bill of materials</description>
@@ -90,7 +90,9 @@
     </distributionManagement>
 
     <properties>
-        <version.central.publishing.plugin>0.7.0</version.central.publishing.plugin>
+        <github.org>hal</github.org>
+        <github.name>elemento</github.name>
+        <version.central.publishing.plugin>0.11.0</version.central.publishing.plugin>
     </properties>
 
     <dependencyManagement>
@@ -124,6 +126,17 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>elemento-flow</artifactId>
+                <version>${project.version}</version>
+                <classifier>sources</classifier>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-intl</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>elemento-intl</artifactId>
                 <version>${project.version}</version>
                 <classifier>sources</classifier>
             </dependency>

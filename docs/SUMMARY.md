@@ -11,6 +11,7 @@
 * [Router](router.md)
 * [Flow](flow.md)
 * [Logger](logger.md)
+* [Internationalization](intl.md)
 * [SVG](svg.md)
 * [MathML](mathml.md)
 * [Samples](samples.md)

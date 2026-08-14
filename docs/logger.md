@@ -20,6 +20,8 @@ To get a logger, use `Logger.getLogger(String category)`.
 ```java
 package org.acme;
 
+import org.jboss.elemento.logger.Logger;
+
 public class Foo {
 
     private static final Logger logger = Logger.getLogger(Foo.class.getName());
@@ -68,7 +70,7 @@ Add the following dependency to use `elemento-logger`:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-logger</artifactId>
-    <version>2.3.0</version>
+    <version>2.5.4</version>
 </dependency>
 ```
 

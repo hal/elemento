@@ -1,22 +1,17 @@
 {
-  "name": "todo-sample-gwt",
-  "private": true,
-  "parcelIgnore": [
-    "todo.nocache.js"
-  ],
-  "source": "src/web/index.html",
-  "scripts": {
-    "watch": "parcel watch --dist-dir target/gwt/devmode/war/todo --public-url /todo",
-    "dev": "parcel build --dist-dir target/gwt/devmode/war/todo --no-optimize  --public-url /todo",
-    "prod": "parcel build --dist-dir target/todo --public-url /elemento/samples/todo/gwt"
-  },
   "dependencies": {
     "todomvc-app-css": "^2.4.3",
     "todomvc-common": "^1.0.5"
   },
   "devDependencies": {
-    "@parcel/reporter-cli": "^2.16.0",
-    "parcel": "^2.16.0",
-    "parcel-resolver-ignore": "^2.2.0"
-  }
+    "vite": "^8.2.1"
+  },
+  "name": "todo-sample-gwt",
+  "packageManager": "pnpm@11.21.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite build --mode development",
+    "prod": "vite build"
+  },
+  "type": "module"
 }

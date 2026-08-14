@@ -3,6 +3,9 @@ name: Publish API Documentation
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   publish-apidocs:
     name: Publish API Documentation
@@ -10,23 +13,28 @@ jobs:
     env:
       MVN: ./mvnw --show-version --batch-mode --no-transfer-progress
     steps:
-      - uses: actions/checkout@v5
+      - uses: ts-graphviz/setup-graphviz@v2
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - uses: actions/setup-java@v5
         with:
-          java-version: 21
+          java-version: 25
           distribution: temurin
           cache: maven
       - run: $MVN install
         working-directory: bom
-      - run: $MVN -Dquickly install
+      - run: $MVN install -Dquickly
+      - run: $MVN depgraph:aggregate
       - run: |
-          $MVN -Dquickly clean install
-          $MVN -P snippets javadoc:aggregate
-          $MVN -P snippets javadoc:javadoc
-          $MVN -P snippets org.apache.maven.plugins:maven-antrun-plugin:run@copy-apidocs
-      - uses: JamesIves/github-pages-deploy-action@v4.7.3
+          $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-doc-files
+          $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-sources
+          $MVN org.apache.maven.plugins:maven-antrun-plugin:run@copy-demos
+          $MVN javadoc:javadoc
+        working-directory: apidoc
+      - uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: gh-pages
-          folder: ./target/reports/apidocs
+          folder: ./apidoc/target/reports/apidocs
           target-folder: apidocs
           clean: true
