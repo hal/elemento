@@ -96,7 +96,7 @@ jobs:
           prerelease: false
 
   publish-apidocs:
-    name: Publish API Documentation
+    name: Build API Documentation
     runs-on: ubuntu-latest
     needs: release
     env:
@@ -128,7 +128,7 @@ jobs:
           gh release upload "${{ github.ref_name }}" /tmp/apidocs.zip --clobber
 
   publish-samples:
-    name: Publish Samples
+    name: Build Samples
     runs-on: ubuntu-latest
     needs: release
     env:

@@ -1,4 +1,4 @@
-name: Publish Samples
+name: Build Samples
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   publish-samples:
-    name: Publish Samples
+    name: Build Samples
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
