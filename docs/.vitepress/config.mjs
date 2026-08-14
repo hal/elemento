@@ -9,7 +9,16 @@ export default defineConfig({
             {text: 'Home', link: '/'},
             {text: 'Guide', link: '/get-started'},
             {text: 'API Docs', link: '/apidocs/'},
-            {text: 'Samples', link: '/samples/'}
+            {
+                text: 'Samples',
+                items: [
+                    {text: 'Overview', link: '/samples'},
+                    {text: 'Todo (GWT)', link: 'https://hal.github.io/elemento/samples/todo/gwt/'},
+                    {text: 'Todo (J2CL)', link: 'https://hal.github.io/elemento/samples/todo/j2cl/'},
+                    {text: 'Flow', link: 'https://hal.github.io/elemento/samples/flow/'},
+                    {text: 'Router', link: 'https://hal.github.io/elemento/samples/music/'}
+                ]
+            }
         ],
         sidebar: [
             {
