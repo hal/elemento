@@ -156,4 +156,4 @@ jobs:
   deploy-docs:
     name: Deploy Documentation
     needs: [publish-apidocs, publish-samples]
-    uses: ./.github/workflows/docs.yml
+    uses: ./.github/workflows/site.yml

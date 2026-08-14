@@ -1,4 +1,4 @@
-name: depup
+name: Dependency Update
 on:
   schedule:
     - cron: "0 0 * * *"
