@@ -33,12 +33,14 @@
 
     <properties>
         <!-- Dependency versions -->
-        <version.corepack>v0.34.6</version.corepack>
+        <version.corepack>v0.35.0</version.corepack>
         <version.gwt>2.13.1</version.gwt>
         <version.kie.j2cl.bom>0.6</version.kie.j2cl.bom>
-        <version.node>26.3.1</version.node>
+        <version.node>26.7.0</version.node>
         <version.j2cl.platform.bom>20260527-1</version.j2cl.platform.bom>
-        <version.treblereel.j2cl.processors>0.8</version.treblereel.j2cl.processors>
+
+        <version.crysknife>0.11</version.crysknife>
+        <version.gwt3.processors>0.11</version.gwt3.processors>
 
         <!-- Plugin versions -->
         <version.frontend.plugin>2.0.2</version.frontend.plugin>
