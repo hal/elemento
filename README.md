@@ -4,12 +4,12 @@
 
 Elemento simplifies working with [Elemental2](https://github.com/google/elemental2). In a nutshell, Elemento brings the following features to the table:
 
-- Type safe [builders](https://hal-console.gitbook.io/elemento/builder-api), [event handlers](https://hal-console.gitbook.io/elemento/event-handlers) and [CSS selectors](https://hal-console.gitbook.io/elemento/selectors)
-- [Helper methods](https://hal-console.gitbook.io/elemento/dom) to manipulate the DOM tree
-- Simple, non-invasive, slash-based [router](https://hal-console.gitbook.io/elemento/router) with support for parameters and asynchronous loaders (`/a/:b/c`)
-- Execute [asynchronous tasks](https://hal-console.gitbook.io/elemento/flow) in parallel, in sequence, or as long as a certain condition is met.
-- Thin [logging](https://hal-console.gitbook.io/elemento/logger) wrapper around `console.log` using categories, log levels, and a predefined log format.
-- Support of the [Intl](https://hal-console.gitbook.io/elemento/intl) JavaScript API
+- Type safe [builders](https://hal.github.io/elemento/builder-api.html), [event handlers](https://hal.github.io/elemento/event-handlers.html) and [CSS selectors](https://hal.github.io/elemento/selectors.html)
+- [Helper methods](https://hal.github.io/elemento/dom.html) to manipulate the DOM tree
+- Simple, non-invasive, slash-based [router](https://hal.github.io/elemento/router.html) with support for parameters and asynchronous loaders (`/a/:b/c`)
+- Execute [asynchronous tasks](https://hal.github.io/elemento/flow.html) in parallel, in sequence, or as long as a certain condition is met.
+- Thin [logging](https://hal.github.io/elemento/logger.html) wrapper around `console.log` using categories, log levels, and a predefined log format.
+- Support of the [Intl](https://hal.github.io/elemento/intl.html) JavaScript API
 - Ready to be used with [GWT](https://www.gwtproject.org/) and [J2CL](https://github.com/google/j2cl)
 - Minimal dependencies
     - [Elemental2](https://github.com/google/elemental2) (`elemental2-core`, `elemental2-dom` and `elemental2-webstorage`)
@@ -18,9 +18,9 @@ Elemento simplifies working with [Elemental2](https://github.com/google/elementa
 
 # Get Help
 
-If you need help feel free to contact us at Gitter, browse the API documentation or file an issue.
+If you need help, feel free to contact us at Gitter, browse the API documentation or file an issue.
 
-- [Documentation](https://hal-console.gitbook.io/elemento/)
+- [Documentation](https://hal.github.io/elemento/)
 - [Gitter Channel](https://gitter.im/hal/elemento)
 - [API documentation](https://hal.github.io/elemento/apidocs/)
 - [Issues](https://github.com/hal/elemento/issues)
