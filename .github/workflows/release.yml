@@ -143,7 +143,7 @@ jobs:
       - run: $MVN install
         working-directory: bom
       - run: $MVN install
-      - run: $MVN -pl samples -Denvironment.base=/elemento/samples/music -P prod install
+      - run: $MVN -f samples/pom.xml -Denvironment.base=/elemento/samples/music -P prod install
       - name: Upload samples to release
         env:
           GH_TOKEN: ${{ github.token }}
