@@ -26,7 +26,7 @@ class CdiCodeGenerator extends CodeGenerator {
 
     @Override
     MethodSpec.Builder buildConstructor() {
-        ClassName beanManagerClass = ClassName.get("org.kie.j2cl.tools.di.core", "BeanManager");
+        ClassName beanManagerClass = ClassName.get("io.crysknife.client", "BeanManager");
         return MethodSpec.constructorBuilder()
                 .addModifiers(PUBLIC)
                 .addParameter(beanManagerClass, BEAN_MANAGER)
