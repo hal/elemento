@@ -4,7 +4,7 @@
     "@patternfly/patternfly": "^6.6.1"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.28.2",
     "vite": "^8.2.1"
   },
   "name": "flow-sample",
