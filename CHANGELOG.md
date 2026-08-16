@@ -7,6 +7,23 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Update CDI router processor to use the new Crysknife 0.11 package (`io.crysknife.client`)
+- Migrate documentation from GitBook to VitePress
+- Restructure release workflow to publish API docs and samples as GitHub release assets and deploy the site via GitHub Pages
+- Rename GitHub workflow titles for consistency
+
+### Fixed
+
+- Fix samples build for Vite 8 and PatternFly 6
+
+### Upgrades
+
+- Bump PatternFly to 6.6.0 and PatternFly Java BOM to 0.9.4
+- Bump JUnit BOM from 6.1.1 to 6.1.3
+- Bump Apache Maven wrapper from 3.9.12 to 3.9.16
+
 ## [2.5.4] - 2026-07-05
 
 ### Upgrades
@@ -25,6 +42,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 > [!WARNING]
 > Not an official release. Please don't use!
+
 ## [2.5.2] - 2026-06-10
 
 ### Added
