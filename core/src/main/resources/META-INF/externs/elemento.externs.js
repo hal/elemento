@@ -19,6 +19,13 @@
 /**
  * @fileoverview Externs for types used by elemento-core but missing from Closure Compiler's built-in externs.
  * @externs
+ *
+ * Known warnings that cannot be fixed via externs (Closure Compiler limitations):
+ *
+ * - ResizeObserver.observe options: Elemento passes a plain Object where Closure expects {box: string}.
+ *   The built-in extern uses a @typedef which cannot be overridden. The warning is harmless —
+ *   the Object always has the correct shape at runtime.
+ *   See ResizeObserver.java and ResizeObserverOptions.java.
  */
 
 /** @typedef {webCrypto.Crypto} */

@@ -7,6 +7,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Migrate samples from `org.kie.j2cl.tools.processors` to `org.treblereel.j2cl.processors` (version 0.11)
+- Remove unused `org.kie.j2cl.tools:bom` and `org.treblereel.j2cl.platform:bom` from samples
+
+### Fixed
+
+- Add Closure Compiler externs for `Crypto`, `SVGElement.dataset`, `Intl.*Format` options types, and `Duration` to suppress J2CL production build warnings
+- Fix `Intl.java` annotation from `name = "Intl.Intl"` to `name = "Intl"`
+- Fix Vite 8 bundling warnings by adding `vite-ignore` to GWT/J2CL script tags in sample HTML files
+- Fix release workflow to trigger site deployment on `main` branch instead of tag context
+
 ## [2.5.5] - 2026-08-17
 
 ### Changed

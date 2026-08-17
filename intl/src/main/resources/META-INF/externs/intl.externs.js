@@ -19,6 +19,16 @@
 /**
  * @fileoverview Missing Intl externs not yet in https://github.com/google/closure-compiler/blob/master/externs/browser/intl.js
  * @externs
+ *
+ * Known warnings that cannot be fixed via externs (Closure Compiler limitations):
+ *
+ * - Intl.Locale vs string: Elemento's DateTimeFormat, ListFormat, NumberFormat, and
+ *   RelativeTimeFormat accept Intl.Locale as the locale parameter (which browsers support),
+ *   but Closure's built-in externs only declare string|Array<string>. Redeclaring the
+ *   constructors causes JSC_DUP_VAR_DECLARATION / JSC_TYPE_REDEFINITION warnings that are
+ *   worse than the original type mismatches. These warnings are harmless — Intl.Locale is
+ *   accepted by all modern browsers.
+ *   Upstream fix: https://github.com/google/closure-compiler/blob/master/externs/browser/intl.js
  */
 
 // ------------------------------------------------------ record types
