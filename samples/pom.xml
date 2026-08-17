@@ -35,12 +35,8 @@
         <!-- Dependency versions -->
         <version.corepack>v0.35.0</version.corepack>
         <version.gwt>2.13.1</version.gwt>
-        <version.kie.j2cl.bom>0.6</version.kie.j2cl.bom>
         <version.node>v26.7.0</version.node>
-        <version.j2cl.platform.bom>20260527-1</version.j2cl.platform.bom>
-
-        <version.crysknife>0.11</version.crysknife>
-        <version.gwt3.processors>0.11</version.gwt3.processors>
+        <version.j2cl.processors>0.11</version.j2cl.processors>
 
         <!-- Plugin versions -->
         <version.frontend.plugin>2.0.2</version.frontend.plugin>
@@ -94,20 +90,6 @@
                 <artifactId>elemento-todo-sample-j2cl</artifactId>
                 <version>${project.version}</version>
                 <classifier>resources</classifier>
-            </dependency>
-            <dependency>
-                <groupId>org.kie.j2cl.tools</groupId>
-                <artifactId>bom</artifactId>
-                <version>${version.kie.j2cl.bom}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.treblereel.j2cl.platform</groupId>
-                <artifactId>bom</artifactId>
-                <version>${version.j2cl.platform.bom}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.gwtproject</groupId>

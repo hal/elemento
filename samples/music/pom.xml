@@ -55,12 +55,14 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.kie.j2cl.tools.processors</groupId>
+            <groupId>org.treblereel.j2cl.processors</groupId>
             <artifactId>annotations</artifactId>
+            <version>${version.j2cl.processors}</version>
         </dependency>
         <dependency>
-            <groupId>org.kie.j2cl.tools.processors</groupId>
+            <groupId>org.treblereel.j2cl.processors</groupId>
             <artifactId>processors</artifactId>
+            <version>${version.j2cl.processors}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

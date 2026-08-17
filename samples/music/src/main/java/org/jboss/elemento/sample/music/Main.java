@@ -20,7 +20,7 @@ import org.jboss.elemento.Elements;
 import org.jboss.elemento.logger.Logger;
 import org.jboss.elemento.router.AnnotatedPlaces;
 import org.jboss.elemento.router.PlaceManager;
-import org.kie.j2cl.tools.processors.annotations.GWT3EntryPoint;
+import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
 import static elemental2.dom.DomGlobal.location;
 import static org.jboss.elemento.Elements.body;

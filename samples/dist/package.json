@@ -2,6 +2,7 @@
   "name": "elemento-samples-dist",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@11.6.0",
   "scripts": {
     "dev": "vite build --mode development",
     "prod": "vite build"
@@ -11,6 +12,5 @@
   },
   "devDependencies": {
     "vite": "^8.0.16"
-  },
-  "packageManager": "pnpm@11.6.0"
+  }
 }

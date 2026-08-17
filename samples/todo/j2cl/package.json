@@ -1,17 +1,17 @@
 {
+  "name": "todo-sample-j2cl",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.22.0",
+  "scripts": {
+    "dev": "vite build --mode development",
+    "prod": "vite build"
+  },
   "dependencies": {
     "todomvc-app-css": "^2.4.3",
     "todomvc-common": "^1.0.5"
   },
   "devDependencies": {
     "vite": "^8.2.1"
-  },
-  "name": "todo-sample-j2cl",
-  "packageManager": "pnpm@11.22.0",
-  "private": true,
-  "scripts": {
-    "dev": "vite build --mode development",
-    "prod": "vite build"
-  },
-  "type": "module"
+  }
 }
