@@ -239,7 +239,7 @@ Add the following dependency to use `elemento-router`:
 <dependency>
     <groupId>org.jboss.elemento</groupId>
     <artifactId>elemento-router</artifactId>
-    <version>2.5.5</version>
+    <version>2.5.6</version>
 </dependency>
 ```
 

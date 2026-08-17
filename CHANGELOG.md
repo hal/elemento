@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.6] - 2026-08-17
+
 ### Changed
 
 - Migrate samples from `org.kie.j2cl.tools.processors` to `org.treblereel.j2cl.processors` (version 0.11)
@@ -1440,7 +1442,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.5...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.6...HEAD
+[2.5.6]: https://github.com/hal/elemento/compare/v2.5.5...v2.5.6
 [2.5.5]: https://github.com/hal/elemento/compare/v2.5.4...v2.5.5
 [2.5.4]: https://github.com/hal/elemento/compare/v2.5.3...v2.5.4
 [2.5.3]: https://github.com/hal/elemento/compare/v2.5.2...v2.5.3
