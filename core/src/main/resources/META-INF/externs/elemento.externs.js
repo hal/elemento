@@ -21,19 +21,5 @@
  * @externs
  */
 
-/**
- * @interface
- * @see https://developer.mozilla.org/en-US/docs/Web/API/Crypto
- */
-function Crypto() {}
-
-/** @return {string} */
-Crypto.prototype.randomUUID = function() {};
-
-/**
- * @param {!Element} target
- * @param {!Object=} options
- * @return {undefined}
- * @override
- */
-ResizeObserver.prototype.observe = function(target, options) {};
+/** @typedef {webCrypto.Crypto} */
+var Crypto;

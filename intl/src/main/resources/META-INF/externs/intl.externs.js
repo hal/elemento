@@ -49,23 +49,13 @@ function RelativeTimeFormatOptions() {}
 /** @record */
 function SupportOptions() {}
 
-// ------------------------------------------------------ Intl.DateTimeFormat
-// Widen locale param to accept Intl.Locale (supported by browsers, but missing from Closure's externs)
-
-/**
- * @constructor
- * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
- * @param {!Object=} options
- * @override
- */
-Intl.DateTimeFormat = function(locales, options) {};
-
 // ------------------------------------------------------ Intl.DurationFormat
 
 /**
  * @constructor
  * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
  * @param {!Object=} options
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat
  */
 Intl.DurationFormat = function(locales, options) {};
 
@@ -93,32 +83,3 @@ Intl.DurationFormat.prototype.formatToParts = function(duration) {};
  */
 Intl.DurationFormat.prototype.resolvedOptions = function() {};
 
-// ------------------------------------------------------ Intl.ListFormat
-
-/**
- * @constructor
- * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
- * @param {!Object=} options
- * @override
- */
-Intl.ListFormat = function(locales, options) {};
-
-// ------------------------------------------------------ Intl.NumberFormat
-
-/**
- * @constructor
- * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
- * @param {!Object=} options
- * @override
- */
-Intl.NumberFormat = function(locales, options) {};
-
-// ------------------------------------------------------ Intl.RelativeTimeFormat
-
-/**
- * @constructor
- * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
- * @param {!Object=} options
- * @override
- */
-Intl.RelativeTimeFormat = function(locales, options) {};
