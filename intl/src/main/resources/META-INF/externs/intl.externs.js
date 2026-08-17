@@ -21,73 +21,104 @@
  * @externs
  */
 
-/**
- * @constructor
- * @param {string|Array<string>=} locales
- * @param {{
- *     localeMatcher: (string|undefined),
- *     numberingSystem: (string|undefined),
- *     style: (string|undefined),
- *     years: (string|undefined),
- *     yearsDisplay: (string|undefined),
- *     months: (string|undefined),
- *     monthsDisplay: (string|undefined),
- *     weeks: (string|undefined),
- *     weeksDisplay: (string|undefined),
- *     days: (string|undefined),
- *     daysDisplay: (string|undefined),
- *     hours: (string|undefined),
- *     hoursDisplay: (string|undefined),
- *     minutes: (string|undefined),
- *     minutesDisplay: (string|undefined),
- *     seconds: (string|undefined),
- *     secondsDisplay: (string|undefined),
- *     milliseconds: (string|undefined),
- *     millisecondsDisplay: (string|undefined),
- *     microseconds: (string|undefined),
- *     microsecondsDisplay: (string|undefined),
- *     nanoseconds: (string|undefined),
- *     nanosecondsDisplay: (string|undefined),
- *     fractionDigits: (number|undefined)
- *     }=}
- *         options
- */
-Intl.DurationFormat = function (locales, options) {
-};
+// ------------------------------------------------------ record types
+// Used by elemento-intl as @JsType(isNative=true, namespace=GLOBAL) interfaces.
+// Closure needs to know these as structural types (plain JS objects).
+
+/** @record */
+function DateTimeFormatOptions() {}
+
+/** @record */
+function Duration() {}
+
+/** @record */
+function DurationFormatOptions() {}
+
+/** @record */
+function ListFormatOptions() {}
+
+/** @record */
+function LocaleOptions() {}
+
+/** @record */
+function NumberFormatOptions() {}
+
+/** @record */
+function RelativeTimeFormatOptions() {}
+
+/** @record */
+function SupportOptions() {}
+
+// ------------------------------------------------------ Intl.DateTimeFormat
+// Widen locale param to accept Intl.Locale (supported by browsers, but missing from Closure's externs)
 
 /**
- * @param {Array<string>} locales
+ * @constructor
+ * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
+ * @param {!Object=} options
+ * @override
+ */
+Intl.DateTimeFormat = function(locales, options) {};
+
+// ------------------------------------------------------ Intl.DurationFormat
+
+/**
+ * @constructor
+ * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
+ * @param {!Object=} options
+ */
+Intl.DurationFormat = function(locales, options) {};
+
+/**
+ * @param {!Array<string>} locales
  * @param {{localeMatcher: (string|undefined)}=} options
- * @return {Array<string>}
+ * @return {!Array<string>}
  */
 Intl.DurationFormat.supportedLocalesOf = function(locales, options) {};
 
 /**
- * @param {{
- *     years: (number|undefined),
- *     months: (number|undefined),
- *     weeks: (number|undefined),
- *     days: (number|undefined),
- *     hours: (number|undefined),
- *     minutes: (number|undefined),
- *     seconds: (number|undefined),
- *     milliseconds: (number|undefined),
- *     microseconds: (number|undefined),
- *     nanoseconds: (number|undefined),
- *     }=}
- *         duration
+ * @param {!Object=} duration
  * @return {string}
  */
-Intl.DurationFormat.prototype.format = function(num) {};
+Intl.DurationFormat.prototype.format = function(duration) {};
 
 /**
- * @param {number} num
+ * @param {!Object=} duration
  * @return {!Array<{type: string, value: string}>}
- * @see http://www.ecma-international.org/ecma-402/#sec-intl.numberformat.prototype.formattoparts
  */
-Intl.DurationFormat.prototype.formatToParts = function(num) {};
+Intl.DurationFormat.prototype.formatToParts = function(duration) {};
 
 /**
- * @return {{locale: string, numberingSystem: string, style: string, fractionDigits: number }}
+ * @return {{locale: string, numberingSystem: string, style: string, fractionDigits: number}}
  */
 Intl.DurationFormat.prototype.resolvedOptions = function() {};
+
+// ------------------------------------------------------ Intl.ListFormat
+
+/**
+ * @constructor
+ * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
+ * @param {!Object=} options
+ * @override
+ */
+Intl.ListFormat = function(locales, options) {};
+
+// ------------------------------------------------------ Intl.NumberFormat
+
+/**
+ * @constructor
+ * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
+ * @param {!Object=} options
+ * @override
+ */
+Intl.NumberFormat = function(locales, options) {};
+
+// ------------------------------------------------------ Intl.RelativeTimeFormat
+
+/**
+ * @constructor
+ * @param {(string|!Intl.Locale|!Array<string>|!Array<!Intl.Locale>)=} locales
+ * @param {!Object=} options
+ * @override
+ */
+Intl.RelativeTimeFormat = function(locales, options) {};

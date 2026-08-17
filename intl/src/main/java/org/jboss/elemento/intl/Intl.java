@@ -28,7 +28,7 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
  * @see <a
  * href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl</a>
  */
-@JsType(isNative = true, namespace = GLOBAL, name = "Intl.Intl")
+@JsType(isNative = true, namespace = GLOBAL, name = "Intl")
 public class Intl {
 
     public static native JsArray<String> getCanonicalLocales(String locale);
