@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@patternfly-java/core':
-        specifier: ^0.9.5
-        version: 0.9.5(@patternfly/patternfly@6.6.1)
+        specifier: ^0.9.7
+        version: 0.9.7(@patternfly/patternfly@6.6.1)
       '@patternfly/patternfly':
         specifier: ^6.6.1
         version: 6.6.1
@@ -199,10 +199,10 @@ packages:
   '@oxc-project/types@0.142.0':
     resolution: {integrity: sha512-7W+2q5AKQVU36fkaryontrHn3YDt1RyUYXatw9i5H8ocYe2sPKSFB6eS8WNPeRKiN1qAWWZUPm7gwFzJGrccqQ==}
 
-  '@patternfly-java/core@0.9.5':
-    resolution: {integrity: sha512-tMBsP0H+VycFbbk44B+yoL2KFTlCqhSd9JyUUlEOgAWL7G2q75QqJ10GKAWGFrbNu9rMl28CMl4bh5nU6lPPAg==}
+  '@patternfly-java/core@0.9.7':
+    resolution: {integrity: sha512-mIsUDlvnlKlFcLkVmpLPBf2taGT2d08VNxgHRhIMMd4W/j0ZAWsZU1mg/nwvx3s2cyj9NJHy5I8tQHMHb5X7Qw==}
     peerDependencies:
-      '@patternfly/patternfly': ^6.5.2
+      '@patternfly/patternfly': ^6.6.1
 
   '@patternfly/patternfly@6.6.1':
     resolution: {integrity: sha512-8P9C1TmFk5y5s2/1XVjmP9JmSyDXDiNBwPZewhPizULtqlaRu+Evljx/X1HTSFrCNY0qgI1uDKy+NXiorIniyA==}
@@ -584,7 +584,7 @@ snapshots:
 
   '@oxc-project/types@0.142.0': {}
 
-  '@patternfly-java/core@0.9.5(@patternfly/patternfly@6.6.1)':
+  '@patternfly-java/core@0.9.7(@patternfly/patternfly@6.6.1)':
     dependencies:
       '@patternfly/patternfly': 6.6.1
 
