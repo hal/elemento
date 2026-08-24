@@ -1,12 +1,4 @@
 {
-  "name": "flow-sample",
-  "private": true,
-  "type": "module",
-  "packageManager": "pnpm@11.22.0",
-  "scripts": {
-    "dev": "vite build --mode development",
-    "prod": "vite build"
-  },
   "dependencies": {
     "@patternfly-java/core": "^0.9.7",
     "@patternfly/patternfly": "^6.6.1"
@@ -14,5 +6,13 @@
   "devDependencies": {
     "esbuild": "^0.28.2",
     "vite": "^8.2.1"
-  }
+  },
+  "name": "flow-sample",
+  "packageManager": "pnpm@11.23.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite build --mode development",
+    "prod": "vite build"
+  },
+  "type": "module"
 }
