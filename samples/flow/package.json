@@ -8,7 +8,7 @@
     "vite": "^8.2.1"
   },
   "name": "flow-sample",
-  "packageManager": "pnpm@11.23.0",
+  "packageManager": "pnpm@11.24.0",
   "private": true,
   "scripts": {
     "dev": "vite build --mode development",
