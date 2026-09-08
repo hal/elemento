@@ -40,7 +40,7 @@
 
         <!-- Plugin versions -->
         <version.frontend.plugin>2.0.2</version.frontend.plugin>
-        <version.j2cl.plugin>0.23.8</version.j2cl.plugin>
+        <version.j2cl.plugin>0.23.9</version.j2cl.plugin>
 
         <!-- Build related -->
         <gwt.sourceLevel>17</gwt.sourceLevel>
