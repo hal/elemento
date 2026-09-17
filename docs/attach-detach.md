@@ -53,3 +53,21 @@ reasons of optimisation and performance.
 If you want to be notified every time your custom element is attached to the DOM, it is recommended to add the call to
 `Attachable.register(HTMLElement, Attachable)` in the constructor, like in the example above, and recreate the custom element.
 :::
+
+## Performance
+
+Elemento uses a **single global `MutationObserver`** on `document.body`, configured with `childList: true, subtree: true`. There is only one observer for the entire page, not one per element. This follows the recommended pattern from the DOM spec and is the same approach used by libraries like lit-element.
+
+### One-shot semantics
+
+Each registration fires its callback **exactly once** and is immediately removed from the internal observer list. The UID attribute is cleaned from the element at the same time. This prevents the observer lists from growing unboundedly — after the initial page render, the lists are typically empty.
+
+### Mutation handling
+
+On each DOM mutation, the observer iterates the pending registration list and checks whether each registered element is among the added or removed nodes. For direct children this is a list lookup. For deeper nesting, it falls back to `querySelector` on the added subtree root. The cost is proportional to the number of *pending* (not yet attached) registrations, not the total number of elements on the page.
+
+### Component trees
+
+In component libraries where parent components and their sub-components both implement `Attachable` (e.g., a menu with N menu items), this results in 1 + N registrations per component tree. Because of the one-shot semantics, these all drain in a single microtask batch during initial render. For typical usage (tens of components on a page), the performance impact is negligible.
+
+The per-sub-component registration pattern is intentional: it allows each sub-component to be self-contained and find its parent via DOM traversal at attach time, regardless of intermediate container elements in the DOM tree. This works correctly for dynamic additions (elements added after the parent is already attached) without requiring the parent to manage its children's lifecycle.
