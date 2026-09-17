@@ -25,7 +25,6 @@ import java.util.stream.StreamSupport;
 
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtml;
-
 import elemental2.core.JsArray;
 import elemental2.dom.CSSStyleDeclaration;
 import elemental2.dom.DOMRect;
@@ -85,7 +84,6 @@ import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
 
 import static elemental2.dom.DomGlobal.document;
-import static elemental2.dom.DomGlobal.window;
 import static java.util.Collections.emptyIterator;
 import static java.util.Collections.emptyList;
 import static java.util.Spliterators.spliteratorUnknownSize;
@@ -1539,7 +1537,8 @@ public final class Elements {
      * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
      */
     public static boolean isVisible(HTMLElement element) {
-        return element != null && !"none".equals(element.style.display);
+        return element != null &&
+                (!"none".equals(element.style.display) || !"none".equals(DomGlobal.window.getComputedStyle(element).display));
     }
 
     /**
@@ -1598,8 +1597,8 @@ public final class Elements {
         int elementBottom = (int) Math.ceil(rect.bottom);
         return elementTop >= 0 &&
                 elementLeft >= 0 &&
-                elementBottom <= window.innerHeight &&
-                elementRight <= window.innerWidth;
+                elementBottom <= elemental2.dom.DomGlobal.window.innerHeight &&
+                elementRight <= elemental2.dom.DomGlobal.window.innerWidth;
     }
 
     public static <E extends HTMLElement> boolean isElementInView(HTMLElement container, IsElement<E> element,
@@ -1672,7 +1671,7 @@ public final class Elements {
     public static <E extends HTMLElement> ResizeObserverCleanup resizeObserver(E element, ResizeCallback callback) {
         ResizeObserverCleanup cleanup;
         if (isTripleEqual(Js.global().getAsAny("ResizeObserver"), undefined())) {
-            HandlerRegistration registration = bind(window, resize, e -> callback.onResize());
+            HandlerRegistration registration = bind(elemental2.dom.DomGlobal.window, resize, e -> callback.onResize());
             cleanup = registration::removeHandler;
         } else {
             ResizeObserver observer = new ResizeObserver((entries, obs) -> {

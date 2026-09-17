@@ -52,6 +52,34 @@ import static org.jboss.elemento.BodyObserver.removeDetachObserver;
  * <p>
  * {@snippet class = Greeting region = attach}
  */
+// Design note: one-shot semantics were chosen over persistent observers (keep-in-list),
+// auto-re-registration (re-register on detach), or per-element MutationObservers.
+// One-shot drains the observer lists to zero after initial render, making subsequent DOM
+// mutations free. Persistent observers grow the list unboundedly and leak without explicit
+// unregister(). Per-element observers multiply browser-internal overhead. If repeated
+// attach/detach becomes a real use case, auto-re-registration is the preferred path: it
+// keeps lists bounded by live component count, requires no API change, and no consumer
+// cleanup. See docs/attach-detach.md for the performance characteristics.
+//
+// Auto-re-registration scenario (option B):
+// A dialog component implements Attachable. The user opens it (attached), closes it
+// (detached, but the instance is kept for reuse), and opens it again (re-attached).
+// With one-shot semantics the second attach is silent — the dialog misses its chance
+// to re-initialize event listeners, fetch data, or start animations.
+//
+// Implementation sketch for BodyObserver:
+// - onElementsAppended: after firing the attach callback, instead of just removing the
+//   ElementObserver, re-register it as a detach observer (addDetachObserver) so the
+//   element is tracked for removal.
+// - onElementsRemoved: symmetrically, after firing the detach callback, re-register
+//   it as an attach observer (addAttachObserver) so the next insertion is detected.
+// - Attachable.unregister() already exists and would break the cycle, preventing leaks
+//   for components that are permanently discarded.
+// - Steady-state cost: each live Attachable element holds exactly one observer entry
+//   (attach while detached, detach while attached). The lists are bounded by the number
+//   of currently live components, not the total ever created.
+// - The register() / unregister() API on Attachable stays unchanged — the change is
+//   entirely internal to BodyObserver.
 public interface Attachable {
 
     /** Registers the specified element for both attach and detach. */

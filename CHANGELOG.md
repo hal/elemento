@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Add performance documentation for the `Attachable` interface
+
+### Fixed
+
+- Fix `Elements.isVisible()` to check computed styles in addition to inline styles, so elements hidden via CSS classes or stylesheets are correctly detected
+
 ## [2.5.6] - 2026-08-17
 
 ### Changed
