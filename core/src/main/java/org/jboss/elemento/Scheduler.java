@@ -48,7 +48,7 @@ public final class Scheduler {
      * @param consumer The consumer function to execute with the most recent value.
      * @return A new consumer that debounces the original consumer.
      */
-    public static <T> Consumer<T> debounce(int timeout, Consumer<T> consumer) {
+    public static <T> Consumer<T> debounceValue(int timeout, Consumer<T> consumer) {
         @SuppressWarnings("unchecked") T[] latest = (T[]) new Object[1];
         double[] handle = new double[1];
         return value -> {

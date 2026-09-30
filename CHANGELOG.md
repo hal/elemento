@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Rename `Scheduler.debounce(int, Consumer<T>)` to `Scheduler.debounceValue(int, Consumer<T>)` to avoid method resolution ambiguity in the GWT compiler
+- Update flow sample dependencies from removed `patternfly-java-gwt` to individual `patternfly-java-core`, `patternfly-java-components`, and `patternfly-java-layouts` modules with GWT source classifiers
+
 ## [2.5.8] - 2026-09-30
 
 ### Added

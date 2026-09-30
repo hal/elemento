@@ -59,7 +59,30 @@
         </dependency>
         <dependency>
             <groupId>org.patternfly</groupId>
-            <artifactId>patternfly-java-gwt</artifactId>
+            <artifactId>patternfly-java-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.patternfly</groupId>
+            <artifactId>patternfly-java-core</artifactId>
+            <classifier>sources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.patternfly</groupId>
+            <artifactId>patternfly-java-components</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.patternfly</groupId>
+            <artifactId>patternfly-java-components</artifactId>
+            <classifier>sources</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.patternfly</groupId>
+            <artifactId>patternfly-java-layouts</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.patternfly</groupId>
+            <artifactId>patternfly-java-layouts</artifactId>
+            <classifier>sources</classifier>
         </dependency>
         <dependency>
             <groupId>org.gwtproject</groupId>
