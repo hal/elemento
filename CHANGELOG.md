@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.8] - 2026-09-30
+
 ### Added
 
 - Add generic `debounce(int, Consumer<T>)` overload to `Scheduler` that passes the most recent value to the consumer
@@ -1456,7 +1458,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.7...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.8...HEAD
+[2.5.8]: https://github.com/hal/elemento/compare/v2.5.7...v2.5.8
 [2.5.7]: https://github.com/hal/elemento/compare/v2.5.6...v2.5.7
 [2.5.6]: https://github.com/hal/elemento/compare/v2.5.5...v2.5.6
 [2.5.5]: https://github.com/hal/elemento/compare/v2.5.4...v2.5.5
