@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add generic `debounce(int, Consumer<T>)` overload to `Scheduler` that passes the most recent value to the consumer
+
 ## [2.5.7] - 2026-09-17
 
 ### Changed
