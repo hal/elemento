@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.9] - 2026-09-30
+
 ### Changed
 
 - Rename `Scheduler.debounce(int, Consumer<T>)` to `Scheduler.debounceValue(int, Consumer<T>)` to avoid method resolution ambiguity in the GWT compiler
@@ -1463,7 +1465,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.8...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.9...HEAD
+[2.5.9]: https://github.com/hal/elemento/compare/v2.5.8...v2.5.9
 [2.5.8]: https://github.com/hal/elemento/compare/v2.5.7...v2.5.8
 [2.5.7]: https://github.com/hal/elemento/compare/v2.5.6...v2.5.7
 [2.5.6]: https://github.com/hal/elemento/compare/v2.5.5...v2.5.6
