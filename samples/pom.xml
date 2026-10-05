@@ -40,14 +40,13 @@
 
         <!-- Plugin versions -->
         <version.frontend.plugin>2.0.2</version.frontend.plugin>
-        <version.j2cl.plugin>0.23.9</version.j2cl.plugin>
+        <version.j2cl.plugin>0.24.2</version.j2cl.plugin>
 
         <!-- Build related -->
         <gwt.sourceLevel>17</gwt.sourceLevel>
         <gwt.draftCompile>true</gwt.draftCompile>
         <gwt.style>DETAILED</gwt.style>
         <j2cl.compilationLevel>BUNDLE_JAR</j2cl.compilationLevel>
-        <j2cl.incremental>true</j2cl.incremental>
         <j2cl.sourcemaps>true</j2cl.sourcemaps>
         <npm.script>dev</npm.script>
         <npm.skip>true</npm.skip>
@@ -115,7 +114,7 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>org.kie.j2cl.tools</groupId>
+                    <groupId>org.treblereel.j2cl.plugin</groupId>
                     <artifactId>j2cl-maven-plugin</artifactId>
                     <version>${version.j2cl.plugin}</version>
                 </plugin>
@@ -173,7 +172,6 @@
                 <gwt.draftCompile>false</gwt.draftCompile>
                 <gwt.style>OBFUSCATED</gwt.style>
                 <j2cl.compilationLevel>ADVANCED_OPTIMIZATIONS</j2cl.compilationLevel>
-                <j2cl.incremental>false</j2cl.incremental>
                 <j2cl.sourcemaps>false</j2cl.sourcemaps>
                 <npm.script>prod</npm.script>
             </properties>

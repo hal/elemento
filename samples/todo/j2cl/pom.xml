@@ -59,12 +59,11 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.kie.j2cl.tools</groupId>
+                <groupId>org.treblereel.j2cl.plugin</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>
                 <configuration>
                     <compilationLevel>${j2cl.compilationLevel}</compilationLevel>
                     <enableSourcemaps>${j2cl.sourcemaps}</enableSourcemaps>
-                    <incrementalEnabled>${j2cl.incremental}</incrementalEnabled>
                     <initialScriptFilename>todo.j2cl.js</initialScriptFilename>
                     <webappDirectory>${project.build.directory}/todo</webappDirectory>
                 </configuration>
