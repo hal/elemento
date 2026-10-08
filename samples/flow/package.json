@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@patternfly-java/core": "0.12.1",
+    "@patternfly-java/core": "0.13.0",
     "@patternfly/patternfly": "^6.6.1"
   },
   "devDependencies": {
