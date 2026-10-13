@@ -50,20 +50,9 @@
             <artifactId>elemento-router</artifactId>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>elemento-router-processor</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.treblereel.j2cl.processors</groupId>
             <artifactId>annotations</artifactId>
             <version>${version.j2cl.processors}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.treblereel.j2cl.processors</groupId>
-            <artifactId>processors</artifactId>
-            <version>${version.j2cl.processors}</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -74,12 +63,30 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <proc>full</proc>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>elemento-router-processor</artifactId>
+                            <version>${project.version}</version>
+                        </path>
+                        <path>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>elemento-router</artifactId>
+                            <version>${project.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.treblereel.j2cl.processors</groupId>
+                            <artifactId>processors</artifactId>
+                            <version>${version.j2cl.processors}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.treblereel.j2cl.plugin</groupId>
                 <artifactId>j2cl-maven-plugin</artifactId>
                 <configuration>
+                    <annotationProcessorMode>IGNORE_MAVEN</annotationProcessorMode>
                     <compilationLevel>${j2cl.compilationLevel}</compilationLevel>
                     <defines>
                         <environment.base>${environment.base}</environment.base>
