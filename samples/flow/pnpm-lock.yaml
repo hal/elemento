@@ -167,11 +167,11 @@ importers:
   .:
     dependencies:
       '@patternfly-java/core':
-        specifier: 0.13.1
-        version: 0.13.1(@patternfly/patternfly@6.6.1)
+        specifier: 0.13.3
+        version: 0.13.3(@patternfly/patternfly@6.7.0)
       '@patternfly/patternfly':
-        specifier: ^6.6.1
-        version: 6.6.1
+        specifier: 6.7.0
+        version: 6.7.0
     devDependencies:
       esbuild:
         specifier: ^0.28.2
@@ -341,13 +341,13 @@ packages:
   '@oxc-project/types@0.153.0':
     resolution: {integrity: sha512-jSNrRIyvPVLL5E1z/tS5zLAprosGz/FuI1PWwEOz59j3E4TTTzSpqKb/RDGqJhhW0QHYISGXxq582wGx6T11Tw==}
 
-  '@patternfly-java/core@0.13.1':
-    resolution: {integrity: sha512-GNBIWQDkSRguDqoz5DkgsTM7tfJV+qkbgO+BPVuDdMlacrQzMhviC+wP5z6AeNDlYrfugKCzfw+/EPNkCkrcZw==}
+  '@patternfly-java/core@0.13.3':
+    resolution: {integrity: sha512-vbTQw3fAdL3RCEg/7XIgPhYFr39KzTvvO+zNhLF0EEaJA+hiIwnIoQcuAy9haR37o8szeyqJizpLJwYf9S0SWA==}
     peerDependencies:
       '@patternfly/patternfly': ^6.6.1
 
-  '@patternfly/patternfly@6.6.1':
-    resolution: {integrity: sha512-8P9C1TmFk5y5s2/1XVjmP9JmSyDXDiNBwPZewhPizULtqlaRu+Evljx/X1HTSFrCNY0qgI1uDKy+NXiorIniyA==}
+  '@patternfly/patternfly@6.7.0':
+    resolution: {integrity: sha512-jV7bPxypppPtZA1XaJOz/uZsrIy2TA6Av18PLqAbHpZXDtzyHmFUEk3Sl21dQXEJmlMqniOh5Pv/6PHmmamJ9w==}
 
   '@rolldown/binding-android-arm-eabi@1.2.13':
     resolution: {integrity: sha512-Vu/NICrgdRvUOeaJZIyB2FP63s6fO/4ud5l8dXmxDx9yDyn+mN0y+gsvsVviSli+T361Aqo0h46EuMoobrwawA==}
@@ -699,11 +699,11 @@ snapshots:
 
   '@oxc-project/types@0.153.0': {}
 
-  '@patternfly-java/core@0.13.1(@patternfly/patternfly@6.6.1)':
+  '@patternfly-java/core@0.13.3(@patternfly/patternfly@6.7.0)':
     dependencies:
-      '@patternfly/patternfly': 6.6.1
+      '@patternfly/patternfly': 6.7.0
 
-  '@patternfly/patternfly@6.6.1': {}
+  '@patternfly/patternfly@6.7.0': {}
 
   '@rolldown/binding-android-arm-eabi@1.2.13':
     optional: true
