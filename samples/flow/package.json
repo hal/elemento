@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "@patternfly-java/core": "0.13.1",
-    "@patternfly/patternfly": "^6.6.1"
+    "@patternfly-java/core": "0.13.3",
+    "@patternfly/patternfly": "6.7.0"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",
