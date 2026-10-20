@@ -2,7 +2,7 @@
   "devDependencies": {
     "vitepress": "^1.6.4"
   },
-  "packageManager": "pnpm@12.8.1",
+  "packageManager": "pnpm@12.14.0",
   "private": true,
   "scripts": {
     "docs:build": "vitepress build",

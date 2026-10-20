@@ -4,10 +4,10 @@
     "todomvc-common": "^1.0.5"
   },
   "devDependencies": {
-    "vite": "^8.3.1"
+    "vite": "8.3.4"
   },
   "name": "todo-sample-gwt",
-  "packageManager": "pnpm@12.8.1",
+  "packageManager": "pnpm@12.14.0",
   "private": true,
   "scripts": {
     "dev": "vite build --mode development",
