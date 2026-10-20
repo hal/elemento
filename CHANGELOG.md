@@ -7,6 +7,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix Closure Compiler ADVANCED mode renaming properties on `Duration` and `DurationFormatOptions` objects passed to `Intl.DurationFormat`, causing runtime crashes in production builds
+- Fix wrong sub-second property names in `Duration` and `DurationFormatOptions` (`milliSeconds` → `milliseconds`, `microSeconds` → `microseconds`, `nanoSeconds` → `nanoseconds`) to match the JavaScript `Intl.DurationFormat` API
+- Add Closure Compiler extern property declarations for all intl option record types (`DateTimeFormatOptions`, `DurationFormatOptions`, `ListFormatOptions`, `LocaleOptions`, `NumberFormatOptions`, `RelativeTimeFormatOptions`, `SupportOptions`) to prevent property renaming in ADVANCED mode
+
 ## [2.5.9] - 2026-09-30
 
 ### Changed

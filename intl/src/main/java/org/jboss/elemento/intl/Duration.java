@@ -48,9 +48,9 @@ public interface Duration {
     @JsProperty void setHours(int hours);
     @JsProperty void setMinutes(int minutes);
     @JsProperty void setSeconds(int seconds);
-    @JsProperty void setMilliSeconds(int milliSeconds);
-    @JsProperty void setMicroSeconds(int microSeconds);
-    @JsProperty void setNanoSeconds(int nanoSeconds);
+    @JsProperty(name = "milliseconds") void setMilliseconds(int milliseconds);
+    @JsProperty(name = "microseconds") void setMicroseconds(int microseconds);
+    @JsProperty(name = "nanoseconds") void setNanoseconds(int nanoseconds);
     // @formatter:on
 
     // ------------------------------------------------------ builder
@@ -64,9 +64,9 @@ public interface Duration {
         setHours(hours);
         setMinutes(minutes);
         setSeconds(seconds);
-        setMilliSeconds(milliSeconds);
-        setMicroSeconds(microSeconds);
-        setNanoSeconds(nanoSeconds);
+        setMilliseconds(milliSeconds);
+        setMicroseconds(microSeconds);
+        setNanoseconds(nanoSeconds);
         return this;
     }
 
@@ -114,19 +114,19 @@ public interface Duration {
 
     @JsOverlay
     default Duration milliSeconds(int milliSeconds) {
-        setMilliSeconds(milliSeconds);
+        setMilliseconds(milliSeconds);
         return this;
     }
 
     @JsOverlay
     default Duration microSeconds(int microSeconds) {
-        setMicroSeconds(microSeconds);
+        setMicroseconds(microSeconds);
         return this;
     }
 
     @JsOverlay
     default Duration nanoSeconds(int nanoSeconds) {
-        setNanoSeconds(nanoSeconds);
+        setNanoseconds(nanoSeconds);
         return this;
     }
 }

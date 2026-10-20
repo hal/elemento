@@ -50,16 +50,16 @@ public interface DurationFormatOptions {
     @JsProperty void setHours(String hours);
     @JsProperty void setHoursDisplay(String hoursDisplay);
     @JsProperty void setLocaleMatcher(String localeMatcher);
-    @JsProperty void setMicroSeconds(String microSeconds);
-    @JsProperty void setMicroSecondsDisplay(String microSecondsDisplay);
-    @JsProperty void setMilliSeconds(String milliSeconds);
-    @JsProperty void setMilliSecondsDisplay(String milliSecondsDisplay);
+    @JsProperty(name = "microseconds") void setMicroseconds(String microseconds);
+    @JsProperty(name = "microsecondsDisplay") void setMicrosecondsDisplay(String microsecondsDisplay);
+    @JsProperty(name = "milliseconds") void setMilliseconds(String milliseconds);
+    @JsProperty(name = "millisecondsDisplay") void setMillisecondsDisplay(String millisecondsDisplay);
     @JsProperty void setMinutes(String minutes);
     @JsProperty void setMinutesDisplay(String minutesDisplay);
     @JsProperty void setMonths(String months);
     @JsProperty void setMonthsDisplay(String monthsDisplay);
-    @JsProperty void setNanoSeconds(String nanoSeconds);
-    @JsProperty void setNanoSecondsDisplay(String nanoSecondsDisplay);
+    @JsProperty(name = "nanoseconds") void setNanoseconds(String nanoseconds);
+    @JsProperty(name = "nanosecondsDisplay") void setNanosecondsDisplay(String nanosecondsDisplay);
     @JsProperty void setNumberingSystem(String numberingSystem);
     @JsProperty void setSeconds(String seconds);
     @JsProperty void setSecondsDisplay(String secondsDisplay);
@@ -126,14 +126,14 @@ public interface DurationFormatOptions {
      */
     @JsOverlay
     default DurationFormatOptions microSeconds(Format microSeconds) {
-        setMicroSeconds(microSeconds.value);
+        setMicroseconds(microSeconds.value);
         return this;
     }
 
     /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions microSecondsDisplay(When microSecondsDisplay) {
-        setMicroSecondsDisplay(microSecondsDisplay.value);
+        setMicrosecondsDisplay(microSecondsDisplay.value);
         return this;
     }
 
@@ -144,14 +144,14 @@ public interface DurationFormatOptions {
      */
     @JsOverlay
     default DurationFormatOptions milliSeconds(Format milliSeconds) {
-        setMilliSeconds(milliSeconds.value);
+        setMilliseconds(milliSeconds.value);
         return this;
     }
 
     /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions milliSecondsDisplay(When milliSecondsDisplay) {
-        setMilliSecondsDisplay(milliSecondsDisplay.value);
+        setMillisecondsDisplay(milliSecondsDisplay.value);
         return this;
     }
 
@@ -195,14 +195,14 @@ public interface DurationFormatOptions {
      */
     @JsOverlay
     default DurationFormatOptions nanoSeconds(Format nanoSeconds) {
-        setNanoSeconds(nanoSeconds.value);
+        setNanoseconds(nanoSeconds.value);
         return this;
     }
 
     /** Allowed values: {@link When#always}, {@link When#auto}. */
     @JsOverlay
     default DurationFormatOptions nanoSecondsDisplay(When nanoSecondsDisplay) {
-        setNanoSecondsDisplay(nanoSecondsDisplay.value);
+        setNanosecondsDisplay(nanoSecondsDisplay.value);
         return this;
     }
 
