@@ -4,7 +4,7 @@
   },
   "devDependencies": {
     "http-server": "^14.1.1",
-    "vite": "8.3.4"
+    "vite": "8.3.5"
   },
   "name": "music-sample",
   "packageManager": "pnpm@12.14.0",
