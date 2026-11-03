@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.11] - 2026-11-03
+
 ### Changed
 
 - Upgrade Elemental2 from 1.3.2 to 1.4.0-RC2
@@ -1485,7 +1487,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.10...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.11...HEAD
+[2.5.11]: https://github.com/hal/elemento/compare/v2.5.10...v2.5.11
 [2.5.10]: https://github.com/hal/elemento/compare/v2.5.9...v2.5.10
 [2.5.9]: https://github.com/hal/elemento/compare/v2.5.8...v2.5.9
 [2.5.8]: https://github.com/hal/elemento/compare/v2.5.7...v2.5.8
