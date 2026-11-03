@@ -30,3 +30,41 @@
 
 /** @typedef {webCrypto.Crypto} */
 var Crypto;
+
+// ------------------------------------------------------ elemental2-dom 1.4.0-RC2
+// Types added in elemental2-dom 1.4.0-RC2 that are not yet in the Closure Compiler
+// externs bundled with J2CL plugin 0.23.9. Remove once the J2CL plugin ships
+// updated externs.
+
+/** @constructor */
+function CommandEvent() {}
+
+/** @constructor */
+function CSPViolationReportBody() {}
+
+/** @constructor */
+function CSSPageDescriptors() {}
+
+/** @constructor */
+function CSSPositionTryDescriptors() {}
+
+/** @constructor */
+function CSSPositionTryRule() {}
+
+/** @constructor */
+function CSSStyleDeclarationBase() {}
+
+/** @constructor */
+function CSSStyleProperties() {}
+
+/** @constructor */
+function Float16Array() {}
+
+/** @constructor */
+function ScrollTimeline() {}
+
+/** @constructor */
+function URLPattern() {}
+
+/** @constructor */
+function ViewTimeline() {}

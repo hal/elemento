@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add Closure Compiler externs for new types in elemental2-dom 1.4.0-RC2 (`CommandEvent`, `CSPViolationReportBody`, `CSSPageDescriptors`, `CSSPositionTryDescriptors`, `CSSPositionTryRule`, `CSSStyleDeclarationBase`, `CSSStyleProperties`, `Float16Array`, `ScrollTimeline`, `URLPattern`, `ViewTimeline`) to fix J2CL production build warnings until the J2CL plugin ships updated externs
+
 ## [2.5.11] - 2026-11-03
 
 ### Changed
