@@ -25,7 +25,7 @@ public interface HTMLElementVisibilityMethods<E extends HTMLElement, B extends T
 
     /** Modifies the {@code hidden} flag. */
     default B hidden(boolean hidden) {
-        element().hidden = hidden;
+        element().hidden = HTMLElement.HiddenUnionType.of(hidden);
         return that();
     }
 }
