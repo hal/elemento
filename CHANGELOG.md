@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.12] - 2026-11-03
+
 ### Added
 
 - Add Closure Compiler externs for new types in elemental2-dom 1.4.0-RC2 (`CommandEvent`, `CSPViolationReportBody`, `CSSPageDescriptors`, `CSSPositionTryDescriptors`, `CSSPositionTryRule`, `CSSStyleDeclarationBase`, `CSSStyleProperties`, `Float16Array`, `ScrollTimeline`, `URLPattern`, `ViewTimeline`) to fix J2CL production build warnings until the J2CL plugin ships updated externs
@@ -1491,7 +1493,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.11...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.12...HEAD
+[2.5.12]: https://github.com/hal/elemento/compare/v2.5.11...v2.5.12
 [2.5.11]: https://github.com/hal/elemento/compare/v2.5.10...v2.5.11
 [2.5.10]: https://github.com/hal/elemento/compare/v2.5.9...v2.5.10
 [2.5.9]: https://github.com/hal/elemento/compare/v2.5.8...v2.5.9
