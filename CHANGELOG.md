@@ -7,6 +7,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade Elemental2 from 1.3.2 to 1.4.0-RC2
+- Adapt `HTMLElementVisibilityMethods.hidden(boolean)` to use `HTMLElement.HiddenUnionType.of(boolean)` for Elemental2 1.4.0 API compatibility
+
+### Upgrades
+
+- Bump Elemental2 to 1.4.0-RC2
+- Bump central-publishing-maven-plugin from 0.11.0 to 0.12.0
+- Bump degraph-maven-plugin from 4.0.5 to 4.0.6
+- Bump JUnit BOM from 6.1.1 to 6.1.3
+
 ## [2.5.10] - 2026-10-20
 
 ### Fixed
