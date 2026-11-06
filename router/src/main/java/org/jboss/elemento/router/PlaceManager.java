@@ -27,7 +27,6 @@ import java.util.function.Supplier;
 import org.jboss.elemento.By;
 import org.jboss.elemento.Elements;
 import org.jboss.elemento.logger.Logger;
-
 import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.EventTarget;
@@ -41,6 +40,7 @@ import static elemental2.dom.DomGlobal.history;
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
 import static java.util.Collections.singletonList;
+import static java.util.List.copyOf;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
@@ -409,6 +409,11 @@ public class PlaceManager {
             return base.absolute(relativePath != null ? relativePath : pms.place.path());
         }
         return "#";
+    }
+
+    /** Returns an unmodifiable list of all registered places. */
+    public List<Place> places() {
+        return copyOf(places.values());
     }
 
     // ------------------------------------------------------ event handling
