@@ -22,42 +22,40 @@
  */
 
 /** @constructor */
-function Record() {
-}
+function Record() {}
 
 /** @type {string} */
-Record.prototype.id
+Record.prototype.id;
 
 /** @type {string} */
-Record.prototype.title
+Record.prototype.title;
 
 /** @type {string} */
-Record.prototype.released
+Record.prototype.released;
 
 /** @type {number} */
-Record.prototype.year
+Record.prototype.year;
 
 /** @type {string} */
-Record.prototype.url
+Record.prototype.url;
 
 /** @type {string} */
-Record.prototype.cover
+Record.prototype.cover;
 
 /** @type {Array<Track>} */
-Record.prototype.tracks
+Record.prototype.tracks;
 
 /** @constructor */
-function Track() {
-}
+function Track() {}
 
 /** @type {number} */
-Track.prototype.track
+Track.prototype.track;
 
 /** @type {string} */
-Track.prototype.title
+Track.prototype.title;
 
 /** @type {string} */
-Track.prototype.length
+Track.prototype.length;
 
 /** @type {Array<string>} */
-Track.prototype.writer
+Track.prototype.writer;

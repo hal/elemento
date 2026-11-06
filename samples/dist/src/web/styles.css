@@ -24,7 +24,9 @@ h1 {
     font-style: normal;
 }
 
-p, dt, dd {
+p,
+dt,
+dd {
     font-family: "Red Hat Text", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -44,7 +46,6 @@ dt {
 dd {
     margin: 0 0 2rem 0;
 }
-
 
 code {
     font-family: "Roboto Mono", monospace;

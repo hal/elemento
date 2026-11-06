@@ -1,19 +1,20 @@
 {
+  "name": "music-sample",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp build --mode development",
+    "http-server": "http-server target/music --ssl --cert cert.pem",
+    "prod": "vp build",
+    "watch": "vp dev"
+  },
   "dependencies": {
     "@picocss/pico": "^2.1.1"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
-    "vite": "8.3.5"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   },
-  "name": "music-sample",
-  "packageManager": "pnpm@12.18.0",
-  "private": true,
-  "scripts": {
-    "dev": "vite build --mode development",
-    "http-server": "http-server target/music --ssl --cert cert.pem",
-    "prod": "vite build",
-    "watch": "vite"
-  },
-  "type": "module"
+  "packageManager": "pnpm@12.18.0"
 }

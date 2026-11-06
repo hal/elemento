@@ -15,6 +15,15 @@
 #
 
 overrides:
-  axios@>=1.0.0 <1.15.1: '>=1.15.1'
-  axios@>=1.0.0 <1.15.2: '>=1.15.2'
-  follow-redirects@<=1.15.11: '>=1.16.0'
+  axios@>=1.0.0 <1.15.1: ">=1.15.1"
+  axios@>=1.0.0 <1.15.2: ">=1.15.2"
+  follow-redirects@<=1.15.11: ">=1.16.0"
+  vite@*: "catalog:"
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@1.5.0
+  vite-plus: 1.5.0
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: "*"

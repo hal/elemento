@@ -14,11 +14,11 @@
  *  limitations under the License.
  */
 
-goog.module('environment');
-const jre = goog.require('jre');
+goog.module("environment");
+const jre = goog.require("jre");
 
 const environment = {};
 
 /** @define {string} */
-environment.base = goog.define('environment.base', '/');
-jre.addSystemPropertyFromGoogDefine('environment.base', '/');
+environment.base = goog.define("environment.base", "/");
+jre.addSystemPropertyFromGoogDefine("environment.base", "/");

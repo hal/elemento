@@ -13,37 +13,43 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import {defineConfig} from 'vite';
-import {resolve} from 'path';
-import {existsSync, createReadStream} from 'fs';
+import { defineConfig, lazyPlugins } from "vite-plus";
+import { resolve } from "path";
+import { existsSync, createReadStream } from "fs";
 
-const j2clDir = resolve(import.meta.dirname, 'target/todo');
+const j2clDir = resolve(import.meta.dirname, "target/todo");
 
 function serveJ2cl() {
     return {
-        name: 'serve-j2cl',
+        name: "serve-j2cl",
         configureServer(server) {
             server.middlewares.use((req, res, next) => {
-                if (req.url.match(/todo\.j2cl\.js$|\.bundle\.js$/) || req.url.includes('/sources/')) {
-                    const filePath = resolve(j2clDir, req.url.replace(/^\//, ''));
+                if (req.url.match(/todo\.j2cl\.js$|\.bundle\.js$/) || req.url.includes("/sources/")) {
+                    const filePath = resolve(j2clDir, req.url.replace(/^\//, ""));
                     if (existsSync(filePath)) {
-                        res.setHeader('Content-Type', 'application/javascript');
+                        res.setHeader("Content-Type", "application/javascript");
                         createReadStream(filePath).pipe(res);
                         return;
                     }
                 }
                 next();
             });
-        }
+        },
     };
 }
 
 export default defineConfig({
-    root: 'src/web',
-    base: '/elemento/samples/todo/j2cl/',
-    plugins: [serveJ2cl()],
+    fmt: {},
+    lint: {
+        jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
+        rules: { "vite-plus/prefer-vite-plus-imports": "error" },
+        options: { typeAware: true, typeCheck: true },
+    },
+    root: "src/web",
+    base: "/elemento/samples/todo/j2cl/",
+    plugins: lazyPlugins(() => [serveJ2cl()]),
     build: {
-        outDir: resolve(import.meta.dirname, 'target/todo'),
+        outDir: resolve(import.meta.dirname, "target/todo"),
         emptyOutDir: false,
-    }
+    },
 });

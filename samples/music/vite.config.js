@@ -13,40 +13,46 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import {defineConfig} from 'vite';
-import {resolve} from 'path';
-import {existsSync, createReadStream} from 'fs';
+import { defineConfig, lazyPlugins } from "vite-plus";
+import { resolve } from "path";
+import { existsSync, createReadStream } from "fs";
 
-const j2clDir = resolve(import.meta.dirname, 'target/music');
+const j2clDir = resolve(import.meta.dirname, "target/music");
 
 function serveJ2cl() {
     return {
-        name: 'serve-j2cl',
+        name: "serve-j2cl",
         configureServer(server) {
             server.middlewares.use((req, res, next) => {
-                if (req.url.match(/music\.js$|\.bundle\.js$/) || req.url.includes('/sources/')) {
-                    const filePath = resolve(j2clDir, req.url.replace(/^\//, ''));
+                if (req.url.match(/music\.js$|\.bundle\.js$/) || req.url.includes("/sources/")) {
+                    const filePath = resolve(j2clDir, req.url.replace(/^\//, ""));
                     if (existsSync(filePath)) {
-                        res.setHeader('Content-Type', 'application/javascript');
+                        res.setHeader("Content-Type", "application/javascript");
                         createReadStream(filePath).pipe(res);
                         return;
                     }
                 }
                 next();
             });
-        }
+        },
     };
 }
 
 export default defineConfig({
-    root: 'src/web',
-    base: '/elemento/samples/music/',
-    plugins: [serveJ2cl()],
+    fmt: {},
+    lint: {
+        jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
+        rules: { "vite-plus/prefer-vite-plus-imports": "error" },
+        options: { typeAware: true, typeCheck: true },
+    },
+    root: "src/web",
+    base: "/elemento/samples/music/",
+    plugins: lazyPlugins(() => [serveJ2cl()]),
     server: {
         port: 1234,
     },
     build: {
-        outDir: resolve(import.meta.dirname, 'target/music'),
+        outDir: resolve(import.meta.dirname, "target/music"),
         emptyOutDir: false,
-    }
+    },
 });

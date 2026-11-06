@@ -47,7 +47,8 @@ ul.plain-list {
     flex-wrap: wrap;
     gap: var(--pico-spacing);
 
-    article > header, article > footer {
+    article > header,
+    article > footer {
         text-align: center;
     }
 

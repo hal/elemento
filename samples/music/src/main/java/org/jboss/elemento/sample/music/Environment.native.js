@@ -14,4 +14,4 @@
  *  limitations under the License.
  */
 
-const environment = goog.require('environment');
+const environment = goog.require("environment");

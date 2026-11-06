@@ -13,14 +13,20 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import {defineConfig} from 'vite';
-import {resolve} from 'path';
+import { defineConfig } from "vite-plus";
+import { resolve } from "path";
 
 export default defineConfig({
-    root: 'src/web',
-    base: '/elemento/samples/',
+    fmt: {},
+    lint: {
+        jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
+        rules: { "vite-plus/prefer-vite-plus-imports": "error" },
+        options: { typeAware: true, typeCheck: true },
+    },
+    root: "src/web",
+    base: "/elemento/samples/",
     build: {
-        outDir: resolve(import.meta.dirname, 'target/samples'),
+        outDir: resolve(import.meta.dirname, "target/samples"),
         emptyOutDir: false,
-    }
+    },
 });

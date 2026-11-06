@@ -14,4 +14,4 @@
  *  limitations under the License.
  */
 import "normalize.css/normalize.css";
-import "./styles.css"
+import "./styles.css";

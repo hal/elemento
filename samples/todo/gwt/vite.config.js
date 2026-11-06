@@ -13,37 +13,43 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import {defineConfig} from 'vite';
-import {resolve} from 'path';
-import {existsSync, createReadStream} from 'fs';
+import { defineConfig, lazyPlugins } from "vite-plus";
+import { resolve } from "path";
+import { existsSync, createReadStream } from "fs";
 
-const gwtDir = resolve(import.meta.dirname, 'target/todo');
+const gwtDir = resolve(import.meta.dirname, "target/todo");
 
 function serveGwt() {
     return {
-        name: 'serve-gwt',
+        name: "serve-gwt",
         configureServer(server) {
             server.middlewares.use((req, res, next) => {
                 if (req.url.match(/\.nocache\.js$|\.cache\.js$|\.gwt\.rpc$|compilation-mappings\.txt$/)) {
-                    const filePath = resolve(gwtDir, req.url.replace(/^\//, ''));
+                    const filePath = resolve(gwtDir, req.url.replace(/^\//, ""));
                     if (existsSync(filePath)) {
-                        res.setHeader('Content-Type', 'application/javascript');
+                        res.setHeader("Content-Type", "application/javascript");
                         createReadStream(filePath).pipe(res);
                         return;
                     }
                 }
                 next();
             });
-        }
+        },
     };
 }
 
 export default defineConfig({
-    root: 'src/web',
-    base: '/elemento/samples/todo/gwt/',
-    plugins: [serveGwt()],
+    fmt: {},
+    lint: {
+        jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
+        rules: { "vite-plus/prefer-vite-plus-imports": "error" },
+        options: { typeAware: true, typeCheck: true },
+    },
+    root: "src/web",
+    base: "/elemento/samples/todo/gwt/",
+    plugins: lazyPlugins(() => [serveGwt()]),
     build: {
-        outDir: resolve(import.meta.dirname, 'target/todo'),
+        outDir: resolve(import.meta.dirname, "target/todo"),
         emptyOutDir: false,
-    }
+    },
 });
