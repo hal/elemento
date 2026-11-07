@@ -179,8 +179,8 @@ importers:
   .:
     dependencies:
       '@patternfly-java/core':
-        specifier: 0.14.3
-        version: 0.14.3(@patternfly/patternfly@6.7.0)
+        specifier: 0.15.0
+        version: 0.15.0(@patternfly/patternfly@6.7.0)
       '@patternfly/patternfly':
         specifier: 6.7.0
         version: 6.7.0
@@ -663,8 +663,8 @@ packages:
     resolution: {integrity: sha512-Fh+SOBxMu7/pbSk84WG4BN6npcxxlF4jWNQJ+S4IUNyvSVeQwOVTFQMD/Dx2EqBQ1lVeCADcJ+0rzT1BKQ9cUA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@patternfly-java/core@0.14.3':
-    resolution: {integrity: sha512-tMk4XXP2iXjztrUN6dRg5PkkN1w7PGEu24pC/EoRSNyyeJkW+3+2G3K1BASyjvlx8/RBp7MJ2O9Us4Ed+D4j9Q==}
+  '@patternfly-java/core@0.15.0':
+    resolution: {integrity: sha512-sVsvnRKxFVYXWpI+GfjQSF18s/nPI+Ea4axzy2o52/mLFZ4VHSKkjtBECvXQ5UuxwjRVy7hXHjM8/tv2nG4swQ==}
     peerDependencies:
       '@patternfly/patternfly': ^6.6.1
 
@@ -1503,7 +1503,7 @@ snapshots:
 
   '@oxlint/plugins@1.91.0': {}
 
-  '@patternfly-java/core@0.14.3(@patternfly/patternfly@6.7.0)':
+  '@patternfly-java/core@0.15.0(@patternfly/patternfly@6.7.0)':
     dependencies:
       '@patternfly/patternfly': 6.7.0
 
