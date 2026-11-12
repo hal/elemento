@@ -13,7 +13,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Migrate all samples to Vite+ 1.5.0
+- Upgrade samples to Vite+ 1.6.0
 
 ## [2.5.12] - 2026-11-03
 
