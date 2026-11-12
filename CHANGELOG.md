@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade Elemental2 from 1.4.0-RC2 to 1.4.0
+- Upgrade jboss-parent from 54 to 55
+
 ## [2.5.13] - 2026-11-12
 
 ### Added
