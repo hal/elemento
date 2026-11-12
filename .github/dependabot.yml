@@ -10,3 +10,33 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/docs"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/samples/dist"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/samples/flow"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/samples/music"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/samples/todo/gwt"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/samples/todo/j2cl"
+    schedule:
+      interval: "daily"
