@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.5.13] - 2026-11-12
+
 ### Added
 
 - Add `PlaceManager.places()` accessor to retrieve registered places from the router
@@ -1501,7 +1503,8 @@ Switch to Apache2 license
 - for dependency upgrades
 -->
 
-[Unreleased]: https://github.com/hal/elemento/compare/v2.5.12...HEAD
+[Unreleased]: https://github.com/hal/elemento/compare/v2.5.13...HEAD
+[2.5.13]: https://github.com/hal/elemento/compare/v2.5.12...v2.5.13
 [2.5.12]: https://github.com/hal/elemento/compare/v2.5.11...v2.5.12
 [2.5.11]: https://github.com/hal/elemento/compare/v2.5.10...v2.5.11
 [2.5.10]: https://github.com/hal/elemento/compare/v2.5.9...v2.5.10
