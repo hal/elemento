@@ -7,6 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Add `PlaceManager.places()` accessor to retrieve registered places from the router
+
+### Changed
+
+- Migrate all samples to Vite+ 1.5.0
+
 ## [2.5.12] - 2026-11-03
 
 ### Added
