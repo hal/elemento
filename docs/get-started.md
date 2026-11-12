@@ -9,7 +9,7 @@ easiest way is to import its BOM
         <dependency>
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-bom</artifactId>
-            <version>2.5.13</version>
+            <version>2.5.14</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
