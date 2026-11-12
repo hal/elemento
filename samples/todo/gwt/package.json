@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "vite": "catalog:",
-    "vite-plus": "1.5.1"
+    "vite-plus": "catalog:"
   },
   "packageManager": "pnpm@12.18.0"
 }

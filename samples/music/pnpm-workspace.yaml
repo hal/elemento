@@ -20,8 +20,8 @@ overrides:
   follow-redirects@<=1.15.11: ">=1.16.0"
   vite@*: "catalog:"
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@1.5.0
-  vite-plus: 1.5.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.6.0
+  vite-plus: 1.6.0
 peerDependencyRules:
   allowAny:
     - vite
