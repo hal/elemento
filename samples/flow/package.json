@@ -7,7 +7,7 @@
     "prod": "vp build"
   },
   "dependencies": {
-    "@patternfly-java/core": "0.15.0",
+    "@patternfly-java/core": "0.15.1",
     "@patternfly/patternfly": "6.7.0"
   },
   "devDependencies": {
