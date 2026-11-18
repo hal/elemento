@@ -14,7 +14,7 @@
   "devDependencies": {
     "http-server": "^14.1.1",
     "vite": "catalog:",
-    "vite-plus": "catalog:"
+    "vite-plus": "1.7.0"
   },
   "packageManager": "pnpm@12.21.0"
 }
