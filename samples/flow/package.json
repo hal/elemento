@@ -7,7 +7,7 @@
     "prod": "vp build"
   },
   "dependencies": {
-    "@patternfly-java/core": "0.15.0",
+    "@patternfly-java/core": "0.15.1",
     "@patternfly/patternfly": "6.7.0"
   },
   "devDependencies": {
@@ -15,5 +15,5 @@
     "vite": "catalog:",
     "vite-plus": "catalog:"
   },
-  "packageManager": "pnpm@12.18.0"
+  "packageManager": "pnpm@12.21.0"
 }
