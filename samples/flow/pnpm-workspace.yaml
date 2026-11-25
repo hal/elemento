@@ -21,7 +21,7 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - "@patternfly-java/core@0.9.2"
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@8.3.8000
-  vite-plus: 1.7.0
+  vite: npm:@voidzero-dev/vite-plus-core@8.3.8001
+  vite-plus: 1.8.0
 overrides:
   vite@*: "catalog:"

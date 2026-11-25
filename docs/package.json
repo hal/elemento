@@ -1,13 +1,13 @@
 {
-  "devDependencies": {
-    "vitepress": "^2.0.0-alpha.21",
-    "vite-plus": "catalog:"
-  },
-  "packageManager": "pnpm@12.21.0",
   "private": true,
   "scripts": {
     "docs:build": "vitepress build",
     "docs:dev": "vitepress dev --open",
     "docs:preview": "vitepress preview"
-  }
+  },
+  "devDependencies": {
+    "vite-plus": "catalog:",
+    "vitepress": "^2.0.0-alpha.21"
+  },
+  "packageManager": "pnpm@12.23.0"
 }
