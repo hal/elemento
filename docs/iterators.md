@@ -5,24 +5,24 @@ return `Iterator`, `Iterable` and `Stream`.
 
 ## Methods returning `java.util.Iterator`
 
-* `Elements.iterator(JsArrayLike<E> nodes)`\
+- `Elements.iterator(JsArrayLike<E> nodes)`\
   Returns an iterator over the given array-like. The iterator does **not** support the `Iterator.remove()` operation.
-* `Elements.iterator(Node parent)`\
+- `Elements.iterator(Node parent)`\
   Returns an iterator over the children of `parent`. The iterator **supports** the `Iterator.remove()` operation, which removes
   the current node from its parent.
 
 ## Methods returning `java.lang.Iterable`
 
-* `Elements.elements(JsArrayLike<E> nodes)`\
+- `Elements.elements(JsArrayLike<E> nodes)`\
   Returns an iterable for the nodes in the given array-like.
-* `Elements.children(elemental2.dom.Node parent)`\
+- `Elements.children(elemental2.dom.Node parent)`\
   Returns an iterable for the child nodes of `parent`.
 
 ## Methods returning `java.util.stream.Stream`
 
-* `Elements.stream(JsArrayLike<E> nodes)`\
+- `Elements.stream(JsArrayLike<E> nodes)`\
   Returns a stream for the nodes in the given array-like.
-* `Elements.stream(elemental2.dom.Node parent)`\
+- `Elements.stream(elemental2.dom.Node parent)`\
   Returns a stream for the child nodes of `parent`.
 
 All methods are null-safe, check parent/child relationships, and are overloaded to accept an instance of `IsElement<Element>`

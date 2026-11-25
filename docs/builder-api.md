@@ -3,18 +3,17 @@
 Creating a hierarchy of elements is often awkward and cumbersome when working with Elemental. Even simple structures like
 
 ```html
-
 <section class="main">
-    <input class="toggle-all" type="checkbox">
+    <input class="toggle-all" type="checkbox" />
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
         <li>
             <div class="view">
-                <input class="toggle" type="checkbox" checked>
+                <input class="toggle" type="checkbox" checked />
                 <label>Taste Elemento</label>
                 <button class="destroy"></button>
             </div>
-            <input class="edit">
+            <input class="edit" />
         </li>
     </ul>
 </section>
@@ -67,17 +66,17 @@ final HTMLElement footer = footer()
 
 The builders in Elemento are of one of the following classes:
 
-* [`HTMLContainerBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html)
-* [`HTMLElementBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementBuilder.html)
-* [`HTMLInputElementBuilder<E extends HTMLInputElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementBuilder.html)
-* [`HTMLSelectElementBuilder<E extends HTMLSelectElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLSelectElementBuilder.html)
-* [`HTMLTextAreaElementBuilder<E extends HTMLTextAreaElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLTextAreaElementBuilder.html)
+- [`HTMLContainerBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLContainerBuilder.html)
+- [`HTMLElementBuilder<E extends HTMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementBuilder.html)
+- [`HTMLInputElementBuilder<E extends HTMLInputElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementBuilder.html)
+- [`HTMLSelectElementBuilder<E extends HTMLSelectElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLSelectElementBuilder.html)
+- [`HTMLTextAreaElementBuilder<E extends HTMLTextAreaElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLTextAreaElementBuilder.html)
 
 For [MathML](mathml.md) and [SVG](svg.md), the builders are
 
-* [`MathMLElementBuilder<E extends MathMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/mathml/MathMLElementBuilder.html)
-* [`SVGElementBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGElementBuilder.html)
-* [`SVGContainerBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGContainerBuilder.html)
+- [`MathMLElementBuilder<E extends MathMLElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/mathml/MathMLElementBuilder.html)
+- [`SVGElementBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGElementBuilder.html)
+- [`SVGContainerBuilder<E extends SVGElement>`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/svg/SVGContainerBuilder.html)
 
 All builders encapsulate a given element and implement `TypedBuilder<T, B extends TypedBuilder<T, B>>` to make builders work
 with inheritance. Apart from that, all builders are kept very simple and don't define their own methods. For example, this is
@@ -128,10 +127,10 @@ manipulate the encapsulated element in a specific way.
 
 The interface names follow the pattern `[HTML|MathML|SVG]Element<Scope>Methods`. Some examples are
 
-* [`ElementAttributeMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/ElementAttributeMethods.html)
-* [`HTMLElementDataMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementDataMethods.html)
-* [`HTMLInputElementMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementMethods.html)
-* [`SVGElementStyleMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/SVGElementStyleMethods.html)
+- [`ElementAttributeMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/ElementAttributeMethods.html)
+- [`HTMLElementDataMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLElementDataMethods.html)
+- [`HTMLInputElementMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/HTMLInputElementMethods.html)
+- [`SVGElementStyleMethods`](https://hal.github.io/elemento/apidocs/org/jboss/elemento/SVGElementStyleMethods.html)
 
 If you only use Elemento to create a DOM tree quickly and easily, you won't most likely come into touch with these _method_
 interfaces. However, if you want to create your own builders, the interfaces come in very handy. You can have very fine-grained

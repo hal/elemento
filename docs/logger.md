@@ -5,13 +5,13 @@ Elemento contains a small wrapper around `console.log` that uses categories, log
 The different log methods delegate to the corresponding methods in `console`:
 
 1. `Logger.error(String, Object... params)` → [
-   `console.error()`](https://developer.mozilla.org/en-US/docs/Web/API/console/error\_static)
+   `console.error()`](https://developer.mozilla.org/en-US/docs/Web/API/console/error_static)
 2. `Logger.warn(String, Object... params)` → [
-   `console.warn()`](https://developer.mozilla.org/en-US/docs/Web/API/console/warn\_static)
+   `console.warn()`](https://developer.mozilla.org/en-US/docs/Web/API/console/warn_static)
 3. `Logger.info(String, Object... params)` → [
-   `console.info()`](https://developer.mozilla.org/en-US/docs/Web/API/console/info\_static)
+   `console.info()`](https://developer.mozilla.org/en-US/docs/Web/API/console/info_static)
 4. `Logger.debug(String, Object... params)` → [
-   `console.debug()`](https://developer.mozilla.org/en-US/docs/Web/API/console/debug\_static)
+   `console.debug()`](https://developer.mozilla.org/en-US/docs/Web/API/console/debug_static)
 
 ## Get loggers
 
@@ -29,7 +29,7 @@ public class Foo {
 ```
 
 You can use an arbitrary string as a category. By using a hierarchical category, you can override
-subcategories. [String substitutions](https://developer.mozilla.org/en-US/docs/Web/API/console#using\_string\_substitutions) are
+subcategories. [String substitutions](https://developer.mozilla.org/en-US/docs/Web/API/console#using_string_substitutions) are
 supported, and you can pass a variable list of parameters to the log methods.
 
 The log level is set globally for all categories using `Logger.setLevel(Level level)`. You can override the level for one
@@ -53,11 +53,11 @@ category is trimmed and right-aligned.
 The logger module exports some methods with slightly adjusted signatures to JavaScript. You can use them, for instance, in the
 browser dev tools to control the global and category-based log levels:
 
-* `org.jboss.elemento.logger.Logger.setLevel(String level)`\
+- `org.jboss.elemento.logger.Logger.setLevel(String level)`\
   Sets the global log level
-* `org.jboss.elemento.logger.Logger.setLevel(String category, String level)`\
+- `org.jboss.elemento.logger.Logger.setLevel(String category, String level)`\
   Overrides the log level for one category
-* `org.jboss.elemento.logger.Logger.resetLevel(String category)`\
+- `org.jboss.elemento.logger.Logger.resetLevel(String category)`\
   Resets the log level for the category to the global log level
 
 Please use the fully qualified name!

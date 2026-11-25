@@ -2,26 +2,26 @@
 
 Elemento offers a very basic router. The router is minimally invasive and built around a few simple concepts:
 
-* `Place`\
+- `Place`\
   Data class that represents a place in an application. A place is identified by a route and can have an optional title and a
   custom root element. Routes can have parameters such as in `/contacts/:contactId`. Finally, a place can also have a loader
   assigned to it.
-* `Places`\
+- `Places`\
   Builder to set up places. It supports nested places, combines places, and assigns loaders to places.
-* `LoadData<T>`\
+- `LoadData<T>`\
   Functional interface to asynchronously load data before a page is created and added to the DOM. The function gets the place
   and parameters as input, returns a promise of the data to be loaded, and is defined as
   `Promise<T> load(Place place, Parameter parameter)`.
-* `Page`\
+- `Page`\
   Simple interface that represents a collection of HTML elements. Implementations should be cheap to create and need to
   implement a single method: `Iterable<HTMLElement> elements(Place, Parameter, LoadedData)`.
-* `PlaceManager`\
+- `PlaceManager`\
   Main class of the router module. Performs the following tasks, among others:
-    * keeps track of registered places
-    * handles navigation events
-    * parses route parameters
-    * calls loader functions
-    * updates the DOM and browser history
+    - keeps track of registered places
+    - handles navigation events
+    - parses route parameters
+    - calls loader functions
+    - updates the DOM and browser history
 
 The place manager can be customized using builder-like methods and has a `start()` method to show the initial page.
 
@@ -31,12 +31,12 @@ Creating a `Place` instance can be time-consuming (especially in large applicati
 annotations, where an annotation processor takes over the tedious work of creating the `Place` instances. You can use the
 following annotations for this purpose:
 
-* `@Route`\
+- `@Route`\
   Annotation to mark a `Page` implementation as a place. The annotation requires a route and can have an optional title, root
   selector, and reference to a named loader. If the annotated page has **exactly one** public, static method that returns
   `LoadData<?>` and accepts no parameters, this is used as a loader for the place. If a loader is specified using the `loader`
   attribute, there has to be a matching class or static method annotated with `@Loader`.
-* `@Loader`\
+- `@Loader`\
   Annotation to mark a class or public static method as a named loader. If used on a class, the class has to implement
   `LoadData<T>`. If used on a static method, the method must return `LoadData<?>` and not accept any parameters.
 
@@ -87,20 +87,20 @@ parameter.getRaw("name") // → "my%2Ffile" (encoded)
 
 ### Encoding Behavior by Method
 
-| Method | Encoding behavior |
-|--------|------------------|
-| `Parameter.encode(value)` | Encodes a raw value → URL-safe |
-| `Parameter.decode(value)` | Decodes a URL-encoded value → raw |
-| `Parameter.encodePath(route, values...)` | Encodes values automatically |
-| `Parameter.get(name)` | Returns **decoded** value |
-| `Parameter.getRaw(name)` | Returns **encoded** value |
-| `Parameter.getOrDefault(name, default)` | Returns **decoded** value |
-| `PlaceManager.goTo(route, values...)` | Encodes values automatically |
-| `PlaceManager.goTo(path)` | No encoding — path used as-is |
-| `PlaceManager.href(route, values...)` | Encodes values automatically |
-| `PlaceManager.href(path)` | No encoding — path used as-is |
-| `Link.link(pm, route, values...)` | Encodes values automatically |
-| `Link.link(pm, route)` | No encoding — route used as-is |
+| Method                                   | Encoding behavior                 |
+| ---------------------------------------- | --------------------------------- |
+| `Parameter.encode(value)`                | Encodes a raw value → URL-safe    |
+| `Parameter.decode(value)`                | Decodes a URL-encoded value → raw |
+| `Parameter.encodePath(route, values...)` | Encodes values automatically      |
+| `Parameter.get(name)`                    | Returns **decoded** value         |
+| `Parameter.getRaw(name)`                 | Returns **encoded** value         |
+| `Parameter.getOrDefault(name, default)`  | Returns **decoded** value         |
+| `PlaceManager.goTo(route, values...)`    | Encodes values automatically      |
+| `PlaceManager.goTo(path)`                | No encoding — path used as-is     |
+| `PlaceManager.href(route, values...)`    | Encodes values automatically      |
+| `PlaceManager.href(path)`                | No encoding — path used as-is     |
+| `Link.link(pm, route, values...)`        | Encodes values automatically      |
+| `Link.link(pm, route)`                   | No encoding — route used as-is    |
 
 ## Optional Parameters
 
@@ -250,4 +250,3 @@ In your GWT module, inherit from `org.jboss.elemento.Router`:
     <inherits name="org.jboss.elemento.Router"/>
 </module>
 ```
-

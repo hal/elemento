@@ -64,7 +64,7 @@ Each registration fires its callback **exactly once** and is immediately removed
 
 ### Mutation handling
 
-On each DOM mutation, the observer iterates the pending registration list and checks whether each registered element is among the added or removed nodes. For direct children this is a list lookup. For deeper nesting, it falls back to `querySelector` on the added subtree root. The cost is proportional to the number of *pending* (not yet attached) registrations, not the total number of elements on the page.
+On each DOM mutation, the observer iterates the pending registration list and checks whether each registered element is among the added or removed nodes. For direct children this is a list lookup. For deeper nesting, it falls back to `querySelector` on the added subtree root. The cost is proportional to the number of _pending_ (not yet attached) registrations, not the total number of elements on the page.
 
 ### Component trees
 
