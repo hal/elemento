@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "vitepress": "^2.0.0-alpha.21",
-    "vite-plus": "catalog:"
+    "vite-plus": "1.8.0",
+    "vitepress": "^2.0.0-alpha.21"
   },
   "packageManager": "pnpm@12.23.0",
   "private": true,
